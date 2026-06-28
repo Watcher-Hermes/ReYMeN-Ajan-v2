@@ -82,8 +82,36 @@ if %errorlevel% neq 0 (
 )
 
 echo.
+echo --- Ek Araclar (ffmpeg, yt-dlp) ---
+
+where ffmpeg >nul 2>&1
+if %errorlevel% neq 0 (
+    echo [!!] ffmpeg bulunamadi! Yukleniyor...
+    winget install ffmpeg --silent --accept-package-agreements >nul 2>&1
+    if %errorlevel% equ 0 (
+        echo [OK] ffmpeg kuruldu
+    ) else (
+        echo [!] ffmpeg kurulamadi. Elle kur: winget install ffmpeg
+    )
+) else (
+    echo [OK] ffmpeg var
+)
+
+pip show yt-dlp >nul 2>&1
+if %errorlevel% neq 0 (
+    echo [!!] yt-dlp bulunamadi! Yukleniyor...
+    pip install yt-dlp >nul 2>&1
+    if %errorlevel% equ 0 (
+        echo [OK] yt-dlp kuruldu
+    ) else (
+        echo [!] yt-dlp kurulamadi
+    )
+) else (
+    echo [OK] yt-dlp var
+)
+
+echo.
 echo --- 5/6 Repo Klonlama ---
-if not exist "ReYMeN-Ajan-v2" (
     git clone https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2.git
 ) else (
     echo ReYMeN-Ajan-v2 zaten var, guncelleniyor...
