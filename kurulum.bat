@@ -8,19 +8,46 @@ echo ============================================
 echo.
 
 :: ---------- GEREKSINIM KONTROLLERI ----------
-echo --- 1/6 Python ---
+set ADIM=0
+
+:: 1. PowerShell
+set /a ADIM+=1
+echo --- %ADIM%/8 PowerShell ---
+powershell -Command "exit" >nul 2>&1
+if %errorlevel% neq 0 (
+    echo [!!] PowerShell bulunamadi! Windows'u guncelleyin.
+    pause
+    exit /b
+) else (
+    echo [OK] PowerShell var
+)
+
+:: 2. winget (paket yoneticisi)
+set /a ADIM+=1
+echo --- %ADIM%/8 winget ---
+winget --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo [!!] winget bulunamadi! Microsoft Store'dan "App Installer" yukleyin.
+    pause
+    exit /b
+) else (
+    echo [OK] winget var
+)
+
+:: 3. Python
+set /a ADIM+=1
+echo --- %ADIM%/8 Python ---
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] Python bulunamadi! Yukleniyor...
-    echo      Python 3.11.9 indiriliyor...
-    winget install Python.Python.3.11 --silent --accept-package-agreements >nul 2>&1
+    winget install Python.Python.3.11 --silent --accept-package-agreements
     if %errorlevel% neq 0 (
         echo [!] Otomatik kurulum basarisiz! Suradan indir:
         echo     https://www.python.org/downloads/release/python-3119/
+        echo     Kurarken "Add Python to PATH" isaretle
         pause
         exit /b
     )
-    echo [OK] Python kuruldu
 )
 
 python -c "import sys; v=sys.version_info; exit(0) if v.major==3 and v.minor>=11 else exit(1)" >nul 2>&1
@@ -33,29 +60,30 @@ if %errorlevel% neq 0 (
 for /f "tokens=*" %%i in ('python --version 2^>nul') do set PYVER=%%i
 echo [OK] %PYVER%
 
-echo.
-echo --- 2/6 Git ---
+:: 4. Git
+set /a ADIM+=1
+echo --- %ADIM%/8 Git ---
 git --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] Git bulunamadi! Yukleniyor...
-    winget install Git.Git --silent --accept-package-agreements >nul 2>&1
+    winget install Git.Git --silent --accept-package-agreements
     if %errorlevel% neq 0 (
         echo [!] Otomatik kurulum basarisiz! Suradan indir:
         echo     https://git-scm.com/download/win
         pause
         exit /b
     )
-    echo [OK] Git kuruldu
 )
 for /f "tokens=*" %%i in ('git --version') do set GITVER=%%i
 echo [OK] %GITVER%
 
-echo.
-echo --- 3/6 VS Code ---
+:: 5. VS Code
+set /a ADIM+=1
+echo --- %ADIM%/8 VS Code ---
 code --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] VS Code bulunamadi! Yukleniyor...
-    winget install Microsoft.VisualStudioCode --silent --accept-package-agreements >nul 2>&1
+    winget install Microsoft.VisualStudioCode --silent --accept-package-agreements
     if %errorlevel% neq 0 (
         echo [!] Otomatik kurulum basarisiz! Suradan indir:
         echo     https://code.visualstudio.com/download
@@ -67,31 +95,33 @@ if %errorlevel% neq 0 (
     echo [OK] VS Code var
 )
 
-echo.
-echo --- 4/6 WSL (Linux) ---
+:: 6. WSL + Ubuntu
+set /a ADIM+=1
+echo --- %ADIM%/8 WSL (Linux) ---
 wsl --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] WSL bulunamadi! Yukleniyor...
-    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /quiet >nul 2>&1
-    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /quiet >nul 2>&1
-    wsl --update >nul 2>&1
-    wsl --install -d Ubuntu --quiet >nul 2>&1
+    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /quiet
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /quiet
+    wsl --update
+    wsl --install -d Ubuntu --quiet
     echo [OK] WSL + Ubuntu kuruldu (bilgisayar yeniden baslatilabilir)
 ) else (
     echo [OK] WSL var
 )
 
-echo.
-echo --- Ek Araclar (ffmpeg, yt-dlp) ---
+:: 7. ffmpeg + yt-dlp
+set /a ADIM+=1
+echo --- %ADIM%/8 Ek Araclar (ffmpeg, yt-dlp) ---
 
 where ffmpeg >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] ffmpeg bulunamadi! Yukleniyor...
-    winget install ffmpeg --silent --accept-package-agreements >nul 2>&1
+    winget install ffmpeg --silent --accept-package-agreements
     if %errorlevel% equ 0 (
         echo [OK] ffmpeg kuruldu
     ) else (
-        echo [!] ffmpeg kurulamadi. Elle kur: winget install ffmpeg
+        echo [!] ffmpeg kurulamadi! Elle kur: winget install ffmpeg
     )
 ) else (
     echo [OK] ffmpeg var
@@ -100,7 +130,7 @@ if %errorlevel% neq 0 (
 pip show yt-dlp >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] yt-dlp bulunamadi! Yukleniyor...
-    pip install yt-dlp >nul 2>&1
+    pip install yt-dlp
     if %errorlevel% equ 0 (
         echo [OK] yt-dlp kuruldu
     ) else (
@@ -110,19 +140,17 @@ if %errorlevel% neq 0 (
     echo [OK] yt-dlp var
 )
 
-echo.
-echo --- 5/6 Repo Klonlama ---
+:: 8. Repo + Sanal Ortam + Paketler
+set /a ADIM+=1
+echo --- %ADIM%/8 Repo ve Python Ortami ---
+
+if not exist "ReYMeN-Ajan-v2" (
     git clone https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2.git
 ) else (
     echo ReYMeN-Ajan-v2 zaten var, guncelleniyor...
-    cd ReYMeN-Ajan-v2
-    git pull
-    cd ..
 )
 cd ReYMeN-Ajan-v2
 
-echo.
-echo --- 6/6 Python Ortami ---
 if not exist "venv" (
     python -m venv venv
     echo [OK] Sanal ortam olusturuldu
