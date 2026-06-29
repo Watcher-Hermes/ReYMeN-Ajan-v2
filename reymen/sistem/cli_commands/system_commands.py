@@ -556,70 +556,12 @@ class MixinCommands:
         return True
 
     def _handle_goal_command(self, cmd: str) -> None:
-        """Dispatch /goal subcommands: set / status / pause / resume / clear."""
-        parts = (cmd or "").strip().split(None, 1)
-        arg = parts[1].strip() if len(parts) > 1 else ""
+        """Dispatch /goal subcommands: set / status / pause / resume / clear.
 
-        mgr = self._get_goal_manager()
-        if mgr is None:
-            _cprint(f"  {_DIM}Goals unavailable (no active session).{_RST}")
-            return
-
-        lower = arg.lower()
-
-        # Bare /goal or /goal status → show current state
-        if not arg or lower == "status":
-            _cprint(f"  {mgr.status_line()}")
-            return
-
-        if lower == "pause":
-            state = mgr.pause(reason="user-paused")
-            if state is None:
-                _cprint(f"  {_DIM}No goal set.{_RST}")
-            else:
-                _cprint(f"  ⏸ Goal paused: {state.goal}")
-            return
-
-        if lower == "resume":
-            state = mgr.resume()
-            if state is None:
-                _cprint(f"  {_DIM}No goal to resume.{_RST}")
-            else:
-                _cprint(f"  ▶ Goal resumed: {state.goal}")
-                _cprint(
-                    f"  {_DIM}Send any message (or press Enter on an empty prompt "
-                    f"is a no-op; type 'continue' to kick it off).{_RST}"
-                )
-            return
-
-        if lower in {"clear", "stop", "done"}:
-            had = mgr.has_goal()
-            mgr.clear()
-            if had:
-                _cprint("  ✓ Goal cleared.")
-            else:
-                _cprint(f"  {_DIM}No active goal.{_RST}")
-            return
-
-        # Otherwise treat the arg as the goal text.
-        try:
-            state = mgr.set(arg)
-        except ValueError as exc:
-            _cprint(f"  Invalid goal: {exc}")
-            return
-
-        _cprint(f"  ⊙ Goal set ({state.max_turns}-turn budget): {state.goal}")
-        _cprint(
-            f"  {_DIM}After each turn, a judge model will check if the goal is done. "
-            f"ReYMeN keeps working until it is, you pause/clear it, or the budget is "
-            f"exhausted. Use /goal status, /goal pause, /goal resume, /goal clear.{_RST}"
-        )
-        # Kick the loop off immediately so the user doesn't have to send a
-        # separate message after setting the goal.
-        try:
-            self._pending_input.put(state.goal)
-        except Exception:
-            logger.warning("[fix_01_sessiz_except] Exception")
+        Delegates to :func:`handlers.system.goal_handler._handle_goal_command`.
+        """
+        from .handlers.system.goal_handler import _handle_goal_command
+        _handle_goal_command(self, cmd)
 
     def _handle_subgoal_command(self, cmd: str) -> None:
         """Dispatch /subgoal subcommands.
@@ -635,66 +577,11 @@ class MixinCommands:
         and the continuation prompt (agent sees them) on the next turn
         boundary. No special kick — the running turn finishes, the next
         judge call includes them.
+
+        Delegates to :func:`handlers.system.subgoal_handler._handle_subgoal_command`.
         """
-        parts = (cmd or "").strip().split(None, 2)
-        arg = " ".join(parts[1:]).strip() if len(parts) > 1 else ""
-
-        mgr = self._get_goal_manager()
-        if mgr is None:
-            _cprint(f"  {_DIM}Goals unavailable (no active session).{_RST}")
-            return
-
-        if not mgr.has_goal():
-            _cprint(f"  {_DIM}No active goal. Set one with /goal <text>.{_RST}")
-            return
-
-        # No args → list current subgoals.
-        if not arg:
-            _cprint(f"  {mgr.status_line()}")
-            _cprint(f"  {mgr.render_subgoals()}")
-            return
-
-        tokens = arg.split(None, 1)
-        verb = tokens[0].lower()
-        rest = tokens[1].strip() if len(tokens) > 1 else ""
-
-        if verb == "remove":
-            if not rest:
-                _cprint("  Usage: /subgoal remove <n>")
-                return
-            try:
-                idx = int(rest.split()[0])
-            except ValueError:
-                _cprint("  /subgoal remove: <n> must be an integer (1-based index).")
-                return
-            try:
-                removed = mgr.remove_subgoal(idx)
-            except (IndexError, RuntimeError) as exc:
-                _cprint(f"  /subgoal remove: {exc}")
-                return
-            _cprint(f"  ✓ Removed subgoal {idx}: {removed}")
-            return
-
-        if verb == "clear":
-            try:
-                prev = mgr.clear_subgoals()
-            except RuntimeError as exc:
-                _cprint(f"  /subgoal clear: {exc}")
-                return
-            if prev:
-                _cprint(f"  ✓ Cleared {prev} subgoal{'s' if prev != 1 else ''}.")
-            else:
-                _cprint(f"  {_DIM}No subgoals to clear.{_RST}")
-            return
-
-        # Otherwise — append the whole arg as a new subgoal.
-        try:
-            text = mgr.add_subgoal(arg)
-        except (ValueError, RuntimeError) as exc:
-            _cprint(f"  /subgoal: {exc}")
-            return
-        idx = len(mgr.state.subgoals) if mgr.state else 0
-        _cprint(f"  ✓ Added subgoal {idx}: {text}")
+        from .handlers.system.subgoal_handler import _handle_subgoal_command
+        _handle_subgoal_command(self, cmd)
 
     def _maybe_continue_goal_after_turn(self) -> None:
         """Hook run after every CLI turn. Judges + maybe re-queues.
@@ -813,12 +700,12 @@ class MixinCommands:
                     logging.debug("goal continuation enqueue failed: %s", exc)
 
     def _handle_debug_command(self):
-        """Handle /debug — upload debug report + logs and print paste URLs."""
-        from reymen.reymen_cli.debug import run_debug_share
-        from types import SimpleNamespace
+        """Handle /debug — upload debug report + logs and print paste URLs.
 
-        args = SimpleNamespace(lines=200, expire=7, local=False)
-        run_debug_share(args)
+        Delegates to :func:`handlers.system.debug_handler._handle_debug_command`.
+        """
+        from .handlers.system.debug_handler import _handle_debug_command
+        _handle_debug_command(self)
 
     def _handle_update_command(self) -> bool:
         """Handle /update — update ReYMeN Agent to the latest version.
@@ -831,69 +718,19 @@ class MixinCommands:
         app exit so the relaunch is deferred to the main thread after
         prompt_toolkit cleans up terminal modes).  Returns ``False`` / falsy
         when cancelled.
+
+        Delegates to :func:`handlers.system.update_handler._handle_update_command`.
         """
-        from reymen.reymen_cli.config import is_managed, format_managed_message
-
-        if is_managed():
-            print(f"  ✗ {format_managed_message('update ReYMeN Agent')}")
-            return False
-
-        # Use the prompt_toolkit-native modal so the confirmation panel
-        # renders properly above the composer and avoids raw input() races
-        # with the prompt_toolkit event loop (same pattern as
-        # _confirm_destructive_slash).
-        choices = [
-            ("once", "Update Now", "exit the current session and update ReYMeN Agent"),
-            ("cancel", "Cancel", "keep the current session"),
-        ]
-        raw = self._prompt_text_input_modal(
-            title="⚕  Update ReYMeN Agent",
-            detail="This will exit the current session and run `ReYMeN update`.",
-            choices=choices,
-        )
-        if raw is None:
-            print("  🟡 /update cancelled.")
-            return False
-        choice = self._normalize_slash_confirm_choice(raw, choices)
-        if choice != "once":
-            print("  🟡 /update cancelled.")
-            return False
-
-        print()
-        print("  ⚕ Launching update...")
-        print()
-
-        # Store the relaunch args so run() can exec them from the main thread
-        # after prompt_toolkit exits and restores terminal modes.  Calling
-        # relaunch() directly here (from the process_loop daemon thread) would
-        # skip terminal cleanup on POSIX (execvp replaces the process mid-TUI)
-        # and only exit the worker thread on Windows (subprocess.run +
-        # sys.exit inside a non-main thread does not exit the process).
-        self._pending_relaunch = ["update"]
-        return True
+        from .handlers.system.update_handler import _handle_update_command
+        return _handle_update_command(self)
 
     def _handle_voice_command(self, command: str):
-        """Handle /voice [on|off|tts|status] command."""
-        parts = command.strip().split(maxsplit=1)
-        subcommand = parts[1].lower().strip() if len(parts) > 1 else ""
+        """Handle /voice [on|off|tts|status] command.
 
-        if subcommand == "on":
-            self._enable_voice_mode()
-        elif subcommand == "off":
-            self._disable_voice_mode()
-        elif subcommand == "tts":
-            self._toggle_voice_tts()
-        elif subcommand == "status":
-            self._show_voice_status()
-        elif subcommand == "":
-            # Toggle
-            if self._voice_mode:
-                self._disable_voice_mode()
-            else:
-                self._enable_voice_mode()
-        else:
-            _cprint(f"Unknown voice subcommand: {subcommand}")
-            _cprint("Usage: /voice [on|off|tts|status]")
+        Delegates to :func:`handlers.system.voice_handler._handle_voice_command`.
+        """
+        from .handlers.system.voice_handler import _handle_voice_command
+        _handle_voice_command(self, command)
 
     def _toggle_voice_tts(self):
         """Toggle TTS output for voice mode."""

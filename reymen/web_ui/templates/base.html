@@ -18,21 +18,28 @@
         <div class="nav-brand">🧠 ReYMeN <small>Web UI</small></div>
         <div class="nav-links">
             <a href="/" class="nav-link">📊 Dashboard</a>
-            <a href="/plugins" class="nav-link">🔌 Pluginler</a>
-            <a href="/gateway" class="nav-link">🌐 Gateway</a>
+            <!-- Herkes görebilir -->
             <a href="/kalite" class="nav-link">📈 Kalite</a>
             <a href="/maliyet" class="nav-link">💰 Maliyet</a>
             <a href="/kanban" class="nav-link">📋 Kanban</a>
-            <a href="/sistem" class="nav-link">🖥️ Sistem</a>
-            <a href="/users" class="nav-link">👤 Kullanıcılar</a>
             <a href="/sandbox" class="nav-link">🏖️ Sandbox</a>
-            <a href="/cron" class="nav-link">⏰ Cron</a>
             <a href="/hatalar" class="nav-link">🔴 Hatalar</a>
             <a href="/logs" class="nav-link">📋 Canlı Log</a>
             <a href="/konusmalar" class="nav-link">💬 Konuşmalar</a>
+            <!-- Operator+ -->
+            {% if role in ('admin', 'operator') %}
+            <a href="/gateway" class="nav-link">🌐 Gateway</a>
+            {% endif %}
+            <!-- Admin -->
+            {% if role == 'admin' %}
+            <a href="/plugins" class="nav-link">🔌 Pluginler</a>
+            <a href="/sistem" class="nav-link">🖥️ Sistem</a>
+            <a href="/users" class="nav-link">👤 Kullanıcılar</a>
+            <a href="/cron" class="nav-link">⏰ Cron</a>
+            {% endif %}
             {% if user %}
             <button class="theme-toggle" onclick="temaDegistir()">🌓</button>
-            <span class="nav-user">👤 {{ user }}</span>
+            <span class="nav-user">👤 {{ user }} <small class="role-badge">[{{ role or '?' }}]</small></span>
             <a href="/logout" class="nav-link nav-logout">🚪 Çıkış</a>
             {% endif %}
         </div>
@@ -53,47 +60,30 @@
         document.querySelectorAll('canvas').forEach(c => {
             const chart = Chart.getChart(c);
             if (chart) {
-                chart.options.plugins.legend.labels.color = getComputedStyle(document.body).getPropertyValue('--text').trim();
+                const gridColor = yeni === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+                const textColor = yeni === 'dark' ? '#e0e0e0' : '#333';
+                chart.options.scales.x.grid.color = gridColor;
+                chart.options.scales.y.grid.color = gridColor;
+                chart.options.scales.x.ticks.color = textColor;
+                chart.options.scales.y.ticks.color = textColor;
                 chart.update();
             }
         });
     }
-    // Acilis temasi
+
+    // ── Tema baslangic ───────────────────────────────────────────
     (function() {
         const kayitli = localStorage.getItem('reymen-theme');
         if (kayitli) document.documentElement.setAttribute('data-theme', kayitli);
     })();
 
-    // ── Toast Bildirim ───────────────────────────────────────────
-    function toastGoster(mesaj, tip) {
-        tip = tip || 'info';
-        const konteyner = document.getElementById('toast-container');
-        const toast = document.createElement('div');
-        toast.className = 'toast toast-' + tip;
-        const ikonlar = { info: 'ℹ️', success: '✅', error: '❌', warning: '⚠️' };
-        toast.innerHTML = '<span>' + (ikonlar[tip] || 'ℹ️') + '</span> ' + mesaj;
-        konteyner.appendChild(toast);
-        setTimeout(function() {
-            toast.style.opacity = '0';
-            toast.style.transition = 'opacity 0.3s';
-            setTimeout(function() { toast.remove(); }, 300);
-        }, 4000);
-    }
-
-    // HTMX toast yakalama — hata/uyari mesajlarini toast olarak goster
+    // ── Toast bildirim otomatik kapanma ──────────────────────────
     document.addEventListener('htmx:beforeSwap', function(evt) {
-        if (evt.detail.xhr.status >= 400) {
-            toastGoster('Hata: ' + (evt.detail.xhr.statusText || 'Istek basarisiz'), 'error');
-        }
-    });
-    document.addEventListener('htmx:afterRequest', function(evt) {
-        if (evt.detail.successful && evt.detail.target) {
-            const text = evt.detail.target.innerText || '';
-            if (text.includes('[Hata]') || text.includes('Hata:')) {
-                toastGoster(text.substring(0, 100), 'error');
-            } else if (text.includes('[Tamam]') || text.includes('✅')) {
-                toastGoster('Islem basarili', 'success');
-            }
+        if (evt.detail.target.id === 'toast-container') {
+            setTimeout(() => {
+                const toasts = document.querySelectorAll('#toast-container > *');
+                if (toasts.length > 5) toasts[0].remove();
+            }, 5000);
         }
     });
     </script>

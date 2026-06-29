@@ -1,7 +1,7 @@
-# Beceri: localhost 127.0.0.1 servis versiyon taramasi
+# Beceri: localhost servis versiyon taramasi
 
 ## Açıklama
-# ✅ Başarılı: localhost 127.0.0.1 servis versiyon taramasi
+# ✅ Başarılı: localhost servis versiyon taramasi
 - Süre: 0.0s, Tur: 1
 
 ## Kullanılan Araçlar
@@ -13,6 +13,6 @@
 ## Ek Bilgiler
 | **Özellik** | **Değer** |
 |---|---|
-| Sure Sn | 0 |
+| Sure Sn | 0.0 |
 | Tur Sayisi | 1 |
-| Task Id | da9076bb |
+| Task Id | 46b26fa1 |

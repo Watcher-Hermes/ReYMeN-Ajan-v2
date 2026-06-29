@@ -56,6 +56,27 @@ app = FastAPI(title="ReYMeN Web UI", version="2.0.0")
 # Jinja2 templates
 templates = Jinja2Templates(directory=str(TEMPLATE_DIZIN))
 
+# Jinja2 context processor: request.state → template değişkenleri
+async def jinja_context(request: Request) -> dict:
+    return {
+        "user": getattr(request.state, "user", None),
+        "role": getattr(request.state, "role", None),
+        "tema": "dark",
+    }
+
+templates.env.globals["kullanici"] = lambda req: getattr(req.state, "user", None)
+# Her TemplateResponse'a otomatik context ekle
+_original_render = templates.TemplateResponse
+
+def _render_with_context(name, context, *args, **kwargs):
+    request = kwargs.get("request") or context.get("request")
+    if request:
+        context.setdefault("user", getattr(request.state, "user", None))
+        context.setdefault("role", getattr(request.state, "role", None))
+    return _original_render(name, context, *args, **kwargs)
+
+templates.TemplateResponse = _render_with_context
+
 # Static files
 if STATIC_DIZIN.exists():
     app.mount("/static", StaticFiles(directory=str(STATIC_DIZIN)), name="static")
@@ -143,6 +164,27 @@ async def auth_middleware(request: Request, call_next):
                 return JSONResponse({"hata": "Kullanici yonetim yetkiniz yok"}, status_code=403)
 
     return await call_next(request)
+
+
+# ── Rol bazlı yetki yardımcısı ────────────────────────────────────
+
+def yetki_kontrol(session, gerekli_roller: list[str], izin: str = "") -> bool:
+    if not session:
+        return False
+    if session.role in gerekli_roller:
+        return True
+    if izin:
+        return user_manager.has_permission(session.user_id, izin)
+    return False
+
+
+def admin_gerekli(session) -> bool:
+    return bool(session and session.role == "admin")
+
+
+def operator_ustu(session) -> bool:
+    return bool(session and session.role in ("admin", "operator"))
+
 
 # ---------------------------------------------------------------------------
 # Routes — Sayfalar
@@ -259,6 +301,12 @@ async def ana_sayfa(request: Request):
 
 @app.get("/plugins", response_class=HTMLResponse)
 async def plugins_sayfasi(request: Request):
+    """Plugin yonetimi (admin)."""
+    if not admin_gerekli(getattr(request.state, "session", None)):
+        return HTMLResponse(
+            content='<div class="container"><h1>🔒 Yetkisiz</h1><p>Bu sayfa icin admin yetkisi gerekli.</p></div>',
+            status_code=403,
+        )
     return templates.TemplateResponse(
         request, "plugins.html", {}
     )
@@ -266,6 +314,12 @@ async def plugins_sayfasi(request: Request):
 
 @app.get("/gateway", response_class=HTMLResponse)
 async def gateway_sayfasi(request: Request):
+    """Gateway yonetimi (operator+)."""
+    if not operator_ustu(getattr(request.state, "session", None)):
+        return HTMLResponse(
+            content='<div class="container"><h1>🔒 Yetkisiz</h1><p>Bu sayfa icin operator yetkisi gerekli.</p></div>',
+            status_code=403,
+        )
     return templates.TemplateResponse(
         request, "gateway.html", {}
     )
@@ -280,6 +334,12 @@ async def logs_sayfasi(request: Request):
 
 @app.get("/users", response_class=HTMLResponse)
 async def users_sayfasi(request: Request):
+    """Kullanici yonetimi (admin)."""
+    if not admin_gerekli(getattr(request.state, "session", None)):
+        return HTMLResponse(
+            content='<div class="container"><h1>🔒 Yetkisiz</h1><p>Bu sayfa icin admin yetkisi gerekli.</p></div>',
+            status_code=403,
+        )
     return templates.TemplateResponse(
         request, "users.html", {}
     )
@@ -315,6 +375,12 @@ async def kanban_sayfasi(request: Request):
 
 @app.get("/sistem", response_class=HTMLResponse)
 async def sistem_sayfasi(request: Request):
+    """Sistem yonetimi (admin)."""
+    if not admin_gerekli(getattr(request.state, "session", None)):
+        return HTMLResponse(
+            content='<div class="container"><h1>🔒 Yetkisiz</h1><p>Bu sayfa icin admin yetkisi gerekli.</p></div>',
+            status_code=403,
+        )
     return templates.TemplateResponse(
         request, "sistem.html", {}
     )
@@ -1117,7 +1183,12 @@ async def api_sandbox_temizle():
 
 @app.get("/cron", response_class=HTMLResponse)
 async def cron_sayfasi(request: Request):
-    """Cron yönetim sayfası."""
+    """Cron yönetim sayfası (admin)."""
+    if not admin_gerekli(getattr(request.state, "session", None)):
+        return HTMLResponse(
+            content='<div class="container"><h1>🔒 Yetkisiz</h1><p>Bu sayfa icin admin yetkisi gerekli.</p></div>',
+            status_code=403,
+        )
     return templates.TemplateResponse(request, "cron.html", {})
 
 

@@ -334,6 +334,8 @@ class Motor:
             "reymen.mcp",
             # Merkezi Hata Toplama + Bildirim
             "reymen.sistem.hata_toplama",
+            # Schema Manager (Alembic versiyonlama)
+            "reymen.sistem.schema_manager",
             # Web aramasi
             "reymen.arac.web_search_tool",
             # Personality (kisilik sistemi)

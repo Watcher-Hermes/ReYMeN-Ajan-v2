@@ -31,3 +31,25 @@
 **Alternatif?**
 - conversation_loop.py'deki ensemble zaten yazılıydı, sadece bot yönlendirilmedi
 - SOUL.md'yi proje köküne koymak da çözümdü ama profil override ediyor
+
+## Karar #42 — Auth: Hermes Pattern JWT + Role Bazli
+
+**Ne yapildi:** Mevcut auth.py + web_ui/__init__.py auth sistemi Hermes dashboard_auth pattern'ine donusturuldu.
+
+**Neden:** Kullanici "Jwt var role bazli hermes de olan sekili ile yap" dedi — Hermes'teki AuthProvider ABC + Session dataclass + provider registry + cookie yonetimi birebir uygulandi.
+
+**Detay:**
+- AuthProvider ABC (Hermes DashboardAuthProvider pattern)
+- Session dataclass (user_id, display_name, role, provider, expires_at, access_token, refresh_token)
+- Provider registry: register_provider(), get_provider(), list_providers()
+- PasswordAuthProvider: complete_password_login(), verify_session(), refresh_session(), revoke_session()
+- Cookie: hermes_session_at (access token) + hermes_session_rt (refresh token)
+- Transparent refresh: access token expiredsa refresh token ile otomatik rotate
+- /api/auth/me — mevcut Session bilgisi
+- /api/auth/providers — kayitli provider listesi
+- Audit logging (AuditEvent.LOGIN_SUCCESS/FAILURE/LOGOUT)
+- Role bazli izin (admin/operator/viewer) middleware'de
+- Eski _get_user/_require_auth/_izin_kontrol helper'lari temizlendi
+- Commit: 61846927
+
+**Karar:** Kabul. Hermes'teki ile birebir ayni desen.

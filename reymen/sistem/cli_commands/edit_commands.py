@@ -36,247 +36,42 @@ class MixinCommands:
     def _handle_rollback_command(self, command: str):
         """Handle /rollback — list, diff, or restore filesystem checkpoints.
 
-        Syntax:
-            /rollback                 — list checkpoints
-            /rollback <N>             — restore checkpoint N (also undoes last chat turn)
-            /rollback diff <N>        — preview changes since checkpoint N
-            /rollback <N> <file>      — restore a single file from checkpoint N
+        Delegates to :func:`handlers.edit.rollback_handler._handle_rollback_command`.
         """
-        from tools.checkpoint_manager import format_checkpoint_list
-
-        if not hasattr(self, 'agent') or not self.agent:
-            print("  No active agent session.")
-            return
-
-        mgr = self.agent._checkpoint_mgr
-        if not mgr.enabled:
-            print("  Checkpoints are not enabled.")
-            print("  Enable with: ReYMeN --checkpoints")
-            print("  Or in config.yaml: checkpoints: { enabled: true }")
-            return
-
-        cwd = os.getenv("TERMINAL_CWD", os.getcwd())
-        parts = command.split()
-        args = parts[1:] if len(parts) > 1 else []
-
-        if not args:
-            # List checkpoints
-            checkpoints = mgr.list_checkpoints(cwd)
-            print(format_checkpoint_list(checkpoints, cwd))
-            return
-
-        # Handle /rollback diff <N>
-        if args[0].lower() == "diff":
-            if len(args) < 2:
-                print("  Usage: /rollback diff <N>")
-                return
-            checkpoints = mgr.list_checkpoints(cwd)
-            if not checkpoints:
-                print(f"  No checkpoints found for {cwd}")
-                return
-            target_hash = self._resolve_checkpoint_ref(args[1], checkpoints)
-            if not target_hash:
-                return
-            result = mgr.diff(cwd, target_hash)
-            if result["success"]:
-                stat = result.get("stat", "")
-                diff = result.get("diff", "")
-                if not stat and not diff:
-                    print("  No changes since this checkpoint.")
-                else:
-                    if stat:
-                        print(f"\n{stat}")
-                    if diff:
-                        # Limit diff output to avoid terminal flood
-                        diff_lines = diff.splitlines()
-                        if len(diff_lines) > 80:
-                            print("\n".join(diff_lines[:80]))
-                            print(f"\n  ... ({len(diff_lines) - 80} more lines, showing first 80)")
-                        else:
-                            print(f"\n{diff}")
-            else:
-                print(f"  ❌ {result['error']}")
-            return
-
-        # Resolve checkpoint reference (number or hash)
-        checkpoints = mgr.list_checkpoints(cwd)
-        if not checkpoints:
-            print(f"  No checkpoints found for {cwd}")
-            return
-
-        target_hash = self._resolve_checkpoint_ref(args[0], checkpoints)
-        if not target_hash:
-            return
-
-        # Check for file-level restore: /rollback <N> <file>
-        file_path = args[1] if len(args) > 1 else None
-
-        result = mgr.restore(cwd, target_hash, file_path=file_path)
-        if result["success"]:
-            if file_path:
-                print(f"  ✅ Restored {file_path} from checkpoint {result['restored_to']}: {result['reason']}")
-            else:
-                print(f"  ✅ Restored to checkpoint {result['restored_to']}: {result['reason']}")
-            print("  A pre-rollback snapshot was saved automatically.")
-
-            # Also undo the last conversation turn so the agent's context
-            # matches the restored filesystem state
-            if self.conversation_history:
-                self.undo_last(prefill=False)
-                print("  Chat turn undone to match restored file state.")
-        else:
-            print(f"  ❌ {result['error']}")
+        from .handlers.edit.rollback_handler import _handle_rollback_command
+        _handle_rollback_command(self, command)
 
     def _handle_snapshot_command(self, command: str):
         """Handle /snapshot — lightweight state snapshots for ReYMeN config/state.
 
-        Syntax:
-            /snapshot                  — list recent snapshots
-            /snapshot create [label]   — create a snapshot
-            /snapshot restore <id>     — restore state from snapshot
-            /snapshot prune [N]        — prune to N snapshots (default 20)
+        Delegates to :func:`handlers.edit.snapshot_handler._handle_snapshot_command`.
         """
-        from reymen.reymen_cli.backup import (
-            create_quick_snapshot, list_quick_snapshots,
-            restore_quick_snapshot, prune_quick_snapshots,
-        )
-        from reymen.sistem.ReYMeN_constants import display_ReYMeN_home
-
-        parts = command.split()
-        subcmd = parts[1].lower() if len(parts) > 1 else "list"
-
-        if subcmd in {"list", "ls"}:
-            snaps = list_quick_snapshots()
-            if not snaps:
-                print("  No state snapshots yet.")
-                print("  Create one: /snapshot create [label]")
-                return
-            print(f"  State snapshots ({display_ReYMeN_home()}/state-snapshots/):\n")
-            print(f"  {'#':>3}  {'ID':<35} {'Files':>5} {'Size':>10} {'Label'}")
-            print(f"  {'─'*3}  {'─'*35} {'─'*5} {'─'*10} {'─'*20}")
-            for i, s in enumerate(snaps, 1):
-                size = s.get("total_size", 0)
-                if size < 1024:
-                    size_str = f"{size} B"
-                elif size < 1024 * 1024:
-                    size_str = f"{size / 1024:.0f} KB"
-                else:
-                    size_str = f"{size / 1024 / 1024:.1f} MB"
-                label = s.get("label") or ""
-                print(f"  {i:3}  {s['id']:<35} {s.get('file_count', 0):>5} {size_str:>10} {label}")
-
-        elif subcmd == "create":
-            label = " ".join(parts[2:]) if len(parts) > 2 else None
-            snap_id = create_quick_snapshot(label=label)
-            if snap_id:
-                print(f"  Snapshot created: {snap_id}")
-            else:
-                print("  No state files found to snapshot.")
-
-        elif subcmd in {"restore", "rewind"}:
-            if len(parts) < 3:
-                print("  Usage: /snapshot restore <snapshot-id>")
-                # Show hint with most recent snapshot
-                snaps = list_quick_snapshots(limit=1)
-                if snaps:
-                    print(f"  Most recent: {snaps[0]['id']}")
-                return
-            snap_id = parts[2]
-            # Allow restore by number (1-indexed)
-            try:
-                idx = int(snap_id)
-                snaps = list_quick_snapshots()
-                if 1 <= idx <= len(snaps):
-                    snap_id = snaps[idx - 1]["id"]
-                else:
-                    print(f"  Invalid snapshot number. Use 1-{len(snaps)}.")
-                    return
-            except ValueError:
-                logger.warning("[fix_01_sessiz_except] ValueError")
-            if restore_quick_snapshot(snap_id):
-                print(f"  Restored state from: {snap_id}")
-                print("  Restart recommended for state.db changes to take effect.")
-            else:
-                print(f"  Snapshot not found: {snap_id}")
-
-        elif subcmd == "prune":
-            keep = 20
-            if len(parts) > 2:
-                try:
-                    keep = int(parts[2])
-                except ValueError:
-                    print("  Usage: /snapshot prune [keep-count]")
-                    return
-            deleted = prune_quick_snapshots(keep=keep)
-            print(f"  Pruned {deleted} old snapshot(s) (keeping {keep}).")
-
-        else:
-            print(f"  Unknown subcommand: {subcmd}")
-            print("  Usage: /snapshot [list|create [label]|restore <id>|prune [N]]")
+        from .handlers.edit.snapshot_handler import _handle_snapshot_command
+        _handle_snapshot_command(self, command)
 
     def _handle_stop_command(self):
         """Handle /stop — kill all running background processes.
 
-        Inspired by OpenAI Codex's separation of interrupt (stop current turn)
-        from /stop (clean up background processes). See openai/codex#14602.
+        Delegates to :func:`handlers.edit.stop_handler._handle_stop_command`.
         """
-        from tools.process_registry import process_registry
-
-        processes = process_registry.list_sessions()
-        running = [p for p in processes if p.get("status") == "running"]
-
-        if not running:
-            print("  No running background processes.")
-            return
-
-        print(f"  Stopping {len(running)} background process(es)...")
-        killed = process_registry.kill_all()
-        print(f"  ✅ Stopped {killed} process(es).")
+        from .handlers.edit.stop_handler import _handle_stop_command
+        _handle_stop_command(self)
 
     def _handle_agents_command(self):
-        """Handle /agents — show background processes and agent status."""
-        from tools.process_registry import format_uptime_short, process_registry
+        """Handle /agents — show background processes and agent status.
 
-        processes = process_registry.list_sessions()
-        running = [p for p in processes if p.get("status") == "running"]
-        finished = [p for p in processes if p.get("status") != "running"]
-
-        _cprint(f"  Running processes: {len(running)}")
-        for p in running:
-            cmd = p.get("command", "")[:80]
-            up = format_uptime_short(p.get("uptime_seconds", 0))
-            _cprint(f"    {p.get('session_id', '?')} · {up} · {cmd}")
-
-        if finished:
-            _cprint(f"  Recently finished: {len(finished)}")
-
-        agent_running = getattr(self, "_agent_running", False)
-        _cprint(f"  Agent: {'running' if agent_running else 'idle'}")
+        Delegates to :func:`handlers.edit.agents_handler._handle_agents_command`.
+        """
+        from .handlers.edit.agents_handler import _handle_agents_command
+        _handle_agents_command(self)
 
     def _handle_paste_command(self):
         """Handle /paste — explicitly check clipboard for an image.
 
-        This is the reliable fallback for terminals where BracketedPaste
-        doesn't fire for image-only clipboard content (e.g., VSCode terminal,
-        Windows Terminal with WSL2).
+        Delegates to :func:`handlers.edit.paste_handler._handle_paste_command`.
         """
-        if _is_termux_environment():
-            _cprint(
-                f"  {_DIM}Clipboard image paste is not available on Termux — "
-                f"use /image <path> or paste a local image path like "
-                f"{_termux_example_image_path()}{_RST}"
-            )
-            return
-
-        from reymen.reymen_cli.clipboard import has_clipboard_image
-        if has_clipboard_image():
-            if self._try_attach_clipboard_image():
-                n = len(self._attached_images)
-                _cprint(f"  📎 Image #{n} attached from clipboard")
-            else:
-                _cprint(f"  {_DIM}(>_<) Clipboard has an image but extraction failed{_RST}")
-        else:
-            _cprint(f"  {_DIM}(._.) No image found in clipboard{_RST}")
+        from .handlers.edit.paste_handler import _handle_paste_command
+        _handle_paste_command(self)
 
     def _write_osc52_clipboard(self, text: str) -> None:
         """Copy *text* to terminal clipboard via OSC 52."""
@@ -327,66 +122,20 @@ class MixinCommands:
             )
 
     def _handle_copy_command(self, cmd_original: str) -> None:
-        """Handle /copy [number] — copy assistant output to clipboard."""
-        parts = cmd_original.split(maxsplit=1)
-        arg = parts[1].strip() if len(parts) > 1 else ""
+        """Handle /copy [number] — copy assistant output to clipboard.
 
-        assistant = [m for m in self.conversation_history if m.get("role") == "assistant"]
-        if not assistant:
-            _cprint("  Nothing to copy yet.")
-            return
-
-        if arg:
-            try:
-                idx = int(arg) - 1
-            except ValueError:
-                _cprint("  Usage: /copy [number]")
-                return
-            if idx < 0 or idx >= len(assistant):
-                _cprint(f"  Invalid response number. Use 1-{len(assistant)}.")
-                return
-        else:
-            idx = len(assistant) - 1
-            while idx >= 0 and not _assistant_copy_text(assistant[idx].get("content")):
-                idx -= 1
-            if idx < 0:
-                _cprint("  Nothing to copy in assistant responses yet.")
-                return
-
-        text = _assistant_copy_text(assistant[idx].get("content"))
-        if not text:
-            _cprint("  Nothing to copy in that assistant response.")
-            return
-
-        try:
-            self._write_osc52_clipboard(text)
-            _cprint(f"  Copied assistant response #{idx + 1} to clipboard")
-        except Exception as e:
-            _cprint(f"  Clipboard copy failed: {e}")
+        Delegates to :func:`handlers.edit.copy_handler._handle_copy_command`.
+        """
+        from .handlers.edit.copy_handler import _handle_copy_command
+        _handle_copy_command(self, cmd_original)
 
     def _handle_image_command(self, cmd_original: str):
-        """Handle /image <path> — attach a local image file for the next prompt."""
-        raw_args = (cmd_original.split(None, 1)[1].strip() if " " in cmd_original else "")
-        if not raw_args:
-            hint = _termux_example_image_path() if _is_termux_environment() else "/path/to/image.png"
-            _cprint(f"  {_DIM}Usage: /image <path>  e.g. /image {hint}{_RST}")
-            return
+        """Handle /image <path> — attach a local image file for the next prompt.
 
-        path_token, _remainder = _split_path_input(raw_args)
-        image_path = _resolve_attachment_path(path_token)
-        if image_path is None:
-            _cprint(f"  {_DIM}(>_<) File not found: {path_token}{_RST}")
-            return
-        if image_path.suffix.lower() not in _IMAGE_EXTENSIONS:
-            _cprint(f"  {_DIM}(._.) Not a supported image file: {image_path.name}{_RST}")
-            return
-
-        self._attached_images.append(image_path)
-        _cprint(f"  📎 Attached image: {image_path.name}")
-        if _remainder:
-            _cprint(f"  {_DIM}Now type your prompt (or use --image in single-query mode): {_remainder}{_RST}")
-        elif _is_termux_environment():
-            _cprint(f"  {_DIM}Tip: type your next message, or run ReYMeN chat -q --image {_termux_example_image_path(image_path.name)} \"What do you see?\"{_RST}")
+        Delegates to :func:`handlers.edit.image_handler._handle_image_command`.
+        """
+        from .handlers.edit.image_handler import _handle_image_command
+        _handle_image_command(self, cmd_original)
 
     def _preprocess_images_with_vision(self, text: str, images: list, *, announce: bool = True) -> str:
         """Analyze attached images via the vision tool and return enriched text.
