@@ -3,23 +3,62 @@
 merhaba — ReYMeN örnek plugin'i.
 
 Arayüz:
-    plugin_adi      = "merhaba"
-    plugin_aciklamasi = "ReYMeN örnek plugin"
-    kaydet(motor)   → araçları motor'a kaydeder
+    plugin_adi          = "merhaba"
+    plugin_aciklamasi   = "ReYMeN örnek plugin"
+    plugin_providers    = ["varsayilan", "gelismis"]
+    kaydet(motor)       → araçları motor'a kaydeder
+
+Provider desteği:
+    Plugin başlatılırken `_aktif_provider` attribute'u set edilir.
+    Bu attribute plugin'in hangi provider ile çalıştığını belirtir.
+    Provider bilgisi plugin.yaml'deki `providers` listesinden gelir.
 """
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 plugin_adi = "merhaba"
-plugin_aciklamasi = "ReYMeN örnek plugin — HOT-RELOAD calisiyor!"
+plugin_aciklamasi = "ReYMeN örnek plugin — HOT-RELOAD ve PROVIDER destekli!"
 plugin_araclar = ["MERHABA_SOYLE", "PLUGIN_BILGI", "MERHABA_VERSIYON"]
+plugin_providers = ["varsayilan", "gelismis"]  # runtime erişim için
+
+
+def _aktif_provider_al() -> str:
+    """Plugin'in aktif provider'ını döndür (varsayılan: 'varsayilan')."""
+    import sys
+    mod = sys.modules.get(__name__)
+    if mod is None:
+        return "varsayilan"
+    return getattr(mod, "_aktif_provider", "varsayilan") or "varsayilan"
+
+
+def _provider_mesaj(ham: str, provider: str) -> str:
+    """Provider'a göre mesaj üret."""
+    if provider == "gelismis":
+        return (
+            f"[Merhaba Plugin :: gelismis]\n"
+            f"  ✦ Merhaba! (gelişmiş provider)\n"
+            f"  ✦ Parametre: {ham.strip()!r}\n"
+            f"  ✦ Zaman damgası eklendi\n"
+            f"  ✦ Emoji desteği: 🎉✨🚀"
+        )
+    # varsayilan / fallback
+    return f"[Merhaba Plugin :: varsayilan] Merhaba! Parametre: {ham.strip()!r}"
 
 
 def kaydet(motor):
-    """Plugin araçlarını motor'a kaydet."""
+    """Plugin araçlarını motor'a kaydet.
+
+    Provider bilgisi modülün _aktif_provider attribute'undan okunur.
+    Eğer set edilmemişse (örneğin plugin hot-reload edildiyse)
+    varsayılan provider kullanılır.
+    """
     if hasattr(motor, "_plugin_arac_kaydet"):
         motor._plugin_arac_kaydet(
             "MERHABA_SOYLE",
-            lambda ham: f"[Merhaba Plugin] Merhaba! Parametre: {ham.strip()!r}",
-            "Örnek plugin mesajı döndürür",
+            lambda ham: _provider_mesaj(ham, _aktif_provider_al()),
+            "Örnek plugin mesajı döndürür (provider'a göre değişir)",
         )
         motor._plugin_arac_kaydet(
             "PLUGIN_BILGI",
@@ -28,13 +67,18 @@ def kaydet(motor):
                 f"  Adı: {plugin_adi}\n"
                 f"  Açıklama: {plugin_aciklamasi}\n"
                 f"  Araçlar: {', '.join(plugin_araclar)}\n"
-                f"  Sürüm: 1.0.0"
+                f"  Sürüm: 1.0.0\n"
+                f"  Aktif Provider: {_aktif_provider_al()}\n"
+                f"  Desteklenen Provider'lar: {', '.join(plugin_providers)}"
             ),
             "Plugin bilgilerini döndürür",
         )
         motor._plugin_arac_kaydet(
             "MERHABA_VERSIYON",
-            lambda ham: "[Merhaba Plugin] Surum: 1.0.0 (hot-reload destekli)",
+            lambda ham: (
+                f"[Merhaba Plugin] Surum: 1.0.0 "
+                f"(hot-reload + provider destekli, aktif provider: {_aktif_provider_al()})"
+            ),
             "Plugin versiyonunu döndürür",
         )
         return True
@@ -44,9 +88,10 @@ def kaydet(motor):
 def run(**kwargs):
     """PluginManager.run() uyumluluğu için."""
     target = kwargs.get("target", "")
+    provider = _aktif_provider_al()
     if target:
-        return f"[Merhaba Plugin] Merhaba {target}!"
-    return "[Merhaba Plugin] Merhaba Dünya!"
+        return _provider_mesaj(target, provider)
+    return _provider_mesaj("Dünya", provider)
 
 
 if __name__ == "__main__":

@@ -494,6 +494,115 @@ async def sistem_sayfasi(request: Request):
     )
 
 # ---------------------------------------------------------------------------
+# Migration / Alembic
+# ---------------------------------------------------------------------------
+
+
+@app.get("/migration", response_class=HTMLResponse)
+async def migration_sayfasi(request: Request):
+    """Alembic migration yönetim sayfası (admin)."""
+    if not admin_gerekli(getattr(request.state, "session", None)):
+        return HTMLResponse(
+            content='<div class="container"><h1>🔒 Yetkisiz</h1><p>Bu sayfa icin admin yetkisi gerekli.</p></div>',
+            status_code=403,
+        )
+    return templates.TemplateResponse(
+        request, "migration.html", {}
+    )
+
+
+def _alembic_cmd(*args: str) -> str:
+    """Alembic komutunu subprocess ile çalıştır, HTML çıktı döndür."""
+    import subprocess
+    cmd = [
+        sys.executable, "-m", "alembic", "--config",
+        str(PROJE_KOK / "alembic.ini"),
+        *args,
+    ]
+    try:
+        result = subprocess.run(
+            cmd, cwd=str(PROJE_KOK),
+            capture_output=True, text=True, timeout=120,
+        )
+        output = result.stdout or ""
+        if result.stderr:
+            # Alembic log'ları stderr'e yazar, onları da ekle
+            output += "\n" + result.stderr
+        if result.returncode != 0:
+            return f'<div class="alert alert-error">❌ Hata (exit: {result.returncode})</div><pre style="max-height:400px;overflow:auto;">{output}</pre>'
+        return f'<pre style="max-height:400px;overflow:auto;">{output.strip()}</pre>'
+    except subprocess.TimeoutExpired:
+        return '<div class="alert alert-error">❌ Zaman aşımı (120s)</div>'
+    except FileNotFoundError:
+        return '<div class="alert alert-error">❌ Alembic bulunamadı. <code>pip install alembic</code></div>'
+    except Exception as e:
+        return f'<div class="alert alert-error">❌ {e}</div>'
+
+
+@app.get("/api/migration/status")
+async def api_migration_status():
+    """Migration durumu: current revision + history."""
+    cur = _alembic_cmd("current")
+    hist = _alembic_cmd("history", "--verbose")
+    return HTMLResponse(
+        content=f"<h4>📌 Current Revision</h4>{cur}<hr><h4>📜 History</h4>{hist}"
+    )
+
+
+@app.get("/api/migration/history")
+async def api_migration_history():
+    """Migration geçmişi."""
+    return HTMLResponse(content=_alembic_cmd("history", "--verbose"))
+
+
+@app.get("/api/migration/check")
+async def api_migration_check():
+    """Bekleyen migrasyon kontrolü."""
+    cur_result = _alembic_cmd("current")
+    heads_result = _alembic_cmd("heads")
+    return HTMLResponse(
+        content=f"<h4>📌 Current</h4>{cur_result}<hr><h4>🔍 Heads</h4>{heads_result}"
+    )
+
+
+@app.post("/api/migration/upgrade")
+async def api_migration_upgrade(request: Request):
+    """Migrasyon yükselt. Varsayılan: head."""
+    form = await request.form()
+    revision = form.get("revision", "head").strip() or "head"
+    result = _alembic_cmd("upgrade", revision)
+    return HTMLResponse(
+        content=f"<h4>🔼 Upgrade: {revision}</h4>{result}"
+    )
+
+
+@app.post("/api/migration/downgrade")
+async def api_migration_downgrade(request: Request):
+    """Migrasyon geri al. Varsayılan: -1."""
+    form = await request.form()
+    revision = form.get("revision", "-1").strip() or "-1"
+    result = _alembic_cmd("downgrade", revision)
+    return HTMLResponse(
+        content=f"<h4>🔽 Downgrade: {revision}</h4>{result}"
+    )
+
+
+@app.post("/api/migration/create")
+async def api_migration_create(request: Request):
+    """Yeni migrasyon dosyası oluştur (--autogenerate)."""
+    form = await request.form()
+    message = form.get("message", "").strip()
+    if not message:
+        return HTMLResponse(
+            content='<div class="alert alert-error">❌ Mesaj gerekli</div>'
+        )
+    result = _alembic_cmd("revision", "--autogenerate", "-m", message)
+    return HTMLResponse(
+        content=f"<h4>🆕 Yeni Migrasyon: {message}</h4>{result}"
+    )
+
+
+# ---------------------------------------------------------------------------
 # API — Dashboard
 # ---------------------------------------------------------------------------
 
@@ -642,6 +751,62 @@ async def api_plugin_devre_disina_al(ad: str):
 async def api_plugins_tazele():
     """Plugin listesini yenile."""
     return await api_plugins()
+
+
+@app.post("/api/plugins/export/{ad}")
+async def api_plugin_export(ad: str):
+    """Plugin'i .reyplugin paketine dışa aktar."""
+    try:
+        sys.path.insert(0, str(PROJE_KOK))
+        from reymen.sistem.plugin_manager import PluginYoneticisi
+        yonetici = PluginYoneticisi(str(PLUGIN_DIZIN))
+        cikti = PROJE_KOK / f"{ad}.reyplugin"
+        sonuc = yonetici.export_plugin(ad, str(cikti))
+        if sonuc.startswith("[OK]"):
+            # Dosyayı oku ve indirilebilir olarak döndür
+            icerik = cikti.read_bytes()
+            cikti.unlink(missing_ok=True)  # geçici dosyayı temizle
+            from fastapi.responses import Response
+            return Response(
+                content=icerik,
+                media_type="application/zip",
+                headers={
+                    "Content-Disposition": f'attachment; filename="{ad}.reyplugin"',
+                },
+            )
+        return HTMLResponse(content=f"<div class='alert alert-error'>❌ {sonuc}</div>")
+    except Exception as e:
+        return HTMLResponse(content=f"<div class='alert alert-error'>❌ Export hatasi: {e}</div>")
+
+
+@app.post("/api/plugins/import")
+async def api_plugin_import(request: Request):
+    """.reyplugin paketini içe aktar (multipart form-data ile dosya yükleme)."""
+    try:
+        form = await request.form()
+        dosya = form.get("dosya")
+        if not dosya:
+            return HTMLResponse(content="<div class='alert alert-error'>❌ Dosya gerekli</div>")
+        
+        # Dosyayı geçici konuma yaz
+        import tempfile
+        tmp = Path(tempfile.mkdtemp()) / dosya.filename
+        with open(str(tmp), "wb") as f:
+            f.write(await dosya.read())
+        
+        sys.path.insert(0, str(PROJE_KOK))
+        from reymen.sistem.plugin_manager import PluginYoneticisi
+        yonetici = PluginYoneticisi(str(PLUGIN_DIZIN))
+        sonuc = yonetici.import_plugin(str(tmp))
+        
+        # Geçici dosyayı temizle
+        tmp.unlink(missing_ok=True)
+        tmp.parent.rmdir()
+        
+        css = "success" if sonuc.startswith("[OK]") else "error"
+        return HTMLResponse(content=f"<div class='alert alert-{css}'>{'✅' if sonuc.startswith('[OK]') else '❌'} {sonuc}</div>")
+    except Exception as e:
+        return HTMLResponse(content=f"<div class='alert alert-error'>❌ Import hatasi: {e}</div>")
 
 # ---------------------------------------------------------------------------
 # API — Kullanıcı Yönetimi

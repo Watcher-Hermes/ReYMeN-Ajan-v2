@@ -8,11 +8,14 @@ Iki plugin kategorisi:
      AbstraktHafizaSaglayici alt sinifi + kaydet(ctx) fonksiyonu
 
 YENI: PluginYoneticisi sinifi:
-  - list_plugins()     → tum pluginleri listele
-  - plugin_info(adi)   → detayli plugin bilgisi
+  - list_plugins()     → tum pluginleri listele (+ providers bilgisi)
+  - plugin_info(adi)   → detayli plugin bilgisi (+ providers)
   - enable_plugin(adi) → plugin'i aktif et
   - disable_plugin(adi) → plugin'i devre disi birak
-  - plugin_reload(adi) → plugin'i yeniden yukle
+  - plugin_reload(adi) → plugin'i yeniden yukle (kaldir + yukle)
+  - hot_reload(adi)    → plugin'i hot-reload ile yeniden yukle (importlib.reload)
+  - get_providers(adi) → plugin'in destekledigi provider'lari listele
+  - plugin_baslat(adi, provider=None) → plugin'i belirtilen provider ile baslat
 
 Kullanim:
     pm = PluginManager("plugins")
@@ -194,17 +197,21 @@ class PluginManager:
 
 
 class PluginYoneticisi:
-    """ReYMeN Plugin Yoneticisi — plugin listeleme, aktif/devre disi, detay.
+    """ReYMeN Plugin Yoneticisi — plugin listeleme, aktif/devre disi, detay,
+    hot-reload ve provider plugin destegi.
 
     PluginYukleyici ile birlikte calisir ve CLI komutlarina backend saglar.
 
     Kullanim:
         yonetici = PluginYoneticisi()
-        yonetici.list_plugins()       # tum pluginleri getir
-        yonetici.plugin_info("kanban")  # detayli bilgi
+        yonetici.list_plugins()       # tum pluginleri getir (+ providers)
+        yonetici.plugin_info("kanban")  # detayli bilgi (+ providers)
         yonetici.enable_plugin("kanban")
         yonetici.disable_plugin("kanban")
         yonetici.plugin_reload("kanban")
+        yonetici.hot_reload("kanban")   # importlib.reload ile yerinde yeniden yukle
+        yonetici.get_providers("kanban")  # provider listesi
+        yonetici.plugin_baslat("kanban", provider="openai")  # provider secimi
     """
 
     def __init__(self, plugin_dir: Path | str | None = None):
@@ -264,7 +271,7 @@ class PluginYoneticisi:
         """Tum pluginlerin detayli listesini dondur.
 
         Returns:
-            Her plugin icin sozluk: ad, versiyon, kind, aktif, aciklama, yuklu, arac_sayisi
+            Her plugin icin sozluk: ad, versiyon, kind, aktif, aciklama, yuklu, arac_sayisi, providers
         """
         self._aktif_durumlari_yukle()
         self._tarayarak_yukle()  # plugin.yaml'lari parse et
@@ -278,6 +285,7 @@ class PluginYoneticisi:
         sonuc = []
         for p in yl_tumu:
             klasor_adi = p["klasor"]
+            yaml_veri = yl.plugin_yaml_bilgisi(klasor_adi) or {}
             sonuc.append({
                 "name": p["adi"],
                 "version": p["versiyon"],
@@ -286,6 +294,7 @@ class PluginYoneticisi:
                 "description": p["aciklama"],
                 "loaded": p["yuklu"],
                 "tools": len(yl.plugin_bilgisi(klasor_adi).get("araclar", [])),
+                "providers": yaml_veri.get("providers", []),
             })
 
         # PluginManager'dan .py pluginlerini de ekle
@@ -301,6 +310,7 @@ class PluginYoneticisi:
                         "description": "",
                         "loaded": True,
                         "tools": 1,
+                        "providers": [],
                     })
         except Exception as _plugin_m_e303:
             print(f"[UYARI] plugin_manager.py:304 - {_plugin_m_e303}")
@@ -357,6 +367,7 @@ class PluginYoneticisi:
             "init_var": init_var_mi,
             "araclar": bilgi.get("araclar", yaml_veri.get("tools", [])),
             "yetenekler": yetenekler,
+            "providers": yaml_veri.get("providers", []),
         }
 
     def enable_plugin(self, ad: str) -> bool:
@@ -418,6 +429,189 @@ class PluginYoneticisi:
         else:
             logger.warning("[Plugin] Yeniden yukleme basarisiz: %s", ad)
         return basari
+
+    def hot_reload(self, ad: str) -> bool:
+        """Bir plugini hot-reload ile yeniden yukle (importlib.reload).
+
+        plugin_reload()'dan farki:
+          - Modulu bellekten *kaldirmadan* importlib.reload() ile yerinde yeniden yukler.
+          - Bu sayede plugin'e disaridan tutulan referanslar (motor kaydi vb.)
+            gecersizlesmez.
+          - Plugin'in aktif/pasif durumunu korur.
+          - Bagimli plugin'leri de (kontrol edilebilen) yeniden yukler.
+
+        Args:
+            ad: Plugin adi (klasor adi).
+
+        Returns:
+            Basarili ise True.
+        """
+        yl = self.yukleyici
+        if yl is None:
+            return False
+
+        modul = yl._yuklu.get(ad)
+        if modul is None:
+            # Plugin yuklu degil, normal yeniden yukleme dene
+            logger.info("[Plugin] Hot-reload: '%s' yuklu degil, normal reload yapiliyor.", ad)
+            return self.plugin_reload(ad)
+
+        # Aktif durumunu koru
+        was_active = self._aktif_pluginler.get(ad, True)
+
+        try:
+            # Modul adindan sys.modules uzerinden importlib.reload cagir
+            modul_adi = f"plugins.{ad}"
+            if modul_adi in sys.modules:
+                importlib.reload(sys.modules[modul_adi])
+
+            # plugin.yaml cache'ini guncelle
+            if ad in yl._yaml_bilgisi:
+                try:
+                    klasor = self._dizin / ad
+                    yeni_yaml = yl._yaml_yukle(klasor)
+                    if yeni_yaml is not None:
+                        yl._yaml_bilgisi[ad] = yeni_yaml
+                except Exception:
+                    pass
+
+            self._aktif_pluginler[ad] = was_active
+
+            # Bagimli plugin'leri de yeniden yukle (kontrol edilebilenler)
+            bagimlilar = self._bagimli_pluginler(ad)
+            for dep_ad in bagimlilar:
+                dep_mod_adi = f"plugins.{dep_ad}"
+                if dep_mod_adi in sys.modules:
+                    try:
+                        importlib.reload(sys.modules[dep_mod_adi])
+                        logger.debug("[Plugin] Hot-reload bagimli: %s", dep_ad)
+                    except Exception as dep_e:
+                        logger.warning(
+                            "[Plugin] Bagimli hot-reload hatasi [%s]: %s",
+                            dep_ad, dep_e,
+                        )
+
+            logger.info("[Plugin] Hot-reload: %s (aktif=%s)", ad, was_active)
+            return True
+        except Exception as e:
+            logger.error("[Plugin] Hot-reload hatasi [%s]: %s", ad, e)
+            return False
+
+    def _bagimli_pluginler(self, ad: str) -> list[str]:
+        """Bir plugin'e bagimli olan pluginleri bul (basit string taramasi).
+
+        plugin_loader._yuklu'daki modullerin __init__.py dosyalarinda
+        'from plugins.{ad}' veya 'import plugins.{ad}' gecenleri bulur.
+
+        Args:
+            ad: Plugin adi.
+
+        Returns:
+            Bagimli plugin adlari listesi.
+        """
+        yl = self.yukleyici
+        if yl is None:
+            return []
+        bagimlilar = []
+        arama_str_1 = f"plugins.{ad}"
+        arama_str_2 = f"from plugins import {ad}"
+        for dep_ad, dep_mod in yl._yuklu.items():
+            if dep_ad == ad:
+                continue
+            try:
+                dosya = getattr(dep_mod, "__file__", None)
+                if dosya:
+                    icerik = Path(dosya).read_text(encoding="utf-8", errors="ignore")
+                    if arama_str_1 in icerik or arama_str_2 in icerik:
+                        bagimlilar.append(dep_ad)
+            except Exception:
+                pass
+        return bagimlilar
+
+    # ── Provider Plugin Destegi ─────────────────────────────────────────────
+
+    def get_providers(self, ad: str) -> list[dict]:
+        """Bir pluginin destekledigi provider'lari dondur.
+
+        Plugin'in plugin.yaml dosyasindaki ``providers`` alanindan okunur.
+        Her provider sozlugu su alanlari icerebilir:
+          - name: Provider adi (ornek: "openai", "anthropic")
+          - description: Provider aciklamasi
+          - version: Provider versiyonu
+          - default: Varsayilan provider mi? (bool)
+
+        Args:
+            ad: Plugin adi (klasor adi).
+
+        Returns:
+            Provider bilgisi listesi. Ornek:
+            [{"name": "openai", "description": "OpenAI API", "version": "1.0", "default": True}]
+        """
+        yl = self.yukleyici
+        if yl is None:
+            return []
+        yaml_veri = yl.plugin_yaml_bilgisi(ad)
+        if not yaml_veri:
+            return []
+        return yaml_veri.get("providers", [])
+
+    def plugin_baslat(self, ad: str, provider: str | None = None) -> bool:
+        """Bir plugini belirtilen provider ile baslat.
+
+        Provider secimi su sekilde calisir:
+          1. Verilen provider adi plugin.yaml'deki ``providers`` listesinde
+             aranir.
+          2. Eslesen provider varsa plugin o provider ile baslatilir.
+          3. Provider=None ise varsayilan (default=True) provider kullanilir,
+             yoksa ilk provider kullanilir.
+          4. Provider listesi bossa veya provider belirtilmemisse plugin
+             normal sekilde baslatilir.
+
+        Args:
+            ad: Plugin adi (klasor adi).
+            provider: Provider adi (None = varsayilan).
+
+        Returns:
+            Basarili ise True.
+        """
+        yl = self.yukleyici
+        if yl is None:
+            return False
+
+        # Provider dogrulama
+        secilen_provider = provider
+        if provider is not None:
+            providers = self.get_providers(ad)
+            provider_isimleri = [p.get("name") for p in providers if isinstance(p, dict)]
+            if provider not in provider_isimleri:
+                logger.warning(
+                    "[Plugin] '%s' icin gecersiz provider: '%s'. "
+                    "Gecerli provider'lar: %s",
+                    ad, provider, provider_isimleri,
+                )
+                return False
+
+        # Plugin zaten yuklu degilse yukle
+        if ad not in yl._yuklu:
+            basari = yl._yukle(ad)
+            if not basari:
+                logger.error("[Plugin] '%s' yuklenemedi (provider: %s)", ad, provider)
+                return False
+
+        # Aktif et
+        self._aktif_pluginler[ad] = True
+
+        # Provider bilgisini modul uzerinde sakla (plugin runtime'da kullanabilir)
+        modul = yl._yuklu.get(ad)
+        if modul is not None:
+            setattr(modul, "_aktif_provider", secilen_provider)
+
+        if secilen_provider:
+            logger.info("[Plugin] '%s' baslatildi (provider: %s)", ad, secilen_provider)
+        else:
+            logger.info("[Plugin] '%s' baslatildi (varsayilan provider)", ad)
+
+        return True
 
     def plugin_sayisi(self) -> dict:
         """Plugin istatistikleri."""

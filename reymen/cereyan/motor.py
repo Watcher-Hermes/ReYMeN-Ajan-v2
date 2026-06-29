@@ -336,8 +336,16 @@ class Motor:
             "reymen.sistem.hata_toplama",
             # Schema Manager (Alembic versiyonlama)
             "reymen.sistem.schema_manager",
+            # Docker Sandbox + Threat Detection
+            "reymen.guvenlik.docker_sandbox",
             # Web aramasi
             "reymen.arac.web_search_tool",
+            # Web Search Engine (coklu back-end)
+            "reymen.arac.web_search_engine",
+            # Gorsel Uretim Engine (FAL/OpenAI/xAI/Stub)
+            "reymen.arac.image_gen_engine",
+            # Browser Automation Engine (PlaywrightMCP/BrowserUse)
+            "reymen.arac.browser_engine",
             # Personality (kisilik sistemi)
             "agent.personalities",
             # Kapali Ogrenme Dongusu

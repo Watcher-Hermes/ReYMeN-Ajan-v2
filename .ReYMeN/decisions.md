@@ -71,3 +71,17 @@
 - cli_commands/ haricinde hicbir dosya degistirilmedi
 - Tüm syntax OK
 - Commit: 7267f552
+
+## Karar #44 — .reyplugin CLI + Schema Konsolidasyon
+
+**Ne yapıldı:**
+- .reyplugin export/import CLI komutlari calisir hale getirildi (_cmd_plugin())
+- Twin module drift fix: sistem/schema_manager -> core/schema_manager import wrapper
+- VERITABANLARI (5 DB) + motor_kaydet() + durum_text()
+- Alembic migration HEAD uygulandi (session.db)
+
+**Neden:** Kullanici backlog'da .reyplugin ❌ ve Alembic ⏸️ olarak isaretlemisti.
+- .reyplugin: Python API calisiyordu ama CLI komutu yoktu
+- Alembic: ikiz modul sorunu + migration uygulanmamisti
+
+**Karar:** Kabul. Commit 700269d7.
