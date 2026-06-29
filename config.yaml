@@ -203,10 +203,10 @@ model_providers:
 # Her grup aynı öncelik seviyesindeki provider'ları temsil eder.
 # Bir gruptaki tüm provider'lar başarısız olursa, sonraki gruba geçilir.
 failover_zinciri:
-  - ["lmstudio"]                         # 1. tercih: yerel
-  - ["deepseek", "openrouter"]           # 2. tercih: ana API'ler
-  - ["openai", "anthropic"]              # 3. tercih: alternatif API'ler
-  - ["groq", "gemini"]                   # 4. tercih: son çare
+  - ["deepseek", "openrouter"]           # 1. tercih: ana API'ler
+  - ["openai", "anthropic"]              # 2. tercih: alternatif API'ler
+  - ["groq", "gemini"]                   # 3. tercih: son çare
+  - ["lmstudio"]                         # 4. tercih: yerel (son çare)
 
 # ── Telegram ─────────────────────────────────────────────────────────────────
 telegram:
