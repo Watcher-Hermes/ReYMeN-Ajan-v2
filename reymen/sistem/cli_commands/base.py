@@ -1212,3 +1212,12 @@ class MixinCommands:
         except Exception:
             logger.debug("Edit diff preview failed for %s", function_name, exc_info=True)
 
+
+def _parse_reasoning_config(effort: str) -> dict | None:
+    """Parse a reasoning effort level into an OpenRouter reasoning config dict."""
+    from reymen.sistem.ReYMeN_constants import parse_reasoning_effort
+    result = parse_reasoning_effort(effort)
+    if effort and effort.strip() and result is None:
+        logger.warning("Unknown reasoning_effort '%s', using default (medium)", effort)
+    return result
+

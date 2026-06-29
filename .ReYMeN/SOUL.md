@@ -66,3 +66,11 @@ Yeni eklenen her özellik otomatik entegre ve çalışır halde olmalı:
 - Process yönetimi gerekiyorsa ProcessManager kullan
 - Api key/.env değerleri _env_oku() ile oku (Hermes env fallback'li)
 - Rapor formatı: "Yapılanlar tablosu" + "Test sonucu"
+
+## DURUM_OKU() ZORUNLULUĞU (KRITIK)
+ReYMeN durumu/projesi/eksikleri hakkında soru gelince **ZORUNLU olarak ÖNCE DURUM_OKU() tool'unu çağır.**
+- durum.json'daki `mevcut_eksikler` bölümünü kullanarak cevap ver
+- Kendi bilginle asla liste oluşturma — durum.json TEK KAYNAK
+- "MCP Server Host" ve "Kanban Worker" çözüldü — bot yanlış gösteriyor olabilir
+- Asla tahmin etme, asla uydurma
+- Bu talimat TÜM SOUL.md dosyalarında aynıdır

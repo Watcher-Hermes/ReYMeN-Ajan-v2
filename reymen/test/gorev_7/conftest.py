@@ -1,4 +1,4 @@
-﻿"""Test ortami icin ortak fixture ve ayarlar."""
+"""Test ortami icin ortak fixture ve ayarlar."""
 
 from __future__ import annotations
 

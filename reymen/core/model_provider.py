@@ -261,6 +261,66 @@ class MiniMaxProvider(ModelProvider):
 
 
 # ═══════════════════════════════════════════════════════════════
+# LiteLLM Provider — 100+ provider tek API ile
+# ═══════════════════════════════════════════════════════════════
+
+class LiteLLMProvider(ModelProvider):
+    """LiteLLM ile 100+ provider'a erisim. OpenAI uyumlu API.
+
+    .env'deki tum API_KEY'leri otomatik algilar.
+    Model adi: "provider/model" (ornek: "anthropic/claude-3-5-sonnet")
+    """
+
+    ad = "litellm"
+    model = "gpt-4o-mini"
+    api_key_env = ""
+    base_url = ""
+
+    def __init__(self, model: Optional[str] = None,
+                 api_key: Optional[str] = None,
+                 base_url: Optional[str] = None,
+                 **kwargs: Any):
+        self._model = model or self.model
+        self._api_key = api_key
+        self._base_url = base_url
+        try:
+            import litellm
+            self._litellm = litellm
+            self._mevcut = True
+        except ImportError:
+            self._mevcut = False
+
+    def hazir_mi(self) -> bool:
+        return self._mevcut
+
+    def calistir(self, messages: list[dict],
+                 system_content: str = "",
+                 **kwargs: Any) -> tuple[str, Optional[str]]:
+        if not self._mevcut:
+            return "", "LiteLLM kurulu degil (pip install litellm)"
+
+        try:
+            full_messages = []
+            if system_content:
+                full_messages.append({"role": "system", "content": system_content})
+            full_messages.extend(messages)
+
+            import litellm as lm
+            response = lm.completion(
+                model=self._model,
+                messages=full_messages,
+                temperature=kwargs.get("temperature", 0.7),
+                max_tokens=kwargs.get("max_tokens", 4096),
+                api_key=self._api_key,
+                api_base=self._base_url,
+            )
+            yanit = response.choices[0].message.content or ""
+            return yanit, None
+        except Exception as e:
+            return "", f"{type(e).__name__}: {e}"
+
+
+# ═══════════════════════════════════════════════════════════════
 # Provider Fabrikası
 # ═══════════════════════════════════════════════════════════════
 
@@ -325,6 +385,15 @@ def _provider_fabrikasi(
             # MiniMax class attribute'lari zaten dogru, sadece api_key gerek
             "kwargs": {"api_key": api_key, "model": model},
         },
+        "litellm": {
+            "cls": LiteLLMProvider,
+            "defaults": {
+                "ad": "litellm",
+                "model": model or "gpt-4o-mini",
+                "api_key_env": "",
+                "base_url": "",
+            },
+        },
     }
 
     info = _providers.get(ad)
@@ -372,7 +441,7 @@ class ProviderChain:
     Bir provider 401/402/429/500 donerse siradakine gecer.
     Her adimda log + sure takibi yapar.
 
-    Varsayilan zincir: deepseek -> openrouter -> xai -> groq -> lmstudio
+    Varsayilan zincir: deepseek -> openrouter -> xai -> groq -> lmstudio -> litellm
     """
 
     def __init__(
@@ -385,6 +454,7 @@ class ProviderChain:
             ProviderKayit(ad="xai"),
             ProviderKayit(ad="groq"),
             ProviderKayit(ad="lmstudio"),
+            ProviderKayit(ad="litellm"),
         ]
         self._instances: dict[str, ModelProvider] = {}
 
@@ -539,6 +609,67 @@ class ProviderChain:
 _varsayilan_zincir: Optional[ProviderChain] = None
 
 
+# ═══════════════════════════════════════════════════════════════
+# Provider Kesif — OpenRouter uzerinden model listesi
+# ═══════════════════════════════════════════════════════════════
+
+def provider_kesfet(api_key: Optional[str] = None) -> str:
+    """OpenRouter /v1/models uzerinden kullanilabilir provider/model listesi.
+
+    API key verilmezse OPENROUTER_API_KEY env'den okunur.
+    Her provider icin model adedi gosterilir.
+    """
+    import httpx
+    key = api_key or os.environ.get("OPENROUTER_API_KEY", "")
+    if not key:
+        return "❌ OpenRouter API key bulunamadi (OPENROUTER_API_KEY)"
+
+    try:
+        resp = httpx.get(
+            "https://openrouter.ai/api/v1/models",
+            headers={"Authorization": f"Bearer {key}"},
+            timeout=30.0,
+        )
+        if resp.status_code != 200:
+            return f"❌ OpenRouter hatasi: {resp.status_code}"
+
+        modeller = resp.json().get("data", [])
+        from collections import Counter
+        provider_sayaci: Counter = Counter()
+        for m in modeller:
+            pid = m.get("id", "")
+            if "/" in pid:
+                prov = pid.split("/")[0]
+                provider_sayaci[prov] += 1
+
+        satirlar = ["📡 **OpenRouter ile Kullanilabilir Provider'lar**", f"  Toplam model: {len(modeller)}", ""]
+        for prov, adet in sorted(provider_sayaci.items(), key=lambda x: -x[1]):
+            satirlar.append(f"  {prov:20s} → {adet:4d} model")
+        satirlar.append("")
+        satirlar.append(f"  Toplam provider: {len(provider_sayaci)}")
+        satirlar.append(f"  (OpenRouter API key ile erisilebilir)")
+
+        # En populer provider'lari ayrica goster
+        populer = [p for p in provider_sayaci if p in (
+            "openai", "anthropic", "google", "meta-llama", "mistral",
+            "cohere", "deepseek", "microsoft", "amazon", "xai"
+        )]
+        if populer:
+            satirlar.append("")
+            satirlar.append("**Populer:**")
+            for p in populer:
+                satirlar.append(f"  ✅ {p}: {provider_sayaci[p]} model")
+
+        return "\n".join(satirlar)
+    except Exception as e:
+        return f"❌ Kesif hatasi: {type(e).__name__}: {e}"
+
+
+def provider_kesif_motor(params: str = "") -> str:
+    """PROVIDER_KESFET() — OpenRouter uzerinden model listesi."""
+    return provider_kesfet()
+
+
 def varsayilan_zincir() -> ProviderChain:
     """Varsayilan ProviderChain singleton."""
     global _varsayilan_zincir
@@ -619,4 +750,9 @@ def motor_kaydet(motor: Any) -> None:
         _provider_zincir_durum,
         "Provider zincirinin durum raporu: provider sayisi, her provider'in hazir durumu",
     )
-    logger.info("[ModelProvider] Motor araclari kaydedildi: PROVIDER_CALISTIR, PROVIDER_ZINCIR_DURUM")
+    motor._plugin_arac_kaydet(
+        "PROVIDER_KESFET",
+        provider_kesif_motor,
+        "OpenRouter uzerinden kullanilabilir provider/model listesi. API gerekmez.",
+    )
+    logger.info("[ModelProvider] Motor araclari kaydedildi: PROVIDER_CALISTIR, PROVIDER_ZINCIR_DURUM, PROVIDER_KESFET")

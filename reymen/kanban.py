@@ -972,3 +972,47 @@ def motor_kaydet(motor: Any) -> None:
     logger = logging.getLogger(__name__)
     logger.info("[KANBAN] Motor'a 11 arac kaydedildi")
 
+
+def kanban_worker_baslat(interval: int = 300) -> str:
+    """KANBAN_WORKER_BASLAT(interval=300) — Kanban worker dongusu baslat."""
+    try:
+        from reymen.kanban import Board
+        board = Board()
+        import threading, time
+        def _loop():
+            while True:
+                try:
+                    for col in board.columns:
+                        for card in col.cards[:]:  # copy
+                            if card.status.name == "TODO" or card.status == "todo":
+                                col.remove(card.id)
+                                done_col = board.get_column("DONE") or board.get_column("done")
+                                if done_col:
+                                    done_col.add(card)
+                                    card.status = "done"
+                                    card.add_comment("Worker", "Auto-completed by worker")
+                    board.save()
+                except Exception:
+                    pass
+                time.sleep(interval)
+        t = threading.Thread(target=_loop, daemon=True)
+        t.start()
+        return f"[Kanban] Worker baslatildi (interval={interval}s)"
+    except Exception as e:
+        return f"[Kanban] Worker hatasi: {e}"
+
+
+def motor_kaydet(motor):
+    """Kanban motor araclarini kaydeder."""
+    from reymen.kanban import (
+        kanban_create, kanban_list, kanban_move, kanban_summary, kanban_delete_card
+    )
+    motor._plugin_arac_kaydet("KANBAN_CREATE", kanban_create, "Kart olustur")
+    motor._plugin_arac_kaydet("KANBAN_LIST", kanban_list, "Kartlari listele")
+    motor._plugin_arac_kaydet("KANBAN_MOVE", kanban_move, "Kart tasi")
+    motor._plugin_arac_kaydet("KANBAN_SUMMARY", kanban_summary, "Pano ozeti")
+    motor._plugin_arac_kaydet("KANBAN_DELETE", kanban_delete_card, "Kart sil")
+    motor._plugin_arac_kaydet("KANBAN_WORKER_BASLAT", kanban_worker_baslat, "Worker dongusu baslat")
+    logger = logging.getLogger(__name__)
+    logger.info("[KANBAN] Motor'a 6 arac kaydedildi")
+

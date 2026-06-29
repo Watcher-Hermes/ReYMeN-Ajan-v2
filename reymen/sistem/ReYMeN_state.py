@@ -23,7 +23,12 @@ import threading
 import time
 from pathlib import Path
 
-from agent.memory_manager import sanitize_context
+try:
+    from agent.memory_manager import sanitize_context
+except ImportError:
+    def sanitize_context(text: str, max_chars: int = 10000) -> str:
+        """Fallback: truncate text to max_chars."""
+        return text[:max_chars]
 from reymen.sistem.ReYMeN_constants import get_ReYMeN_home
 from typing import Any, Callable, Dict, List, Optional, Tuple, TypeVar
 

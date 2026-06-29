@@ -117,3 +117,9 @@ Su testlerdeki custom tip argumanlari manuel doldur:
 
 1. `pip install pytest-cov` (kurulu)
 2. `python -m pytest reymen/test/ --cov=reymen --cov-config=.coveragerc --cov-report=term-missing --tb=no -q`
+\n## GOREV B: Kalite & Analytics Dashboard (TAMAM)
+- quality.html: Tam dashboard (cov trend + hata + maliyet + ogrenme)
+- 6 API route: /api/kalite/metrikler, coverage, hatalar, maliyet, ogrenme
+- CLI: reymen dashboard --ac/--durum/--metrik
+- Test: test_kalite_dashboard.py (5 test)
+- Launcher: kalite_dashboard.bat

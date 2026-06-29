@@ -1,3 +1,4 @@
+# - Python 3.9+ uyumlu type hints (from __future__ annotations)
 # -*- coding: utf-8 -*-
 """
 closed_learning_loop.py — ClosedLearningLoop + FTS5 beceri indeksi.
@@ -16,7 +17,6 @@ Degisiklik (v3):
   - auto_index default=False (production-safe)
   - LLM agent icin yapisal baglam ciktisi eklendi
   - Tum import'lar module seviyesine tasindi
-  - Python 3.9+ uyumlu type hints (from __future__ annotations)
 
 Entegrasyon:
     loop = ClosedLearningLoop()

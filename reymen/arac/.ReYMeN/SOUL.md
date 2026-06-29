@@ -66,3 +66,10 @@ Yeni eklenen her özellik otomatik entegre ve çalışır halde olmalı:
 - Process yönetimi gerekiyorsa ProcessManager kullan
 - Api key/.env değerleri _env_oku() ile oku (Hermes env fallback'li)
 - Rapor formatı: "Yapılanlar tablosu" + "Test sonucu"
+
+## DURUM_OKU() Zorunluluğu
+ReYMeN durumu/projesi/eksikleri hakkında soru gelince **ÖNCE DURUM_OKU() tool'unu çağır.**
+- durum.json'daki gerçek veriye göre cevap ver
+- Kendi bilginle değil, dosyadaki veriyle cevap ver
+- Asla tahmin etme, asla uydurma
+- Bu talimat TÜM SOUL.md dosyalarında aynıdır

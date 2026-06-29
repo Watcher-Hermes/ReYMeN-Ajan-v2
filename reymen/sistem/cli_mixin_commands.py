@@ -1,4 +1,4 @@
-﻿"""ReYMeNCLI mixin module — modüler yapıya yönlendirici.
+"""ReYMeNCLI mixin module — modüler yapıya yönlendirici.
 
 Bu dosya artık reymen/sistem/cli_commands/ paketine yönlendirir.
 Backward compatibility için MixinCommands sınıfını re-export eder.

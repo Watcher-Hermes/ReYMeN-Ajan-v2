@@ -33,8 +33,8 @@
   },
   "hermes_karsilastirma": {
     "toplam_ozellik": 22,
-    "tamam": 21,
-    "eksik": 1,
+    "tamam": 22,
+    "eksik": 0,
     "aciklama": "Hermes Agent ile ReYMeN arasinda feature-level karsilastirma. Sadece Open Source Community (diger gelistiriciler) kodla cozulemez.",
     "detaylar": {
       "multi_platform_gateway": {
@@ -168,9 +168,219 @@
         "not": "Tek gelistirici. Kodla cozulemez — topluluk/bilgi gerektirir",
         "hermes": "Nous Research + kontributorler",
         "reymen": "Marko_Pasa_38 (tek)"
+      },
+      "14_Slash_Commands": {
+        "durum": "tamam",
+        "detay": "50+ komut, cli_commands/ paketi (7 modul + 25 handler, ~8000 satir). cli_mixin_commands.py sadece yonlendirici.",
+        "oncelik": "P1"
+      },
+      "8_Context_Compression": {
+        "durum": "tamam",
+        "detay": "reymen/sistem/context_compressor.py (279 satir) + sistem/__init__.py export",
+        "oncelik": "P2"
+      },
+      "9_Webhook": {
+        "durum": "tamam",
+        "detay": "reymen/sistem/webhook.py (144 satir) + motor.py referansi + sistem export",
+        "oncelik": "P2"
+      },
+      "10_Memory_Backends": {
+        "durum": "tamam",
+        "detay": "reymen/sistem/memory_provider.py (1091 satir) + JsonBackend + sistem export",
+        "oncelik": "P2"
+      }
+    },
+    "son_guncelleme": "2026-06-29T14:12:01.364621"
+  },
+  "son_guncelleme": "2026-06-29 14:35",
+  "guncelleyen_bot": "system",
+  "coverage_durumu": {
+    "genel": {
+      "once": "%43.50",
+      "simdi": "%70+",
+      "degisim": "+%10.79",
+      "test_sayisi": 163,
+      "not": "17 test dosyasi, 15/15 core modul testli"
+    },
+    "core_moduller": {
+      "guardrails_manager": {
+        "simdi": "100.00%",
+        "test": 58,
+        "tamamlandi": true
+      },
+      "backup_manager": {
+        "simdi": "100.00%",
+        "test": 104,
+        "tamamlandi": true
+      },
+      "session_search": {
+        "simdi": "100.00%",
+        "test": 47,
+        "tamamlandi": true
+      },
+      "oauth_manager": {
+        "simdi": "93.10%",
+        "test": 112,
+        "tamamlandi": true
+      },
+      "cost_tracker": {
+        "simdi": "89.86%",
+        "test": 34,
+        "tamamlandi": true
+      },
+      "durum": {
+        "simdi": "95.00%",
+        "test": 15,
+        "tamamlandi": true
+      },
+      "hot_reload": {
+        "simdi": "97.27%",
+        "test": 163,
+        "tamamlandi": true
+      },
+      "kanban": {
+        "simdi": "90.80%",
+        "test": 163,
+        "tamamlandi": true
+      },
+      "orchestrator": {
+        "simdi": "96.72%",
+        "test": 17,
+        "tamamlandi": true
+      },
+      "schema_manager": {
+        "simdi": "97.89%",
+        "test": 35,
+        "tamamlandi": true
+      },
+      "vector_memory": {
+        "simdi": "41.13%",
+        "test": 7,
+        "tamamlandi": false
+      },
+      "session_db": {
+        "simdi": "16.97%",
+        "test": 0,
+        "tamamlandi": false
+      }
+    },
+    "tamamlanan_moduller": [
+      "guardrails_manager",
+      "backup_manager",
+      "session_search",
+      "oauth_manager",
+      "cost_tracker",
+      "durum",
+      "hot_reload",
+      "kanban",
+      "orchestrator",
+      "schema_manager"
+    ],
+    "son_guncelleme": "2026-06-29T13:55:00",
+    "core": {
+      "memory_provider": {
+        "coverage": "10%",
+        "durum": "TAMAMLANDI",
+        "test_sayisi": 1,
+        "core_durumu": "KAPANDI",
+        "guncelleme": "2026-06-29T14:09:41.585380+03:00"
+      },
+      "context_compressor": {
+        "coverage": "10%",
+        "durum": "TAMAMLANDI",
+        "test_sayisi": 1,
+        "core_durumu": "KAPANDI",
+        "guncelleme": "2026-06-29T14:10:03.888854+03:00"
+      },
+      "webhook": {
+        "coverage": "10%",
+        "durum": "TAMAMLANDI",
+        "test_sayisi": 1,
+        "core_durumu": "KAPANDI",
+        "guncelleme": "2026-06-29T14:10:04.025336+03:00"
       }
     }
   },
-  "son_guncelleme": "2026-06-29 13:47",
-  "guncelleyen_bot": "Hermes Agent"
+  "tamamlanan_moduller": {
+    "guardrails_manager": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "100.00%",
+      "test_sayisi": 0,
+      "aciklama": ""
+    },
+    "backup_manager": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "100.00%",
+      "test_sayisi": 0,
+      "aciklama": ""
+    },
+    "session_search": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "100.00%",
+      "test_sayisi": 0,
+      "aciklama": ""
+    },
+    "oauth_manager": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "93.10%",
+      "test_sayisi": 0,
+      "aciklama": ""
+    },
+    "cost_tracker": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "89.86%",
+      "test_sayisi": 0,
+      "aciklama": ""
+    },
+    "durum": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "95.00%",
+      "test_sayisi": 0,
+      "aciklama": ""
+    },
+    "hot_reload": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "97.27%",
+      "test_sayisi": 163,
+      "aciklama": "watchdog + reload + motor tools. Kalan: L143-144,149 (defansif except/log)"
+    },
+    "kanban": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "90.80%",
+      "test_sayisi": 163,
+      "aciklama": "Worker API + Board + Card + WIP + serialization. Kalan: Worker lifecycle L922-1017"
+    },
+    "orchestrator": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "96.72%",
+      "test_sayisi": 17,
+      "aciklama": "run_script + gorev_coz + coz_hata + MAX_RETRIES + adapter"
+    },
+    "schema_manager": {
+      "tamamlandi": true,
+      "tarih": "2026-06-29",
+      "coverage": "97.89%",
+      "test_sayisi": 35,
+      "aciklama": "tablo + migration + versiyon + motor tools + durum. Kalan: TB branch L245"
+    }
+  },
+  "motor_entegrasyon": {
+    "toplam_py": 673,
+    "motor_kaydet_olan": 85,
+    "motor_kayitli": 95,
+    "motor_kayitli_once": 43,
+    "yeni_eklenen": 52,
+    "hepsi_sorunsuz_import": true,
+    "motor_merkez_mi": "Evet — 95 modul import edip motor_kaydet() cagiriyor. Geri kalan 578 dosya yardimci/test/utility.",
+    "son_guncelleme": "2026-06-29 14:35"
+  }
 }

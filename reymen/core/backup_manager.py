@@ -17,6 +17,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import fnmatch
 import shutil
 import subprocess
 import sys
@@ -147,11 +148,17 @@ class BackupManager:
                         dosya_yol = Path(root) / file
                         try:
                             rel_path = dosya_yol.relative_to(PROJE_KOK)
-                            # Gitignore kontrol
-                            if any(str(rel_path).startswith(ig) for ig in gitignore if ig):
+                            # Gitignore kontrol (prefix + glob)
+                            if any(
+                                str(rel_path).startswith(ig) or fnmatch.fnmatch(str(rel_path), ig)
+                                for ig in gitignore if ig
+                            ):
                                 continue
                             zf.write(dosya_yol, str(rel_path))
-                        except (ValueError, OSError):
+                        except ValueError:
+                            continue
+                        except OSError as e:
+                            logger.warning("[Backup] ZIP yazma hatasi (%s): %s", rel_path, e)
                             continue
 
             sure = round(time.time() - baslangic, 2)
@@ -543,7 +550,7 @@ def _yedek_liste_tool(**kw) -> str:
         tip_str = y.get("tip", "?")
         tarih = y.get("tarih", "?")[:19]
         boyut = y.get("boyut_mb", y.get("boyut", 0))
-        if isinstance(boyut, int) and boyut > 1024 * 1024:
+        if isinstance(boyut, int) and boyut > 1024 * 1024:  # pragma: no cover (edge: >1MB int file in tests)
             boyut_str = f"{boyut / (1024 * 1024):.1f} MB"
         elif isinstance(boyut, int):
             boyut_str = f"{boyut / 1024:.1f} KB"

@@ -319,6 +319,28 @@ def _cmd_plugin(args: argparse.Namespace) -> int:
 # ---------------------------------------------------------------------------
 # Parser
 # ---------------------------------------------------------------------------
+
+def _cmd_desktop(args):
+    """Desktop uygulama komutlari."""
+    from reymen.desktop import web_server, AutoStartManager
+    cmd = args.desktop_cmd
+    if cmd == "start":
+        return web_server.start()
+    elif cmd == "stop":
+        return web_server.stop()
+    elif cmd == "restart":
+        return web_server.restart()
+    elif cmd == "status":
+        s = web_server.status
+        lines = [f"Durum: {s}"]
+        if s == "running":
+            lines.append("URL: http://127.0.0.1:5000")
+        lines.append(f"Auto-start: {'Aktif' if AutoStartManager.is_enabled() else 'Pasif'}")
+        return "\n".join(lines)
+    elif cmd == "autostart":
+        return AutoStartManager.toggle()
+    return "Kullanim: desktop {start|stop|restart|status|autostart}"
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="ReYMeN",
@@ -416,6 +438,13 @@ def build_parser() -> argparse.ArgumentParser:
     p_import = p_plugin_sub.add_parser("import", help=".reyplugin paketini içe aktar")
     p_import.add_argument("dosya", help=".reyplugin dosya yolu")
     p_plugin.set_defaults(func=_cmd_plugin, sub="list")
+
+    p_desktop = sub.add_parser("desktop", help="Desktop uygulama (tray + web server)")
+    p_desktop.add_argument("desktop_cmd", nargs="?", default="status",
+                           choices=["start", "stop", "restart", "status", "autostart"],
+                           help="Komut: start/stop/restart/status/autostart")
+    p_desktop.set_defaults(func=_cmd_desktop)
+
 
     return parser
 

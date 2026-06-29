@@ -72,6 +72,7 @@ class CostRecord:
     prompt_tokens: int
     completion_tokens: int
     cost_usd: float
+    provider: str = ""
     timestamp: float = field(default_factory=time.time)
     session_id: str | None = None
     metadata: dict[str, Any] = field(default_factory=dict)
@@ -79,6 +80,7 @@ class CostRecord:
     def as_dict(self) -> dict[str, Any]:
         return {
             "model": self.model,
+            "provider": self.provider,
             "prompt_tokens": self.prompt_tokens,
             "completion_tokens": self.completion_tokens,
             "cost_usd": self.cost_usd,
@@ -115,6 +117,7 @@ class CostTracker:
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     timestamp REAL NOT NULL,
                     model TEXT NOT NULL,
+                    provider TEXT DEFAULT '',
                     prompt_tokens INTEGER NOT NULL,
                     completion_tokens INTEGER NOT NULL,
                     cost_usd REAL NOT NULL,
@@ -123,12 +126,22 @@ class CostTracker:
                 )
                 """
             )
+            # Migration: add missing columns for existing DBs
+            self._migrate_add_column(conn, "cost_log", "provider", "TEXT DEFAULT ''")
             conn.execute(
                 "CREATE INDEX IF NOT EXISTS idx_cost_model ON cost_log(model)"
             )
             conn.execute(
                 "CREATE INDEX IF NOT EXISTS idx_cost_ts ON cost_log(timestamp)"
             )
+
+    @staticmethod
+    def _migrate_add_column(conn: sqlite3.Connection, table: str, column: str, col_def: str) -> None:
+        """Add a column to an existing table if it doesn't already exist."""
+        cursor = conn.execute(f"PRAGMA table_info({table})")
+        existing_cols = {row[1] for row in cursor.fetchall()}
+        if column not in existing_cols:
+            conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {col_def}")
 
     def _connect(self) -> sqlite3.Connection:
         self._db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -167,6 +180,7 @@ class CostTracker:
         prompt_tokens: int,
         completion_tokens: int,
         *,
+        provider: str = "",
         session_id: str | None = None,
         metadata: dict[str, Any] | None = None,
     ) -> CostRecord:
@@ -176,6 +190,7 @@ class CostTracker:
         cost = self.compute_cost(model, prompt_tokens, completion_tokens)
         record = CostRecord(
             model=model,
+            provider=provider,
             prompt_tokens=prompt_tokens,
             completion_tokens=completion_tokens,
             cost_usd=cost,
@@ -186,13 +201,14 @@ class CostTracker:
             conn.execute(
                 """
                 INSERT INTO cost_log
-                    (timestamp, model, prompt_tokens, completion_tokens,
+                    (timestamp, model, provider, prompt_tokens, completion_tokens,
                      cost_usd, session_id, metadata)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     record.timestamp,
                     record.model,
+                    record.provider,
                     record.prompt_tokens,
                     record.completion_tokens,
                     record.cost_usd,
@@ -200,6 +216,19 @@ class CostTracker:
                     json.dumps(record.metadata, ensure_ascii=False),
                 ),
             )
+        # Analitik modulune de kaydet (varsa)
+        try:
+            from reymen.sistem.analitik import kaydet
+            kaydet(
+                tur="maliyet",
+                kaynak=provider or model,
+                token_giris=prompt_tokens,
+                token_cikis=completion_tokens,
+                maliyet=cost,
+                detay={"model": model, "provider": provider},
+            )
+        except Exception:
+            pass
         return record
 
     # -- Sorgu --------------------------------------------------------------
@@ -262,6 +291,20 @@ class CostTracker:
                 params,
             ).fetchall()
 
+            by_provider_rows = conn.execute(
+                f"""
+                SELECT provider,
+                       COUNT(*) AS calls,
+                       COALESCE(SUM(prompt_tokens), 0) AS prompt,
+                       COALESCE(SUM(completion_tokens), 0) AS completion,
+                       COALESCE(SUM(cost_usd), 0.0) AS cost
+                FROM cost_log{where + " AND" if clauses else " WHERE"} provider != ''
+                GROUP BY provider
+                ORDER BY cost DESC
+                """,
+                params,
+            ).fetchall()
+
         prompt = int(row["prompt"])
         completion = int(row["completion"])
         return {
@@ -278,6 +321,15 @@ class CostTracker:
                     "cost_usd": round(float(r["cost"]), 6),
                 }
                 for r in by_model_rows
+            },
+            "by_provider": {
+                r["provider"]: {
+                    "calls": int(r["calls"]),
+                    "prompt_tokens": int(r["prompt"]),
+                    "completion_tokens": int(r["completion"]),
+                    "cost_usd": round(float(r["cost"]), 6),
+                }
+                for r in by_provider_rows
             },
         }
 
@@ -392,6 +444,7 @@ def record_usage(
     prompt_tokens: int,
     completion_tokens: int,
     *,
+    provider: str = "",
     session_id: str | None = None,
     metadata: dict[str, Any] | None = None,
 ) -> CostRecord:
@@ -400,6 +453,7 @@ def record_usage(
         model,
         prompt_tokens,
         completion_tokens,
+        provider=provider,
         session_id=session_id,
         metadata=metadata,
     )

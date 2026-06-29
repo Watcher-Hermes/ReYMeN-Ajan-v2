@@ -551,7 +551,7 @@ class AIAgentOrchestrator:
         if _verbose:
             print(f"[Budget] Karmasiklik: {_karmasiklik}/5, Max tur: {max_tur}")
         else:
-
+            pass
         if Trajectory:
             self.trajectory = Trajectory(hedef)
 
@@ -987,6 +987,7 @@ class AIAgentOrchestrator:
                 try:
                     self._gorev_tamamla(hedef, adim_gecmisi, ozet)
                 finally:
+                    pass
                 return ozet
 
             # Self-correction: PYTHON_CALISTIR hata alirsa LLM ile duzelt
@@ -1110,6 +1111,7 @@ class AIAgentOrchestrator:
                 pass
             self._ogren(hedef, adim_gecmisi, "Tamamlanamadi: tur asimi")
         finally:
+            pass
         if self.trajectory:
             self.trajectory.kaydet()
         return None

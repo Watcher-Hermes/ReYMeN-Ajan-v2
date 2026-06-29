@@ -523,6 +523,86 @@ def _tui_mesaj(**kw) -> str:
     return f"[TUI] Mesaj TUI'ya gonderildi: {mesaj[:60]}"
 
 
+# ── with_spinner context manager ─────────────────────────────────────────
+
+from contextlib import contextmanager
+
+
+@contextmanager
+def with_spinner(text: str = ""):
+    """Context manager spinner (test uyumlulugu).
+
+    Rich yoksa basit bir print yapar, sonra context'e devam eder.
+    Kullanim:
+        with with_spinner("Calisiyor..."):
+            islem_yap()
+    """
+    if RICH_AVAILABLE:
+        try:
+            from rich.console import Console
+            console = Console()
+            with console.status(text, spinner="dots"):
+                yield
+        except Exception:
+            print(f"[SPINNER] {text}...")
+            yield
+    else:
+        print(f"[SPINNER] {text}...")
+        yield
+
+
+# ── progress_bar context manager (int-based) ─────────────────────────────
+
+
+@contextmanager
+def _progress_bar_cm(total: int, description: str = ""):
+    """Context manager progress bar (int total ile).
+
+    Kullanim:
+        with progress_bar(10, "test") as advance:
+            for _ in range(10):
+                advance(1)
+    """
+    if RICH_AVAILABLE:
+        try:
+            from rich.console import Console
+            from rich.progress import Progress, BarColumn, TextColumn, TimeElapsedColumn
+
+            console = Console()
+            with Progress(
+                TextColumn(f"[bold cyan]{description}"),
+                BarColumn(),
+                TextColumn("{task.completed}/{task.total}"),
+                TimeElapsedColumn(),
+                console=console,
+                transient=True,
+            ) as p:
+                task = p.add_task("", total=total)
+                done = [0]
+
+                def _advance(n: int = 1):
+                    done[0] += n
+                    p.update(task, completed=done[0])
+
+                yield _advance
+        except Exception:
+            yield lambda n=1: None
+    else:
+        yield lambda n=1: None
+
+
+def progress_bar(*args, **kwargs):
+    """Progress bar — hem context manager (int total) hem iterable wrapper.
+
+    * progress_bar(10, "test") -> context manager with advance(n)
+    * progress_bar([1,2,3], "test") -> iterable wrapper (orijinal)
+    """
+    if args and isinstance(args[0], int):
+        return _progress_bar_cm(*args, **kwargs)
+    # Orijinal iterable wrapper (line 631+)
+    return _progress_bar_iter(*args, **kwargs)
+
+
 # ── Status Bar ──────────────────────────────────────────────────────────
 
 class StatusBar:
@@ -626,9 +706,9 @@ def confirm(mesaj: str, varsayilan: bool = False, timeout: int = 0) -> bool:
         return varsayilan
 
 
-# ── Progress Bar ────────────────────────────────────────────────────────
+# ── Progress Bar (iterable wrapper, original API) ────────────────────────
 
-def progress_bar(iterable, aciklama: str = "Isleniyor", renk: str = "cyan") -> Any:
+def _progress_bar_iter(iterable, aciklama: str = "Isleniyor", renk: str = "cyan") -> Any:
     """Rich Progress bar ile iterasyon.
 
     Kullanim:

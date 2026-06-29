@@ -175,6 +175,129 @@ def durum_guncelle(
     return mevcut
 
 
+# ── Tamamlanan Modül Entegrasyonu ────────────────────────────────────────
+
+
+def _sync_tamamlanan_moduller(mevcut: dict) -> None:
+    """tamamlanan_moduller'i coverage_durumu.core_moduller'dan senkronize eder.
+
+    coverage_durumu.core_moduller TEK kaynaktır. tamamlanan_moduller
+    buradan türetilir. Böylece iki ayrı kaynak olmaz.
+    """
+    mevcut.setdefault("coverage_durumu", {})
+    mevcut["coverage_durumu"].setdefault("core_moduller", {})
+
+    yeni_moduller: Dict[str, dict] = {}
+    yeni_liste: List[str] = []
+
+    for modul_adi, bilgi in mevcut["coverage_durumu"]["core_moduller"].items():
+        if bilgi.get("tamamlandi"):
+            yeni_moduller[modul_adi] = {
+                "tamamlandi": True,
+                "tarih": datetime.now().strftime("%Y-%m-%d"),
+                "coverage": bilgi.get("simdi", ""),
+                "test_sayisi": bilgi.get("test_sayisi", 0),
+                "aciklama": bilgi.get("eksik_analizi", ""),
+            }
+            yeni_liste.append(modul_adi)
+
+    mevcut["tamamlanan_moduller"] = yeni_moduller
+    mevcut["coverage_durumu"]["tamamlanan_moduller"] = yeni_liste
+
+
+def modul_tamamla(
+    modul_adi: str,
+    coverage: str,
+    test_sayisi: int,
+    aciklama: str = "",
+):
+    """Bir modülü tamamlandı olarak durum.json'a kaydeder.
+
+    TEK kaynak coverage_durumu.core_moduller'dir. tamamlanan_moduller
+    otomatik senkronize edilir.
+
+    Args:
+        modul_adi: Modül adı (örn: "guardrails_manager")
+        coverage: Coverage yüzdesi (örn: "100.00%")
+        test_sayisi: Test sayısı
+        aciklama: Açıklama (opsiyonel)
+
+    Örnek:
+        modul_tamamla("guardrails_manager", "100.00%", 58,
+                       "sinir durumu + hata durumu kapsandi")
+    """
+    mevcut = durum_oku()
+    mevcut.setdefault("coverage_durumu", {})
+    mevcut["coverage_durumu"].setdefault("core_moduller", {})
+
+    simdi = bilgi = mevcut["coverage_durumu"]["core_moduller"].get(modul_adi, {})
+
+    # coverage_durumu.core_moduller TEK kaynak — tüm veriyi buraya yaz
+    mevcut["coverage_durumu"]["core_moduller"][modul_adi] = {
+        "once": simdi.get("once", ""),
+        "simdi": coverage,
+        "degisim": simdi.get("degisim", ""),
+        "durum": f"TAMAM ✅ (%{coverage.replace('%','')}+)",
+        "test_sayisi": test_sayisi,
+        "test_dosyalari": simdi.get("test_dosyalari", []),
+        "eksik_analizi": aciklama,
+        "kapsanan": simdi.get("kapsanan", ""),
+        "guncelleme": datetime.now().astimezone().isoformat(),
+        "tamamlandi": True,
+        "tamamlanma_tarihi": datetime.now().astimezone().isoformat(),
+    }
+
+    # tamamlanan_moduller'i coverage_durumu.core_moduller'dan senkronize et
+    _sync_tamamlanan_moduller(mevcut)
+
+    mevcut["son_guncelleme"] = datetime.now().astimezone().isoformat()
+    mevcut["guncelleyen_bot"] = "system"
+    durum_yaz(mevcut)
+
+
+def tamamlanan_moduller() -> List[str]:
+    """Tamamlanan modül adlarını döndürür.
+
+    Returns:
+        Modül adı listesi (örn: ["guardrails_manager", "oauth_manager"])
+    """
+    mevcut = durum_oku()
+    # ÖNCE coverage_durumu.core_moduller'dan senkronize et
+    _sync_tamamlanan_moduller(mevcut)
+    moduller = mevcut.get("tamamlanan_moduller", {})
+    return list(moduller.keys())
+
+
+def modul_tamamlandi_mi(modul_adi: str) -> bool:
+    """Bir modülün tamamlandı olarak işaretlenip işaretlenmediğini kontrol eder.
+
+    Args:
+        modul_adi: Modül adı
+
+    Returns:
+        True ise modül daha önce tamamlandı
+    """
+    return modul_adi in tamamlanan_moduller()
+
+
+def tamamlanmayanlar(tum_moduller: List[str]) -> List[str]:
+    """Verilen listeden tamamlanmış modülleri çıkarır.
+
+    Args:
+        tum_moduller: Kontrol edilecek modül adı listesi
+
+    Returns:
+        Sadece tamamlanmamış modüller
+
+    Örnek:
+        adaylar = ["guardrails_manager", "cost_tracker", "kanban"]
+        kalan = tamamlanmayanlar(adyalar)
+        # -> ["cost_tracker", "kanban"] (guardrails zaten tamam)
+    """
+    tamamlanan = set(tamamlanan_moduller())
+    return [m for m in tum_moduller if m not in tamamlanan]
+
+
 def durum_raporu() -> str:
     """İnsan tarafından okunabilir durum raporu üret.
 

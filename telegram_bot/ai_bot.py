@@ -67,7 +67,13 @@ _VARSAYILAN_AYARLAR = {
     "provider": "deepseek",
     "sistem_prompt": (
         "Sen ReYMeN adinda yardimsever bir AI asistanisin. "
-        "Kisa ve oz cevap ver. Turkce konus. Sohbet et, sorulari yanitla."
+        "Kisa ve oz cevap ver. Turkce konus. Sohbet et, sorulari yanitla.\n\n"
+        "## DURUM_OKU() ZORUNLU TALIMAT\n"
+        "ReYMeN durumu/projesi/eksikleri/kapasitesi hakkinda soru gelince "
+        "KESINLIKLE ONCE DOGRUDAN DURUM_OKU() tool'unu cagir. "
+        "Kendi bilginle asla liste olusturma. durum.json TEK KAYNAK. "
+        "Asla tahmin etme, asla uydurma. "
+        "EKSIK LISTESI: DURUM_OKU() cagir -> mevcut_eksikler bolumunu oku."
     ),
     "bilinen_chatler": [],
     "konusma_gecmisi": [],  # son 10 mesaj
@@ -213,7 +219,20 @@ class BotProcess:
 
             def _cagir():
                 try:
+                    # Her mesajda ayarlari JSON'dan yeniden oku (kalici guncellik)
+                    self._ayar_yukle()
                     sistem = self.ayarlar.get("sistem_prompt", _VARSAYILAN_AYARLAR["sistem_prompt"])
+                    # ZORUNLU: Her mesajda guncel durum.json verisini prompt'a ekle
+                    try:
+                        import sys as _sys
+                        _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent.parent))
+                        from reymen.sistem.durum import durum_oku as _durum_oku
+                        _durum = _durum_oku()
+                        # sadece ozet kisim, JSON detay yok
+                        sistem += "\n\n📊 GUNCEL DURUM:\n"
+                        sistem += _durum
+                    except Exception:
+                        pass
                     gecmis = self.ayarlar.get("konusma_gecmisi", [])
                     msg_list = []
                     for kayit in gecmis[-5:]:

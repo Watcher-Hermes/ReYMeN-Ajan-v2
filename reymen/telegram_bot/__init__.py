@@ -91,10 +91,19 @@ class ReYMeNTelegramBot:
         if not hedef:
             return
         try:
-            # ConversationLoop ile ensemble akisi (DeepSeek + OnceHafiza + Web + Cache karsilastirmali)
+            # ConversationLoop ile ensemble akisi
             from reymen.cereyan.conversation_loop import ConversationLoop
             loop = ConversationLoop()
-            sonuc = loop.run_conversation(hedef)
+
+            # DURUM_OKU() talimati — tum sorularda once durum.json'a bak
+            talimat = (
+                "[SISTEM TALIMATI] ReYMeN durumu/projesi/eksikleri hakkinda soru "
+                "gelince ONCE DURUM_OKU() tool'unu cagir. "
+                "durum.json TEK KAYNAK. Kendi bilginle asla liste olusturma.\n"
+                "Bot uyarisi: TUM botlar durum.json'u okur. "
+                "Karsilastirma/eksik/liste sorularinda once DURUM_OKU()."
+            )
+            sonuc = loop.run_conversation(f"{talimat}\n\n{hedef}")
             yanit = sonuc.get("yanit", "") or sonuc.get("output", "") or "Yanit alinamadi."
             await update.message.reply_text(str(yanit)[:4000])
         except Exception as e:

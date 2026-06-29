@@ -34,7 +34,17 @@ from typing import List, Dict, Any, Optional
 
 import fire
 from dotenv import load_dotenv
-from agent.tool_dispatch_helpers import make_tool_result_message
+try:
+    from agent.tool_dispatch_helpers import make_tool_result_message
+except ImportError:
+    def make_tool_result_message(tool_call_id: str, content: str, is_error: bool = False) -> dict:
+        """Fallback: create a minimal tool result message dict."""
+        return {
+            "type": "tool_result",
+            "tool_use_id": tool_call_id,
+            "content": content,
+            "is_error": is_error,
+        }
 
 # Load environment variables
 load_dotenv()

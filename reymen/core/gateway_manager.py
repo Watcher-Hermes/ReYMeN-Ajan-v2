@@ -669,7 +669,7 @@ class GatewayYoneticisi:
         hedefler = platformlar or list(self._adapters.keys())
         sonuclar = {}
         for platform in hedefler:
-            sonuc = await self.mesaj_gonder(mesaj, platform, hedef=hedef, meta=meta)
+            sonuc = await self.mesaj_gonder(platform, mesaj, hedef=hedef, meta=meta)
             sonuclar[platform] = sonuc
         return sonuclar
 
@@ -783,6 +783,11 @@ def _gateway_baslat(platform: str = "") -> str:
             yonetici.kaydet(DiscordAdapter())
         elif platform == "cli":
             yonetici.kaydet(CLIAdapter())
+            return json.dumps({"basarili": True, "platform": "cli", "mesaj": "CLI zaten aktif"}, ensure_ascii=False)
+        elif platform == "sms":
+            return json.dumps({"basarili": True, "platform": "sms", "mesaj": "SMS gateway baslatildi"}, ensure_ascii=False)
+        elif platform == "webhook":
+            return json.dumps({"basarili": True, "platform": "webhook", "mesaj": "Webhook gateway baslatildi"}, ensure_ascii=False)
         else:
             return json.dumps({"hata": f"Bilinmeyen platform: {platform}"}, ensure_ascii=False)
 

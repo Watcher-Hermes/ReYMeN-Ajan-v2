@@ -1,3 +1,21 @@
+
+> **Kategori:** skills
+
+---
+
+## 📋 5N1K
+
+| Soru | Cevap |
+|:-----|:------|
+| **Kim?** | Tüm ajanlar |
+| **Ne?** | Paths |
+| **Nerede?** | skills/ |
+| **Ne Zaman?** | İhtiyaç duyulduğunda |
+| **Neden?** | Otomatik kategorilendirme |
+| **Nasıl?** | Skill referansı ile |
+
+---
+
 # Skills Dizin Yapisi — Path Cleanup
 
 ## Merkezi Dizin

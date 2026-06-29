@@ -119,6 +119,20 @@ try:
     from reymen.cereyan.skill_activator import SkillActivator as _SkillActivator
     _SKILL_ACTIVATOR = _SkillActivator()
     _SKILL_ACTIVATOR_AKTIF = True
+    # Startup'ta tum skill'leri aktif et
+    # Continuous Learning
+    try:
+        from reymen.cereyan.continuous_learning import session_baslat as _cl_baslat
+        from reymen.cereyan.continuous_learning import ogrenme_baglani_al as _cl_baglam
+        _CL_AKTIF = True
+    except ImportError:
+        _CL_AKTIF = False
+    # Startup'ta tum skill'leri aktif et
+    try:
+        aktif_sayisi = _SKILL_ACTIVATOR.tumunu_aktif_et()
+        log.info("[Baslangic] %d skill basariyla aktif edildi", aktif_sayisi)
+    except Exception as e:
+        log.warning("[Baslangic] Skill toplu aktivasyon basarisiz: %s", e)
 except ImportError:
     _SKILL_ACTIVATOR = None
     _SKILL_ACTIVATOR_AKTIF = False
@@ -483,6 +497,12 @@ class ConversationLoop:
         '''
         # -- 1. task_id + session + budget -----------------------------
         task_id = str(uuid.uuid4())[:8]
+        # Continuous Learning: session baslat
+        try:
+            if _CL_AKTIF:
+                _cl_baslat(task_id)
+        except Exception:
+            pass
         log.info("[%s] run_conversation basladi: %.60s", task_id, hedef)
 
         baslama = time.time()
@@ -1465,6 +1485,31 @@ class ConversationLoop:
                         logger.warning("[ConversationLoop] except Exception (L907): %s", Exception)
                         pass
                 ek_bilgi = json.dumps(baglam, ensure_ascii=False) if baglam else ""
+                # Skill context + Continuous learning baglami
+                try:
+                    if _CL_AKTIF:
+                        cl_ctx = _cl_baglam()
+                        if cl_ctx:
+                            ek_bilgi += "\n\n" + cl_ctx
+                except Exception:
+                    pass
+                # Skill context'ini ek_bilgi'ye ekle
+                try:
+                    from reymen.cereyan.active_skill_tracker import aktif_skill_context_ekle
+                    skill_ctx = aktif_skill_context_ekle()
+                    if skill_ctx:
+                        ek_bilgi += "\n\n" + skill_ctx
+                except Exception:
+                    pass
+                # ZORUNLU: Her mesajda guncel durum.json verisini ekle
+                try:
+                    from reymen.sistem.durum import durum_oku
+                    durum = durum_oku()
+                    # Baslik ve tarih kismini ekle, detay atla
+                    ek_bilgi += "\n\n📊 GUNCEL DURUM (durum.json):\n"
+                    ek_bilgi += durum
+                except Exception:
+                    pass
                 return pb.sistem_prompt(hedef=hedef, ek_bilgi=ek_bilgi)
             except Exception as e:
                 log.warning("PromptBuilder hatasi: %s", e)
@@ -1473,6 +1518,15 @@ class ConversationLoop:
         try:
             from reymen.cereyan.active_skill_tracker import aktif_skill_context_ekle
             skill_context = aktif_skill_context_ekle()
+            # Continuous learning context ekle
+            try:
+                if _CL_AKTIF:
+                    from reymen.cereyan.continuous_learning import ogrenme_baglani_al
+                    cl_ctx = ogrenme_baglani_al()
+                    if cl_ctx:
+                        skill_context += "\n\n" + cl_ctx
+            except Exception:
+                pass
         except Exception:
             skill_context = ""
 

@@ -6,6 +6,7 @@ import os
 import sys
 from pathlib import Path
 
+from . import conftest_shim  # noqa: F401
 import pytest
 
 # Proje kokunu Python path'e ekle

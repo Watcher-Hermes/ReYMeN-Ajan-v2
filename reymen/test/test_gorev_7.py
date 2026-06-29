@@ -25,7 +25,7 @@ print(f"2. platform_adapter: OK - kind={info.kind}, host_os={info.host_os}")
 from reymen.self_improve import QualityMetric, record_step, report, evaluate
 record_step(QualityMetric(success=True, errors=0, retries=0, duration=1.0))
 r = report()
-print(f"3. self_improve: OK - avg_score={r['avg_score']}, pass_rate={r['pass_rate']}")
+print(f"3. self_improve: OK - ortalama_skor={r['ortalama_skor']}, gecme_orani={r['gecme_orani']}")
 
 # 4. video_tools
 from reymen.video_tools import check_available, VideoToolError
@@ -46,7 +46,7 @@ from reymen.kanban import Board, Card, Priority
 board = Board()
 card = Card(title="test", priority=Priority.HIGH)
 board.add(card, "todo")
-board.move(card.id, "doing")
+board.move(card.id, "in_progress")
 print(f"6. kanban: OK - kart sayisi={len(board.all_cards())}")
 
 # 7. tui

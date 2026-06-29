@@ -27,6 +27,12 @@ _PING_TIMEOUT_SN: int = 5            # Ping zaman aşımı
 _LOCAL_PROVIDERS: frozenset = frozenset({
     "lmstudio", "lmstudio_reasoning", "ollama",
 })
+# LiteLLM destegi — tum litellm provider'lari remote kabul et
+_LITELLM_PROVIDERLER: frozenset = frozenset({
+    "openai", "anthropic", "gemini", "deepseek", "groq",
+    "together", "fireworks", "replicate", "perplexity",
+    "cohere", "mistral", "xai", "bedrock", "azure",
+})
 _KARMA_PROVIDERS: frozenset = frozenset({
     "groq", "moonshot", "gemini",
 })

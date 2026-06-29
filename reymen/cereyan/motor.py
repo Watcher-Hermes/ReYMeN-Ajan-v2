@@ -220,6 +220,15 @@ def _gateway_durum_yaz(state: str = "running", hata: str = "") -> None:
         pass
 
 
+
+# LiteLLM provider (100+ provider destegi)
+try:
+    from reymen.ag.litellm_provider import litellm_calisitir as _litellm_calisitir
+    from reymen.ag.litellm_provider import litellm_durum as _litellm_durum
+    _LITELLM_MEVCUT = True
+except ImportError:
+    _LITELLM_MEVCUT = False
+
 class Motor:
     def __init__(self, backend_mode: str = "local", hafiza_collection: Any = None, config: Optional[dict] = None) -> None:
         self.terminal = TerminalBackendDispatcher(mode=backend_mode) if TerminalBackendDispatcher else None
@@ -361,6 +370,7 @@ class Motor:
             # tools.context_tool
             "tools.context_tool",
             # tools.memory_providers
+from reymen.sistem.webhook import kaydet as webhook_kaydet, calistir as webhook_calistir
             "tools.memory_providers",
             # tools.clarify_tool ve tools.todo_tool
             "tools.clarify_tool", "tools.todo_tool",
@@ -420,8 +430,14 @@ class Motor:
             "reymen.cereyan.skill_library",
             # Skill Activator (sorgudan otomatik aktivasyon)
             "reymen.cereyan.skill_activator",
+            # Skill Aktivasyonu (6868 skill hazir)
+            "reymen.sistem.skill_aktive_et",
+            # Surekli Ogrenme (Continuous Learning)
+            "reymen.sistem.surekli_ogrenme",
             # Skill cron sync (FTS5 index cron kaydi)
             "reymen.cereyan.cron_skill_sync",
+            # Merkezi Durum (durum.json okuyucu — herkes kullanir)
+            "reymen.sistem.durum",
             # Active skill tracker (LLM context enjeksiyonu)
             "reymen.cereyan.active_skill_tracker",
             # Personality (kisilik sistemi)
@@ -467,6 +483,77 @@ class Motor:
             "reymen.core.model_provider",
             # YAML Config Manager (P0) — profile, env override
             "reymen.core.config_manager",
+            # Analitik/Kalite sistemi (P2) — metrik toplama, dashboard
+            "reymen.sistem.analitik",
+            # Hot-Reload sistemi — runtime modul izleme
+            "reymen.sistem.hot_reload",
+            # Kanban Board sistemi — is takibi + worker
+            "reymen.kanban",
+            # Schema Manager — SQLite tablo + versiyon
+            "reymen.core.schema_manager",
+            # TTS Tool (P1) — edge-tts ile metin seslendirme
+            "reymen.sistem.tts_tool_text",
+            # STT Tool (P1) — faster-whisper ile ses tanima
+            "reymen.sistem.stt_tool",
+            # Video Generation Engine (P3) — moviepy + FAL + HyperFrames
+            "reymen.arac.video_gen_engine",
+
+
+            # Plugin Marketplacesi — katalog + uzaktan yukleme
+            "reymen.sistem.marketplace",
+            # TTS/STT araclari — metin->ses, ses->metin
+                        "reymen.ag.acp_server",
+            "reymen.ag.delegation",
+            "reymen.ag.mcp_oauth",
+            "reymen.ag.telegram_bot",
+            "reymen.arac.araclar_ekran",
+            "reymen.arac.araclar_gelismis",
+            "reymen.arac.araclar_goruntu",
+            "reymen.arac.araclar_makro",
+            "reymen.arac.araclar_ses",
+            "reymen.arac.araclar_tarayici",
+            "reymen.arac.araclar_video",
+            "reymen.arac.araclar_web",
+            "reymen.arac.batch_engine",
+            "reymen.arac.cua_motor_araci",
+            "reymen.arac.feishu_doc_tool",
+            "reymen.arac.firecrawl_tool",
+            "reymen.arac.homeassistant_tool",
+            "reymen.arac.kanban_orchestrator",
+            "reymen.arac.mcp_client_tool",
+            "reymen.arac.mcp_tool",
+            "reymen.arac.native_mcp_client",
+            "reymen.arac.web_search_tool",
+            "reymen.arac.x_search_tool",
+            "reymen.arac.yuanbao_tools",
+            "reymen.cereyan.closed_learning_loop",
+            "reymen.cereyan.dinamik_arac_uretici",
+            "reymen.cereyan.hata_cozucu",
+            "reymen.core.backup_manager",
+            "reymen.core.delegation_manager",
+            "reymen.core.guardrails_manager",
+            "reymen.core.oauth_manager",
+            "reymen.core.vector_memory",
+            "reymen.guvenlik.message_sanitization",
+            "reymen.hafiza.context_references",
+            "reymen.hafiza.hafiza_genislet",
+            "reymen.sistem.batch_runner",
+            "reymen.sistem.benchmark_tools",
+            "reymen.sistem.persistence",
+            "reymen.sistem.rate_limiter",
+            "reymen.sistem.sistem_sinyalleri",
+            "reymen.sistem.plugins.browser_provider",
+            "reymen.sistem.plugins.delegation_provider",
+            "reymen.sistem.plugins.guardrails_provider",
+            "reymen.sistem.plugins.image_gen_provider",
+            "reymen.sistem.plugins.mcp_provider",
+            "reymen.sistem.plugins.web_search_provider",
+            "reymen.mcp",
+            "reymen.mcp.mcp_discovery",
+            "reymen.mcp.mcp_reconnect",
+            "reymen.mcp.mcp_tool",
+            "reymen.web_ui",
+            "reymen.windows.tor_otomasyonu",
         ]
         _yukleme_hatalari = []
         for mod_adi in moduller:
@@ -926,6 +1013,12 @@ class Motor:
             "HAFIZA_ARA", "PARALLEL_CALISTIR", "SKILL_ARA", "SKILL_AKTIVAT",
             "SKILL_KATEGORILER", "SKILL_SCRIPT", "ARAC_URET", "GUVENLI_CALISTIR",
             "PROFIL_DEGISTIR", "PROFIL_LISTELE", "DURUM_OKU", "DURUM_RAPOR",
+            "ANALITIK_KAYDET", "ANALITIK_RAPOR", "ANALITIK_PANEL",
+            "PROVIDER_KESFET",
+            "HOT_RELOAD_BASLAT", "HOT_RELOAD_DURDUR", "HOT_RELOAD_DURUM",
+            "PLUGIN_MARKET_LISTE", "PLUGIN_MARKET_ARAMA",
+            "PLUGIN_MARKET_YUKLE", "PLUGIN_MARKET_BILGI",
+            "TTS_KONUS", "TTS_SES_LISTE", "STT_DINLE",
         }
         for satir in llm_cikti.splitlines():
             satir_s = satir.strip()
@@ -2213,6 +2306,8 @@ class Motor:
             from reymen.core.ogrenme import istatistik
             return istatistik()
         except ImportError:
+            pass
+
             return {"hata": "ogrenme modulu yok"}
 
     def gorev_coz(self, gorev_yolu: str) -> dict:

@@ -10,7 +10,19 @@ import subprocess
 import time
 import shlex
 from datetime import datetime
-from tools.environments.wsl import WSLEnvironment
+
+try:
+    from tools.environments.wsl import WSLEnvironment
+except ImportError:
+    class WSLEnvironment:
+        """Stub — WSLEnvironment not available."""
+        def __init__(self, dagitim=None):
+            self.dagitim = dagitim
+        def execute(self, komut, timeout=None):
+            return {"basarili": False, "hata": "WSL not available", "donus_kodu": -1}
+        @staticmethod
+        def detect() -> bool:
+            return False
 
 
 class TerminalBackend:
