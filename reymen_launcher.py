@@ -24,11 +24,16 @@ if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
         sys.stderr.reconfigure(encoding="utf-8", errors="replace")
     except Exception:
-        logger.warning("[reymen_launcher] Exception (detaysiz)")
+        pass
 
 _KOK = Path(__file__).parent.resolve()
 os.chdir(_KOK)
 sys.path.insert(0, str(_KOK))
+
+# Hermes agent path — banner import icin
+_HERMES_AGENT = Path(os.environ.get("LOCALAPPDATA", "")) / "hermes" / "hermes-agent"
+if _HERMES_AGENT.exists():
+    sys.path.insert(0, str(_HERMES_AGENT))
 
 _HERMES_HOME  = Path(os.environ.get("LOCALAPPDATA", "")) / "hermes"
 _PROFILE_CFG  = _HERMES_HOME / "profiles" / "reymen" / "config.yaml"
@@ -39,7 +44,7 @@ try:
     load_dotenv(_HERMES_HOME / ".env", override=True)
     load_dotenv(_HERMES_HOME / "profiles" / "reymen" / ".env", override=True)
 except Exception:
-    logger.warning("[reymen_launcher] Exception (detaysiz)")
+    pass
 
 # ── Renkler ────────────────────────────────────────────────────────────────────
 _R   = "\033[0m"
@@ -50,9 +55,8 @@ _B   = "\033[94m"   # blue
 _M   = "\033[95m"   # magenta
 _W   = "\033[97m"   # white
 _D   = "\033[2m"    # dim
-_RED = "\033[91m"   # kırmızı
+_RED = "\033[91m"   # kirmizi
 
-# ── Renk yardimcıları ─────────────────────────────────────────────────────────
 def _c(t):   return f"{_C}{t}{_R}"
 def _g(t):   return f"{_G}{t}{_R}"
 def _y(t):   return f"{_Y}{t}{_R}"
@@ -75,27 +79,7 @@ _REYMEN_CONFIG = {
     "frequency_penalty": 0.8,
 }
 
-# ── Versiyon ────────────────────────────────────────────────────────────────────
-_REYMEN_VERSION = "v0.1.0"
-_REYMEN_DATE   = "2026.6.29"
-
-# ── Ekran ──────────────────────────────────────────────────────────────────────
-def _ekran():
-    """Ekrani temizle + logo bas."""
-    os.system("cls" if os.name == "nt" else "clear")
-    banner = r"""
-  ██████  ███████  ██    ██ ███    ███ ███████ ███    ██
-  ██   ██ ██        ██  ██  ████  ████ ██      ████   ██
-  ██████  █████      ████   ██ ████ ██ █████   ██ ██  ██
-  ██   ██ ██          ██    ██  ██  ██ ██      ██  ██ ██
-  ██   ██ ███████     ██    ██      ██ ███████ ██   ████
-    """
-    print(f"{_C}{banner}{_R}")
-    print(f"  {_gb('ReYMeN Otonom Ajan')}  {_d(_REYMEN_VERSION)}  ({_REYMEN_DATE})")
-    print(f"  {_d('─'*56)}")
-    print()
-
-# ── Model yardımcıları ─────────────────────────────────────────────────────────
+# ── Model yardimcilari ─────────────────────────────────────────────────────────
 _MODEL_DB = {
     "deepseek": {
         "ad": "DeepSeek",
@@ -202,84 +186,43 @@ def _api_kontrol(yenile=False):
     _API_CACHE.update(sonuclar)
     return sonuclar
 
-# ── Skill sayaci ───────────────────────────────────────────────────────────────
-def _skill_sayisi():
-    skill_dir = _KOK / "reymen" / "cereyan" / "skills"
-    if not skill_dir.exists():
-        return 0
-    return len([f for f in skill_dir.rglob("*") if f.is_file() and f.suffix in (".md", ".yaml", ".yml")])
+# ── Hermes-style welcome banner ────────────────────────────────────────────────
+def _hermes_welcome(model: str, session_id: str = ""):
+    """Hermes'in build_welcome_banner fonksiyonunu cagirir (birebir ayni goruntu)."""
+    try:
+        from hermes_cli.banner import build_welcome_banner
+        from rich.console import Console
+        console = Console()
+        build_welcome_banner(
+            console=console,
+            model=model,
+            cwd=str(_KOK),
+            tools=[],
+            enabled_toolsets=[],
+            session_id=session_id,
+            context_length=65536,
+        )
+    except Exception:
+        # Fallback: basit acilis
+        os.system("cls" if os.name == "nt" else "clear")
+        print(f"\n  {_b('ReYMeN Agent')}  {_d('v0.1.0')}")
+        print(f"  {_d('─'*50)}")
+        print(f"  {_d('Model:')} {model}  {_d('Session:')} {session_id}")
+        print(f"  {_d('─'*50)}\n")
 
-def _mem_kayit():
-    """Memory kayit sayisini kabaca tahmin et."""
-    mem_file = _KOK / ".ReYMeN" / "MEMORY.md"
-    if not mem_file.exists():
-        return 0
-    return sum(1 for _ in open(mem_file, encoding="utf-8") if _.strip() and not _.startswith("#"))
-
-# ── İstatistik paneli ──────────────────────────────────────────────────────────
-def _istatistik_paneli():
-    """Hermes-style istatistik satırı: tool · skill · memory · session"""
-    import uuid as _uid
-    skill_n = _skill_sayisi()
-    mem_n = _mem_kayit()
-    tool_n = 8  # sabit: motor tool'ları
-    session = _uid.uuid4().hex[:8]
-    print(f"  {_d('─'*56)}")
-    print(f"  {_c('●')} {_b('tool')} {_d(str(tool_n))}  {_c('●')} {_b('skill')} {_d(str(skill_n))}  {_c('●')} {_b('memory')} {_d(str(mem_n))}  {_c('●')} {_b('session')} {_d(session)}")
-    print(f"  {_d('─'*56)}")
-    print()
-
-# ── Model secim ekrani ─────────────────────────────────────────────────────────
-def _model_sec(api_sonuc=None, force=False):
-    """Etkilesimli model secim ekrani. force=True => her acilista secim."""
+# ── Model secim ekrani (Hermes tarzi basit liste) ──────────────────────────────
+def _model_sec(api_sonuc=None):
+    """Etkilesimli model secim ekrani."""
     cur_m, cur_p = _mevcut_model()
-    W = 56
-    _istatistik_paneli()
-    print(f"  {_c('┌' + '─'*W + '┐')}")
-    print(f"  {_c('│')}  {_gb('Model Seçimi')}{' '*(W-17)}{_c('│')}")
-    print(f"  {_c('├' + '─'*W + '┤')}")
+    print(f"\n  {_gb('ReYMeN — Model Seçimi')}")
+    print(f"  {_d('─'*50)}")
     if api_sonuc:
         for ad, durum in api_sonuc.items():
             ikon = _g("✓") if durum is True else (_r("✗") if durum == "401" else _y("?"))
-            print(f"  {_c('│')}  {ikon} {_b(ad):<16} {_d(str(durum))}{' '*(W-22-len(str(durum)))}{_c('│')}")
-    else:
-        print(f"  {_c('│')}  {_d('API kontrol ediliyor...')}{' '*(W-27)}{_c('│')}")
-    if cur_p:
-        print(f"  {_c('├' + '─'*W + '┤')}")
-        print(f"  {_c('│')}  {_g('✓')} {_b(cur_m)} {_d('— aktif')}{' '*(W-18-len(cur_m))}{_c('│')}")
-        print(f"  {_c('└' + '─'*W + '┘')}")
-    else:
-        print(f"  {_c('└' + '─'*W + '┘')}")
+            print(f"  {ikon} {_b(ad):<16} {_d(str(durum))}")
+    print(f"  {_d('─'*50)}")
+    print(f"  {_d('Aktif:')} {_g(cur_m)}")
     print()
-    print(f"  {_d('Komut: /model değiştir  /temizle ekran  /cik çıkış')}")
-    print()
-
-# ── Tablo duzeltme ─────────────────────────────────────────────────────────────
-def _tablo_duzelt(metin: str) -> str:
-    """Markdown tablosunu duzgun hizala."""
-    satirlar = metin.split("\n")
-    yeni = []
-    for s in satirlar:
-        if "|" in s and s.count("|") >= 2:
-            cols = [c.strip() for c in s.split("|")]
-            yeni.append(" | ".join(cols))
-        else:
-            yeni.append(s)
-    return "\n".join(yeni)
-
-# ── Cevap kutusu ──────────────────────────────────────────────────────────────
-def _kutu(metin: str, kaynak: str = ""):
-    """Cevap kutusu — duzgun cerceve, kaynak bilgisi yok."""
-    metin = _tablo_duzelt(metin)
-    W = 56
-    print(f"\n  {_c('┌' + '─'*W + '┐')}")
-    for satir in metin.strip().split("\n"):
-        # wrap long lines
-        while len(satir) > W:
-            print(f"  {_c('│')} {satir[:W]}{' '*(W-len(satir[:W]))} {_c('│')}")
-            satir = satir[W:]
-        print(f"  {_c('│')} {satir:<{W}} {_c('│')}")
-    print(f"  {_c('└' + '─'*W + '┘')}", flush=True)
 
 # ── Spinner ───────────────────────────────────────────────────────────────────
 def _spinner(stop_evt):
@@ -291,13 +234,12 @@ def _spinner(stop_evt):
         time.sleep(0.12)
     print(f"\r{' '*30}\r", end="", flush=True)
 
-# ── ReYMeN çağrısı ────────────────────────────────────────────────────────────
+# ── ReYMeN cagrisi ────────────────────────────────────────────────────────────
 _HERMES = shutil.which("hermes") or shutil.which("hermes") or "hermes"
 _ilk_tur = True
 
-# ── SOUL.md oku (Telegram bot ile ayni system prompt) ────────────────────────
+# ── SOUL.md oku ───────────────────────────────────────────────────────────────
 def _sistem_prompu_al() -> str:
-    """Telegram bot ile aynı system prompt'u üret: SOUL.md + DURUM_OKU."""
     try:
         soul_path = Path(__file__).parent / "reymen" / "arac" / ".ReYMeN" / "SOUL.md"
         if soul_path.exists():
@@ -306,7 +248,6 @@ def _sistem_prompu_al() -> str:
             soul = ""
     except Exception:
         soul = ""
-
     return (
         "Sen ReYMeN adinda yardimsever bir AI asistanisin. "
         "Kisa ve oz cevap ver. Turkce konus.\\n\\n"
@@ -320,9 +261,7 @@ def _sistem_prompu_al() -> str:
 
 
 def _sor(soru: str) -> tuple[str, str]:
-    """ReYMeN'e soru sor — Telegram bot ile AYNI full pipeline.
-    Returns: (yanit, kaynak)
-    """
+    """ReYMeN'e soru sor — Telegram bot ile AYNI full pipeline."""
     global _ilk_tur
     _ilk_tur = False
 
@@ -331,26 +270,18 @@ def _sor(soru: str) -> tuple[str, str]:
     t.start()
 
     try:
-        # ── 1. GERCEK Beyin (Telegram bot ile ayni) ──────────────
         from reymen.cereyan.beyin import Beyin
         from reymen.cereyan.motor import Motor
         from reymen.cereyan.conversation_loop import ConversationLoop
 
-        # Beyin'i Telegram bot ile ayni config ile baslat
         beyin = Beyin(config=_REYMEN_CONFIG)
-
-        # Motor'u tool'lar ile baslat
         motor = Motor()
         motor._plugin_moduller_yukle()
-
-        # ConversationLoop — Telegram bot ile birebir ayni
         cl = ConversationLoop(
             motor=motor,
             beyin=beyin,
             max_tur=15,
         )
-
-        # Telegram bot ile ayni: run_conversation
         sonuc = cl.run_conversation(
             hedef=soru,
             provider="deepseek",
@@ -371,7 +302,7 @@ def _sor(soru: str) -> tuple[str, str]:
 
 
 def _sor_direkt_api(soru: str) -> tuple[str, str]:
-    """Fallback: gercek Beyin ile direkt API cagrisi."""
+    """Fallback: direkt API cagrisi."""
     try:
         from reymen.cereyan.beyin import Beyin as _Beyin
         _b = _Beyin(config=_REYMEN_CONFIG)
@@ -388,17 +319,15 @@ _YARDIM = f"""
   {_c('/yardim')}        Bu menüyü göster
   {_c('/model')}         Model değiştir
   {_c('/temizle')}       Ekranı temizle
-  {_c('/skill')} {_d('<ara>')}  Skill ara
   {_c('/cik')}           Çıkış
 
   {_d('Herhangi bir metin yaz → ReYMeN cevaplar.')}
 """
 
 # ── Ana REPL ──────────────────────────────────────────────────────────────────
-def _repl():
+def _repl(session_id=""):
     cur_m, cur_p = _mevcut_model()
-    print(f"  {_d('ReYMeN hazır. Komut ver.')}")
-    print(f"  {_d(f'Model: {cur_m} · /yardım /model /temizle /cik')}")
+    print(f"  {_gb('ReYMeN')} hazır. /yardim /model /temizle /cik")
     print()
 
     while True:
@@ -418,71 +347,60 @@ def _repl():
             print(_YARDIM)
             continue
         if girdi.lower() in ("/temizle", "/cls", "/clear"):
-            _ekran()
-            _repl()
-            return
+            _hermes_welcome(cur_m, session_id)
+            continue
         if girdi.lower().startswith("/model"):
             _model_sec()
-            continue
-        if girdi.lower().startswith("/skill "):
-            ara = girdi[7:].strip()
-            t0 = time.time()
-            cevap, kaynak = _sor(f"skill ara: {ara}")
-            dt = time.time() - t0
-            _kutu(cevap, kaynak)
-            print(f"  {_d(f'{dt:.1f}s · skill: {ara}')}")
             continue
 
         t0 = time.time()
         cevap, kaynak = _sor(girdi)
         dt = time.time() - t0
-        _kutu(cevap, kaynak)
-        # status line — Hermes tarzi
+        # Hermes tarzi cevap
+        print(f"\n  {'─'*50}")
+        print(f"  {cevap}")
+        print(f"  {'─'*50}")
         t_in = len(girdi.split())
         t_out = len(cevap.split())
         print(f"  {_d(f'{dt:.1f}s · token yaklaşık: giriş={t_in*2} çıkış={t_out*2}')}")
 
 # ── Giriş noktası ────────────────────────────────────────────────────────────
 def main():
-    # Açılış: banner + istatistik
-    _ekran()
-    _istatistik_paneli()
+    import uuid as _uid
+    session_id = _uid.uuid4().hex[:8]
 
-    skill_n = _skill_sayisi()
-    mem_n = _mem_kayit()
+    # 1. Model sec
+    cur_m, cur_p = _mevcut_model()
 
-    # Skill ve memory boşsa → model seçimini atla, direkt deepseek
-    if skill_n == 0 and mem_n == 0:
-        _model_guncelle("deepseek", "deepseek-v4-flash")
-        print(f"  {_d('İlk kurulum — deepseek-v4-flash varsayılan.')}\n")
-        _repl()
-        return
+    # API kontrol
+    _api_sonuc = _api_kontrol(yenile=True)
+    durum = _api_sonuc.get(cur_p)
+    if durum is not True:
+        # Model secim goster
+        _model_sec(_api_sonuc)
+        # 5 saniye bekle, sonra varsayilanla devam et
+        print(f"  {_d('Varsayılan model ile devam ediliyor...')}\n")
+        time.sleep(2)
 
-    while True:
-        # 1. API durumu kontrol et
-        _api_sonuc = _api_kontrol(yenile=True)
+    # 2. HERMES ILE AYNI WELCOME BANNER
+    _hermes_welcome(cur_m, session_id)
 
-        # 2. Model seçimini göster
-        _model_sec(_api_sonuc, force=True)
-        cur_m, cur_p = _mevcut_model()
+    # 3. Welcome mesaji
+    try:
+        from hermes_cli.skin_engine import get_active_skin
+        _skin = get_active_skin()
+        _welcome_text = _skin.get_branding("welcome", "Welcome to ReYMeN Agent! Type your message or /help for commands.")
+        _welcome_color = _skin.get_color("banner_text", "#FFF8DC")
+    except Exception:
+        _welcome_text = "Welcome to ReYMeN Agent! Type your message or /help for commands."
+        _welcome_color = "#FFF8DC"
 
-        durum = _api_sonuc.get(cur_p)
-        if durum is True:
-            break  # API key geçerli, devam
+    from rich.console import Console
+    Console().print(f"[{_welcome_color}]{_welcome_text}[/]")
+    print()
 
-        # 3. Hata durumunda uyarı
-        if durum == "401":
-            print(f"  {_r('401')} {_b(cur_p)}: API anahtarı geçersiz veya eksik.")
-        elif durum == "402":
-            print(f"  {_r('402')} {_b(cur_p)}: Kredi yetersiz.")
-        elif durum is False:
-            print(f"  {_r('✗')} {_b(cur_p)}: API hatası.")
-        else:
-            print(f"  {_y('?')} {_b(cur_p)}: API kontrol edilemedi (zaman aşımı).")
-        print(f"  {_d('Başka bir model seçin veya tekrar deneyin.')}\n")
-
-    print(f"  {_g('✓')} {_b('Model aktif, REPL başlatılıyor...')}\n")
-    _repl()
+    # 4. REPL
+    _repl(session_id)
 
 if __name__ == "__main__":
     main()
