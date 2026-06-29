@@ -344,6 +344,8 @@ class Motor:
             "acp_server",
             # A2A (Agent-to-Agent messaging)
             "reymen.a2a_integration",
+            # A2A Transport (HTTP/WS ag mesajlasmasi)
+            "reymen.a2a_transport",
             # TUI (Terminal UI - prompt_toolkit tabanli)
             "reymen.tui",
             # Web UI (FastAPI + HTMX yonetim paneli)
