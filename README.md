@@ -1,3 +1,24 @@
+[![CI](https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2/actions/workflows/ci.yml)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
+[![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
+---
+
+## ??? Topluluk / Community
+
+| Kanal | Link |
+|-------|------|
+| GitHub Issues | [Hata bildir / Oneri yap](https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2/issues/new/choose) |
+| Telegram | @Pasa_38 ile iletisim |
+| Katki | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Kod Davranisi | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
+| Guvenlik | [SECURITY.md](SECURITY.md) |
+| Lisans | MIT - [LICENSE](LICENSE) |
+
+---
+
 # 🤖 ReYMeN — Otonom Görev Çözücü
 
 **Türkçe yapay zeka asistanı.** Çoklu-provider LLM katmanı, araç çağrı motoru, kapalı öğrenme döngüsü ve A2A mesajlaşma ile kendi kendini geliştiren otonom bir sistem.
@@ -250,3 +271,5 @@ Pull request'ler açıktır. Büyük değişikliklerden önce lütfen issue aç�
 pip install -r requirements-dev.txt
 pre-commit install
 ```
+/bin/bash: line 5: C:/Users/marko/AppData/Local/hermes/profiles/kiral38/cache/terminal/hermes-snap-bbb638e85925.sh: No such file or directory
+/bin/bash: line 6: C:/Users/marko/AppData/Local/hermes/profiles/kiral38/cache/terminal/hermes-cwd-bbb638e85925.txt: No such file or directory

@@ -1,50 +1,176 @@
 {
-  "proje": "ReYMeN-Ajan",
-  "son_guncelleme": "2026-06-29T09:01:00+03:00",
-  "guncelleyen_bot": "ReYMeN_Hermes",
-  "toplam_ozellik": 17,
-  "tamam": 17,
-  "isleniyor": 0,
-  "son_commit": "44de838a ✨ Tamamen Eksik (10) — Hepsi tamam",
-  "bot_uyari": "TUM botlar bu dosyayi okur. TEK kaynak burasi.",
-  "onceki_eksikler": {
-    "toplam": 7,
-    "tamam": 7,
-    "commit": "6b3382cb",
-    "maddeler": {
-      "1_MCP_Client": {"durum": "tamam", "detay": "auto-discovery + reconnect + auto-start + test", "commit": "6b3382cb"},
-      "2_Plugin_Sistemi": {"durum": "tamam", "detay": "hot-reload CLI + ProviderPluginBase aktif", "commit": "6b3382cb"},
-      "3_Skills": {"durum": "tamam", "detay": "CLI fix + auto-activation + path temizligi 5972 skill", "commit": "6b3382cb"},
-      "4_Web_Search": {"durum": "tamam", "detay": "7 engine (DDG/Google/Bing/Firecrawl/Brave/SearXNG/Exa)", "commit": "6b3382cb"},
-      "5_Image_Gen": {"durum": "tamam", "detay": "FAL + OpenAI + xAI real API + /api/hermes/media/ JSON", "commit": "6b3382cb"},
-      "6_Browser": {"durum": "tamam", "detay": "Playwright MCP calisiyor + config + browser-use", "commit": "6b3382cb"},
-      "7_Security": {"durum": "tamam", "detay": "Network restriction (WFA/iptables/Docker) + sandbox", "commit": "6b3382cb"}
+  "1_MCP_Client": {
+    "durum": "tamam",
+    "detay": "auto-discovery + reconnect + auto-start + test"
+  },
+  "2_Plugin_Sistemi": {
+    "durum": "tamam",
+    "detay": "hot-reload CLI + ProviderPluginBase"
+  },
+  "3_Skills": {
+    "durum": "tamam",
+    "detay": "CLI fix + auto-activation + path temizligi"
+  },
+  "4_Web_Search": {
+    "durum": "tamam",
+    "detay": "7 engine (DDG/Google/Bing/Firecrawl/Brave/SearXNG/Exa)"
+  },
+  "5_Image_Gen": {
+    "durum": "tamam",
+    "detay": "FAL + OpenAI + xAI + /api/hermes/media/"
+  },
+  "6_Browser": {
+    "durum": "tamam",
+    "detay": "Playwright MCP + config + browser-use"
+  },
+  "7_Security": {
+    "durum": "tamam",
+    "detay": "Network restriction + Docker sandbox"
+  },
+  "8_Hot_Reload": {
+    "durum": "tamam",
+    "detay": "watchdog + polling fallback + 4 motor araci"
+  },
+  "hermes_karsilastirma": {
+    "toplam_ozellik": 22,
+    "tamam": 21,
+    "eksik": 1,
+    "aciklama": "Hermes Agent ile ReYMeN arasinda feature-level karsilastirma. Sadece Open Source Community (diger gelistiriciler) kodla cozulemez.",
+    "detaylar": {
+      "multi_platform_gateway": {
+        "durum": "tamam",
+        "not": "Bilerek sadece Telegram — diger platformlara ihtiyac yok",
+        "hermes": "15+ platform",
+        "reymen": "Telegram"
+      },
+      "plugin_sistemi": {
+        "durum": "tamam",
+        "not": "PluginManager + 7 plugin + hot-reload + CLI",
+        "hermes": "plugins komutlari",
+        "reymen": "PluginYoneticisi + PluginYukleyici"
+      },
+      "mcp_server_host": {
+        "durum": "tamam",
+        "not": "Stdio + HTTP/SSE, tools/list/call, resources, prompts",
+        "hermes": "MCP host",
+        "reymen": "mcp_server.py (864s)"
+      },
+      "credential_pooling": {
+        "durum": "tamam",
+        "not": "Kimlik havuzu, rotate destegi",
+        "hermes": "credential pool",
+        "reymen": "credential_pool.py"
+      },
+      "checkpoint_rollback": {
+        "durum": "tamam",
+        "not": "Dosya sistemi snapshot",
+        "hermes": "checkpoint sistemi",
+        "reymen": "checkpoint_manager.py"
+      },
+      "context_compression": {
+        "durum": "tamam",
+        "not": "Otomatik compression",
+        "hermes": "built-in",
+        "reymen": "context_compressor.py"
+      },
+      "kanban_board": {
+        "durum": "tamam",
+        "not": "130 test, worker lifecycle, swarm orchestration",
+        "hermes": "kanboard araci",
+        "reymen": "kanban.py (35KB)"
+      },
+      "curator_skill_lifecycle": {
+        "durum": "tamam",
+        "not": "Skill archive/pin/stale detection",
+        "hermes": "curator alt_sistemi",
+        "reymen": "curator.py + curator_cli.py"
+      },
+      "personality_sistemi": {
+        "durum": "tamam",
+        "not": "Karakter degistirme",
+        "hermes": "/personality",
+        "reymen": "sistemde referansli"
+      },
+      "reasoning_levels": {
+        "durum": "tamam",
+        "not": "none/low/medium/high",
+        "hermes": "reasoning_effort",
+        "reymen": "CLI + provider_cmds"
+      },
+      "tui_cli_polish": {
+        "durum": "tamam",
+        "not": "Skin engine, status bar, spinner, renk temalari",
+        "hermes": "rich TUI",
+        "reymen": "skin_engine.py + tui.py"
+      },
+      "slash_commands": {
+        "durum": "tamam",
+        "not": "50+ in-session komut",
+        "hermes": "kapsamli",
+        "reymen": "cli_mixin_commands.py"
+      },
+      "webhook_sistemi": {
+        "durum": "tamam",
+        "not": "HTTP endpoint abonelik",
+        "hermes": "webhook alt_sistemi",
+        "reymen": "webhook.py"
+      },
+      "secrets_redaction": {
+        "durum": "tamam",
+        "not": "API key/email/telefon/PII masking",
+        "hermes": "redact_secrets",
+        "reymen": "redact.py"
+      },
+      "approvals_sistemi": {
+        "durum": "tamam",
+        "not": "Destructive komut onayi",
+        "hermes": "approvals.mode",
+        "reymen": "agent_runtime + bot"
+      },
+      "voice_stt": {
+        "durum": "tamam",
+        "not": "Ses kaydi transkripsiyon + TTS",
+        "hermes": "STT + TTS",
+        "reymen": "stt_tool + tts_stt_tool"
+      },
+      "memory_backend_cesitliligi": {
+        "durum": "tamam",
+        "not": "Built-in + provider tabanli",
+        "hermes": "Honcho/Mem0/built-in",
+        "reymen": "memory_provider.py"
+      },
+      "acp_ide_integration": {
+        "durum": "tamam",
+        "not": "JSON-RPC 2.0, Claude Code uyumlu",
+        "hermes": "ACP server",
+        "reymen": "acp_server.py"
+      },
+      "worktree_mode": {
+        "durum": "tamam",
+        "not": "Izole git worktree (paralel ajan)",
+        "hermes": "-w flag",
+        "reymen": "CLIda referansli"
+      },
+      "docker_ssh_backend": {
+        "durum": "tamam",
+        "not": "Uzak terminal destegi",
+        "hermes": "Docker/Modal/SSH",
+        "reymen": "terminal_backends.py"
+      },
+      "auth_diversity": {
+        "durum": "tamam",
+        "not": "OAuth, device code, API key",
+        "hermes": "OAuth + device code + API key",
+        "reymen": "oauth_manager + mcp_oauth"
+      },
+      "open_source_community": {
+        "durum": "eksik",
+        "not": "Tek gelistirici. Kodla cozulemez — topluluk/bilgi gerektirir",
+        "hermes": "Nous Research + kontributorler",
+        "reymen": "Marko_Pasa_38 (tek)"
+      }
     }
   },
-  "tamamen_eksik_10": {
-    "toplam": 10,
-    "tamam": 10,
-    "commit": "44de838a",
-    "maddeler": {
-      "1_Provider_Sistemi": {"durum": "tamam", "oncelik": "P0", "detay": "model_provider.py - 5 provider zinciri failover circuit breaker"},
-      "2_YAML_Config": {"durum": "tamam", "oncelik": "P0", "detay": "config_manager.py - katmanli oku + profil + env override"},
-      "3_Session_DB": {"durum": "tamam", "oncelik": "P1", "detay": "session_db.py - FTS5 + trigram arama"},
-      "4_Cron_Scheduler": {"durum": "tamam", "oncelik": "P1", "detay": "cron_manager.py - watchdog 10s + timeout + retry + override"},
-      "5_Gateway": {"durum": "tamam", "oncelik": "P1", "detay": "gateway_manager.py - Telegram + Discord + CLI ABC multi-platform"},
-      "6_Vector_Memory": {"durum": "tamam", "oncelik": "P2", "detay": "vector_memory.py - DeepSeek embedding + SQLite"},
-      "7_OAuth_2.0": {"durum": "tamam", "oncelik": "P2", "detay": "oauth_manager.py - Google + GitHub + Discord token refresh"},
-      "8_Delegation": {"durum": "tamam", "oncelik": "P2", "detay": "delegation_manager.py - TEK/PARALEL task decomposition"},
-      "9_Backup": {"durum": "tamam", "oncelik": "P2", "detay": "backup_manager.py - partial/ZIP/git auto-cleanup"},
-      "10_Guardrails": {"durum": "tamam", "oncelik": "P3", "detay": "guardrails_manager.py - jailbreak/PII/code exec detection"}
-    }
-  },
-  "ek_duzeltmeler": {
-    "maddeler": [
-      "Auth Hermes pattern: JWT + role bazli + provider registry + /api/auth/me (commit 9a76bbc4)",
-      "CLI Handler ayristirma: 83 handler -> 40 ayri dosya (commit 7267f552)",
-      "reyplugin CLI: export/import + schema konsolidasyon (commit 700269d7)",
-      "Browser sayfa_basligi fix: browser_get_title -> browser_snapshot",
-      "Image Gen REST API: /api/hermes/media/backends + /api/hermes/media/generate"
-    ]
-  }
+  "son_guncelleme": "2026-06-29 13:47",
+  "guncelleyen_bot": "Hermes Agent"
 }
