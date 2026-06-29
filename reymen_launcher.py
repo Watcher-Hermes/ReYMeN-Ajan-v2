@@ -202,7 +202,7 @@ def _hermes_welcome(model: str, session_id: str = ""):
         import hermes_cli.banner as _hb
         _hb.HERMES_AGENT_LOGO = _REYMEN_AGENT_LOGO
         _hb.HERMES_CADUCEUS = ""
-        _hb.format_banner_version_label = lambda: "ReYMeN Agent v0.1.0 (2026.6.29)"
+        _hb.format_banner_version_label = lambda: "R>eYMeN Ajan v0.1.0 (2026.6.29)"
         # Patch "Nous Research" string in build_welcome_banner
         _src = _hb.build_welcome_banner.__code__
         # Replace the hardcoded "Nous Research" label
@@ -436,10 +436,10 @@ def main():
     try:
         from hermes_cli.skin_engine import get_active_skin
         _skin = get_active_skin()
-        _welcome_text = _skin.get_branding("welcome", "Welcome to ReYMeN Agent! Type your message or /help for commands.")
+        _welcome_text = _skin.get_branding("welcome", "R>eYMeN Ajan'a hoş geldiniz! Mesajınızı yazın veya /yardım yazın.")
         _welcome_color = _skin.get_color("banner_text", "#FFF8DC")
     except Exception:
-        _welcome_text = "Welcome to ReYMeN Agent! Type your message or /help for commands."
+        _welcome_text = "R>eYMeN Ajan'a hoş geldiniz! Mesajınızı yazın veya /yardım yazın."
         _welcome_color = "#FFF8DC"
 
     from rich.console import Console
