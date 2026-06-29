@@ -186,14 +186,61 @@ def _api_kontrol(yenile=False):
     _API_CACHE.update(sonuclar)
     return sonuclar
 
+# ── REYMEN-AGENT Logo (Hermes'teki HERMES-AGENT logosunun yerine) ──────────────
+_REYMEN_AGENT_LOGO = """[bold #FFD700]██████  ███████ ██    ██ ███    ███ ███████ ███    ██   █████   ██████  ███████ ███    ██ ████████[/]
+[bold #FFD700]██   ██ ██       ██  ██  ████  ████ ██      ████   ██   ██   ██ ██       ██      ████   ██    ██[/]
+[#FFBF00]██████  █████     ████   ██ ████ ██ █████   ██ ██  ██   ███████ ██   ███ █████   ██ ██  ██    ██[/]
+[#FFBF00]██   ██ ██         ██    ██  ██  ██ ██      ██  ██ ██   ██   ██ ██    ██ ██      ██  ██ ██    ██[/]
+[#CD7F32]██   ██ ███████    ██    ██      ██ ███████ ██   ████   ██   ██  ██████  ███████ ██   ████    ██[/]"""
+
 # ── Hermes-style welcome banner ────────────────────────────────────────────────
 def _hermes_welcome(model: str, session_id: str = ""):
-    """Hermes'in build_welcome_banner fonksiyonunu cagirir (birebir ayni goruntu)."""
+    """Hermes'in build_welcome_banner fonksiyonunu cagirir (birebir ayni goruntu).
+    REYMEN-AGENT logosu ile."""
     try:
+        # Monkey-patch: Hermes'in banner modulundeki tum marka bilgilerini REYMEN yap
+        import hermes_cli.banner as _hb
+        _hb.HERMES_AGENT_LOGO = _REYMEN_AGENT_LOGO
+        _hb.HERMES_CADUCEUS = ""
+        _hb.format_banner_version_label = lambda: "ReYMeN Agent v0.1.0 (2026.6.29)"
+        # Patch "Nous Research" string in build_welcome_banner
+        _src = _hb.build_welcome_banner.__code__
+        # Replace the hardcoded "Nous Research" label
+        _hb._NOUS_LABEL = "ReYMeN Agent"
+
         from hermes_cli.banner import build_welcome_banner
         from rich.console import Console
+
+        # Patch the banner function's source to replace "Nous Research"
+        import hermes_cli.banner as _banner_mod
+        import types
+
+        # Create a wrapper that patches left_lines
+        _orig_bwb = _banner_mod.build_welcome_banner
+
+        def _rey_welcome_banner(*args, **kwargs):
+            """Call original build_welcome_banner and fix branding."""
+            # Save originals
+            _orig_logo = _banner_mod.HERMES_AGENT_LOGO
+            _orig_cad = _banner_mod.HERMES_CADUCEUS
+            _orig_ver = _banner_mod.format_banner_version_label
+
+            # Set ReYMeN branding
+            _banner_mod.HERMES_AGENT_LOGO = _REYMEN_AGENT_LOGO
+            _banner_mod.HERMES_CADUCEUS = ""
+            _banner_mod.format_banner_version_label = lambda: "ReYMeN Agent v0.1.0 (2026.6.29)"
+
+            result = _orig_bwb(*args, **kwargs)
+
+            # Restore originals (in case another call is made)
+            _banner_mod.HERMES_AGENT_LOGO = _orig_logo
+            _banner_mod.HERMES_CADUCEUS = _orig_cad
+            _banner_mod.format_banner_version_label = _orig_ver
+
+            return result
+
         console = Console()
-        build_welcome_banner(
+        _rey_welcome_banner(
             console=console,
             model=model,
             cwd=str(_KOK),
