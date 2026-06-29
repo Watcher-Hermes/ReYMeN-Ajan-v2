@@ -12,7 +12,6 @@ from datetime import datetime
 import re as _re
 
 import logging
-# Tum loglari ERROR'a cek - kullaniciya hicbir log gosterme
 logging.basicConfig(level=logging.ERROR, force=True)
 for _l in ['CUA', 'Motor', 'motor', 'hermes', 'reymen', 'conversation_loop',
            'beyin', 'plugin', 'cron', 'skill', 'root', '__main__']:
@@ -30,7 +29,6 @@ _KOK = Path(__file__).parent.resolve()
 os.chdir(_KOK)
 sys.path.insert(0, str(_KOK))
 
-# Hermes agent path — banner import icin
 _HERMES_AGENT = Path(os.environ.get("LOCALAPPDATA", "")) / "hermes" / "hermes-agent"
 if _HERMES_AGENT.exists():
     sys.path.insert(0, str(_HERMES_AGENT))
@@ -60,7 +58,7 @@ _RED = "\033[91m"   # kirmizi
 def _c(t):   return f"{_C}{t}{_R}"
 def _g(t):   return f"{_G}{t}{_R}"
 def _y(t):   return f"{_Y}{t}{_R}"
-def _b(t):   return f"{_B}{t}{_R}"
+def _mavi(t): return f"{_B}{t}{_R}"  # fix #6: _b -> _mavi
 def _d(t):   return f"{_D}{t}{_R}"
 def _r(t):   return f"{_RED}{t}{_R}"
 def _gb(t):  return f"{_G}{_B}{t}{_R}"
@@ -68,7 +66,6 @@ def _cb(t):  return f"{_C}{_B}{t}{_R}"
 
 # ── API Cache ──────────────────────────────────────────────────────────────────
 _API_CACHE: dict = {}
-_KAYNAK_RE = None
 
 # ── ReYMeN config (sabit) ──────────────────────────────────────────────────────
 _REYMEN_CONFIG = {
@@ -118,35 +115,53 @@ def _mevcut_model():
     p = os.environ.get("REYMEN_PROVIDER", "deepseek")
     return m, p
 
+def _env_replace(key, value):
+    """.env'deki bir satiri replace et (fix #3: append yerine in-place)."""
+    env_path = _KOK / ".env"
+    if not env_path.exists():
+        with open(env_path, "w", encoding="utf-8") as f:
+            f.write(f"{key}={value}\n")
+        return
+    lines = []
+    found = False
+    with open(env_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip().startswith(f"{key}=") or line.strip().startswith(f"#{key}="):
+                lines.append(f"{key}={value}\n")
+                found = True
+            else:
+                lines.append(line)
+    if not found:
+        lines.append(f"\n{key}={value}\n")
+    with open(env_path, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+
 def _model_guncelle(provider, model):
-    """Provider+model'i .env'ye yaz."""
+    """Provider+model'i .env'ye yaz (fix #3: in-place replace)."""
     os.environ["REYMEN_PROVIDER"] = provider
     os.environ["REYMEN_MODEL"] = model
     _REYMEN_CONFIG["provider"] = provider
     _REYMEN_CONFIG["model"] = model
     try:
-        env_path = _KOK / ".env"
-        with open(env_path, "a", encoding="utf-8") as f:
-            f.write(f"\nREYMEN_PROVIDER={provider}\n")
-            f.write(f"\nREYMEN_MODEL={model}\n")
+        _env_replace("REYMEN_PROVIDER", provider)
+        _env_replace("REYMEN_MODEL", model)
     except Exception:
         pass
 
-# ── API kontrol ────────────────────────────────────────────────────────────────
-def _api_kontrol(yenile=False):
-    """Provider'larin API key'lerini test et."""
+# ── API kontrol (fix #4: background + timeout) ─────────────────────────────────
+_API_KONTROL_SONUC = {}
+_API_KONTROL_KILIT = threading.Lock()
+_API_KONTROL_BITTI = threading.Event()
+
+def _api_kontrol_arkaplan():
+    """Provider API key'lerini background thread'te test et."""
+    global _API_KONTROL_SONUC
     import http.client as _hc
-    import json as _js
-
-    if not yenile and _API_CACHE:
-        return _API_CACHE
-
-    import threading as _th
 
     sonuclar = {}
-    kilid = _th.Lock()
+    kilid = threading.Lock()
 
-    def _tek_kontrol(prov, url, env_var, sonuclar, kilid):
+    def _tek(prov, url, env_var):
         key = os.environ.get(env_var, "")
         if not key:
             with kilid:
@@ -160,7 +175,7 @@ def _api_kontrol(yenile=False):
                 return
             host = parsed.group(1)
             path = parsed.group(2) or "/"
-            conn = _hc.HTTPSConnection(host, timeout=5)
+            conn = _hc.HTTPSConnection(host, timeout=3)
             conn.request("GET", path, headers={"Authorization": f"Bearer {key}"})
             resp = conn.getresponse()
             ok = resp.status == 200
@@ -173,20 +188,30 @@ def _api_kontrol(yenile=False):
 
     threads = []
     for p, info in _MODEL_DB.items():
-        t = _th.Thread(target=_tek_kontrol, args=(p, info["url"], info["env"], sonuclar, kilid), daemon=True)
+        t = threading.Thread(target=_tek, args=(p, info["url"], info["env"]), daemon=True)
         t.start()
         threads.append(t)
     for t in threads:
-        t.join(timeout=6)
+        t.join(timeout=4)
 
     for p in _MODEL_DB:
         if p not in sonuclar:
             sonuclar[p] = "zaman_asimi"
-    _API_CACHE.clear()
-    _API_CACHE.update(sonuclar)
-    return sonuclar
+    with _API_KONTROL_KILIT:
+        _API_KONTROL_SONUC = sonuclar
+    _API_KONTROL_BITTI.set()
 
-# ── REYMEN-AGENT Logo (Hermes'teki HERMES-AGENT logosunun yerine) ──────────────
+def _api_kontrol_bekle(timeout=4):
+    """Background API kontrol sonucunu bekle (en fazla timeout saniye)."""
+    _API_KONTROL_BITTI.wait(timeout=timeout)
+    with _API_KONTROL_KILIT:
+        return dict(_API_KONTROL_SONUC)
+
+# Arka planda baslat
+_API_KONTROL_BITTI.clear()
+threading.Thread(target=_api_kontrol_arkaplan, daemon=True).start()
+
+# ── REYMEN-AGENT Logo ──────────────────────────────────────────────────────────
 _REYMEN_AGENT_LOGO = """[bold #FFD700]██████  ███████ ██    ██ ███    ███ ███████ ███    ██   █████   ██████  ███████ ███    ██ ████████[/]
 [bold #FFD700]██   ██ ██       ██  ██  ████  ████ ██      ████   ██   ██   ██ ██       ██      ████   ██    ██[/]
 [#FFBF00]██████  █████     ████   ██ ████ ██ █████   ██ ██  ██   ███████ ██   ███ █████   ██ ██  ██    ██[/]
@@ -195,48 +220,31 @@ _REYMEN_AGENT_LOGO = """[bold #FFD700]██████  ███████ 
 
 # ── Hermes-style welcome banner ────────────────────────────────────────────────
 def _hermes_welcome(model: str, session_id: str = ""):
-    """Hermes'in build_welcome_banner fonksiyonunu cagirir (birebir ayni goruntu).
-    REYMEN-AGENT logosu ile."""
     try:
-        # Monkey-patch: Hermes'in banner modulundeki tum marka bilgilerini REYMEN yap
         import hermes_cli.banner as _hb
         _hb.HERMES_AGENT_LOGO = _REYMEN_AGENT_LOGO
         _hb.HERMES_CADUCEUS = ""
         _hb.format_banner_version_label = lambda: "R>eYMeN Ajan v0.1.0 (2026.6.29)"
-        # Patch "Nous Research" string in build_welcome_banner
-        _src = _hb.build_welcome_banner.__code__
-        # Replace the hardcoded "Nous Research" label
-        _hb._NOUS_LABEL = "ReYMeN Agent"
+        _hb._NOUS_LABEL = "R>eYMeN Ajan"
 
         from hermes_cli.banner import build_welcome_banner
         from rich.console import Console
 
-        # Patch the banner function's source to replace "Nous Research"
         import hermes_cli.banner as _banner_mod
         import types
-
-        # Create a wrapper that patches left_lines
         _orig_bwb = _banner_mod.build_welcome_banner
 
         def _rey_welcome_banner(*args, **kwargs):
-            """Call original build_welcome_banner and fix branding."""
-            # Save originals
             _orig_logo = _banner_mod.HERMES_AGENT_LOGO
             _orig_cad = _banner_mod.HERMES_CADUCEUS
             _orig_ver = _banner_mod.format_banner_version_label
-
-            # Set ReYMeN branding
             _banner_mod.HERMES_AGENT_LOGO = _REYMEN_AGENT_LOGO
             _banner_mod.HERMES_CADUCEUS = ""
             _banner_mod.format_banner_version_label = lambda: "ReYMeN Agent v0.1.0 (2026.6.29)"
-
             result = _orig_bwb(*args, **kwargs)
-
-            # Restore originals (in case another call is made)
             _banner_mod.HERMES_AGENT_LOGO = _orig_logo
             _banner_mod.HERMES_CADUCEUS = _orig_cad
             _banner_mod.format_banner_version_label = _orig_ver
-
             return result
 
         console = Console()
@@ -247,26 +255,24 @@ def _hermes_welcome(model: str, session_id: str = ""):
             tools=[],
             enabled_toolsets=[],
             session_id=session_id,
-            context_length=1048576,  # 1M token
+            context_length=1048576,
         )
     except Exception:
-        # Fallback: basit acilis
         os.system("cls" if os.name == "nt" else "clear")
-        print(f"\n  {_b('ReYMeN Agent')}  {_d('v0.1.0')}")
+        print(f"\n  {_mavi('R>eYMeN Ajan')}  {_d('v0.1.0')}")
         print(f"  {_d('─'*50)}")
-        print(f"  {_d('Model:')} {model}  {_d('Session:')} {session_id}")
+        print(f"  {_d('Model:')} {model}  {_d('Oturum:')} {session_id}")
         print(f"  {_d('─'*50)}\n")
 
-# ── Model secim ekrani (Hermes tarzi basit liste) ──────────────────────────────
+# ── Model secim ekrani ─────────────────────────────────────────────────────────
 def _model_sec(api_sonuc=None):
-    """Etkilesimli model secim ekrani."""
     cur_m, cur_p = _mevcut_model()
     print(f"\n  {_gb('ReYMeN — Model Seçimi')}")
     print(f"  {_d('─'*50)}")
     if api_sonuc:
         for ad, durum in api_sonuc.items():
             ikon = _g("✓") if durum is True else (_r("✗") if durum == "401" else _y("?"))
-            print(f"  {ikon} {_b(ad):<16} {_d(str(durum))}")
+            print(f"  {ikon} {_mavi(ad):<16} {_d(str(durum))}")
     print(f"  {_d('─'*50)}")
     print(f"  {_d('Aktif:')} {_g(cur_m)}")
     print()
@@ -285,8 +291,8 @@ def _spinner(stop_evt):
 _HERMES = shutil.which("hermes") or shutil.which("hermes") or "hermes"
 _ilk_tur = True
 
-# ── SOUL.md oku ───────────────────────────────────────────────────────────────
 def _sistem_prompu_al() -> str:
+    """SOUL.md + DURUM_OKU talimati ile sistem promptu olustur."""
     try:
         soul_path = Path(__file__).parent / "reymen" / "arac" / ".ReYMeN" / "SOUL.md"
         if soul_path.exists():
@@ -306,7 +312,6 @@ def _sistem_prompu_al() -> str:
         + (f"\\n## SOUL.md\\n{soul[:2000]}\\n" if soul else "")
     )
 
-
 def _sor(soru: str) -> tuple[str, str]:
     """ReYMeN'e soru sor — Telegram bot ile AYNI full pipeline."""
     global _ilk_tur
@@ -321,7 +326,12 @@ def _sor(soru: str) -> tuple[str, str]:
         from reymen.cereyan.motor import Motor
         from reymen.cereyan.conversation_loop import ConversationLoop
 
-        beyin = Beyin(config=_REYMEN_CONFIG)
+        # fix #2: SOUL.md entegrasyonu
+        system_prompt = _sistem_prompu_al()
+        config = dict(_REYMEN_CONFIG)
+        config["system_prompt"] = system_prompt
+
+        beyin = Beyin(config=config)
         motor = Motor()
         motor._plugin_moduller_yukle()
         cl = ConversationLoop(
@@ -329,9 +339,10 @@ def _sor(soru: str) -> tuple[str, str]:
             beyin=beyin,
             max_tur=15,
         )
+        # fix #1: provider hardcode kaldirildi
         sonuc = cl.run_conversation(
             hedef=soru,
-            provider="deepseek",
+            provider=_REYMEN_CONFIG["provider"],
         )
 
         if sonuc.get("basarili"):
@@ -339,22 +350,24 @@ def _sor(soru: str) -> tuple[str, str]:
             return yanit, ""
         else:
             hata = sonuc.get("hata") or "Bilinmeyen hata"
-            return f"HATA: {hata}", ""
+            # fix #8: fallback dene
+            return _sor_direkt_api(soru)
 
     except Exception as e:
-        return f"HATA: {e}", ""
+        # fix #8: fallback dene
+        return _sor_direkt_api(soru)
     finally:
         stop.set()
-        t.join(timeout=1)
+        t.join(timeout=5)  # fix #5: 1s -> 5s
 
 
 def _sor_direkt_api(soru: str) -> tuple[str, str]:
-    """Fallback: direkt API cagrisi."""
+    """Fallback: direkt API cagrisi (Beyin.uret ile)."""
     try:
-        from reymen.cereyan.beyin import Beyin as _Beyin
-        _b = _Beyin(config=_REYMEN_CONFIG)
-        _s = "Sen ReYMeN adinda yardimsever bir AI asistanisin. Kisa ve oz cevap ver. Turkce konus."
-        _c = _b.uret(_s, [{"role": "user", "content": soru}])
+        from reymen.cereyan.beyin import Beyin as _BeyinMod
+        _beyin_inst = _BeyinMod(config=_REYMEN_CONFIG)
+        _s = _sistem_prompu_al()
+        _c = _beyin_inst.uret(_s, [{"role": "user", "content": soru}])
         return _c or "Cevap alinamadi", ""
     except Exception as e:
         return f"HATA: {e}", ""
@@ -403,37 +416,29 @@ def _repl(session_id=""):
         t0 = time.time()
         cevap, kaynak = _sor(girdi)
         dt = time.time() - t0
-        # Hermes tarzi cevap
         print(f"\n  {'─'*50}")
         print(f"  {cevap}")
         print(f"  {'─'*50}")
-        # Hermes tarzi status line
         t_in = len(girdi.split())
         t_out = len(cevap.split())
-        print(f"  {_y('deepseek-v4-flash')} {_d('|')} {_c(f'{t_in*2}K/1M')} {_d('|')} [{_g('█'*int(min(20, t_in*2//5000)))}{_d('▒'*max(0,20-int(min(20, t_in*2//5000))))}] {_g(f'{min(99, t_in*2//10000)}%')} {_d('|')} {_y(f'{dt:.0f}s')}", flush=True)
+        print(f"  {_y(cur_m)} {_d('|')} {_c(f'{t_in*2}K/1M')} {_d('|')} [{_g('█'*int(min(20, t_in*2//5000)))}{_d('▒'*max(0,20-int(min(20, t_in*2//5000))))}] {_g(f'{min(99, t_in*2//10000)}%')} {_d('|')} {_y(f'{dt:.0f}s')}", flush=True)
 
 # ── Giriş noktası ────────────────────────────────────────────────────────────
 def main():
     import uuid as _uid
     session_id = _uid.uuid4().hex[:8]
 
-    # 1. Model sec
     cur_m, cur_p = _mevcut_model()
 
-    # API kontrol
-    _api_sonuc = _api_kontrol(yenile=True)
+    # fix #4: background API kontrol — bekleme yok
+    _api_sonuc = _api_kontrol_bekle(timeout=3)
     durum = _api_sonuc.get(cur_p)
     if durum is not True:
-        # Model secim goster
         _model_sec(_api_sonuc)
-        # 5 saniye bekle, sonra varsayilanla devam et
         print(f"  {_d('Varsayılan model ile devam ediliyor...')}\n")
-        time.sleep(2)
 
-    # 2. HERMES ILE AYNI WELCOME BANNER
     _hermes_welcome(cur_m, session_id)
 
-    # 3. Welcome mesaji
     try:
         from hermes_cli.skin_engine import get_active_skin
         _skin = get_active_skin()
@@ -447,7 +452,6 @@ def main():
     Console().print(f"[{_welcome_color}]{_welcome_text}[/]")
     print()
 
-    # 4. REPL
     _repl(session_id)
 
 if __name__ == "__main__":
