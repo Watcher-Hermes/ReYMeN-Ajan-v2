@@ -1,0 +1,15 @@
+[
+  {
+    "date": "2026-06-28T15:57:01.168140",
+    "coverage": 11.0,
+    "statements": 27902,
+    "label": "onceki olcum"
+  },
+  {
+    "date": "2026-06-29T07:16:24.538696",
+    "coverage": 0.8,
+    "statements": 86338,
+    "missed": 85647,
+    "label": "2. olcum (07:16)"
+  }
+]

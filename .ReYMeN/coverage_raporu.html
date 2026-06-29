@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coverage Raporu</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0f0f1a; color: #e0e0e0; font-family: system-ui; padding: 20px; }
+h1 { color: #00ff88; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 20px 0; }
+.card { background: #1a1a2e; border-radius: 12px; padding: 20px; text-align: center; }
+.card .num { font-size: 2rem; font-weight: bold; }
+.card .lbl { color: #888; font-size: 0.85rem; margin-top: 4px; }
+.c1 { color: #ff4444; } .c2 { color: #ffaa00; } .c3 { color: #00ff88; }
+.chart-box { background: #1a1a2e; border-radius: 12px; padding: 20px; margin: 20px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9rem; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #333; }
+th { color: #00ff88; }
+</style>
+</head>
+<body>
+<h1>📊 ReYMeN Coverage Raporu</h1>
+<p style="color:#888;margin-top:4px;">2 olcum — en son: 2. olcum (07:16)</p>
+
+<div class="grid">
+  <div class="card"><div class="num c1">0.8%</div><div class="lbl">Guncel Coverage</div></div>
+  <div class="card"><div class="num">86,338</div><div class="lbl">Toplam Statement</div></div>
+  <div class="card"><div class="num c1">85,647</div><div class="lbl">Kapsanmayan</div></div>
+  <div class="card"><div class="num">691</div><div class="lbl">Kapsanan</div></div>
+</div>
+
+<div class="chart-box">
+  <canvas id="trendChart" height="80"></canvas>
+</div>
+
+<div class="chart-box">
+  <canvas id="modChart" height="60"></canvas>
+</div>
+
+<h2>📋 Test Durumu</h2>
+<table>
+<tr><th>Test Dosyasi</th><th>Sonuc</th></tr>
+<tr><td>Toplam test dosyasi</td><td>1707</td></tr>
+<tr><td>Collection hatasi</td><td class="c1">100+ (co--timeout)</td></tr>
+<tr><td>Calisan test (9 dosyada)</td><td>128 passed / 51 failed</td></tr>
+<tr><td>Coverage trendi</td><td> ↘ Dusus</td></tr>
+</table>
+
+<h2 style="margin-top:20px;">📈 Gecmis</h2>
+<table>
+<tr><th>#</th><th>Tarih</th><th>Coverage</th><th>Statement</th></tr>
+<tr><td>1</td><td>onceki olcum</td><td>11.0%</td><td>27902</td></tr><tr><td>2</td><td>2. olcum (07:16)</td><td>0.8%</td><td>86338</td></tr>
+</table>
+
+<script>
+new Chart(document.getElementById('trendChart'), {
+  type: 'line',
+  data: {
+    labels: ["onceki olcum", "2. olcum (07:16)"],
+    datasets: [{
+      label: 'Coverage %',
+      data: [11.0, 0.8],
+      borderColor: '#00ff88',
+      backgroundColor: 'rgba(0,255,136,0.1)',
+      fill: true, tension: 0.3,
+      pointBackgroundColor: '#00ff88',
+    },{
+      label: 'Statement (K)',
+      data: [27.9, 86.3],
+      borderColor: '#4488ff',
+      borderDash: [5,5],
+      yAxisID: 'y1',
+      pointBackgroundColor: '#4488ff',
+    }]
+  },
+  options: {
+    responsive: true,
+    interaction: { mode: 'index', intersect: false },
+    plugins: { legend: { labels: { color: '#e0e0e0' } } },
+    scales: {
+      x: { ticks: { color: '#888' } },
+      y: { ticks: { color: '#888', callback: v => v + '%' } },
+      y1: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: '#4488ff', callback: v => v + 'K' } }
+    }
+  }
+});
+
+new Chart(document.getElementById('modChart'), {
+  type: 'bar',
+  data: {
+    labels: ["reymen"],
+    datasets: [{
+      label: 'Modul Coverage %',
+      data: [0.8003428386110404],
+      backgroundColor: ['#ff4444','#ff6644','#ff8844','#ffaa44','#ffcc44','#aadd44','#44dd88','#44ff88'],
+    }]
+  },
+  options: {
+    responsive: true,
+    indexAxis: 'y',
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: '#888', callback: v => v + '%' } },
+      y: { ticks: { color: '#e0e0e0' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
