@@ -420,6 +420,71 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def _cmd_plugin(args) -> int:
+    """Plugin yonetimi CLI komutu."""
+    from reymen.sistem.plugin_manager import PluginYoneticisi
+    from pathlib import Path
+    ym = PluginYoneticisi(Path("reymen/sistem/plugins"))
+
+    sub = getattr(args, "sub", "list")
+
+    if sub == "list":
+        plugins = ym.list_plugins()
+        if not plugins:
+            print("  Henüz plugin yok")
+            return 0
+        print(f"  {len(plugins)} plugin:")
+        for p in plugins:
+            ad = p.get("ad", p.get("name", "?"))
+            durum = "✅ Aktif" if p.get("aktif", p.get("enabled", False)) else "❌ Pasif"
+            print(f"    {ad} — {durum}")
+        return 0
+
+    if sub == "info":
+        ad = args.plugin_name
+        # Plugin bilgisi
+        info = ym.get_plugin_info(ad) if hasattr(ym, "get_plugin_info") else {"ad": ad}
+        print(f"  Plugin: {ad}")
+        for k, v in info.items():
+            print(f"    {k}: {v}")
+        return 0
+
+    if sub == "enable":
+        try:
+            ym.enable_plugin(args.plugin_name)
+            print(f"  ✅ {args.plugin_name} aktif edildi")
+        except Exception as e:
+            print(f"  ❌ {e}")
+        return 0
+
+    if sub == "disable":
+        try:
+            ym.disable_plugin(args.plugin_name)
+            print(f"  ✅ {args.plugin_name} devre disi birakildi")
+        except Exception as e:
+            print(f"  ❌ {e}")
+        return 0
+
+    if sub == "reload":
+        print(f"  ⏳ {args.plugin_name} yeniden yukleniyor...")
+        ym.reload_plugin(args.plugin_name) if hasattr(ym, "reload_plugin") else None
+        print(f"  ✅ {args.plugin_name} yeniden yuklendi")
+        return 0
+
+    if sub == "export":
+        sonuc = ym.export_plugin(args.plugin_name, args.output)
+        print(f"  {sonuc}")
+        return 0
+
+    if sub == "import":
+        sonuc = ym.import_plugin(args.dosya)
+        print(f"  {sonuc}")
+        return 0
+
+    print(f"  Bilinmeyen plugin komutu: {sub}")
+    return 1
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)

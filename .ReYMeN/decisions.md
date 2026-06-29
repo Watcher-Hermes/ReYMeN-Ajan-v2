@@ -53,3 +53,21 @@
 - Commit: 61846927
 
 **Karar:** Kabul. Hermes'teki ile birebir ayni desen.
+
+## Karar #43 — CLI Handler Ayristirma (83 _handle_ komutu ayrı dosyalara)
+
+**Ne yapıldı:** reymen/sistem/cli_commands/ altındaki 83 adet `_handle_*` komutu ayrı dosyalara bölündü.
+
+**Neden:** Kullanıcı "Kalan 73 handler diğer cli modül de yap" dedi — config_commands.py (585 satır), edit_commands.py, session_commands.py, system_commands.py, tool_commands.py icindeki handler'lar handlers/ altındaki kendi dosyalarına tasindi.
+
+**Detay:**
+- handlers/config/ (8): profile, gquota, personality, skin, footer, reasoning, busy, fast
+- handlers/edit/ (7): rollback, snapshot, stop, agents, paste, copy, image
+- handlers/session/ (5): handoff, resume, sessions, branch, approval
+- handlers/system/ (5): goal, subgoal, debug, update, voice
+- handlers/tools/ (9): tools, codex_runtime, cron, curator, kanban, skills, background, bundles, browser
+- Toplam: 34 standalone handler + 6 __init__.py = 40 dosya
+- config_commands.py: model_picker_selection, model_switch class state'e bağlı, ayrılmadi (10. ve 11. handler olarak kaldi)
+- cli_commands/ haricinde hicbir dosya degistirilmedi
+- Tüm syntax OK
+- Commit: 7267f552

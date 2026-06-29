@@ -4,5 +4,21 @@
     "toplam_satir": 188203,
     "mevcut_satir": 188203,
     "genel_yuzde": 100.0
+  },
+  {
+    "tarih": "2026-06-29T07:51:03.895097",
+    "yuzde": 0.0,
+    "toplam_satir": 191442,
+    "kapsanan_satir": 0,
+    "sure": 0,
+    "tur": "statik"
+  },
+  {
+    "tarih": "2026-06-29T07:51:11.003180",
+    "yuzde": 0.0,
+    "toplam_satir": 191442,
+    "kapsanan_satir": 0,
+    "sure": 0,
+    "tur": "statik"
   }
 ]

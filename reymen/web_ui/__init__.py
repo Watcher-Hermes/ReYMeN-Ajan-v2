@@ -359,6 +359,114 @@ async def kalite_sayfasi(request: Request):
     )
 
 
+@app.get("/coverage", response_class=HTMLResponse)
+async def coverage_sayfasi(request: Request):
+    """Coverage rapor sayfası."""
+    return templates.TemplateResponse(
+        request, "coverage.html", {}
+    )
+
+
+@app.get("/api/coverage/ozet")
+async def api_coverage_ozet():
+    """Coverage özet kartları HTML."""
+    from reymen.sistem.coverage_report import statik_analiz, gecmis_getir
+    sonuc = statik_analiz()
+    gecmis = gecmis_getir(5)
+
+    yuzde = sonuc.get("yuzde", 0)
+    renk = "green" if yuzde >= 70 else "orange" if yuzde >= 40 else "red"
+
+    # Trend oku
+    trend = "—"
+    if len(gecmis) >= 2:
+        onceki = gecmis[-2].get("yuzde", 0)
+        fark = yuzde - onceki
+        trend = f"📈 +{fark}%" if fark > 0 else f"📉 {fark}%" if fark < 0 else "➡️ ±0"
+
+    son = gecmis[-1].get("tarih", "—")[:16] if gecmis else "Henüz yok"
+
+    html = [
+        '<div class="cards" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.5rem;">',
+        f'<div class="card" style="text-align:center;"><h3 style="color:{renk}">{yuzde}%</h3>'
+        f'<div class="gri">Kapsama</div><small>{trend}</small></div>',
+        f'<div class="card" style="text-align:center;"><h3>{sonuc.get("toplam_modul", 0)}</h3>'
+        f'<div class="gri">Modül</div></div>',
+        f'<div class="card" style="text-align:center;"><h3>{sonuc.get("toplam_satir", 0):,}</h3>'
+        f'<div class="gri">Satır</div></div>',
+        f'<div class="card" style="text-align:center;"><h3>{sonuc.get("import_edilebilen", 0)} / {sonuc.get("import_edilemeyen", 0)}</h3>'
+        f'<div class="gri">İçe Aktarma</div></div>',
+        f'<div class="card" style="text-align:center;"><h3 style="font-size:1rem;">{son}</h3>'
+        f'<div class="gri">Son Ölçüm</div></div>',
+        '</div>',
+    ]
+    return HTMLResponse(content="\n".join(html))
+
+
+@app.get("/api/coverage/gecmis")
+async def api_coverage_gecmis():
+    """Coverage geçmiş tablosu HTML."""
+    from reymen.sistem.coverage_report import gecmis_getir
+    gecmis = gecmis_getir(30)
+
+    if not gecmis:
+        return HTMLResponse(content='<div class="gri">Henüz coverage verisi yok. "Tam Tarama" yapın.</div>')
+
+    html = ['<table class="table"><thead><tr>']
+    html.append('<th>Tarih</th><th>Coverage</th><th>Satır</th><th>Süre</th><th>Tür</th>')
+    html.append('</tr></thead><tbody>')
+
+    for k in reversed(gecmis):
+        tarih = k.get("tarih", "")[:16]
+        yuzde = k.get("yuzde", 0)
+        renk = "green" if yuzde >= 70 else "orange" if yuzde >= 40 else "red"
+        satir = f"{k.get('toplam_satir', 0):,}" if k.get("toplam_satir") else "—"
+        sure = f'{k.get("sure", 0)}s' if k.get("sure") else "—"
+        tur = {"coverage": "🎯", "statik": "📊"}.get(k.get("tur", ""), "—")
+        html.append(f'<tr><td>{tarih}</td>'
+                    f'<td><b style="color:{renk}">{yuzde}%</b></td>'
+                    f'<td>{satir}</td><td>{sure}</td><td>{tur}</td></tr>')
+
+    html.append('</tbody></table>')
+    return HTMLResponse(content="\n".join(html))
+
+
+@app.get("/api/coverage/gecmis-json")
+async def api_coverage_gecmis_json():
+    """Coverage geçmişi JSON (Chart.js için)."""
+    from reymen.sistem.coverage_report import gecmis_getir
+    return gecmis_getir(50)
+
+
+@app.post("/api/coverage/calistir")
+async def api_coverage_calistir(hizli: bool = False):
+    """Coverage çalıştır."""
+    from reymen.sistem.coverage_report import calistir, statik_analiz
+
+    if hizli:
+        sonuc = calistir(hizli=True)
+    else:
+        # Tam: statik analiz (güvenilir)
+        sonuc = statik_analiz()
+
+    if sonuc.get("basari"):
+        yuzde = sonuc.get("yuzde", 0)
+        renk = "green" if yuzde >= 70 else "orange" if yuzde >= 40 else "red"
+        html = [
+            '<div style="display:flex;gap:1rem;align-items:center;">',
+            f'<div style="font-size:3rem;font-weight:bold;color:{renk};">{yuzde}%</div>',
+            '<div>',
+            f'<div>Toplam: {sonuc.get("toplam_satir", 0):,} satır</div>',
+            f'<div>Modül: {sonuc.get("toplam_modul", 0)}</div>',
+            f'<div>Süre: {sonuc.get("sure", 0)}s</div>',
+            '</div></div>',
+        ]
+        return HTMLResponse(content="\n".join(html))
+    return HTMLResponse(
+        content=f'<div class="alert alert-error">❌ Hata: {sonuc.get("hata", "?")}</div>'
+    )
+
+
 @app.get("/maliyet", response_class=HTMLResponse)
 async def maliyet_sayfasi(request: Request):
     return templates.TemplateResponse(
