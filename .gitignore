@@ -225,6 +225,24 @@ _*.py
 _*.bat
 _*.cmd
 
+# SQLite WAL/SHM (run-time)
+*.db-shm
+*.db-wal
+
+# PID files
+*.pid
+
+# Browser/MCP state (screenshots, pages)
+.playwright-mcp/
+
+# Cache files
+.ReYMeN/semantic_cache/
+.ReYMeN/cron/output/
+
+# Temp files
+*.hermes-tmp.*
+*.tmp
+
 # Build çıktıları
 *.exe
 *.spec
