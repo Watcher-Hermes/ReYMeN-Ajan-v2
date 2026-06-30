@@ -24,7 +24,7 @@ dediginde kullan.
 ## Yapi
 
 Her satir:
-  Ozellik adi | Puan (X/10) | R>eYMeN karsiligi | Hermes karsiligi | Not
+  Ozellik adi | Puan (X/10) | R>eYMeN karsiligi | ReYMeN karsiligi | Not
 
 Ornek:
 
@@ -33,7 +33,7 @@ Ornek:
 ║ 1. CEKIRDEK                                                                 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
-  Ozellik                        Puan     R>eYMeN              Hermes             Not
+  Ozellik                        Puan     R>eYMeN              ReYMeN             Not
   ────────────────────────────  ──────  ────────────────────  ─────────────────  ─────────────
   ReAct dongusu                  8/10    main.py              conversation_loop  H 269KB daha kapsamli
   Baglam yonetimi                9/10    context_manager.py   context_engine     Esit
@@ -53,9 +53,9 @@ Ornek:
 
 ## Puanlama Kurallari
 
-- 10/10 = R'ye ozgu, Hermes'te yok (ekran OCR, makro)
+- 10/10 = R'ye ozgu, ReYMeN'te yok (ekran OCR, makro)
 - 9/10 = Esit, esit kalitede
-- 8/10 = Esit ama Hermes daha detayli
+- 8/10 = Esit ama ReYMeN daha detayli
 - 7/10 = R daha basit versiyon
 - 5/10 = R'de zayif/calismiyor
 - 0/10 = R'de yok
@@ -65,7 +65,7 @@ Ornek:
 Her kategorinin altina degil, en sona konur:
 
 ```
-KATEGORI             R>eYMeN  Hermes  DURUM
+KATEGORI             R>eYMeN  ReYMeN  DURUM
 ───────────────────────────────────────────────
 1. Cekirdek          7/7      7/7     ESIT
 2. LLM Provider      9/9      9/9     ESIT
@@ -83,11 +83,11 @@ TOPLAM              50/50    50/50   %100
 Genel toplamdan sonra iki liste:
 
 ```
-R>eYMeN'DE OLUP HERMES'TE OLMAYAN:
+R>eYMeN'DE OLUP ReYMeN'TE OLMAYAN:
   1. Ekran OCR + tiklama (tools/screen.py)
   2. Makro kaydetme/oynatma (tools/macro.py)
 
-HERMES'TE OLUP R>eYMeN'DE OLMAYAN (gereksiz):
+ReYMeN'TE OLUP R>eYMeN'DE OLMAYAN (gereksiz):
   1. React SPA (R'de HTMX)
   2. LSP kod tamamlama
 ```

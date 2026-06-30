@@ -17,7 +17,7 @@ version: 1.0.0
 
 # Import Zinciri Hata Ayıklama Metodolojisi
 
-Hermes'in bulduğu import kırıklarını Claude Code'a düzelttirme yöntemi.
+ReYMeN'in bulduğu import kırıklarını Claude Code'a düzelttirme yöntemi.
 
 ## Adımlar
 

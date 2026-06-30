@@ -1,8 +1,12 @@
-
-> **Kategori:** ecc
-
 ---
-
+name: ecc_kotlin-exposed-patterns
+title: Ecc Kotlin Exposed Patterns
+description: ''
+tags:
+- ecc
+category: ecc
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,10 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
-
----
 
 name: kotlin-exposed-patterns
 description: JetBrains Exposed ORM patterns including DSL queries, DAO pattern, transactions, HikariCP connection pooling, Flyway migrations, and repository pattern.

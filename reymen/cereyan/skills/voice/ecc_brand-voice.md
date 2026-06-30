@@ -1,8 +1,12 @@
-
-> **Kategori:** ecc
-
 ---
-
+name: ecc_brand-voice
+title: Ecc Brand Voice
+description: ''
+tags:
+- ecc
+category: ecc
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: brand-voice
 description: Build a source-derived writing style profile from real posts, essays, launch notes, docs, or site copy, then reuse that profile across content, outreach, and social workflows. Use when the user wants voice consistency without generic AI writing tropes.
 title: "Brand Voice"

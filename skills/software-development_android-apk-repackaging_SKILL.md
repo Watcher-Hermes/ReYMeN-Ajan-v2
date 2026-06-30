@@ -26,7 +26,7 @@ version: 1.0.0
 
 | Araç | Not |
 |------|-----|
-| apktool.jar | `C:\Users\marko\re-hermes\apktool.jar` |
+| apktool.jar | `C:\Users\marko\re-ReYMeN\apktool.jar` |
 | zipalign | `$ANDROID_SDK/build-tools/35.0.0/zipalign.exe` |
 | apksigner | `$ANDROID_SDK/build-tools/35.0.0/apksigner.bat` |
 | jarsigner | **KULLANMA** — sadece v1 imza üretir, Android 7+ yetersiz |

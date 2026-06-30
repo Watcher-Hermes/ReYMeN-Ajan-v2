@@ -3,10 +3,10 @@ name: telegram-approval-bridge
 description: Multi-model LLM bridge with file-based Telegram approval gates. Use when the user wants alternating Claude+Ollama reasoning with manual 'devam/dur' control between turns.
 title: "Telegram Approval Bridge"
 version: 1.0.0
-author: Hermes Agent + User
+author: ReYMeN Agent + User
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [bridge, approval, claude, ollama, telegram, file-signal]
 category: autonomous-ai-agents
 audience: user
@@ -64,11 +64,11 @@ python C:\Users\marko\Desktop\bridge_tg.py
 
 ### Akış
 1. Script ilk turda `bridge_status.txt` yazar.
-2. Hermes/Ollama cevaplarını okuyarıp Telegram ile paylaş.
+2. ReYMeN/Ollama cevaplarını okuyarıp Telegram ile paylaş.
 3. Kullanıcı `devam` (devam) veya `dur` (durdur) der.
 4. `C:\Users\marko\Desktop\bridge_signal.txt` dosyasına yaz (sadece `devam` veya `dur`, küçük harf).
 5. Script sinyali okur, yükümlüyü siler, bir sonraki tura geçer.
-6. Tüm loglar bittiğinde Hem Hermes skill klasörüne Hem Obsidian Vault'a yazılır.
+6. Tüm loglar bittiğinde Hem ReYMeN skill klasörüne Hem Obsidian Vault'a yazılır.
 
 ### Güvenlik
 - `MAX_TURN=5`, zaman aşımı `300sn` → otomatik `dur`.

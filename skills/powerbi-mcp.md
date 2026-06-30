@@ -30,7 +30,7 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 | Soru | Cevap |
 |:-----|:------|
-| **Kim?** | Hermes ajanı. Kullanıcı Power BI sorgulaması istediğinde. |
+| **Kim?** | ReYMeN ajanı. Kullanıcı Power BI sorgulaması istediğinde. |
 | **Ne?** | Power BI Desktop'ı MCP server üzerinden AI agent'a bağlar. Veri modellerini sorgulamayı sağlar. |
 | **Nerede?** | Power BI Desktop (açık olmalı) + XMLA endpoint + VS Code MCP extension |
 | **Ne Zaman?** | Kullanıcı "Power BI'dan veri getir" dediğinde. |

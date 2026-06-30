@@ -22,7 +22,7 @@ def _restore_stdout():
 @pytest.fixture()
 def server():
     with patch.dict("sys.modules", {
-        "ReYMeN_constants": MagicMock(get_ReYMeN_home=MagicMock(return_value="/tmp/ReYMeN_test")),
+        "ReYMeN_constants": MagicMock(get_reymen_home=MagicMock(return_value="/tmp/ReYMeN_test")),
         "ReYMeN_cli.env_loader": MagicMock(),
         "ReYMeN_cli.banner": MagicMock(),
         "ReYMeN_state": MagicMock(),

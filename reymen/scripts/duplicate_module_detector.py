@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""duplicate_module_detector.py — ReYMeN projesindeki Hermes kopyası modülleri tespit eder.
+"""duplicate_module_detector.py — ReYMeN projesindeki ReYMeN kopyası modülleri tespit eder.
 
 Kullanım:
     python reymen/scripts/duplicate_module_detector.py
         
 Şunları raporlar:
-    - Hermes mirror dizinleri ve boyutları
+    - ReYMeN mirror dizinleri ve boyutları
     - .py dosya sayıları / kopya tahmini
     - Önerilen temizlik aksiyonları
 """
@@ -13,6 +13,9 @@ Kullanım:
 import os
 import sys
 from pathlib import Path
+import logging
+
+logger = logging.getLogger(__name__)
 
 HERMES_MIRROR_DIRS = [
     "agent",
@@ -43,7 +46,7 @@ REYMEN_CORE_DIRS = [
 ]
 
 def scan_mirror_dirs(proje_koku: Path):
-    """Hermes mirror dizinlerini tara ve raporla."""
+    """ReYMeN mirror dizinlerini tara ve raporla."""
     sonuc = []
     toplam_mirror_py = 0
     toplam_mirror_bytes = 0
@@ -73,7 +76,7 @@ def scan_mirror_dirs(proje_koku: Path):
 
 
 def find_identical_files(proje_koku: Path):
-    """Hermes mirror ile ReYMeN core arasında birebir aynı .py dosyalarını bul."""
+    """ReYMeN mirror ile ReYMeN core arasında birebir aynı .py dosyalarını bul."""
     mirrors = {}
     for d in HERMES_MIRROR_DIRS:
         yol = proje_koku / d
@@ -90,7 +93,8 @@ def find_identical_files(proje_koku: Path):
             for f in yol.rglob("*.py"):
                 try:
                     core_set.add(str(f.relative_to(yol)))
-                except ValueError:
+                except ValueError as _e:
+                    logger.warning("[DuplicateModuleDetector] Gecersiz deger (L93): %s", ValueError)
                     pass
     
     # Mirror'da olup core'da olmayan dosyalar
@@ -114,7 +118,7 @@ def main():
     mirror_list, mirror_py, mirror_bytes, core_py = scan_mirror_dirs(proje_koku)
     
     print(f"{'='*60}")
-    print(f"📊 HERMES MIRROR DURUMU")
+    print(f"📊 ReYMeN MIRROR DURUMU")
     print(f"{'='*60}")
     print(f"{'Dizin':<25} {'PY':>6} {'Boyut':>10}")
     print(f"{'-'*45}")

@@ -1,7 +1,7 @@
 ---
 name: hibrit-ai-mimarisi
 title: "Hibrit AI Mimarisi"
-description: "Hermes'in iki katmanlı AI mimarisi — Ollama (yerel) + DeepSeek (uzak) model yönlendirme kuralları ve geçiş mekanizması."
+description: "ReYMeN'in iki katmanlı AI mimarisi — Ollama (yerel) + DeepSeek (uzak) model yönlendirme kuralları ve geçiş mekanizması."
 tags: [hibrit, hybrid, ollama, deepseek, AI-mimari, model-routing]
 category: mlops
 audience: user
@@ -18,7 +18,7 @@ related_skills: [dolphin-llama3, hibrit-ai-yonlendirme-kurali]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Hermes'in iki katmanlı AI mimarisi — Ollama (yerel) + DeepSeek (uzak) model yönlendirme kuralları ve geçiş mekanizması. |
+| **Ne?** | ReYMeN'in iki katmanlı AI mimarisi — Ollama (yerel) + DeepSeek (uzak) model yönlendirme kuralları ve geçiş mekanizması. |
 | **Nerede?** | mlops/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -28,7 +28,7 @@ related_skills: [dolphin-llama3, hibrit-ai-yonlendirme-kurali]
 
 # Hibrit AI Mimarisi — Ollama + DeepSeek
 
-Hermes iki model katmanıyla çalışır:
+ReYMeN iki model katmanıyla çalışır:
 
 ## Katman 1: Yerel (Ollama)
 - **Ne zaman:** Kısa (<40 kelime) ve basit sorular için

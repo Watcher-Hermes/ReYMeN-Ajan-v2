@@ -1,8 +1,12 @@
-
-> **Kategori:** ecc
-
 ---
-
+name: ecc_swift-concurrency-6-2
+title: Ecc Swift Concurrency 6 2
+description: ''
+tags:
+- ecc
+category: ecc
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: swift-concurrency-6-2
 description: Swift 6.2 Approachable Concurrency — single-threaded by default, @concurrent for explicit background offloading, isolated conformances for main actor types.
 title: "Swift Concurrency 6 2"

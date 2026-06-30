@@ -211,8 +211,10 @@ class Sandbox:
         if hasattr(self, "_son_script") and self._son_script and os.path.exists(self._son_script):
             try:
                 os.unlink(self._son_script)
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
     # ── Kod Ön Kontrolü ────────────────────────────────────────────────
 

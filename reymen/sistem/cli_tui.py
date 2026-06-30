@@ -1647,9 +1647,13 @@ class TUIMixin:
                     from reymen.reymen_cli.config import get_config_path as _get_cfg_path_resid
                     mark_seen(_get_cfg_path_resid(), OPENCLAW_RESIDUE_FLAG)
                 except Exception as _e:
-                    pass  # best-effort — banner will fire again next session
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )  # best-effort — banner will fire again next session
         except Exception as _e:
-            pass  # banner is non-critical — never break startup
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # banner is non-critical — never break startup
         # Show a random tip to help users discover features
         try:
             from reymen.reymen_cli.tips import get_random_tip
@@ -1660,7 +1664,9 @@ class TUIMixin:
                 _tip_color = "#B8860B"
             self._console_print(f"[dim {_tip_color}]✦ Tip: {_tip}[/]")
         except Exception as _e:
-            pass  # Tips are non-critical — never break startup
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # Tips are non-critical — never break startup
 
         # Curator — kick off a background skill-maintenance pass on startup
         # if the schedule says we're due.  Runs in a daemon thread so it
@@ -3684,8 +3690,10 @@ class TUIMixin:
                             from tools.process_registry import process_registry
                             for _evt, _synth in process_registry.drain_notifications():
                                 self._pending_input.put(_synth)
-                        except Exception:
-                            pass  # Non-fatal — don't break the main loop
+                        except Exception as _e:
+                            __import__("logging").getLogger(__name__).warning(
+                                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                            )  # Non-fatal — don't break the main loop
 
                 except Exception as e:
                     logger.warning("process_loop unhandled error (msg may be lost): %s", e)
@@ -3729,8 +3737,10 @@ class TUIMixin:
             """
             try:
                 logger.debug("Received signal %s, triggering graceful shutdown", signum)
-            except Exception:
-                pass  # never let logging raise from a signal handler (#13710 regression)
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )  # never let logging raise from a signal handler (#13710 regression)
             try:
                 if getattr(self, "agent", None) and getattr(self, "_agent_running", False):
                     self.agent.interrupt(f"received signal {signum}")
@@ -3741,7 +3751,9 @@ class TUIMixin:
                     if _grace > 0:
                         time.sleep(_grace)
             except Exception as _e:
-                pass  # never block signal handling
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )  # never block signal handling
             # Prefer a clean prompt_toolkit exit over `raise KeyboardInterrupt()`.
             # Raising KBI from a signal handler unwinds into whatever Python
             # frame the interpreter happens to be running — typically an
@@ -3804,7 +3816,9 @@ class TUIMixin:
                     return
                 _signal.signal(_signal.SIGINT, _sigint_absorb)
         except Exception as _e:
-            pass  # Signal handlers may fail in restricted environments
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # Signal handlers may fail in restricted environments
         
         # Install a custom asyncio exception handler that suppresses the
         # "Event loop is closed" RuntimeError from httpx transport cleanup
@@ -3939,7 +3953,7 @@ class TUIMixin:
                 # and SQLite history. Ported from google-gemini/gemini-cli#19332.
                 if getattr(self, '_delete_session_on_exit', False):
                     try:
-                        from reymen.sistem.ReYMeN_constants import get_ReYMeN_home as _ghh
+                        from reymen.sistem.ReYMeN_constants import get_reymen_home as _ghh
                         _sessions_dir = _ghh() / "sessions"
                         _sid = self.agent.session_id
                         if self._session_db.delete_session(_sid, sessions_dir=_sessions_dir):

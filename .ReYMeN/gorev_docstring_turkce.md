@@ -1,28 +1,28 @@
-# GÖREV: .py Dosyalarındaki Hermes Referanslarını Temizle + Türkçe Docstring Ekle
+# GÖREV: .py Dosyalarındaki ReYMeN Referanslarını Temizle + Türkçe Docstring Ekle
 
 ## NE
-`reymen/` altındaki .py dosyalarında geçen "Hermes" referanslarını "ReYMeN" yap, Türkçe docstring ekle.
+`reymen/` altındaki .py dosyalarında geçen "ReYMeN" referanslarını "ReYMeN" yap, Türkçe docstring ekle.
 
 ## HEDEF DOSYALAR (öncelik sırasına göre)
 
 | # | Klasör | Dosya | İşlem |
 |---|---|---|---|
-| 1 | `reymen/core/` | 6 .py | Docstring ekle + Hermes→ReYMeN |
-| 2 | `reymen/arac/` | 33 .py | Docstring ekle + Hermes→ReYMeN |
-| 3 | `reymen/cereyan/` | 55 .py | Docstring ekle + Hermes→ReYMeN |
-| 4 | `reymen/guvenlik/` | 15 .py | Docstring ekle + Hermes→ReYMeN |
-| 5 | `reymen/hafiza/` | 18 .py | Docstring ekle + Hermes→ReYMeN |
-| 6 | `reymen/scripts/` | 18 .py | Docstring ekle + Hermes→ReYMeN |
+| 1 | `reymen/core/` | 6 .py | Docstring ekle + ReYMeN→ReYMeN |
+| 2 | `reymen/arac/` | 33 .py | Docstring ekle + ReYMeN→ReYMeN |
+| 3 | `reymen/cereyan/` | 55 .py | Docstring ekle + ReYMeN→ReYMeN |
+| 4 | `reymen/guvenlik/` | 15 .py | Docstring ekle + ReYMeN→ReYMeN |
+| 5 | `reymen/hafiza/` | 18 .py | Docstring ekle + ReYMeN→ReYMeN |
+| 6 | `reymen/scripts/` | 18 .py | Docstring ekle + ReYMeN→ReYMeN |
 
 Toplam: ~145 dosya
 
 ## NE YAPILACAK
 
-### 1. Hermes → ReYMeN Dönüşümü
+### 1. ReYMeN → ReYMeN Dönüşümü
 Her .py dosyasında:
-- `Hermes` → `ReYMeN` (sadece docstring/yorum satırlarında, kod değil)
-- `hermes` → `reymen`
-- `HERMES` → `REYMEN`
+- `ReYMeN` → `ReYMeN` (sadece docstring/yorum satırlarında, kod değil)
+- `ReYMeN` → `reymen`
+- `ReYMeN` → `REYMEN`
 
 ### 2. Türkçe Docstring Ekle
 Dosyanın en üstüne (varsa mevcut docstring'in ÜSTÜNE) Türkçe docstring ekle:
@@ -72,12 +72,12 @@ Eğer dosyada zaten docstring varsa, mevcut docstring'in ALTINA Türkçe açıkl
 - Diğerleri: Kısa Türkçe açıklama.
 
 ## DOĞRULAMA
-- `grep -r "Hermes" reymen/ --include="*.py"` → 0 sonuç (koda dokunma, yoruma dokun)
+- `grep -r "ReYMeN" reymen/ --include="*.py"` → 0 sonuç (koda dokunma, yoruma dokun)
 - Her dosyanın ilk 5 satırında Türkçe açıklama var mı?
 - `python -m pytest tests/ -x --timeout=10 -q` → geçiyor mu?
 
 ## YASAKLAR
 - Kod mantığını ASLA değiştirme (sadece yorum/docstring)
 - `.git`, `__pycache__`, `venv`, `node_modules` içinde değişiklik yok
-- `reymen/reymen_cli/`'ye dokunma (Hermes kopyası)
+- `reymen/reymen_cli/`'ye dokunma (ReYMeN kopyası)
 - `tests/` dosyalarını değiştirme

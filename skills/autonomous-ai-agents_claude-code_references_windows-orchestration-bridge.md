@@ -1,6 +1,6 @@
 ---
 name: autonomous-ai-agents_claude-code_references_windows-orchestration-bridge
-description: Claude Code — Hermes Orchestration Guide (Windows)
+description: Claude Code — ReYMeN Orchestration Guide (Windows)
 title: "Autonomous Ai Agents Claude Code References Windows Orchestration Bridge"
 version: 1.0.0
 ---
@@ -9,15 +9,15 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Claude Code — Hermes Orchestration Guide (Windows) |
+| **Ne** | Claude Code — ReYMeN Orchestration Guide (Windows) |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Claude Code — Hermes Orchestration Guide (Windows)
+# Claude Code — ReYMeN Orchestration Guide (Windows)
 
-Hermes'i Claude Code ile koordine ederek **analiz → kod düzeltme** iş akışı. Hermes bulguyu yapar, Claude Code düzeltmeyi kodlar.
+ReYMeN'i Claude Code ile koordine ederek **analiz → kod düzeltme** iş akışı. ReYMeN bulguyu yapar, Claude Code düzeltmeyi kodlar.
 
 ## Desteklenen Yöntemler
 
@@ -30,12 +30,12 @@ Hermes'i Claude Code ile koordine ederek **analiz → kod düzeltme** iş akış
 
 ## Yöntem 1: VS Code GUI Bridge (Windows)
 
-Hermes'in bulgularını VS Code içindeki Claude Agent sohbet kutusuna iletir.
+ReYMeN'in bulgularını VS Code içindeki Claude Agent sohbet kutusuna iletir.
 
 ### Pipeline
 
 ```
-🧠 Hermes (analiz + strateji)
+🧠 ReYMeN (analiz + strateji)
    ↓  "Şu kodu düzelt: ..."
 📝 vscode_yaz.bat <mesaj>
    ↓  pyautogui clipboard yapıştır + Enter
@@ -85,7 +85,7 @@ claude -p "Şu kodu düzelt: ..." --allowedTools "Read,Edit,Write,Bash" --max-tu
 Detay: `claude-code-cli-autonomous` skill'ine bak.
 
 
-## İş Akışı: Hermes → Claude Code
+## İş Akışı: ReYMeN → Claude Code
 
 ```
 1. ANALİZ — Kodu tara, hatayı bul, çözüm stratejisi belirle

@@ -1,7 +1,7 @@
 ---
 name: software-development_hermes-s6-container-supervision_references_down-normally-up-ready-user-stopped-it
 description: down … normally up, ready …"     → user stopped it
-title: "Software Development Hermes S6 Container Supervision References Down Normally Up Ready User Stopped It"
+title: "Software Development ReYMeN S6 Container Supervision References Down Normally Up Ready User Stopped It"
 version: 1.0.0
 ---
 

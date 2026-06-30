@@ -1,6 +1,6 @@
 ---
 name: software-development_project-gap-analysis_references_10-batch-implementation-example
-description: 10-Batch Implementation Example — R>eYMeN × Hermes Agent
+description: 10-Batch Implementation Example — R>eYMeN × ReYMeN Agent
 title: "Software Development Project Gap Analysis References 10 Batch Implementation Example"
 version: 1.0.0
 ---
@@ -9,16 +9,16 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | 10-Batch Implementation Example — R>eYMeN × Hermes Agent |
+| **Ne** | 10-Batch Implementation Example — R>eYMeN × ReYMeN Agent |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# 10-Batch Implementation Example — R>eYMeN × Hermes Agent
+# 10-Batch Implementation Example — R>eYMeN × ReYMeN Agent
 
 ## Context
-R>eYMeN project needed to catch up to Hermes Agent in tool count, gateway platforms, transport layer, and memory plugins. Initial gap: 23 tools vs 86.
+R>eYMeN project needed to catch up to ReYMeN Agent in tool count, gateway platforms, transport layer, and memory plugins. Initial gap: 23 tools vs 86.
 
 ## Strategy
 - 10 batches, each batch = 3 parallel `delegate_task` subagents
@@ -36,16 +36,16 @@ R>eYMeN project needed to catch up to Hermes Agent in tool count, gateway platfo
 | B3 | 2 | 12 (5+7) | Gateway remaining (telegram_network, msgraph, yuanbao_media, limits, api_server) + Transport layer (5 files) + approval tools |
 | B4 | 1 | 7+ | Memory plugin (3) + 3 test files + motor.py update |
 | B5 | 3 | 25 | Infrastructure (10) + Security (5) + Browser/Network (5) + Advanced (5) |
-| B6 | 3 | 15 | Final 15 remaining Hermes tools (ansi_strip to xai_http) |
+| B6 | 3 | 15 | Final 15 remaining ReYMeN tools (ansi_strip to xai_http) |
 | B7 | 1 | 8 | 5 wrappers for root files + 3 new tools (skills_ast_audit, skills_guard, slash_confirm) |
 
 ## Results
-- **88 tools** created (surpassed Hermes' 86)
+- **88 tools** created (surpassed ReYMeN' 86)
 - **28 gateway platforms** (was 16)
 - **5 transport modules** (was 0)
 - **3 memory plugins** (was 0)
 - **35/35 tests passing** throughout
-- **R>eYMeN identity preserved** (Turkish docstrings, try/except, not Hermes copies)
+- **R>eYMeN identity preserved** (Turkish docstrings, try/except, not ReYMeN copies)
 
 ## Key Lessons
 1. `delegate_task` with 3 parallel subagents is the fastest way to create 5-25 files

@@ -1,8 +1,12 @@
-
-> **Kategori:** productivity
-
 ---
-
+name: productivity_share-skill_share
+title: Productivity Share Skill Share
+description: ''
+tags:
+- productivity
+category: productivity
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: share
 description: Generate a shareable read-only markdown export of the current session, or a short summary. Triggered when the user types /share, /export, 'share session', 'export conversation', or 'save this session'. Use also when the user says 'share' with --summary flag for a condensed recap.
 title: "Share"
@@ -211,7 +212,7 @@ print(filepath)
 Always print the saved file path:
 
 ```
-Saved: /home/openclaw/.hermes/exports/{filename}
+Saved: /home/openclaw/.ReYMeN/exports/{filename}
 ```
 
 If the session has no messages (count is 0 or session not found in DB):

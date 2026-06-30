@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-tuning-strategy
+title: Prompt Tuning Strategy
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-tuning-strategy
 description: Recommend a hyperparameter tuning strategy based on model type, data size, and compute budget
 title: "PRompt Tuning Strategy"

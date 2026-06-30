@@ -392,8 +392,10 @@ class DelegationManager:
                                 result=a.result,
                                 error=a.error,
                             )
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
         if _DELEGATION_MEVCUT:
             try:
@@ -404,8 +406,10 @@ class DelegationManager:
                             id=a.id, goal=a.goal, context=a.context,
                             status=a.status, result=a.result, error=a.error,
                         )
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
     # ── TEMEL ISLEMLER ─────────────────────────────────────────────────────
 

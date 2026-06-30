@@ -1,8 +1,12 @@
-
-> **Kategori:** ecc
-
 ---
-
+name: ecc_healthcare-emr-patterns
+title: Ecc Healthcare Emr Patterns
+description: ''
+tags:
+- ecc
+category: ecc
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: healthcare-emr-patterns
 description: EMR/EHR development patterns for healthcare applications. Clinical safety, encounter workflows, prescription generation, clinical decision support integration, and accessibility-first UI for medical data entry.
 title: "Healthcare Emr Patterns"

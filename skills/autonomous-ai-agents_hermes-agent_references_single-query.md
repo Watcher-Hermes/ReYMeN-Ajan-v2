@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_single-query
 description: Single query
-title: "Autonomous Ai Agents Hermes Agent References Single Query"
+title: "Autonomous Ai Agents ReYMeN Agent References Single Query"
 version: 1.0.0
 ---
 
@@ -16,4 +16,4 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Single query
-hermes chat -q "What is the capital of France?"
+ReYMeN chat -q "What is the capital of France?"

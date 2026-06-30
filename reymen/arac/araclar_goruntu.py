@@ -94,7 +94,7 @@ def _resim_openrouter_fallback(prompt: str, en: str = "1024", boy: str = "1024")
             _OR_IMAGE_URL,
             payload,
             headers={"Authorization": f"Bearer {api_key}",
-                      "HTTP-Referer": "https://github.com/Watcher-Hermes/ReYMeN-Ajan"},
+                      "HTTP-Referer": "https://github.com/Watcher-ReYMeN/ReYMeN-Ajan"},
             timeout=90,
         )
         # OpenAI uyumlu yanıt
@@ -212,7 +212,7 @@ def _ollama_fallback(kaynak: str, soru: str, neden: str = "") -> str:
         req = urllib.request.Request(
             _OR_VISION_URL, data=json.dumps(payload).encode(),
             headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json",
-                     "HTTP-Referer": "https://github.com/Watcher-Hermes/ReYMeN-Ajan"},
+                     "HTTP-Referer": "https://github.com/Watcher-ReYMeN/ReYMeN-Ajan"},
             method="POST",
         )
         with urllib.request.urlopen(req, timeout=60) as r:

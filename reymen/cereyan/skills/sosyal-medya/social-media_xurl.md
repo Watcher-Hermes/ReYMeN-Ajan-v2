@@ -1,26 +1,12 @@
 ---
-
-name: xurl
-description: "X/Twitter via xurl CLI: post, search, DM, media, v2 API."
-version: 1.1.1
-author: xdevplatform + openclaw + Hermes Agent
-license: MIT
-platforms: [linux, macos]
-prerequisites:
-  commands: [xurl]
-metadata:
-  hermes:
-    tags: [twitter, x, social-media, xurl, official-api]
-audience: user
-    homepage: https://github.com/xdevplatform/xurl
-    upstream_skill: https://github.com/openclaw/openclaw/blob/main/skills/xurl/SKILL.md
+name: social-media_xurl
+title: Social Media Xurl
+description: ''
+tags:
+- sosyal-medya
+category: sosyal-medya
+audience: agent
 ---
-
-
-> **Kategori:** social-media
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -31,8 +17,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Xurl
 

@@ -20,7 +20,7 @@ version: 1.0.0
 **Target:** {target_url}
 **Date:** {date}
 **Scope:** {scope_description}
-**Tester:** Hermes Agent (automated exploratory QA)
+**Tester:** ReYMeN Agent (automated exploratory QA)
 
 ## Executive Summary
 

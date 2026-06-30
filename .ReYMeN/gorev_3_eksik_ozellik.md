@@ -1,7 +1,7 @@
 # GÖREV: ReYMeN'E KALAN 3 KRİTİK ÖZELLİĞİ EKLE
 
 ## NE
-Hermes Agent'te olup ReYMeN'de hala eksik olan 3 özelliği ekle:
+ReYMeN Agent'te olup ReYMeN'de hala eksik olan 3 özelliği ekle:
 1. **Multi-channel gateway** (fan-out, 3 bot)
 2. **FAL FLUX görsel üretme tool'u**
 3. **Web UI geliştirme**
@@ -11,7 +11,7 @@ Hermes Agent'te olup ReYMeN'de hala eksik olan 3 özelliği ekle:
 ## ADIM 1: Multi-Channel Gateway (Fan-Out Sistemi)
 
 ### Hedef
-ReYMeN'in 3 Telegram bot'una tek noktadan mesaj gönderebilmesi. Hermes'teki gibi: bir mesaj yaz → tüm botlara + CLI'ya fan-out.
+ReYMeN'in 3 Telegram bot'una tek noktadan mesaj gönderebilmesi. ReYMeN'teki gibi: bir mesaj yaz → tüm botlara + CLI'ya fan-out.
 
 ### Yer
 `reymen/sistem/gateway/` (yeni paket)

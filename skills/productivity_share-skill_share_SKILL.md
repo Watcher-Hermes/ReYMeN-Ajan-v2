@@ -211,7 +211,7 @@ print(filepath)
 Always print the saved file path:
 
 ```
-Saved: /home/openclaw/.hermes/exports/{filename}
+Saved: /home/openclaw/.ReYMeN/exports/{filename}
 ```
 
 If the session has no messages (count is 0 or session not found in DB):

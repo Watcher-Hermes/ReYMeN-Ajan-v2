@@ -18,7 +18,7 @@ version: 1.0.0
 # Aktif Konu Tespiti — Referans
 
 ## Problem
-Kullanıcı "araştırma yap" dediğinde Hermes takılı değilse aktif konu bilinmiyor. Takildi.txt yok. Ekranı okuyarak durumu anlamak gerekiyor.
+Kullanıcı "araştırma yap" dediğinde ReYMeN takılı değilse aktif konu bilinmiyor. Takildi.txt yok. Ekranı okuyarak durumu anlamak gerekiyor.
 
 ## Çözüm Akışı
 
@@ -55,14 +55,14 @@ vision_analyze(image_url='C:/Users/marko/Desktop/screen_small.jpg', question='..
 
 ### Adım 4: Ekran Yorumla
 Ekranda tipik olarak:
-- **Sol taraf:** PowerShell / Hermes terminali — MAC analizi, kod çıktısı, hata mesajları
+- **Sol taraf:** PowerShell / ReYMeN terminali — MAC analizi, kod çıktısı, hata mesajları
 - **Sağ taraf:** Kali Linux VM (VirtualBox) — Wi-Fi taraması, araç kurulumları
-- **Alt kısım:** Hermes agent durumu (model adı, session süresi)
+- **Alt kısım:** ReYMeN agent durumu (model adı, session süresi)
 
 ### Adım 5: Kullanıcıya Raporla
 Format:
 ```
-Hermes şu an <konu> üzerinde çalışıyor.
+ReYMeN şu an <konu> üzerinde çalışıyor.
 Blokaj: <sorun>
 Çözüm için: <yapılacak adım>
 ```

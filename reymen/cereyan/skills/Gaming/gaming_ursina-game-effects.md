@@ -1,8 +1,12 @@
-
-> **Kategori:** gaming
-
 ---
-
+name: gaming_ursina-game-effects
+title: Gaming Ursina Game Effects
+description: ''
+tags:
+- gaming
+category: gaming
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: ursina-game-effects
 description: Ursina ile first-person 3D voxel oyununda etkili hile/efekt sistemi, koşullu tetikleme, otomatik efektler ve blok yerleştirme/kırma kalıcı patterni. Pygame yaklaşımından farklı event/debounce ve mouse hover döngüsü kurallarını kapsar.
 title: "Ursina Game Effects"

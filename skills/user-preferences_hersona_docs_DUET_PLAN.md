@@ -21,7 +21,7 @@ version: 1.0.0
 > v1 (ギャルゲーエンジン構想) をオーナーの具体例に基づき改訂。
 > **ギャルゲーは「コンテンツパックの一つ」に降格し、本体は「監督・シナリオライター・
 > ナレーター・アクターの各エージェントが協働してシーン単位で作品を作るスタジオ」とする。**
-> hersona は登場人物の人格ライブラリとして、Hermes Agent はエージェント実行基盤として活用する。
+> hersona は登場人物の人格ライブラリとして、ReYMeN Agent はエージェント実行基盤として活用する。
 
 ## 1. プロダクト定義（オーナー提示の具体例 = 要件）
 
@@ -70,10 +70,10 @@ version: 1.0.0
 | シーン設定 | シーンの場所/目的/参加キャラ・シーン一覧（作品はシーンの束） |
 | テキスト出力 | 完成シーンの台本体 / 小説体表示・Markdown エクスポート |
 
-### 1.5 Hermes Agent との関係
+### 1.5 ReYMeN Agent との関係
 
 - orchestrator（進行ロジック）はフレームワーク非依存の Python コアとして実装
-- **Hermes Agent はエージェント実行アダプタの第一実装**（アクター/スタッフを Hermes
+- **ReYMeN Agent はエージェント実行アダプタの第一実装**（アクター/スタッフを ReYMeN
   エージェントとして駆動、`/duet` スキル提供）。スタンドアロン（API 直叩き）も併存
 - hersona は配役層: 属性ブレンド → アクターの注入ブロック、相性マトリクス → 配役の
   ドラマ設計、intensity → 演技のキャラ一貫性 QA
@@ -122,7 +122,7 @@ hersona-duet/
 │   ├── script.py            # 台本データモデル + 出力 (台本体 / 小説体 Markdown)
 │   ├── quality.py           # intensity 連携 (アクターのキャラ一貫性バッジ)
 │   └── cli.py               # `duet scene run` / `duet scene join` / `duet export`
-├── adapters/hermes/         # Hermes Agent 統合 (/duet スキル)
+├── adapters/hermes/         # ReYMeN Agent 統合 (/duet スキル)
 ├── ui/                      # Phase 3: Web 4 画面 (ブラウザ完結・BYO キー)
 ├── packs/                   # プロジェクト保存形式: 世界観+スタッフ+配役+シーン束 (YAML)
 │   └── examples/
@@ -208,7 +208,7 @@ actors:
 
 ### Phase 4: 生態系（以降随時）
 
-- [ ] Hermes Agent アダプタ（`/duet` スキル）
+- [ ] ReYMeN Agent アダプタ（`/duet` スキル）
 - [ ] ギャルゲーパック: P0-3 写像で「好感度→weight」を使う恋愛シーン集（v1 構想の回収）
 - [ ] Character Card V2 インポータ（SillyTavern 圏からの配役流入）
 - [ ] duet の完成シーンを X グロース施策の定常コンテンツに

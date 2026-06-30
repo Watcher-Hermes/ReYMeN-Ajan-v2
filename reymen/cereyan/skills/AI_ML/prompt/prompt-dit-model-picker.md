@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-dit-model-picker
+title: Prompt Dit Model Picker
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-dit-model-picker
 description: Pick between SD3, SD3.5, FLUX.1-dev, FLUX.1-schnell, Z-Image, SD4 Turbo given quality, latency, and license
 title: "PRompt Dit Model Picker"

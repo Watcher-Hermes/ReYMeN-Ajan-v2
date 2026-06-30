@@ -1,8 +1,12 @@
-
-> **Kategori:** ecc
-
 ---
-
+name: ecc_team-builder
+title: Ecc Team Builder
+description: ''
+tags:
+- ecc
+category: ecc
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: team-builder
 description: Interactive agent picker for composing and dispatching parallel teams
 title: "Team Builder"

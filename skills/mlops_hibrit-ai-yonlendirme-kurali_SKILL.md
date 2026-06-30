@@ -44,9 +44,9 @@ arasında otomatik yönlendirme kuralları.
 
 **Önemli:** `api_max_retries: 3` + `fallback_providers: []` (boş) birlikte tehlikelidir:
 - Kredi bittiğinde DeepSeek "insufficient_quota" döndürür
-- Hermes her mesajda 3 kere dener, her seferinde hata alır
+- ReYMeN her mesajda 3 kere dener, her seferinde hata alır
 - Yedek provider olmadığı için session düşer
-- Kullanıcı "Hermes çalışmıyor / hafızasını unuttu" hisseder
+- Kullanıcı "ReYMeN çalışmıyor / hafızasını unuttu" hisseder
 
 **Doğru yapılandırma:**
 ```yaml
@@ -60,7 +60,7 @@ fallback_providers:
 **Pitfall — Kredi vs Bağlantı Hatası:**
 - Bağlantı hatası (timeout/DNS): API'ye hiç ulaşılamaz → Ollama'ya düşer
 - Kredi bitti/API key geçersiz: API ulaşılabilir ama 401/402/403 döner → api_max_retries'i doldurur, sonra fallback yoksa çöker
-- Yeni API key alınınca: Hermes hemen çalışmaya başlar, memory/config kaybolmaz — "unuttu" hissi yanıltıcıdır, aslında sadece provider çalışmıyordur
+- Yeni API key alınınca: ReYMeN hemen çalışmaya başlar, memory/config kaybolmaz — "unuttu" hissi yanıltıcıdır, aslında sadece provider çalışmıyordur
 
 ## Kullanıcı Deneyimi
 

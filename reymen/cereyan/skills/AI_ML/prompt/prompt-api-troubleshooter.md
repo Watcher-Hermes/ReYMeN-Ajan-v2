@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-api-troubleshooter
+title: Prompt Api Troubleshooter
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-api-troubleshooter
 description: Diagnose and fix common AI API errors (auth, rate limits, timeouts)
 title: "PRompt API Troubleshooter"

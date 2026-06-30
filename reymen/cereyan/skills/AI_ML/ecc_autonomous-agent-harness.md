@@ -1,173 +1,16 @@
 ---
-name: autonomous-agent-harness
-description: Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (Hermes, AutoGPT) by leveraging Claude Code's native crons, dispatch, MCP tools, and memory. Use when the user wants continuous autonomous operation, scheduled tasks, or a self-directing agent loop.
-title: "Autonomous Agent Harness"
-origin: ECC
-
-audience: contributor
-tags: [ai, automation, development]
-category: ecc---
-
-# Autonomous Agent Harness
-
-Turn Claude Code into a persistent, self-directing agent system using only native features and MCP servers.
-
-## Consent and Safety Boundaries
-
-Autonomous operation must be explicitly requested and scoped by the user. Do not create schedules, dispatch remote agents, write persistent memory, use computer control, post externally, modify third-party resources, or act on private communications unless the user has approved that capability and the target workspace for the current setup.
-
-Prefer dry-run plans and local queue files before enabling recurring or event-driven actions. Keep credentials, private workspace exports, personal datasets, and account-specific automations out of reusable ECC artifacts.
-
-## When to Activate
-
-- User wants an agent that runs continuously or on a schedule
-- Setting up automated workflows that trigger periodically
-- Building a personal AI assistant that remembers context across sessions
-- User says "run this every day", "check on this regularly", "keep monitoring"
-- Wants to replicate functionality from Hermes, AutoGPT, or similar autonomous agent frameworks
-- Needs computer use combined with scheduled execution
-
-## Architecture
-
-```
-┌──────────────────────────────────────────────────────────────┐
-│                    Claude Code Runtime                        │
-│                                                              │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────────────┐ │
-│  │  Crons   │  │ Dispatch │  │ Memory   │  │ Computer    │ │
-│  │ Schedule │  │ Remote   │  │ Store    │  │ Use         │ │
-│  │ Tasks    │  │ Agents   │  │          │  │             │ │
-│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └──────┬──────┘ │
-│       │              │             │                │        │
-│       ▼              ▼             ▼                ▼        │
-│  ┌──────────────────────────────────────────────────────┐    │
-│  │              ECC Skill + Agent Layer                  │    │
-│  │                                                      │    │
-│  │  skills/     agents/     commands/     hooks/        │    │
-│  └──────────────────────────────────────────────────────┘    │
-│       │              │             │                │        │
-│       ▼              ▼             ▼                ▼        │
-│  ┌──────────────────────────────────────────────────────┐    │
-│  │              MCP Server Layer                        │    │
-│  │                                                      │    │
-│  │  memory    github    exa    supabase    browser-use  │    │
-│  └──────────────────────────────────────────────────────┘    │
-└──────────────────────────────────────────────────────────────┘
-```
-
-## Core Components
-
-### 1. Persistent Memory
-
-Use Claude Code's built-in memory system enhanced with MCP memory server for structured data.
-
-**Built-in memory** (`~/.claude/projects/*/memory/`):
-- User preferences, feedback, project context
-- Stored as markdown files with frontmatter
-- Automatically loaded at session start
-
-**MCP memory server** (structured knowledge graph):
-- Entities, relations, observations
-- Queryable graph structure
-- Cross-session persistence
-
-**Memory patterns:**
-
-```
-# Short-term: current session context
-Use TodoWrite for in-session task tracking
-
-# Medium-term: project memory files
-Write to ~/.claude/projects/*/memory/ for cross-session recall
-
-# Long-term: MCP knowledge graph
-Use mcp__memory__create_entities for permanent structured data
-Use mcp__memory__create_relations for relationship mapping
-Use mcp__memory__add_observations for new facts about known entities
-```
-
-### 2. Scheduled Operations (Crons)
-
-Use Claude Code's scheduled tasks to create recurring agent operations.
-
-**Setting up a cron:**
-
-```
-# Via MCP tool
-mcp__scheduled-tasks__create_scheduled_task({
-  name: "daily-pr-review",
-  schedule: "0 9 * * 1-5",  # 9 AM weekdays
-  prompt: "Review all open PRs in affaan-m/everything-claude-code. For each: check CI status, review changes, flag issues. Post summary to memory.",
-  project_dir: "/path/to/repo"
-})
-
-# Via claude -p (programmatic mode)
-echo "Review open PRs and summarize" | claude -p --project /path/to/repo
-```
-
-**Useful cron patterns:**
-
-| Pattern | Schedule | Use Case |
-|---------|----------|----------|
-| Daily standup | `0 9 * * 1-5` | Review PRs, issues, deploy status |
-| Weekly review | `0 10 * * 1` | Code quality metrics, test coverage |
-| Hourly monitor | `0 * * * *` | Production health, error rate checks |
-| Nightly build | `0 2 * * *` | Run full test suite, security scan |
-| Pre-meeting | `*/30 * * * *` | Prepare context for upcoming meetings |
-
-### 3. Dispatch / Remote Agents
-
-Trigger Claude Code agents remotely for event-driven workflows.
-
-**Dispatch patterns:**
-
-```bash
-# Trigger from CI/CD
-curl -X POST "https://api.anthropic.com/dispatch" \
-  -H "Authorization: Bearer $ANTHROPIC_API_KEY" \
-  -d '{"prompt": "Build failed on main. Diagnose and fix.", "project": "/repo"}'
-
-# Trigger from webhook
-# GitHub webhook → dispatch → Claude agent → fix → PR
-
-# Trigger from another agent
-claude -p "Analyze the output of the security scan and create issues for findings"
-```
-
-### 4. Computer Use
-
-Leverage Claude's computer-use MCP for physical world interaction.
-
-**Capabilities:**
-- Browser automation (navigate, click, fill forms, screenshot)
-- Desktop control (open apps, type, mouse control)
-- File system operations beyond CLI
-
-**Use cases within the harness:**
-- Automated testing of web UIs
-- Form filling and data entry
-- Screenshot-based monitoring
-- Multi-app workflows
-
-### 5. Task Queue
-
-Manage a persistent queue of tasks that survive session boundaries.
-
-**Implementation:**
-
-```
-# Task persistence via memory
-Write task queue to ~/.claude/projects/*/memory/task-queue.md
-
-# Task format
-
-
+name: ecc_autonomous-agent-harness
+title: Ecc Autonomous Agent Harness
+description: ''
+tags:
+- ai_ml
+category: AI_ML
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI muhendisi |
-| **Ne** | Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (Hermes, AutoGPT) by lever |
+| **Ne** | Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (ReYMeN, AutoGPT) by lever |
 | **Nerede** | `ai\ecc\ecc_autonomous-agent-harness.md` |
 | **Ne Zaman** | AI modeli secimi veya degerlendirmesi gerektiginde |
 | **Neden** | Ecc Autonomous Agent Harness islemini standartlastirmak icin |
@@ -179,16 +22,14 @@ Write task queue to ~/.claude/projects/*/memory/task-queue.md
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (Hermes, AutoGPT) by leveraging Claude Code's native crons, dispatch, MCP tools, and memory. Use when the user wants continuous autonomous operation, scheduled tasks, or a self-directing agent loop. |
+| **Ne?** | Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (ReYMeN, AutoGPT) by leveraging Claude Code's native crons, dispatch, MCP tools, and memory. Use when the user wants continuous autonomous operation, scheduled tasks, or a self-directing agent loop. |
 | **Nerede?** | ecc/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: AI muhendisi
-Ne: Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (Hermes, AutoGPT) by lever
+Ne: Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (ReYMeN, AutoGPT) by lever
 Nerede: `ai\ecc\ecc_autonomous-agent-harness.md`
 Ne Zaman: AI modeli secimi veya degerlendirmesi gerektiginde
 Neden: Ecc Autonomous Agent Harness islemini standartlastirmak ve tekrarlanabilir kilmak icin
@@ -197,8 +38,6 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 name: task-queue
 type: project
 description: Persistent task queue for autonomous operation
----
-
 ## Active Tasks
 - [ ] PR #123: Review and approve if CI green
 - [ ] Monitor deploy: check /health every 30 min for 2 hours
@@ -208,9 +47,9 @@ description: Persistent task queue for autonomous operation
 - [x] Daily standup: reviewed 3 PRs, 2 issues
 ```
 
-## Replacing Hermes
+## Replacing ReYMeN
 
-| Hermes Component | ECC Equivalent | How |
+| ReYMeN Component | ECC Equivalent | How |
 |------------------|---------------|-----|
 | Gateway/Router | Claude Code dispatch + crons | Scheduled tasks trigger agent sessions |
 | Memory System | Claude memory + MCP memory server | Built-in persistence + knowledge graph |

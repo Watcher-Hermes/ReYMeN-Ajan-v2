@@ -1,7 +1,7 @@
 # GÖREV: ReYMeN'E KALAN DÜŞÜK ÖNCELİKLİ ÖZELLİKLERİ EKLE (7 ADET)
 
 ## NE
-Hermes'te olup ReYMeN'de eksik kalan düşük öncelikli 7 özellik.
+ReYMeN'te olup ReYMeN'de eksik kalan düşük öncelikli 7 özellik.
 
 ---
 
@@ -46,7 +46,7 @@ Hermes'te olup ReYMeN'de eksik kalan düşük öncelikli 7 özellik.
 - Tablo: düzenli veri gösterimi
 - Panel: hata/sonuç kutuları
 
-**Hedef:** Hermes TUI'sine yakın görünüm. Ama Rich bağımlılığı zorunlu değil — varsa kullan, yoksa düz metin.
+**Hedef:** ReYMeN TUI'sine yakın görünüm. Ama Rich bağımlılığı zorunlu değil — varsa kullan, yoksa düz metin.
 
 ---
 
@@ -102,7 +102,7 @@ Hermes'te olup ReYMeN'de eksik kalan düşük öncelikli 7 özellik.
 - `mesaj_gonder(hedef, icerik)` → hedef agent'ın HTTP endpoint'ine POST
 - `mesaj_dinle(port)` → basit HTTP server, gelen mesajları kuyruğa al
 - Motor kaydı: `motor_kaydet("a2a_gonder", ...)`
-- **Kısıt:** Çok basit, sadece prototip seviyesinde. Hermes'teki gibi full A2A değil.
+- **Kısıt:** Çok basit, sadece prototip seviyesinde. ReYMeN'teki gibi full A2A değil.
 
 ---
 

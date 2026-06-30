@@ -1,7 +1,7 @@
 ---
-name: software-development-hermes-agent-skill-authoring
+name: software-development-ReYMeN-agent-skill-authoring
 description: 'One or two paragraphs: what and why.'
-title: Software Development Hermes Agent Skill Authoring
+title: Software Development ReYMeN Agent Skill Authoring
 version: 1.0.0
 ---
 
@@ -36,7 +36,7 @@ One or two paragraphs: what and why.
 ## <Topic sections specific to the skill>
 - Quick-reference tables are common
 - Code blocks with exact commands
-- Hermes-specific recipes (tests via scripts/run_tests.sh, ui-tui paths, etc.)
+- ReYMeN-specific recipes (tests via scripts/run_tests.sh, ui-tui paths, etc.)
 
 ## Common Pitfalls
 Numbered list of mistakes and their fixes.
@@ -114,7 +114,7 @@ Pick the closest existing category. Don't invent new top-level categories casual
 
 - [ ] File is at `skills/<category>/<name>/SKILL.md` (not in `~/.hermes/skills/`)
 - [ ] Frontmatter starts at byte 0 with `---`, closes with `\n---\n`
-- [ ] `name`, `description`, `version`, `author`, `license`, `metadata.hermes.{tags, related_skills}` all present
+- [ ] `name`, `description`, `version`, `author`, `license`, `metadata.ReYMeN.{tags, related_skills}` all present
 - [ ] Name ≤ 64 chars, lowercase + hyphens
 - [ ] Description ≤ 1024 chars and starts with "Use when ..."
 - [ ] Total file ≤ 100,000 chars (aim for 8-15k)

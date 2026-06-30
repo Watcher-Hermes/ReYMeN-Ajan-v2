@@ -1,7 +1,7 @@
 ---
-name: autonomous-ai-agents_checkpoint-onay-sinirlari_references_reymen-hermes-api-mismatches
-description: Reymen ↔ Hermes API Mismatches
-title: "Autonomous Ai Agents Checkpoint Onay Sinirlari References Reymen Hermes Api Mismatches"
+name: autonomous-ai-agents_checkpoint-onay-sinirlari_references_reymen-ReYMeN-api-mismatches
+description: Reymen ↔ ReYMeN API Mismatches
+title: "Autonomous Ai Agents Checkpoint Onay Sinirlari References Reymen ReYMeN Api Mismatches"
 version: 1.0.0
 ---
 
@@ -9,21 +9,21 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Reymen ↔ Hermes API Mismatches |
+| **Ne** | Reymen ↔ ReYMeN API Mismatches |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Reymen ↔ Hermes API Mismatches
+# Reymen ↔ ReYMeN API Mismatches
 
 Bu session'da tespit edilen API farklılıkları. Reymen testleri eski
-Reymen API'sine göre yazılmış, Hermes'te aynı sınıflar farklı isimlerle
+Reymen API'sine göre yazılmış, ReYMeN'te aynı sınıflar farklı isimlerle
 veya farklı parametrelerle yer alıyor.
 
-## Eski Reymen → Hermes Sınıf Eşlemesi
+## Eski Reymen → ReYMeN Sınıf Eşlemesi
 
-| Eski Reymen İsmi | Hermes Karşılığı | Durum |
+| Eski Reymen İsmi | ReYMeN Karşılığı | Durum |
 |---|---|---|
 | `ContextEngine` | `agent.context_engine.ContextEngine` | ✅ Shim çalışıyor |
 | `ConversationLoop` | `agent.conversation_loop` (farklı sınıf adı) | ❌ İsim uyuşmazlığı |
@@ -39,5 +39,5 @@ veya farklı parametrelerle yer alıyor.
 ## Test Dosyalarının Import Farkı
 
 - **Reymen testleri** (`tests/`): root'tan import (`from context_engine import X`)
-- **Hermes reference testleri** (`tests/hermes_reference/`): pytest, `agent.X`'den import
+- **ReYMeN reference testleri** (`tests/hermes_reference/`): pytest, `agent.X`'den import
 - Çözüm: Root shim (yukarıdaki pattern) + doğrudan stub ekleme

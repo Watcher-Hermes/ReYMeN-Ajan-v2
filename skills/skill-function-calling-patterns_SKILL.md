@@ -90,10 +90,10 @@ function_calling_config={"mode": "AUTO"}   # or "ANY" or "NONE"
 - Results returned via `function_response` parts
 - Supports parallel function calling
 
-### Open-source models (Llama 3, Hermes, Qwen)
+### Open-source models (Llama 3, ReYMeN, Qwen)
 
 - No standardized format -- varies by model and serving framework
-- Hermes format (NousResearch) is the most common fine-tuned convention
+- ReYMeN format (NousResearch) is the most common fine-tuned convention
 - vLLM supports OpenAI-compatible tool calling for supported models
 - Ollama supports basic tool calling with compatible models
 - Test tool selection accuracy before production -- open models are 15-30% less accurate than GPT-4o on the Berkeley Function Calling Leaderboard

@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-feature-engineer
+title: Prompt Feature Engineer
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-feature-engineer
 description: Systematic prompt for engineering features from raw tabular data
 title: "PRompt Feature Engineer"

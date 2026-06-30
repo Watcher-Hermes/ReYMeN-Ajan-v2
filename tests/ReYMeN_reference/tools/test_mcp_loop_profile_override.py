@@ -4,7 +4,7 @@ Tasks scheduled via run_coroutine_threadsafe are created inside the MCP
 event-loop thread, so they copy THAT thread's context — not the scheduling
 thread's. A per-request profile scope (dashboard ?profile= endpoints, e.g.
 the MCP "Test server" probe) would silently vanish for anything resolving
-get_ReYMeN_home() inside the coroutine, most visibly OAuth token-store
+get_reymen_home() inside the coroutine, most visibly OAuth token-store
 paths. _run_on_mcp_loop now wraps scheduled coroutines with the caller's
 override (mcp_tool._wrap_with_home_override).
 """
@@ -24,7 +24,7 @@ def mcp_loop():
 
 def test_override_propagates_to_mcp_loop(tmp_path, monkeypatch, mcp_loop):
     from ReYMeN_constants import (
-        get_ReYMeN_home,
+        get_reymen_home,
         reset_ReYMeN_home_override,
         set_ReYMeN_home_override,
     )
@@ -36,7 +36,7 @@ def test_override_propagates_to_mcp_loop(tmp_path, monkeypatch, mcp_loop):
     monkeypatch.setenv("ReYMeN_HOME", str(process_home))
 
     async def read_home():
-        return str(get_ReYMeN_home())
+        return str(get_reymen_home())
 
     # Unscoped: the loop task sees the process home.
     assert mcp_loop._run_on_mcp_loop(read_home(), timeout=10) == str(process_home)
@@ -91,7 +91,7 @@ def test_concurrent_scopes_do_not_interfere(tmp_path, monkeypatch, mcp_loop):
     import threading
 
     from ReYMeN_constants import (
-        get_ReYMeN_home,
+        get_reymen_home,
         reset_ReYMeN_home_override,
         set_ReYMeN_home_override,
     )
@@ -104,7 +104,7 @@ def test_concurrent_scopes_do_not_interfere(tmp_path, monkeypatch, mcp_loop):
     monkeypatch.setenv("ReYMeN_HOME", str(process_home))
 
     async def read_home():
-        return str(get_ReYMeN_home())
+        return str(get_reymen_home())
 
     results: dict = {}
 

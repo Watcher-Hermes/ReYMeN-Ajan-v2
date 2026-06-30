@@ -38,7 +38,9 @@ try:
     from reymen.sistem.ReYMeN_logging import setup_logging
     setup_logging(mode="cli")
 except Exception as _e:
-    pass  # Logging setup is best-effort — don't crash the CLI
+    __import__("logging").getLogger(__name__).warning(
+        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+    )  # Logging setup is best-effort — don't crash the CLI
 
 # Validate config structure early — print warnings before user hits cryptic errors
 try:
@@ -54,7 +56,9 @@ try:
     from reymen.reymen_cli.skin_engine import init_skin_from_config
     init_skin_from_config(CLI_CONFIG)
 except Exception as _e:
-    pass  # Skin engine is optional — default skin used if unavailable
+    __import__("logging").getLogger(__name__).warning(
+        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+    )  # Skin engine is optional — default skin used if unavailable
 
 # Initialize tool preview length from config
 try:
@@ -946,7 +950,7 @@ class ReYMeNCLI(TUIMixin, AgentMixin, SessionMixin, MixinDisplay, MixinStream, M
         """
         from reymen.reymen_cli.clipboard import save_clipboard_image
 
-        img_dir = get_ReYMeN_home() / "images"
+        img_dir = get_reymen_home() / "images"
         self._image_counter += 1
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         img_path = img_dir / f"clip_{ts}_{self._image_counter}.png"
@@ -2351,7 +2355,9 @@ class ReYMeNCLI(TUIMixin, AgentMixin, SessionMixin, MixinDisplay, MixinStream, M
                         self.conversation_history,
                     )
                 except Exception as _e:
-                    pass  # Best-effort
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )  # Best-effort
 
             print(f"  ✅ Agent updated — {len(self.agent.tools if self.agent else [])} tool(s) available")
 
@@ -3039,7 +3045,9 @@ def main(
                 if _grace > 0:
                     time.sleep(_grace)
         except Exception as _e:
-            pass  # never block signal handling
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # never block signal handling
         # Kanban worker exit path (#28181): SIGTERM hits a dispatcher-spawned
         # worker that's likely in a non-daemon thread waiting on a child
         # subprocess in _wait_for_process. Raising KeyboardInterrupt only
@@ -3080,7 +3088,9 @@ def main(
         if hasattr(_signal, "SIGHUP"):
             _signal.signal(_signal.SIGHUP, _signal_handler_q)
     except Exception as _e:
-        pass  # signal handler may fail in restricted environments
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )  # signal handler may fail in restricted environments
     
     # Handle single query mode
     if query or image:

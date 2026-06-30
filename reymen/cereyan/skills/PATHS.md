@@ -1,8 +1,12 @@
-
-> **Kategori:** skills
-
 ---
-
+name: paths
+title: Paths
+description: ''
+tags:
+- skills
+category: skills
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Skills Dizin Yapisi — Path Cleanup
 

@@ -32,12 +32,12 @@ version: 1.0.0
 ### 設計の核: core 共有
 
 ロジックを `hersona/core/` に集約し、各インターフェースは薄い殻にする。
-これにより Hermes スキル・CLI/TUI・将来の Web 殻が同一ロジックを共有する。
+これにより ReYMeN スキル・CLI/TUI・将来の Web 殻が同一ロジックを共有する。
 
 ```
 hersona/core/      # attach / blend / check / recommend / authoring（ロジック本体）
   ├── hersona/cli/      # 対話 CLI/TUI の殻 (textual 等)
-  ├── skills/hersona/   # Hermes スキルの殻 (/hersona コマンド)
+  ├── skills/hersona/   # ReYMeN スキルの殻 (/hersona コマンド)
   └── (将来) web/       # Web 殻
 attributes/        # 公開・汎用属性のみ (CC0)
 ~/.hermes/, attributes/user/   # ユーザー作成データ (gitignore)
@@ -45,7 +45,7 @@ attributes/        # 公開・汎用属性のみ (CC0)
 
 ### 利用形態
 
-- **Hermes スキルとして**: `/hersona <category>/<name> [mode]`（既存）
+- **ReYMeN スキルとして**: `/hersona <category>/<name> [mode]`（既存）
 - **CLI/TUI アプリとして**: 上記コマンド群をローカルで対話実行
 - **データ提供として**: 他 LLM で `attributes/*.yaml` を直接 system prompt に貼付
 

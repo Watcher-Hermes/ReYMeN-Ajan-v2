@@ -143,7 +143,7 @@ Basit, her işlemde yeni tarayıcı açar/kapatır.
 | Metod | Açıklama |
 |-------|----------|
 | `coz(hedef, baglam=None)` | Basit API (eski) |
-| `run_conversation(hedef, baglam=None, provider=None)` | Gelişmiş API (Hermes pipeline) |
+| `run_conversation(hedef, baglam=None, provider=None)` | Gelişmiş API (ReYMeN pipeline) |
 
 **Akış:** SORGU → OnceHafıza → Session search → Skill tarama → Ensemble (7 kaynak) → Kaydet → Cevap
 

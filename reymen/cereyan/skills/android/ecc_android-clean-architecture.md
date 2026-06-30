@@ -1,8 +1,12 @@
-
-> **Kategori:** android
-
 ---
-
+name: ecc_android-clean-architecture
+title: Ecc Android Clean Architecture
+description: ''
+tags:
+- android
+category: android
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,10 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
-
----
 
 name: android-clean-architecture
 description: Clean Architecture patterns for Android and Kotlin Multiplatform projects — module structure, dependency rules, UseCases, Repositories, and data layer patterns.

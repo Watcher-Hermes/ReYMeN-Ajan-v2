@@ -28,7 +28,7 @@ gateway_state.json dosyası, dış test run'ları veya hatalı state yazmaları 
 
 ### Kök Neden
 
-Bir dış süreç (pytest test run'ı, Hermes test suite'i, manuel hata ayıklama) `gateway_state.json`'ı kendi PID'i ve state'i ile üzerine yazar. Gateway'in kendi PID yönetimi bypass edilir. Gateway restart edilmezse çalışmaya devam eder ama state.json yanlış kalır.
+Bir dış süreç (pytest test run'ı, ReYMeN test suite'i, manuel hata ayıklama) `gateway_state.json`'ı kendi PID'i ve state'i ile üzerine yazar. Gateway'in kendi PID yönetimi bypass edilir. Gateway restart edilmezse çalışmaya devam eder ama state.json yanlış kalır.
 
 2026-06-17'de yaşandı: `argv` = `["pytest", "test_status.py", ...]`, PID 49208 (ölü), telegram state "fatal" — gerçekte PID 29560 çalışıyor, Telegram connected, son inbound mesaj 20:36.
 

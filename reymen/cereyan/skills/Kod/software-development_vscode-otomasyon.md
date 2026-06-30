@@ -1,43 +1,33 @@
 ---
 name: vscode-otomasyon
-title: "VS Code Otomasyon"
-tags: [coding, development]
-description: Use when writing, running, or debugging Python code in VS Code. Hermes opens VS Code, writes code, runs it, reads output/errors, asks AI for fixes, and retries automatically (try-fix loop). Use for any coding task that needs real execution and error correction.
-version: 1.0.0
-author: marko
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [vscode, python, kod, calistir, hata, duzelt, otomasyon, loop, debug, try-fix]
+title: VS Code Otomasyon
+description: Use when writing, running, or debugging Python code in VS Code. ReYMeN
+  opens VS Code, writes code, runs it, reads output/errors, asks AI for fixes, and
+  retries automatically (try-fix loop). Use for any coding task that needs real execution
+  and error correction.
+tags:
+- coding
+- development
+category: Kod
 audience: contributor
-related_skills: [screen-vision-analiz, gorsel-onaylama, mouse-klavye-ctypes, tor-browser-arama]
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Use when writing, running, or debugging Python code in VS Code. Hermes opens VS Code, writes code, runs it, reads output/errors, asks AI for fixes, and retries automatically (try-fix loop). Use for any coding task that needs real execution and error correction. |
+| **Ne?** | Use when writing, running, or debugging Python code in VS Code. ReYMeN opens VS Code, writes code, runs it, reads output/errors, asks AI for fixes, and retries automatically (try-fix loop). Use for any coding task that needs real execution and error correction. |
 | **Nerede?** | software-development/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # VS Code Otomasyonu — Kullanıcı Gibi Kod Yaz, Calistir, Duzelt
 
 ## !!! KRITIK KURAL — ASLA IHLAL ETME !!!
 
 **"kopyala", "kopyala ben yapistiririm", "bana gonder", "sana gonder" dendiginde:
-METNI BURADA (HERMES CHAT'TE) GOSTER. ASLA VS CODE'A/CLAUDE CODE'A GONDERME.
+METNI BURADA (ReYMeN CHAT'TE) GOSTER. ASLA VS CODE'A/CLAUDE CODE'A GONDERME.
 Kullanici "kesin mir culadue gondermeyecegim" diyerek bunu netlestirdi.**
 
 Bu kural 17 Haziran 2026'da 2 KEZ ihlal edildi ve kullanici sinirlendi.
@@ -46,11 +36,9 @@ Tekrar ihlal = kullanici guveni kaybi.
 Detay: references/kopyala-uyari.md
 Not: "VS Code'a yaz", "Claude terminaline yaz" -> vscode_yaz.bat (bunlar farkli)
 
----
-
 ## Overview
 
-Hermes, VS Code'u bir kullanıcı gibi kullanır:
+ReYMeN, VS Code'u bir kullanıcı gibi kullanır:
 1. Yeni dosya oluşturur
 2. Kod yazar (AI'dan alınan veya kendi yazdığı)
 3. Çalıştırır, çıktıyı okur
@@ -78,12 +66,10 @@ Don't use for: Sistem komutları, terminal-only işlemler.
 - Kullanıcı "vscode_yaz.bat" veya "vscode_ctrl.py" dediğinde
 - Kullanıcı "Culaude yazdır" gibi VS Code/Claude Code işlemi istediğinde
 
-**Burada (Hermes chat) göster:**
+**Burada (ReYMeN chat) göster:**
 - "kopyala", "gönder", "sana gönder", "bana gönder" → metni burada göster, kullanıcı kopyalasın
 - "kopyala ben yapıştırırım" → aynı, burada göster
 - Hedef belirtilmeyen tüm durumlar → burada göster
-
----
 
 ## Temel Komutlar
 
@@ -112,8 +98,6 @@ python C:\Users\marko\hermesvsode.py screenshot "VS Code'da hata mesaji var mi?"
 # VS Code'u one getir
 python C:\Users\marko\hermesvsode.py focus
 ```
-
----
 
 ## Tam Is Akisi: AI'dan Kod Al → Test Et → Duzelt
 
@@ -240,7 +224,7 @@ Kullanıcı kontrolü kendinde tutmak istiyor. Detay: references/kopyala-uyari.m
 3. **AI hata duzeltemiyor** — Max tur sayisini artir veya farkli model dene.
 4. **Cikti Turkce karakter bozuk** — `encoding="utf-8", errors="replace"` kullan.
 5. **Loop orijinal kodu bozdu** — `try_fix_loop` basarisizsa orijinal kodu geri yukler.
-6. **venv Python kullanilmiyor** — Script otomatik `hermes-ai\venv\Scripts\python.exe` kullanir.
+6. **venv Python kullanilmiyor** — Script otomatik `ReYMeN-ai\venv\Scripts\python.exe` kullanir.
 
 ## Verification Checklist
 

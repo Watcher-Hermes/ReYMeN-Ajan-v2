@@ -30,7 +30,7 @@ Doğrudan en ilerlemeci/olumlu seçeneği seç."
 
 ## Kapsam (tüm seçenek soruları)
 
-Bu kural sadece ekran diyalogları için değil, **Hermes'in sorduğu her türlü
+Bu kural sadece ekran diyalogları için değil, **ReYMeN'in sorduğu her türlü
 seçenek sorusu** için geçerlidir:
 - "Ne yapalım?" → kararı kendin ver, bekleme
 - "Nasıl devam edelim?" → en mantıklı seçeneği seç
@@ -45,7 +45,7 @@ Kullanıcıya sorma — kullanıcı "sana söylemeden karar ver" dedi.
 1. `gorsel-onaylama` skill'i (v3.0.0+) — buton tespit + otomatik tıkla
 2. `allow-once-watcher` cron job (her 1 dk, no_agent) — ekranı tara,
    Allow Once/OK/Tamam butonlarını otomatik tıkla
-3. `approvals.mode=off` — Hermes onayları tamamen kapalı
+3. `approvals.mode=off` — ReYMeN onayları tamamen kapalı
 
 ## Çağırma
 

@@ -124,8 +124,8 @@ class TestDurumOzet:
             "pasa_38_karsilastirmasi": {
                 "aciklama": "38. pasanin karsilastirmasi",
                 "maddeler": [
-                    {"eksik": "eksik1", "cozuldu_mu": "evet", "hermes": "var"},
-                    {"eksik": "eksik2", "cozuldu_mu": "hayir", "hermes": "yok"},
+                    {"eksik": "eksik1", "cozuldu_mu": "evet", "ReYMeN": "var"},
+                    {"eksik": "eksik2", "cozuldu_mu": "hayir", "ReYMeN": "yok"},
                 ]
             },
             "tahmini_seviye": "B1"

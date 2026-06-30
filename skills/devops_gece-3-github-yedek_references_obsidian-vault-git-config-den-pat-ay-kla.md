@@ -21,11 +21,11 @@ PAT=$(python3 -c "
 import re, shlex
 from pathlib import Path
 cfg = Path(r'C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\.git\config').read_text(encoding='utf-8')
-m = re.search(r'https://[^:]+:([^@]+)@github.com/(Watcher-Hermes|Izleyici-Hermes)/', cfg)
+m = re.search(r'https://[^:]+:([^@]+)@github.com/(Watcher-ReYMeN|Izleyici-ReYMeN)/', cfg)
 print(m.group(1) if m else '')
 ")
 ```
-Bu yöntem `mcp_filesystem_read_text_file` ile de çalışır (Hermes maskelemesini atlar).
+Bu yöntem `mcp_filesystem_read_text_file` ile de çalışır (ReYMeN maskelemesini atlar).
 
 **Fine-grained PAT tespiti**: PAT `/user` endpoint'inde 200 döndürüyor ama `/user/repos`'da 401 veya repo oluşturma 403 veriyorsa, token ya fine-grained (sadece belirli repo'lara erişim) ya da scope'ları kısıtlanmış demektir. Çözüm: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → yeni token oluştur, `repo` + `workflow` scope'larını işaretle.
 

@@ -1,4 +1,4 @@
-# ReYMeN Agent vs Hermes Agent — Güncel Karşılaştırma
+# ReYMeN Agent vs ReYMeN Agent — Güncel Karşılaştırma
 
 **Tarih:** 2026-06-29 (Güncellendi)
 **Önceki Rapora Göre Fark:** 6 yeni özellik tamamlandı (Provider, Profile, Gateway Multi, Vector Memory, OAuth 2.0, Delegation)
@@ -37,62 +37,62 @@
 | 26 | **Self-improvement** | ✅ Var | ✅ **TAM** | SQLite metrik, trend analizi, kod kalite |
 | 27 | **CLI (TUI)** | ✅ Var | ✅ **TAM** | Rich TUI, 7 mixin, 1894 satır handler |
 | 28 | **Code Execution** | ✅ Var | ✅ **TAM** | Sandbox timeout, module allowlist |
-| 29 | **Platform Adapter** | ✅ ReYMeN özel | ✅ **ÖZEL** | Windows/WSL/Kali — Hermes'te yok |
+| 29 | **Platform Adapter** | ✅ ReYMeN özel | ✅ **ÖZEL** | Windows/WSL/Kali — ReYMeN'te yok |
 
 ---
 
-## 2. GERÇEK EKSİKLER (Hermes'te var, ReYMeN'de yok)
+## 2. GERÇEK EKSİKLER (ReYMeN'te var, ReYMeN'de yok)
 
 ### ❌ Image Generation (P2)
-Hermes'te FAL.ai / OpenAI / xAI ile görsel üretme, düzenleme, varyasyon. ReYMeN'de:
+ReYMeN'te FAL.ai / OpenAI / xAI ile görsel üretme, düzenleme, varyasyon. ReYMeN'de:
 - `reymen/arac/araclar_goruntu.py` var ama FAL/OpenAI entegrasyonu yok
 - Provider-agnostik image gen API yok
 - **Çözüm:** `image_gen_provider.py` + FAL/OpenAI/xAI backend
 
 ### ❌ Voice/TTS/STT (P2)
-Hermes'te OpenAI TTS, Whisper STT, sesli etkileşim. ReYMeN'de:
+ReYMeN'te OpenAI TTS, Whisper STT, sesli etkileşim. ReYMeN'de:
 - Edge TTS var (basit)
 - OpenAI TTS yok, Whisper STT yok
 - Sesli ajan etkileşimi yok
 - **Çözüm:** `voice_provider.py` + OpenAI TTS + Whisper STT
 
 ### ❌ Video Generation (P3)
-Hermes'te video üretimi (FAL/various). ReYMeN'de:
+ReYMeN'te video üretimi (FAL/various). ReYMeN'de:
 - Hiç yok
 - **Çözüm:** `video_gen_provider.py`
 
 ### ⚠️ Plugin Sistemi - Hot-reload (P2)
-Hermes'te plugin hot-reload, dependency graph, sandbox. ReYMeN'de:
+ReYMeN'te plugin hot-reload, dependency graph, sandbox. ReYMeN'de:
 - PluginManager var, hot-reload yok
 - Provider plugin (browser/image/video/tts/stt) kavramı yok
 - Plugin sandbox yok
 - **Çözüm:** watchdog tabanlı hot-reload + provider plugin registry
 
 ### ⚠️ ACP Protokolü (P3)
-Hermes'te ACP (Agent Communication Protocol). ReYMeN'de:
+ReYMeN'te ACP (Agent Communication Protocol). ReYMeN'de:
 - A2A broker var
 - ACP yok
 - **Çözüm:** ACP adapter
 
 ### ❌ HITL (Human-in-the-Loop) (P3)
-Hermes'te tool call onayı, critic loop. ReYMeN'de:
+ReYMeN'te tool call onayı, critic loop. ReYMeN'de:
 - Hiç yok
 - **Çözüm:** HITL pipeline + approval gate
 
 ### ❌ Skills Library / Marketplace (P3)
-Hermes'te merkezi skill repo + sync. ReYMeN'de:
+ReYMeN'te merkezi skill repo + sync. ReYMeN'de:
 - Lokal skill yönetimi var
 - Merkezi repo/paylaşım yok
 - **Çözüm:** Skill repo sync + marketplace
 
 ### ❌ Multi-region / Multi-model Routing (P3)
-Hermes'te coğrafi yönlendirme, latency-based routing. ReYMeN'de:
+ReYMeN'te coğrafi yönlendirme, latency-based routing. ReYMeN'de:
 - Provider routing var (yeni)
 - Multi-region destek yok
 - **Çözüm:** Region-aware provider routing
 
 ### ❌ Docker Tam Destek (P3)
-Hermes'te Docker container + compose + CI/CD. ReYMeN'de:
+ReYMeN'te Docker container + compose + CI/CD. ReYMeN'de:
 - Docker sandbox var (offline)
 - Tam deployment/packaging yok
 - **Çözüm:** Dockerfile + docker-compose + CI pipeline
@@ -116,7 +116,7 @@ Hermes'te Docker container + compose + CI/CD. ReYMeN'de:
 
 ---
 
-## 4. REYMeN'DE FAZLA OLANLAR (Hermes'te yok)
+## 4. REYMeN'DE FAZLA OLANLAR (ReYMeN'te yok)
 
 | # | Özellik | Açıklama |
 |---|---------|----------|
@@ -136,4 +136,4 @@ Hermes'te Docker container + compose + CI/CD. ReYMeN'de:
 - **✅ Tamam:** 24/29 (%83)
 - **⚠️ Kısmi:** 2/29 (%7) — Plugin hot-reload, ACP
 - **❌ Eksik:** 3/29 (%10) — Image Gen, Voice/TTS, Video Gen
-- **ReYMeN özel:** 7 özellik (Hermes'te yok)
+- **ReYMeN özel:** 7 özellik (ReYMeN'te yok)

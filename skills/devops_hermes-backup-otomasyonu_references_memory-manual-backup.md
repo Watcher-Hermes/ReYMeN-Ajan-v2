@@ -20,8 +20,8 @@
 
 ## Amaç
 
-Hermes'in kalıcı hafızasını (MEMORY + USER PROFILE) GitHub'a manuel yedekleme.
-Kronik backup'lar `hermes-backup-otomasyonu` skill'ı ile otomatik yapılır.
+ReYMeN'in kalıcı hafızasını (MEMORY + USER PROFILE) GitHub'a manuel yedekleme.
+Kronik backup'lar `ReYMeN-backup-otomasyonu` skill'ı ile otomatik yapılır.
 Bu doküman **manuel/tek seferlik** backup içindir.
 
 ## Ön Koşullar
@@ -38,15 +38,15 @@ cd /c/Users/marko/hermes-memory-backup && git pull origin master
 
 ### 1. MEMORY.md — Hafıza İçeriğini Çıkar
 
-Hermes Agent hafızası state.db SQLite'da saklanır, direkt dosya olarak erişilemez.
+ReYMeN Agent hafızası state.db SQLite'da saklanır, direkt dosya olarak erişilemez.
 Mevcut MEMORY içeriği system prompt'ta görünür (memory tool'u ile kaydedilen entry'ler).
 
 **Yöntem:** Mevcut MEMORY içeriğini (system prompt'taki) al, `MEMORY.md` dosyasına yaz.
-Obsidian vault'taki `Hermes/env-hermes-agent.md` dosyası da .env yedekleri için referans alınabilir.
+Obsidian vault'taki `ReYMeN/env-ReYMeN-agent.md` dosyası da .env yedekleri için referans alınabilir.
 
 Dosya yapısı:
 ```markdown
-# Hermes Agent — Memory Backup
+# ReYMeN Agent — Memory Backup
 # Last updated: YYYY-MM-DD
 
 entry 1
@@ -75,5 +75,5 @@ git push origin master
 - **gh CLI auth:** `asdafgf` hesabı ile gh CLI çalışır, MCP GitHub auth çalışmaz.
 - **Patlama kontrolü:** MEMORY limiti 50K, USER PROFILE limiti 5K.
   %90+ doluysa önce `memory-compaction` skill'ini çalıştır, sonra yedekle.
-- **Otomatik cron zaten var:** `hermes-backup-otomasyonu` günlük 21:00'de no_agent ile
+- **Otomatik cron zaten var:** `ReYMeN-backup-otomasyonu` günlük 21:00'de no_agent ile
   diff+sync yapar. Manuel backup sadece acil durumlar veya büyük değişiklikler için gerekli.

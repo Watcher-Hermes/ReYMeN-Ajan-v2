@@ -1,7 +1,7 @@
-# ReYMeN Agent vs Hermes Agent — Kapsamlı Özellik Karşılaştırması
+# ReYMeN Agent vs ReYMeN Agent — Kapsamlı Özellik Karşılaştırması
 
 **Tarih:** 2026-06-29
-**Kapsam:** Kod taraması (reymen/ altındaki 400+ .py dosyası) + Hermes Agent dokümantasyonu
+**Kapsam:** Kod taraması (reymen/ altındaki 400+ .py dosyası) + ReYMeN Agent dokümantasyonu
 **Yöntem:** Tüm ana modüller okundu, import zincirleri takip edildi, her özellik için kod kanıtı toplandı
 
 ---
@@ -13,8 +13,8 @@
 | Toplam ReYMeN .py dosyası | **400+** |
 | Toplam özellik alanı | **48** |
 | ✅ Ortak özellikler | **30** (%62.5) |
-| 🔵 ReYMeN'de fazla (Hermes'te yok) | **12** (%25) |
-| 🔴 Hermes'te var (ReYMeN'de eksik) | **6** (%12.5) |
+| 🔵 ReYMeN'de fazla (ReYMeN'te yok) | **12** (%25) |
+| 🔴 ReYMeN'te var (ReYMeN'de eksik) | **6** (%12.5) |
 
 ---
 
@@ -22,7 +22,7 @@
 
 ### 2.1. 🧠 LLM / Provider Sistemi
 
-| # | Özellik | ReYMeN | Hermes | Detay |
+| # | Özellik | ReYMeN | ReYMeN | Detay |
 |---|---------|--------|--------|-------|
 | 1 | Çoklu Provider Desteği | ✅ TAM (12+ provider) | ✅ TAM | DeepSeek, OpenAI, Anthropic, Gemini, Groq, LM Studio, Ollama, OpenRouter, Azure, Bedrock, Moonshot, Codex |
 | 2 | Provider Failover Zinciri | ✅ TAM (4 grup) | ✅ TAM | 4 öncelik grubu, her grupta 2-4 provider, toplam 8+ provider zinciri |
@@ -40,7 +40,7 @@
 
 ### 2.2. 💾 Hafıza / Bellek Sistemi
 
-| # | Özellik | ReYMeN | Hermes |
+| # | Özellik | ReYMeN | ReYMeN |
 |---|---------|--------|--------|
 | 14 | Persistent Memory | ✅ TAM | ✅ TAM |
 | 15 | Vector Memory (ChromaDB) | ✅ TAM | ✅ TAM |
@@ -55,7 +55,7 @@
 
 ### 2.3. 🛠️ Araç / Tool Sistemi
 
-| # | Özellik | ReYMeN | Hermes |
+| # | Özellik | ReYMeN | ReYMeN |
 |---|---------|--------|--------|
 | 24 | Araç Çağrı Motoru | ✅ TAM (Motor, 2390 satır) | ✅ TAM |
 | 25 | ToolRegistry (Auto-discovery) | ✅ TAM (TTL cache, 30sn) | ✅ TAM |
@@ -77,7 +77,7 @@
 
 ### 2.4. 🎓 Öğrenme Döngüsü
 
-| # | Özellik | ReYMeN | Hermes |
+| # | Özellik | ReYMeN | ReYMeN |
 |---|---------|--------|--------|
 | 41 | Self-Improvement Loop | ✅ TAM (792 satır) | ✅ TAM |
 | 42 | Continuous Learning | ✅ TAM (259 satır) | ✅ TAM |
@@ -90,7 +90,7 @@
 
 ### 2.5. 🖥️ Kullanıcı Arayüzü
 
-| # | Özellik | ReYMeN | Hermes |
+| # | Özellik | ReYMeN | ReYMeN |
 |---|---------|--------|--------|
 | 49 | Web UI (FastAPI) | ✅ TAM | ✅ TAM |
 | 50 | JWT Auth (Access+Refresh) | ✅ TAM | ✅ TAM |
@@ -105,7 +105,7 @@
 
 ### 2.6. 🔐 Güvenlik
 
-| # | Özellik | ReYMeN | Hermes |
+| # | Özellik | ReYMeN | ReYMeN |
 |---|---------|--------|--------|
 | 59 | Guardrails | ✅ TAM | ✅ TAM |
 | 60 | Docker Sandbox | ✅ TAM | ✅ TAM |
@@ -119,7 +119,7 @@
 
 ### 2.7. 🔄 İletişim
 
-| # | Özellik | ReYMeN | Hermes |
+| # | Özellik | ReYMeN | ReYMeN |
 |---|---------|--------|--------|
 | 68 | **A2A Mesajlaşma** | ✅ **TAM** | ❌ **Yok** |
 | 69 | ACP Protokolü | ❌ Yok | ✅ TAM |
@@ -132,7 +132,7 @@
 
 ### 2.8. 🗓️ Zamanlama / Sistem
 
-| # | Özellik | ReYMeN | Hermes |
+| # | Özellik | ReYMeN | ReYMeN |
 |---|---------|--------|--------|
 | 76 | Cron/Scheduler | ✅ TAM | ✅ TAM |
 | 77 | **Auto Recovery** | ✅ **TAM** | ❌ **Yok** |
@@ -153,7 +153,7 @@
 
 ### 2.9. 🧩 Hata Yönetimi
 
-| # | Özellik | ReYMeN | Hermes |
+| # | Özellik | ReYMeN | ReYMeN |
 |---|---------|--------|--------|
 | 92 | **Hata Sınıflandırıcı** (18+ kategori) | ✅ **TAM** | ✅ TAM |
 | 93 | **Mesaj Tamirci** | ✅ **TAM** | ❌ **Yok** |
@@ -163,7 +163,7 @@
 
 ---
 
-## 3. 🔵 REYMeN'DE FAZLA OLANLAR (Hermes'te Yok)
+## 3. 🔵 REYMeN'DE FAZLA OLANLAR (ReYMeN'te Yok)
 
 | # | Özellik | Önem |
 |---|---------|------|
@@ -194,7 +194,7 @@
 
 ---
 
-## 4. 🔴 HERMES'TE VAR, REYMeN'DE EKSİK OLANLAR
+## 4. 🔴 ReYMeN'TE VAR, REYMeN'DE EKSİK OLANLAR
 
 | # | Özellik | Önem | Tahmini Süre |
 |---|---------|------|-------------|
@@ -215,7 +215,7 @@
 
 ## 5. ÖNEMLİ MİMARİ FARKLAR
 
-| Alan | ReYMeN Yaklaşımı | Hermes Yaklaşımı |
+| Alan | ReYMeN Yaklaşımı | ReYMeN Yaklaşımı |
 |------|--------------------|-------------------|
 | **Dil** | Türkçe (değişken, fonksiyon, dokümantasyon) | İngilizce |
 | **Dosya Sayısı** | 400+ .py (çok büyük, kapsamlı) | Daha derli toplu |
@@ -256,7 +256,7 @@
 
 ## 7. İSTATİSTİK (Özet)
 
-| Kategori | ReYMeN | Hermes | Ortak |
+| Kategori | ReYMeN | ReYMeN | Ortak |
 |----------|--------|--------|-------|
 | LLM/Provider | 12 özellik | 12 özellik | 10 |
 | Hafıza | 10 özellik | 8 özellik | 7 |
@@ -273,5 +273,5 @@
 
 ---
 
-*Rapor, ReYMeN-Ajan projesinin 400+ .py dosyasının taranması ve Hermes Agent dokümantasyonunun incelenmesiyle hazırlanmıştır.*
+*Rapor, ReYMeN-Ajan projesinin 400+ .py dosyasının taranması ve ReYMeN Agent dokümantasyonunun incelenmesiyle hazırlanmıştır.*
 **Tarih:** 2026-06-29

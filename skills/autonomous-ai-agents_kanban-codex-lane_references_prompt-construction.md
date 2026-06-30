@@ -23,10 +23,10 @@ Every Codex prompt must include:
 
 - `task_id`, title, and full Kanban acceptance criteria.
 - Repo path, worktree path, branch name, and allowed file scope.
-- Explicit statement: Hermes owns Kanban lifecycle; Codex is an input lane only.
+- Explicit statement: ReYMeN owns Kanban lifecycle; Codex is an input lane only.
 - Required output: concise summary, files changed, commits, tests run, and known risks.
 - Prohibited actions: secrets access, external messaging, board mutation, unrelated refactors, dependency upgrades unless required.
-- Verification commands Codex may run and commands Hermes will run afterward.
+- Verification commands Codex may run and commands ReYMeN will run afterward.
 
 For PMB, include these mandatory safety constraints verbatim:
 

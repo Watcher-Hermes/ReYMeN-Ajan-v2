@@ -1,6 +1,6 @@
 ---
 name: autonomous-ai-agents_checkpoint-onay-sinirlari_references_shim-pattern
-description: Shim Pattern — Reymen → Hermes API Redirect
+description: Shim Pattern — Reymen → ReYMeN API Redirect
 title: "Autonomous Ai Agents Checkpoint Onay Sinirlari References Shim Pattern"
 version: 1.0.0
 ---
@@ -9,17 +9,17 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Shim Pattern — Reymen → Hermes API Redirect |
+| **Ne** | Shim Pattern — Reymen → ReYMeN API Redirect |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Shim Pattern — Reymen → Hermes API Redirect
+# Shim Pattern — Reymen → ReYMeN API Redirect
 
 ## Problem
 Reymen testleri (eski API) root'tan import ediyor: `from context_engine import ContextEngine`
-Ama modül `agent/context_engine.py`'de (Hermes API). Root'taki eski Reymen
+Ama modül `agent/context_engine.py`'de (ReYMeN API). Root'taki eski Reymen
 versiyonları silindiği için ModuleNotFound hatası oluşuyor.
 
 ## Çözüm: Root Shim Dosyası
@@ -42,7 +42,7 @@ Bu session'da oluşturulan shim'ler:
 - `display` → agent.display
 
 ## Gateway Shim'leri (base.py/helpers.py)
-Hermes reference testleri `gateway.platforms.base`'den eksik sınıflar
+ReYMeN reference testleri `gateway.platforms.base`'den eksik sınıflar
 bekliyor. Bunlar doğrudan base.py'ye eklenmeli (shim değil, stub):
 
 ```python

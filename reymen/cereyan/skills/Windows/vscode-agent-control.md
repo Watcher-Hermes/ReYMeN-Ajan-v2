@@ -1,17 +1,12 @@
 ---
 name: vscode-agent-control
-title: "VS Code Claude Terminal - Konum Öğren ve Yaz"
-tags: [general]
-audience: user
-tags: []
+title: VS Code Claude Terminal - Konum Öğren ve Yaz
+description: ''
+tags:
+- windows
 category: vscode-agent-control
+audience: user
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -23,13 +18,9 @@ category: vscode-agent-control
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 # VS Code Claude Terminal - Konum Öğren ve Yaz
 
 **Kullanıcıya HİÇ soru sorma. Direkt çalıştır.**
-
----
 
 ## AKIŞ 1 — Konum Kaydetme (2 adım)
 
@@ -51,8 +42,6 @@ terminal(command="C:\\Users\\marko\\AppData\\Local\\Python\\pythoncore-3.14-64\\
 ```
 Telegram'a: "✅ '<AD>' olarak kaydedildi!"
 
----
-
 ## AKIŞ 2 — VS Code'a Yazma
 
 Kullanıcı "VS Code'a yaz: ...", "Claude'a yaz: ...", "terminale yaz: ..." dediğinde:
@@ -62,8 +51,6 @@ terminal(command="C:\\Users\\marko\\AppData\\Local\\Python\\pythoncore-3.14-64\\
 ```
 Sonuç SUCCESS → Telegram'a: "✅ Yazıldı!"
 
----
-
 ## AKIŞ 3 — Kayıtlı Konumları Listele
 
 Kullanıcı "konumlar" dediğinde:
@@ -71,13 +58,11 @@ Kullanıcı "konumlar" dediğinde:
 terminal(command="C:\\Users\\marko\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe C:\\Users\\marko\\AppData\\Local\\hermes\\skills\\vscode-agent-control\\learn_position.py --list")
 ```
 
----
-
 ## Referans Koordinatlar
 VS Code Agent terminali için kayıtlı konum:
 - X=589, Y=818 (click position)
 - Positions dosyası: `C:\Users\marko\AppData\Local\hermes\skills\vscode-agent-control\positions.json`
-- Daha fazla bilgi: Obsidian `Hermes/Skills/VS Code Agent Terminal Koordinatı.md`
+- Daha fazla bilgi: Obsidian `ReYMeN/Skills/VS Code Agent Terminal Koordinatı.md`
 
 ## YASAK
 - vision_analyze kullanma

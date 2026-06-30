@@ -91,17 +91,21 @@ class ReYMeNTelegramBot:
         if not hedef:
             return
         try:
-            # ConversationLoop ile ensemble akisi
+            # ConversationLoop + Beyin (ReYMeN bagimsiz)
             from reymen.cereyan.conversation_loop import ConversationLoop
-            loop = ConversationLoop()
+            from reymen.cereyan.beyin import Beyin
+            from reymen.sistem.main import CONFIG
 
-            # DURUM_OKU() talimati — tum sorularda once durum.json'a bak
+            beyin = Beyin(config=CONFIG)
+            loop = ConversationLoop(beyin=beyin, max_tur=15)
+
+            # DURUM_OKU() talimati — ZORUNLU! Tum sorularda once durum.json'a bak
             talimat = (
-                "[SISTEM TALIMATI] ReYMeN durumu/projesi/eksikleri hakkinda soru "
-                "gelince ONCE DURUM_OKU() tool'unu cagir. "
-                "durum.json TEK KAYNAK. Kendi bilginle asla liste olusturma.\n"
-                "Bot uyarisi: TUM botlar durum.json'u okur. "
-                "Karsilastirma/eksik/liste sorularinda once DURUM_OKU()."
+                "🚨 ZORUNLU: ReYMeN durumu/ozellikleri/eksikleri/karsilastirma/liste hakkinda soru "
+                "gelince ONCE ve MUTLAKA DURUM_OKU() tool'unu cagir. "
+                "durum.json TEK KAYNAKTIR. Kendi bilginle asla liste olusturma.\\n"
+                "Karsilastirma/eksik/liste sorularinda DURUM_OKU() sarttir. "
+                "DURUM_OKU() cagirmadan cevap vermek yasaktir.\n"
             )
             sonuc = loop.run_conversation(f"{talimat}\n\n{hedef}")
             yanit = sonuc.get("yanit", "") or sonuc.get("output", "") or "Yanit alinamadi."

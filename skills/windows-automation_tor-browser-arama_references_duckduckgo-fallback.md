@@ -72,7 +72,7 @@ snippets = re.findall(r'class="result__snippet"[^>]*>(.*?)</(?:a|div)>', r.text,
 - POST kullan, GET çalışmaz
 - Sorgu kısa tut (<50 karakter)
 - Uzun sorguda sonuç sayısı düşükse kısalt ve dene
-- `requests` + `PySocks` Python 3.14'te kurulu (Hermes venv'de değil)
+- `requests` + `PySocks` Python 3.14'te kurulu (ReYMeN venv'de değil)
 
 ### 2. Google (Tor proxy üzerinden — sık bloke olur)
 ```python

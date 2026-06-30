@@ -18,7 +18,7 @@ version: 1.0.0
 # Fallback Provider Yapılandırması
 
 ## Sorun
-DeepSeek API kredisi bittiğinde `fallback_providers: []` olduğu için Hermes çalışmayı durdurur. 
+DeepSeek API kredisi bittiğinde `fallback_providers: []` olduğu için ReYMeN çalışmayı durdurur. 
 `api_max_retries: 3` ile her mesajda 3 kere DeepSeek'e gider, her seferinde "insufficient_quota" hatası alır.
 Kredi düşmez ama request'ler boşuna gidip gelir.
 

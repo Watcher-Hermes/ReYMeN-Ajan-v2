@@ -1,21 +1,12 @@
 ---
 name: windows-terminal-ajan
-title: Windows Terminal Ajanı
-description: Windows terminal komutları, CMD vs PowerShell farkı, Kali karşılaştırması.
-category: windows
-Kim: Windows ajani
-Ne: Windows terminal komutları, CMD vs PowerShell farkı, Kali karşılaştırması.
-Nerede: `windows\windows-terminal-ajan.md`
-Ne Zaman: Windows sistem yonetimi gerektiginde
-Neden: Windows Terminal Ajan islemini standartlastirmak ve tekrarlanabilir kilmak icin
-Nasil: Skill dosyasindaki adimlari takip ederek
-
-
-# Windows Terminal Ajanı
-
-
+title: Windows Terminal Ajan
+description: ''
+tags:
+- windows
+category: Windows
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | Windows ajani |
@@ -37,8 +28,6 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 | **Neden?** | Windows terminal komutları Linux/Kali'den farklıdır. `ipconfig` vs `ifconfig`, `netstat` vs `nmap`. Bu skill farkı öğretir ve her iki platformda da çalışmayı sağlar. |
 | **Nasıl?** | `ipconfig /all` ile ağ yapılandırması, `netstat -ano` ile port tespiti, `netsh advfirewall` ile güvenlik duvarı. Kali'den gelen PORT_BLOCK mesajını işler. |
 
----
-
 ## İçindekiler
 
 1. CMD vs PowerShell
@@ -48,8 +37,6 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 5. Servis Komutları (sc, net start/stop)
 6. Kali Karşılaştırması
 7. Kali — Windows Koordinasyonu
-
----
 
 ## 1. CMD vs PowerShell
 
@@ -68,8 +55,6 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 - CMD: `echo %COMSPEC%`
 - PowerShell: `$PSVersionTable`
 
----
-
 ## 2. Ağ Komutları
 
 ### ipconfig
@@ -85,8 +70,6 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 - `netstat -r` — Routing tablosu
 - `netstat -ano` — PID'lerle birlikte bağlantılar
 
----
-
 ## 3. Sistem Komutları
 
 ### systeminfo
@@ -97,8 +80,6 @@ Detaylı sistem bilgisi: OS, donanım, RAM, BIOS, ağ yapılandırması.
 - `tasklist /v` — Detaylı görünüm
 - `tasklist /svc` — Her process'in servisleri
 
----
-
 ## 4. Dosya Komutları
 
 | Komut | Açıklama | Örnek |
@@ -107,8 +88,6 @@ Detaylı sistem bilgisi: OS, donanım, RAM, BIOS, ağ yapılandırması.
 | `copy` | Dosya kopyala | `copy /y kaynak hedef`, `copy /v` |
 | `move` | Taşı / yeniden adlandır | `move eski_adi yeni_adi` |
 | `del` | Dosya sil | `del /f /s /q dosya` |
-
----
 
 ## 5. Servis Komutları
 
@@ -124,8 +103,6 @@ Detaylı sistem bilgisi: OS, donanım, RAM, BIOS, ağ yapılandırması.
 - `net start "ServisAdi"` — Servis başlat
 - `net stop "ServisAdi"` — Servis durdur
 - sc'den daha basit, daha az seçenek
-
----
 
 ## 6. Kali Karşılaştırması: netstat vs nmap
 
@@ -145,8 +122,6 @@ Detaylı sistem bilgisi: OS, donanım, RAM, BIOS, ağ yapılandırması.
 - **netstat**: localhost'ta hangi portların açık olduğunu ve hangi process'lerin bağlı olduğunu gösterir. Anında sonuç verir.
 - **nmap**: Uzak bir hedefi tarar, açık portları, servisleri ve versiyonları tespit eder.
 - **Tam resim**: Windows'ta `netstat -an` + Kali'de `nmap -sn 192.168.1.0/24` + `nmap -sV hedef_ip` = ağın tam görüntüsü.
-
----
 
 ## 7. Kali — Windows Koordinasyonu (Cross-Platform)
 

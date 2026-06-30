@@ -18,7 +18,7 @@ version: 1.0.0
 # kazanimlar.md Logging Format
 
 ## Amaç
-Tüm ReYMeN ajanları (Hermes, Kali, Windows, CAD) ortak `.ReYMeN/kazanimlar.md` dosyasına yazar.
+Tüm ReYMeN ajanları (ReYMeN, Kali, Windows, CAD) ortak `.ReYMeN/kazanimlar.md` dosyasına yazar.
 Böylece her ajan diğerinin ne öğrendiğini görebilir.
 
 ## Konum
@@ -57,5 +57,5 @@ Hafıza eşleşmesi: windows/terminal/network (netstat ile karşılaştırma yap
 | Cron tick | `## TARİH SAAT — KAYNAK — {Alan}: {işlem özeti}` |
 
 ## Kim yazabilir?
-TÜM ajanlar: Hermes Agent, Kali Agent, Windows Agent, CAD Agent.
+TÜM ajanlar: ReYMeN Agent, Kali Agent, Windows Agent, CAD Agent.
 Hepsi aynı `.ReYMeN/` dizinine erişir.

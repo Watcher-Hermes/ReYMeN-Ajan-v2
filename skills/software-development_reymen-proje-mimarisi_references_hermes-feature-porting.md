@@ -1,7 +1,7 @@
 ---
 name: software-development_reymen-proje-mimarisi_references_hermes-feature-porting
-description: Hermes Feature Porting — R>eYMeN'e Ekleme Deseni
-title: "Software Development Reymen Proje Mimarisi References Hermes Feature Porting"
+description: ReYMeN Feature Porting — R>eYMeN'e Ekleme Deseni
+title: "Software Development Reymen Proje Mimarisi References ReYMeN Feature Porting"
 version: 1.0.0
 ---
 
@@ -9,15 +9,15 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Feature Porting — R>eYMeN'e Ekleme Deseni |
+| **Ne** | ReYMeN Feature Porting — R>eYMeN'e Ekleme Deseni |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes Feature Porting — R>eYMeN'e Ekleme Deseni
+# ReYMeN Feature Porting — R>eYMeN'e Ekleme Deseni
 
-Hermes Agent'dan R>eYMeN'e ozellik eklerken izlenecek adimlar.
+ReYMeN Agent'dan R>eYMeN'e ozellik eklerken izlenecek adimlar.
 
 ## Porting Siralamasi (Eski)
 1. **Buyuk ozellikler** once: CLI, Web, MCP, Provider, Plugin
@@ -27,12 +27,12 @@ Hermes Agent'dan R>eYMeN'e ozellik eklerken izlenecek adimlar.
 
 ## PARALEL BATCH PORTING (Tercih Edilen — 16 Haziran 2026)
 
-Bu yaklasim, Hermes Agent ile R>eYMeN arasindaki tum eksikleri kapatmak icin kullanilan 3-paralel-batch desenidir.
+Bu yaklasim, ReYMeN Agent ile R>eYMeN arasindaki tum eksikleri kapatmak icin kullanilan 3-paralel-batch desenidir.
 
 ### Adim 1: KAPSAMLI KARSILASTIRMA
 Tum kategorileri tek seferde tara:
 - tools/, gateway/, hermes_cli/, plugins/, agent/, tests/
-- Her kategoride Hermes'te olup R>eYMeN'de olmayan dosyalari bul
+- Her kategoride ReYMeN'te olup R>eYMeN'de olmayan dosyalari bul
 - Root'ta olup tools/ altinda olmayan wrapper'lari tespit et
 - Cikti: eksik dosya listesi + kategori bazinda sayilar
 
@@ -72,7 +72,7 @@ Kullanici "tekrar karsilastir" dediginde FULL comparison yap — tum kategoriler
 - **Her batch ayni kategoriden olmali** (gateway batch, tool batch, CLI batch)
 - **3 paralel siniri** — delegate_task max 3 concurrent children
 - **Verification her batch sonrasi** — hata birikmesini onler
-- **Identity korumasi** — "hermes kopyasi degil, reymen'e ozgu"
+- **Identity korumasi** — "ReYMeN kopyasi degil, reymen'e ozgu"
 - **Full comparison her turda** — kismi degil, komple tara
 
 ## Her Modul Icin Standart
@@ -89,20 +89,20 @@ Kullanici "tekrar karsilastir" dediginde FULL comparison yap — tum kategoriler
 Yerel: lmstudio, ollama, vllm, xinference, litellm
 Bulut: deepseek, openai, anthropic, groq, together, mistral, cohere, perplexity, fireworks, openrouter, google, azure, huggingface, nvidia, alibaba, moonshot, zhipu, anyscale
 
-## CLI Gap Filling Deseni (Hermes CLI → R>eYMeN CLI)
+## CLI Gap Filling Deseni (ReYMeN CLI → R>eYMeN CLI)
 
-Bu desen, R>eYMeN `hermes_cli/` dizinini Hermes Agent `hermes_cli/` ile karsilastirip eksik modulleri tamamlamak icin kullanilir.
+Bu desen, R>eYMeN `hermes_cli/` dizinini ReYMeN Agent `hermes_cli/` ile karsilastirip eksik modulleri tamamlamak icin kullanilir.
 
 ### Adim 1: KAPSAMLI CLI KARSILASTIRMA
 Iki dizini `execute_code` ile diff et:
 - `hermes_cli/` dosya listelerini al
-- Hangileri Hermes'te var R>eYMeN'de yok tespit et
+- Hangileri ReYMeN'te var R>eYMeN'de yok tespit et
 - Cikti: ~50 dosya eksik (normal), ~50 dosya R>eYMeN spesifik
 
 ### Adim 2: FILTRELE VE KATEGORIZE ET
 50 eksik dosyanin hepsi R>eYMeN'e uygun degildir:
 
-**Hermes-spesifik (R>eYMeN'e GEREK YOK):** Azure detect, Nous account/subscription, DingTalk, Codex models/migration, Android psutil, Telegram managed bot, XAI retirement, WhatsApp Cloud setup, web_dist/, dashboard_auth/
+**ReYMeN-spesifik (R>eYMeN'e GEREK YOK):** Azure detect, Nous account/subscription, DingTalk, Codex models/migration, Android psutil, Telegram managed bot, XAI retirement, WhatsApp Cloud setup, web_dist/, dashboard_auth/
 
 **Zaten R>eYMeN karsiligi var (farkli isimde):** curator.py→curator_cli.py, plugins.py→plugin.py, security_audit.py→security.py, proxy/→proxy.py
 
@@ -142,12 +142,12 @@ python test_suite.py  # 35/35 gecmeli
 - Her batch parallel calisir (sequential degil)
 
 ## R>eYMeN'e Ozgu Olmali
-- Direkt Hermes kopyasi degil, R>eYMeN kimligine uygun
+- Direkt ReYMeN kopyasi degil, R>eYMeN kimligine uygun
 - Turkce hata mesajlari
 - Basit, hafif, Windows odakli
 
-## Hermes + Claude 4.8 Is Bolumu (16 Haziran 2026)
-- **Hermes (ben):** gap analizi, task description hazirlama, dosya taramasi/ilerleme raporu
+## ReYMeN + Claude 4.8 Is Bolumu (16 Haziran 2026)
+- **ReYMeN (ben):** gap analizi, task description hazirlama, dosya taramasi/ilerleme raporu
 - **Claude 4.8:** buyuk kod bloklari uretimi (provider plugin, tool executor, test coverage)
 - **Kullanici:** aradaki kopru, gorevleri Claude Code terminaline yapistirir, kontrolu elinde tutar
 - Gorev metinleri masaustune `.txt` olarak yazilir, kullanici Claude Code terminale manuel yapistirir

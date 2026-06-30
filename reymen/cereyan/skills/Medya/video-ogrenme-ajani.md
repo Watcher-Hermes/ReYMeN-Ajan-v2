@@ -1,21 +1,12 @@
 ---
 name: video-ogrenme-ajani
-title: Video Öğrenme Ajanı
-description: YouTube/Video'dan skill çıkarma pipeline'ı — transcript al, bölümle, hafızayla karşılaştır, hata tespit et, kaydet.
-category: video
-Kim: Video icerik ureticisi
-Ne: YouTube/Video'dan skill çıkarma pipeline'ı — transcript al, bölümle, hafızayla karşılaştır, hata tespit et, kaydet.
-Nerede: `video\video-ogrenme-ajani.md`
-Ne Zaman: Video isleme veya analiz gerektiginde
-Neden: Video Ogrenme Ajani islemini standartlastirmak ve tekrarlanabilir kilmak icin
-Nasil: Skill dosyasindaki adimlari takip ederek
-
-
-# Video Öğrenme Ajanı
-
-
+title: Video Ogrenme Ajani
+description: ''
+tags:
+- medya
+category: Medya
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | Video icerik ureticisi |
@@ -36,8 +27,6 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 | **Ne Zaman?** | Kullanıcı YouTube URL'si gönderdiğinde. Veya cron ile periyodik video taraması yapıldığında. |
 | **Neden?** | Video'daki bilgiyi manuel özetlemek yerine otomatik çıkar, hataları tespit eder, düzeltir ve hafızaya kaydeder. Aynı video tekrar gelirse hafızadan direkt döndürür (0 LLM). |
 | **Nasıl?** | yt-dlp ile transcript → bölümlere ayır → skill çıkar → hafızadaki eski bilgiyle karşılaştır → hata tespit et → düzelt → kaydet. |
-
----
 
 ## Pipeline
 
@@ -103,8 +92,6 @@ YouTube URL
 └─────────────────────────────┘
 ```
 
----
-
 ## Transcript Çekme Stratejisi
 
 ### Birincil: yt-dlp (otomatik altyazı)
@@ -122,8 +109,6 @@ yt-dlp --extract-audio --audio-format wav --output "%(id)s" "URL"
 whisper "video_id.wav" --model small --language tr --output_format txt
 ```
 
----
-
 ## Bölümleme Algoritması
 
 1. **Zaman damgası bazlı**: Varsa SRT/VTT zamanlarına göre
@@ -132,8 +117,6 @@ whisper "video_id.wav" --model small --language tr --output_format txt
    - Giriş: "merhaba", "bugün", "başlayalım", "göstereceğim"
    - Teknik: "şimdi", "yapmanız gereken", "kod", "terminal", "kurulum"
    - Sonuç: "özet", "sonuç", "teşekkürler", "kanala abone ol"
-
----
 
 ## Skill Çıkarma Formatı
 
@@ -157,8 +140,6 @@ skill:
     - kategori: "video/python/nmap"
 ```
 
----
-
 ## Hafızaya Kaydetme
 
 ```python
@@ -177,8 +158,6 @@ kaydet(
     basari=True
 )
 ```
-
----
 
 ## Hata Tespit Senaryoları
 

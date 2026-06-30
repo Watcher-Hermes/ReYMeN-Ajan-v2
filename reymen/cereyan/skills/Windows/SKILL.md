@@ -1,19 +1,13 @@
 ---
 name: windows-terminal-ajani
-description: Windows Terminal Uzman Ajanı — CMD/PowerShell, ağ, sistem, servis yönetimi, Kali cross-platform
+title: Skill
+description: Windows Terminal Uzman Ajanı — CMD/PowerShell, ağ, sistem, servis yönetimi,
+  Kali cross-platform
+tags:
+- windows
 category: windows
-version: 1.0.0
-triggers:
-  - windows
-  - cmd
-  - powershell
-  - ipconfig
-  - netstat
-  - tasklist
-  - terminal
+audience: agent
 ---
-
-
 > **Kategori:** windows-terminal-ajani
 
 ---

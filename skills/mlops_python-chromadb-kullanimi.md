@@ -47,8 +47,8 @@ col = client.get_or_create_collection(
 
 # Döküman ekle
 col.add(
-    documents=['Hermes iki modelle çalışır: Ollama ve DeepSeek'],
-    metadatas=[{'source': 'notes', 'tags': 'hermes,ai'}],
+    documents=['ReYMeN iki modelle çalışır: Ollama ve DeepSeek'],
+    metadatas=[{'source': 'notes', 'tags': 'ReYMeN,ai'}],
     ids=['doc_001']
 )
 
@@ -61,7 +61,7 @@ results = col.query(
 
 # results yapısı:
 # results['ids'][0]       -> ['doc_001', ...]
-# results['documents'][0]  -> ['Hermes iki...', ...]
+# results['documents'][0]  -> ['ReYMeN iki...', ...]
 # results['metadatas'][0]  -> [{'source': 'notes'}, ...]
 # results['distances'][0]  -> [0.267, ...]  (0=aynı, 1=farklı)
 ```

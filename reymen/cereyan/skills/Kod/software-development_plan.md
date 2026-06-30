@@ -1,37 +1,24 @@
 ---
-
 name: plan
-title: "Plan"
-tags: [coding, development]
-description: "Plan mode: write an actionable markdown plan to .hermes/plans/, no execution. Bite-sized tasks, exact paths, complete code."
-version: 2.0.0
-author: Hermes Agent (writing-craft adapted from obra/superpowers)
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [planning, plan-mode, implementation, workflow, design, documentation]
+title: Plan
+description: 'Plan mode: write an actionable markdown plan to .ReYMeN/plans/, no execution.
+  Bite-sized tasks, exact paths, complete code.'
+tags:
+- coding
+- development
+category: Kod
 audience: contributor
-related_skills: [subagent-driven-development, test-driven-development, requesting-code-review]
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Plan mode: write an actionable markdown plan to .hermes/plans/, no execution. Bite-sized tasks, exact paths, complete code. |
+| **Ne?** | Plan mode: write an actionable markdown plan to .ReYMeN/plans/, no execution. Bite-sized tasks, exact paths, complete code. |
 | **Nerede?** | software-development/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Plan
 

@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-architecture-reviewer
+title: Prompt Architecture Reviewer
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-architecture-reviewer
 description: Review the architecture of any LLM application against a production readiness checklist -- identifies gaps, risks, and missing components
 title: "PRompt Architecture Reviewer"

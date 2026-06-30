@@ -33,7 +33,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | or older tsx | `references/or-older-tsx.md` |
 | Programmatic CDP (scripting from terminal) | `references/programmatic-cdp-scripting-from-terminal.md` |
 | Start your target: | `references/start-your-target.md` |
-| Debugging Hermes ui-tui | `references/debugging-hermes-ui-tui.md` |
+| Debugging ReYMeN ui-tui | `references/debugging-ReYMeN-ui-tui.md` |
 | In another terminal: | `references/in-another-terminal.md` |
 | 1. Launch TUI | `references/1-launch-tui.md` |
 | 2. Enable inspector on that Node PID | `references/2-enable-inspector-on-that-node-pid.md` |

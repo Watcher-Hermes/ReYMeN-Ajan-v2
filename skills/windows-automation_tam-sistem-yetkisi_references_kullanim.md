@@ -24,10 +24,10 @@ set_yaml_value(
 )
 ```
 
-### Hermes CLI ile token ayarla
+### ReYMeN CLI ile token ayarla
 
 ```bash
-hermes config set telegram.bot_token <TOKEN>
+ReYMeN config set telegram.bot_token <TOKEN>
 ```
 
 ### Hızlı scriptler

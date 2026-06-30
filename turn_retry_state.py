@@ -7,7 +7,7 @@ mechanics. Each recovery branch (credential-pool 429 retry, OAuth refresh,
 compression restart, etc.) is guarded by a one-shot boolean so it fires at
 most once per API-call attempt.
 
-Stub module — mirrors the Hermes Agent TurnRetryState for ReYMeN compat.
+Stub module — mirrors the ReYMeN Agent TurnRetryState for ReYMeN compat.
 """
 
 from __future__ import annotations

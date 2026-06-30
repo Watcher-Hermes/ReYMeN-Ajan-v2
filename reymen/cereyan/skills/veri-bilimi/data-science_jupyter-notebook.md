@@ -1,8 +1,12 @@
-
-> **Kategori:** data-science
-
 ---
-
+name: data-science_jupyter-notebook
+title: Data Science Jupyter Notebook
+description: ''
+tags:
+- data-science
+category: data-science
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: "jupyter-notebook"
 description: "Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook."
 title: "Jupyter Notebook"

@@ -59,10 +59,10 @@ def _guvensiz_import(modul_adi: str) -> Any:
         return None
 
 
-_credential_pool     = _guvensiz_import("credential_pool")
-_prompt_caching      = _guvensiz_import("prompt_caching")
-_nous_rate_guard     = _guvensiz_import("nous_rate_guard")
-_providers_registry  = _guvensiz_import("providers")
+_credential_pool     = _guvensiz_import("reymen.sistem.credential_persistence") or _guvensiz_import("reymen.sistem.credential_pool")
+_prompt_caching      = _guvensiz_import("reymen.arac.prompt_caching")
+_nous_rate_guard     = _guvensiz_import("reymen.guvenlik.nous_rate_guard")
+_providers_registry  = _guvensiz_import("reymen.sistem.providers")
 
 _POOL_AKTIF   = _credential_pool is not None
 _CACHE_AKTIF  = _prompt_caching  is not None
@@ -232,9 +232,13 @@ class Beyin:
 
         # 1. credential_pool
         if _POOL_AKTIF and env_adi:
-            deger = _credential_pool.anahtar_al(env_adi)  # type: ignore[union-attr]
-            if deger:
-                return deger
+            try:
+                if hasattr(_credential_pool, "anahtar_al"):
+                    deger = _credential_pool.anahtar_al(env_adi)  # type: ignore[union-attr]
+                    if deger:
+                        return deger
+            except Exception:
+                pass
 
         # 2. config
         deger = prov_conf.get("api_key", "")
@@ -387,7 +391,7 @@ class Beyin:
         """API çağrısını arka plan thread'inde çalıştır; iptal olayı set edilirse kes.
 
         Ana thread iptal olayını izler; API thread'i arka planda çalışmaya devam
-        eder ama sonucu görmezden gelinir (Hermes interruptible_api_call pattern).
+        eder ama sonucu görmezden gelinir (ReYMeN interruptible_api_call pattern).
         """
         sonuc_kabi: list[str | None] = [None]
         hata_kabi:  list[Exception | None] = [None]

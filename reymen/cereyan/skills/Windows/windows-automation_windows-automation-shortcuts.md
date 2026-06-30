@@ -42,7 +42,7 @@ Tüm kısayolların güncel listesi Obsidian vault'ta:
 C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\Hermes_Shortcut_Map.md
 ```
 
-Hermes her göreve başlamadan önce bu haritayı kontrol eder (`skill-obsidian-first-check`).
+ReYMeN her göreve başlamadan önce bu haritayı kontrol eder (`skill-obsidian-first-check`).
 
 ## Grup 1 — Windows Doğal Kısayolu Olanlar
 
@@ -118,11 +118,11 @@ start "" "C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe" "C:\Users\marko\AppDa
 AHK script'i, Windows başlangıcında otomatik çalışacak şekilde yapılandırılmıştır:
 
 ```
-Kısayol: %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Hermes-AHK.lnk
+Kısayol: %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\ReYMeN-AHK.lnk
 Hedef:   AutoHotkey64.exe → windows-shortcuts.ahk
 ```
 
-Bu kısayol sayesinde bilgisayar açıldığı anda tüm Hermes kısayolları hazırdır.
+Bu kısayol sayesinde bilgisayar açıldığı anda tüm ReYMeN kısayolları hazırdır.
 
 ### Doğrulama
 
@@ -143,7 +143,7 @@ Mimari referans: `references/listener-daemon.md` (hotkey map, dispatch pattern, 
 
 - Tamamen Python ekosisteminde kalır
 - `hermesmouse.py`'yi direkt import eder (subprocess yok)
-- Loglar doğrudan Hermes ana paneline gider
+- Loglar doğrudan ReYMeN ana paneline gider
 - PID yönetimi ile tek instance garantisi
 
 ### Kullanım
@@ -213,7 +213,7 @@ Task Scheduler `rl highest` ile admin olarak çalışır.
 
 ```bash
 # Tüm loglar burada:
-type C:\Users\marko\.hermes\logs\listener.log
+type C:\Users\marko\.ReYMeN\logs\listener.log
 ```
 
 ### Dosyalar

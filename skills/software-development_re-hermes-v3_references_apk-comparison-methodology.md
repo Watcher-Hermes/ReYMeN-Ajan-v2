@@ -1,7 +1,7 @@
 ---
-name: software-development_re-hermes-v3_references_apk-comparison-methodology
+name: software-development_re-ReYMeN-v3_references_apk-comparison-methodology
 description: APK Batch Comparison Methodology
-title: "Software Development Re Hermes V3 References Apk Comparison Methodology"
+title: "Software Development Re ReYMeN V3 References Apk Comparison Methodology"
 version: 1.0.0
 ---
 
@@ -17,15 +17,15 @@ version: 1.0.0
 
 # APK Batch Comparison Methodology
 
-Bu reference, birden çok APK'nın RE-Hermes v3 ile analiz edilip yan yana karşılaştırılması için kullanılan yöntemi belgeler.
+Bu reference, birden çok APK'nın RE-ReYMeN v3 ile analiz edilip yan yana karşılaştırılması için kullanılan yöntemi belgeler.
 
 ## Akış
 
 ### 1. Paralel Analiz
 Tüm APK'ları aynı anda çalıştır (arka planda):
 ```bash
-echo "" | python re-hermes.py "dosya1.apk" &
-echo "" | python re-hermes.py "dosya2.apk" &
+echo "" | python re-ReYMeN.py "dosya1.apk" &
+echo "" | python re-ReYMeN.py "dosya2.apk" &
 wait
 ```
 Analiz bitince `workspace_<dosya>/report.md` oluşur.
@@ -89,6 +89,6 @@ Kullanıcı "şunu analiz et, ardından şunu da" dediğinde:
 
 İki grup ayrıştı:
 - **Grup A (base + v8.7)**: Google imzalı, native .so yok, getDeviceId×1, curl/ptrace yok
-- **Grup B (v3 + monolithic)**: HERMES imzalı, 7 native .so, getDeviceId×5, curl×2, ptrace×1
+- **Grup B (v3 + monolithic)**: ReYMeN imzalı, 7 native .so, getDeviceId×5, curl×2, ptrace×1
 
 **En tehlikeli**: Grup B (12/21 🔴 KRITIK)

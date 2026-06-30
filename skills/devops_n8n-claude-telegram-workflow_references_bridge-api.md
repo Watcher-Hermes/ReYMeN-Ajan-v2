@@ -47,6 +47,6 @@ GET http://127.0.0.1:15680/_bridge/answers/{chat_id}.json
 
 ## n8n Entegrasyon
 - `n8n/workflow.json` import edilebilir workflow şablonu
-- Telegram trigger -> bridge API -> Hermes -> bridge API -> n8n -> Telegram dönüş
+- Telegram trigger -> bridge API -> ReYMeN -> bridge API -> n8n -> Telegram dönüş
 
 ---

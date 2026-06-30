@@ -9,7 +9,7 @@ license: MIT
 dependencies: [audiocraft, torch>=2.0.0, transformers>=4.30.0]
 platforms: [linux, macos]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [Multimodal, Audio Generation, Text-to-Music, Text-to-Audio, MusicGen]
 category: mlops
 audience: user

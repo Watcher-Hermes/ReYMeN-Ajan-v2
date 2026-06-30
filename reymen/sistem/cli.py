@@ -245,7 +245,9 @@ def main(
                 if _grace > 0:
                     time.sleep(_grace)
         except Exception as _e:
-            pass  # never block signal handling
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # never block signal handling
         # Kanban worker exit path (#28181): SIGTERM hits a dispatcher-spawned
         # worker that's likely in a non-daemon thread waiting on a child
         # subprocess in _wait_for_process. Raising KeyboardInterrupt only
@@ -286,7 +288,9 @@ def main(
         if hasattr(_signal, "SIGHUP"):
             _signal.signal(_signal.SIGHUP, _signal_handler_q)
     except Exception as _e:
-        pass  # signal handler may fail in restricted environments
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )  # signal handler may fail in restricted environments
     
     # Handle single query mode
     if query or image:

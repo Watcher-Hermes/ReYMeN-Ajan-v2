@@ -402,7 +402,7 @@ def test_classic_mode_does_not_double_read_same_file(tmp_path, monkeypatch):
     from ReYMeN_cli.auth import read_credential_pool, _global_auth_file_path
 
     # Classic mode: ReYMeN_HOME is set to a custom path that is NOT under
-    # ~/.ReYMeN/profiles/ — get_default_ReYMeN_root() returns ReYMeN_HOME
+    # ~/.ReYMeN/profiles/ — get_default_reymen_root() returns ReYMeN_HOME
     # itself, so the profile root and global root are the same directory,
     # and the helper correctly returns None (no fallback).
     assert _global_auth_file_path() is None

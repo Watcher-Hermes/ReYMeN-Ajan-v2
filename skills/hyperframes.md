@@ -1,6 +1,6 @@
 ---
 name: hyperframes
-description: "Create AI videos with HyperFrames in Hermes using HTML, CSS, and JavaScript compositions, then validate and render them to MP4. Use for short video intros, cinematic trailers, product promos, subtitle animations, HUD/tech visuals, web-to-video work, and motion graphics."
+description: "Create AI videos with HyperFrames in ReYMeN using HTML, CSS, and JavaScript compositions, then validate and render them to MP4. Use for short video intros, cinematic trailers, product promos, subtitle animations, HUD/tech visuals, web-to-video work, and motion graphics."
 title: "Hyperframes"
 tags: [general]
 version: 1.0.0
@@ -8,7 +8,7 @@ author: Ekko
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [hyperframes, ai-video, html-video, animation, motion-graphics, mp4]
 category: hyperframes
 audience: user
@@ -21,7 +21,7 @@ prerequisites:
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | Video icerik ureticisi |
-| **Ne** | "Create AI videos with HyperFrames in Hermes using HTML, CSS, and JavaScript compositions, then validate and render them to MP4. Use for short video intros, cinematic trailers, product promos, subtitl |
+| **Ne** | "Create AI videos with HyperFrames in ReYMeN using HTML, CSS, and JavaScript compositions, then validate and render them to MP4. Use for short video intros, cinematic trailers, product promos, subtitl |
 | **Nerede** | `video\hyperframes.md` |
 | **Ne Zaman** | Video isleme veya analiz gerektiginde |
 | **Neden** | Hyperframes islemini standartlastirmak icin |
@@ -33,7 +33,7 @@ prerequisites:
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Video ajanı |
-| **Ne?** | Create AI videos with HyperFrames in Hermes using HTML, CSS, and JavaScript compositions, then validate and render them to MP4. Use for short video intros, cinematic trailers, product promos, subtitle animations, HUD/tech visuals, web-to-video work, and motion graphics. |
+| **Ne?** | Create AI videos with HyperFrames in ReYMeN using HTML, CSS, and JavaScript compositions, then validate and render them to MP4. Use for short video intros, cinematic trailers, product promos, subtitle animations, HUD/tech visuals, web-to-video work, and motion graphics. |
 | **Nerede?** | video/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -42,7 +42,7 @@ prerequisites:
 ---
 
 Kim: Video icerik ureticisi
-Ne: "Create AI videos with HyperFrames in Hermes using HTML, CSS, and JavaScript compositions, then validate and render them to MP4. Use for short video intros, cinematic trailers, product promos, subtitl
+Ne: "Create AI videos with HyperFrames in ReYMeN using HTML, CSS, and JavaScript compositions, then validate and render them to MP4. Use for short video intros, cinematic trailers, product promos, subtitl
 Nerede: `video\hyperframes.md`
 Ne Zaman: Video isleme veya analiz gerektiginde
 Neden: Hyperframes islemini standartlastirmak ve tekrarlanabilir kilmak icin
@@ -51,7 +51,7 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 # HyperFrames
 
-Use this skill when the user asks Hermes to make a video with HyperFrames, such as a 30-second vertical video, a short intro, a cinematic micro-trailer, a product promo, animated captions, HUD-style tech visuals, a website-to-video piece, or an HTML/CSS/JS motion graphics render.
+Use this skill when the user asks ReYMeN to make a video with HyperFrames, such as a 30-second vertical video, a short intro, a cinematic micro-trailer, a product promo, animated captions, HUD-style tech visuals, a website-to-video piece, or an HTML/CSS/JS motion graphics render.
 
 HyperFrames treats HTML as the video source of truth. Build video scenes as HTML compositions with CSS layout and JavaScript animation, validate the layout, then render the result to MP4.
 
@@ -60,7 +60,7 @@ HyperFrames treats HTML as the video source of truth. Build video scenes as HTML
 If HyperFrames is not installed or the official skill is missing, install it first:
 
 ```bash
-hermes skills install official/creative/hyperframes
+ReYMeN skills install official/creative/hyperframes
 ```
 
 Use `npx hyperframes` for project operations. HyperFrames requires Node.js and FFmpeg. If rendering or preview fails, run:

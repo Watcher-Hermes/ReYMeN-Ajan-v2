@@ -1,8 +1,12 @@
-
-> **Kategori:** media
-
 ---
-
+name: media_youtube-content
+title: Media Youtube Content
+description: ''
+tags:
+- media
+category: media
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: youtube-content
 description: "YouTube transcripts to summaries, threads, blogs."
 title: "Youtube Content"

@@ -27,20 +27,20 @@ DeepSeek direkt API'ye geçmek için:
 - Hesap aç → API keys → yeni key oluştur
 - DeepSeek yeni hesaplara 10M token ücretsiz verir
 
-### 2. Hermes Config'e Ekle
+### 2. ReYMeN Config'e Ekle
 ```bash
 # Provider tanımla
-hermes config set providers.deepseek.api_key "sk-..."
-hermes config set providers.deepseek.base_url "https://api.deepseek.com/v1"
+ReYMeN config set providers.deepseek.api_key "sk-..."
+ReYMeN config set providers.deepseek.base_url "https://api.deepseek.com/v1"
 
 # Model ve provider'ı aktif et
-hermes config set model.default "deepseek/deepseek-chat"
-hermes config set model.provider "deepseek"
+ReYMeN config set model.default "deepseek/deepseek-chat"
+ReYMeN config set model.provider "deepseek"
 ```
 
 ### 3. Doğrula
 ```bash
-hermes config show | grep -E "model|provider|deepseek"
+ReYMeN config show | grep -E "model|provider|deepseek"
 ```
 
 Beklenen çıktı:

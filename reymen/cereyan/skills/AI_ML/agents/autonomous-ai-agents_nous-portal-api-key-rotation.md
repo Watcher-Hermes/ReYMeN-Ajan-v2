@@ -1,22 +1,12 @@
 ---
-name: nous-portal-api-key-rotation
-description: >
-title: "Nous Portal API Key Rotation"
-  yazma kuralları; DeepSeek/Nous endpoint yapılandırmasındaki yaygın hatalar
-  ve kalıcı notlar.
-version: 1.0.0
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [nous, deepseek, api-key, rotation, portal, dotenv, config]
-category: autonomous-ai-agents
-audience: user
-tags: [agents, ai, api, automation]
-
-
+name: autonomous-ai-agents_nous-portal-api-key-rotation
+title: Nous Portal Api Key Rotation
+description: ''
+tags:
+- agents
+category: agents
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -38,27 +28,25 @@ tags: [agents, ai, api, automation]
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: Otonom ajan gelistiricisi
 Ne: >
 Nerede: `autonomous-ai-agents\autonomous-ai-agents_nous-portal-api-key-rotation.md`
 Ne Zaman: Ilgili gorev gerektiginde
 Neden: Autonomous Ai Agents Nous Portal Api Key Rotation islemini standartlastirmak ve tekrarlanabilir kilmak icin
 Nasil: Skill dosyasindaki adimlari takip ederek
-Nous Portal üzerinden API anahtarı üretme, iptal etme ve Hermes .env’e
+Nous Portal üzerinden API anahtarı üretme, iptal etme ve ReYMeN .env’e
 
 
 
 #Nous Portal API Key Rotation
 
 ## Amaç
-Nous Portal’dan anahtar ürettikten sonra bunu Hermes’in doğru okuyacağı
+Nous Portal’dan anahtar ürettikten sonra bunu ReYMeN’in doğru okuyacağı
  `.env` değişkenine yazmak ve “yanlış değişken adı” tuzağından kaçınmak.
 
 ## Doğru değişken adı
 - Provider DeepSeek üzerinden yapılandırıldıysa kullanılacak env: `DEEPSEEK_API_KEY`
-- `NOUS_API_KEY` şu anki Hermes yapılandırmasında okunmuyor.
+- `NOUS_API_KEY` şu anki ReYMeN yapılandırmasında okunmuyor.
   Bu değişkene ne kadar anahtar yazarsanız, körü körüne atlanır.
 
 ## Neden bazen geçersiz anahtarla 401 alınıyor?
@@ -71,7 +59,7 @@ Nous Portal’dan anahtar ürettikten sonra bunu Hermes’in doğru okuyacağı
 1. Yeni anahtar üretildiyse sadece `.env` dosyasına yaz.
 2. Yapı: config.yaml => provider, base_url vs.
 3. .env => sadece API key.
-4. Hermes’te gözüken anahtar maskelenir; yayma.
+4. ReYMeN’te gözüken anahtar maskelenir; yayma.
 5. Değişiklikten sonra oturumu yenile.
 
 ## .env yolu
@@ -79,7 +67,7 @@ Nous Portal’dan anahtar ürettikten sonra bunu Hermes’in doğru okuyacağı
 
 ## Doğrulanma
 ```bash
-hermes status
+ReYMeN status
 ```
 Model/Provider ve API key satırlarını kontrol et. Endpoint 200 dönüyorsa başarılı.
 

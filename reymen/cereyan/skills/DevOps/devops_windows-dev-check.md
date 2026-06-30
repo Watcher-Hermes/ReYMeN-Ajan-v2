@@ -1,8 +1,13 @@
 ---
 name: windows-dev-check
-description: Windows geliştirme ortamı ön-koşulları — 8 KIRILMA KOŞULU, CRLF/read-only/OneDrive/FTS5/temp/chmod/path/subprocess tuzakları
+title: Devops Windows Dev Check
+description: Windows geliştirme ortamı ön-koşulları — 8 KIRILMA KOŞULU, CRLF/read-only/OneDrive/FTS5/temp/chmod/path/subprocess
+  tuzakları
+tags:
+- devops
+category: DevOps
+audience: agent
 ---
-
 > **Kategori:** devops
 
 ---

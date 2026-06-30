@@ -25,25 +25,25 @@
 
 ## Search Patterns
 
-### Find Hermes-related repos
+### Find ReYMeN-related repos
 ```
 curl --socks5-hostname 127.0.0.1:9150 \
-  "https://api.github.com/search/repositories?q=hermes+agent+KEYWORD&sort=stars&per_page=10"
+  "https://api.github.com/search/repositories?q=ReYMeN+agent+KEYWORD&sort=stars&per_page=10"
 ```
 
-### Find Hermes issues
+### Find ReYMeN issues
 ```
 curl --socks5-hostname 127.0.0.1:9150 \
-  "https://api.github.com/search/issues?q=repo:NousResearch/hermes-agent+KEYWORD"
+  "https://api.github.com/search/issues?q=repo:NousResearch/ReYMeN-agent+KEYWORD"
 ```
 
 ### Keywords to try
-- `hermes+agent+skill` → skill repos
-- `hermes+agent+mcp` → MCP servers
-- `hermes+memory+agent` → memory systems
-- `hermes+gui+OR+dashboard` → GUI projects
-- `hermes+gateway+telegram` → messaging integrations
-- `hermes+security+OR+injection` → security topics
+- `ReYMeN+agent+skill` → skill repos
+- `ReYMeN+agent+mcp` → MCP servers
+- `ReYMeN+memory+agent` → memory systems
+- `ReYMeN+gui+OR+dashboard` → GUI projects
+- `ReYMeN+gateway+telegram` → messaging integrations
+- `ReYMeN+security+OR+injection` → security topics
 
 ## Navigation Flow (User Watching)
 
@@ -58,16 +58,16 @@ curl --socks5-hostname 127.0.0.1:9150 \
 
 | Repo | Stars | Category |
 |------|-------|----------|
-| EKKOLearnAI/hermes-studio | 7.890 | Web dashboard (TypeScript) |
+| EKKOLearnAI/ReYMeN-studio | 7.890 | Web dashboard (TypeScript) |
 | awizemann/scarf | 623 | macOS/iOS app (Swift) |
-| xaspx/hermes-control-interface | 762 | Web dashboard (JS) |
-| JPeetz/Hermes-Studio | 195 | Multi-agent UI (TypeScript) |
+| xaspx/ReYMeN-control-interface | 762 | Web dashboard (JS) |
+| JPeetz/ReYMeN-Studio | 195 | Multi-agent UI (TypeScript) |
 | yoloshii/ClawMem | 182 | Memory layer |
-| 410979729/scope-recall-hermes | 96 | Memory provider |
+| 410979729/scope-recall-ReYMeN | 96 | Memory provider |
 | mudrii/hermesd | 92 | TUI dashboard (Python) |
 | Sibyl-Labs/Sibyl-Memory | 83 | Memory plugin |
-| sanchomuzax/hermes-webui | 106 | Process monitoring |
-| Noshkoto/hermes-share-skill | 0 | Session export skill |
+| sanchomuzax/ReYMeN-webui | 106 | Process monitoring |
+| Noshkoto/ReYMeN-share-skill | 0 | Session export skill |
 | kingmt123/paper-deep-reader | 0 | Academic paper skill |
 | shiro-0x/hersona | 0 | Personality templates |
-| djairjr/hermes-agent-onboarding | 4 | Setup meta-skill |
+| djairjr/ReYMeN-agent-onboarding | 4 | Setup meta-skill |

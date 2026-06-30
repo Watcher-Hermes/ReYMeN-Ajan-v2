@@ -20,12 +20,12 @@ version: 1.0.0
 ## Genel Bakış
 
 ReYMeN projesinin 5 farklı giriş noktası vardır ve her biri farklı bir başlangıç
-ekranı/banner gösterir. Hermes Agent'ın kendi giriş ekranından tamamen farklıdır.
+ekranı/banner gösterir. ReYMeN Agent'ın kendi giriş ekranından tamamen farklıdır.
 
 **Proje tanımı (tüm dosyalarda tutarlı):** ReYMeN — Otonom Uygulama Otomasyonu Ajani
 
 **Stil kuralı:** Banner'lar sade ve minimaldir — ASCII art/logografi İÇERMEZ.
-Hermes'in kendi startup ASCII art'ı gibi süslemeler ReYMeN'de kullanılmaz.
+ReYMeN'in kendi startup ASCII art'ı gibi süslemeler ReYMeN'de kullanılmaz.
 
 ## 1. ReYMeN.bat (Ana Başlatıcı)
 
@@ -46,7 +46,7 @@ Komutlar:
 - `ReYMeN.bat dashboard` — Sadece Web UI (python start.py --dashboard-only)
 - `ReYMeN.bat gateway` — Sadece Gateway (python start.py --agent-only)
 - `ReYMeN.bat doctor` — Sistem sağlık kontrolü
-- `ReYMeN.bat hermes ...` — Nous Hermes Agent CLI komutları
+- `ReYMeN.bat ReYMeN ...` — Nous ReYMeN Agent CLI komutları
 - `ReYMeN.bat --help` — Yardım menüsü
 
 ## 2. python start.py (Orkestratör Bannerı)
@@ -163,9 +163,9 @@ Bu tanım şu dosyalarda tutarlı olmalıdır:
 - `onboarding.py` (başlık)
 - `hermes_cli/banner.py` (banner metni)
 
-## Hermes Agent Farkı
+## ReYMeN Agent Farkı
 
-Bu giriş ekranları Hermes Agent'ınkinden tamamen farklıdır. Hermes Agent
+Bu giriş ekranları ReYMeN Agent'ınkinden tamamen farklıdır. ReYMeN Agent
 kendi TUI'sini gösterirken (Nous Research logosu, tool listesi, skor listesi),
 ReYMeN kendi sade banner'ını gösterir. İkisi ayrı sistemlerdir
 ve ayrı terminallerde çalışır.

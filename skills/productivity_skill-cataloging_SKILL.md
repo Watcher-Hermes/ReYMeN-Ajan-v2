@@ -1,12 +1,12 @@
 ---
 name: skill-cataloging
-description: Export and maintain a browsable catalog of all Hermes skills in an Obsidian vault. Enumerates skill definitions, copies their documentation, and generates a refreshed index.
+description: Export and maintain a browsable catalog of all ReYMeN skills in an Obsidian vault. Enumerates skill definitions, copies their documentation, and generates a refreshed index.
 title: "Skill Cataloging"
 version: 1.0.0
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [obsidian, skills, sync, export, documentation]
 category: productivity
 audience: user
@@ -23,7 +23,7 @@ tags: [productivity, tools]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Export and maintain a browsable catalog of all Hermes skills in an Obsidian vault. Enumerates skill definitions, copies their documentation, and generates a refreshed index. |
+| **Ne?** | Export and maintain a browsable catalog of all ReYMeN skills in an Obsidian vault. Enumerates skill definitions, copies their documentation, and generates a refreshed index. |
 | **Nerede?** | Verimlilik/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -33,12 +33,12 @@ tags: [productivity, tools]
 
 # Skill Cataloging
 
-Export every Hermes skill to an Obsidian vault for offline browsing and reference.
+Export every ReYMeN skill to an Obsidian vault for offline browsing and reference.
 
 ## When to Use
 
 - User asks to "export all skills to Obsidian", "sync skills to vault", or "build skill library"
-- User wants a regenerated `Hermes Skills Sync.md` README
+- User wants a regenerated `ReYMeN Skills Sync.md` README
 - User references a target directory like `obsidian_skill_all_tree_0`
 - Companion to `obsidian` skill for bulk vault writes
 
@@ -67,7 +67,7 @@ If the target directory does not exist, create it with the file tool or `mkdir -
 
 ```bash
 # Linux/macOS (git-bash)
-find "$HOME/.hermes/skills" -name SKILL.md
+find "$HOME/.ReYMeN/skills" -name SKILL.md
 
 # Windows PowerShell
 Get-ChildItem -Path "$env:APPDATA\hermes\skills" -Recurse -Filter SKILL.md | Select-Object -ExpandProperty FullName
@@ -85,9 +85,9 @@ Use **direct file copy**, not `skill_view`. `skill_view` is for on-demand viewin
 ```bash
 # git-bash / MSYS
 mkdir -p "$OBSIDIAN_VAULT_PATH/<target_dir>"
-find "$HOME/.hermes/skills" -name SKILL.md | while read src; do
+find "$HOME/.ReYMeN/skills" -name SKILL.md | while read src; do
   # Build vault-relative path under target_dir, preserving subdirs
-  rel="${src#$HOME/.hermes/skills/}"
+  rel="${src#$HOME/.ReYMeN/skills/}"
   dest="$OBSIDIAN_VAULT_PATH/<target_dir>/$rel"
   mkdir -p "$(dirname "$dest")"
   cp -n "$src" "$dest"   # -n = no-clobber
@@ -96,7 +96,7 @@ done
 
 Windows PowerShell equivalent:
 ```powershell
-$skillsRoot = Join-Path $env:APPDATA 'hermes\skills'
+$skillsRoot = Join-Path $env:APPDATA 'ReYMeN\skills'
 $targetRoot = Join-Path $OBSIDIAN_VAULT_PATH '<target_dir>'
 Get-ChildItem -Path $skillsRoot -Recurse -Filter SKILL.md | ForEach-Object {
     $rel = $_.FullName.Substring($skillsRoot.Length + 1)
@@ -114,13 +114,13 @@ write_file "$OBSIDIAN_VAULT_PATH/<target_dir>/<subpath>/SKILL.md" markdown conte
 
 Do this for every enumerated `SKILL.md`. Do **not** skip files just because `skills_list` did not surface them.
 
-### 4. Generate the index (`Hermes Skills Sync.md`)
+### 4. Generate the index (`ReYMeN Skills Sync.md`)
 
 Write a **fresh**, full README-style index file at the vault root. Overwrite, do not append.
 
 Structure:
 ```markdown
-# Hermes Skills Sync
+# ReYMeN Skills Sync
 
 > Auto-generated catalog. Regenerate with `skill-cataloging`.
 
@@ -148,7 +148,7 @@ Structure:
 
 ```bash
 echo "Copied: $(find "$OBSIDIAN_VAULT_PATH/<target_dir>" -name SKILL.md | wc -l)"
-ls -la "$OBSIDIAN_VAULT_PATH/Hermes Skills Sync.md"
+ls -la "$OBSIDIAN_VAULT_PATH/ReYMeN Skills Sync.md"
 ```
 
 Open the sync file in Obsidian to confirm links resolve.
@@ -173,16 +173,16 @@ target="obsidian_skill_all_tree_0"
 mkdir -p "$vault/$target"
 
 # 3. Copy all SKILL.md files
-find "$HOME/.hermes/skills" -name SKILL.md | while read src; do
-  rel="${src#$HOME/.hermes/skills/}"
+find "$HOME/.ReYMeN/skills" -name SKILL.md | while read src; do
+  rel="${src#$HOME/.ReYMeN/skills/}"
   dest="$vault/$target/$rel"
   mkdir -p "$(dirname "$dest")"
   cp -n "$src" "$dest"
 done
 
 # 4. Write index (replace N and table rows after enumerating)
-cat > "$vault/Hermes Skills Sync.md" <<'INDEX'
-# Hermes Skills Sync
+cat > "$vault/ReYMeN Skills Sync.md" <<'INDEX'
+# ReYMeN Skills Sync
 ...
 INDEX
 ```
@@ -206,8 +206,8 @@ python skills/productivity/skill-cataloging/scripts/skill_benchmark.py --csv ~/D
 ## Related
 
 - `obsidian` — vault write/sync conventions, wikilink format, idempotent index refreshes
-- `references/nemoclaw-repo-analysis.md` — NVIDIA NemoClaw repo incelemesi: skill pattern'i, AGENTS.md formatı, Hermes manifest
-- `references/github-repo-layout.md` — GitHub'daki skills/ altında repo yapısı, hermes-full-backup organizasyonu
+- `references/nemoclaw-repo-analysis.md` — NVIDIA NemoClaw repo incelemesi: skill pattern'i, AGENTS.md formatı, ReYMeN manifest
+- `references/github-repo-layout.md` — GitHub'daki skills/ altında repo yapısı, ReYMeN-full-backup organizasyonu
 
 ## Audience Classification
 
@@ -228,7 +228,7 @@ Toplu güncelleme öncesi `.audience-backup/` dizinine SHA256 yedek alınması Z
 
 ## Otomatik Sync
 
-Hermes'te `hooks/sync_skills_to_obsidian.py` script'i SKILL.md → Obsidian notu senkronizasyonunu otomatik yapar:
+ReYMeN'te `hooks/sync_skills_to_obsidian.py` script'i SKILL.md → Obsidian notu senkronizasyonunu otomatik yapar:
 
 ```bash
 # Normal sync (sadece yeni skill'leri yazar, eskiyi overwrite etmez)
@@ -240,7 +240,7 @@ python3 /c/Users/marko/AppData/Local/hermes/hooks/sync_skills_to_obsidian.py --f
 
 Bu sync script'i:
 - `skills/` altındaki tüm `SKILL.md` dosyalarını okur
-- Obsidian vault'ta `Hermes/Skills/<kategori>/<skill-adi>.md` şeklinde yazar
+- Obsidian vault'ta `ReYMeN/Skills/<kategori>/<skill-adi>.md` şeklinde yazar
 - Var olan notları overwrite ETMEZ (--force ile overwrite eder)
 - 145 SKILL.md → 145 Obsidian notu yazar (sayı sync script çalıştıkça güncellenir)
 

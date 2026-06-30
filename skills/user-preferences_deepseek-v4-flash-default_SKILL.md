@@ -1,6 +1,6 @@
 ---
 name: user-preferences-deepseek-v4-flash-default
-description: Bu profil Hermes'in varsayılan modelini tanımlar.
+description: Bu profil ReYMeN'in varsayılan modelini tanımlar.
 title: User Preferences Deepseek V4 Flash Default
 version: 1.0.0
 ---
@@ -18,7 +18,7 @@ version: 1.0.0
 bu model aktif olmalıdır.
 # DeepSeek V4 Flash — Varsayılan Profil
 
-Bu profil Hermes'in varsayılan modelini tanımlar.
+Bu profil ReYMeN'in varsayılan modelini tanımlar.
 
 ## Yapılandırma
 
@@ -32,14 +32,14 @@ Bu profil Hermes'in varsayılan modelini tanımlar.
 Bu komutlar config.yaml'a yazar, oturumlar arası kalıcıdır:
 
 ```bash
-hermes config set model deepseek-v4-flash
-hermes config set provider deepseek
+ReYMeN config set model deepseek-v4-flash
+ReYMeN config set provider deepseek
 ```
 
 Doğrulama:
 
 ```bash
-hermes config show | grep -A5 "Model"
+ReYMeN config show | grep -A5 "Model"
 # Çıktı: Model: {'default': 'deepseek-v4-flash', 'provider': 'deepseek'}
 ```
 
@@ -53,7 +53,7 @@ Bu komut sadece mevcut oturum için geçerlidir, config.yaml değişmez.
 
 ## Notlar
 
-- `hermes config set provider deepseek` doğrudan çalışır — custom provider ayarı gerekmez
+- `ReYMeN config set provider deepseek` doğrudan çalışır — custom provider ayarı gerekmez
 - API anahtarı `.env` içinde `DEEPSEEK_API_KEY` olarak tanımlıdır
 - 1M context penceresi aktif
 - Uzun oturumlarda context dolumunu izle

@@ -1,16 +1,16 @@
 ---
-title: Eksik Listesi Tamamlama (Gap Closure)
 name: eksik-listesi-tamamlama
-description: Checklist/gap-closure workflow — kullanıcının verdiği eksik listesini sormadan adım adım tamamla. Layer-by-layer fix, tablo raporlama, her adımda derleme kontrolü.
+title: Eksik Listesi Tamamlama (Gap Closure)
+description: Checklist/gap-closure workflow — kullanıcının verdiği eksik listesini
+  sormadan adım adım tamamla. Layer-by-layer fix, tablo raporlama, her adımda derleme
+  kontrolü.
 tags:
-  - workflow
-  - integration
-  - troubleshooting
+- workflow
+- integration
+- troubleshooting
+category: Verimlilik
 audience: user
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | Tum kullanicilar |
@@ -31,8 +31,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: Tum kullanicilar
 Ne: Checklist/gap-closure workflow — kullanıcının verdiği eksik listesini sormadan adım adım tamamla. Layer-by-layer fix, tablo raporlama, her adımda derleme kontrolü.

@@ -2,7 +2,7 @@
 """
 cron_skill_sync_register.py — Skill sync cron job kaydi.
 
-Bu script, cron_skill_sync.py'yi Hermes cron sistemine kaydeder:
+Bu script, cron_skill_sync.py'yi ReYMeN cron sistemine kaydeder:
 - skills_index.db (FTS5) her 6 saatte bir otomatik guncellenir
 - jobs.json dosyasina kayit eklenir
 - Mevcut cronjob_tools API'si uzerinden calisir

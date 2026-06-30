@@ -1,6 +1,6 @@
 ---
 name: autonomous-ai-agents-claude-integration
-description: Claude Code'in Hermes skill kütüphanesine ve Obsidian vault'a erişmesini
+description: Claude Code'in ReYMeN skill kütüphanesine ve Obsidian vault'a erişmesini
   sağlayan entegrasyon.
 title: Autonomous Ai Agents Claude Integration
 version: 1.0.0
@@ -16,18 +16,18 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-# Claude Code - Hermes Integration
+# Claude Code - ReYMeN Integration
 
 ## Amaç
 
-Claude Code'in Hermes skill kütüphanesine ve Obsidian vault'a erişmesini sağlayan entegrasyon.
+Claude Code'in ReYMeN skill kütüphanesine ve Obsidian vault'a erişmesini sağlayan entegrasyon.
 
 ## Adımlar
 
 ### 1. Workspace Junctions
 
 ```bash
-# Hermes skills'e junction oluştur
+# ReYMeN skills'e junction oluştur
 mklink /J docs/hermes-skills "C:\Users\marko\AppData\Local\hermes\skills"
 
 # Obsidian vault'a junction oluştur
@@ -56,7 +56,7 @@ Server `http://127.0.0.1:7070` adresinde çalışır.
 
 ## Referanslar
 
-- Obsidian: `Hermes Memories/2026-06-11 Claude integration.md`
+- Obsidian: `ReYMeN Memories/2026-06-11 Claude integration.md`
 - Bu skill otomatik dönüştürülmüştür (standalone .md → SKILL.md)
 
 ## Pitfall'lar

@@ -105,7 +105,7 @@ sshpass -p 'kali' /c/Windows/System32/OpenSSH/ssh.exe -o StrictHostKeyChecking=n
 **Not:** Host-only DHCP kapali olabilir (`VBoxManage list hostonlyifs` ile kontrol et -> `DHCP: Disabled`). Kali bridged subnet'teyse host-only IP alamaz.
 **Not 2:** `VBoxManage guestproperty get` ile IP alinamazsa (`No value set!`) bu NORMALDIR.
 
-### SSH Backend Config (Hermes config.yaml)
+### SSH Backend Config (ReYMeN config.yaml)
 
 Terminal tool'unu dogrudan Kali'ye SSH yapacak sekilde yapilandirmak icin:
 ```bash
@@ -116,7 +116,7 @@ Terminal tool'unu dogrudan Kali'ye SSH yapacak sekilde yapilandirmak icin:
 "/c/Users/marko/AppData/Local/hermes/hermes-agent/venv/Scripts/hermes.exe" config set terminal.ssh_port 22
 "/c/Users/marko/AppData/Local/hermes/hermes-agent/venv/Scripts/hermes.exe" config set terminal.ssh_strict_host_key_check false
 ```
-**Uyari:** Config dosyasina `patch` ile dogrudan yazmak ENGELENIR -> `hermes config set` kullanilmali.
+**Uyari:** Config dosyasina `patch` ile dogrudan yazmak ENGELENIR -> `ReYMeN config set` kullanilmali.
 **Not:** Config degisiklikleri mevcut session'da etkili olmaz, yeni session gerektirir.
 
 ### Bridged Agdan IP Alip Almadigini Kontrol

@@ -20,7 +20,7 @@
 
 ## Observed mapping format
 
-Each shortcut entry should be stored as a Hermes task block:
+Each shortcut entry should be stored as a ReYMeN task block:
 
 ```text
 GÖREV ADI: <short action name>
@@ -63,6 +63,6 @@ SONUÇ: Tüm ekran panoya kopyalanır
 
 ## Pitfalls
 - Alt + F4 on desktop triggers the Windows shutdown dialog instead of closing a window.
-- Windows shortcut skill creation should produce one focused Hermes skill per topic: system, window, browser, screenshot, accessibility.
+- Windows shortcut skill creation should produce one focused ReYMeN skill per topic: system, window, browser, screenshot, accessibility.
 - When creating shortcuts, mirror the same task block into Obsidian as a standalone markdown file and append it into the central keyboard shortcuts note.
 - Use a dedicated screenshots folder to keep desktop clean: `C:\Users\marko\Desktop\ekran_gorselleri\`.

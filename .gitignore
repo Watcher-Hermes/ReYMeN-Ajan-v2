@@ -212,3 +212,46 @@ hermes_legacy/
 # ReYMeN venv
 reymen_venv/
 reymen_venv.old/
+
+# Coverage artifacts (run-time, not code)
+*.py,cover
+*.cover
+.coverage*
+.cov_*.json
+coverage/
+
+# Geçici scriptler (anahtar yazma, token test, vs.)
+_*.py
+_*.bat
+_*.cmd
+
+# Build çıktıları
+*.exe
+*.spec
+*.egg-info/
+build/
+dist/
+*.tsbuildinfo
+
+# Yerel test çıktıları
+wifi_cihazlari_sonuc.json
+gold_price.yml
+bot_*.json
+test_*_sonuc.json
+pyi_build*.log
+bridge.log
+
+# Video cache (binary, regenerate edilebilir)
+reymen/video_cache/
+
+# Vector cache (regenerate edilebilir)
+chroma_db/
+vektor_hafizasi/*.bin
+
+# Opsiyonel/eklenti dizinleri (klonlanmaz)
+optional-mcps/
+plugins/
+ReYMeN-memory-backup/
+ReYMeN_cli/
+_hermes_kopyalari/
+apps/

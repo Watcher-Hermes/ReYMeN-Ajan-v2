@@ -1,8 +1,8 @@
 ---
-name: software-development-hermes-vs-claude-kod-kalitesi
-description: '- Ben (Hermes): kucuk odakli patch, tek sorunu cozer, hata yonetimi
+name: software-development-ReYMeN-vs-claude-kod-kalitesi
+description: '- Ben (ReYMeN): kucuk odakli patch, tek sorunu cozer, hata yonetimi
   eksik'
-title: Software Development Hermes Vs Claude Kod Kalitesi
+title: Software Development ReYMeN Vs Claude Kod Kalitesi
 version: 1.0.0
 ---
 
@@ -17,10 +17,10 @@ version: 1.0.0
 | **Nasıl?** | Skill adımlarını takip ederek |
 
 renkli cikti, CLI her yerde'
-# Hermes vs Claude 4.8 — Kod Yazim Dersleri
+# ReYMeN vs Claude 4.8 — Kod Yazim Dersleri
 
 ## Farklar
-- Ben (Hermes): kucuk odakli patch, tek sorunu cozer, hata yonetimi eksik
+- Ben (ReYMeN): kucuk odakli patch, tek sorunu cozer, hata yonetimi eksik
 - Claude 4.8: butunsel, ozellik + CLI + hata + dokumantasyon bir arada
 
 ## Ogrenilenler

@@ -1,7 +1,7 @@
 ---
 name: mouse-klavye-ctypes
-title: "Hermes Mouse + Klavye Kontrolü (v5)"
-description: "Windows'ta fare ve klavye kontrolü — ctypes ile (bağımlılıksız, Win32 API). Hermes'ten uygulama açma, element tıklama, menü gezinme, metin yazma, otonom akış yürütme, ekran görüntüsü alma."
+title: "ReYMeN Mouse + Klavye Kontrolü (v5)"
+description: "Windows'ta fare ve klavye kontrolü — ctypes ile (bağımlılıksız, Win32 API). ReYMeN'ten uygulama açma, element tıklama, menü gezinme, metin yazma, otonom akış yürütme, ekran görüntüsü alma."
 version: 5.0.0
 author: marko
 license: MIT
@@ -21,7 +21,7 @@ related_skills: [tam-sistem-yetkisi, screen-vision-analiz, windows-automation-sh
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Windows'ta fare ve klavye kontrolü — ctypes ile (bağımlılıksız, Win32 API). Hermes'ten uygulama açma, element tıklama, menü gezinme, metin yazma, otonom akış yürütme, ekran görüntüsü alma. |
+| **Ne?** | Windows'ta fare ve klavye kontrolü — ctypes ile (bağımlılıksız, Win32 API). ReYMeN'ten uygulama açma, element tıklama, menü gezinme, metin yazma, otonom akış yürütme, ekran görüntüsü alma. |
 | **Nerede?** | automation/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -29,7 +29,7 @@ related_skills: [tam-sistem-yetkisi, screen-vision-analiz, windows-automation-sh
 
 ---
 
-# Hermes Mouse + Klavye Kontrolü (v5)
+# ReYMeN Mouse + Klavye Kontrolü (v5)
 
 ## Genel Bakış
 

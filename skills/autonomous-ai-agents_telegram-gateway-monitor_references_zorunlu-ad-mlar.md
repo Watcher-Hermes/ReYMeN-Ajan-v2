@@ -78,7 +78,7 @@ version: 1.0.0
     - PowerShell ile dışarıdan gateway restart: `powershell.exe -NoProfile -Command "Start-ScheduledTask -TaskName Hermes_Gateway"`
       - Not: linux/workarounds veya `schtasks /Run` bash içinde güvenilir çalışmaz.
     - Bekleme: restart sonrası bağlanma için 15-20 saniye bekle.
-    - Önce hedefi listele (PYTHONPATH ile — bkz. `references/hermes-cli-invocation.md`):
+    - Önce hedefi listele (PYTHONPATH ile — bkz. `references/ReYMeN-cli-invocation.md`):
       ```
       cd /c/Users/marko/AppData/Local/hermes/hermes-agent && \
       HERMES_HOME=/c/Users/marko/AppData/Local/hermes \
@@ -96,7 +96,7 @@ version: 1.0.0
       -m hermes_cli.main send --to "telegram:Q !" "[telegram-watchdog] Bağlantı testi başarılı."
       ```
     - ⚠️ `telegram:Q !` içindeki `!` shell'de özel anlam taşır — **tırnak içine almak zorunludur**, aksi halde hata alırsın.
-    - ⚠️ `hermes.exe` veya `hermes` kısa komutu çalışmaz (`ModuleNotFoundError`). Her zaman yukarıdaki PYTHONPATH ile çalıştır.
+    - ⚠️ `ReYMeN.exe` veya `ReYMeN` kısa komutu çalışmaz (`ModuleNotFoundError`). Her zaman yukarıdaki PYTHONPATH ile çalıştır.
 2. Token doğrulama ve hata ayıklama:
     - Test mesajı düzgün gittiyse tamam.
     - "Not Found"/InvalidToken gelirse ne `.env`'ye ne de gateway yapısına müdahale et.

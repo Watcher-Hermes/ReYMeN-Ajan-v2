@@ -23,8 +23,8 @@ Claude + Ollama (Dolphin) arasında dosya tabanlı köprü. Telegram üzerinden 
 ## Kullanım
 
 1. `python bridge_tg.py` çalıştır
-2. Hermes `bridge_status.txt` okur, Telegram'a aktarır
-3. Kullanıcı `devam` / `dur` der, Hermes `bridge_signal.txt`'e yazar
+2. ReYMeN `bridge_status.txt` okur, Telegram'a aktarır
+3. Kullanıcı `devam` / `dur` der, ReYMeN `bridge_signal.txt`'e yazar
 
 ## Güvenlik
 
@@ -35,10 +35,10 @@ Claude + Ollama (Dolphin) arasında dosya tabanlı köprü. Telegram üzerinden 
 ## Akış
 
 1. Kullanıcı Telegram'dan komut gönderir
-2. Hermes köprü script'ini çalıştırır
+2. ReYMeN köprü script'ini çalıştırır
 3. Script Claude + Ollama arasında gidiş-geliş yapar
 4. Her turda durumu `bridge_status.txt`'ye yazar
-5. Hermes durumu okur ve Telegram'a iletir
+5. ReYMeN durumu okur ve Telegram'a iletir
 6. Kullanıcı onay verene kadar veya timeout'a kadar devam eder
 
 ## Log Örneği

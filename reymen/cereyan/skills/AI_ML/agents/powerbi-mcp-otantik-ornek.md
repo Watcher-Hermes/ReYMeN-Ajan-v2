@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: powerbi-mcp-otantik-ornek
+title: Powerbi Mcp Otantik Ornek
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Power BI MCP — Kontrol Kuralı Canlı Örnek
 

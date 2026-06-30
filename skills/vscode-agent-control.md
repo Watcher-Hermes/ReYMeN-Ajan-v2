@@ -77,7 +77,7 @@ terminal(command="C:\\Users\\marko\\AppData\\Local\\Python\\pythoncore-3.14-64\\
 VS Code Agent terminali için kayıtlı konum:
 - X=589, Y=818 (click position)
 - Positions dosyası: `C:\Users\marko\AppData\Local\hermes\skills\vscode-agent-control\positions.json`
-- Daha fazla bilgi: Obsidian `Hermes/Skills/VS Code Agent Terminal Koordinatı.md`
+- Daha fazla bilgi: Obsidian `ReYMeN/Skills/VS Code Agent Terminal Koordinatı.md`
 
 ## YASAK
 - vision_analyze kullanma

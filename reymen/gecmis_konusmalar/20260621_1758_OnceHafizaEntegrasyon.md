@@ -38,8 +38,8 @@ nmap -sV -sT -p 1-1000 127.0.0.1
 - OS: Windows
 - Kaydedildi: kali/network/nmap kategorisinde
 
-### 6. Hermes YOLO Modu
-- Hermes'te YOLO modu terminal onayını kaldırır ama secret redaction + Tirith güvenlik politikası + tool loop koruması çalışmaya devam eder
+### 6. ReYMeN YOLO Modu
+- ReYMeN'te YOLO modu terminal onayını kaldırır ama secret redaction + Tirith güvenlik politikası + tool loop koruması çalışmaya devam eder
 - Tam yetki için: approvals.mode: off + tirith_enabled: false
 
 ## Hafızaya Kaydedilenler

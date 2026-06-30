@@ -54,10 +54,10 @@ def _install_example_plugin(_isolate_ReYMeN_home):
     all). User plugins are first in the discovery search order, so
     laying down the fixture here is enough.
     """
-    from ReYMeN_constants import get_ReYMeN_home
+    from ReYMeN_constants import get_reymen_home
     from ReYMeN_cli import web_server
 
-    user_plugins_dir = get_ReYMeN_home() / "plugins"
+    user_plugins_dir = get_reymen_home() / "plugins"
     user_plugins_dir.mkdir(parents=True, exist_ok=True)
     dst = user_plugins_dir / "example-dashboard"
     if dst.exists():
@@ -230,10 +230,10 @@ class TestWebServerEndpoints:
             pytest.skip("fastapi/starlette not installed")
 
         import ReYMeN_state
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         from ReYMeN_cli.web_server import app, _SESSION_HEADER_NAME, _SESSION_TOKEN
 
-        monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_ReYMeN_home() / "state.db")
+        monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_reymen_home() / "state.db")
 
         self.client = TestClient(app)
         self.client.headers[_SESSION_HEADER_NAME] = _SESSION_TOKEN
@@ -250,9 +250,9 @@ class TestWebServerEndpoints:
 
     def test_get_media_serves_image_in_root(self):
         """An image under the gateway's images dir is returned as a data URL."""
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        img_dir = get_ReYMeN_home() / "images"
+        img_dir = get_reymen_home() / "images"
         img_dir.mkdir(parents=True, exist_ok=True)
         img = img_dir / "shot.png"
         img.write_bytes(b"\x89PNG\r\n\x1a\n" + b"\x00" * 16)
@@ -270,9 +270,9 @@ class TestWebServerEndpoints:
         assert resp.status_code == 403
 
     def test_get_media_rejects_non_image_extension(self):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        img_dir = get_ReYMeN_home() / "images"
+        img_dir = get_reymen_home() / "images"
         img_dir.mkdir(parents=True, exist_ok=True)
         env = img_dir / "leak.env"
         env.write_text("SECRET=1")
@@ -281,9 +281,9 @@ class TestWebServerEndpoints:
         assert resp.status_code == 415
 
     def test_get_media_404_for_missing_file(self):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        missing = get_ReYMeN_home() / "images" / "nope.png"
+        missing = get_reymen_home() / "images" / "nope.png"
         resp = self.client.get("/api/media", params={"path": str(missing)})
         assert resp.status_code == 404
 
@@ -2536,10 +2536,10 @@ class TestNewEndpoints:
             pytest.skip("fastapi/starlette not installed")
 
         import ReYMeN_state
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         from ReYMeN_cli.web_server import app, _SESSION_HEADER_NAME, _SESSION_TOKEN
 
-        monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_ReYMeN_home() / "state.db")
+        monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_reymen_home() / "state.db")
 
         self.client = TestClient(app)
         self.client.headers[_SESSION_HEADER_NAME] = _SESSION_TOKEN
@@ -2604,8 +2604,8 @@ class TestNewEndpoints:
     # --- Profiles ---
 
     def test_profiles_list_includes_default(self):
-        from ReYMeN_constants import get_ReYMeN_home
-        get_ReYMeN_home().mkdir(parents=True, exist_ok=True)
+        from ReYMeN_constants import get_reymen_home
+        get_reymen_home().mkdir(parents=True, exist_ok=True)
 
         resp = self.client.get("/api/profiles")
         assert resp.status_code == 200
@@ -2613,10 +2613,10 @@ class TestNewEndpoints:
         assert "default" in names
 
     def test_profiles_list_falls_back_when_profile_listing_fails(self, monkeypatch):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         import ReYMeN_cli.profiles as profiles_mod
 
-        ReYMeN_home = get_ReYMeN_home()
+        ReYMeN_home = get_reymen_home()
         ReYMeN_home.mkdir(parents=True, exist_ok=True)
         (ReYMeN_home / "config.yaml").write_text(
             "model:\n  provider: openrouter\n  name: anthropic/claude-sonnet-4.6\n",
@@ -2668,9 +2668,9 @@ class TestNewEndpoints:
         assert "test-prof-2" not in names
 
     def test_profile_setup_command_uses_named_profile_wrapper(self):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        (get_ReYMeN_home() / "profiles" / "coder").mkdir(parents=True)
+        (get_reymen_home() / "profiles" / "coder").mkdir(parents=True)
 
         resp = self.client.get("/api/profiles/coder/setup-command")
 
@@ -2678,9 +2678,9 @@ class TestNewEndpoints:
         assert resp.json()["command"] == "coder setup"
 
     def test_profile_setup_command_uses_ReYMeN_for_default_profile(self):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        get_ReYMeN_home().mkdir(parents=True, exist_ok=True)
+        get_reymen_home().mkdir(parents=True, exist_ok=True)
 
         resp = self.client.get("/api/profiles/default/setup-command")
 
@@ -2706,15 +2706,15 @@ class TestNewEndpoints:
         assert wrapper_path.read_text() == '#!/bin/sh\nexec /opt/ReYMeN/bin/ReYMeN -p writer "$@"\n'
 
     def test_profiles_create_with_clone_from_copies_source_skills(self, monkeypatch):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         import ReYMeN_cli.profiles as profiles_mod
 
         monkeypatch.setattr(profiles_mod, "create_wrapper_script", lambda name: None)
-        (get_ReYMeN_home() / "config.yaml").write_text(
+        (get_reymen_home() / "config.yaml").write_text(
             "model:\n  provider: openrouter\n",
             encoding="utf-8",
         )
-        default_skill = get_ReYMeN_home() / "skills" / "custom" / "new-skill"
+        default_skill = get_reymen_home() / "skills" / "custom" / "new-skill"
         default_skill.mkdir(parents=True)
         (default_skill / "SKILL.md").write_text("---\nname: new-skill\n---\n", encoding="utf-8")
 
@@ -2724,7 +2724,7 @@ class TestNewEndpoints:
         )
 
         assert resp.status_code == 200
-        cloned_root = get_ReYMeN_home() / "profiles" / "cloned"
+        cloned_root = get_reymen_home() / "profiles" / "cloned"
         cloned_skill = cloned_root / "skills" / "custom" / "new-skill" / "SKILL.md"
         assert cloned_skill.exists()
         cloned_config = yaml.safe_load((cloned_root / "config.yaml").read_text(encoding="utf-8"))
@@ -2733,14 +2733,14 @@ class TestNewEndpoints:
         assert profiles["cloned"]["skill_count"] == 1
 
     def test_profiles_create_with_clone_from_duplicates_source(self, monkeypatch):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         import ReYMeN_cli.profiles as profiles_mod
 
         monkeypatch.setattr(profiles_mod, "create_wrapper_script", lambda name: None)
 
         # Create a source profile and give it a distinctive skill.
         assert self.client.post("/api/profiles", json={"name": "source-prof"}).status_code == 200
-        source_skill = get_ReYMeN_home() / "profiles" / "source-prof" / "skills" / "custom" / "src-skill"
+        source_skill = get_reymen_home() / "profiles" / "source-prof" / "skills" / "custom" / "src-skill"
         source_skill.mkdir(parents=True)
         (source_skill / "SKILL.md").write_text("---\nname: src-skill\n---\n", encoding="utf-8")
 
@@ -2752,18 +2752,18 @@ class TestNewEndpoints:
 
         assert resp.status_code == 200
         cloned_skill = (
-            get_ReYMeN_home() / "profiles" / "source-prof-copy" / "skills" / "custom" / "src-skill" / "SKILL.md"
+            get_reymen_home() / "profiles" / "source-prof-copy" / "skills" / "custom" / "src-skill" / "SKILL.md"
         )
         assert cloned_skill.exists()
 
     def test_profiles_create_clone_all_from_named_source(self, monkeypatch):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         import ReYMeN_cli.profiles as profiles_mod
 
         monkeypatch.setattr(profiles_mod, "create_wrapper_script", lambda name: None)
 
         assert self.client.post("/api/profiles", json={"name": "full-src"}).status_code == 200
-        source_dir = get_ReYMeN_home() / "profiles" / "full-src"
+        source_dir = get_reymen_home() / "profiles" / "full-src"
         (source_dir / "config.yaml").write_text("model:\n  provider: source-only\n", encoding="utf-8")
         (source_dir / "workspace" / "artifact.txt").parent.mkdir(parents=True, exist_ok=True)
         (source_dir / "workspace" / "artifact.txt").write_text("copied", encoding="utf-8")
@@ -2774,12 +2774,12 @@ class TestNewEndpoints:
         )
 
         assert resp.status_code == 200
-        target_dir = get_ReYMeN_home() / "profiles" / "full-copy"
+        target_dir = get_reymen_home() / "profiles" / "full-copy"
         assert (target_dir / "config.yaml").read_text(encoding="utf-8") == "model:\n  provider: source-only\n"
         assert (target_dir / "workspace" / "artifact.txt").read_text(encoding="utf-8") == "copied"
 
     def test_profiles_create_without_clone_seeds_bundled_skills(self, monkeypatch):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         import ReYMeN_cli.profiles as profiles_mod
 
         monkeypatch.setattr(profiles_mod, "create_wrapper_script", lambda name: None)
@@ -2798,7 +2798,7 @@ class TestNewEndpoints:
         )
 
         assert resp.status_code == 200
-        seeded_skill = get_ReYMeN_home() / "profiles" / "fresh" / "skills" / "software-development" / "plan" / "SKILL.md"
+        seeded_skill = get_reymen_home() / "profiles" / "fresh" / "skills" / "software-development" / "plan" / "SKILL.md"
         assert seeded_skill.exists()
         profiles = {p["name"]: p for p in self.client.get("/api/profiles").json()["profiles"]}
         assert profiles["fresh"]["skill_count"] == 1
@@ -2808,7 +2808,7 @@ class TestNewEndpoints:
         all land in the NEW profile's config, and hub installs are spawned
         scoped to that profile via ``-p <name>``."""
         from ReYMeN_constants import (
-            get_ReYMeN_home,
+            get_reymen_home,
             set_ReYMeN_home_override,
             reset_ReYMeN_home_override,
         )
@@ -2872,7 +2872,7 @@ class TestNewEndpoints:
         ]
 
         # Verify the writes landed in the NEW profile's config, not the root.
-        prof_dir = get_ReYMeN_home() / "profiles" / "builder"
+        prof_dir = get_reymen_home() / "profiles" / "builder"
         token = set_ReYMeN_home_override(str(prof_dir))
         try:
             cfg = load_config()
@@ -2886,10 +2886,10 @@ class TestNewEndpoints:
             reset_ReYMeN_home_override(token)
 
     def test_profile_open_terminal_uses_macos_terminal(self, monkeypatch):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         import ReYMeN_cli.web_server as web_server
 
-        (get_ReYMeN_home() / "profiles" / "coder").mkdir(parents=True)
+        (get_reymen_home() / "profiles" / "coder").mkdir(parents=True)
         calls = []
         monkeypatch.setattr(web_server.sys, "platform", "darwin")
         monkeypatch.setattr(web_server.subprocess, "Popen", lambda args, **kwargs: calls.append(args))
@@ -2902,10 +2902,10 @@ class TestNewEndpoints:
         assert "coder setup" in " ".join(calls[0])
 
     def test_profile_open_terminal_uses_windows_cmd(self, monkeypatch):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         import ReYMeN_cli.web_server as web_server
 
-        (get_ReYMeN_home() / "profiles" / "coder").mkdir(parents=True)
+        (get_reymen_home() / "profiles" / "coder").mkdir(parents=True)
         calls = []
         monkeypatch.setattr(web_server.sys, "platform", "win32")
         monkeypatch.setattr(web_server.subprocess, "Popen", lambda args, **kwargs: calls.append(args))
@@ -2956,8 +2956,8 @@ class TestNewEndpoints:
     # --- New profiles endpoints: active / description / model / describe-auto ---
 
     def test_profiles_active_defaults(self):
-        from ReYMeN_constants import get_ReYMeN_home
-        get_ReYMeN_home().mkdir(parents=True, exist_ok=True)
+        from ReYMeN_constants import get_reymen_home
+        get_reymen_home().mkdir(parents=True, exist_ok=True)
 
         resp = self.client.get("/api/profiles/active")
         assert resp.status_code == 200
@@ -3006,7 +3006,7 @@ class TestNewEndpoints:
         assert resp.status_code == 404
 
     def test_profile_model_round_trip(self, monkeypatch):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         import ReYMeN_cli.profiles as profiles_mod
         monkeypatch.setattr(profiles_mod, "create_wrapper_script", lambda name: None)
 
@@ -3020,7 +3020,7 @@ class TestNewEndpoints:
         assert resp.json()["provider"] == "openrouter"
 
         import yaml
-        cfg_path = get_ReYMeN_home() / "profiles" / "model-prof" / "config.yaml"
+        cfg_path = get_reymen_home() / "profiles" / "model-prof" / "config.yaml"
         cfg = yaml.safe_load(cfg_path.read_text(encoding="utf-8"))
         assert cfg["model"]["provider"] == "openrouter"
         assert cfg["model"]["default"] == "anthropic/claude-sonnet-4.6"
@@ -4298,11 +4298,11 @@ class TestBulkDeleteSessionsEndpoint:
             pytest.skip("fastapi/starlette not installed")
 
         import ReYMeN_state
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         from ReYMeN_cli.web_server import app, _SESSION_HEADER_NAME, _SESSION_TOKEN
 
         monkeypatch.setattr(
-            ReYMeN_state, "DEFAULT_DB_PATH", get_ReYMeN_home() / "state.db"
+            ReYMeN_state, "DEFAULT_DB_PATH", get_reymen_home() / "state.db"
         )
 
         self.client = TestClient(app)
@@ -4422,13 +4422,13 @@ class TestDeleteEmptySessionsEndpoint:
             pytest.skip("fastapi/starlette not installed")
 
         import ReYMeN_state
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         from ReYMeN_cli.web_server import app, _SESSION_HEADER_NAME, _SESSION_TOKEN
 
         # Pin the SessionDB to the isolated ReYMeN_HOME so each test
         # starts with a clean state.db.
         monkeypatch.setattr(
-            ReYMeN_state, "DEFAULT_DB_PATH", get_ReYMeN_home() / "state.db"
+            ReYMeN_state, "DEFAULT_DB_PATH", get_reymen_home() / "state.db"
         )
 
         self.client = TestClient(app)
@@ -4558,10 +4558,10 @@ class TestPluginAPIAuth:
             pytest.skip("fastapi/starlette not installed")
 
         import ReYMeN_state
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
         from ReYMeN_cli.web_server import app, _SESSION_HEADER_NAME, _SESSION_TOKEN
 
-        monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_ReYMeN_home() / "state.db")
+        monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_reymen_home() / "state.db")
 
         self.client = TestClient(app)
         self.auth_client = TestClient(app)

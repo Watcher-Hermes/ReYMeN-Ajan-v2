@@ -1,6 +1,6 @@
 ---
 name: skill-shrink
-description: Büyük skill'ler (10KB+ veya 300+ satır) Hermes'in token limitini gereksiz
+description: Büyük skill'ler (10KB+ veya 300+ satır) ReYMeN'in token limitini gereksiz
   yere şişirir ve yüklenme süresini artırır. Bu skill, şişkin skill'leri tarar, her
   `##` bölümünü ayrı bir `references/` dosyasına taşır ve ana SKILL.md'yi hafif bir
   yönlendiriciye dönüştürür.
@@ -23,7 +23,7 @@ altına taşır, ana SKILL.md'yi yönlendirici (router) haline getirir.
 
 ## Ne İşe Yarar
 
-Büyük skill'ler (10KB+ veya 300+ satır) Hermes'in token limitini gereksiz yere şişirir ve yüklenme süresini artırır. Bu skill, şişkin skill'leri tarar, her `##` bölümünü ayrı bir `references/` dosyasına taşır ve ana SKILL.md'yi hafif bir yönlendiriciye dönüştürür.
+Büyük skill'ler (10KB+ veya 300+ satır) ReYMeN'in token limitini gereksiz yere şişirir ve yüklenme süresini artırır. Bu skill, şişkin skill'leri tarar, her `##` bölümünü ayrı bir `references/` dosyasına taşır ve ana SKILL.md'yi hafif bir yönlendiriciye dönüştürür.
 
 ## Kullanım
 

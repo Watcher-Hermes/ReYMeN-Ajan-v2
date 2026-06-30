@@ -24,21 +24,21 @@ Kullanıcıya onay sormadan, görev gerektirdiğinde otomatik model geçişi yap
 ## Kullanım
 - Ana akış: `stepfun/step-3.7-flash:free`
 - Yedek görev modeli: `dolphin-llama3`
-- Kural: Her görevde ilk olarak Hermes skill + Obsidian kontrolü yap. Kayıt varsa yeniden yazma, var olan akışa devam et.
+- Kural: Her görevde ilk olarak ReYMeN skill + Obsidian kontrolü yap. Kayıt varsa yeniden yazma, var olan akışa devam et.
 - Görev tamamlandığında ana akışa geri dön.
 
 ## Otomatik Geçiş Yöntemleri
 
 ### 1. CLI agent'dan model değiştirme (ÖNERİLEN)
 ```bash
-hermes config set model <alias>
+ReYMeN config set model <alias>
 ```
 Alias'lar (config.yaml'dan okunur): `deepseek`, `dolphin`, `dolphin-lmstudio`, `llama`
 **NOT:** Bu değişiklik sadece **yeni oturumlarda** geçerlidir. Mevcut oturum eskisiyle devam eder.
 
 ### 2. Manuel interaktif model değiştirme
 ```bash
-hermes model
+ReYMeN model
 ```
 Interaktif menü açar. CLI agent'dan çalıştırılamaz (PTY gerekir).
 
@@ -54,16 +54,16 @@ model:
 
 ### 4. Görev sonrası geri dönüş — cron job
 ```bash
-hermes cron create '30m' \
+ReYMeN cron create '30m' \
   'prompt: Ana akış modeline geri dön: stepfun/step-3.7-flash:free' \
   --model dolphin-llama3
 ```
 
 ## PITFALLS
 
-- **`/model` slash komutu CLI agent'tan çalıştırılamaz** — gateway seviyesinde işlenir. Her zaman `hermes config set model <alias>` kullan.
+- **`/model` slash komutu CLI agent'tan çalıştırılamaz** — gateway seviyesinde işlenir. Her zaman `ReYMeN config set model <alias>` kullan.
 - **Config değişikliği mevcut oturumu etkilemez** — bu oturum başlatıldığı config ile devam eder. Yeni oturum gerekir.
 - **Kullanıcı fark eder** — "sen hala eski modeldesin" derse haklıdır. Açıkla ve yeni oturum öner.
 
 ## Kaynak
-- Hermes Agent skill: `hermes-agent` (model seçimi bölümü)
+- ReYMeN Agent skill: `ReYMeN-agent` (model seçimi bölümü)

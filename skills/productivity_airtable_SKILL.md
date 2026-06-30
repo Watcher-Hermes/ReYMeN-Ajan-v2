@@ -10,7 +10,7 @@ prerequisites:
   env_vars: [AIRTABLE_API_KEY]
   commands: [curl]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [Airtable, Productivity, Database, API]
 audience: user
     homepage: https://airtable.com/developers/web/api/introduction
@@ -49,9 +49,9 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Common Queries | `references/common-queries.md` |
 | Common Mutations | `references/common-mutations.md` |
 | Pagination | `references/pagination.md` |
-| Typical Hermes Workflow | `references/typical-hermes-workflow.md` |
+| Typical ReYMeN Workflow | `references/typical-ReYMeN-workflow.md` |
 | Pitfalls | `references/pitfalls.md` |
-| Important Notes for Hermes | `references/important-notes-for-hermes.md` |
+| Important Notes for ReYMeN | `references/important-notes-for-ReYMeN.md` |
 
 ## Kullanım
 

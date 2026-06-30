@@ -1,21 +1,19 @@
 ---
 name: github-self-update
-title: "GitHub Self-Update — Projenin Kendi Reposundan Güncellenmesi"
-tags: [devops, github, self-update, git, automation]
-description: Pattern for any project to self-update from its own GitHub repo via git pull. Covers repo creation, self-update script with protected files, push mechanism, and cron job scheduling. Independent of upstream forks — the project pulls from itself.
-version: 1.0.0
-author: marko
-license: MIT
-platforms: [windows, linux, macos]
+title: GitHub Self-Update — Projenin Kendi Reposundan Güncellenmesi
+description: Pattern for any project to self-update from its own GitHub repo via git
+  pull. Covers repo creation, self-update script with protected files, push mechanism,
+  and cron job scheduling. Independent of upstream forks — the project pulls from
+  itself.
+tags:
+- devops
+- github
+- self-update
+- git
+- automation
+category: DevOps
 audience: maintainer
-related_skills: [fork-sync, hermes-backup-otomasyonu, cron-job-bakimi]
 ---
-
-
-> **Kategori:** devops
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -27,8 +25,6 @@ related_skills: [fork-sync, hermes-backup-otomasyonu, cron-job-bakimi]
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 # GitHub Self-Update — Kendi Reposundan Güncellenme
 
 ## Overview
@@ -37,13 +33,13 @@ When a project (fork, derivative, or standalone) needs to **update itself from i
 
 Use cases:
 - Fork that has diverged from upstream and now self-maintains
-- Derivative project (like ReYMeN on Hermes çekirdeği) that needs independent updates
+- Derivative project (like ReYMeN on ReYMeN çekirdeği) that needs independent updates
 - Any project where "canonical" = the GitHub repo, not a local source
 
 ## Trigger
 
 - "bu proje kendi repo'sundan güncellensin"
-- "Hermes'ten bağımsız güncelleme"
+- "ReYMeN'ten bağımsız güncelleme"
 - "self-update mekanizması kur"
 - "git pull ile güncelleme"
 
@@ -121,7 +117,7 @@ Self-update sırasında **asla değiştirilmemesi gereken** dosyalar. Bunlar pro
 ### 4. Cron Job ile Otomatik Güncelleme
 
 ```bash
-hermes cron create \
+ReYMeN cron create \
   --name "proje-guncelleme" \
   --schedule "0 3 * * 1" \
   --prompt "Projeyi GitHub'dan guncelle: bash /path/to/.hermes_sync.sh --sync" \
@@ -155,12 +151,12 @@ bash .hermes_sync.sh --log        # Geçmiş log
 2. **GitHub token expiy**: Push için geçerli token gerekir. `gh auth status` ile kontrol et.
 3. **Windows satır sonları**: Git `core.autocrlf` ayarı CRLF/LF karışıklığına yol açabilir. `.gitattributes` ekle.
 4. **Büyük projelerde git pull yavaş**: İlk seferde tüm repo indirilir; sonraki pull'lar sadece delta çeker.
-5. **Hermes çalışmıyorsa cron çalışmaz**: Cron job Hermes üzerinde çalışır. Hermes kapalıyken güncelleme yapılamaz.
+5. **ReYMeN çalışmıyorsa cron çalışmaz**: Cron job ReYMeN üzerinde çalışır. ReYMeN kapalıyken güncelleme yapılamaz.
 
 ## Related Skills
 
 - `fork-sync`: Upstream ile karşılaştırma ve ilk senkronizasyon
-- `hermes-backup-otomasyonu`: Hermes özel yedekleme
+- `ReYMeN-backup-otomasyonu`: ReYMeN özel yedekleme
 - `cron-job-bakimi`: Cron job yönetimi ve bakımı
 
 ## References

@@ -21,13 +21,13 @@
 ## Amaç
 
 Bir skill'i dış kaynaktan güncelledikten/sonra **3 adımda** tamamlama:
-1. Hermes local skill kütüphanesine yükle/güncelle
-2. GitHub `Watcher-Hermes/hermes-skills` reposuna push et
+1. ReYMeN local skill kütüphanesine yükle/güncelle
+2. GitHub `Watcher-ReYMeN/ReYMeN-skills` reposuna push et
 3. Gerekiyorsa README.md güncelle
 
 ## ZORUNLU — Bu Sırayla Uygula
 
-### Adım 1 — Hermes Local
+### Adım 1 — ReYMeN Local
 
 ```
 C:\Users\marko\AppData\Local\hermes\skills\kategori\skill-adi\SKILL.md
@@ -38,20 +38,20 @@ C:\Users\marko\AppData\Local\hermes\skills\kategori\skill-adi\SKILL.md
 - references/ altına detayları böl
 - Sync to Obsidian:
   ```bash
-  # ÖNCE: hermes-ai venv python'u dene (çoğu zaman çalışır)
+  # ÖNCE: ReYMeN-ai venv python'u dene (çoğu zaman çalışır)
   "C:\Users\marko\hermes-ai\venv\Scripts\python.exe" "C:\Users\marko\AppData\Local\hermes\hooks\sync_skills_to_obsidian.py"
   # FALLBACK: venv python.exe bozuksa (null byte hatası), system python kullan
   # python "C:\Users\marko\AppData\Local\hermes\hooks\sync_skills_to_obsidian.py"
   ```
 
-### Adım 2 — GitHub hermes-skills
+### Adım 2 — GitHub ReYMeN-skills
 
 ```bash
 # 1. Clone varsa pull et
-cd /c/Users/marko/hermes-skills
+cd /c/Users/marko/ReYMeN-skills
 git pull origin master
 
-# 2. Dosyaları kopyala (Hermes local'den repo'ya)
+# 2. Dosyaları kopyala (ReYMeN local'den repo'ya)
 SKILL_DIR="skills/kategori/skill-adi"
 mkdir -p "$SKILL_DIR"
 cp -r "/c/Users/marko/AppData/Local/hermes/skills/kategori/skill-adi/"* "$SKILL_DIR/"
@@ -62,10 +62,10 @@ git commit -m "update: skill-adi vX.Y.Z — kısa açıklama"
 git push origin master
 ```
 
-**NOT:** hermes-skills repo local'de yoksa:
+**NOT:** ReYMeN-skills repo local'de yoksa:
 ```bash
 cd /c/Users/marko
-git clone https://github.com/Watcher-Hermes/hermes-skills.git --depth 1
+git clone https://github.com/Watcher-ReYMeN/ReYMeN-skills.git --depth 1
 ```
 
 ### Adım 3 — README (Gerekiyorsa)

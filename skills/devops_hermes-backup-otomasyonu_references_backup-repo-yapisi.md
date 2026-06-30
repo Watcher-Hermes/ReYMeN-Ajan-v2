@@ -19,17 +19,17 @@
 # Backup Repo Yapısı — 2026-06-14
 
 ## Sorun
-`asdafgf/hermes-skills` reposu GitHub'da bulunamıyor (404). Kullanıcı adı değişmiş/silinmiş.
+`asdafgf/ReYMeN-skills` reposu GitHub'da bulunamıyor (404). Kullanıcı adı değişmiş/silinmiş.
 
 ## Yeni Yapı
 
-Tüm Hermes yedekleri **Watcher-Hermes** organizasyonu altında toplanmıştır:
+Tüm ReYMeN yedekleri **Watcher-ReYMeN** organizasyonu altında toplanmıştır:
 
 | Repo | İçerik | Push durumu |
 |------|--------|-------------|
-| Watcher-Hermes/hermes-mouse | Windows otomasyon skill'leri (10 kategori) | ✓ Push başarılı |
-| Watcher-Hermes/hermes-skills | Diğer tüm skill'ler (~1.100 SKILL.md) | ✓ Push başarılı (token'lar temizlendi) |
-| Watcher-Hermes/obsidian-vault | Obsidian vault yedek | ✓ Push başarılı |
+| Watcher-ReYMeN/ReYMeN-mouse | Windows otomasyon skill'leri (10 kategori) | ✓ Push başarılı |
+| Watcher-ReYMeN/ReYMeN-skills | Diğer tüm skill'ler (~1.100 SKILL.md) | ✓ Push başarılı (token'lar temizlendi) |
+| Watcher-ReYMeN/obsidian-vault | Obsidian vault yedek | ✓ Push başarılı |
 
 ## Token Sorunu
 - `.env`'deki GITHUB_TOKEN (93 karakter, fine-grained PAT): `curl` ile repo oluşturma → 403

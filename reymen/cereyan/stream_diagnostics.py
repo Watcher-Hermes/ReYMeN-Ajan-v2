@@ -5,7 +5,7 @@ Her stream denemesi için first-token-time, token hızı, toplam süre ve
 hata bilgisini kaydeder. conversation_loop.py'nin retry döngüsü bu
 istatistikleri kullanarak yavaş/sıkışmış stream'leri erken keser.
 
-Hermes'in stream_diagnostics.py'sinden adapte edilmiştir.
+ReYMeN'in stream_diagnostics.py'sinden adapte edilmiştir.
 """
 
 from __future__ import annotations

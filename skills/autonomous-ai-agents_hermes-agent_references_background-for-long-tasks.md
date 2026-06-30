@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_background-for-long-tasks
 description: "Background for long tasks:"
-title: "Autonomous Ai Agents Hermes Agent References Background For Long Tasks"
+title: "Autonomous Ai Agents ReYMeN Agent References Background For Long Tasks"
 version: 1.0.0
 ---
 
@@ -16,11 +16,11 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Background for long tasks:
-terminal(command="hermes chat -q 'Set up CI/CD for ~/myapp'", background=true)
+terminal(command="ReYMeN chat -q 'Set up CI/CD for ~/myapp'", background=true)
 ```
 
 ### Interactive PTY Mode (via tmux)
 
-Hermes uses prompt_toolkit, which requires a real terminal. Use tmux for interactive spawning:
+ReYMeN uses prompt_toolkit, which requires a real terminal. Use tmux for interactive spawning:
 
 ```

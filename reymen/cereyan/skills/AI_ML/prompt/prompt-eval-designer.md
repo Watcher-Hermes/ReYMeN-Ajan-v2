@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-eval-designer
+title: Prompt Eval Designer
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-eval-designer
 description: Design a custom evaluation suite for any LLM task, including test cases, scoring functions, and pass/fail thresholds
 title: "PRompt Eval Designer"

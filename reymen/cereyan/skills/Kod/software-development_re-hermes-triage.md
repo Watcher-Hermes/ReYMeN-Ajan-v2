@@ -1,45 +1,45 @@
 ---
-name: re-hermes-triage
-id: re-hermes-triage
-title: "RE-Hermes — Pasif Statik Tersine Mühendislik Triyaj Aracı"
+name: re-ReYMeN-triage
+id: re-ReYMeN-triage
+title: "RE-ReYMeN — Pasif Statik Tersine Mühendislik Triyaj Aracı"
 description: "User-developed Python tool for static RE triage of PE/ELF/APK/ham binaries. Zero external deps (stdlib only). Optional DeepSeek AI commentary. 5N1K educational layer."
 tags: [reverse-engineering, malware-analysis, triage, static-analysis, pe, elf, apk, python, self-developed]
 category: software-development
 audience: contributor
-trigger: "User says 're-hermes', 'triyaj', 'tersine mühendislik', 'apk analiz', 'exe analiz', 'zararlı analiz', or asks to analyze a binary/APK/executable"
+trigger: "User says 're-ReYMeN', 'triyaj', 'tersine mühendislik', 'apk analiz', 'exe analiz', 'zararlı analiz', or asks to analyze a binary/APK/executable"
 ---
 
-# RE-Hermes Triyaj Aracı
+# RE-ReYMeN Triyaj Aracı
 
 ## Lokasyon
 
 ```
-C:\Users\marko\re-hermes\re-hermes.py
-C:\Users\marko\re-hermes\re-hermes.bat    (çift tıkla çalıştırma)
-C:\Users\marko\re-hermes\config.json       (API anahtarı)
+C:\Users\marko\re-ReYMeN\re-ReYMeN.py
+C:\Users\marko\re-ReYMeN\re-ReYMeN.bat    (çift tıkla çalıştırma)
+C:\Users\marko\re-ReYMeN\config.json       (API anahtarı)
 ```
 
 ## Kullanım
 
 ```bash
-cd C:\Users\marko\re-hermes
+cd C:\Users\marko\re-ReYMeN
 
 # APK analizi
-python re-hermes.py dosya.apk
+python re-ReYMeN.py dosya.apk
 
 # PE (.exe/.dll) analizi
-python re-hermes.py dosya.exe
+python re-ReYMeN.py dosya.exe
 
 # ELF analizi
-python re-hermes.py dosya.elf
+python re-ReYMeN.py dosya.elf
 
 # Ham/bilinmeyen ikili
-python re-hermes.py dosya.bin
+python re-ReYMeN.py dosya.bin
 ```
 
 Ya da `.bat` ile (çift tıkla, dosya yolunu sorar):
 ```
-re-hermes.bat
+re-ReYMeN.bat
 ```
 
 ## Desteklenen Formatlar

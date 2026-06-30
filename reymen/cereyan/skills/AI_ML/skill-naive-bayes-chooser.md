@@ -1,8 +1,12 @@
-
-> **Kategori:** skills
-
 ---
-
+name: skill-naive-bayes-chooser
+title: Skill Naive Bayes Chooser
+description: ''
+tags:
+- skills
+category: skills
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: skill-naive-bayes-chooser
 description: Choose the right Naive Bayes variant for your classification task
 title: "Skill Naive Bayes Chooser"

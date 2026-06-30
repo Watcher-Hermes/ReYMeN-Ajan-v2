@@ -1,25 +1,12 @@
 ---
-
-name: humanizer
-description: "Humanize text: strip AI-isms and add real voice."
-version: 2.5.1
-author: Siqi Chen (@blader, https://github.com/blader/humanizer), ported by Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [writing, editing, humanize, anti-ai-slop, voice, prose, text]
-    category: creative
-audience: user
-    homepage: https://github.com/blader/humanizer
-related_skills: [songwriting-and-ai-music]
+name: creative_humanizer
+title: Creative Humanizer
+description: ''
+tags:
+- yaratici
+category: Yaratici
+audience: agent
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -31,8 +18,6 @@ related_skills: [songwriting-and-ai-music]
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 # Humanizer
 
 Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve ilgili reference dosyasını yükleyin.
@@ -43,7 +28,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 |-------|------------------|
 | Humanizer: Remove AI Writing Patterns | `references/humanizer-remove-ai-writing-patterns.md` |
 | When to use this skill | `references/when-to-use-this-skill.md` |
-| How to use it in Hermes | `references/how-to-use-it-in-hermes.md` |
+| How to use it in ReYMeN | `references/how-to-use-it-in-ReYMeN.md` |
 | Your task | `references/your-task.md` |
 | Voice Calibration (optional) | `references/voice-calibration-optional.md` |
 | PERSONALITY AND SOUL | `references/personality-and-soul.md` |

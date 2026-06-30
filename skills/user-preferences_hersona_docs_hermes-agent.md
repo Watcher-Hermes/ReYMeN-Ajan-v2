@@ -1,7 +1,7 @@
 ---
-name: user-preferences-hersona-docs-hermes-agent
-description: This guide explains how to use hersona effectively with [Hermes Agent](https://hermes-agent.nousresearch.com/).
-title: User Preferences Hersona Docs Hermes Agent
+name: user-preferences-hersona-docs-ReYMeN-agent
+description: This guide explains how to use hersona effectively with [ReYMeN Agent](https://ReYMeN-agent.nousresearch.com/).
+title: User Preferences Hersona Docs ReYMeN Agent
 version: 1.0.0
 ---
 
@@ -15,19 +15,19 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-# Hermes Agent Integration Guide
+# ReYMeN Agent Integration Guide
 
-This guide explains how to use hersona effectively with [Hermes Agent](https://hermes-agent.nousresearch.com/).
+This guide explains how to use hersona effectively with [ReYMeN Agent](https://ReYMeN-agent.nousresearch.com/).
 
 ## Installation
 
 ```bash
 # Add this repository as a tap
-hermes skills tap add shiro-0x/hersona
+ReYMeN skills tap add shiro-0x/hersona
 
 # Install the core skills
-hermes skills install hersona
-hermes skills install hersona-initializer
+ReYMeN skills install hersona
+ReYMeN skills install hersona-initializer
 ```
 
 ## Recommended Profile Builder Setup

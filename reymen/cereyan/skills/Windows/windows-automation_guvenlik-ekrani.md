@@ -1,17 +1,15 @@
 ---
-tags: [hermes, skill, system, security]
+name: windows-automation_guvenlik-ekrani
+title: Windows Automation Guvenlik Ekrani
+description: ''
+tags:
+- ReYMeN
+- skill
+- system
+- security
 category: windows-automation
 audience: user
-shortcut: Ctrl + Alt + Delete
-function: Güvenlik ekranı (kilit, oturum değiştirme, görev yöneticisi)
-created: 2026-06-05
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -22,8 +20,6 @@ created: 2026-06-05
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Klavye Kısayol
 

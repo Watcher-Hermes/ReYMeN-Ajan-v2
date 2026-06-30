@@ -17,7 +17,7 @@ version: 1.0.0
 
 # Kod Analiz Yöntemi — 6 Adım
 
-Hermes'in (Reymen'in) sorun bulmak için kullandığı sistematik yöntem. Her kod denetiminde bu adımları sırayla uygula.
+ReYMeN'in (Reymen'in) sorun bulmak için kullandığı sistematik yöntem. Her kod denetiminde bu adımları sırayla uygula.
 
 ## Akış
 
@@ -32,7 +32,7 @@ Hermes'in (Reymen'in) sorun bulmak için kullandığı sistematik yöntem. Her k
 
 ## Adım 1: Dosya Tara
 
-Proje kökünde ne var, hangi klasörler Reymen'e ait, hangileri Hermes kopyası.
+Proje kökünde ne var, hangi klasörler Reymen'e ait, hangileri ReYMeN kopyası.
 
 ```python
 from pathlib import Path
@@ -46,7 +46,7 @@ reymen_dosyalari = [
     "izole_laboratuvar.py", "main.py"
 ]
 
-# Hermes kopyası (dokunma)
+# ReYMeN kopyası (dokunma)
 hermes_dosyalari = [
     "hermes_state.py", "hermes_cli/", "hermes_logging.py",
     "hermes_time.py", "agent/", "tools/", "gateway/"
@@ -114,7 +114,7 @@ Beklenen yapıyla gerçek yapıyı karşılaştır.
 | Metrik | Beklenen | Gerçek | Durum |
 |--------|----------|--------|-------|
 | Reymen dosya sayısı | 11 | 11 | ✅ |
-| Hermes test dosyası | referans | 1.578 | ✅ |
+| ReYMeN test dosyası | referans | 1.578 | ✅ |
 | Test_learning_loop.py | 17/17 | 17/17 | ✅ |
 | hermes_state import | kırık | kırık | ⚠️ biliniyor |
 
@@ -133,7 +133,7 @@ rapor = f"""GÖREV: {hedef_dosya} düzeltmesi
 2. {dogrulama_adimi}
 
 ## Kısıtlamalar
-- Hermes dosyalarına dokunma
+- ReYMeN dosyalarına dokunma
 - Sadece 11 Reymen dosyasını düzenle
 - Test et: python -m pytest test_learning_loop.py -v
 """

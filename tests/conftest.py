@@ -13,6 +13,10 @@ import pytest
 PROJECT_ROOT = Path(__file__).parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
+# Test dizinini de ekle (redact.py gibi test yardimcilari icin)
+TEST_DIR = Path(__file__).parent
+if str(TEST_DIR) not in sys.path:
+    sys.path.insert(0, str(TEST_DIR))
 
 
 @pytest.fixture(autouse=True)

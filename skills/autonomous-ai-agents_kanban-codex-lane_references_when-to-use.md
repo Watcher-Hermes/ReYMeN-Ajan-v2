@@ -20,9 +20,9 @@ version: 1.0.0
 Use the Codex lane when all of these are true:
 
 - The Kanban task is a coding, refactor, documentation, test, or mechanical migration task with clear acceptance criteria.
-- A bounded diff can be evaluated by Hermes in one run.
+- A bounded diff can be evaluated by ReYMeN in one run.
 - The repo can be copied or checked out in an isolated git worktree/branch.
-- Hermes can run the relevant tests itself after Codex exits.
+- ReYMeN can run the relevant tests itself after Codex exits.
 - The prompt can state all safety constraints and files that must not change.
 
 Do not use the Codex lane when any of these are true:

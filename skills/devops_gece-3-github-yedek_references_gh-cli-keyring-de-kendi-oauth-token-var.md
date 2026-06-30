@@ -17,7 +17,7 @@
 ---
 
 # gh CLI (keyring'de kendi OAuth token'ı var)
-gh repo create Watcher-Hermes/<repo-adi> --public --description "aciklama"
+gh repo create Watcher-ReYMeN/<repo-adi> --public --description "aciklama"
 ```
 `gh` CLI oturumu açık olduğunda (`gh auth status`) MCP GitHub veya PAT olmadan repo oluşturabilir. `asdafgf` 404 verse bile `gh`, token scope'ları (`repo`) sayesinde org altında repo yaratabilir.
 

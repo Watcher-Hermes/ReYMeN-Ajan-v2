@@ -143,7 +143,7 @@ Bir konu yaz → SearXNG ile internette tarar → kaynaklardan rapor yazar
 ### 📝 Notlar / Görevler
 Hatırlatmalar, yapılacaklar, zamanlı görevler.
 
-## Hermes ile Farkı
+## ReYMeN ile Farkı
 - **Odysseus:** masada oturan asistan (konuş, çalış, görüntüle)
-- **Hermes:** arka planda kendi işini yapan otonom ajan
+- **ReYMeN:** arka planda kendi işini yapan otonom ajan
 - İkisi de lokal, ikisi de bedava

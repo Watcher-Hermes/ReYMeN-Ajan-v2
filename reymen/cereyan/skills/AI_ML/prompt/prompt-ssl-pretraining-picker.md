@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-ssl-pretraining-picker
+title: Prompt Ssl Pretraining Picker
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-ssl-pretraining-picker
 description: Pick SimCLR / MAE / DINOv2 given dataset size, compute, and downstream task
 title: "PRompt SSL PRetraining Picker"

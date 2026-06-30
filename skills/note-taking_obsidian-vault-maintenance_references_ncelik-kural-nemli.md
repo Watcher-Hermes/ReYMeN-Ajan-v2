@@ -22,4 +22,4 @@
 ```python
 import os, re
 
-VAULT = r"C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\Hermes"
+VAULT = r"C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\ReYMeN"

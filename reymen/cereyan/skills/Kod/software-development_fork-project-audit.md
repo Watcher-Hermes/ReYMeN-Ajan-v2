@@ -1,12 +1,14 @@
 ---
 name: fork-project-audit
-description: >-
-  Analyze a forked/modified codebase to identify original files vs copied files,
-  broken import chains, code volume by origin, and produce structured delegation
+title: Software Development Fork Project Audit
+description: Analyze a forked/modified codebase to identify original files vs copied
+  files, broken import chains, code volume by origin, and produce structured delegation
   briefs for Claude Code.
+tags:
+- kod
+category: Kod
+audience: agent
 ---
-
-
 > **Kategori:** software-development
 
 ---
@@ -130,7 +132,7 @@ done
 ### 3. Import Zinciri Analizi
 
 ```bash
-# Her dosyada Hermes/Orijinal import'larını tara
+# Her dosyada ReYMeN/Orijinal import'larını tara
 grep -rn "^from hermes\|^import hermes" tests/ --include="*.py" 2>/dev/null | head -30
 
 # Fork'un kendi import'larını tara
@@ -187,8 +189,8 @@ Brife şunları koy:
 Import edilen modüllerin **gerçekten çalıştığını** doğrula. Bir modül import edilebilir ama runtime'da kırılabilir.
 
 Fork reference testlerini düzeltme workflow'u için:
-→ `references/hermes-reference-test-fix.md` (genel workflow)
-→ `references/hermes-reference-test-fix-17-haziran-2026.md` (spesifik oturum)
+→ `references/ReYMeN-reference-test-fix.md` (genel workflow)
+→ `references/ReYMeN-reference-test-fix-17-haziran-2026.md` (spesifik oturum)
 
 ```python
 # Test script template

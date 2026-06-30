@@ -30,4 +30,4 @@ curl -s "https://api.airtable.com/v0/$BASE_ID/$TABLE?maxRecords=5" \
   -H "Authorization: Bearer $AIRTABLE_API_KEY" | python3 -m json.tool
 ```
 
-`-s` suppresses curl's progress bar — keep it set for every call so the tool output stays clean for Hermes. Pipe through `python3 -m json.tool` (always present) or `jq` (if installed) for readable JSON.
+`-s` suppresses curl's progress bar — keep it set for every call so the tool output stays clean for ReYMeN. Pipe through `python3 -m json.tool` (always present) or `jq` (if installed) for readable JSON.

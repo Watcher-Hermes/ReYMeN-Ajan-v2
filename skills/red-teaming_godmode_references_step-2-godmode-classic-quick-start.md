@@ -17,7 +17,7 @@ version: 1.0.0
 
 ## Step 2: GODMODE CLASSIC — Quick Start
 
-The fastest path. Set the jailbreak system prompt and prefill in Hermes config:
+The fastest path. Set the jailbreak system prompt and prefill in ReYMeN config:
 
 ### Option A: Ephemeral system prompt (config.yaml)
 

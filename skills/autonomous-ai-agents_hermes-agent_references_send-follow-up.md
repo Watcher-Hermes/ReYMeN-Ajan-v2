@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_send-follow-up
 description: Send follow-up
-title: "Autonomous Ai Agents Hermes Agent References Send Follow Up"
+title: "Autonomous Ai Agents ReYMeN Agent References Send Follow Up"
 version: 1.0.0
 ---
 

@@ -42,15 +42,15 @@ Artık yeni placeholder job'ları **ilk tick'te** disable edilir.
 
 ## Keşif: Cron Job Silme Tetikleyebilir
 
-Bu oturumda fark edildi: `hermes cron delete` ile teker teker silme yaparken, aynı anda 36 yeni placeholder job oluştu. Bunun sebebi:
+Bu oturumda fark edildi: `ReYMeN cron delete` ile teker teker silme yaparken, aynı anda 36 yeni placeholder job oluştu. Bunun sebebi:
 
-1. Batch loop'taki `hermes cron delete` çağrıları jobs.json'ı her seferinde okuyup yazıyor
+1. Batch loop'taki `ReYMeN cron delete` çağrıları jobs.json'ı her seferinde okuyup yazıyor
 2. Scheduler aynı anda tick yapıp yeni job'lar create ediyor (race condition)
 3. Veya cron delete işleminin kendisi bir bug nedeniyle yeniden oluşturmaya sebep oluyor
 
 **Çözüm:** Tek seferlik JSON purge (tek okuma, toplu silme, tek yazma) atomic olduğu için race condition oluşturmaz.
 
-## Yeni Sağlıklı Cron: `hermes-sync`
+## Yeni Sağlıklı Cron: `ReYMeN-sync`
 
 ID: `659609b4799e`
 Schedule: haftalık Pazartesi 03:00

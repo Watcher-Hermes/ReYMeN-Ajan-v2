@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-instance-vs-semantic-router
+title: Prompt Instance Vs Semantic Router
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-instance-vs-semantic-router
 description: Ask three questions and pick instance vs semantic vs panoptic segmentation plus the first model
 title: "PRompt Instance Vs Semantic Router"

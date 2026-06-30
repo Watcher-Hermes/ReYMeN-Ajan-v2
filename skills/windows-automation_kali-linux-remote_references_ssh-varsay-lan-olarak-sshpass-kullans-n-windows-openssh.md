@@ -52,5 +52,5 @@ Otomatik şifre doldurma scripti: `scripts/ssh_auto_pass.py`
 Ağ tanı kontrol listesi: `references/session-diagnostics-checklist.md`
 kali-pentest entegrasyonu: `references/kali-pentest-entegrasyonu.md`
 Bridged tanısı: `references/bridge-tanisi.md`
-Hermes SSH backend kilitlehmesi ve recovery: `references/hermes-ssh-backend-kilitlenmesi.md`
+ReYMeN SSH backend kilitlehmesi ve recovery: `references/ReYMeN-ssh-backend-kilitlenmesi.md`
 VM adı tutarsızlığı tanısı: `references/vm-adi-tutarsizligi-tanisi.md`

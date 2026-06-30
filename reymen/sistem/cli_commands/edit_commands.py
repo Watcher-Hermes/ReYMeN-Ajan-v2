@@ -216,7 +216,7 @@ class MixinCommands:
             return
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        saved_dir = get_ReYMeN_home() / "sessions" / "saved"
+        saved_dir = get_reymen_home() / "sessions" / "saved"
         try:
             saved_dir.mkdir(parents=True, exist_ok=True)
         except Exception as e:

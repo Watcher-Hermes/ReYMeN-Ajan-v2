@@ -180,7 +180,7 @@ try:
 except ImportError:
     _MetaPromptOptimizer = None
 
-# ─── HERMES KOPYASI MODULLER ────────────────────────────────────────────────
+# ─── ReYMeN KOPYASI MODULLER ────────────────────────────────────────────────
 try:
     import tui_gateway
     _TUI_GATEWAY = tui_gateway
@@ -226,7 +226,7 @@ def _reymen_env_yolu() -> Path:
     ev = Path.home()
     if platform.system() == "Windows":
         # Windows: %APPDATA%\..\Local\ReYMeN\.env
-        return ev / "AppData" / "Local" / "ReYMeN" / ".env"
+        return ev / "AppData" / "Local" / "reymen" / ".env"
     # Linux / macOS: ~/.config/reymen/.env
     return ev / ".config" / "reymen" / ".env"
 
@@ -487,7 +487,7 @@ class AIAgentOrchestrator:
             try:
                 motor_hitl_yamas_uygula(self.motor)
                 self.hitl_sikistirici = HITLSikistirici(self.motor)
-                self.hitl_sikistirici.sikilaştir()
+                self.hitl_sikistirici.sikilas()
             except Exception as _e:
                 logger.warning("[Main] except Exception (L484): %s", Exception)
                 pass
@@ -861,7 +861,7 @@ class AIAgentOrchestrator:
                                 _fc_araclari_calistirildi = True
 
                         else:
-                            # tool_calls yok → LLM görevi bitirdi (Hermes davranışı)
+                            # tool_calls yok → LLM görevi bitirdi (ReYMeN davranışı)
                             if _fc_metin:
                                 _fc_esc = _fc_metin.replace("\\", "\\\\").replace('"', '\\"')
                                 cevap = f'GOREV_BITTI("{_fc_esc}")'
@@ -1320,7 +1320,9 @@ if __name__ == "__main__":
         from setup_wizard import kurulum_kontrol_et_ve_calistir
         kurulum_kontrol_et_ve_calistir()
     except Exception as _wizard_hata:
-        pass  # Wizard hatasi ana akisi durdurmasin
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_wizard_hata).__name__, _wizard_hata
+        )  # Wizard hatasi ana akisi durdurmasin
 
     import contextlib as _contextlib
 

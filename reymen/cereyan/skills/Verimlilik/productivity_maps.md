@@ -1,24 +1,12 @@
 ---
-name: maps
-description: "Geocode, POIs, routes, timezones via OpenStreetMap/OSRM."
-version: 1.2.0
-author: Mibayy
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [maps, geocoding, places, routing, distance, directions, nearby, location, openstreetmap, nominatim, overpass, osrm]
-    category: productivity
-audience: user
-    requires_toolsets: [terminal]
-    supersedes: [find-nearby]
+name: productivity_maps
+title: Productivity Maps
+description: ''
+tags:
+- verimlilik
+category: Verimlilik
+audience: agent
 ---
-
-
-> **Kategori:** productivity
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +17,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Maps Skill
 

@@ -8,7 +8,7 @@ license: MIT
 dependencies: [llama-cpp-python>=0.2.0]
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [llama.cpp, GGUF, Quantization, Hugging Face Hub, CPU Inference, Apple Silicon, Edge Deployment, AMD GPUs, Intel GPUs, NVIDIA, URL-first]
 category: mlops
 audience: user

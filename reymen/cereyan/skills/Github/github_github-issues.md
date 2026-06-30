@@ -1,25 +1,14 @@
 ---
-
 name: github-issues
-title: "GitHub Issues"
-tags: [development, git, github]
-description: "Create, triage, label, assign GitHub issues via gh or REST."
-version: 1.1.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [GitHub, Issues, Project-Management, Bug-Tracking, Triage]
+title: GitHub Issues
+description: Create, triage, label, assign GitHub issues via gh or REST.
+tags:
+- development
+- git
+- github
+category: Github
 audience: contributor
-related_skills: [github-auth, github-pr-workflow]
 ---
-
-
-> **Kategori:** github
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -30,8 +19,6 @@ related_skills: [github-auth, github-pr-workflow]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Github Issues
 

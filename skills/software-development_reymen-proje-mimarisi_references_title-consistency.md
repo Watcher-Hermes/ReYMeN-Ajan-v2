@@ -49,7 +49,7 @@ Konfigürasyon:
 ## Tarama Komutu
 
 ```bash
-grep -rn "ESKI_AD\|ESKI_TANIM" --include="*.py" --include="*.md" --include="*.bat" --include="*.toml" --include="*.json" . | grep -v ".hermes/" | grep -v "venv/" | grep -v "__pycache__" | grep -v "node_modules/" | grep -v ".git/"
+grep -rn "ESKI_AD\|ESKI_TANIM" --include="*.py" --include="*.md" --include="*.bat" --include="*.toml" --include="*.json" . | grep -v ".ReYMeN/" | grep -v "venv/" | grep -v "__pycache__" | grep -v "node_modules/" | grep -v ".git/"
 ```
 
 ## Düzeltme Deseni
@@ -93,5 +93,5 @@ netleştirmiştir.
 # Kalan eski tanım var mı kontrol et
 grep -rn "Multi-Service\|AIAgentOrchestrator\|TAM PROJE\|Eksiklikleri" \
   --include="*.py" --include="*.md" --include="*.bat" . | \
-  grep -v ".hermes/" | grep -v "venv/" | grep -v "__pycache__/"
+  grep -v ".ReYMeN/" | grep -v "venv/" | grep -v "__pycache__/"
 ```

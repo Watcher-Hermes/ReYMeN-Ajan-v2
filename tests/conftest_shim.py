@@ -34,6 +34,11 @@ _OLD_TO_NEW = {
     "agent_runtime": "reymen.ag.agent_runtime",
     "config_loader": "reymen.sistem.config_loader",
     "cron_scheduler": "reymen.sistem.cron_scheduler",
+    "tool_registry": "reymen.arac.tool_registry",
+    "tool_executor": "reymen.arac.tool_executor",
+    "session_db": "reymen.hafiza.session_db",
+    "iteration_budget": "reymen.cereyan.iteration_budget",
+    "prompt_caching": "reymen.arac.prompt_caching",
 }
 
 _IN_PROGRESS = set()
@@ -69,7 +74,8 @@ _MISSING_MODULES = [
     "context_references", "credential_sources", "error_classifier", "gateway",
     "hafiza_genislet", "memory_manager", "memory_provider", "onboarding",
     "processors", "providers", "proxy", "reymen_skill_cli", "sistem_talimati",
-    "tool_registry", "tools", "tor_otomasyonu", "turn_context", "web_search_provider",
+    "tools", "tor_otomasyonu", "turn_context", "web_search_provider",
+    "akilli_yonlendirici", "cokus_raporlayici", "main", "ReYMeN",
 ]
 
 class _MissingModule(ModuleType):
@@ -81,6 +87,11 @@ class _MissingStub:
     def __getattr__(self, name): return self
     def __call__(self, *args, **kwargs): return None
     def __bool__(self): return False
+    def __iter__(self): return iter([])
+    def __aiter__(self): return self
+    async def __anext__(self): raise StopAsyncIteration
+    def __len__(self): return 0
+    def __getitem__(self, key): return self
     def __repr__(self): return f"<Stub:{self._name}>"
 
 for mod_name in _MISSING_MODULES:

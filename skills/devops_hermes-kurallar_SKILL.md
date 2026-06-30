@@ -1,13 +1,13 @@
 ---
-name: hermes-kurallar
-title: Hermes Kural ve Engelleme Raporu
-description: "Hermes Agent için izin verilen ve engellenen işlemlerin listesi — otomatik onay kuralları."
-tags: [hermes, rules, permissions, security, approval]
+name: ReYMeN-kurallar
+title: ReYMeN Kural ve Engelleme Raporu
+description: "ReYMeN Agent için izin verilen ve engellenen işlemlerin listesi — otomatik onay kuralları."
+tags: [ReYMeN, rules, permissions, security, approval]
 category: devops
 audience: maintainer
 version: 1.0.0
 triggers: [kural, engelleme, izin, onay, güvenlik]
-related_skills: [hermes-approval-policy, hermes-agent]
+related_skills: [ReYMeN-approval-policy, ReYMeN-agent]
 ---
 
 
@@ -20,7 +20,7 @@ related_skills: [hermes-approval-policy, hermes-agent]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Hermes Agent için izin verilen ve engellenen işlemlerin listesi — otomatik onay kuralları. |
+| **Ne?** | ReYMeN Agent için izin verilen ve engellenen işlemlerin listesi — otomatik onay kuralları. |
 | **Nerede?** | DevOps/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -28,7 +28,7 @@ related_skills: [hermes-approval-policy, hermes-agent]
 
 ---
 
-# Hermes Kural ve Engelleme Raporu
+# ReYMeN Kural ve Engelleme Raporu
 
 ## İzin Verilen (Otomatik Onaylı)
 - Komut çalıştırma

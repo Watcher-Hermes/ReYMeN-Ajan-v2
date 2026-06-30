@@ -94,7 +94,7 @@ process_manager = ProcessManager()
 log_streamer = LogStreamer(LOG_DOSYASI)
 
 # ---------------------------------------------------------------------------
-# Middleware — auth kontrolü (Hermes pattern: provider registry + refresh token)
+# Middleware — auth kontrolü (ReYMeN pattern: provider registry + refresh token)
 # ---------------------------------------------------------------------------
 
 AUTH_ATLANACAK = {"/auth/", "/login", "/static", "/ws/logs",
@@ -108,7 +108,7 @@ async def auth_middleware(request: Request, call_next):
     if any(path.startswith(a) for a in AUTH_ATLANACAK):
         return await call_next(request)
 
-    # Hermes pattern: once access token, yoksa refresh token dene
+    # ReYMeN pattern: once access token, yoksa refresh token dene
     at = request.cookies.get("hermes_session_at")
     rt = request.cookies.get("hermes_session_rt")
 
@@ -122,7 +122,7 @@ async def auth_middleware(request: Request, call_next):
             if session is not None:
                 break
 
-    # Access token gecersizse refresh token dene (Hermes transparent refresh)
+    # Access token gecersizse refresh token dene (ReYMeN transparent refresh)
     if session is None and rt:
         for provider in list_providers():
             try:
@@ -207,7 +207,7 @@ async def login_sayfasi(request: Request, hata: str = ""):
 
 @app.post("/login")
 async def login_post(request: Request):
-    """Hermes pattern: PasswordAuthProvider ile giris + audit log + refresh token."""
+    """ReYMeN pattern: PasswordAuthProvider ile giris + audit log + refresh token."""
     form = await request.form()
     username = form.get("username", "").strip()
     password = form.get("password", "").strip()
@@ -249,7 +249,7 @@ async def login_post(request: Request):
 
 @app.get("/logout")
 async def logout(request: Request):
-    """Hermes pattern: cookie temizle + audit log."""
+    """ReYMeN pattern: cookie temizle + audit log."""
     user = getattr(request.state, "user", "?")
     audit_log(AuditEvent.LOGOUT, user_id=user,
               ip=request.client.host if request.client else "")
@@ -367,13 +367,13 @@ async def oauth_callback(provider: str, request: Request,
 
 
 # ---------------------------------------------------------------------------
-# API — Auth (Hermes pattern: /api/auth/me + /api/auth/providers)
+# API — Auth (ReYMeN pattern: /api/auth/me + /api/auth/providers)
 # ---------------------------------------------------------------------------
 
 
 @app.get("/api/auth/me")
 async def api_auth_me(request: Request):
-    """Hermes'teki /api/auth/me — mevcut Session bilgisi."""
+    """ReYMeN'teki /api/auth/me — mevcut Session bilgisi."""
     session: Session | None = getattr(request.state, "session", None)
     if not session:
         return JSONResponse({
@@ -393,7 +393,7 @@ async def api_auth_me(request: Request):
 
 @app.get("/api/auth/providers")
 async def api_auth_providers():
-    """Hermes'teki /api/auth/providers — kayitli auth provider'lari listele."""
+    """ReYMeN'teki /api/auth/providers — kayitli auth provider'lari listele."""
     providers = list_providers()
     return JSONResponse({
         "providers": [
@@ -1652,8 +1652,8 @@ def _env_oku(anahtar: str, varsayilan: str = "") -> str:
         k, v = satir.split("=", 1)
         if k.strip() == anahtar:
             return v.strip().strip('"').strip("'")
-    # Hermes env'de de ara
-    hermes_env = Path.home() / "AppData" / "Local" / "hermes" / "profiles" / "kiral38" / ".env"
+    # ReYMeN env'de de ara
+    hermes_env = Path.home() / "AppData" / "Local" / "reymen" / "profiles" / "kiral38" / ".env"
     if hermes_env.exists():
         for satir in hermes_env.read_text(encoding="utf-8").splitlines():
             satir = satir.strip()
@@ -1805,8 +1805,10 @@ async def api_gateway_sms():
                     f"<div class='flex' style='margin-top:8px'>"
                     f"🟢 Hesap: <b>{bakiye.get('friendly_name', '?')}</b></div>"
                 )
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
     return HTMLResponse(content="\n".join(satirlar))
 
@@ -1956,7 +1958,7 @@ async def cron_sayfasi(request: Request):
 async def api_cron_liste():
     """Cron job listesi HTML tablosu."""
     try:
-        jobs_path = Path.home() / ".hermes" / "cron" / "jobs.json"
+        jobs_path = Path.home() / ".ReYMeN" / "cron" / "jobs.json"
         if jobs_path.exists():
             with open(jobs_path) as f:
                 data = json.load(f)
@@ -2013,7 +2015,7 @@ async def api_cron_ekle(request: Request):
 
     try:
         import uuid
-        jobs_path = Path.home() / ".hermes" / "cron" / "jobs.json"
+        jobs_path = Path.home() / ".ReYMeN" / "cron" / "jobs.json"
         jobs_path.parent.mkdir(parents=True, exist_ok=True)
 
         jobs = []
@@ -2051,7 +2053,7 @@ async def api_cron_ekle(request: Request):
 async def api_cron_sil(job_id: str):
     """Cron job sil."""
     try:
-        jobs_path = Path.home() / ".hermes" / "cron" / "jobs.json"
+        jobs_path = Path.home() / ".ReYMeN" / "cron" / "jobs.json"
         if not jobs_path.exists():
             return HTMLResponse(content='<div id="cron-liste" class="alert alert-error">Cron dosyası yok</div>')
 
@@ -2078,7 +2080,7 @@ async def api_cron_sil(job_id: str):
 async def api_cron_durdur(job_id: str):
     """Cron job durdur."""
     try:
-        jobs_path = Path.home() / ".hermes" / "cron" / "jobs.json"
+        jobs_path = Path.home() / ".ReYMeN" / "cron" / "jobs.json"
         if jobs_path.exists():
             with open(jobs_path) as f:
                 jobs = json.load(f)
@@ -2108,7 +2110,7 @@ async def api_cron_durdur(job_id: str):
 async def api_cron_devam(job_id: str):
     """Cron job devam ettir."""
     try:
-        jobs_path = Path.home() / ".hermes" / "cron" / "jobs.json"
+        jobs_path = Path.home() / ".ReYMeN" / "cron" / "jobs.json"
         if jobs_path.exists():
             with open(jobs_path) as f:
                 jobs = json.load(f)
@@ -2920,8 +2922,10 @@ async def ws_toast(websocket: WebSocket):
                     await ws.send_text(data)
                 except Exception:
                     _WS_TOAST_KLIENTLER.discard(ws)
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
     finally:
         _WS_TOAST_KLIENTLER.discard(websocket)
 
@@ -2939,7 +2943,7 @@ def _konusma_listele() -> list[dict]:
     db_yollari = [
         PROJE_KOK / ".ReYMeN" / "ogrenmeler.db",
         PROJE_KOK / "reymen" / "cereyan" / ".ReYMeN" / "session.db",
-        Path.home() / ".hermes" / "state.db",
+        Path.home() / ".ReYMeN" / "state.db",
     ]
     for db_yol in db_yollari:
         if db_yol.exists():
@@ -2973,8 +2977,10 @@ def _konusma_listele() -> list[dict]:
                         for r in rows
                     ]
                 conn.close()
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
     # Son care: .ReYMeN/notes/ klasöründen .md dosyalari
     notes_dir = PROJE_KOK / ".ReYMeN" / "notes"
     if notes_dir.exists():
@@ -3017,8 +3023,10 @@ def _konusma_mesajlari_getir(konusma_id: str) -> list[dict]:
                             for r in rows
                         ]
                 conn.close()
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
     # Notes fallback
     note_path = PROJE_KOK / ".ReYMeN" / "notes" / f"{konusma_id}.md"
     if note_path.exists():

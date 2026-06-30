@@ -44,7 +44,7 @@ Her karmaşık görevde (3+ adım) bu kuralları uygula:
 3. Kural tetiklenirse hemen durumu raporla ve alternatife geç.
 
 ## 5. Aktif Konuyu Tespit Et (Takılı Değilse Bile)
-- Kullanıcı "araştırma yap", "şu konuda çalış" gibi bir talimat verdiğinde ama **takildi.txt yoksa** (Hermes takılı değilse):
+- Kullanıcı "araştırma yap", "şu konuda çalış" gibi bir talimat verdiğinde ama **takildi.txt yoksa** (ReYMeN takılı değilse):
   1. **Önce ekran görüntüsü al** — PowerShell ile screenshot çek:
      ```
      powershell.exe -NoProfile -Command "Add-Type -AssemblyName System.Windows.Forms; Add-Type -AssemblyName System.Drawing; $bmp = New-Object System.Drawing.Bitmap([System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Width, [System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Height); $g = [System.Drawing.Graphics]::FromImage($bmp); $g.CopyFromScreen((New-Object System.Drawing.Point(0,0)), (New-Object System.Drawing.Point(0,0)), $bmp.Size); $bmp.Save('C:\Users\marko\Desktop\screen_debug.png', [System.Drawing.Imaging.ImageFormat]::Png); $g.Dispose(); $bmp.Dispose(); Write-Output 'OK'"
@@ -57,12 +57,12 @@ Her karmaşık görevde (3+ adım) bu kuralları uygula:
      img = img.resize((1280, 720), Image.LANCZOS)
      img.save('screen_small.jpg', 'JPEG', quality=60)
      ```
-  3. **vision_analyze ile oku** — ekranda ne görünüyor, hangi uygulamalar açık, Hermes'in terminalinde ne yazıyor, hata var mı?
+  3. **vision_analyze ile oku** — ekranda ne görünüyor, hangi uygulamalar açık, ReYMeN'in terminalinde ne yazıyor, hata var mı?
   4. **NOT:** DeepSeek gibi vision desteklemeyen modellerde fallback görsel işleme otomatik çalışır — vision_analyze yine de dene, model desteklemezse hata döner, o zaman alternatif yöntem dene.
   5. **Ekran yorumundan aktif konuyu çıkar** — hangi cihaz/hedef üzerinde çalışılıyor, hangi araç kullanılıyor, blokaj ne?
   6. **Blokajı çöz veya araştırmaya başla** — tespit edilen konuda ilerle.
-  7. **Kullanıcıya raporla:** "Hermes şu an \<konu\> üzerinde çalışıyor, blokaj \<sorun\>, çözüm için \<adım\> yapıyorum"
-- Eğer Hermes takılı değilse ve aktif konu tespit edilemezse kullanıcıya sor: "Hermes'in hangi konuda araştırma yapmasını istiyorsun?"
+  7. **Kullanıcıya raporla:** "ReYMeN şu an \<konu\> üzerinde çalışıyor, blokaj \<sorun\>, çözüm için \<adım\> yapıyorum"
+- Eğer ReYMeN takılı değilse ve aktif konu tespit edilemezse kullanıcıya sor: "ReYMeN'in hangi konuda araştırma yapmasını istiyorsun?"
 
 ## 6. Önce Kendin Araştır (Tor + Web Search) [ESKİ 5]
 - Yukarıdaki tüm yöntemler başarısız olursa (adım tekrarı + todo döngüsü + model değişimi + aktif konu tespiti çözmedi) **HEMEN** kendi araştırmanı başlat:
@@ -99,7 +99,7 @@ Her karmaşık görevde (3+ adım) bu kuralları uygula:
   DENENEN: <denenen çözümler>
   ANAHTAR_KELIMELER: <Tor'da denenen sorgular>
   ```
-- Dosyayı oluşturduktan sonra bekle — Telegram'daki Hermes gelip sorunu okuyacak, daha derin Tor'da araştırma yapacak ve çözümü bildirecek.
+- Dosyayı oluşturduktan sonra bekle — Telegram'daki ReYMeN gelip sorunu okuyacak, daha derin Tor'da araştırma yapacak ve çözümü bildirecek.
 - Çözüm gelince dosya otomatik silinecek ve kaldığın yerden devam edebileceksin.
 - **ÖNEMLİ:** Bu sinyal DOSYA BAZLI çalışır — process sinyali, HTTP veya socket değil. Dosyayı yazmak için `write_file` veya PowerShell `Out-File` kullan.
 - Detaylı akış şeması ve kısıtlar için `references/kurtarma-akisi.md` dosyasına bak.

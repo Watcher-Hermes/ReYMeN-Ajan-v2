@@ -1,7 +1,7 @@
 ---
 name: software-development_hermes-s6-container-supervision_references_expect-s6-svscan-or-init-package-admin-s6-s6-svscan
 description: "Expect: s6-svscan or init / /package/admin/s6/.../s6-svscan"
-title: "Software Development Hermes S6 Container Supervision References Expect S6 Svscan Or Init Package Admin S6 S6 Svscan"
+title: "Software Development ReYMeN S6 Container Supervision References Expect S6 Svscan Or Init Package Admin S6 S6 Svscan"
 version: 1.0.0
 ---
 

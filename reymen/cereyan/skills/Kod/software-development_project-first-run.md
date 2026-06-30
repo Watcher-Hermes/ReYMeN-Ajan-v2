@@ -1,20 +1,18 @@
 ---
 name: project-first-run
-title: "Project First-Run Setup"
-description: >-
-  Take a multi-module Python project that's 100% coded but 0% configured,
-  and bring it to first-run operational state. Execution counterpart to
-  project-gap-analysis — this skill does the fixes, not the analysis.
-version: 1.0.0
-tags: [python, setup, deployment, integration, windows]
+title: Project First-Run Setup
+description: Take a multi-module Python project that's 100% coded but 0% configured,
+  and bring it to first-run operational state. Execution counterpart to project-gap-analysis
+  — this skill does the fixes, not the analysis.
+tags:
+- python
+- setup
+- deployment
+- integration
+- windows
+category: Kod
 audience: contributor
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -25,8 +23,6 @@ audience: contributor
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Project First-Run Setup
 

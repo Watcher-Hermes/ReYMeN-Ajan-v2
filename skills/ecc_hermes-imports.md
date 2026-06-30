@@ -1,8 +1,8 @@
 ---
-name: hermes-imports
-description: Use this skill when turning a repeated Hermes workflow into something
+name: ReYMeN-imports
+description: Use this skill when turning a repeated ReYMeN workflow into something
   safe to ship in ECC.
-title: Hermes Imports
+title: ReYMeN Imports
 version: 1.0.0
 ---
 
@@ -16,15 +16,15 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-# Hermes Imports
+# ReYMeN Imports
 
-Use this skill when turning a repeated Hermes workflow into something safe to ship in ECC.
+Use this skill when turning a repeated ReYMeN workflow into something safe to ship in ECC.
 
 Hermes is the operator shell. ECC is the reusable workflow layer. Imports should move stable patterns from Hermes into ECC without moving private state.
 
 ## When To Use
 
-- A Hermes workflow has repeated enough times to become reusable.
+- A ReYMeN workflow has repeated enough times to become reusable.
 - A local operator prompt should become a public ECC skill.
 - A launch, content, research, or engineering workflow needs sanitized handoff docs.
 - A workflow mentions local paths, credentials, personal datasets, or private account names that must be removed before publication.
@@ -61,7 +61,7 @@ Before committing an imported workflow, scan for:
 
 ## Example: Launch Handoff
 
-Local Hermes prompt:
+Local ReYMeN prompt:
 
 ```text
 Read my local workspace files and finalize launch copy.
@@ -76,7 +76,7 @@ Return one X thread, one LinkedIn post, one recording checklist, and the missing
 
 ## Example: Quiet-Hours Operator Job
 
-Local Hermes job:
+Local ReYMeN job:
 
 ```text
 Run my private inbox, finance, and content checks overnight.

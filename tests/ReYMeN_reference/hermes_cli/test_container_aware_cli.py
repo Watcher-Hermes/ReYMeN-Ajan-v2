@@ -105,7 +105,7 @@ def test_get_container_exec_info_defaults():
         )
 
         with patch("ReYMeN_constants.is_container", return_value=False), \
-             patch.dict(get_container_exec_info.__globals__, {"get_ReYMeN_home": lambda: ReYMeN_home}), \
+             patch.dict(get_container_exec_info.__globals__, {"get_reymen_home": lambda: ReYMeN_home}), \
              patch.dict(os.environ, {}, clear=False):
             os.environ.pop("ReYMeN_DEV", None)
             info = get_container_exec_info()

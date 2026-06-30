@@ -4,11 +4,11 @@ title: "Apple Notes"
 tags: [apple, ios, note-taking]
 description: "Manage Apple Notes via memo CLI: create, search, edit."
 version: 1.0.0
-author: Hermes Agent
+author: ReYMeN Agent
 license: MIT
 platforms: [macos]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [Notes, Apple, macOS, note-taking]
 audience: user
 related_skills: [obsidian]

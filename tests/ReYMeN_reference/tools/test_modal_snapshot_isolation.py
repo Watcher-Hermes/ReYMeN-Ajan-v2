@@ -65,7 +65,7 @@ def _install_modal_test_modules(
     ReYMeN_home = tmp_path / "ReYMeN-home"
     os.environ["ReYMeN_HOME"] = str(ReYMeN_home)
     sys.modules["ReYMeN_cli.config"] = types.SimpleNamespace(
-        get_ReYMeN_home=lambda: ReYMeN_home,
+        get_reymen_home=lambda: ReYMeN_home,
     )
 
     tools_package = types.ModuleType("tools")

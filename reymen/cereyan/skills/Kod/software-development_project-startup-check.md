@@ -1,32 +1,12 @@
 ---
-name: project-startup-check
-description: Proje açılış taraması — bağımlılık, araç, yapılandırma ve klasör kontrolleri ile eksiklikleri otomatik tamir et. Her oturum/çalışmada ilk adım.
-title: "PRoject Startup Check"
-platforms: [windows, macos, linux]
-
-audience: contributor
-tags: [coding, development]
-category: software-development---
-
-# Project Startup Check
-
-## Amaç
-Her proje açılışında aynı kalıba göre eksikleri tara, eksik olanı tamir et, akışı tekrar başlat.
-Tekrar tekrar yapılacak kontrol listesi buna göre otomatikleştirilir.
-
-## İki Seviye Kontrol
-
-Bu skill iki farklı kontrollü kapsar:
-1. **Full System Inventory** — donanım + temel yazılım envanteri (pre-project, sistemin ne kaldırabileceğini görmek için)
-2. **Project-Level Check** — belirli bir proje için bağımlılık/konfigürasyon kontrolü (her oturum başında)
-
+name: software-development_project-startup-check
+title: Software Development Project Startup Check
+description: ''
+tags:
+- kod
+category: Kod
+audience: agent
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -37,8 +17,6 @@ Bu skill iki farklı kontrollü kapsar:
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 ## SEVİYE 1 — FULL SYSTEM INVENTORY
 
@@ -113,8 +91,6 @@ python3 -m pip install fastapi uvicorn redis celery sqlalchemy psycopg
 sleep 8 && docker ps  # doğrulama
 ```
 
----
-
 ## SEVİYE 2 — PROJECT-LEVEL CHECK
 
 ### Kullanım Zorunluluğu
@@ -161,8 +137,6 @@ cd /c/Users/marko/OneDrive/Desktop/hermes_v7
 npx expo start --clear
 ```
 
----
-
 ## SEVİYE 3 — MİMARİ ANALİZ
 
 Kullanıcı "önce proje yapısını analiz et", "dizin yapısını göster", "mevcut mimariye uygun geliştir" dediğinde veya hiç bilmediğin bir projeye ilk bakışta. Seviye 1-2'den bağımsız çalışabilir.
@@ -201,7 +175,7 @@ config/     → Konfigürasyon dosyaları
 
 | Model | Belirti | Örnek |
 |-------|---------|-------|
-| Monolith SPA | FastAPI + statik frontend, tek app.py | Odysseus, Hermes |
+| Monolith SPA | FastAPI + statik frontend, tek app.py | Odysseus, ReYMeN |
 | Microservice | docker-compose.yml + çoklu servis | Odysseus stack (4 container) |
 | Full-stack | pages/, components/, SSR | Next.js, Django |
 | CLI tool | Tek entry point, terminal çıktısı | gh CLI, docker CLI |
@@ -243,8 +217,6 @@ Veri akışı: Kullanıcı → Nginx → FastAPI → src/ → SQLite/ChromaDB
 ### Örnek Referans
 Bu analiz yöntemi Odysseus projesinde uygulandı:
 `references/odysseus-mimari-analiz.md`
-
----
 
 ## Notlar
 - Her adımda eksik varsa önce onu kur/oluştur, sonra bir sonraki adıma geç.

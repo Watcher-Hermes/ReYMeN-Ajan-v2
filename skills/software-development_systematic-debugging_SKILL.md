@@ -45,7 +45,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Common Rationalizations | `references/common-rationalizations.md` |
 | Quick Reference | `references/quick-reference.md` |
 | ToolRegistry Resolution Failures | `references/tool-registry-resolution-failures.md` |
-| Hermes Agent Integration | `references/hermes-agent-integration.md` |
+| ReYMeN Agent Integration | `references/ReYMeN-agent-integration.md` |
 | Registry Prefix Mismatch & Dead Code | `references/registry-prefix-dead-code.md` |
 | Real-World Impact | `references/real-world-impact.md` |
 | Import Chain Debugging | `references/module-import-chain-debugging.md` |

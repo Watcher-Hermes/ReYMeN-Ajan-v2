@@ -19,7 +19,7 @@ version: 1.0.0
 
 ### Environment Variable Filtering
 
-For stdio servers, Hermes does NOT pass your full shell environment to MCP subprocesses. Only safe baseline variables are inherited:
+For stdio servers, ReYMeN does NOT pass your full shell environment to MCP subprocesses. Only safe baseline variables are inherited:
 
 - `PATH`, `HOME`, `USER`, `LANG`, `LC_ALL`, `TERM`, `SHELL`, `TMPDIR`
 - Any `XDG_*` variables

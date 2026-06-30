@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_camera-capture
+title: Windows Automation Camera Capture
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: camera-capture-camera-capture
 description: Capture video from webcam on Windows using Python + OpenCV. Use when user asks for camera recording, webcam capture, video from camera, or "kameradan video çek".
 title: "Camera Capture"

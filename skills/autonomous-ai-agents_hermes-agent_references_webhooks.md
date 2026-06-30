@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_webhooks
 description: Webhook Subscriptions
-title: "Autonomous Ai Agents Hermes Agent References Webhooks"
+title: "Autonomous Ai Agents ReYMeN Agent References Webhooks"
 version: 1.0.0
 ---
 
@@ -17,20 +17,20 @@ version: 1.0.0
 
 # Webhook Subscriptions
 
-Create dynamic webhook subscriptions so external services (GitHub, GitLab, Stripe, CI/CD, IoT sensors, monitoring tools) can trigger Hermes agent runs by POSTing events to a URL.
+Create dynamic webhook subscriptions so external services (GitHub, GitLab, Stripe, CI/CD, IoT sensors, monitoring tools) can trigger ReYMeN agent runs by POSTing events to a URL.
 
 ## Setup (Required First)
 
 The webhook platform must be enabled before subscriptions can be created. Check with:
 ```bash
-hermes webhook list
+ReYMeN webhook list
 ```
 
 If it says "Webhook platform is not enabled", set it up:
 
 ### Option 1: Setup wizard
 ```bash
-hermes gateway setup
+ReYMeN gateway setup
 ```
 Follow the prompts to enable webhooks, set the port, and set a global HMAC secret.
 
@@ -56,9 +56,9 @@ WEBHOOK_SECRET=generate-a-strong-secret-here
 
 After configuration, start (or restart) the gateway:
 ```bash
-hermes gateway run
+ReYMeN gateway run
 # Or if using systemd:
-systemctl --user restart hermes-gateway
+systemctl --user restart ReYMeN-gateway
 ```
 
 Verify it's running:
@@ -68,11 +68,11 @@ curl http://localhost:8644/health
 
 ## Commands
 
-All management is via the `hermes webhook` CLI command:
+All management is via the `ReYMeN webhook` CLI command:
 
 ### Create a subscription
 ```bash
-hermes webhook subscribe <name> \
+ReYMeN webhook subscribe <name> \
   --prompt "Prompt template with {payload.fields}" \
   --events "event1,event2" \
   --description "What this does" \
@@ -86,18 +86,18 @@ Returns the webhook URL and HMAC secret. The user configures their service to PO
 
 ### List subscriptions
 ```bash
-hermes webhook list
+ReYMeN webhook list
 ```
 
 ### Remove a subscription
 ```bash
-hermes webhook remove <name>
+ReYMeN webhook remove <name>
 ```
 
 ### Test a subscription
 ```bash
-hermes webhook test <name>
-hermes webhook test <name> --payload '{"key": "value"}'
+ReYMeN webhook test <name>
+ReYMeN webhook test <name> --payload '{"key": "value"}'
 ```
 
 ## Prompt Templates
@@ -115,7 +115,7 @@ If no prompt is specified, the full JSON payload is dumped into the agent prompt
 
 ### GitHub: new issues
 ```bash
-hermes webhook subscribe github-issues \
+ReYMeN webhook subscribe github-issues \
   --events "issues" \
   --prompt "New GitHub issue #{issue.number}: {issue.title}\n\nAction: {action}\nAuthor: {issue.user.login}\nBody:\n{issue.body}\n\nPlease triage this issue." \
   --deliver telegram \
@@ -130,7 +130,7 @@ Then in GitHub repo Settings → Webhooks → Add webhook:
 
 ### GitHub: PR reviews
 ```bash
-hermes webhook subscribe github-prs \
+ReYMeN webhook subscribe github-prs \
   --events "pull_request" \
   --prompt "PR #{pull_request.number} {action}: {pull_request.title}\nBy: {pull_request.user.login}\nBranch: {pull_request.head.ref}\n\n{pull_request.body}" \
   --skills "github-code-review" \
@@ -139,7 +139,7 @@ hermes webhook subscribe github-prs \
 
 ### Stripe: payment events
 ```bash
-hermes webhook subscribe stripe-payments \
+ReYMeN webhook subscribe stripe-payments \
   --events "payment_intent.succeeded,payment_intent.payment_failed" \
   --prompt "Payment {data.object.status}: {data.object.amount} cents from {data.object.receipt_email}" \
   --deliver telegram \
@@ -148,7 +148,7 @@ hermes webhook subscribe stripe-payments \
 
 ### CI/CD: build notifications
 ```bash
-hermes webhook subscribe ci-builds \
+ReYMeN webhook subscribe ci-builds \
   --events "pipeline" \
   --prompt "Build {object_attributes.status} on {project.name} branch {object_attributes.ref}\nCommit: {commit.message}" \
   --deliver discord \
@@ -157,7 +157,7 @@ hermes webhook subscribe ci-builds \
 
 ### Generic monitoring alert
 ```bash
-hermes webhook subscribe alerts \
+ReYMeN webhook subscribe alerts \
   --prompt "Alert: {alert.name}\nSeverity: {alert.severity}\nMessage: {alert.message}\n\nPlease investigate and suggest remediation." \
   --deliver origin
 ```
@@ -173,7 +173,7 @@ Use this for:
 - Any webhook where an LLM round trip would be wasted effort
 
 ```bash
-hermes webhook subscribe antenna-matches \
+ReYMeN webhook subscribe antenna-matches \
   --deliver telegram \
   --deliver-chat-id "123456789" \
   --deliver-only \
@@ -203,9 +203,9 @@ Requires `--deliver` to be a real target (telegram, discord, slack, github_comme
 
 If webhooks aren't working:
 
-1. **Is the gateway running?** Check with `systemctl --user status hermes-gateway` or `ps aux | grep gateway`
+1. **Is the gateway running?** Check with `systemctl --user status ReYMeN-gateway` or `ps aux | grep gateway`
 2. **Is the webhook server listening?** `curl http://localhost:8644/health` should return `{"status": "ok"}`
 3. **Check gateway logs:** `grep webhook ~/.hermes/logs/gateway.log | tail -20`
-4. **Signature mismatch?** Verify the secret in your service matches the one from `hermes webhook list`. GitHub sends `X-Hub-Signature-256`, GitLab sends `X-Gitlab-Token`.
+4. **Signature mismatch?** Verify the secret in your service matches the one from `ReYMeN webhook list`. GitHub sends `X-Hub-Signature-256`, GitLab sends `X-Gitlab-Token`.
 5. **Firewall/NAT?** The webhook URL must be reachable from the service. For local development, use a tunnel (ngrok, cloudflared).
-6. **Wrong event type?** Check `--events` filter matches what the service sends. Use `hermes webhook test <name>` to verify the route works.
+6. **Wrong event type?** Check `--events` filter matches what the service sends. Use `ReYMeN webhook test <name>` to verify the route works.

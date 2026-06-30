@@ -1,8 +1,12 @@
-
-> **Kategori:** software-development
-
 ---
-
+name: software-development_playwright-browser
+title: Software Development Playwright Browser
+description: ''
+tags:
+- software-development
+category: software-development
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: "playwright"
 description: "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script."
 title: "Playwright"

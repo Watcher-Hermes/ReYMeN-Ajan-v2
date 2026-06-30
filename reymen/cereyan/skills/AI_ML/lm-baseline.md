@@ -1,8 +1,12 @@
-
-> **Kategori:** evaluation
-
 ---
-
+name: lm-baseline
+title: Lm Baseline
+description: ''
+tags:
+- evaluation
+category: evaluation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: lm-baseline
 description: Build a reproducible n-gram language model baseline before training a neural LM.
 title: "Lm Baseline"

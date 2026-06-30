@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-prompt-optimizer
+title: Prompt Prompt Optimizer
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-prompt-optimizer
 description: Takes a draft prompt and rewrites it using proven prompt engineering patterns for maximum effectiveness across models
 title: "PRompt PRompt Optimizer"

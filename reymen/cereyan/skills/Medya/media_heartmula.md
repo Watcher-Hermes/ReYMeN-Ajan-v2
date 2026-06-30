@@ -1,22 +1,13 @@
 ---
 name: heartmula
-title: "Heartmula"
-tags: [media, video]
-description: "HeartMuLa: Suno-like song generation from lyrics + tags."
-version: 1.0.0
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [music, audio, generation, ai, heartmula, heartcodec, lyrics, songs]
+title: Heartmula
+description: 'HeartMuLa: Suno-like song generation from lyrics + tags.'
+tags:
+- media
+- video
+category: Medya
 audience: user
-related_skills: [audiocraft]
 ---
-
-
-> **Kategori:** media
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -27,8 +18,6 @@ related_skills: [audiocraft]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # HeartMuLa - Open-Source Music Generation
 

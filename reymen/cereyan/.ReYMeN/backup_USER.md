@@ -1,4 +1,4 @@
-ZORUNLU KURAL — Skill yükleme/güncelleme çift yönlü: "yükle" veya "skill yükle" dendiğinde HER ZAMAN (1) Hermes local skill kütüphanesine yükle/güncelle, (2) GitHub Watcher-Hermes/hermes-skills reposuna push et, (3) gerekiyorsa README.md güncelle. İkisi değil, üçü de yapılır. Kullanıcı "hermes-skills reposuna atmadın mı" diyerek bu beklentiyi netleştirdi.
+ZORUNLU KURAL — Skill yükleme/güncelleme çift yönlü: "yükle" veya "skill yükle" dendiğinde HER ZAMAN (1) ReYMeN local skill kütüphanesine yükle/güncelle, (2) GitHub Watcher-ReYMeN/ReYMeN-skills reposuna push et, (3) gerekiyorsa README.md güncelle. İkisi değil, üçü de yapılır. Kullanıcı "ReYMeN-skills reposuna atmadın mı" diyerek bu beklentiyi netleştirdi.
 §
 Teknik olarak kesin ve doğrulanmış bilgi bekler. "Çalışmaz" veya "sadece GUI'den yapılır" gibi yüzeyel cevapları kabul etmez — neden çalışmadığını, hangi parametrenin ne olduğunu, alternatif doğru yolun ne olduğunu görmek ister. Her iddianın log/test ile kanıtlanmasını bekler. Yanlış bilgi skill'de görürse hemen düzeltilmesini ister, eski hatalı referansların temizlenmesini talep eder.
 §

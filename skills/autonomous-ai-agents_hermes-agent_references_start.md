@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_start
 description: Start
-title: "Autonomous Ai Agents Hermes Agent References Start"
+title: "Autonomous Ai Agents ReYMeN Agent References Start"
 version: 1.0.0
 ---
 
@@ -16,4 +16,4 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Start
-terminal(command="tmux new-session -d -s agent1 -x 120 -y 40 'hermes'", timeout=10)
+terminal(command="tmux new-session -d -s agent1 -x 120 -y 40 'ReYMeN'", timeout=10)

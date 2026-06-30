@@ -75,8 +75,8 @@ class TestIsWriteDenied:
     )
     def test_oauth_mcp_tokens_and_pairing_denied(self, path):
         """PKCE creds, mcp-tokens, and pairing entries must be write-denied."""
-        from ReYMeN_constants import get_ReYMeN_home
-        ReYMeN_home = get_ReYMeN_home()
+        from ReYMeN_constants import get_reymen_home
+        ReYMeN_home = get_reymen_home()
         full_path = str(ReYMeN_home / path)
         assert _is_write_denied(full_path) is True
 
@@ -85,9 +85,9 @@ class TestIsWriteDenied:
         ["auth.json", "config.yaml", "webhook_subscriptions.json"],
     )
     def test_ReYMeN_control_files_requested_writable(self, path):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        assert _is_write_denied(str(get_ReYMeN_home() / path)) is False
+        assert _is_write_denied(str(get_reymen_home() / path)) is False
 
     @pytest.mark.parametrize(
         "path",
@@ -97,8 +97,8 @@ class TestIsWriteDenied:
     )
     def test_oauth_traversal_denied(self, path):
         """Path traversal attempts to protected OAuth files must be blocked."""
-        from ReYMeN_constants import get_ReYMeN_home
-        ReYMeN_home = get_ReYMeN_home()
+        from ReYMeN_constants import get_reymen_home
+        ReYMeN_home = get_reymen_home()
         full_path = str(ReYMeN_home / path)
         assert _is_write_denied(full_path) is True
 

@@ -66,3 +66,37 @@
 - Guncellenen: 1
 - Hata: 0
 
+
+## Sync — 2026-06-30 06:16:28
+
+| Metrik | Deger |
+|--------|-------|
+| Yeni | 0 |
+| Guncellenen | 704 |
+| Hata | 0 |
+
+- Islem suresi: 193.2s
+- Toplam dosya: 1114
+- Meta kayit (oncesi): 8018
+- FTS5 kayit (oncesi): 24043
+- Yeni eklenen: 0
+- Guncellenen: 704
+- Hata: 0
+
+
+## Sync — 2026-06-30 06:19:46
+
+| Metrik | Deger |
+|--------|-------|
+| Yeni | 0 |
+| Guncellenen | 0 |
+| Hata | 0 |
+
+- Islem suresi: 0.2s
+- Toplam dosya: 1114
+- Meta kayit (oncesi): 8018
+- FTS5 kayit (oncesi): 24043
+- Yeni eklenen: 0
+- Guncellenen: 0
+- Hata: 0
+

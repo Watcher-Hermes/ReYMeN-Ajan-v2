@@ -23,7 +23,7 @@
 
 | Criterion | Weight | What to check |
 |-----------|--------|--------------|
-| Hermes compatibility | 2 pts | Does it support Hermes? Skill.md format? |
+| ReYMeN compatibility | 2 pts | Does it support ReYMeN? Skill.md format? |
 | Coverage gap | 2 pts | Does it fill a gap in existing skills? |
 | Code quality | 2 pts | Clean structure, tests, documentation |
 | Security | 2 pts | No dangerous patterns, verified deps |

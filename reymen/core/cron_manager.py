@@ -172,8 +172,10 @@ def _watchdog_log(mesaj: str) -> None:
     try:
         with open(str(WATCHDOG_LOG), "a", encoding="utf-8") as f:
             f.write(f"[{ts}] {mesaj}\n")
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -382,8 +384,10 @@ class CronManager:
                         job = CronJob.from_dict(ek_veri)
                         if job.id and job.id not in self._isler:
                             self._isler[job.id] = job
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
 
         return len(self._isler)
 
@@ -595,8 +599,10 @@ class CronManager:
                 info["process"].kill()
                 _watchdog_log(f"DURDURULDU: {self._isler.get(job_id, CronJob()).ad}")
                 return True
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
         return False
 
 

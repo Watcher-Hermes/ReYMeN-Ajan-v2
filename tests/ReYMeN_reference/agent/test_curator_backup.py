@@ -22,7 +22,7 @@ def backup_env(monkeypatch, tmp_path):
     monkeypatch.setenv("ReYMeN_HOME", str(home))
     monkeypatch.setattr(Path, "home", lambda: tmp_path)
 
-    # Reload so get_ReYMeN_home picks up the env var fresh.
+    # Reload so get_reymen_home picks up the env var fresh.
     import ReYMeN_constants
     importlib.reload(ReYMeN_constants)
     from agent import curator_backup

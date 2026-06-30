@@ -472,8 +472,10 @@ class PluginYoneticisi:
                     yeni_yaml = yl._yaml_yukle(klasor)
                     if yeni_yaml is not None:
                         yl._yaml_bilgisi[ad] = yeni_yaml
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
 
             self._aktif_pluginler[ad] = was_active
 
@@ -524,8 +526,10 @@ class PluginYoneticisi:
                     icerik = Path(dosya).read_text(encoding="utf-8", errors="ignore")
                     if arama_str_1 in icerik or arama_str_2 in icerik:
                         bagimlilar.append(dep_ad)
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
         return bagimlilar
 
     # ── Provider Plugin Destegi ─────────────────────────────────────────────

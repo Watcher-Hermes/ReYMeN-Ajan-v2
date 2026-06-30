@@ -1,26 +1,15 @@
 ---
-
 name: touchdesigner-mcp
-title: "Touchdesigner MCP"
-tags: [creative, design]
-description: "Control a running TouchDesigner instance via twozero MCP — create operators, set parameters, wire connections, execute Python, build real-time visuals. 36 native tools."
-version: 1.1.0
-author: kshitijk4poor
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [TouchDesigner, MCP, twozero, creative-coding, real-time-visuals, generative-art, audio-reactive, VJ, installation, GLSL]
+title: Touchdesigner MCP
+description: Control a running TouchDesigner instance via twozero MCP — create operators,
+  set parameters, wire connections, execute Python, build real-time visuals. 36 native
+  tools.
+tags:
+- creative
+- design
+category: Yaratici
 audience: user
-related_skills: [native-mcp, ascii-video, manim-video, hermes-video]
-
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -31,8 +20,6 @@ related_skills: [native-mcp, ascii-video, manim-video, hermes-video]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Touchdesigner Mcp
 

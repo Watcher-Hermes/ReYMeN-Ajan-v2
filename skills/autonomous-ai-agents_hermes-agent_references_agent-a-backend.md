@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_agent-a-backend
 description: "Agent A: backend"
-title: "Autonomous Ai Agents Hermes Agent References Agent A Backend"
+title: "Autonomous Ai Agents ReYMeN Agent References Agent A Backend"
 version: 1.0.0
 ---
 
@@ -16,5 +16,5 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Agent A: backend
-terminal(command="tmux new-session -d -s backend -x 120 -y 40 'hermes -w'", timeout=10)
+terminal(command="tmux new-session -d -s backend -x 120 -y 40 'ReYMeN -w'", timeout=10)
 terminal(command="sleep 8 && tmux send-keys -t backend 'Build REST API for user management' Enter", timeout=15)

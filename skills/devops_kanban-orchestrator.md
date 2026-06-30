@@ -8,7 +8,7 @@ version: 3.0.0
 platforms: [linux, macos, windows]
 environments: [kanban]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [kanban, multi-agent, orchestration, routing]
 audience: maintainer
 related_skills: [kanban-worker]

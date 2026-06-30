@@ -5,11 +5,11 @@ title: "GitHub Repo Management"
 tags: [development, git, github]
 description: "Clone/create/fork repos; manage remotes, releases."
 version: 1.1.0
-author: Hermes Agent
+author: ReYMeN Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [GitHub, Repositories, Git, Releases, Secrets, Configuration]
 audience: contributor
 related_skills: [github-auth, github-pr-workflow, github-issues]

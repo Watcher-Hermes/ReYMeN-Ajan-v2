@@ -1,35 +1,11 @@
-# ReYMeN Kullanıcı Profili — USER.md
+Kısa direkt komutlar (Yap/Kontrol et/Ok/Stop). Türkçe fluff yok. Tablo+puan karşılaştırma sever. 5N1K analiz. Adım adım test+kanit ister. Hata devam ederse dur.
 
-## İletişim Tarzı
-- Çok kısa direkt komutlar ("Yap", "Kontrol et", "Ok", "Dur")
-- Türkçe konuşur, İngilizce cevap istemez
-- Açıklama/dekorasyon istemez, direkt sonuç
-- Tablo + emoji + kısa öz formatını tercih eder
-- Hata durumunda "Olmadi hata devam etme" (direkt durdur)
-- "Hey" = dikkat çekme, "salak" = sinirli/hata uyarısı
-- Sessiz onay: soru sorunca 3dk bekle, cevap yoksa onay say
+Karşılaştırma takıntısı: @Kiral38bot ile karşılaştırır, eksiğimi söyler. "Yok" demeden önce 3 yöntemle kontrol et kuralı kalıcı.
 
-## Teknik Bilgiler
-- ReYMeN Agent proje sahibi (Hermes fork'u)
-- GitHub: asdafgf (Watcher-Hermes organizasyonu)
-- Python bilgisi ileri seviye
-- Windows 10 kullanıcısı
-- Kali Linux VM kullanıyor (192.168.56.103)
-- VS Code + Cline (GLM 5.2) ikincil kodlama aracı
-- DeepSeek API birincil provider
-- 3 Telegram botu yönetiyor
+Doğrulama stili: Simülasyon çalıştır → Telegram bot'ta canlı test et → ekran görüntüsü gönder → kanıt gör. "Özür — yanlış analiz" gibi hata kabulünü sorunsuz karşılar.
 
-## Proje Tercihleri
-- ReYMeN-Ajan projesi: C:\Users\marko\Desktop\Reymen Proje\ReYMeN-Ajan
-- Türkçe dokümantasyon öncelikli
-- Açık kaynak (MIT lisansı)
-- GitHub'da Watcher-Hermes organizasyonu altında
-- Kod kalitesi: shell=True yasak, except:pass yasak, CLI < 2000 satır
-- Batch fix'ler Python script'i ile yapılır (manuel edit yasak)
-- Cline kod çalıştırıcı, Hermes planlayıcı/yönetici
+İş stili: Batch halinde 3 fix yap, test et, sonra raporla. "Hatalı düzel daha çok hata var test et düzelttiğin 3 kez sonra raporla" kalıbı.
 
-## Karar Mekanizması
-- Pragmatik: fayda yoksa yapma
-- ÖNCE/SONRA metrikleri ister
-- Hata durumunda 3 deneme sonra raporla
-- Belirsiz görevde tahminle devam et (soru sorma)
+Adı: Marko. Mobil remote (Telegram). Kısa direkt komutlar. Sessiz onay (3 dk bekle → devam et).
+
+> **Not:** Ana user profili kaynağı `.ReYMeN/memories/USER.md`'dir. Bu dosya onunla senkronizedir.

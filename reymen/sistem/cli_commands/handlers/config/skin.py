@@ -1,6 +1,6 @@
 """_handle_skin_command handler."""
 
-from reymen.sistem.ReYMeN_constants import display_ReYMeN_home
+from reymen.sistem.ReYMeN_constants import display_reymen_home
 from reymen.sistem.cli_stream import save_config_value
 from reymen.sistem.cli_display import _ACCENT
 
@@ -25,7 +25,7 @@ def _handle_skin_command(cli, cmd: str):
             source = f" ({s['source']})" if s["source"] == "user" else ""
             print(f"   {marker} {s['name']}{source} — {s['description']}")
         print("\n  Usage: /skin <name>")
-        print(f"  Custom skins: drop a YAML file in {display_ReYMeN_home()}/skins/\n")
+        print(f"  Custom skins: drop a YAML file in {display_reymen_home()}/skins/\n")
         return
 
     new_skin = parts[1].strip().lower()

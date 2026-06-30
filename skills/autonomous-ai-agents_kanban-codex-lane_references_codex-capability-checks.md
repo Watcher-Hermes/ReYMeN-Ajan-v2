@@ -17,7 +17,7 @@ version: 1.0.0
 
 ## Codex Capability Checks
 
-Run these before spawning Codex. Missing Codex is a normal reason to skip the lane, not a task blocker if Hermes can do the task directly.
+Run these before spawning Codex. Missing Codex is a normal reason to skip the lane, not a task blocker if ReYMeN can do the task directly.
 
 ```bash
 command -v codex

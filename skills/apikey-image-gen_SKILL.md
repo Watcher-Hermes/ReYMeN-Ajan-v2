@@ -1,13 +1,13 @@
 ---
 name: apikey-image-gen
-description: "Generate or edit images through Hermes Web UI using the selected/requested profile's fun-codex provider from config.yaml."
+description: "Generate or edit images through ReYMeN Web UI using the selected/requested profile's fun-codex provider from config.yaml."
 title: "APIkey Image Gen"
 version: 1.0.0
 author: Ekko
 license: MIT
 platforms: [linux, macos, windows, termux]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [api.apikey.fun, image-generation, image-editing, media]
 category: apikey-image-gen
 audience: user
@@ -26,7 +26,7 @@ prerequisites:
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Generate or edit images through Hermes Web UI using the selected/requested profile's fun-codex provider from config.yaml. |
+| **Ne?** | Generate or edit images through ReYMeN Web UI using the selected/requested profile's fun-codex provider from config.yaml. |
 | **Nerede?** | Kod/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -38,9 +38,9 @@ prerequisites:
 
 Use this skill when the user wants to generate an image, generate an image from a reference image, or edit an existing image.
 
-Always call Hermes Web UI's media endpoint. Do not call `api.apikey.fun` directly, and do not ask the user for an API key. The server reads the selected/requested profile's `config.yaml` and uses the `custom_providers` entry named `fun-codex`:
+Always call ReYMeN Web UI's media endpoint. Do not call `api.apikey.fun` directly, and do not ask the user for an API key. The server reads the selected/requested profile's `config.yaml` and uses the `custom_providers` entry named `fun-codex`:
 
-Do not use any built-in image generation tool as a fallback. If the Hermes Web UI endpoint returns `401`, `403`, connection failure, or any other error, stop and report the Hermes Web UI error to the user.
+Do not use any built-in image generation tool as a fallback. If the ReYMeN Web UI endpoint returns `401`, `403`, connection failure, or any other error, stop and report the ReYMeN Web UI error to the user.
 
 ```yaml
 custom_providers:
@@ -57,17 +57,17 @@ Endpoint:
 POST <Hermes Web UI base URL>/api/hermes/media/apikey-image-generate
 ```
 
-Resolve the Hermes Web UI base URL in this order:
+Resolve the ReYMeN Web UI base URL in this order:
 
 1. `HERMES_WEB_UI_URL` environment variable, if set.
 2. `http://127.0.0.1:${PORT}`, if `PORT` is set.
 3. `http://127.0.0.1:8648` for local development.
 
-When Hermes Web UI is running from Docker Compose, the default external URL is `http://127.0.0.1:6060`.
+When ReYMeN Web UI is running from Docker Compose, the default external URL is `http://127.0.0.1:6060`.
 
 Authentication:
 
-Send the Hermes Web UI server bearer token. This token is accepted only by Hermes Web UI media generation endpoints for agent skills; it is not a general Web UI login token.
+Send the ReYMeN Web UI server bearer token. This token is accepted only by ReYMeN Web UI media generation endpoints for agent skills; it is not a general Web UI login token.
 
 Resolve the token in this order:
 
@@ -78,17 +78,17 @@ Resolve the token in this order:
 
 Profile selection:
 
-Use the current Hermes profile from the run instructions by sending `X-Hermes-Profile`.
+Use the current ReYMeN profile from the run instructions by sending `X-ReYMeN-Profile`.
 
-If the run instructions include `[Current Hermes profile: <name>]`, include:
+If the run instructions include `[Current ReYMeN profile: <name>]`, include:
 
 ```bash
--H "X-Hermes-Profile: <name>"
+-H "X-ReYMeN-Profile: <name>"
 ```
 
-Replace `<name>` with the exact profile name from the run instructions. Never send a placeholder value such as `<name>` or `<current-hermes-profile>`.
+Replace `<name>` with the exact profile name from the run instructions. Never send a placeholder value such as `<name>` or `<current-ReYMeN-profile>`.
 
-If no current profile is provided, omit the header and let the server fall back to the current Hermes active profile.
+If no current profile is provided, omit the header and let the server fall back to the current ReYMeN active profile.
 
 ## Modes
 
@@ -164,8 +164,8 @@ fi
 if [ -z "$TOKEN" ] && [ -n "${HERMES_WEBUI_STATE_DIR:-}" ] && [ -f "$HERMES_WEBUI_STATE_DIR/.token" ]; then
   TOKEN="$(cat "$HERMES_WEBUI_STATE_DIR/.token")"
 fi
-if [ -z "$TOKEN" ] && [ -f "$HOME/.hermes-web-ui/.token" ]; then
-  TOKEN="$(cat "$HOME/.hermes-web-ui/.token")"
+if [ -z "$TOKEN" ] && [ -f "$HOME/.ReYMeN-web-ui/.token" ]; then
+  TOKEN="$(cat "$HOME/.ReYMeN-web-ui/.token")"
 fi
 if [ -z "$TOKEN" ]; then
   echo "Missing Hermes Web UI token. Check AUTH_TOKEN, HERMES_WEB_UI_HOME, HERMES_WEBUI_STATE_DIR, or ~/.hermes-web-ui/.token." >&2

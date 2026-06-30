@@ -1,21 +1,16 @@
 ---
 name: otonom-cozum-dongusu
-title: "Otonom Cozum Dongusu"
-tags: [agents, ai]
-description: Use when any problem needs to be solved autonomously without user intervention. Takes a problem description, uses llava to see the screen, dolphin-llama3 to generate Python code, runs it in VS Code, analyzes output, and loops until solved. Saves successful solutions as skills automatically.
-version: 1.0.0
-author: marko
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [autonomous, loop, dolphin, llava, vscode, problem-solving, self-healing, dongu, otonom]
+title: Otonom Cozum Dongusu
+description: Use when any problem needs to be solved autonomously without user intervention.
+  Takes a problem description, uses llava to see the screen, dolphin-llama3 to generate
+  Python code, runs it in VS Code, analyzes output, and loops until solved. Saves
+  successful solutions as skills automatically.
+tags:
+- agents
+- ai
+category: agents
 audience: user
-related_skills: [vscode-otomasyon, gorsel-onaylama, screen-vision-analiz, mouse-klavye-ctypes]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -36,8 +31,6 @@ related_skills: [vscode-otomasyon, gorsel-onaylama, screen-vision-analiz, mouse-
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: Otonom ajan gelistiricisi
 Ne: Use when any problem needs to be solved autonomously without user intervention. Takes a problem description, uses llava to see the screen, dolphin-llama3 to generate Python code, runs it in VS Code, a
@@ -83,7 +76,7 @@ Don't use for: Kullanici onay gerektiren kritik islemler.
 
 Before generating or running any solution, ALWAYS:
 
-1. Search Hermes skills for an existing applicable rule.
+1. Search ReYMeN skills for an existing applicable rule.
 2. Search the Obsidian vault for an existing note/skill on the topic.
 3. If a relevant item exists, reuse it verbatim and do not re-create the solution.
 
@@ -127,7 +120,7 @@ if yeni_ajan != mevcut_ajan:
 
 - Saf regex+kural tabanli, milisaniyelerde karar verir, LLM cagrisi yapmaz.
 - Hata eslesmezse mevcut ajani korur.
-- 30+ hata deseni tanir. Detay: `references/persona-detay.md`\nDetayli gorev formati: `references/yapilandirilmis-gorev-formati.md`\nModul entegrasyon patterni: `references/hermes-modul-entegrasyonu.md`\n\n## Cokus Raporlayici (Crash Report)
+- 30+ hata deseni tanir. Detay: `references/persona-detay.md`\nDetayli gorev formati: `references/yapilandirilmis-gorev-formati.md`\nModul entegrasyon patterni: `references/ReYMeN-modul-entegrasyonu.md`\n\n## Cokus Raporlayici (Crash Report)
 
 Otonom cozum sinirlari tukendiginde (max_tur asildi, tum ajanlar basarisiz oldu) insan-okunabilir crash raporu uret ve kullaniciya devret.
 
@@ -164,8 +157,6 @@ rapor = cokus_raporu_uret(
 - After scripted Windows interactions and artifact delivery, verify the result exists before declaring success.
 - Screen or camera captures must be freshly generated before sending; if an artifact path is reused, validate its current modification time or size.
 
----
-
 ## Kullanim
 
 ```bash
@@ -181,8 +172,6 @@ python C:\Users\marko\hermesloop.py "karmasik problem" --turns 15
 # Basit kontrol
 python C:\Users\marko\hermesloop.py "Python ile port 9150 kontrol et"
 ```
-
----
 
 ## Dongu Adımlari (Detay)
 
@@ -227,8 +216,6 @@ kod = extract_code(fix_response)
 # → Adim 3'e don
 ```
 
----
-
 ## Gercek Test Sonucu
 
 ```
@@ -240,10 +227,8 @@ Tur 1:
   → BASARILI (1. turda!)
 
 Skill kaydedildi: autonomous-ai-agents/auto-python-ile-port-9150...
-Obsidian: Hermes/Skills/autonomous-ai-agents/ altina eklendi
+Obsidian: ReYMeN/Skills/autonomous-ai-agents/ altina eklendi
 ```
-
----
 
 ## Otomatik Skill Kaydetme
 
@@ -251,12 +236,10 @@ Her basarili cozum otomatik kaydedilir:
 
 ```
 ~/.hermes/skills/autonomous-ai-agents/auto-<slug>/SKILL.md
-Obsidian: Hermes/Skills/autonomous-ai-agents/auto-<slug>.md
+Obsidian: ReYMeN/Skills/autonomous-ai-agents/auto-<slug>.md
 ```
 
 Cozulemeyenler de kaydedilir ([COZULEMEDI] prefix ile).
-
----
 
 ## Python API
 
@@ -282,15 +265,13 @@ rc, out, err = hl.run_code(kod)
 screen = hl.llava_analyze("Ekranda ne var?")
 ```
 
----
-
 ## Common Pitfalls
 
 1. **dolphin yanlis kod uretirse** — Turns artir, daha specific problem tanimi yaz.
 2. **llava ekrani anlayamazsa** — Problem tanimi daha net yaz, llava baglam oluyor.
 3. **Tor sorunu** — `--tor` modu kullan, Tor Browser yolu skill'de taninmis.
 4. **Cok uzun suruyor** — `--turns 3` ile hizli test, basarisizsa artir.
-5. **Skill kaydedilmedi** — Obsidian klasoru kontrol et: `Hermes/Skills/autonomous-ai-agents/`.
+5. **Skill kaydedilmedi** — Obsidian klasoru kontrol et: `ReYMeN/Skills/autonomous-ai-agents/`.
 
 ## Verification Checklist
 

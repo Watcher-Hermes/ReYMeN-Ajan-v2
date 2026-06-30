@@ -76,7 +76,8 @@ def _kilidi_ac():
     kilit_dosyasi = _DURUM_DOSYASI.with_suffix(".json.lock")
     try:
         kilit_dosyasi.unlink()
-    except FileNotFoundError:
+    except FileNotFoundError as _e:
+        logger.warning("[DurumPaylas] Dosya/klasor hatasi (L79): %s", FileNotFoundError)
         pass
 
 

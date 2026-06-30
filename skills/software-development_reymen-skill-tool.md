@@ -3,7 +3,7 @@ name: reymen-skill-tool
 category: software-development
 version: 1.0.0
 description: R>eYMeN projesine skill_tool.py ekleme adimlari
-tags: [skill, hermes, reymen, skill]
+tags: [skill, ReYMeN, reymen, skill]
 ---
 
 

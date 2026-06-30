@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_wait-for-startup-then-send-a-message
 description: "Wait for startup, then send a message"
-title: "Autonomous Ai Agents Hermes Agent References Wait For Startup Then Send A Message"
+title: "Autonomous Ai Agents ReYMeN Agent References Wait For Startup Then Send A Message"
 version: 1.0.0
 ---
 

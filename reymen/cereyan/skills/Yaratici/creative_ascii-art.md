@@ -1,27 +1,13 @@
 ---
-
 name: ascii-art
-title: "Ascii Art"
-tags: [creative, design]
-description: "ASCII art: pyfiglet, cowsay, boxes, image-to-ascii."
-version: 4.0.0
-author: 0xbyt4, Hermes Agent
-license: MIT
-dependencies: []
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [ASCII, Art, Banners, Creative, Unicode, Text-Art, pyfiglet, figlet, cowsay, boxes]
+title: Ascii Art
+description: 'ASCII art: pyfiglet, cowsay, boxes, image-to-ascii.'
+tags:
+- creative
+- design
+category: Yaratici
 audience: user
-related_skills: [excalidraw]
-
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -32,8 +18,6 @@ related_skills: [excalidraw]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Ascii Art
 

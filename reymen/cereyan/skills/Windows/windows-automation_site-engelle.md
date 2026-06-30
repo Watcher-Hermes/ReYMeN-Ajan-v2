@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_site-engelle
+title: Windows Automation Site Engelle
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,31 +18,28 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: site-engelle
 description: >-
 title: "Site Engelle"
   hosts dosyası + Windows Firewall ile çift katmanlı engelleme.
   Tor Browser da dahil hiçbir şekilde erişilemez.
 version: 1.0.0
-author: Hermes
+author: ReYMeN
 platforms: [windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [block, firewall, hosts, credit-card, payment, security]
 category: windows-automation
 audience: maintainer
 tags: [automation, system, windows]
----Kredi kartı/ödeme sayfası görülen domain'i derhal engeller.
+Kredi kartı/ödeme sayfası görülen domain'i derhal engeller.
 
 
 
 # Site Engelle
 
 ## Tetikleyici
-Hermes'in açtığı bir sayfada şunlardan biri görülürse DERHAL engelle:
+ReYMeN'in açtığı bir sayfada şunlardan biri görülürse DERHAL engelle:
 - Kredi kartı formu
 - Ödeme / satın alma sayfası
 - cart/add, checkout, payment, billing

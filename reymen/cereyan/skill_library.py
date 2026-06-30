@@ -123,8 +123,10 @@ def _kur(con: sqlite3.Connection) -> None:
                         ("son_guncelleme", "TEXT NOT NULL DEFAULT (datetime('now'))")]:
         try:
             con.execute(f"ALTER TABLE skills ADD COLUMN {kolon} {tip}")
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
 
 @contextmanager
@@ -430,8 +432,10 @@ class SkillLibrary:
                 try:
                     self.sil(sid)
                     silinen += 1
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
 
         ozet = {
             "yeni": yeni,

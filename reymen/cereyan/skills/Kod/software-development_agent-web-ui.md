@@ -1,17 +1,20 @@
 ---
 name: agent-web-ui
-title: "AI Agent Web UI (FastAPI + HTMX + Tailwind)"
-description: "Build a modern, dark-themed, mobile-responsive web interface for an AI agent using FastAPI, HTMX, and Tailwind CSS. Chat interface, skills browser, gateway dashboard, config panel, session history."
+title: AI Agent Web UI (FastAPI + HTMX + Tailwind)
+description: Build a modern, dark-themed, mobile-responsive web interface for an AI
+  agent using FastAPI, HTMX, and Tailwind CSS. Chat interface, skills browser, gateway
+  dashboard, config panel, session history.
+tags:
+- web-ui
+- fastapi
+- htmx
+- tailwind
+- agent
+- dashboard
+- python
+category: Kod
 audience: contributor
-tags: [web-ui, fastapi, htmx, tailwind, agent, dashboard, python]
-version: 1.0.0
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -22,8 +25,6 @@ version: 1.0.0
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # AI Agent Web UI (FastAPI + HTMX + Tailwind)
 

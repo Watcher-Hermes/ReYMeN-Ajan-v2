@@ -48,8 +48,8 @@ python kendini_anlat.py --cozum      # Sadece çözüm tarzı
 
 ## GitHub Reposu
 
-ReYMeN projesi GitHub'a `Watcher-Hermes/ReYMeN-Ajan` reposu olarak push edildi:
-- **URL:** https://github.com/Watcher-Hermes/ReYMeN-Ajan
+ReYMeN projesi GitHub'a `Watcher-ReYMeN/ReYMeN-Ajan` reposu olarak push edildi:
+- **URL:** https://github.com/Watcher-ReYMeN/ReYMeN-Ajan
 - **Branch:** master
 - **7.666 dosya, ~985K satır**
 - .gitignore: venv/, __pycache__/, .env, output/, skills_backup*/

@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-nn-debugger
+title: Prompt Nn Debugger
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-nn-debugger
 description: Diagnose neural network training failures from symptoms -- loss curves, gradient stats, and activation patterns
 title: "PRompt Nn Debugger"

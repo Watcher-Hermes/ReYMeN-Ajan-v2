@@ -16,8 +16,8 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # MoneyPrinterTurbo venv'ine kurulum
-cd /c/Users/marko/hermes-ai
-C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m pip install manim
+cd /c/Users/marko/ReYMeN-ai
+C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m pip install manim
 ```
 
 Test:

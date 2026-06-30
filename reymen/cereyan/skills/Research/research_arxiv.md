@@ -1,24 +1,13 @@
 ---
 name: arxiv
-title: "Arxiv"
-tags: [academic, research]
-description: "Search arXiv papers by keyword, author, category, or ID."
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [Research, Arxiv, Papers, Academic, Science, API]
+title: Arxiv
+description: Search arXiv papers by keyword, author, category, or ID.
+tags:
+- academic
+- research
+category: Research
 audience: user
-related_skills: [ocr-and-documents]
 ---
-
-
-> **Kategori:** research
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +18,6 @@ related_skills: [ocr-and-documents]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # arXiv Research
 
@@ -208,8 +195,6 @@ python scripts/search_arxiv.py --id 2402.03300,2401.12345
 
 No dependencies — uses only Python stdlib.
 
----
-
 ## Semantic Scholar (Citations, Related Papers, Author Profiles)
 
 arXiv doesn't provide citation data or recommendations. Use the **Semantic Scholar API** for that — free, no key needed for basic use (1 req/sec), returns JSON.
@@ -259,8 +244,6 @@ curl -s "https://api.semanticscholar.org/graph/v1/author/search?query=Yann+LeCun
 ### Useful Semantic Scholar fields
 
 `title`, `authors`, `year`, `abstract`, `citationCount`, `referenceCount`, `influentialCitationCount`, `isOpenAccess`, `openAccessPdf`, `fieldsOfStudy`, `publicationVenue`, `externalIds` (contains arXiv ID, DOI, etc.)
-
----
 
 ## Complete Research Workflow
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""🚀 ReYMeN Telegram Bot'larini baslat — Hermes gateway olmadan.
+"""🚀 ReYMeN Telegram Bot'larini baslat — ReYMeN gateway olmadan.
 
 2 bot ayri process'te BotProcess (ai_bot.py) ile calisir.
 - @ReYMeN_ReYMeNbot: ReYMeN-Ajan/.env -> REYMEN_BOT_TOKEN
@@ -8,7 +8,7 @@
 Kullanim:
     python run_reymen_bots.py
 
-Not: @Pasa_38_bot Hermes gateway'de kalir (dokunma).
+Not: @Pasa_38_bot ReYMeN gateway'de kalir (dokunma).
 """
 
 import os

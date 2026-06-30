@@ -1,8 +1,12 @@
-
-> **Kategori:** nlp
-
 ---
-
+name: seq2seq-design
+title: Seq2Seq Design
+description: ''
+tags:
+- nlp
+category: nlp
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: seq2seq-design
 description: Design a sequence-to-sequence pipeline for a given task.
 title: "Seq2Seq Design"

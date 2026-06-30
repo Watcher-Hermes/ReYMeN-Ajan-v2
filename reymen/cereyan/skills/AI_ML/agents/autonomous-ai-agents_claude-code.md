@@ -1,21 +1,13 @@
 ---
 name: claude-code
-title: "Claude Code"
-tags: [agents, ai]
-description: "Delegate coding to Claude Code CLI (features, PRs)."
-version: 2.3.0
-author: Hermes Agent + Teknium
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [Coding-Agent, Claude, Anthropic, Code-Review, Refactoring, PTY, Automation]
+title: Claude Code
+description: Delegate coding to Claude Code CLI (features, PRs).
+tags:
+- agents
+- ai
+category: agents
 audience: user
-related_skills: [codex, hermes-agent, opencode]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -37,8 +29,6 @@ related_skills: [codex, hermes-agent, opencode]
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: Otonom ajan gelistiricisi
 Ne: "Delegate coding to Claude Code CLI (features, PRs)."
 Nerede: `autonomous-ai-agents\autonomous-ai-agents_claude-code.md`
@@ -55,7 +45,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 
 | Bölüm | Reference Dosyası |
 |-------|------------------|
-| Claude Code — Hermes Orchestration Guide | `references/claude-code-hermes-orchestration-guide.md` |
+| Claude Code — ReYMeN Orchestration Guide | `references/claude-code-ReYMeN-orchestration-guide.md` |
 | Prerequisites | `references/prerequisites.md` |
 | Two Orchestration Modes | `references/two-orchestration-modes.md` |
 | Start a tmux session | `references/start-a-tmux-session.md` |
@@ -106,7 +96,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Environment Variables | `references/environment-variables.md` |
 | Cost & Performance Tips | `references/cost-performance-tips.md` |
 | Pitfalls & Gotchas | `references/pitfalls-gotchas.md` |
-| Rules for Hermes Agents | `references/rules-for-hermes-agents.md` |
+| Rules for ReYMeN Agents | `references/rules-for-ReYMeN-agents.md` |
 | **Import Chain Debugging** | `references/import-chain-debugging.md` |
 | **Windows Orchestration Bridge** (VS Code GUI pipeline) | `references/windows-orchestration-bridge.md` |
 | **Bash Özel Karakter Workaround** (temp dosya + Python inline) | `references/bash-ozel-karakter-workaround.md` |

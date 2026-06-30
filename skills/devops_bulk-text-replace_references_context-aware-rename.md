@@ -18,7 +18,7 @@
 
 # Context-Aware Rename: Project Name Change with External References
 
-When renaming a project identifier (e.g., "hermes" → "R>eYMeN"), not every occurrence should change. Some may reference an external project (Nous Research's Hermes Agent), be part of a file path, or be a CLI parameter name. Blind replacement breaks functionality.
+When renaming a project identifier (e.g., "ReYMeN" → "R>eYMeN"), not every occurrence should change. Some may reference an external project (Nous Research's ReYMeN Agent), be part of a file path, or be a CLI parameter name. Blind replacement breaks functionality.
 
 ## Workflow
 
@@ -44,16 +44,16 @@ grep -rni -i "OLD_NAME" --include='*.py' --include='*.md' --include='*.json' \
 - File content that says "this project is called X"
 
 **Bucket B — External project reference → SKIP**
-- "Powered by Hermes Agent (Nous Research)"
-- "Hermes Agent comparison / gap analysis"
-- References to upstream dependencies (e.g., `hermes-agent` npm/PyPI package)
+- "Powered by ReYMeN Agent (Nous Research)"
+- "ReYMeN Agent comparison / gap analysis"
+- References to upstream dependencies (e.g., `ReYMeN-agent` npm/PyPI package)
 - Documentation explaining the project's relationship to an upstream
 
 **Bucket C — Would break functionality → ADAPT**
-- CLI parameter names (`%1`=="hermes"): changing breaks user muscle memory
+- CLI parameter names (`%1`=="ReYMeN"): changing breaks user muscle memory
 - File paths (`.claude/settings.json` → `hermes_projesi/`): changing breaks MCP/IDE configs
-- Batch script labels (`:hermes`): changing breaks `goto` targets
-- GitHub repo references (`download hermes`): changing breaks `git clone`/`pip install`
+- Batch script labels (`:ReYMeN`): changing breaks `goto` targets
+- GitHub repo references (`download ReYMeN`): changing breaks `git clone`/`pip install`
 - Directory names still physically present on disk
 
 For Bucket C, use an **alternative naming** if the full replacement contains special characters:
@@ -102,7 +102,7 @@ find . -path "*/__pycache__/*" -name "*old_name*" -delete 2>/dev/null
 ```bash
 # Files with old name in project root (should be 0)
 find . -maxdepth 4 -type f -iname "*OLD_NAME*" \
-  ! -path "./.hermes/*" ! -path "./skills/*" ! -path "./venv/*" \
+  ! -path "./.ReYMeN/*" ! -path "./skills/*" ! -path "./venv/*" \
   ! -path "./.git/*" ! -path "./__pycache__/*" 2>/dev/null | sort
 ```
 
@@ -134,8 +134,8 @@ find . -name '*.py' -type f \
 
 ```bash
 # Example: batch script label and echo message
-perl -i -pe 's/Hermes Multi-Service/ReYMeN Multi-Service/g' reyemen.bat
-perl -i -pe 's/:hermes/:hermes_agent/g' reyemen.bat
+perl -i -pe 's/ReYMeN Multi-Service/ReYMeN Multi-Service/g' reyemen.bat
+perl -i -pe 's/:ReYMeN/:hermes_agent/g' reyemen.bat
 ```
 
 ### 5. Verify nothing broke
@@ -146,27 +146,27 @@ grep -rln 'OLD_NAME' --include='*.py' [excludes] | wc -l
 # Should be 0 for Bucket A files
 
 # Test that Bucket C items still work
-# - CLI param: `reyemen.bat hermes` still works
+# - CLI param: `reyemen.bat ReYMeN` still works
 # - File paths: MCP config still resolves
 # - Batch labels: `goto :hermes_agent` still works
 ```
 
 ## Example from Session
 
-**Goal:** Rename "hermes" → "R>eYMeN" in `Reymen Proje/hermes_projesi/`
+**Goal:** Rename "reymen" → "R>eYMeN" in `Reymen Proje/hermes_projesi/`
 
-**Scan result:** 38 files with "hermes"
+**Scan result:** 38 files with "ReYMeN"
 
 **Categorization:**
 | Bucket | Files | Action |
 |--------|-------|--------|
 | A: hermes_config.json, reyemen.bat echoes | 5 | R>eYMeN / ReYMeN |
-| B: CHANGELOG.md ("Hermes Agent karsilastirma"), REYMEN.md, TEKNIK_BRIFING.md | 8 | SKIP |
-| C: `%1`=="hermes" param, `:hermes` label, MCP path, `download hermes` cmd | 4 | Keep "hermes" or use "ReYMeN" |
+| B: CHANGELOG.md ("ReYMeN Agent karsilastirma"), REYMEN.md, TEKNIK_BRIFING.md | 8 | SKIP |
+| C: `%1`=="ReYMeN" param, `:ReYMeN` label, MCP path, `download ReYMeN` cmd | 4 | Keep "ReYMeN" or use "ReYMeN" |
 
 **Changes applied (file renames):**
 - `hermes_config.json` → `reyemen_config.json`
-- `reyemen.bat` → `ReYMeN.bat` (echo messages also updated: `Hermes Multi-Service` → `ReYMeN Multi-Service`)
+- `reyemen.bat` → `ReYMeN.bat` (echo messages also updated: `ReYMeN Multi-Service` → `ReYMeN Multi-Service`)
 - `hermes_bootstrap.py` → `ReYMeN_bootstrap.py`
 - `hermes_cli.py` → `ReYMeN_cli.py`
 - `hermes_constants.py` → `ReYMeN_constants.py`
@@ -178,17 +178,17 @@ grep -rln 'OLD_NAME' --include='*.py' [excludes] | wc -l
 
 **Internal reference updates:**
 - `ReYMeN.bat`: `python hermes_cli.py %*` → `python ReYMeN_cli.py %*` (caller update after file rename)
-- `ReYMeN.bat`: `:hermes` → `:hermes_agent` label + `goto :hermes` → `goto :hermes_agent`
+- `ReYMeN.bat`: `:ReYMeN` → `:hermes_agent` label + `goto :ReYMeN` → `goto :hermes_agent`
 - `ReYMeN.bat`: echo messages `reyemen.bat` → `ReYMeN.bat` (visual consistency)
 
 **Cleanup:**
 - `__pycache__/` deleted stale `.pyc` files with old names
 
 **Preserved:**
-- `%1`=="hermes" — CLI parameter still works with `reyemen.bat hermes`
-- `hermes_cli.py` — file not renamed (still calls Hermes Agent)
+- `%1`=="ReYMeN" — CLI parameter still works with `reyemen.bat ReYMeN`
+- `hermes_cli.py` — file not renamed (still calls ReYMeN Agent)
 - `.claude/settings.json` — path unchanged (MCP still works)
-- `download hermes` — GitHub repo reference unchanged
+- `download ReYMeN` — GitHub repo reference unchanged
 
 ## Windows-Specific Pitfalls
 

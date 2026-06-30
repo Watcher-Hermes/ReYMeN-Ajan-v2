@@ -1,7 +1,7 @@
 # GÖREV: ReYMeN .md Dosyalarını Türkçeleştir
 
 ## NE
-ReYMeN projesindeki tüm önemli .md dosyalarını **Hermes referanslarından temizle, ReYMeN'e özgü içerikle yeniden yaz, Türkçeleştir**.
+ReYMeN projesindeki tüm önemli .md dosyalarını **ReYMeN referanslarından temizle, ReYMeN'e özgü içerikle yeniden yaz, Türkçeleştir**.
 
 ## HEDEF DOSYALAR
 
@@ -19,7 +19,7 @@ Türkçe, sade, anlaşılır. GitHub'da gören hemen anlasın. Şunlar olsun:
 
 1. **ReYMeN Nedir?**
    - "ReYMeN, yapay zeka asistanlarını yönetmek için geliştirilmiş açık kaynak bir platformdur."
-   - "Hermes Agent tabanlıdır, Türkçe dil desteği ile Windows odaklı çalışır."
+   - "ReYMeN Agent tabanlıdır, Türkçe dil desteği ile Windows odaklı çalışır."
    - "Telegram botları, CLI, web arayüzü ve daha fazlasını tek merkezden yönetir."
 
 2. **Özellikler** (emoji + kısa açıklama):
@@ -37,7 +37,7 @@ Türkçe, sade, anlaşılır. GitHub'da gören hemen anlasın. Şunlar olsun:
 
 3. **Kurulum** (adım adım, baştan sona):
    ```
-   git clone https://github.com/İzleyici-Hermes/ReYMeN-Ajan-v2.git
+   git clone https://github.com/İzleyici-ReYMeN/ReYMeN-Ajan-v2.git
    cd ReYMeN-Ajan-v2
    python -m venv venv
    source venv/bin/activate  (Windows: venv\Scripts\activate)
@@ -65,7 +65,7 @@ Türkçe, sade, anlaşılır. GitHub'da gören hemen anlasın. Şunlar olsun:
    └── scripts/    # Yardımcı script'ler
    ```
 
-6. **Lisans**: MIT - Nous Research (Hermes) + ReYMeN
+6. **Lisans**: MIT - Nous Research (ReYMeN) + ReYMeN
 
 ### CONTRIBUTING.md
 - "Katkıda Bulunma Rehberi" başlığı
@@ -90,10 +90,10 @@ Türkçe, sade, anlaşılır. GitHub'da gören hemen anlasın. Şunlar olsun:
 - Dosyalar geçerli markdown mı?
 - 3 farklı kişi okusa anlar mı?
 - Kod blokları çalışıyor mu?
-- Hermes referansları temizlenmiş mi?
+- ReYMeN referansları temizlenmiş mi?
 
 ## YASAKLAR
-- **Hermes referansını olduğu gibi bırakma**
+- **ReYMeN referansını olduğu gibi bırakma**
 - Kod mantığını değiştirme
 - .py dosyalarına dokunma
 - .git, __pycache__, venv içinde değişiklik

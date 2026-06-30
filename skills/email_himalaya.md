@@ -7,7 +7,7 @@ author: community
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [Email, IMAP, SMTP, CLI, Communication]
 audience: user
     homepage: https://github.com/pimalaya/himalaya
@@ -49,7 +49,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Or via cargo (any platform with Rust) | `references/or-via-cargo-any-platform-with-rust.md` |
 | Configuration Setup | `references/configuration-setup.md` |
 | `references/configuration.md` for the `[Gmail]/Sent Mail` mapping. | `references/references-configuration-md-for-the-gmail-sent-mail-mapping.md` |
-| Hermes Integration Notes | `references/hermes-integration-notes.md` |
+| ReYMeN Integration Notes | `references/ReYMeN-integration-notes.md` |
 | Common Operations | `references/common-operations.md` |
 | Get the reply template, edit it, and send | `references/get-the-reply-template-edit-it-and-send.md` |
 | Get forward template and pipe with modifications | `references/get-forward-template-and-pipe-with-modifications.md` |

@@ -1,18 +1,19 @@
 ---
 name: lm-studio-local-llm
-title: "LM Studio API ile Model Yükleme"
-description: "LM Studio v0.4.16.0 REST API ile model yükleme, GPU offload (GUI), context ve flash_attention ayarları. Doğrulanmış curl komutları."
-version: 2.0.0
-platforms: [windows]
+title: LM Studio API ile Model Yükleme
+description: LM Studio v0.4.16.0 REST API ile model yükleme, GPU offload (GUI), context
+  ve flash_attention ayarları. Doğrulanmış curl komutları.
+tags:
+- lm-studio
+- api
+- model-load
+- gpu
+- cuda
+- gguf
+- local-llm
+category: AI_ML
 audience: user
-tags: [lm-studio, api, model-load, gpu, cuda, gguf, local-llm]
 ---
-
-
-> **Kategori:** mlops
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -23,8 +24,6 @@ tags: [lm-studio, api, model-load, gpu, cuda, gguf, local-llm]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # LM Studio API ile Model Yükleme
 

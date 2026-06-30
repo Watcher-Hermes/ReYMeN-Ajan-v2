@@ -1103,5 +1103,29 @@
     "basari_orani": 0.7,
     "olusturma": "2026-06-28",
     "son_basari": "2026-06-28"
+  },
+  "bu_hata_neden_cikiyor_kaldır___referanslar________": {
+    "ad": "Bu hata neden cikiyor kaldır\n\n[Referanslar]\n  - {\\",
+    "aciklama": "Bu hata neden cikiyor kaldır\n\n[Referanslar]\n  - {\\",
+    "tetikleyiciler": [
+      "hata",
+      "cikiyor",
+      "[referanslar]",
+      "bu",
+      "neden",
+      "kaldır"
+    ],
+    "adimlar": [
+      "FC/DURUM_OKU",
+      "FC/OGRENMELERI_GETIR",
+      "FC/SKILL_DURUM",
+      "FC/MCP_DISCOVERY_DURUM",
+      "FC/MCP_TOOL_LISTELE"
+    ],
+    "basari_kriteri": "Hata çözümü için Tor servisinin başlatılması gerekiyor. Sistemde “TOR_AC” aracı ",
+    "kullanim_sayisi": 1,
+    "basari_orani": 1.0,
+    "olusturma": "2026-06-30",
+    "son_basari": "2026-06-30"
   }
 }

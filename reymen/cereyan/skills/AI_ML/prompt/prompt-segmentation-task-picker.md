@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-segmentation-task-picker
+title: Prompt Segmentation Task Picker
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-segmentation-task-picker
 description: Pick semantic vs instance vs panoptic segmentation and name the architecture for a given task
 title: "PRompt Segmentation Task Picker"

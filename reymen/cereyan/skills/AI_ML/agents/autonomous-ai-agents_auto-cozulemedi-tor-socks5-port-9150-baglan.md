@@ -1,20 +1,15 @@
 ---
 name: auto-cozulemedi-tor-socks5-port-9150-baglan
-title: "Auto Cozulemedi Tor Socks5 Port 9150 Baglan"
-tags: [agents, ai, tor]
-description: "Autonomous solution for: [COZULEMEDI] Tor SOCKS5 port 9150 baglanti kontrol et. Solved in 2 iteration(s) using dolphin-llama3 + VS Code loop."
-version: 1.0.0
-author: hermes-auto
-license: MIT
-metadata:
-  hermes:
-    tags: [autonomous, auto-generated, dolphin, vscode, loop]
+title: Auto Cozulemedi Tor Socks5 Port 9150 Baglan
+description: 'Autonomous solution for: [COZULEMEDI] Tor SOCKS5 port 9150 baglanti
+  kontrol et. Solved in 2 iteration(s) using dolphin-llama3 + VS Code loop.'
+tags:
+- agents
+- ai
+- tor
+category: agents
 audience: user
-related_skills: [vscode-otomasyon, gorsel-onaylama]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -35,8 +30,6 @@ related_skills: [vscode-otomasyon, gorsel-onaylama]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: Otonom ajan gelistiricisi
 Ne: "Autonomous solution for: [COZULEMEDI] Tor SOCKS5 port 9150 baglanti kontrol et. Solved in 2 iteration(s) using dolphin-llama3 + VS Code loop."

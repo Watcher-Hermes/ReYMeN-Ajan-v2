@@ -18,9 +18,9 @@
 
 # Ornekler:
 run_cmd("ipconfig")
-run_cmd("pip list", cwd=r"C:\Users\marko\hermes-ai")
-run_cmd(r".\venv\Scripts\activate && python hermes.py --version",
-        cwd=r"C:\Users\marko\hermes-ai")
+run_cmd("pip list", cwd=r"C:\Users\marko\ReYMeN-ai")
+run_cmd(r".\venv\Scripts\activate && python ReYMeN.py --version",
+        cwd=r"C:\Users\marko\ReYMeN-ai")
 ```
 
 ### PowerShell komutu çalıştır

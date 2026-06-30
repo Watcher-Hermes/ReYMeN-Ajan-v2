@@ -25,7 +25,7 @@ TWILIO_API_BASE = "https://api.twilio.com/2010-04-01"
 
 
 def _env_oku(anahtar: str, varsayilan: str = "") -> str:
-    """.env + Hermes env fallback ile değer oku."""
+    """.env + ReYMeN env fallback ile değer oku."""
     # Proje .env
     proje_env = Path(__file__).resolve().parent.parent / ".env"
     if proje_env.exists():
@@ -36,8 +36,8 @@ def _env_oku(anahtar: str, varsayilan: str = "") -> str:
             k, v = satir.split("=", 1)
             if k.strip() == anahtar:
                 return v.strip().strip('"').strip("'")
-    # Hermes env fallback
-    hermes_env = Path.home() / "AppData" / "Local" / "hermes" / "profiles" / "kiral38" / ".env"
+    # ReYMeN env fallback
+    hermes_env = Path.home() / "AppData" / "Local" / "reymen" / "profiles" / "kiral38" / ".env"
     if hermes_env.exists():
         for satir in hermes_env.read_text(encoding="utf-8").splitlines():
             satir = satir.strip()

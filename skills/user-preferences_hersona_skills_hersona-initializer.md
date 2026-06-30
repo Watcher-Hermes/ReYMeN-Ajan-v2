@@ -6,7 +6,7 @@ author: shiro-0x
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [hersona, persona, initialization, maintenance, enforcement]
     category: personality
 audience: user

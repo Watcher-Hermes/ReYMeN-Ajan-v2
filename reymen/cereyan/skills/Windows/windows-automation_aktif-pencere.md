@@ -1,20 +1,12 @@
 ---
 name: aktif-pencere
-title: "Aktif Pencere"
-tags: [automation, windows]
-title: "Aktif Pencere"
-title: ""
-audience: user
-tags: [automation, windows]
+title: Windows Automation Aktif Pencere
+description: ''
+tags:
+- windows
 category: windows-automation
-tags: []
+audience: user
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -25,8 +17,6 @@ tags: []
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 **Skill ID:** `aktif-pencere`
 **Tetikleyici:** "şu pencereyi al"

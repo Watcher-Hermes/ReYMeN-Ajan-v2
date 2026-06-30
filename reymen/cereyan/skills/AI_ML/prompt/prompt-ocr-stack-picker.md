@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-ocr-stack-picker
+title: Prompt Ocr Stack Picker
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-ocr-stack-picker
 description: Pick Tesseract / PaddleOCR / Donut / VLM-OCR given document type, language, and structure
 title: "PRompt Ocr Stack Picker"

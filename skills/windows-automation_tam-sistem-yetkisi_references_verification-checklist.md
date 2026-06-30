@@ -24,4 +24,4 @@
 - [ ] `pillow` kurulu: `pip show pillow`
 - [ ] Screenshot dosyaya kaydedildi ve açılabildi
 - [ ] Terminal komutu returncode=0 ile döndü
-- [ ] Hermes gateway yeniden başlatıldı (token değişikliği sonrası)
+- [ ] ReYMeN gateway yeniden başlatıldı (token değişikliği sonrası)

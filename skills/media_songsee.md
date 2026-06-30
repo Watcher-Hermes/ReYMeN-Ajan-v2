@@ -6,7 +6,7 @@ author: community
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [Audio, Visualization, Spectrogram, Music, Analysis]
 audience: user
     homepage: https://github.com/steipete/songsee

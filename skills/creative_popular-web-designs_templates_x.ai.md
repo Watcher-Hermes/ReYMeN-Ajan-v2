@@ -19,7 +19,7 @@
 # Design System: xAI
 
 
-> **Hermes Agent — Implementation Notes**
+> **ReYMeN Agent — Implementation Notes**
 >
 > The original site uses proprietary fonts. For self-contained HTML output, use these CDN substitutes:
 > - **Primary:** `Geist Mono` | **Mono:** `Geist Mono`

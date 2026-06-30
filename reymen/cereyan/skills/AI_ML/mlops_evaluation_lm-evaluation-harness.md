@@ -9,7 +9,7 @@ license: MIT
 dependencies: [lm-eval, transformers, vllm]
 platforms: [linux, macos]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [Evaluation, LM Evaluation Harness, Benchmarking, MMLU, HumanEval, GSM8K, EleutherAI, Model Quality, Academic Benchmarks, Industry Standard]
 category: mlops
 audience: user

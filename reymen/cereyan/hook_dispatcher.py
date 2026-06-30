@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Olay-güdümlü hook dispatcher.
 
-Hermes'in ``invoke_hook`` sisteminden adapte edilmiştir. Konuşma döngüsü
+ReYMeN'in ``invoke_hook`` sisteminden adapte edilmiştir. Konuşma döngüsü
 belirli noktalarda hook'ları ateşler; yüklü plugin'ler bunları dinler.
 
 Desteklenen hook olayları:
@@ -102,7 +102,7 @@ def hook_cagir(olay: str, **kwargs: Any) -> List[Any]:
     return sonuclar
 
 
-# Hermes uyumluluğu için alias
+# ReYMeN uyumluluğu için alias
 invoke_hook = hook_cagir
 register_hook = hook_kaydet
 

@@ -29,7 +29,7 @@ version: 1.0.0
 | `author` | ÖNERİLEN | Oluşturan kişi. |
 | `license` | ÖNERİLEN | MIT, Apache-2.0, vs. |
 | `audience` | EVET | user (son kullanıcı), contributor (katkıcı), maintainer (bakımcı) |
-| `metadata.hermes.tags` | ÖNERİLEN | skills_list'te görünecek etiketler |
+| `metadata.ReYMeN.tags` | ÖNERİLEN | skills_list'te görünecek etiketler |
 | `related_skills` | ÖNERİLEN | İlişkili skill isimleri dizisi |
 
 ## Audience Değerleri
@@ -38,7 +38,7 @@ version: 1.0.0
 |-------|----------|-------|
 | `user` | Son kullanıcının doğrudan kullanacağı skill | windows-automation, browser-qa |
 | `contributor` | Skill geliştirmeye katkı yapacaklar | skill-creation-standards, skill-shrink |
-| `maintainer` | Sadece bakımcıların bilmesi gereken | hermes-kurallar, otomatik-bakim |
+| `maintainer` | Sadece bakımcıların bilmesi gereken | ReYMeN-kurallar, otomatik-bakim |
 
 ## Örnekler
 
@@ -50,7 +50,7 @@ title: "Ekran Görüntüsü Alma"
 tags: [windows, automation, screenshot]
 description: "Use when the user needs to capture the screen on Windows. Supports full screen, active window, and region capture."
 version: 1.0.0
-author: Hermes User
+author: ReYMeN User
 license: MIT
 audience: user
 ```
@@ -60,15 +60,15 @@ audience: user
 ```yaml
 name: hibrit-ai-mimarisi
 title: "Hibrit AI Mimarisi"
-tags: [mlops, architecture, hermes]
-description: "Use when designing or troubleshooting Hermes' two-layer AI architecture — Ollama (local) + DeepSeek (cloud). Covers routing rules, fallback logic, and model selection."
+tags: [mlops, architecture, ReYMeN]
+description: "Use when designing or troubleshooting ReYMeN' two-layer AI architecture — Ollama (local) + DeepSeek (cloud). Covers routing rules, fallback logic, and model selection."
 version: 2.1.0
-author: Hermes User
+author: ReYMeN User
 license: MIT
 audience: contributor
 metadata:
-  hermes:
-    tags: [mlops, architecture, hermes]
+  ReYMeN:
+    tags: [mlops, architecture, ReYMeN]
     related_skills: [ollama-local-llm, model-benchmark, hibrit-ai-yonlendirme-kurali]
 related_skills: [ollama-local-llm, model-benchmark, hibrit-ai-yonlendirme-kurali]
 ```

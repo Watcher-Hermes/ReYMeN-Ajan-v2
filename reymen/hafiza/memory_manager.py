@@ -2,7 +2,7 @@
 """
 memory_manager.py — ReYMeN kalıcı hafıza yöneticisi.
 
-Hermes'teki MEMORY.md + USER.md sisteminin ReYMeN versiyonu.
+ReYMeN'teki MEMORY.md + USER.md sisteminin ReYMeN versiyonu.
 Her oturum başında hafızayı yükler, gerektiğinde günceller.
 
 Kullanım:

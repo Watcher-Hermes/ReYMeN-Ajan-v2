@@ -20,6 +20,6 @@
 git config --global credential.helper ""
 ```
 
-### 1. Hermes Skills Yedek
+### 1. ReYMeN Skills Yedek
 
 ```bash

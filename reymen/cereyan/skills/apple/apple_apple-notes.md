@@ -1,26 +1,14 @@
 ---
 name: apple-notes
-title: "Apple Notes"
-tags: [apple, ios, note-taking]
-description: "Manage Apple Notes via memo CLI: create, search, edit."
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-platforms: [macos]
-metadata:
-  hermes:
-    tags: [Notes, Apple, macOS, note-taking]
+title: Apple Notes
+description: 'Manage Apple Notes via memo CLI: create, search, edit.'
+tags:
+- apple
+- ios
+- note-taking
+category: apple
 audience: user
-related_skills: [obsidian]
-prerequisites:
-  commands: [memo]
 ---
-
-
-> **Kategori:** apple
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -31,8 +19,6 @@ prerequisites:
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Apple Notes
 

@@ -67,8 +67,10 @@ def _sistem_tespit() -> str:
         try:
             if "microsoft" in platform.uname().release.lower():
                 return "wsl"
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
         return "windows"
     elif sistem == "linux":
         return "linux"
@@ -88,7 +90,8 @@ def _ip_izinli_mi(ip_adresi: str, izinli_liste: list) -> bool:
                 # Tek IP ise esitlik kontrolu
                 if ip_adresi == izin:
                     return True
-    except ValueError:
+    except ValueError as _e:
+        logger.warning("[NetworkRestriction] Gecersiz deger (L93): %s", ValueError)
         pass
     return False
 
@@ -530,7 +533,8 @@ class NetworkRestriction:
                 hedef = ipaddress.ip_address(ip_adresi)
                 if hedef in ag:
                     return {"ip": ip_adresi, "izinli": True, "neden": "cidr_eslesmesi"}
-            except ValueError:
+            except ValueError as _e:
+                logger.warning("[NetworkRestriction] Gecersiz deger (L535): %s", ValueError)
                 pass
 
         if self._aktif:
@@ -621,8 +625,10 @@ class NetworkRestriction:
             if linux_sonuc["basarili"]:
                 sonuc = linux_sonuc
                 sonuc["detay"]["wsl_iptables"] = True
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
         if not sonuc["basarili"]:
             # Fallback: hosts dosyasi
@@ -658,8 +664,10 @@ class NetworkRestriction:
                 ["iptables", "-F", "REYMEN-OUT"],
                 capture_output=True, text=True, timeout=10,
             )
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
         # Zincir olustur (yoksa)
         subprocess.run(

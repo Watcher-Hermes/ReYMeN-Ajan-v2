@@ -1,12 +1,15 @@
 ---
 name: reymen-skill-tool
-category: software-development
-version: 1.0.0
+title: Software Development Reymen Skill Tool
 description: R>eYMeN projesine skill_tool.py ekleme adimlari
-tags: [skill, hermes, reymen, skill]
+tags:
+- skill
+- ReYMeN
+- reymen
+- skill
+category: software-development
+audience: agent
 ---
-
-
 > **Kategori:** software-development
 
 ---

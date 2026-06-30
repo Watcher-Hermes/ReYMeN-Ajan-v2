@@ -1640,7 +1640,7 @@ class TestSystemUnitReYMeNHome:
         # User-scope units should still use the calling user's ReYMeN_HOME
         unit = gateway_cli.generate_systemd_unit(system=False)
 
-        ReYMeN_home = str(gateway_cli.get_ReYMeN_home().resolve())
+        ReYMeN_home = str(gateway_cli.get_reymen_home().resolve())
         assert f'ReYMeN_HOME={ReYMeN_home}' in unit
 
 
@@ -2023,7 +2023,7 @@ class TestProfileArg:
         profile_dir.mkdir(parents=True)
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
         monkeypatch.setenv("ReYMeN_HOME", str(profile_dir))
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: profile_dir)
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: profile_dir)
         unit = gateway_cli.generate_systemd_unit(system=False)
         assert "--profile mybot" in unit
         assert "gateway run" in unit
@@ -2042,7 +2042,7 @@ class TestProfileArg:
 
         monkeypatch.setattr(Path, "home", lambda: root_home)
         monkeypatch.setenv("ReYMeN_HOME", str(root_profile))
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: root_profile)
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: root_profile)
         monkeypatch.setattr(
             gateway_cli,
             "_system_service_identity",
@@ -2061,7 +2061,7 @@ class TestProfileArg:
         profile_dir.mkdir(parents=True)
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
         monkeypatch.setenv("ReYMeN_HOME", str(profile_dir))
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: profile_dir)
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: profile_dir)
         plist = gateway_cli.generate_launchd_plist()
         assert "<string>--profile</string>" in plist
         assert "<string>mybot</string>" in plist
@@ -2084,7 +2084,7 @@ class TestProfileArg:
 
         monkeypatch.setattr(Path, "home", lambda: profile_home)
         monkeypatch.setenv("ReYMeN_HOME", str(profile_dir))
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: profile_dir)
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: profile_dir)
         monkeypatch.setattr(pwd, "getpwuid", lambda uid: SimpleNamespace(pw_dir=str(machine_home)))
 
         plist_path = gateway_cli.get_launchd_plist_path()
@@ -2134,7 +2134,7 @@ class TestSystemUnitPathRemapping:
 
         monkeypatch.setattr(Path, "home", lambda: root_home)
         monkeypatch.setenv("ReYMeN_HOME", str(root_home / ".ReYMeN"))
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: root_home / ".ReYMeN")
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: root_home / ".ReYMeN")
         monkeypatch.setattr(gateway_cli, "PROJECT_ROOT", project)
         monkeypatch.setattr(gateway_cli, "_detect_venv_dir", lambda: project / "venv")
         monkeypatch.setattr(gateway_cli, "get_python_path", lambda: str(venv_bin / "python"))
@@ -2992,19 +2992,19 @@ class TestServiceWorkingDirIsStable:
     def test_stable_working_dir_uses_ReYMeN_home(self, tmp_path, monkeypatch):
         home = tmp_path / ".ReYMeN"
         home.mkdir()
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: home)
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: home)
         assert Path(gateway_cli._stable_service_working_dir()) == home.resolve()
 
     def test_stable_working_dir_falls_back_to_project_root(self, tmp_path, monkeypatch):
         # ReYMeN_HOME points somewhere that does not exist -> fall back.
         missing = tmp_path / "does-not-exist" / ".ReYMeN"
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: missing)
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: missing)
         assert gateway_cli._stable_service_working_dir() == str(gateway_cli.PROJECT_ROOT)
 
     def test_user_unit_workingdirectory_is_ReYMeN_home_not_checkout(self, tmp_path, monkeypatch):
         home = tmp_path / ".ReYMeN"
         home.mkdir()
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: home)
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: home)
         unit = gateway_cli.generate_systemd_unit(system=False)
         wd = [l for l in unit.splitlines() if l.startswith("WorkingDirectory=")]
         assert wd, "unit has no WorkingDirectory line"
@@ -3018,7 +3018,7 @@ class TestServiceWorkingDirIsStable:
 
         home = tmp_path / ".ReYMeN"
         home.mkdir()
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: home)
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: home)
         plist = gateway_cli.generate_launchd_plist()
         m = re.search(r"<key>WorkingDirectory</key>\s*<string>(.*?)</string>", plist)
         assert m, "plist has no WorkingDirectory entry"
@@ -3035,7 +3035,7 @@ class TestServiceWorkingDirIsStable:
         """
         home = tmp_path / ".ReYMeN"
         home.mkdir()
-        monkeypatch.setattr(gateway_cli, "get_ReYMeN_home", lambda: home)
+        monkeypatch.setattr(gateway_cli, "get_reymen_home", lambda: home)
         plist = gateway_cli.generate_launchd_plist()
 
         # Scalar <true/> must be present immediately after the KeepAlive key

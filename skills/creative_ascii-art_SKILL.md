@@ -5,12 +5,12 @@ title: "Ascii Art"
 tags: [creative, design]
 description: "ASCII art: pyfiglet, cowsay, boxes, image-to-ascii."
 version: 4.0.0
-author: 0xbyt4, Hermes Agent
+author: 0xbyt4, ReYMeN Agent
 license: MIT
 dependencies: []
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [ASCII, Art, Banners, Creative, Unicode, Text-Art, pyfiglet, figlet, cowsay, boxes]
 audience: user
 related_skills: [excalidraw]

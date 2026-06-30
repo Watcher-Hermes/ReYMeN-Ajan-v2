@@ -1,8 +1,12 @@
-
-> **Kategori:** nlp
-
 ---
-
+name: sentiment-baseline
+title: Sentiment Baseline
+description: ''
+tags:
+- nlp
+category: nlp
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: sentiment-baseline
 description: Design a sentiment analysis baseline for a new dataset.
 title: "Sentiment Baseline"

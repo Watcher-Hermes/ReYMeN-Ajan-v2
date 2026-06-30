@@ -11,8 +11,8 @@ env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')
 if os.path.exists(env_path):
     load_dotenv(env_path)
 
-# Hermes .env'den de dene
-hermes_env = os.path.expanduser("~/.hermes/.env")
+# ReYMeN .env'den de dene
+hermes_env = os.path.expanduser("~/.reymen/.env")
 if os.path.exists(hermes_env):
     load_dotenv(hermes_env)
 

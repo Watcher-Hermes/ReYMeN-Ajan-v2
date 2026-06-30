@@ -19,7 +19,7 @@
 # Design System: VoltAgent
 
 
-> **Hermes Agent — Implementation Notes**
+> **ReYMeN Agent — Implementation Notes**
 >
 > The original site uses proprietary fonts. For self-contained HTML output, use these CDN substitutes:
 > - **Primary:** `system-ui` | **Mono:** `JetBrains Mono`

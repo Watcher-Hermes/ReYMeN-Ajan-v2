@@ -1,8 +1,12 @@
-
-> **Kategori:** note-taking
-
 ---
-
+name: note-taking_obsidian-vault-analysis
+title: Note Taking Obsidian Vault Analysis
+description: ''
+tags:
+- note-taking
+category: note-taking
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: obsidian-vault-analysis
 description: Analyze Obsidian vault content — file counts, word counts, term searches, and content metrics across .md files. Use when the user asks about vault statistics, word counts, RAG/search term occurrences, or any quantitative analysis of markdown files in an Obsidian vault.
 title: "Obsidian Vault Analysis"

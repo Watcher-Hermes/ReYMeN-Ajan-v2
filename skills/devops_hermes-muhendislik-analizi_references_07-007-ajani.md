@@ -20,7 +20,7 @@
 
 ## Temel İlkeler
 
-007 ajanı Hermes v7'nin güçlü yanlarını koruyarak 3 boyut ekler:
+007 ajanı ReYMeN v7'nin güçlü yanlarını koruyarak 3 boyut ekler:
 1. Çok boyutlu bellek — anlık + uzun vadeli + karar + graf entegre
 2. Güven piramidi — her skill'in güvenilirliği bilinir
 3. Kapalı öğrenme döngüsü — üretim -> doğrulama -> kullanım -> güncelleme

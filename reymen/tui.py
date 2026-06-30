@@ -305,10 +305,13 @@ class ReYMeNTUI:
                 yanit = sonuc.get("yanit", "") or str(sonuc)
                 if yanit and not yanit.startswith("[") and len(yanit) > 3:
                     return yanit[:1000]
-        except ImportError:
+        except ImportError as _e:
+            logger.warning("[Tui] Modul yuklenemedi (L308): %s", ImportError)
             pass
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
         # 4) Basit sohbet
         return f"[ReyMeN] {komut}"
@@ -337,8 +340,10 @@ class ReYMeNTUI:
         if self._konusma_kontrol:
             try:
                 self._konusma_kontrol.invalidate()
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
     def baslat(self) -> None:
         """TUI'yi baslat ve event loop'a gir."""
@@ -463,12 +468,14 @@ def table(headers: list[str], rows: list[list[Any]], title: str | None = None) -
 # ── Motor Kaydi ──────────────────────────────────────────────────────────
 
 _TUI_MOTOR = None
+_TUI_BEYIN = None
 
 
-def motor_kaydet(motor) -> None:
-    """Motor'a TUI baslatma araci kaydet ve motor referansini sakla."""
-    global _TUI_MOTOR
+def motor_kaydet(motor, beyin=None) -> None:
+    """Motor'a TUI baslatma araci kaydet ve motor/beyin referansini sakla."""
+    global _TUI_MOTOR, _TUI_BEYIN
     _TUI_MOTOR = motor
+    _TUI_BEYIN = beyin
     motor._plugin_arac_kaydet(
         "TUI_BASLAT", _tui_baslat,
         "Terminal UI'yi baslat. Parametre yok. "
@@ -494,6 +501,8 @@ def _konusma_loop_olustur() -> Any:
         return None
     try:
         from reymen.cereyan.conversation_loop import ConversationLoop
+        if _TUI_BEYIN is not None:
+            return ConversationLoop(motor=_TUI_MOTOR, beyin=_TUI_BEYIN)
         return ConversationLoop(motor=_TUI_MOTOR)
     except ImportError:
         return None
@@ -659,8 +668,10 @@ class StatusBar:
         if self._live:
             try:
                 self._live.stop()
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
 
 # ── Konfirmasyon Dialog ────────────────────────────────────────────────

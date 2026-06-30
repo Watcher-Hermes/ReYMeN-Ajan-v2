@@ -12,7 +12,7 @@ Aşağıdaki yapılar kuruldu. İncele, geliştir ve eksikleri tamamla.
 | Motor entegrasyonu | `reymen/cereyan/motor.py` | ogren(), ogrenme_istatistik(), gorev_coz(), hatadan_kurtul() |
 | pyproject.toml | `./pyproject.toml` | Build, bağımlılıklar, pytest+ruff+bandit |
 | Docker | `./Dockerfile`, `./docker-compose.yml` | Container ortamı |
-| Skill import | `reymen/scripts/skill_import.py` | Hermes→ReYMeN skill dönüştürücü |
+| Skill import | `reymen/scripts/skill_import.py` | ReYMeN→ReYMeN skill dönüştürücü |
 
 ### ❌ GELİŞTİRİLMESİ GEREKENLER
 
@@ -24,11 +24,11 @@ Aşağıdaki yapılar kuruldu. İncele, geliştir ve eksikleri tamamla.
 #### 2. Session Search (FTS5)
 - Mevcut: `.ReYMeN/session.db` (SQLite)
 - Eksik: FTS5 full-text search, session_search_tool.py
-- Yapılacak: `reymen/core/session_search.py` — Hermes'teki gibi FTS5 ile hızlı arama
+- Yapılacak: `reymen/core/session_search.py` — ReYMeN'teki gibi FTS5 ile hızlı arama
 
 #### 3. Web UI
 - Mevcut: `dashboard/app.py` (basit dashboard)
-- Eksik: Hermes Web UI seviyesinde arayüz
+- Eksik: ReYMeN Web UI seviyesinde arayüz
 - Yapılacak: `dashboard/`'i geliştir — görev takibi, log görüntüleme, öğrenme istatistikleri
 
 #### 4. Öğrenme Döngüsü İyileştirmeleri

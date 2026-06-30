@@ -1,8 +1,8 @@
 ---
-name: autonomous-ai-agents-hermes-telegram-sync
-description: Hermes Agent ile Telegram’daki otomasyonu tek çatı altında toplamak.
+name: autonomous-ai-agents-ReYMeN-telegram-sync
+description: ReYMeN Agent ile Telegram’daki otomasyonu tek çatı altında toplamak.
   Artık iki ayrı sistem değil; tek kaynak, tek skill seti, tek doğruluk.
-title: Autonomous Ai Agents Hermes Telegram Sync
+title: Autonomous Ai Agents ReYMeN Telegram Sync
 version: 1.0.0
 ---
 
@@ -16,16 +16,16 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-# Hermes – Telegram Köprü
+# ReYMeN – Telegram Köprü
 
 ## Amaç
-Hermes Agent ile Telegram’daki otomasyonu tek çatı altında toplamak. Artık iki ayrı sistem değil; tek kaynak, tek skill seti, tek doğruluk.
+ReYMeN Agent ile Telegram’daki otomasyonu tek çatı altında toplamak. Artık iki ayrı sistem değil; tek kaynak, tek skill seti, tek doğruluk.
 
 ## Mimari
 - **Kaynak:** Hermes Agent (`C:\Users\marko\AppData\Local\hermes\`)
 - **Yönlendirici:** `_bridge/router.py` (queue/answers klasörleri)
 - **Dışarıdan tetikleme:** Telegram → n8n webhook veya doğrudan HTTP POST
-- **İç tetikleme:** Hermes Agent herhangi bir skill sonucu → router.py’ye yaz → Telegram’a gönder
+- **İç tetikleme:** ReYMeN Agent herhangi bir skill sonucu → router.py’ye yaz → Telegram’a gönder
 
 ## Kurulum Adımları
 
@@ -33,7 +33,7 @@ Hermes Agent ile Telegram’daki otomasyonu tek çatı altında toplamak. Artık
 Şu değerler her iki tarafta da aynı olmalı:
 - Telegram bot token (`TELEGRAM_BOT_TOKEN`)
 - Chat ID (`TELEGRAM_CHAT_ID`)
-- Hermes Agent home (`HERMES_HOME`)
+- ReYMeN Agent home (`HERMES_HOME`)
 - Obsidian vault path (`OBSIDIAN_VAULT`)
 
 Bu değerleri `.env` dosyasından oku. İki farklı `.env` varsa birleştir.
@@ -59,22 +59,22 @@ n8n’de şu düzen kullan:
 Telegram Trigger → HTTP Request (localhost:15680/obsidian/write) → Telegram Send
 ```
 
-Eğer Hermes Agent bir cevap üretecekse, n8n onu beklemeli ya da webhook dönmeli.
+Eğer ReYMeN Agent bir cevap üretecekse, n8n onu beklemeli ya da webhook dönmeli.
 
 ### 4. Test
 - Telegram’dan “test” yaz
-- n8n yakalar, Hermes’e iletir
-- Hermes cevabı `_bridge/answers/<chat_id>.json`’a yazar
+- n8n yakalar, ReYMeN’e iletir
+- ReYMeN cevabı `_bridge/answers/<chat_id>.json`’a yazar
 - n8n bu dosyayı okuyup Telegram’a gönderir
 
 ## Kuralları
 - Tek kaynak `.env` → değişiklikler her yere yansır
-- Skill silme/yenileme sadece Hermes tarafında yapılır; Telegram’a manuel güncelleme yok
-- .env değişirse tetikle: `python C:\Users\marko\hermes-ai\env_watcher.py`
+- Skill silme/yenileme sadece ReYMeN tarafında yapılır; Telegram’a manuel güncelleme yok
+- .env değişirse tetikle: `python C:\Users\marko\ReYMeN-ai\env_watcher.py`
 
 ## Kontrol Listesi
 - [ ] Telegram bot token ve chat ID aynı mı
-- [ ] Hermes Agent ayarları `.env`’de güncel mi
+- [ ] ReYMeN Agent ayarları `.env`’de güncel mi
 - [ ] `_bridge/router.py` çalışıyor mu
 - [ ] n8n workflow bağlı mı
 - [ ] Test mesajı iki yönlü geçiyor mu
@@ -96,21 +96,21 @@ Eğer n8n kapalıysa veya kurulum istemiyorsan, **dosya bazlı kurtarma** yönte
 
 ### Nasıl Çalışır
 ```
-Local Hermes takılır → C:\Users\marko\takildi.txt oluşturur
-Telegram Hermes cron job'u (her 15 dk) → dosyayı bulur
+Local ReYMeN takılır → C:\Users\marko\takildi.txt oluşturur
+Telegram ReYMeN cron job'u (her 15 dk) → dosyayı bulur
 → Tor'da araştırma yapar → çözümü Telegram'a bildirir
 → takildi.txt silinir
 ```
 
 ### Cron Job Detayı
 - **Job adı:** Takilma-Izleyici
-- **Çalıştığı yer:** Telegram Hermes (bu session)
+- **Çalıştığı yer:** Telegram ReYMeN (bu session)
 - **Kontrol sıklığı:** 15 dakikada bir
 - **Yüklü skill:** tor-browser-arama
-- **Local Hermes'te gereken:** takili-kalma skill'i aktif olmalı (5. kural: Telegram Kurtarma Sinyali)
+- **Local ReYMeN'te gereken:** takili-kalma skill'i aktif olmalı (5. kural: Telegram Kurtarma Sinyali)
 
 ### ÖNEMLİ Kısıt
-Local Hermes'in kendi başına web'de arama (Tor Browser, web_search, web_extract) yeteneği YOKTUR. Bu nedenle araştırma her zaman Telegram Hermes tarafından yapılır.
+Local ReYMeN'in kendi başına web'de arama (Tor Browser, web_search, web_extract) yeteneği YOKTUR. Bu nedenle araştırma her zaman Telegram ReYMeN tarafından yapılır.
 
 ### Referans
 Detaylı akış için: `takili-kalma` skill'indeki `references/kurtarma-akisi.md`

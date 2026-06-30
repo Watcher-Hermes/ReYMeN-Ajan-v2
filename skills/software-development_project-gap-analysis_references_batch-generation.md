@@ -72,7 +72,7 @@ kaydet("discord", getattr(mod, "baslat"), getattr(mod, "durdur"), getattr(mod, "
 
 ## ACP (Agent Communication Protocol) Minimal Yaklasim
 
-ACP buyuk bir protokoldur (Hermes'te 6+ dosya). R>eYMeN icin minimal versiyon yeterlidir:
+ACP buyuk bir protokoldur (ReYMeN'te 6+ dosya). R>eYMeN icin minimal versiyon yeterlidir:
 - `server.py`: TCP socket + stdio, JSON-RPC 2.0, tool kaydetme
 - `client.py`: TCP + stdio istemci, ping + tool_call
 - `auth.py`: HMAC + timestamp dogrulama

@@ -4,11 +4,11 @@ title: "Godmode"
 tags: [security]
 description: "Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN."
 version: 1.0.0
-author: Hermes Agent + Teknium
+author: ReYMeN Agent + Teknium
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [jailbreak, red-teaming, G0DM0D3, Parseltongue, GODMODE, uncensoring, safety-bypass, prompt-engineering, L1B3RT4S]
 audience: user
 related_skills: [obliteratus]

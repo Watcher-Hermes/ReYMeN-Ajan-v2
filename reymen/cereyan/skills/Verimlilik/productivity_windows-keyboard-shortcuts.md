@@ -1,24 +1,14 @@
 ---
 name: windows-keyboard-shortcuts
-title: "Windows Keyboard Shortcuts"
-tags: [productivity, windows]
-description: "Windows klavye kýsayollarý: sistem, pencere, tarayýcý, dosya, metin, geliþtirici. Uzun listeler yerine kýsa, akýlda kalýr bloklar."
-version: 1.0.0
-author: marko
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [windows, keyboard, shortcuts, productivity, system, browser, editor]
+title: Windows Keyboard Shortcuts
+description: 'Windows klavye kýsayollarý: sistem, pencere, tarayýcý, dosya, metin,
+  geliþtirici. Uzun listeler yerine kýsa, akýlda kalýr bloklar.'
+tags:
+- productivity
+- windows
+category: Verimlilik
 audience: user
-related_skills: [windows-system-automation, openai-screenshot, obsidian]
 ---
-
-
-> **Kategori:** productivity
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +19,6 @@ related_skills: [windows-system-automation, openai-screenshot, obsidian]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Windows Klavye Kısayolları
 

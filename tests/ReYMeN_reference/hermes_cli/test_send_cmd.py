@@ -355,7 +355,7 @@ def test_load_ReYMeN_env_bridges_config_yaml_scalars(tmp_path, monkeypatch):
     monkeypatch.delenv("TELEGRAM_HOME_CHANNEL", raising=False)
     monkeypatch.delenv("SOME_TOKEN", raising=False)
 
-    # Force get_ReYMeN_home() to re-resolve under the patched env.
+    # Force get_reymen_home() to re-resolve under the patched env.
     from importlib import reload
 
     import ReYMeN_cli.config as _hc_config

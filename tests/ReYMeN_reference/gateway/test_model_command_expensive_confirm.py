@@ -83,8 +83,8 @@ def _setup_isolated_home(tmp_path, monkeypatch, *, warn):
         "ReYMeN_cli.model_switch.switch_model",
         lambda **kw: _fake_switch_result(),
     )
-    monkeypatch.setattr("ReYMeN_constants.get_ReYMeN_home", lambda: ReYMeN_home)
-    monkeypatch.setattr("ReYMeN_cli.config.get_ReYMeN_home", lambda: ReYMeN_home)
+    monkeypatch.setattr("ReYMeN_constants.get_reymen_home", lambda: ReYMeN_home)
+    monkeypatch.setattr("ReYMeN_cli.config.get_reymen_home", lambda: ReYMeN_home)
     monkeypatch.setattr(
         "ReYMeN_cli.model_cost_guard.expensive_model_warning",
         (lambda *a, **kw: _fake_warning()) if warn else (lambda *a, **kw: None),

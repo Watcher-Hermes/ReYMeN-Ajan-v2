@@ -20,7 +20,7 @@ version: 1.0.0
 ## 3 Ajan
 - 🐉 Kali: `kali/network/nmap`, `kali/web`, `kali/network`
 - 🪟 Windows: `windows/terminal/network`, `windows/terminal/system`
-- 🤖 Hermes: `kullanici/profil`, `sistem/mimari`, `sistem/pitfall`
+- 🤖 ReYMeN: `kullanici/profil`, `sistem/mimari`, `sistem/pitfall`
 
 ## Paylaşımlı Yapı
 ```

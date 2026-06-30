@@ -1,8 +1,12 @@
-
-> **Kategori:** security
-
 ---
-
+name: security_android-apk-hardening
+title: Android Apk Hardening
+description: ''
+tags:
+- security
+category: security
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,10 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
-
----
 
 name: android-apk-hardening
 description: Kendi APK'ını saldırgan gözüyle oku, lisans/premium kırılganlıklarını tespit et, sertleştir. Client-side güvenlik denetimi + savunma stratejisi.

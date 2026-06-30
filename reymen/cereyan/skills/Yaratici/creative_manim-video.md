@@ -1,8 +1,12 @@
-
-> **Kategori:** creative
-
 ---
-
+name: creative_manim-video
+title: Creative Manim Video
+description: ''
+tags:
+- creative
+category: creative
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,10 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
-
----
 
 name: manim-video
 description: "Manim CE animations: 3Blue1Brown math/algo videos."

@@ -20,10 +20,10 @@
 
 ## GitHub
 
-- **Repo:** `Watcher-Hermes/ReYMeN-Ajan` (public)
-- **URL:** https://github.com/Watcher-Hermes/ReYMeN-Ajan
-- **Remote origin:** https://github.com/Watcher-Hermes/ReYMeN-Ajan.git
-- **Auth:** Watcher-Hermes account (asdafgf keyring)
+- **Repo:** `Watcher-ReYMeN/ReYMeN-Ajan` (public)
+- **URL:** https://github.com/Watcher-ReYMeN/ReYMeN-Ajan
+- **Remote origin:** https://github.com/Watcher-ReYMeN/ReYMeN-Ajan.git
+- **Auth:** Watcher-ReYMeN account (asdafgf keyring)
 
 ## Script: `.hermes_sync.sh`
 
@@ -57,5 +57,5 @@ otonom_nisan_olusturucu.py, akilli_yonlendirici.py, cokus_raporlayici.py
 
 ## Tarihçe
 
-- **2026-06-17:** Script yeniden yazıldı — Hermes'ten kopyalamak yerine kendi repo'sundan `git pull` yapar. Cron güncellendi. Repo public yapıldı.
-- **Öncesi:** Hermes Agent'in yerel dosyalarından kopyalıyordu (AGENTS.md, .env.example, Dockerfile, docs/ vb.)
+- **2026-06-17:** Script yeniden yazıldı — ReYMeN'ten kopyalamak yerine kendi repo'sundan `git pull` yapar. Cron güncellendi. Repo public yapıldı.
+- **Öncesi:** ReYMeN Agent'in yerel dosyalarından kopyalıyordu (AGENTS.md, .env.example, Dockerfile, docs/ vb.)

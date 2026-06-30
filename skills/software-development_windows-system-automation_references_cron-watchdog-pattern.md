@@ -55,11 +55,11 @@ cronjob(
 
 ```python
 #!/usr/bin/env python3
-"""Hermes + Obsidian vault -> GitHub"""
+"""ReYMeN + Obsidian vault -> GitHub"""
 import subprocess, os
 from datetime import datetime
 
-HERMES_DIR = r"C:\Users\marko\AppData\Local\hermes"
+HERMES_DIR = r"C:\Users\marko\AppData\Local\reymen"
 VAULT_DIR = r"C:\Users\marko\OneDrive\Belgeler\Obsidian Vault"
 ENV_PATH = r"C:\Users\marko\AppData\Local\hermes\.env"
 GITHUB_USER = "asdafgf"
@@ -108,6 +108,6 @@ if __name__ == "__main__":
         print("⏸️ GITHUB_TOKEN .env'de yok. Backup atlandı.")
         exit(0)
     print(f"🔄 {datetime.now().strftime('%H:%M')}")
-    print(f"📦 Hermes: {backup(HERMES_DIR, 'Hermes', 'hermes-backup', token)}")
+    print(f"📦 ReYMeN: {backup(HERMES_DIR, 'ReYMeN', 'ReYMeN-backup', token)}")
     print(f"📓 Vault:  {backup(VAULT_DIR, 'Vault', 'obsidian-vault', token)}")
 ```

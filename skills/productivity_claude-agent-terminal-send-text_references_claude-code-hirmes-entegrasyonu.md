@@ -16,10 +16,10 @@
 
 ---
 
-# Claude Code ↔ Hermes Entegrasyonu
+# Claude Code ↔ ReYMeN Entegrasyonu
 
 > Kaynak: Claude Opus 4.8'in 11.06.2026 oturumunda verdiği cevap.
-> Soru: "Claude Code, Hermes'in skill ve Obsidian notlarını nasıl kullanabilir?"
+> Soru: "Claude Code, ReYMeN'in skill ve Obsidian notlarını nasıl kullanabilir?"
 
 ## 3 Yöntem (Claude Önerisi)
 
@@ -30,18 +30,18 @@ VS Code workspace'inde `.vscode/.instructions.md` oluştur. Claude Code otomatik
 ```
 project/
 └── .vscode/
-    └── .instructions.md   <- Hermes skill'lerini buraya ekle
+    └── .instructions.md   <- ReYMeN skill'lerini buraya ekle
 ```
 
-**Ne yap:** Hermes skill'lerinin özetini/ilgili kısımlarını bu dosyaya kopyala.
+**Ne yap:** ReYMeN skill'lerinin özetini/ilgili kısımlarını bu dosyaya kopyala.
 **Artı:** Sıfır kurulum, Claude Code doğrudan okur.
 **Eksi:** Manuel güncelleme gerekir, dinamik değil.
 
 ### 2. Symlink + `.instructions.md` (sürekli kullanım)
 
 ```powershell
-# Hermes skill'lerini projeye bağla
-New-Item -ItemType SymbolicLink -Path ".\docs\hermes-skills" `
+# ReYMeN skill'lerini projeye bağla
+New-Item -ItemType SymbolicLink -Path ".\docs\ReYMeN-skills" `
   -Target "C:\Users\marko\AppData\Local\hermes\skills"
 
 # Obsidian vault'u projeye bağla
@@ -69,14 +69,14 @@ Obsidian vault'unu Model Context Protocol sunucusu olarak expose et. Claude Code
 
 ## Pratik Uygulama: Soru Gönderme Akışı
 
-Hermes, Claude Code'a soru göndermek için şu sırayı dene:
+ReYMeN, Claude Code'a soru göndermek için şu sırayı dene:
 
 1. **Clipboard paste** (önerilen) — PowerShell `Get-Content | Set-Clipboard` ile panoya kopyala, `pyautogui.hotkey('ctrl', 'v')` ile yapıştır
 2. **pyautogui.write()** — kısa metinlerde, bot algılaması riski var
 3. **Doğal yazma** — bot algılaması durumunda, random gecikmeli harf harf yazma
 4. **Tam başarısızlık protokolü** — kullanıcıya "manuel yapıştır" de
 
-## Hermes Çalışma Dizini Referansları
+## ReYMeN Çalışma Dizini Referansları
 
 | Kaynak | Yol |
 |--------|-----|

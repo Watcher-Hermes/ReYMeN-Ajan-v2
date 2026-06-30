@@ -1,7 +1,7 @@
 ---
 name: software-development_hermes-s6-container-supervision_references_related-skills
 description: Related skills
-title: "Software Development Hermes S6 Container Supervision References Related Skills"
+title: "Software Development ReYMeN S6 Container Supervision References Related Skills"
 version: 1.0.0
 ---
 
@@ -17,5 +17,5 @@ version: 1.0.0
 
 ## Related skills
 
-- `hermes-agent-dev`: General hermes-agent codebase navigation
-- `hermes-tool-quirks`: Specific Hermes-tool workarounds (sed/grep/etc.) — load when debugging the s6 stack's interaction with hermes built-in tools.
+- `ReYMeN-agent-dev`: General ReYMeN-agent codebase navigation
+- `ReYMeN-tool-quirks`: Specific ReYMeN-tool workarounds (sed/grep/etc.) — load when debugging the s6 stack's interaction with ReYMeN built-in tools.

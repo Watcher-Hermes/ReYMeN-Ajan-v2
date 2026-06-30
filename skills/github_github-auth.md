@@ -4,11 +4,11 @@ title: "GitHub Auth"
 tags: [development, git, github]
 description: "GitHub auth setup: HTTPS tokens, SSH keys, gh CLI login."
 version: 1.1.0
-author: Hermes Agent
+author: ReYMeN Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [GitHub, Authentication, Git, gh-cli, SSH, Setup]
 audience: contributor
 related_skills: [github-pr-workflow, github-code-review, github-issues, github-repo-management]
@@ -73,7 +73,7 @@ This is the most portable method — works everywhere, no SSH config needed.
 Tell the user to go to: **https://github.com/settings/tokens**
 
 - Click "Generate new token (classic)"
-- Give it a name like "hermes-agent"
+- Give it a name like "ReYMeN-agent"
 - Select scopes:
   - `repo` (full repository access — read, write, push, PRs)
   - `workflow` (trigger and manage GitHub Actions)
@@ -152,7 +152,7 @@ cat ~/.ssh/id_ed25519.pub
 Tell the user to add the public key at: **https://github.com/settings/keys**
 - Click "New SSH key"
 - Paste the public key content
-- Give it a title like "hermes-agent-<machine-name>"
+- Give it a title like "ReYMeN-agent-<machine-name>"
 
 **Step 3: Test the connection**
 

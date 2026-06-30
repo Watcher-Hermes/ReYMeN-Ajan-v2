@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_windows-screen-capture
+title: Windows Automation Windows Screen Capture
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: windows-screen-capture
 description: Windows ekran görüntüsü alma iş akışı. Tam ekran, aktif pencere, alan seçimli kesme ve panoya kopyalama senaryolarını kapsar.
 title: "Windows Screen Capture"

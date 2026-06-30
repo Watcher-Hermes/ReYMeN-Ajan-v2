@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: test-runner-cron-pattern
+title: Test Runner Cron Pattern
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Test Runner Cron — 15 Dakikada Bir Test
 
@@ -49,7 +51,7 @@ from datetime import datetime
 
 HOME = os.path.expanduser("~")
 PROJECT_DIR = os.path.join(HOME, "Desktop", "Reymen Proje", "hermes_projesi")
-LOG_DIR = os.path.join(HOME, "AppData", "Local", "hermes", "profiles",
+LOG_DIR = os.path.join(HOME, "AppData", "Local", "ReYMeN", "profiles",
                        "reymen", "cron", "output")
 os.chdir(PROJECT_DIR)
 

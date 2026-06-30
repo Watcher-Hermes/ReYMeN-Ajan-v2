@@ -1,19 +1,12 @@
 ---
 name: dogfood
-title: "Dogfood"
-tags: [development]
-description: "Exploratory QA of web apps: find bugs, evidence, reports."
-version: 1.0.0
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [qa, testing, browser, web, dogfood]
+title: Dogfood
+description: 'Exploratory QA of web apps: find bugs, evidence, reports.'
+tags:
+- development
+category: Kod
 audience: contributor
-related_skills: []
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -34,8 +27,6 @@ related_skills: []
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: Yazilim gelistirici
 Ne: "Exploratory QA of web apps: find bugs, evidence, reports."

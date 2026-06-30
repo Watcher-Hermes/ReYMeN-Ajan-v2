@@ -1,8 +1,12 @@
-
-> **Kategori:** system
-
 ---
-
+name: windows-system-automation_windows-camera-capture
+title: Windows System Automation Windows Camera Capture
+description: ''
+tags:
+- system
+category: system
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: windows-camera-capture
 description: Windows'ta USB/built-in webcam'dan video çekme, doğrulama ve Telegram'a gönderme. opencv-python-headless hatası, çözünürlük/fps ayarı, kare sayısı doğrulama ve Telegram Bot API gönderimi için.
 title: "Windows Camera Capture"

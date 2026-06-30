@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_otonom-cozum-dongusu_references_hermes-modul-entegrasyonu
-description: Hermes Modul Entegrasyonu (Reymen Pattern)
-title: "Autonomous Ai Agents Otonom Cozum Dongusu References Hermes Modul Entegrasyonu"
+description: ReYMeN Modul Entegrasyonu (Reymen Pattern)
+title: "Autonomous Ai Agents Otonom Cozum Dongusu References ReYMeN Modul Entegrasyonu"
 version: 1.0.0
 ---
 
@@ -9,15 +9,15 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Modul Entegrasyonu (Reymen Pattern) |
+| **Ne** | ReYMeN Modul Entegrasyonu (Reymen Pattern) |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes Modul Entegrasyonu (Reymen Pattern)
+# ReYMeN Modul Entegrasyonu (Reymen Pattern)
 
-Hermes'ten bir projeye modul kopyalarken:
+ReYMeN'ten bir projeye modul kopyalarken:
 
 ## Kural
 

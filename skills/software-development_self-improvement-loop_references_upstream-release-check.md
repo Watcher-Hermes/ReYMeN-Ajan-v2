@@ -1,6 +1,6 @@
 ---
 name: software-development_self-improvement-loop_references_upstream-release-check
-description: Upstream Hermes Release Check (Planlama Alan 2-b)
+description: Upstream ReYMeN Release Check (Planlama Alan 2-b)
 title: "Software Development Self Improvement Loop References Upstream Release Check"
 version: 1.0.0
 ---
@@ -9,25 +9,25 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Upstream Hermes Release Check (Planlama Alan 2-b) |
+| **Ne** | Upstream ReYMeN Release Check (Planlama Alan 2-b) |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Upstream Hermes Release Check (Planlama Alan 2-b)
+# Upstream ReYMeN Release Check (Planlama Alan 2-b)
 
 ## Purpose
-Check upstream (NousResearch/hermes-agent) for new releases that may affect ReYMeN.
+Check upstream (NousResearch/ReYMeN-agent) for new releases that may affect ReYMeN.
 
 ## Method
 
 ```python
 # Step 1: Web search for the releases page
-web_search("NousResearch Hermes Agent release changelog 2026")
+web_search("NousResearch ReYMeN Agent release changelog 2026")
 
 # Step 2: Extract the releases page for full detail
-web_extract(["https://github.com/NousResearch/hermes-agent/releases"])
+web_extract(["https://github.com/NousResearch/ReYMeN-agent/releases"])
 ```
 
 ## What to extract from each release

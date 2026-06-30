@@ -150,7 +150,7 @@ Root shim'ler `from reymen.X.Y import *` yaparken, `reymen/__init__.py` de aynı
 ### 2. Neden?
 - 6,904 skill dosyası mevcut, manuel senkronizasyon imkansız
 - Hash tabanlı deduplication: aynı içerik tekrar işlenmez
-- Her 6 saatte bir otomatik çalışacak (Hermes cron)
+- Her 6 saatte bir otomatik çalışacak (ReYMeN cron)
 - Eski veriler silinmez, sadece güncellenir
 
 ### 3. Alternatif?

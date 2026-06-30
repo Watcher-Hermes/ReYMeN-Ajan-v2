@@ -1,25 +1,13 @@
 ---
-
 name: node-inspect-debugger
-title: "Node Inspect Debugger"
-tags: [coding, development]
-description: "Debug Node.js via --inspect + Chrome DevTools Protocol CLI."
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [debugging, nodejs, node-inspect, cdp, breakpoints, ui-tui]
+title: Node Inspect Debugger
+description: Debug Node.js via --inspect + Chrome DevTools Protocol CLI.
+tags:
+- coding
+- development
+category: Kod
 audience: contributor
-related_skills: [systematic-debugging, python-debugpy, debugging-hermes-tui-commands]
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -30,8 +18,6 @@ related_skills: [systematic-debugging, python-debugpy, debugging-hermes-tui-comm
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Node Inspect Debugger
 
@@ -50,7 +36,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | or older tsx | `references/or-older-tsx.md` |
 | Programmatic CDP (scripting from terminal) | `references/programmatic-cdp-scripting-from-terminal.md` |
 | Start your target: | `references/start-your-target.md` |
-| Debugging Hermes ui-tui | `references/debugging-hermes-ui-tui.md` |
+| Debugging ReYMeN ui-tui | `references/debugging-ReYMeN-ui-tui.md` |
 | In another terminal: | `references/in-another-terminal.md` |
 | 1. Launch TUI | `references/1-launch-tui.md` |
 | 2. Enable inspector on that Node PID | `references/2-enable-inspector-on-that-node-pid.md` |

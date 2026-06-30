@@ -1,7 +1,7 @@
 ---
 name: fork-sync
-description: Compare forked agent codebase with upstream (Hermes), identify gaps, sync changes, and fix test failures.
-tags: [hermes, reymen, fork, sync, merge, codebase-comparison]
+description: Compare forked agent codebase with upstream (ReYMeN), identify gaps, sync changes, and fix test failures.
+tags: [ReYMeN, reymen, fork, sync, merge, codebase-comparison]
 audience: maintainer
 ---
 
@@ -15,7 +15,7 @@ audience: maintainer
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Compare forked agent codebase with upstream (Hermes), identify gaps, sync changes, and fix test failures. |
+| **Ne?** | Compare forked agent codebase with upstream (ReYMeN), identify gaps, sync changes, and fix test failures. |
 | **Nerede?** | devops/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -27,12 +27,12 @@ audience: maintainer
 
 Related: [`github-self-update`](devops/github-self-update) — after initial sync, switch to self-update pattern
 
-Bir Hermes Agent fork'unu (ReYMeN vb.) upstream ile karşılaştırır, eksikleri bulur, güvenli dosyaları kopyalar, merge gerektirenleri işaretler.
+Bir ReYMeN Agent fork'unu (ReYMeN vb.) upstream ile karşılaştırır, eksikleri bulur, güvenli dosyaları kopyalar, merge gerektirenleri işaretler.
 
 ## Ne Zaman Kullanılır
 
-- Hermes güncellendiğinde fork'a çekmek için
-- Fork'un Hermes'ten ne kadar uzaklaştığını ölçmek için
+- ReYMeN güncellendiğinde fork'a çekmek için
+- Fork'un ReYMeN'ten ne kadar uzaklaştığını ölçmek için
 - Hangi dosyaların değiştirildiğini / eklendiğini / silindiğini görmek için
 
 ## Adımlar
@@ -41,7 +41,7 @@ Bir Hermes Agent fork'unu (ReYMeN vb.) upstream ile karşılaştırır, eksikler
 
 ```bash
 # Klasör yapısını karşılaştır
-diff <(cd /path/to/hermes && ls -d */ | sort) <(cd /path/to/fork && ls -d */ | sort)
+diff <(cd /path/to/ReYMeN && ls -d */ | sort) <(cd /path/to/fork && ls -d */ | sort)
 
 # .py dosya sayısı
 find . -name '*.py' -not -path '*/node_modules/*' -not -path '*/venv/*' -not -path '*/__pycache__/*' -type f | wc -l
@@ -66,10 +66,10 @@ Kopyalama:
 
 ```bash
 for f in AGENTS.md .env.example CONTRIBUTING.md; do
-  cp "$HERMES/$f" "$FORK/$f"
+  cp "$ReYMeN/$f" "$FORK/$f"
 done
 for d in docs assets packaging; do
-  cp -r "$HERMES/$d" "$FORK/"
+  cp -r "$ReYMeN/$d" "$FORK/"
 done
 ```
 
@@ -80,15 +80,15 @@ Fork'ta değiştirilmiş olan dosyalar **elle merge** gerektirir:
 ```bash
 # Fork'ta değiştirilmiş dosyaları bul
 for f in motor.py main.py beyin.py sistem_talimati.py; do
-  diff -q "$HERMES/$f" "$FORK/$f" >/dev/null 2>&1 || echo "⚠ $f DEĞİŞMİŞ"
+  diff -q "$ReYMeN/$f" "$FORK/$f" >/dev/null 2>&1 || echo "⚠ $f DEĞİŞMİŞ"
 done
 ```
 
 ### 4. Fork'a Özel Eklenenleri Tespit Et
 
 ```bash
-# Fork'ta olup Hermes'te olmayan dosyalar
-diff <(cd $HERMES && find . -name '*.py' -not -path '*/node_modules/*' | sort) \
+# Fork'ta olup ReYMeN'te olmayan dosyalar
+diff <(cd $ReYMeN && find . -name '*.py' -not -path '*/node_modules/*' | sort) \
      <(cd $FORK && find . -name '*.py' -not -path '*/skills/*' -not -path '*/tests/hermes_reference/*' | sort) \
      2>/dev/null | grep "^>"
 ```
@@ -108,7 +108,7 @@ Fork testlerinde sık karşılaşılan hatalar ve çözümleri:
 ### 6. Sync Cron Job'u Ekle
 
 ```bash
-hermes cron create \
+ReYMeN cron create \
   --name "fork-sync" \
   --schedule "0 3 * * 1" \
   --prompt "Fork'u upstream ile senkronize et."

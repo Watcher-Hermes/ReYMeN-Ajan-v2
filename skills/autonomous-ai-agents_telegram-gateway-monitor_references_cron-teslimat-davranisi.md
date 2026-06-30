@@ -19,7 +19,7 @@ version: 1.0.0
 
 ### Temel Kural
 
-Bu skill cron job olarak çalıştırıldığında (30 dakikada bir), **`hermes send --to` ile test mesajı gönderilemez.** Sistem şu yanıtı verir:
+Bu skill cron job olarak çalıştırıldığında (30 dakikada bir), **`ReYMeN send --to` ile test mesajı gönderilemez.** Sistem şu yanıtı verir:
 
 ```
 Skipped send_message to telegram:6328823909. This cron job will already auto-deliver
@@ -29,13 +29,13 @@ final response instead, or use a different target if you want an additional mess
 
 ### Neden?
 
-Cron job otomasyonu, agent'ın **final response**'unu otomatik olarak hedefe (Telegram) iletir. Bu nedenle ayrıca `hermes send` çağırmak gereksizdir ve sistem tarafından engellenir.
+Cron job otomasyonu, agent'ın **final response**'unu otomatik olarak hedefe (Telegram) iletir. Bu nedenle ayrıca `ReYMeN send` çağırmak gereksizdir ve sistem tarafından engellenir.
 
 ### Pratik Etki
 
 | Durum | Ne Olur |
 |-------|---------|
-| `hermes send --to "telegram:Q !" "test mesajı"` | ⛔ Atlanır (Skipped) |
+| `ReYMeN send --to "telegram:Q !" "test mesajı"` | ⛔ Atlanır (Skipped) |
 | Final response (bu metin) | ✅ Otomatik iletilir |
 
 ### Monitor Turu İçin Adımlar
@@ -50,4 +50,4 @@ Cron job otomasyonu, agent'ın **final response**'unu otomatik olarak hedefe (Te
 Eğer bağlantı sorunu varsa ve cron teslimatı da çalışmıyorsa:
 - Obsidian log'u yine de yaz (en azından kalıcı kayıt kalsın)
 - Kullanıcı bir sonraki kontrol turunda durumu görür
-- Alternatif: normal (cron olmayan) bir oturumda `hermes send` ile manuel test yapılabilir
+- Alternatif: normal (cron olmayan) bir oturumda `ReYMeN send` ile manuel test yapılabilir

@@ -1,13 +1,13 @@
 ---
 name: checkpoint-onay-sinirlari
-description: >-
-  Process checkpoint sistemi ve ajan yetki sınırları. Kesintilerde
-  ilerlemenin kaybolmasını önler, hangi aksiyonların onay gerektirdiğini
-  netleştirir.
-
-
+title: Checkpoint Onay Sinirlari
+description: Process checkpoint sistemi ve ajan yetki sınırları. Kesintilerde ilerlemenin
+  kaybolmasını önler, hangi aksiyonların onay gerektirdiğini netleştirir.
+tags:
+- agents
+category: agents
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |

@@ -16,9 +16,9 @@
 
 ---
 
-# Real-World Example: hermes → R>eYMeN across 2,845 files
+# Real-World Example: ReYMeN → R>eYMeN across 2,845 files
 
-This was a session where the user wanted to rename "hermes" to "R>eYMeN" in all Python files of a large project (~2,845 .py files, 1,629 initially containing the target).
+This was a session where the user wanted to rename "ReYMeN" to "R>eYMeN" in all Python files of a large project (~2,845 .py files, 1,629 initially containing the target).
 
 ## Approach Timeline
 
@@ -74,7 +74,7 @@ Exit code 0, zero remaining files after verification.
 | Word boundary replacements | 8,355 |
 | Full substring replacements | 28,762 |
 | Backup size | 1,048 files |
-| Final remaining "hermes" | 0 |
+| Final remaining "ReYMeN" | 0 |
 
 ## Windows Quirks Encountered
 

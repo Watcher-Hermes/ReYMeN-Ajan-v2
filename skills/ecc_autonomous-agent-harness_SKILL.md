@@ -23,7 +23,7 @@ version: 1.0.0
 ## Completed
 - [x] Daily standup: reviewed 3 PRs, 2 issues
 ```
-## Replacing Hermes
+## Replacing ReYMeN
 ## Setup Guide
 ### Step 1: Configure MCP Servers
 Ensure these are in `~/.claude.json`:

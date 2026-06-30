@@ -8,7 +8,7 @@ author: marko
 license: MIT
 platforms: [windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [windows, dosya, file, notepad, uzanti]
 audience: user
 related_skills: [tam-sistem-yetkisi, windows-automation-shortcuts]

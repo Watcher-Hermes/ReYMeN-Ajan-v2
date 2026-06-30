@@ -6,7 +6,7 @@ author: marko
 license: MIT
 platforms: [windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [tor, browser, search, arama, web, gizlilik, duckduckgo, proxy, socks5, internet]
 audience: user
 related_skills: [gorsel-onaylama, screen-vision-analiz, mouse-klavye-ctypes]
@@ -34,7 +34,7 @@ related_skills: [gorsel-onaylama, screen-vision-analiz, mouse-klavye-ctypes]
 
 ## Overview
 
-Hermes, internette bilgi ararken DAIMA Tor Browser kullanır.
+ReYMeN, internette bilgi ararken DAIMA Tor Browser kullanır.
 Normal tarayıcı veya doğrudan bağlantı YASAK. Her arama Tor üzerinden yapılır.
 
 **Script:** `C:\Users\marko\hermestor.py`
@@ -233,7 +233,7 @@ GitHub'dan clone yapmadan ÖNCE kullanıcıya sor. Asla izinsiz clone yapma.
 4. **Ekranda captcha** — Tor IP'si banli olabilir; Tor Browser'da "New Identity" kullan.
 5. **Port 9150 yerine 9050** — 9050 Tor daemon'u, 9150 Tor Browser'u. Tor Browser aciksa 9150.
 6. **SOCKS bagimliligi eksik → "Missing dependencies for SOCKS support""** — `hermestor.py search` ve `proxy` komutlari `requests[socks]` gerektirir. Cozum: `pip install requests[socks]` veya `pip install pysocks` calistir.
-7. **Windows bash (git-bash) yol bozulmasi** — Hermes `C:\WINDOWS\System32` altindan calisirken `python C:\Users\marko\hermestor.py` yazinca MSYS yol donusumu bozuyor (`C:\WINDOWS\System32\Usersmarkohermestor.py` haline geliyor). Cozum: `/c/Users/marko/hermestor.py` yaz (UNIX stil yol, bash duzgun cozer).
+7. **Windows bash (git-bash) yol bozulmasi** — ReYMeN `C:\WINDOWS\System32` altindan calisirken `python C:\Users\marko\hermestor.py` yazinca MSYS yol donusumu bozuyor (`C:\WINDOWS\System32\Usersmarkohermestor.py` haline geliyor). Cozum: `/c/Users/marko/hermestor.py` yaz (UNIX stil yol, bash duzgun cozer).
 8. **`open` komutu varsayilan sayfa acabilir** — `hermestor.py open` eski halinde `--new-tab` flag'i vardi; Tor Browser ilk acilista varsayilan donate.torproject.org sayfasini ana pencerede gosteriyor, verilen URL ise arka planda yeni sekmede aciyordu. Cozum: `--new-tab` kaldirildi, Firefox URL'i direkt aliyor. Eger hala default sayfa goruyorsan `hermestor.py`'nin `open_url` fonksiyonunu kontrol et — `--new-tab` flag'i OLMAMALI.
 
 9. **Python SOCKS timeout → curl ile fallback** — `hermestor.py proxy` veya `tor_get()` bazen SOCKS baglantisinda zaman asimina ugruyor. Cozum: `curl --socks5-hostname 127.0.0.1:9150 --connect-timeout 10 -s "https://..."` ile dogrudan HTTP al. Python `requests[socks]` yerine curl alternatifi genelde daha hizli baglanir. Detay icin `skill_view(name='tor-browser-arama', file_path='references/tor-curl-ocr-workflow.md')` yap.

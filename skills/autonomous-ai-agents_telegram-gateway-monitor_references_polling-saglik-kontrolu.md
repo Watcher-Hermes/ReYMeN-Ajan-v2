@@ -21,7 +21,7 @@ Gateway çalışıyor görünür ama Telegram mesajları gelmiyorsa, polling don
 
 ### Tespit Adımları
 
-1. Gateway process çalışıyor mu kontrol et (`hermes.exe` ModuleNotFoundError verir — gateway_state.json kullan):
+1. Gateway process çalışıyor mu kontrol et (`ReYMeN.exe` ModuleNotFoundError verir — gateway_state.json kullan):
    ```bash
    # Normal mod (interaktif oturum) — Python ile JSON parsing:
    PID=$(cat /c/Users/marko/AppData/Local/hermes/gateway_state.json 2>/dev/null | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('pid',''))")
@@ -57,7 +57,7 @@ Gateway çalışıyor görünür ama Telegram mesajları gelmiyorsa, polling don
 
 ### Tespitteki Kör Nokta
 
-Gateway `hermes gateway status` çıktısı `✓ Gateway process running` dese bile **polling donmuş olabilir**. 
+Gateway `ReYMeN gateway status` çıktısı `✓ Gateway process running` dese bile **polling donmuş olabilir**. 
 Bu oturumda yaşandı: PID 35444 çalışıyor, status "Ready", monitor cron "ok" raporluyor — ama 7+ saat hiç mesaj alınmamış.
 
 **Sebep:** Gateway'in Telegram bağlantısı (TCP) canlı ama `getUpdates` long-polling döngüsü bir yerde takılı kalmış. Gateway log'unda hata veya uyarı yok, sadece sessizlik.
@@ -65,7 +65,7 @@ Bu oturumda yaşandı: PID 35444 çalışıyor, status "Ready", monitor cron "ok
 **Kural:** Gateway PID'sinin var olması YETERLİ DEĞİL. Her zaman log'da inbound mesaj zamanını da kontrol et.
 
 **Teşhis Akışı (bu oturumda doğrulandı):**
-1. `hermes gateway status` → "Process running, Status Ready" ✅ (yanıltıcı)
+1. `ReYMeN gateway status` → "Process running, Status Ready" ✅ (yanıltıcı)
 2. `send_message` → mesaj gitti (message_id 5033) ✅ (yanıltıcı)
 3. `tail -20 C:\\Users\\marko\\AppData\\Local\\hermes\\logs\\gateway.log | grep "inbound message"` → son mesaj 7 saat önce ❌ (GERÇEK DURUM)
 4. `tail -20 C:\\Users\\marko\\AppData\\Local\\hermes\\logs\\gateway-error.log` → sadece eski uyarılar, yeni hata yok
@@ -74,7 +74,7 @@ Bu oturumda yaşandı: PID 35444 çalışıyor, status "Ready", monitor cron "ok
 ### Çözüm
 
 ```bash
-# ⚠️ hermes.exe ModuleNotFoundError hatasi verir (bkz. references/hermes-cli-invocation.md).
+# ⚠️ ReYMeN.exe ModuleNotFoundError hatasi verir (bkz. references/ReYMeN-cli-invocation.md).
 # 1. Tercih — doğrudan scheduled task ile restart
 powershell.exe -NoProfile -Command "Start-ScheduledTask -TaskName Hermes_Gateway"
 # Bekle: 15-20 sn sonra dogrulamaya gec.
@@ -99,6 +99,6 @@ Restart sonrası log'da şu satırları kontrol et:
 ### Gönderme Testi
 
 Restart'tan sonra Telegram'a test mesajı gönder:
-`send_message(target="telegram", message="Hermes polling test - <zaman>")`
+`send_message(target="telegram", message="ReYMeN polling test - <zaman>")`
 
 Kullanıcıdan cevap yazmasını iste — eğer burdan görülüyorsa tamir tamamdır.

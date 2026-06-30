@@ -1,8 +1,12 @@
-
-> **Kategori:** software-development
-
 ---
-
+name: software-development_security-best-practices
+title: Software Development Security Best Practices
+description: ''
+tags:
+- software-development
+category: software-development
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: "security-best-practices"
 description: "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks."
 title: "Security Best PRactices"

@@ -28,7 +28,7 @@ BELİRSİZ GÖREV GELDİ
    │   - Anahtar kelimeleri çıkar
    │   - Kategori frekansı hesapla
    ├── session_search() → geçmiş konuşmalar
-   └── .ReYMeN/kazanimlar.md → tüm ajanların ortak kaydı (Hermes `memory()` KULLANMA)
+   └── .ReYMeN/kazanimlar.md → tüm ajanların ortak kaydı (ReYMeN `memory()` KULLANMA)
   ↓
 2. EN ALAKALI KATEGORİYİ BUL
    ├── En çok eşleşen kategori
@@ -72,4 +72,4 @@ BELİRSİZ GÖREV GELDİ
 
 `once_hafiza.ara()` → `session_search()` → `.ReYMeN/kazanimlar.md`
 
-**ÖNEMLİ:** Hermes `memory()` tool'unu kullanma. AppData/.../kiral38/memories/ yoluna yazar — diğer ajanlar (Kali, Windows, CAD) erişemez. Tüm ajanlar `.ReYMeN/kazanimlar.md`'ye yazar.
+**ÖNEMLİ:** ReYMeN `memory()` tool'unu kullanma. AppData/.../kiral38/memories/ yoluna yazar — diğer ajanlar (Kali, Windows, CAD) erişemez. Tüm ajanlar `.ReYMeN/kazanimlar.md`'ye yazar.

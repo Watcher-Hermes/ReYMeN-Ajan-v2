@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-protocol-selector
+title: Prompt Protocol Selector
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-protocol-selector
 description: Helps choose the right agent communication protocol (MCP, A2A, ACP, ANP) based on system requirements
 title: "PRompt PRotocol Selector"

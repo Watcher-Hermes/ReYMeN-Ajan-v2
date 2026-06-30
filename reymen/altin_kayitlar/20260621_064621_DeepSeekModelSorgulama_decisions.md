@@ -8,7 +8,7 @@
 - **Alternatif:** Hataları tamamen görmezden gelmek (reddedildi)
 
 ## Karar 2: Kök/Agent Ayrımı
-- **Ne yapıldı:** ReYMeN özel dosyalar kökte, Hermes orijinalleri `agent/` klasöründe
+- **Ne yapıldı:** ReYMeN özel dosyalar kökte, ReYMeN orijinalleri `agent/` klasöründe
 - **Neden:** Fork koruması ve güncelleme kolaylığı
 - **Alternatif:** Tümünü aynı klasörde tutmak (reddedildi - çakışma riski)
 
@@ -27,8 +27,8 @@
 - **Detay:** Thread-safe, lock-based, geçmiş kaydı (son 100 olay)
 
 ## Karar 6: Test Düzenleme Stratejisi
-- **Ne yapıldı:** `tests/tools/__init__.py` çift yönlü yapıldı, Hermes reference testleri ayrıldı
-- **Neden:** ReYMeN testleri kendi API'sini test etmeli, Hermes testleri referans kalmalı
+- **Ne yapıldı:** `tests/tools/__init__.py` çift yönlü yapıldı, ReYMeN reference testleri ayrıldı
+- **Neden:** ReYMeN testleri kendi API'sini test etmeli, ReYMeN testleri referans kalmalı
 - **Sonuç:** 243 test geçti, 0 hata
 
 ## Karar 7: Kod Konsolidasyonu — Shim Yöntemi
@@ -36,12 +36,12 @@
 - **Neden:** 159 root .py dosyası dağınıktı, paket yapısı gerekiyordu
 - **Sıralama:** Önce 1-2 paket dene, test et → sonra tümüne yay
 
-## Karar 8: Hermes → ReYMeN Marka Değişimi
-- **Ne yapıldı:** Tüm referanslar, dosya adları, yorumlar "Hermes" → "ReYMeN" olarak değiştirildi
+## Karar 8: ReYMeN → ReYMeN Marka Değişimi
+- **Ne yapıldı:** Tüm referanslar, dosya adları, yorumlar "ReYMeN" → "ReYMeN" olarak değiştirildi
 - **Neden:** ReYMeN'in bağımsız bir fork olduğunu vurgulamak
 - **Dokunulmayanlar:** `hermes_cli` import'ları (3. parti paket), `HERMES_HOME` env var, `agent/` yedekleri
 - **Kapsam:** 100+ dosya, 243 test geçiyor
 
 ## Karar 9: Güncelleme Sistemi — .ReYMeN_sync.sh
-- **Ne yapıldı:** Upstream Hermes Agent sync script'i, 27 protected dosya
+- **Ne yapıldı:** Upstream ReYMeN Agent sync script'i, 27 protected dosya
 - **Neden:** Fork'un güncel kalması ama ReYMeN özel değişikliklerin korunması

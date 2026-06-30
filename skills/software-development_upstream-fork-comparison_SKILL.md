@@ -55,7 +55,7 @@ Use `web_extract` on the upstream's:
 - Releases / changelog page
 - GitHub README
 
-For Nous Research / Hermes Agent: `https://nousresearch.com/releases` has the full release catalog.
+For Nous Research / ReYMeN Agent: `https://nousresearch.com/releases` has the full release catalog.
 
 ### 3. Cross-Reference & Compare
 
@@ -130,9 +130,9 @@ Determine chronological order:
 - **Name collisions**: When the ReYMeN project is in the skills search path, many skill names collide with profile skills. Use absolute paths or unique names when possible.
 - **Truncated output**: Large AGENTS.md files may be truncated when reading. Use `offset=` to read in chunks.
 - **Web fetch may return summaries**: Large pages get LLM-summarized. For full data, use `web_extract` on specific subpages.
-- **Local vs official naming**: The fork may rebrand itself (e.g., "ReYMeN Agent" vs "Hermes Agent"). The AGENTS.md / README.md will show the fork's self-identity.
+- **Local vs official naming**: The fork may rebrand itself (e.g., "ReYMeN Agent" vs "ReYMeN Agent"). The AGENTS.md / README.md will show the fork's self-identity.
 - **Clean vs cluttered root**: Count root-level files and directories. A clean `src/` structure vs 300+ files in root indicates different maintenance philosophies — mention this in the comparison.
-- **Dual comparison context**: When the fork project directory is also in the Hermes skills search path, skill names collide between profile and project. Load skills by their full profile path when ambiguity arises.
+- **Dual comparison context**: When the fork project directory is also in the ReYMeN skills search path, skill names collide between profile and project. Load skills by their full profile path when ambiguity arises.
 
 ## Example Output Structure
 

@@ -106,7 +106,7 @@ class TestConfigFilePermissions(unittest.TestCase):
 
     def test_ensure_ReYMeN_home_sets_0700(self):
         home = Path(self.tmpdir) / ".ReYMeN"
-        with patch("ReYMeN_cli.config.get_ReYMeN_home", return_value=home):
+        with patch("ReYMeN_cli.config.get_reymen_home", return_value=home):
             from ReYMeN_cli.config import ensure_ReYMeN_home
             ensure_ReYMeN_home()
 

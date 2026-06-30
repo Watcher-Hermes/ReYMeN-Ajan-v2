@@ -1,7 +1,7 @@
 ---
 name: software-development_fork-project-audit_references_hermes-reference-test-fix
-description: Hermes Reference Test Fix Workflow
-title: "Software Development Fork Project Audit References Hermes Reference Test Fix"
+description: ReYMeN Reference Test Fix Workflow
+title: "Software Development Fork Project Audit References ReYMeN Reference Test Fix"
 version: 1.0.0
 ---
 
@@ -9,15 +9,15 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Reference Test Fix Workflow |
+| **Ne** | ReYMeN Reference Test Fix Workflow |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes Reference Test Fix Workflow
+# ReYMeN Reference Test Fix Workflow
 
-Bir fork'ta (ör: ReYMeN) Hermes reference testlerini düzeltirken izlenecek
+Bir fork'ta (ör: ReYMeN) ReYMeN reference testlerini düzeltirken izlenecek
 sistematik yaklaşım.
 
 ## Adımlar
@@ -62,8 +62,8 @@ eklemek yeterli — startup'ta kendiliğinden oluşur.
 Şu durumlarda task description hazırla:
 
 - **Import path farkı:** `from cron.suggestions` → `from ReYMeN_cli.cron.suggestions`
-- **Hermes'e özel fonksiyon:** `format_runtime_provider_error`, `model_forces_max_completion_tokens`
-- **Hermes modülü:** `gateway.platforms.base`, `acp_adapter.auth`, `agent.transports`
+- **ReYMeN'e özel fonksiyon:** `format_runtime_provider_error`, `model_forces_max_completion_tokens`
+- **ReYMeN modülü:** `gateway.platforms.base`, `acp_adapter.auth`, `agent.transports`
 - **Yapısal fark:** scheduler, profil yönetimi, workdir çözümlemesi
 
 Task description formatı:

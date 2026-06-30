@@ -38,8 +38,8 @@ KORUNACAK = {
     ".ReYMeN/memories",
     ".ReYMeN/self_improvement.json",
     ".ReYMeN/cron/jobs.json",
-    ".hermes/session.db",
-    ".hermes/memories",
+    ".ReYMeN/session.db",
+    ".ReYMeN/memories",
 }
 
 AYAR_DOSYASI = PROJE_KOKU / ".ReYMeN" / "guncelleme.json"

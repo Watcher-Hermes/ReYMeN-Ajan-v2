@@ -49,7 +49,7 @@ Her root-level skill için uygun kategori belirlenir:
 | data-science | Jupyter, HF Hub |
 | devops | VM, n8n, Android, webhook, kanban, yedek |
 | email, gaming, github | Aynı isimli kategoriler |
-| hermes-agent | Hermes ayarları |
+| ReYMeN-agent | ReYMeN ayarları |
 | mcp | MCP ile ilgili |
 | media | YouTube, GIF, müzik, Spotify |
 | mlops | Ollama, ChromaDB, hibrit mimari, SAM |
@@ -91,14 +91,14 @@ python "/c/Users/marko/AppData/Local/hermes/skills/00-00-readme/sync_new_skills.
 
 Üç yönlü tutarlılık:
 - **Disk:** `find /c/Users/marko/AppData/Local/hermes/skills -name SKILL.md | wc -l`
-- **API:** `hermes skill scan → skills_list()`
+- **API:** `ReYMeN skill scan → skills_list()`
 - **Obsidian vault:** `ls -1 /c/Users/marko/OneDrive/Belgeler/Obsidian\ Vault/Hermes/Skills/ | wc -l`
 
 ## Karakter Düzeltme Problemleri ve Çözümleri
 
 ### Çift Tire (--) → Tek Tire (-)
 
-Windows `ls`'de gözükür, dizin adında sorun oluşturmaz. Hermes skill_manage'da sorun çıkarmaz çünkü tam isimle eşleşir.
+Windows `ls`'de gözükür, dizin adında sorun oluşturmaz. ReYMeN skill_manage'da sorun çıkarmaz çünkü tam isimle eşleşir.
 
 ### Unicode Combining Characters
 
@@ -123,4 +123,4 @@ ls -1 /c/Users/marko/OneDrive/Belgeler/Obsidian\ Vault/Hermes/Skills/
 
 - `os.rename` **farklı dosya sistemi** arasında çalışmaz (D: → C:). Aynı sürücüde olduğundan emin ol.
 - Windows'ta büyük/küçük harf farkı sorun çıkarmaz, ama Obsidian vault'ta dosya ismi çakışması olabilir.
-- API'de skill_count hemen güncellenmez. `hermes skill scan` çalıştırmak gerekir.
+- API'de skill_count hemen güncellenmez. `ReYMeN skill scan` çalıştırmak gerekir.

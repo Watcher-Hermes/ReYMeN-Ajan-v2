@@ -20,7 +20,7 @@
 
 ## Amaç
 
-Hermes'in `vision_analyze` tool'unu LM Studio üzerinden çalıştırmak.
+ReYMeN'in `vision_analyze` tool'unu LM Studio üzerinden çalıştırmak.
 DeepSeek/V4 Flash görsel desteklemediği için yardımcı vision modeli olarak LM Studio + llava kullanılır.
 
 ## Config Ayarı
@@ -55,11 +55,11 @@ curl -s http://localhost:1234/v1/models | python3 -c "import sys,json; d=json.lo
 
 Önemli: `lmstudio-community/...` ile `shadowbeast/...` farklı modellerdir. Doğru olanı config'e yaz.
 
-## Config Düzenleme Engeli (Hermes Quirk)
+## Config Düzenleme Engeli (ReYMeN Quirk)
 
-Hermes'in `patch` tool'u `config.yaml`'yi düzenlemeyi REDDEDER:
+ReYMeN'in `patch` tool'u `config.yaml`'yi düzenlemeyi REDDEDER:
 ```
-Refusing to write to Hermes config file: ...
+Refusing to write to ReYMeN config file: ...
 Agent cannot modify security-sensitive configuration.
 ```
 

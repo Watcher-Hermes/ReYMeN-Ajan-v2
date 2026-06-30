@@ -1,22 +1,24 @@
-
-> **Kategori:** references
-
 ---
-
+name: hermes-import-2026-06-21
+title: ReYMeN Import 2026 06 21
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Hermes Import 2026 06 21 |
+| **Ne?** | ReYMeN Import 2026 06 21 |
 | **Nerede?** | references/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
-# Hermes → ReYMeN Toplu Import
+# ReYMeN → ReYMeN Toplu Import
 
 **Tarih:** 2026-06-21
 **Süre:** 2.6 saniye

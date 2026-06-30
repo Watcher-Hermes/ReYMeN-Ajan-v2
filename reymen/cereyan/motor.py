@@ -715,17 +715,20 @@ class Motor:
                     asyncio.set_event_loop(_loop)
                     try:
                         _loop.run_until_complete(mcp_reconnect_baslat())
-                    except Exception:
-                        pass
+                    except Exception as _e:
+                        __import__("logging").getLogger(__name__).warning(
+                            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                        )
                     _loop.run_forever()
 
                 t = threading.Thread(target=_reconnect_thread, daemon=True, name="mcp-reconnect")
                 t.start()
-                print("[Motor] MCP Reconnect: arkaplan thread başlatıldı")
-        except ImportError:
+                __import__("logging").getLogger(__name__).debug("[Motor] MCP Reconnect: arkaplan thread başlatıldı")
+        except ImportError as _e:
+            logger.warning("[Motor] Modul yuklenemedi (L727): %s", ImportError)
             pass
         except Exception as e:
-            print(f"[Motor] MCP Reconnect başlatma hatası (önemsiz): {e}")
+            __import__("logging").getLogger(__name__).debug("[Motor] MCP Reconnect başlatma hatası (önemsiz): %s", e)
 
     def _skill_araclari_kaydet(self) -> None:
         """skill_utils modülünden SKILL_ araçlarını kaydet (v1 — geriye uyumluluk)."""
@@ -775,8 +778,10 @@ class Motor:
                 # Aktif skill tracker'a kaydet (LLM context enjeksiyonu icin)
                 try:
                     aktif_skill_ayarla(ad, sonuc)
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
                 return sonuc
 
             self._plugin_arac_kaydet(
@@ -827,7 +832,7 @@ class Motor:
                 lambda ad="": skill_eval_listele(ad),
                 "Skill'in eval test case'lerini listele",
             )
-            print(f"[Skill v4] {skill_sayisi()} skill yuklu.")
+            __import__("logging").getLogger(__name__).debug("[Skill v4] %d skill yuklu.", skill_sayisi())
         except ImportError as _e:
             logger.warning("[Motor] Modul yuklenemedi (L374): %s", ImportError)
             pass
@@ -1103,7 +1108,28 @@ class Motor:
             logger.warning("[Motor] Vektor bellek araclari yuklenemedi: %s", _e)
             pass
 
+        # ── SelfHeal aracı (otonom hata çözümü) ──────────────────────────────
+        try:
+            self._plugin_arac_kaydet(
+                "SELF_HEAL",
+                lambda hedef_hata_kod="": self._self_heal_calistir(hedef_hata_kod),
+                "Otonom hata çözümü. Bir Python hatasını analiz eder, "
+                "OnceHafiza/LLM ile çözer, hafızaya kaydeder. "
+                "Parametre: 'hedef|hata|kod' formatında, | ile ayrılmış. "
+                "Doner: cozum kodu veya hata mesaji.",
+            )
+            logger.info("[Motor] SelfHeal araci kaydedildi: SELF_HEAL")
+        except Exception as e:
+            logger.warning("[Motor] SelfHeal kaydi basarisiz: %s", e)
+
     TOOLSET_GRUPLARI = {
+        # ── Entry Point'ler (reymen_launcher.py üzerinden başlatma) ──
+        #   reymen\bin\reymen.cmd       →  .cmd → python reymen_launcher.py
+        #   venv\Scripts\reymen.cmd     →  .cmd → python reymen_launcher.py
+        #   venv\Scripts\reymen.exe     →  .exe direkt (PyInstaller)
+        #   ~/.local/bin/reymen.exe     →  .exe direkt (pip console_scripts)
+        #   pyproject.toml              →  [project.scripts] reymen = "reymen_launcher:main"
+        #
         "temel":    {"KOMUT_CALISTIR", "PYTHON_CALISTIR", "DOSYA_YAZ", "DOSYA_OKU",
                      "HAFIZA_ARA", "IC_GOZLEM", "PARALLEL_CALISTIR", "GOREV_BITTI",
                      "PROFIL_DEGISTIR", "PROFIL_LISTELE"},
@@ -1146,7 +1172,7 @@ class Motor:
         """check_fn'i geçen kullanılabilir araçların kümesini döndür.
 
         Hem motor._ARAC_CHECK_FNS hem de tool_registry'deki check_fn'leri sorgular.
-        (Hermes Agent ToolRegistry.get_definitions pattern'i)
+        (ReYMeN Agent ToolRegistry.get_definitions pattern'i)
 
         Args:
             toolset: Sadece bu gruptaki araçları filtrele (None = hepsi).
@@ -1348,6 +1374,30 @@ class Motor:
             except Exception as e:
                 return f"[Hata]: hata_cozucu: {e}"
 
+        # SELF_HEAL aracı — otonom hata çözümü
+        if arac == "SELF_HEAL":
+            try:
+                from reymen.core.self_heal import SelfHeal
+                parts = [p.strip() for p in ham_param.split("|", 2)]
+                hedef = parts[0] if len(parts) > 0 else "bilinmeyen"
+                hata = parts[1] if len(parts) > 1 else ""
+                kod = parts[2] if len(parts) > 2 else ""
+                if not hata:
+                    return "[SelfHeal] ❌ Hata mesajı gerekli. Format: hedef|hata|kod"
+                heal = SelfHeal()
+                sonuc = heal.coz(hedef, hata, kod)
+                if sonuc["basarili"]:
+                    return (f"[SelfHeal] ✅ Çözüldü (kaynak: {sonuc['kaynak']}, "
+                            f"deneme: {sonuc['deneme_sayisi']})\n"
+                            f"Çözüm:\n{sonuc['cozum']}")
+                else:
+                    return (f"[SelfHeal] ❌ Çözülemedi "
+                            f"({sonuc['deneme_sayisi']} deneme)\n"
+                            f"Hata: {sonuc['hata']}")
+            except Exception as e:
+                logger.exception("[Motor] SelfHeal hatası")
+                return f"[SelfHeal] ❌ İç hata: {e}"
+
         # TOR_OTOMASYONU araçları
         if arac in ("TOR_AC", "TOR_KAPAT", "TOR_FORM_DOLDUR",
                      "TOR_LOGIN", "TOR_KAYIT", "TOR_SIPARIS"):
@@ -1413,12 +1463,12 @@ class Motor:
                 if arac == "TOR_KAYIT":
                     # HITL: insan onayi zorunlu
                     try:
-                        from reymen.cereyan.insan_arayuzu import onay_iste
-                        izin = onay_iste("TOR_KAYIT", "Yeni uyelik olusturma talebi. Onayliyor musun?")
+                        from reymen.cereyan.insan_arayuzu import HumanInterface
+                        izin = HumanInterface().onay_iste("TOR_KAYIT", "Yeni uyelik olusturma talebi. Onayliyor musun?")
                         if not izin:
                             return "[Kayit] REDDEDILDI: Kullanici onay vermedi."
-                    except ImportError:
-                        logger.warning("[Tor] insan_arayuzu bulunamadi, onay atlandi.")
+                    except Exception:
+                        logger.warning("[Tor] insan_arayuzu HITL calismadi, onay atlandi.")
                     import json
                     data = json.loads(ham_param) if ham_param.startswith("{") else {}
                     if data:
@@ -1428,11 +1478,11 @@ class Motor:
                 if arac == "TOR_SIPARIS":
                     # HITL: insan onayi zorunlu
                     try:
-                        from reymen.cereyan.insan_arayuzu import onay_iste
-                        izin = onay_iste("TOR_SIPARIS", "Siparis verme talebi. Onayliyor musun?")
+                        from reymen.cereyan.insan_arayuzu import HumanInterface
+                        izin = HumanInterface().onay_iste("TOR_SIPARIS", "Siparis verme talebi. Onayliyor musun?")
                         if not izin:
                             return "[Siparis] REDDEDILDI: Kullanici onay vermedi."
-                    except ImportError:
+                    except Exception:
                         logger.warning("[Tor] insan_arayuzu bulunamadi, onay atlandi.")
                     import json
                     data = json.loads(ham_param) if ham_param.startswith("{") else {}
@@ -1547,8 +1597,10 @@ class Motor:
             )
             _ac_tetikle(arac_adi=arac, argumanlar={"params": params})
             _as_tetikle(arac_adi=arac, sonuc=str(sonuc)[:200] if sonuc else "", sure_sn=0.0)
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
     def _fallback_calistir(self, arac: str, params: List[str]) -> str:
         """Yedek if/else zinciri (registry calismazsa)."""
@@ -2206,40 +2258,23 @@ class Motor:
         return r.returncode == 0, r.stderr
 
     def script_calistir(self, script_path: str) -> bool:
-        """Python script çalıştır, hata alırsa öğrenme döngüsüne sok.
-        
-        İyileştirmeler (v2):
-        - sys.executable kullan (doğru Python)
-        - Backoff bekleme (üstel)
-        - Eski çözüm başarısızsa kaydet (basari_sayisi güncelle)
-        - Daha iyi hata yakalama
-        
-        1. Script çalıştır
-        2. Hata varsa hafızada ara (TTL kontrollü)
-        3. Hafızada yoksa LLM'e sor
-        4. Fix'i doğrula
-        5. Çalışıyorsa hafızaya kaydet (basari_sayisi++)
-        6. Çalışmıyorsa backoff ile max 3 dene
-        """
-        from reymen.core.ogrenme import (
-            imza_uret, cozum_bul, cozum_kaydet, tablo_olustur, backoff_bekle
-        )
-        tablo_olustur()
+        """Python script çalıştır, hata alırsa SelfHeal ile çöz.
 
+        SelfHeal v2 entegrasyonu:
+        1. Script çalıştır (subprocess)
+        2. Hata varsa → SelfHeal.script_coz() tetikle
+        3. SelfHeal: imza → hafıza → LLM → subprocess doğrulama → kaydet
+        4. Çözüm başarılıysa fix'i çalıştır
+        5. Değilse False dön
+        """
         path = Path(script_path)
         if not path.exists():
             return False
-        ad = path.stem
+
         import subprocess
         import sys
 
         for deneme in range(1, 4):
-            # Backoff: 2. ve 3. denemede bekle
-            if deneme > 1:
-                bekleme = backoff_bekle(deneme)
-                logger.info("[script_calistir] Backoff: %.1fs (deneme %d/3)", bekleme, deneme)
-                time.sleep(bekleme)
-
             r = subprocess.run(
                 [sys.executable, str(path)],
                 capture_output=True, text=True, timeout=120
@@ -2248,71 +2283,77 @@ class Motor:
                 return True
 
             stderr = r.stderr
+            logger.info("[script_calistir] ❌ Hata (deneme %d/3): %.80s",
+                        deneme, stderr[:80])
+
+            # SelfHeal ile çöz
             try:
-                raise RuntimeError(stderr)
-            except RuntimeError as hata:
-                imza = imza_uret(hata)
-                hata_tipi = type(hata).__name__
+                from reymen.core.self_heal import SelfHeal
+                heal = SelfHeal(max_deneme=1)  # her denemede 1 LLM çağrısı
+                sonuc = heal.script_coz(script_path, stderr)
 
-            onceki = cozum_bul(imza)
-            if onceki:
-                fix_kodu = onceki
-                llm_kullanildi = False
-            else:
-                fix_kodu = self._llm_fix_iste(stderr, path.read_text("utf-8"), dosya_adi=ad)
-                llm_kullanildi = True
+                if sonuc["basarili"]:
+                    # Fix başarılı — fix dosyasını kullan
+                    path = Path(sonuc["fix_path"])
+                    logger.info("[script_calistir] ✅ SelfHeal çözdü (deneme %d, kaynak: %s)",
+                                deneme, sonuc["kaynak"])
+                else:
+                    logger.warning("[script_calistir] ❌ SelfHeal çözemedi (deneme %d): %.80s",
+                                   deneme, sonuc.get("hata", "bilinmeyen")[:80])
+            except Exception as e:
+                logger.exception("[script_calistir] SelfHeal hatası: %s", e)
 
-            fix_dir = path.parent / "fix"
-            fix_dir.mkdir(exist_ok=True)
-            fix_path_v = fix_dir / f"{ad}_fix_v{deneme}.py"
-            fix_path_v.write_text(fix_kodu, "utf-8")
-
-            basarili, fix_stderr = self._fix_dogrula(fix_path_v)
-
-            # KRİTİK DÜZELTME: Eski çözüm başarısızsa da kaydet
-            if llm_kullanildi:
-                cozum_kaydet(imza, hata_tipi, stderr[:500],
-                             fix_kodu, ad, basarili)
-            elif not basarili:
-                # Eski çözüm başarısız oldu — kaydet
-                cozum_kaydet(imza, hata_tipi, stderr[:500],
-                             fix_kodu, ad, basarili=False)
-
-            if basarili:
-                path = fix_path_v
-            else:
-                logger.warning("[script_calistir] Deneme %d başarısız: %s", deneme, fix_stderr[:200])
+            # Backoff (2. ve 3. denemede)
+            if deneme < 3:
+                import time
+                bekleme = 1.0 * (2.0 ** (deneme - 1))
+                time.sleep(bekleme)
 
         return False
 
     def ogren(self, hata_mesaji: str, script_kodu: str, ad: str) -> str:
         """LLM'e sor, fix üret, döndür.
-        
-        İyileştirme: OgrenmeDongusu kullan (imza + hafıza + backoff).
+
+        SelfHeal v2 entegrasyonu:
+        Önce SelfHeal dene, olmazsa direkt LLM fallback.
         """
-        # Önce OgrenmeDongusu dene (hafıza + backoff ile)
+        # SelfHeal ile dene
         try:
-            from reymen.core.ogrenme import OgrenmeDongusu
-            dongu = OgrenmeDongusu(max_deneme=3)
-            hata = RuntimeError(hata_mesaji)
-            cozum = dongu.ogren(hata, script_kodu, ad)
-            if cozum:
-                return cozum
+            from reymen.core.self_heal import SelfHeal
+            heal = SelfHeal(max_deneme=1)
+            # script_kodu = kod, hata_mesaji = hata
+            sonuc = heal.coz(hedef=ad, hata=hata_mesaji, kod=script_kodu)
+            if sonuc["basarili"]:
+                return sonuc["cozum"]
         except Exception as e:
-            logger.warning("[ogren] OgrenmeDongusu hatası: %s, LLM fallback", e)
-        
+            logger.warning("[ogren] SelfHeal hatası: %s, LLM fallback", e)
+
         # Fallback: direkt LLM'e sor
         return self._llm_fix_iste(hata_mesaji, script_kodu, dosya_adi=ad)
 
     def ogrenme_istatistik(self) -> dict:
-        """Öğrenme hafızasının durumu."""
+        """Öğrenme hafızası + SelfHeal istatistikleri."""
+        ogrenme = {}
+        self_heal = {}
         try:
             from reymen.core.ogrenme import istatistik
-            return istatistik()
+            ogrenme = istatistik()
         except ImportError:
+            ogrenme = {"hata": "ogrenme modulu yok"}
+        except Exception:
             pass
+        try:
+            from reymen.core.self_heal import istatistik_al
+            self_heal = istatistik_al()
+        except Exception:
+            self_heal = {"hata": "SelfHeal henüz çalışmadı"}
 
-            return {"hata": "ogrenme modulu yok"}
+        return {
+            "ogrenme_hafiza": ogrenme,
+            "self_heal": self_heal,
+            "toplam_cozum": ogrenme.get("toplam", 0),
+            "toplam_self_heal": self_heal.get("toplam_hata", 0),
+        }
 
     def gorev_coz(self, gorev_yolu: str) -> dict:
         """Verilen görev dosyasını oku, adımları çöz, sonuçları döndür.
@@ -2366,6 +2407,32 @@ class Motor:
                 return f"Hata cozulemedi: {e}"
         
         return f"Çözüm bulunamadı. Hata: {hata[:200]}"
+
+    def _self_heal_calistir(self, hedef_hata_kod: str) -> str:
+        """SELF_HEAL aracı için lambda wrapper.
+
+        Parametre: 'hedef|hata|kod' (| ile ayrılmış)
+        """
+        try:
+            from reymen.core.self_heal import SelfHeal
+            parts = [p.strip() for p in hedef_hata_kod.split("|", 2)]
+            hedef = parts[0] if len(parts) > 0 else "bilinmeyen"
+            hata = parts[1] if len(parts) > 1 else ""
+            kod = parts[2] if len(parts) > 2 else ""
+            if not hata:
+                return "[SelfHeal] ❌ Hata mesajı gerekli. Format: hedef|hata|kod"
+            heal = SelfHeal()
+            sonuc = heal.coz(hedef, hata, kod)
+            if sonuc["basarili"]:
+                return (f"[SelfHeal] ✅ Çözüldü (kaynak: {sonuc['kaynak']}, "
+                        f"deneme: {sonuc['deneme_sayisi']})\n"
+                        f"Çözüm:\n{sonuc['cozum']}")
+            else:
+                return (f"[SelfHeal] ❌ Çözülemedi "
+                        f"({sonuc['deneme_sayisi']} deneme)\n"
+                        f"Hata: {sonuc['hata']}")
+        except Exception as e:
+            return f"[SelfHeal] ❌ İç hata: {e}"
 
     @staticmethod
     def _gorev_adimlari_oku(gorev_yolu: str) -> list[tuple[str, str]]:

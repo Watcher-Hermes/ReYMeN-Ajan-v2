@@ -1353,7 +1353,7 @@ class TestDoctorStaleMaxIterationsDrift:
         (ReYMeN_home / ".env").write_text("".join(env_lines), encoding="utf-8")
 
         monkeypatch.setattr(doctor_mod, "ReYMeN_HOME", ReYMeN_home)
-        monkeypatch.setattr(doctor_mod, "get_ReYMeN_home", lambda: ReYMeN_home)
+        monkeypatch.setattr(doctor_mod, "get_reymen_home", lambda: ReYMeN_home)
         # Point the config helpers at the temp home.
         monkeypatch.setenv("ReYMeN_HOME", str(ReYMeN_home))
         if os_environ_value is not None:

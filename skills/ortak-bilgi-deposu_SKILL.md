@@ -25,7 +25,7 @@ skill→.md, karar→.md, log→kazanimlar.md'
 ❌ Kök `decisions.md` kullanma. Sadece `.ReYMeN/decisions.md` kullanılır.
 ### 🏆 Kazanım Log — kazanimlar.md (TÜM AJANLAR ORTAK)
 **Dosya:** `.ReYMeN/kazanimlar.md`
-**Yazma:** Her ajan (Kali, Windows, CAD, Hermes) append eder
+**Yazma:** Her ajan (Kali, Windows, CAD, ReYMeN) append eder
 ```bash
 echo "" >> .ReYMeN/kazanimlar.md
 echo "---" >> .ReYMeN/kazanimlar.md
@@ -60,11 +60,11 @@ Her ana başlık emoji + kategori adı. Her skill altında kategori yolu + 5N1K.
 Bu kullanıcı için tüm işlemler **onaysız** yapılır. Bekleme ve karar kuralları:
 Bu kural, self-improvement cron'u dahil TÜM operasyonlar için geçerlidir.
 ## Yasaklar (Pitfall)
-1. **❌ Hermes `memory()` tool'unu kullanma.** AppData/.../kiral38/memories/ yoluna yazar — diğer ajanlar erişemez. Direkt Python sqlite3 ile DB'ye yaz.
+1. **❌ ReYMeN `memory()` tool'unu kullanma.** AppData/.../kiral38/memories/ yoluna yazar — diğer ajanlar erişemez. Direkt Python sqlite3 ile DB'ye yaz.
 2. **❌ Skills → `AppData/.../kiral38/skills/` yazma.** Sadece proje içi `reymen/cereyan/skills/` kullanılır.
 3. **❌ Kararları root karar dosyasına yazma.** Sadece `.ReYMeN/decisions.md` kullanılır.
 4. **❌ `pytest --collect-only` kullanma.** Import sırasında HANG yiyor. `compile()` + `timeout 5 import` kullan.
-5. **❌ Hermes internal (AppData) proje bilgisi taşımaz.** Her şey `hermes_projesi/` ağacı içinde olmalı.
+5. **❌ ReYMeN internal (AppData) proje bilgisi taşımaz.** Her şey `hermes_projesi/` ağacı içinde olmalı.
 6. **✅ Tüm ajanlar aynı DB'yi paylaşır.** Kategori kolonu ile ayrışır.
 7. **✅ Her skill 5N1K formatında olmalıdır.** Dağınıklığı önler.
 8. **✅ Cron raporları Run #N formatında, kazanimlar.md append edilir.**

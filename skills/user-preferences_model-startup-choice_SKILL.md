@@ -33,12 +33,12 @@ Model seçin:
 ## SONRASINDA
 
 - Kullanıcı **A** yazarsa → mevcut modeli koru (DeepSeek zaten aktif), devam et
-- Kullanıcı **B** yazarsa → `hermes config set model dolphin-lmstudio` çalıştır, ardından "Config güncellendi. Yeni oturumda LM Studio (Dolphin) aktif olacak." de. NOT: `/model` slash komutu **CLI agent'tan çalıştırılamaz** — gateway seviyesinde işlenir. Doğru yol `hermes config set` ile config'i güncellemek ve kullanıcıya yeni oturum açmasını söylemektir.
+- Kullanıcı **B** yazarsa → `ReYMeN config set model dolphin-lmstudio` çalıştır, ardından "Config güncellendi. Yeni oturumda LM Studio (Dolphin) aktif olacak." de. NOT: `/model` slash komutu **CLI agent'tan çalıştırılamaz** — gateway seviyesinde işlenir. Doğru yol `ReYMeN config set` ile config'i güncellemek ve kullanıcıya yeni oturum açmasını söylemektir.
 - Kullanıcı başka bir şey yazarsa → A seçilmiş gibi devam et (DeepSeek varsayılan)
 
 ## PITFALLS
 
-- **`/model` komutunu ÇALIŞTIRMA** — bu bir gateway slash komutudur, terminalden çalışmaz. Her zaman `hermes config set model <alias>` kullan.
+- **`/model` komutunu ÇALIŞTIRMA** — bu bir gateway slash komutudur, terminalden çalışmaz. Her zaman `ReYMeN config set model <alias>` kullan.
 - **Config değişikliği mevcut oturumda geçerli olmaz** — sadece yeni oturumlar etkilenir. Kullanıcıya bunu bildir.
 - Kullanıcı "sen hala eski modeldesin" derse → haklıdır. Config'i güncellemiş olsan bile bu oturum o config ile başlatıldı. Yeni oturum öner.
 

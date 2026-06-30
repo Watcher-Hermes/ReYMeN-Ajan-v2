@@ -1,24 +1,12 @@
 ---
-name: blogwatcher
-description: "Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool."
-version: 2.0.0
-author: JulienTant (fork of Hyaxia/blogwatcher)
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [RSS, Blogs, Feed-Reader, Monitoring]
-audience: user
-    homepage: https://github.com/JulienTant/blogwatcher-cli
-prerequisites:
-  commands: [blogwatcher-cli]
+name: research_blogwatcher
+title: Research Blogwatcher
+description: ''
+tags:
+- research
+category: Research
+audience: agent
 ---
-
-
-> **Kategori:** research
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +17,6 @@ prerequisites:
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Blogwatcher
 

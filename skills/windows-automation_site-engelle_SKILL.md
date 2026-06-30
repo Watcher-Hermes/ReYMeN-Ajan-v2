@@ -23,10 +23,10 @@ title: "Site Engelle"
   hosts dosyası + Windows Firewall ile çift katmanlı engelleme.
   Tor Browser da dahil hiçbir şekilde erişilemez.
 version: 1.0.0
-author: Hermes
+author: ReYMeN
 platforms: [windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [block, firewall, hosts, credit-card, payment, security]
 category: windows-automation
 audience: maintainer
@@ -38,7 +38,7 @@ tags: [automation, system, windows]
 # Site Engelle
 
 ## Tetikleyici
-Hermes'in açtığı bir sayfada şunlardan biri görülürse DERHAL engelle:
+ReYMeN'in açtığı bir sayfada şunlardan biri görülürse DERHAL engelle:
 - Kredi kartı formu
 - Ödeme / satın alma sayfası
 - cart/add, checkout, payment, billing

@@ -20,7 +20,7 @@
 if [ $? -ne 0 ]; then
   PAT=$(grep "^GITHUB_TOKEN=" /c/Users/marko/AppData/Local/hermes/.env | head -1 | cut -d= -f2)
   if [ -n "$PAT" ] && [ "$PAT" != "***" ]; then
-    git remote set-url origin "https://Watcher-Hermes:$PAT@github.com/Watcher-Hermes/obsidian-vault.git"
+    git remote set-url origin "https://Watcher-ReYMeN:$PAT@github.com/Watcher-ReYMeN/obsidian-vault.git"
     GIT_TERMINAL_PROMPT=0 git push origin "$BRANCH"
   fi
 fi

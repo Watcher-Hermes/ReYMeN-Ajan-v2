@@ -49,8 +49,8 @@ ollama_num_ctx: 1048576
 ### 2. El İle Ayarla (gerekirse)
 
 ```bash
-hermes config set model.context_length 1048576
-hermes config set model.ollama_num_ctx 1048576
+ReYMeN config set model.context_length 1048576
+ReYMeN config set model.ollama_num_ctx 1048576
 ```
 
 ### 3. On-Session-Start Hook (Otomatik)

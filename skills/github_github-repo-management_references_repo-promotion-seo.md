@@ -41,7 +41,7 @@ gh repo edit <owner>/<repo> \
 
 En fazla 20 etiket. İyi seçilmiş topic'ler GitHub aramasında üst sıralara çıkarır.
 
-**Örnek:** `hermes-agent`, `ai-agent`, `skills`, `modular`, `windows-automation`, `llm`, `skills-library`
+**Örnek:** `ReYMeN-agent`, `ai-agent`, `skills`, `modular`, `windows-automation`, `llm`, `skills-library`
 
 ## 3. LICENSE Dosyası
 

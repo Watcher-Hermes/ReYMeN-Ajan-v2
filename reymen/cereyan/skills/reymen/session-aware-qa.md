@@ -2,9 +2,11 @@
 name: session-aware-qa
 title: Session Bilinçli QA
 description: Soruları önce geçmiş session'da kontrol et, aynıysa önceki cevabı ver.
+tags:
+- reymen
 category: reymen
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ReYMeN ajani |

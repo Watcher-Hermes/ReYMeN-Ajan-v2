@@ -25,7 +25,7 @@ version: 1.0.0
 author: marko
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [windows, mouse, automation, powershell, cursor, screenshot]
 category: productivity
 audience: user

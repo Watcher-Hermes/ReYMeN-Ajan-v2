@@ -61,7 +61,7 @@ NAT arkasinda: Evet (192.168.x.x)
 
 ### 127.0.0.1'de dinleyen (localhost - guvenli)
 5037(ADB), 5554/5555(Android emulator), 11434(Ollama),
-7000/8080/8091/8100(Hermes gateway/web), 8554(Android),
+7000/8080/8091/8100(ReYMeN gateway/web), 8554(Android),
 5939, 6402, 7681 — hepsi localhost, disariya kapali.
 
 ### Paylasimli Klasor Durumu (2026-06-11)

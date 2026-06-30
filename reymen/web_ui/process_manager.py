@@ -58,8 +58,10 @@ class ProcessManager:
         if durum_yolu.exists():
             try:
                 bilgi.update(json.loads(durum_yolu.read_text(encoding="utf-8")))
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
         if pid_yolu.exists():
             try:

@@ -1,12 +1,15 @@
 ---
 name: Tor Browser ac ve alanya hava durumu hak
-description: Tor Browser açıldı ancak internet bağlantısı sorunu nedeniyle Alanya hava durumu bilgisi alınamadı. Lütfen internet bağlantınızı kontrol edip tekrar deneyin. Alternatif olarak, https://www.mgm.gov.tr sitesinden Alanya hava durumunu manuel olarak kontrol edebilirsiniz.
-created: 2026-06-21
-usage_count: 1
-last_used: 2026-06-21
+title: Tor Browser Ac Ve Alanya Hava Durumu Hak
+description: Tor Browser açıldı ancak internet bağlantısı sorunu nedeniyle Alanya
+  hava durumu bilgisi alınamadı. Lütfen internet bağlantınızı kontrol edip tekrar
+  deneyin. Alternatif olarak, https://www.mgm.gov.tr sitesinden Alanya hava durumunu
+  manuel olarak kontrol edebilirsiniz.
+tags:
+- guvenlik
+category: Guvenlik
+audience: agent
 ---
-
-
 > **Kategori:** tor
 
 ---

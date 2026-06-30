@@ -20,7 +20,7 @@ version: 1.0.0
 ## Kural
 
 "Kopyala", "kopyala ben yapıştırırım", "bana gönder", "gönder" dendiğinde:
-- Metni HERMES CHAT'te göster
+- Metni ReYMeN CHAT'te göster
 - Kullanıcı kendisi kopyalayıp yapıştırsın
 - ASLA VS Code / Claude Code / herhangi bir yere otomatik gönderme
 

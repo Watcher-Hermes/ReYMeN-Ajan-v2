@@ -53,7 +53,7 @@ def fresh_home(tmp_path, monkeypatch):
         "ReYMeN_KANBAN_BOARD",
     ):
         monkeypatch.delenv(var, raising=False)
-    # Also reset ReYMeN_constants cache so get_default_ReYMeN_root() re-reads.
+    # Also reset ReYMeN_constants cache so get_default_reymen_root() re-reads.
     try:
         import ReYMeN_constants
         ReYMeN_constants._cached_default_ReYMeN_root = None  # type: ignore[attr-defined]

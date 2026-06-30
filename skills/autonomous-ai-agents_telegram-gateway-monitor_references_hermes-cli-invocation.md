@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_telegram-gateway-monitor_references_hermes-cli-invocation
-description: Hermes CLI Invocation
-title: "Autonomous Ai Agents Telegram Gateway Monitor References Hermes Cli Invocation"
+description: ReYMeN CLI Invocation
+title: "Autonomous Ai Agents Telegram Gateway Monitor References ReYMeN Cli Invocation"
 version: 1.0.0
 ---
 
@@ -9,17 +9,17 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes CLI Invocation |
+| **Ne** | ReYMeN CLI Invocation |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-## Hermes CLI Invocation
+## ReYMeN CLI Invocation
 
 ### Problem
 
-`hermes.exe` veya `hermes send --list telegram` çalıştırıldığında şu hata alınır:
+`ReYMeN.exe` veya `ReYMeN send --list telegram` çalıştırıldığında şu hata alınır:
 ```
 ModuleNotFoundError: No module named 'hermes_cli'
 ```
@@ -36,7 +36,7 @@ Asıl modül proje kökünde:
 
 ### Çözüm
 
-Her `hermes` komutunu **proje kökünden** `PYTHONPATH` + `HERMES_HOME` ile çalıştır:
+Her `ReYMeN` komutunu **proje kökünden** `PYTHONPATH` + `HERMES_HOME` ile çalıştır:
 
 ```bash
 cd /c/Users/marko/AppData/Local/hermes/hermes-agent && \
@@ -46,13 +46,13 @@ PYTHONPATH=/c/Users/marko/AppData/Local/hermes/hermes-agent \
 -m hermes_cli.main <subcommand> [args]
 ```
 
-### Neden hermes.exe çalışmaz?
+### Neden ReYMeN.exe çalışmaz?
 
 `hermes.exe` bir PyInstaller PE binary'sidir. Çalıştığında `hermes_cli` modülünü site-packages'te arar ama orası boş olduğu için `ModuleNotFoundError` alır. `python -m hermes_cli.main` ile doğrudan Python modülü olarak çağırmak bu sorunu bypass eder.
 
 ### Geçici çözüm mü kalıcı mı?
 
-Bu **yeniden kurulum gerektiren** bir env sorunudur. `pip install -e .` ile editable kurulum yapılırsa `hermes.exe` tek başına çalışır hale gelir. Şu ana kadar yeniden kurulum yapılmadığı için PYTHONPATH workaround'u kullanılmaya devam edilmektedir.
+Bu **yeniden kurulum gerektiren** bir env sorunudur. `pip install -e .` ile editable kurulum yapılırsa `ReYMeN.exe` tek başına çalışır hale gelir. Şu ana kadar yeniden kurulum yapılmadığı için PYTHONPATH workaround'u kullanılmaya devam edilmektedir.
 
 ### İlgili komutlar
 

@@ -30,7 +30,7 @@ Change `from module import Class` → `from agent.module import Class`:
 python test_suite.py 2>&1 | grep "No module named"
 # → iteration_budget, prompt_builder, trajectory, etc.
 
-# Fix each one (17 files common for Hermes→Reymen)
+# Fix each one (17 files common for ReYMeN→Reymen)
 for mod in iteration_budget prompt_builder trajectory; do
   sed -i "s/from $mod import/from agent.$mod import/g" test_suite.py
 done
@@ -47,9 +47,9 @@ print(inspect.signature(IterationBudget.__init__))
 # → (self, max_total: int)  NOT (self, max_tur: int)
 ```
 
-Common pattern differences (Hermes → Reymen):
+Common pattern differences (ReYMeN → Reymen):
 
-| Reymen (old) | Hermes (new) | Change |
+| Reymen (old) | ReYMeN (new) | Change |
 |---|---|---|
 | `IterationBudget(max_tur=N)` | `IterationBudget(max_total=N)` | Keyword rename |
 | `b.analiz_et()` | `b.consume()` + `b.remaining` (property) | Method rename, property |

@@ -1,6 +1,6 @@
 ---
 name: hibrit-ai-mimarisi
-description: 'Hermes iki model katmanıyla çalışır:'
+description: 'ReYMeN iki model katmanıyla çalışır:'
 title: Hibrit Ai Mimarisi
 version: 1.0.0
 ---
@@ -18,7 +18,7 @@ version: 1.0.0
 model yönlendirme kuralları ve geçiş mekanizması.
 # Hibrit AI Mimarisi — Ollama + DeepSeek
 
-Hermes iki model katmanıyla çalışır:
+ReYMeN iki model katmanıyla çalışır:
 
 ## Katman 1: Yerel (Ollama)
 - **Ne zaman:** Kısa (<40 kelime) ve basit sorular için

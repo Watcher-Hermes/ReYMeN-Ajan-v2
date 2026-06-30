@@ -23,13 +23,13 @@
 | Obsidian Etiketi | Flow | Yaptığı |
 |---|---|---|
 | #ogren | _flow_learn | YouTube -> SKILL.md |
-| #hermes-kaynak | _flow_ingest | Web/GitHub/txt -> SKILL.md |
+| #ReYMeN-kaynak | _flow_ingest | Web/GitHub/txt -> SKILL.md |
 | #android | _flow_android | Kod -> Gradle -> APK |
 | #video-to-app | _flow_video_to_app | URL -> Öğren -> APK |
-| #hermes-yayinla | _flow_publish | APK -> GitHub Releases |
-| #hermes-plan | _flow_plan | Hedefi alt adımlara böl |
-| #hermes-sor | _flow_ask | Vault RAG cevap |
-| #hermes-analyze | _flow_analyze | AST statik analiz |
+| #ReYMeN-yayinla | _flow_publish | APK -> GitHub Releases |
+| #ReYMeN-plan | _flow_plan | Hedefi alt adımlara böl |
+| #ReYMeN-sor | _flow_ask | Vault RAG cevap |
+| #ReYMeN-analyze | _flow_analyze | AST statik analiz |
 
 ## BrainRouter — LLM Zinciri
 

@@ -5,6 +5,7 @@ from .ogrenme import (
     imza_uret, cozum_bul, cozum_kaydet, tablo_olustur,
     istatistik, eski_basarisizlari_temizle
 )
+from .self_heal import SelfHeal, coz, script_coz, istatistik_al as self_heal_istatistik
 from .mcp_server import tool_kaydet, tool_sil, get_tools
 from .session_search import session_ara
 
@@ -29,15 +30,8 @@ from .config_manager import (
     config_yeniden_yukle,
 )
 
-# Session DB (FTS5 + trigram) — P1
-from .session_db import (
-    session_olustur,
-    session_getir,
-    session_listele,
-    mesaj_ekle,
-    mesaj_ara,
-    tablolari_kaydet,
-)
+# Session DB — SessionDB sinifi
+from .session_db import SessionDB
 
 # Cron/Scheduler (P1)
 from .cron_manager import (

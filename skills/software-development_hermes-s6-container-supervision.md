@@ -1,17 +1,17 @@
 ---
 
-name: hermes-s6-container-supervision
-title: "Hermes S6 Container Supervision"
+name: ReYMeN-s6-container-supervision
+title: "ReYMeN S6 Container Supervision"
 tags: [ai, coding, development]
-description: Modify, debug, or extend the s6-overlay supervision tree inside the Hermes Agent Docker image — adding new services, debugging profile gateways, understanding the Architecture B main-program pattern.
+description: Modify, debug, or extend the s6-overlay supervision tree inside the ReYMeN Agent Docker image — adding new services, debugging profile gateways, understanding the Architecture B main-program pattern.
 version: 1.0.0
-author: Hermes Agent
+author: ReYMeN Agent
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [docker, s6, supervision, gateway, profiles]
 audience: contributor
-related_skills: [hermes-agent, hermes-agent-dev]
+related_skills: [ReYMeN-agent, ReYMeN-agent-dev]
 ---
 
 
@@ -24,7 +24,7 @@ related_skills: [hermes-agent, hermes-agent-dev]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Modify, debug, or extend the s6-overlay supervision tree inside the Hermes Agent Docker image — adding new services, debugging profile gateways, understanding the Architecture B main-program pattern. |
+| **Ne?** | Modify, debug, or extend the s6-overlay supervision tree inside the ReYMeN Agent Docker image — adding new services, debugging profile gateways, understanding the Architecture B main-program pattern. |
 | **Nerede?** | software-development/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -32,7 +32,7 @@ related_skills: [hermes-agent, hermes-agent-dev]
 
 ---
 
-# Hermes S6 Container Supervision
+# ReYMeN S6 Container Supervision
 
 Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve ilgili reference dosyasını yükleyin.
 

@@ -72,9 +72,9 @@ def _setup_isolated_home(tmp_path, monkeypatch, model_yaml_value):
         "ReYMeN_cli.model_switch.switch_model",
         lambda **kw: _fake_switch_result(),
     )
-    # save_config writes to ``get_ReYMeN_home() / config.yaml`` — point it here.
-    monkeypatch.setattr("ReYMeN_constants.get_ReYMeN_home", lambda: ReYMeN_home)
-    monkeypatch.setattr("ReYMeN_cli.config.get_ReYMeN_home", lambda: ReYMeN_home)
+    # save_config writes to ``get_reymen_home() / config.yaml`` — point it here.
+    monkeypatch.setattr("ReYMeN_constants.get_reymen_home", lambda: ReYMeN_home)
+    monkeypatch.setattr("ReYMeN_cli.config.get_reymen_home", lambda: ReYMeN_home)
     return cfg_path
 
 
@@ -123,8 +123,8 @@ async def test_model_global_persists_when_config_has_missing_model(tmp_path, mon
         "ReYMeN_cli.model_switch.switch_model",
         lambda **kw: _fake_switch_result(),
     )
-    monkeypatch.setattr("ReYMeN_constants.get_ReYMeN_home", lambda: ReYMeN_home)
-    monkeypatch.setattr("ReYMeN_cli.config.get_ReYMeN_home", lambda: ReYMeN_home)
+    monkeypatch.setattr("ReYMeN_constants.get_reymen_home", lambda: ReYMeN_home)
+    monkeypatch.setattr("ReYMeN_cli.config.get_reymen_home", lambda: ReYMeN_home)
 
     result = await _make_runner()._handle_model_command(
         _make_event("/model gpt-5.5 --global")

@@ -146,7 +146,7 @@ direkt bu protokole geç.
 
 ## Bilinen Sorunlar
 - Claude Agent bot algılaması: doğal yazma tekniği ile aş
-- pyautogui Hermes venv'ında yok → sistem Python 3.14 kullan
+- pyautogui ReYMeN venv'ında yok → sistem Python 3.14 kullan
 - ctrl+a chat input'ta kullanma — tüm VS Code içeriğini seçer
 - SendKeys bazen çalışmaz → pyautogui daha güvenilir
 - Bash'te Windows yolları çalışmaz → .ps1 wrapper script kullan

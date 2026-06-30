@@ -18,7 +18,7 @@
 
 ## Sudo Komutları
 
-`sudo -S` ile şifre göndermek Hermes güvenlik katmanı tarafından ENGELENİR.
+`sudo -S` ile şifre göndermek ReYMeN güvenlik katmanı tarafından ENGELENİR.
 Çözüm: Python subprocess ile Kali içinde Python çalıştır (base64 encode ile):
 
 ```python

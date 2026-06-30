@@ -38,7 +38,7 @@ category: productivity---
 - If a platform blocks automatic scraping, **do not retry** in fetch/browser loops.
 - Immediately switch to **Data Parser mode**: wait for user-provided raw HTML/text dump.
 - Parse the dump locally, extract fields, and write directly into the Excel template.
-- Reuse the latest template file: `Kentsel-Donusum-Yatirim-Sablonu.xlsx` in the user's Obsidian Hermes folder.
+- Reuse the latest template file: `Kentsel-Donusum-Yatirim-Sablonu.xlsx` in the user's Obsidian ReYMeN folder.
 
 ## Template Structure (2 Sheets)
 

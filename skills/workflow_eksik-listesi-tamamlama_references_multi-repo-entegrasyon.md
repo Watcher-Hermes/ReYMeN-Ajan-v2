@@ -26,7 +26,7 @@ Bu oturumda öğrenilen teknikler.
 - `beyin.py` içinde `_cagir_lmstudio()` metodunda uygula
 
 ## Çevre Değişkeni Referans Zinciri
-Reymen Proje `.env` → Hermes Agent `.env` çift yönlü senkronizasyon:
+Reymen Proje `.env` → ReYMeN Agent `.env` çift yönlü senkronizasyon:
 1. `main.py`'de `_env_anahtar()` önce kendi .env'ye, bulamazsa `C:\Users\marko\AppData\Local\hermes\.env`'ye bakar
 2. `hermes_cli.py`'de `env_aktar()` iki yönlü senkronize eder (biri `***` ise diğerinden doldurur)
 

@@ -180,7 +180,7 @@ class ToolRegistry:
         # Onemli: _plugin_arac_kaydet ile kayitli araclar _tools'ta
         # oldugu icin alias gerektirmez. Bu liste sadece dogrudan
         # import gereken ReYMeN modulleri icindir.
-        # Hermes tools/ modullerine yonlendiren tum alias'lar
+        # ReYMeN tools/ modullerine yonlendiren tum alias'lar
         # kaldirildi — dispatch _fallback_calistir'a duser.
         self._aliases: dict[str, str] = {}
         self._yukle()

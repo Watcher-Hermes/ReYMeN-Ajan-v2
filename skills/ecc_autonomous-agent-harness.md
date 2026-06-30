@@ -172,7 +172,7 @@ Write task queue to ~/.claude/projects/*/memory/task-queue.md
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI muhendisi |
-| **Ne** | Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (Hermes, AutoGPT) by lever |
+| **Ne** | Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled operations, computer use, and task queuing. Replaces standalone agent frameworks (ReYMeN, AutoGPT) by lever |
 | **Nerede** | `ai\ecc\ecc_autonomous-agent-harness.md` |
 | **Ne Zaman** | AI modeli secimi veya degerlendirmesi gerektiginde |
 | **Neden** | Ecc Autonomous Agent Harness islemini standartlastirmak icin |
@@ -191,9 +191,9 @@ description: Persistent task queue for autonomous operation
 - [x] Daily standup: reviewed 3 PRs, 2 issues
 ```
 
-## Replacing Hermes
+## Replacing ReYMeN
 
-| Hermes Component | ECC Equivalent | How |
+| ReYMeN Component | ECC Equivalent | How |
 |------------------|---------------|-----|
 | Gateway/Router | Claude Code dispatch + crons | Scheduled tasks trigger agent sessions |
 | Memory System | Claude memory + MCP memory server | Built-in persistence + knowledge graph |

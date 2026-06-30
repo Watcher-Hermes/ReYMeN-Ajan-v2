@@ -1254,7 +1254,7 @@ class TestGitYedek:
 
             assert sonuc["tip"] == "git"
             assert sonuc["durum"] == "basarili"
-            assert sonuc["hedef"] == "Watcher-Hermes/hermes-full-backup"
+            assert sonuc["hedef"] == "Watcher-ReYMeN/ReYMeN-full-backup"
             assert len(sonuc["adimlar"]) == 4
             assert "sure" in sonuc
 

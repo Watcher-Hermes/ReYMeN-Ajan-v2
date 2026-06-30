@@ -24,7 +24,7 @@ opens VS Code, writes code, runs it, reads output/errors, asks AI for fixes, and
 ## !!! KRITIK KURAL — ASLA IHLAL ETME !!!
 
 **"kopyala", "kopyala ben yapistiririm", "bana gonder", "sana gonder" dendiginde:
-METNI BURADA (HERMES CHAT'TE) GOSTER. ASLA VS CODE'A/CLAUDE CODE'A GONDERME.
+METNI BURADA (ReYMeN CHAT'TE) GOSTER. ASLA VS CODE'A/CLAUDE CODE'A GONDERME.
 Kullanici "kesin mir culadue gondermeyecegim" diyerek bunu netlestirdi.**
 
 Bu kural 17 Haziran 2026'da 2 KEZ ihlal edildi ve kullanici sinirlendi.
@@ -35,7 +35,7 @@ Not: "VS Code'a yaz", "Claude terminaline yaz" -> vscode_yaz.bat (bunlar farkli)
 
 ## Overview
 
-Hermes, VS Code'u bir kullanıcı gibi kullanır:
+ReYMeN, VS Code'u bir kullanıcı gibi kullanır:
 1. Yeni dosya oluşturur
 2. Kod yazar (AI'dan alınan veya kendi yazdığı)
 3. Çalıştırır, çıktıyı okur
@@ -63,7 +63,7 @@ Don't use for: Sistem komutları, terminal-only işlemler.
 - Kullanıcı "vscode_yaz.bat" veya "vscode_ctrl.py" dediğinde
 - Kullanıcı "Culaude yazdır" gibi VS Code/Claude Code işlemi istediğinde
 
-**Burada (Hermes chat) göster:**
+**Burada (ReYMeN chat) göster:**
 - "kopyala", "gönder", "sana gönder", "bana gönder" → metni burada göster, kullanıcı kopyalasın
 - "kopyala ben yapıştırırım" → aynı, burada göster
 - Hedef belirtilmeyen tüm durumlar → burada göster
@@ -221,7 +221,7 @@ Kullanıcı kontrolü kendinde tutmak istiyor. Detay: references/kopyala-uyari.m
 3. **AI hata duzeltemiyor** — Max tur sayisini artir veya farkli model dene.
 4. **Cikti Turkce karakter bozuk** — `encoding="utf-8", errors="replace"` kullan.
 5. **Loop orijinal kodu bozdu** — `try_fix_loop` basarisizsa orijinal kodu geri yukler.
-6. **venv Python kullanilmiyor** — Script otomatik `hermes-ai\venv\Scripts\python.exe` kullanir.
+6. **venv Python kullanilmiyor** — Script otomatik `ReYMeN-ai\venv\Scripts\python.exe` kullanir.
 
 ## Verification Checklist
 

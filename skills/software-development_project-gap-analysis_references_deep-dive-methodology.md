@@ -191,7 +191,7 @@ KRİTİK EKSİKLER:
 └─────────────────────────────────────┴──────────────────────────────┘
 
 SİSTEM A'da olan ama SİSTEM B'de olmayan:
-  - Feature X — HERMES'TE YOK, PROJEYE ÖZGÜ
+  - Feature X — ReYMeN'TE YOK, PROJEYE ÖZGÜ
 
 SİSTEM B'de olan ama SİSTEM A'da olmayan (en kritik):
   1. Notion entegrasyonu

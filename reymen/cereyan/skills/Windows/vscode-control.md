@@ -1,17 +1,12 @@
 ---
 name: vscode-control
-title: "VS Code Remote Control"
-tags: [general]
-audience: user
-tags: []
+title: VS Code Remote Control
+description: ''
+tags:
+- windows
 category: vscode-control
+audience: user
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -22,8 +17,6 @@ category: vscode-control
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # VS Code Remote Control
 

@@ -123,8 +123,8 @@ _TAG_HARITASI: dict[str, str] = {
     "multi-agent": "autonomous-ai-agents", "a2a": "autonomous-ai-agents",
     "autonomous": "autonomous-ai-agents", "claude": "autonomous-ai-agents",
     "claude-code": "autonomous-ai-agents", "anthropic": "autonomous-ai-agents",
-    "openai": "autonomous-ai-agents", "hermes": "hermes-agent",
-    "hermes-agent": "hermes-agent", "reymen": "hermes-agent",
+    "openai": "autonomous-ai-agents", "ReYMeN": "ReYMeN-agent",
+    "ReYMeN-agent": "ReYMeN-agent", "reymen": "ReYMeN-agent",
     # Software Development
     "python": "software-development", "code": "software-development",
     "coding": "software-development", "testing": "software-development",
@@ -185,7 +185,7 @@ def _isimden_kategori(adi: str) -> str:
     _ISIM_ESLESME = [
         (["claude", "openai", "anthropic", "gpt", "autonomous", "agent", "llm-"],
             "autonomous-ai-agents"),
-        (["hermes", "reymen"], "hermes-agent"),
+        (["ReYMeN", "reymen"], "ReYMeN-agent"),
         (["github", "git-", "codebase", "pr-"], "github"),
         (["telegram", "discord", "slack", "whatsapp"], "messaging"),
         (["docker", "kubernetes", "k8s", "helm", "terraform", "deploy", "devops"],
@@ -450,7 +450,7 @@ def gorkem_ekranu(
 ) -> None:
     """
     ReYMeN gorkemli baslangiç ekrani.
-    Hermes benzeri: logo + kutu icinde skill kategorileri + model/oturum bilgisi.
+    ReYMeN benzeri: logo + kutu icinde skill kategorileri + model/oturum bilgisi.
     """
     if hasattr(sys.stdout, "reconfigure"):
         try:
@@ -548,7 +548,7 @@ def gorkem_ekranu(
     print(iki("", _d(f"Saglayici: {provider_goster}")))
     print(bos_satir())
 
-    # Skill kategorilerini Hermes formatinda goster
+    # Skill kategorilerini ReYMeN formatinda goster
     if skill_veri:
         for kat, skill_listesi in sorted(skill_veri.items()):
             isimler = ", ".join(skill_listesi[:5])

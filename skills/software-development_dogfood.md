@@ -6,7 +6,7 @@ description: "Exploratory QA of web apps: find bugs, evidence, reports."
 version: 1.0.0
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [qa, testing, browser, web, dogfood]
 audience: contributor
 related_skills: []

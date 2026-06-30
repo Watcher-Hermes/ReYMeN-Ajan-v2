@@ -1,24 +1,16 @@
 ---
 name: obsidian-vault-kurallari
-title: "Obsidian Vault Kurallari"
-tags: [automation, obsidian, windows]
-description: Use whenever reading, writing, or syncing anything to Obsidian. Contains the ONLY correct vault path and startup verification routine. ALWAYS check this skill before any Obsidian file operation.
-version: 1.0.0
-author: marko
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [obsidian, vault, path, startup, sync, kural, yanlis-yol, doğru-yol]
+title: Obsidian Vault Kurallari
+description: Use whenever reading, writing, or syncing anything to Obsidian. Contains
+  the ONLY correct vault path and startup verification routine. ALWAYS check this
+  skill before any Obsidian file operation.
+tags:
+- automation
+- obsidian
+- windows
+category: Windows
 audience: user
-related_skills: [obsidian, gorsel-onaylama, tam-sistem-yetkisi]
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +21,6 @@ related_skills: [obsidian, gorsel-onaylama, tam-sistem-yetkisi]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Obsidian Vault Kuralları — Kesin Yol ve Başlangıç Rutini
 
@@ -43,19 +33,19 @@ YANLIS: C:\Users\marko\Documents\ObsidianVault        ← ASLA KULLANMA
 YANLIS: ~/Documents/Obsidian Vault                    ← ASLA KULLANMA
 ```
 
-Hermes .env dosyasındaki kayıt:
+ReYMeN .env dosyasındaki kayıt:
 ```
 OBSIDIAN_VAULT_PATH=C:\Users\marko\OneDrive\Belgeler\Obsidian Vault
 ```
 
-Hermes-ai .env dosyasındaki kayıt:
+ReYMeN-ai .env dosyasındaki kayıt:
 ```
 OBSIDIAN_VAULT=C:\Users\marko\OneDrive\Belgeler\Obsidian Vault
 ```
 
 ## KURAL 2 — Her Açılışta İlk İş: Vault Kontrolü
 
-Hermes yeni bir oturum başladığında ILKÖNCE şu kontrolleri yapar:
+ReYMeN yeni bir oturum başladığında ILKÖNCE şu kontrolleri yapar:
 
 ```python
 import os
@@ -66,8 +56,8 @@ VAULT = Path(r"C:\Users\marko\OneDrive\Belgeler\Obsidian Vault")
 # 1. Vault mevcut mu?
 assert VAULT.exists(), f"VAULT BULUNAMADI: {VAULT}"
 
-# 2. Hermes klasörü mevcut mu?
-hermes_dir = VAULT / "Hermes"
+# 2. ReYMeN klasörü mevcut mu?
+hermes_dir = VAULT / "ReYMeN"
 hermes_dir.mkdir(exist_ok=True)
 
 # 3. Skills klasörü mevcut mu?
@@ -82,11 +72,11 @@ print(f"[OK] Skill: {skill_count} dosya")
 
 Terminal komutu olarak:
 ```bash
-python C:\Users\marko\hermes-ai\venv\Scripts\python.exe -c "
+python C:\Users\marko\ReYMeN-ai\venv\Scripts\python.exe -c "
 from pathlib import Path
 v = Path(r'C:\Users\marko\OneDrive\Belgeler\Obsidian Vault')
 print('[OK]' if v.exists() else '[HATA]', 'Vault:', v)
-s = v / 'Hermes' / 'Skills'
+s = v / 'ReYMeN' / 'Skills'
 print('Skills:', len(list(s.rglob('*.md'))) if s.exists() else 0, 'dosya')
 "
 ```
@@ -101,7 +91,7 @@ Yeni skill kurulduğunda HEMEN sync çalıştır:
 
 Çıktı:
 ```
-Hermes Skills -> Obsidian senkronizasyonu basliyor...
+ReYMeN Skills -> Obsidian senkronizasyonu basliyor...
 Tamamlandi: X yazildi / Y taranmis
 Obsidian: C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\Hermes\Skills
 ```
@@ -128,7 +118,7 @@ import shutil
 from pathlib import Path
 
 yanlis = Path(r"C:\Users\marko\Documents\Obsidian Vault")
-dogru  = Path(r"C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\Hermes")
+dogru  = Path(r"C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\ReYMeN")
 
 for f in yanlis.rglob("*.md"):
     hedef = dogru / f.name
@@ -140,8 +130,8 @@ for f in yanlis.rglob("*.md"):
 
 ```
 C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\
-└── Hermes\
-    ├── Hermes Skills Sync.md
+└── ReYMeN\
+    ├── ReYMeN Skills Sync.md
     ├── Telegram Gateway Monitor.md
     ├── GitHub Repo - *.md
     └── Skills\
@@ -167,7 +157,7 @@ C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\
 ## Verification Checklist
 
 - [ ] `OBSIDIAN_VAULT_PATH` .env'de `OneDrive\Belgeler\Obsidian Vault` mi?
-- [ ] `OBSIDIAN_VAULT` hermes-ai/.env'de doğru mu?
+- [ ] `OBSIDIAN_VAULT` ReYMeN-ai/.env'de doğru mu?
 - [ ] Vault klasörü fiziksel olarak mevcut mu?
-- [ ] Hermes/Skills/ altında dosyalar var mı?
+- [ ] ReYMeN/Skills/ altında dosyalar var mı?
 - [ ] Obsidian uygulaması bu vault'u açıyor mu (obsidian.json kontrol)?

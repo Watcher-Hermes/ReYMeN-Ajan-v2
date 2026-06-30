@@ -3,7 +3,7 @@ name: reymen-memory-tool
 category: software-development
 version: 1.0.0
 description: R>eYMeN projesine memory_tool.py ekleme adimlari
-tags: [skill, hermes, reymen, memory]
+tags: [skill, ReYMeN, reymen, memory]
 ---
 
 

@@ -1,22 +1,13 @@
 ---
 name: dogfood
-title: "Dogfood"
-tags: [coding, development]
-description: "Exploratory QA of web apps: find bugs, evidence, reports."
-version: 1.0.0
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [qa, testing, browser, web, dogfood]
+title: Dogfood
+description: 'Exploratory QA of web apps: find bugs, evidence, reports.'
+tags:
+- coding
+- development
+category: Kod
 audience: contributor
-related_skills: []
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -27,8 +18,6 @@ related_skills: []
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Dogfood: Systematic Web Application QA Testing
 

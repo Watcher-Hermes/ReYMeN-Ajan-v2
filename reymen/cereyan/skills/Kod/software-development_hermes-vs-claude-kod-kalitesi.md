@@ -1,16 +1,16 @@
 ---
-name: hermes-vs-claude-kod-kalitesi
-title: Hermes vs Claude 4.8 Kod Yazim Karsilastirmasi
-description: "Claude 4.8 kod yazim tarzindan ogrenilenler: hata yonetimi, docstring, renkli cikti, CLI her yerde"
-tags: [coding-standards, quality, claude, learning]
+name: ReYMeN-vs-claude-kod-kalitesi
+title: ReYMeN vs Claude 4.8 Kod Yazim Karsilastirmasi
+description: 'Claude 4.8 kod yazim tarzindan ogrenilenler: hata yonetimi, docstring,
+  renkli cikti, CLI her yerde'
+tags:
+- coding-standards
+- quality
+- claude
+- learning
+category: Kod
 audience: contributor
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -22,12 +22,10 @@ audience: contributor
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
-# Hermes vs Claude 4.8 — Kod Yazim Dersleri
+# ReYMeN vs Claude 4.8 — Kod Yazim Dersleri
 
 ## Farklar
-- Ben (Hermes): kucuk odakli patch, tek sorunu cozer, hata yonetimi eksik
+- Ben (ReYMeN): kucuk odakli patch, tek sorunu cozer, hata yonetimi eksik
 - Claude 4.8: butunsel, ozellik + CLI + hata + dokumantasyon bir arada
 
 ## Ogrenilenler

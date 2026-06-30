@@ -12,7 +12,7 @@
 | 3 | **Web UI** | ✅ | 252 → 1201 satır, 13 yeni API route, dashboard, 4 sayfa (kalite/maliyet/kanban/sistem) |
 | 4 | **TUI** | ✅ | StatusBar (canlı), Confirm (zaman aşımlı), ProgressBar, LogViewer |
 | 5 | **CLI modülerlik** | 🔶 | Kısmen modüler — 9 mixin'den miras alıyor, cli_main 4857 satır ama çalışıyor |
-| 6 | **Gateway bağımsızlığı** | ✅ | Zaten bağımsız — hiçbir Hermes import'u yok |
+| 6 | **Gateway bağımsızlığı** | ✅ | Zaten bağımsız — hiçbir ReYMeN import'u yok |
 
 ## Entegrasyon Testi
 - Tüm modüller başarıyla import edildi

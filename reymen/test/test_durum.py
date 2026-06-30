@@ -74,8 +74,8 @@ class TestOzet:
         "pasa_38_karsilastirmasi": {
             "aciklama": "karsilastirma test",
             "maddeler": [
-                {"eksik": "test1", "cozuldu_mu": "evet", "hermes": "var"},
-                {"eksik": "test2", "cozuldu_mu": "hayir", "hermes": "yok"},
+                {"eksik": "test1", "cozuldu_mu": "evet", "ReYMeN": "var"},
+                {"eksik": "test2", "cozuldu_mu": "hayir", "ReYMeN": "yok"},
             ]
         }
     }

@@ -20,19 +20,19 @@
 
 ## Sorun
 
-Hermes state.db ~240MB (tüm konuşma geçmişi + memory + session'lar).
+ReYMeN state.db ~240MB (tüm konuşma geçmişi + memory + session'lar).
 GitHub dosya limiti: 100MB. Git LFS olmadan pushlanamaz.
 
 ## Çözüm: Zip + Parçalama
 
-### Adım 1 — Hermes'i durdur
+### Adım 1 — ReYMeN'i durdur
 
-state.db SQLite WAL modunda çalışır. Hermes açıkken zip alınırsa:
+state.db SQLite WAL modunda çalışır. ReYMeN açıkken zip alınırsa:
 - `.db-wal` dosyası checkpoint yapılmamış olur
 - Kilitli dosya hatası alınabilir
 
 ```powershell
-Stop-Process -Name "hermes" -Force
+Stop-Process -Name "ReYMeN" -Force
 Start-Sleep -Seconds 2
 ```
 
@@ -41,14 +41,14 @@ Start-Sleep -Seconds 2
 ```python
 import zipfile, os
 
-hermes_dir = r"C:\Users\marko\AppData\Local\hermes"
+hermes_dir = r"C:\Users\marko\AppData\Local\reymen"
 files = [
     os.path.join(hermes_dir, "state.db"),
     os.path.join(hermes_dir, "state.db-wal"),
     os.path.join(hermes_dir, "state.db-shm")
 ]
 
-output = r"C:\Users\marko\Desktop\hermes-state-backup.zip"
+output = r"C:\Users\marko\Desktop\ReYMeN-state-backup.zip"
 with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
     for f in files:
         if os.path.exists(f):
@@ -69,7 +69,7 @@ with open(zip_path, 'rb') as f:
 
 for i in range(0, len(data), chunk_size):
     part = i // chunk_size + 1
-    part_file = f"hermes-state-part{part:03d}.zip"
+    part_file = f"ReYMeN-state-part{part:03d}.zip"
     with open(part_file, 'wb') as pf:
         pf.write(data[i:i + chunk_size])
 ```
@@ -79,21 +79,21 @@ for i in range(0, len(data), chunk_size):
 ### Adım 4 — Push
 
 ```bash
-git add hermes-state-part001.zip hermes-state-part002.zip
+git add ReYMeN-state-part001.zip ReYMeN-state-part002.zip
 git commit -m "state.db yedek"
 git push origin main
 ```
 
-GitHub 50MB üstü dosyalar için uyarı verir (`warning: File hermes-state-part001.zip is 55.00 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB`) ama engellemez. 100MB limit aşılmadığı sürece geçer.
+GitHub 50MB üstü dosyalar için uyarı verir (`warning: File ReYMeN-state-part001.zip is 55.00 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB`) ama engellemez. 100MB limit aşılmadığı sürece geçer.
 
 ## Restore (Birleştirme)
 
 PowerShell'de binary stream ile birleştir:
 
 ```powershell
-$mergedZip = "$env:TEMP\hermes-state-merged.zip"
-$part1 = "$BackupDir\hermes-state-part001.zip"
-$part2 = "$BackupDir\hermes-state-part002.zip"
+$mergedZip = "$env:TEMP\ReYMeN-state-merged.zip"
+$part1 = "$BackupDir\ReYMeN-state-part001.zip"
+$part2 = "$BackupDir\ReYMeN-state-part002.zip"
 
 $stream = [System.IO.File]::OpenWrite($mergedZip)
 foreach ($part in @($part1, $part2)) {
@@ -103,7 +103,7 @@ foreach ($part in @($part1, $part2)) {
 $stream.Close()
 
 # Zip'i aç
-$extractDir = "$env:TEMP\hermes-state-extract"
+$extractDir = "$env:TEMP\ReYMeN-state-extract"
 Expand-Archive -Path $mergedZip -DestinationPath $extractDir -Force
 
 # state.db'yi kopyala
@@ -134,7 +134,7 @@ Eğer parçalama istenmiyorsa Git LFS kullanılabilir:
 
 ```bash
 git lfs track "*.zip"
-git add .gitattributes hermes-state-backup.zip
+git add .gitattributes ReYMeN-state-backup.zip
 git commit -m "state.db LFS yedek"
 git push origin main
 ```
@@ -152,4 +152,4 @@ state.db içinde:
 - **Channel state**: Telegram/Discord bağlantı durumu
 - **Cron state**: Zamanlanmış görevlerin son çalışma durumu
 
-Skills + config + state.db = **tam Hermes taşınabilirliği**.
+Skills + config + state.db = **tam ReYMeN taşınabilirliği**.

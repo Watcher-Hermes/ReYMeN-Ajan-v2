@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: live-test-output
+title: Live Test Output
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Canlı Test Çıktıları (21 Haziran 2026)
 
@@ -82,8 +84,6 @@ Ethernet adapter VirtualBox Host-Only Network:
 - DNS Google DNS kullanıyor (8.8.8.8)
 - VirtualBox ağı var → Kali sanal makine veya WSL2
 
----
-
 ## netstat -an
 
 ```
@@ -128,7 +128,7 @@ Active Connections
 | 135 | RPC Endpoint Mapper |
 | 139 | NetBIOS Session |
 | 445 | SMB (Dosya paylaşımı) |
-| 1234 | ✅ **Hermes Agent** |
+| 1234 | ✅ **ReYMeN Agent** |
 | 5040 | Windows Sistemi |
 | 7680 | Windows Update |
 | 6942 | Localhost servis |
@@ -147,7 +147,7 @@ Active Connections
 | 34.120.76.157:443 | Google Cloud |
 
 ### Öğrenilenler
-- Hermes port 1234'te çalışıyor ✅
+- ReYMeN port 1234'te çalışıyor ✅
 - SMB (445) açık → dosya paylaşımı aktif
 - GitHub, Microsoft, Google, Azure bağlantıları var
 - Telegram, tarayıcı, VS Code muhtemelen açık

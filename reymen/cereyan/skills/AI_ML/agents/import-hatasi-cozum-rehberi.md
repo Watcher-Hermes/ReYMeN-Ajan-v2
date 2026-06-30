@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: import-hatasi-cozum-rehberi
+title: Import Hatasi Cozum Rehberi
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Import Hatası Çözüm Rehberi
 
@@ -28,7 +30,7 @@ Test, bir modülden import edemediği bir sembolü çağırıyorsa:
 **SONRA:** Test çalışıyorsa bitir
 **EN SON:** Test hala hatalıysa test'i düzelt
 
-**Neden?** Hermes reference test'leri genellikle eski API'yi yansıtır. Module export eklemek:
+**Neden?** ReYMeN reference test'leri genellikle eski API'yi yansıtır. Module export eklemek:
 - Test'in beklentisini karşılar
 - Diğer test'lerde de aynı symbol çalışır
 - Geriye uyumluluğu korur

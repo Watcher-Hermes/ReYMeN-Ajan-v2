@@ -1,8 +1,12 @@
-
-> **Kategori:** architecture
-
 ---
-
+name: attention-shapes
+title: Attention Shapes
+description: ''
+tags:
+- architecture
+category: architecture
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: attention-shapes
 description: Debug shape bugs in attention implementations.
 title: "Attention Shapes"

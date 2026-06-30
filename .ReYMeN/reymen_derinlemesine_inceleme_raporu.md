@@ -1,6 +1,6 @@
 # 🔬 ReYMeN — Derinlemesine Proje İnceleme Raporu
 **Tarih:** 2026-06-27
-**Hazırlayan:** Hermes Agent (DeepSeek v4 Flash)
+**Hazırlayan:** ReYMeN Agent (DeepSeek v4 Flash)
 
 ---
 
@@ -13,7 +13,7 @@
 | Python dosyası (reymen/) | **198** |
 | Kategori | cereyan: 49, sistem: 60, hafiza: 18, arac: 28 + ag/guvenlik/windows/altin_kayitlar |
 | Test dosyası | **1,778** .py |
-| Skill dosyası (SKILL.md) | **1,071** (reymen/ içinde: 12, gerisi Hermes upstream kopyası) |
+| Skill dosyası (SKILL.md) | **1,071** (reymen/ içinde: 12, gerisi ReYMeN upstream kopyası) |
 | Python | 3.11.15 |
 | Test geçen | ~6,356 (0 failed) |
 | Son commit | `db5727aa` — BudgetConfig fix |
@@ -61,7 +61,7 @@ reymen/
 | 2 | **cereyan/ vs sistem/ sorumluluk çakışması** | cli.py sistem/ ama conversation_loop cereyan/ — CLI her iki katmanda da var | Net API sınırı çiz |
 | 3 | **reymen_agent.py + reymen_launcher.py** — iki CLI entry point | Hangisi aktif karışıklığı | Tek entry point |
 | 4 | **hermes_projesi/ paralel repo** | Kod drift, kimse hangisinin güncel olduğunu bilmez | Birleştir veya arşivle |
-| 5 | **skills/ 1,071 SKILL.md (çoğu Hermes kopyası)** | Projeyi şişirir, güncellik garantisi yok | Sadece ReYMeN'e özel 12 SKILL.md'yi tut |
+| 5 | **skills/ 1,071 SKILL.md (çoğu ReYMeN kopyası)** | Projeyi şişirir, güncellik garantisi yok | Sadece ReYMeN'e özel 12 SKILL.md'yi tut |
 | 6 | **Import düzeni** | `from reymen.` formatına çevrildi ama __init__.py'lerde explicit API yok | Her pakette `__all__` tanımla |
 
 ---
@@ -146,13 +146,13 @@ reymen/
 #### 2. Test Coverage CLI
 - **Ne:** cli.py'ye `pytest-cov` + test yaz
 - **Neden:** Şu an coverage ~%5
-- **AI:** Claude Code + Hermes (koordinasyon)
+- **AI:** Claude Code + ReYMeN (koordinasyon)
 - **Süre:** 1 gün
 
 #### 3. Çift Proje Konsolidasyonu
 - **Ne:** hermes_projesi'ndeki unique dosyaları ReYMeN-Ajan'a taşı
 - **Neden:** Drift tehlikesi, confusion
-- **AI:** Hermes (projeyi tanırım)
+- **AI:** ReYMeN (projeyi tanırım)
 - **Süre:** 1 gün
 
 ---
@@ -162,9 +162,9 @@ reymen/
 | # | Çalışma | Süre | AI |
 |---|---------|------|----|
 | 4 | Type hint (mypy --strict) — tüm 198 .py | 2-3 gün | Claude Code |
-| 5 | Güvenlik deep scan (Bandit + Safety + credential) | 1 gün | Hermes |
-| 6 | Skill kütüphanesi temizliği (1,071 → 12) | 1 gün | Hermes |
-| 7 | Coverage raporu (pytest-cov kur + baseline) | 1 gün | Hermes |
+| 5 | Güvenlik deep scan (Bandit + Safety + credential) | 1 gün | ReYMeN |
+| 6 | Skill kütüphanesi temizliği (1,071 → 12) | 1 gün | ReYMeN |
+| 7 | Coverage raporu (pytest-cov kur + baseline) | 1 gün | ReYMeN |
 
 ---
 
@@ -172,11 +172,11 @@ reymen/
 
 | # | Çalışma | Süre | AI |
 |---|---------|------|----|
-| 8 | Performans profilleme (LLM çağrı optimizasyonu) | 2 gün | Hermes |
-| 9 | CI/CD pipeline (GitHub Actions) | 1 gün | Hermes + Claude Code |
-| 10 | Kullanıcı deneyimi (Telegram, CLI renk/format) | 1 gün | Hermes |
-| 11 | Dokümantasyon (AGENTS.md, ARCHITECTURE.md güncelleme) | 1 gün | Hermes |
-| 12 | Cross-platform test (Windows + Kali + Docker) | 2 gün | Hermes + Claude Code |
+| 8 | Performans profilleme (LLM çağrı optimizasyonu) | 2 gün | ReYMeN |
+| 9 | CI/CD pipeline (GitHub Actions) | 1 gün | ReYMeN + Claude Code |
+| 10 | Kullanıcı deneyimi (Telegram, CLI renk/format) | 1 gün | ReYMeN |
+| 11 | Dokümantasyon (AGENTS.md, ARCHITECTURE.md güncelleme) | 1 gün | ReYMeN |
+| 12 | Cross-platform test (Windows + Kali + Docker) | 2 gün | ReYMeN + Claude Code |
 
 ---
 
@@ -184,7 +184,7 @@ reymen/
 
 | AI | En İyi Olduğu İş | Neden |
 |----|------------------|-------|
-| **Hermes (ben)** 🏆 | Proje-wide orchestration, dokümantasyon, karar kaydı, güvenlik, cron, skill yönetimi, OnceHafiza, multi-bot, bağımlılık analizi, CI/CD | Proje bütününü ve kullanıcı tercihlerini bilirim |
+| **ReYMeN (ben)** 🏆 | Proje-wide orchestration, dokümantasyon, karar kaydı, güvenlik, cron, skill yönetimi, OnceHafiza, multi-bot, bağımlılık analizi, CI/CD | Proje bütününü ve kullanıcı tercihlerini bilirim |
 | **Claude Code** | Büyük dosya bölme, type hint, refactoring, test yazma, AST dönüşümleri | Kod seviyesinde en iyi, import fix'te kanıtlandı |
 | **O3-mini** | Hızlı kod review, küçük bug fix | Hafif, hızlı |
 | **Gemini 2.5 Pro** | 1M context ile dev dosyaları tek seferde okuma | cli.py 15K satırı tek seferde analiz eder |
@@ -193,15 +193,15 @@ reymen/
 
 | Çalışma | Birincil | İkincil |
 |---------|----------|---------|
-| cli.py bölme | **Claude Code** | Hermes (review) |
-| Test coverage | **Claude Code** | Hermes (koordinasyon) |
+| cli.py bölme | **Claude Code** | ReYMeN (review) |
+| Test coverage | **Claude Code** | ReYMeN (koordinasyon) |
 | Type hint | **Claude Code** | — |
-| Güvenlik | **Hermes** | — |
-| Skill temizliği | **Hermes** | — |
-| Çift proje konsolidasyonu | **Hermes** | — |
-| Dokümantasyon | **Hermes** | — |
-| Performans | **Hermes** | Claude Code |
-| CI/CD | **Hermes** | Claude Code |
+| Güvenlik | **ReYMeN** | — |
+| Skill temizliği | **ReYMeN** | — |
+| Çift proje konsolidasyonu | **ReYMeN** | — |
+| Dokümantasyon | **ReYMeN** | — |
+| Performans | **ReYMeN** | Claude Code |
+| CI/CD | **ReYMeN** | Claude Code |
 
 ---
 
@@ -242,7 +242,7 @@ FAZ 3 (2-4 hafta):
 Durum:      TEMİZ ✅ (test geçiyor, sessiz except yok, HATA kodları temiz)
 En riskli:  cli.py 15,762 satır — bölünmezse bakım kabusu
 En fırsat:  Çift projeyi tekilleştirmek — drift riski sıfırlanır
-Önerilen:   Hermes + Claude Code ikilisi
+Önerilen:   ReYMeN + Claude Code ikilisi
 İlk adım:   cli.py bölme planı + task dosyası
 ```
 

@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-vision-preprocessing-audit
+title: Prompt Vision Preprocessing Audit
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-vision-preprocessing-audit
 description: Turn any model card or dataset card into a checklist of the preprocessing invariants a vision pipeline must honour
 title: "PRompt Vision PReprocessing Audit"

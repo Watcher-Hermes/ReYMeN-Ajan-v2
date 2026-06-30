@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_resume-most-recent-session
 description: Resume most recent session
-title: "Autonomous Ai Agents Hermes Agent References Resume Most Recent Session"
+title: "Autonomous Ai Agents ReYMeN Agent References Resume Most Recent Session"
 version: 1.0.0
 ---
 
@@ -16,4 +16,4 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Resume most recent session
-terminal(command="tmux new-session -d -s resumed 'hermes --continue'", timeout=10)
+terminal(command="tmux new-session -d -s resumed 'ReYMeN --continue'", timeout=10)

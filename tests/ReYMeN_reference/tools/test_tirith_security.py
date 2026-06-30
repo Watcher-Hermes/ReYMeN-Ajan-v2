@@ -1179,16 +1179,16 @@ class TestReYMeNHomeIsolation:
         assert ReYMeN_home is not None, "ReYMeN_HOME should be set by conftest"
         assert "ReYMeN_test" in ReYMeN_home, "Should point to test temp dir"
 
-    def test_get_ReYMeN_home_fallback(self):
+    def test_get_reymen_home_fallback(self):
         """Without ReYMeN_HOME set, falls back to the active OS home."""
-        from tools.tirith_security import _get_ReYMeN_home
+        from tools.tirith_security import _get_reymen_home
         with patch.dict(os.environ, {}, clear=True):
             # Remove ReYMeN_HOME entirely. With HOME also absent, expanduser
             # falls back to the account database; compute expected under the
             # same environment instead of after patch.dict restores HOME.
             os.environ.pop("ReYMeN_HOME", None)
             expected = os.path.join(os.path.expanduser("~"), ".ReYMeN")
-            result = _get_ReYMeN_home()
+            result = _get_reymen_home()
         assert result == expected
 
 

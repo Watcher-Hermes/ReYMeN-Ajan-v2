@@ -108,8 +108,10 @@ class ModelProvider(abc.ABC):
         """HTTP client'i kapat."""
         try:
             self._client.close()
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
     def __repr__(self) -> str:
         return f"<{self.__class__.__name__} ad={self.ad!r} model={self._model!r}>"

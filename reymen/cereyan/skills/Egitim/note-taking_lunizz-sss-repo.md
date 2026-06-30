@@ -1,8 +1,12 @@
-
-> **Kategori:** note-taking
-
 ---
-
+name: note-taking_lunizz-sss-repo
+title: Note Taking Lunizz Sss Repo
+description: ''
+tags:
+- note-taking
+category: note-taking
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: lunizz-sss-repo
 description: >-
 title: "Lunizz Sss Repo"
@@ -28,7 +29,7 @@ author: marko
 tags: [siber, guvenlik, security, lunizz, sss, kaynak, yazilim, egitim]
 category: note-taking
 audience: user
----LuNiZz/siber-guvenlik-sss GitHub reposu — Obsidian vault'a klonlanmış SSS,
+LuNiZz/siber-guvenlik-sss GitHub reposu — Obsidian vault'a klonlanmış SSS,
 
 
 

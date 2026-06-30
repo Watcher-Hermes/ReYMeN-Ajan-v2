@@ -28,7 +28,7 @@ cont
 
 When it pauses, `repl` → inspect `props`, state refs, `useInput` handler values, etc.
 
-### Debugging a running `hermes --tui`
+### Debugging a running `ReYMeN --tui`
 
 The TUI spawns Node from the Python CLI. Easiest path:
 

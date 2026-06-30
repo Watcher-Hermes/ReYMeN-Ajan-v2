@@ -16,9 +16,9 @@
 
 ---
 
-# /share — Hermes Agent Skill
+# /share — ReYMeN Agent Skill
 
-A slash command for Hermes Agent that exports the current session to a clean markdown file, or generates a short summary.
+A slash command for ReYMeN Agent that exports the current session to a clean markdown file, or generates a short summary.
 
 ## Install
 
@@ -60,6 +60,6 @@ Handles all message roles: user, agent, tool output (truncated at 2000 chars), a
 
 ## Requirements
 
-- Hermes Agent (any recent version)
+- ReYMeN Agent (any recent version)
 - `session_search` tool available
-- `HERMES_SESSION_ID` env var (set automatically by Hermes)
+- `HERMES_SESSION_ID` env var (set automatically by ReYMeN)

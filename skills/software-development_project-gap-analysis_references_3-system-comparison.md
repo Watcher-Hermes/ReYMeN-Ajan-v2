@@ -25,13 +25,13 @@ ve bunların birbiriyle ilişkisini anlamak gerekir.
 | # | Sistem | Kaynak | Ne işe yarar |
 |---|--------|--------|-------------|
 | 1 | **Nous Hermes Agent** | Resmi kurulum (`AppData/Local/hermes/`) | Profesyonel AI ajan. CLI, 100+ skill, MCP, gateway, çoklu provider. **Zaten çalışıyor.** |
-| 2 | **Kullanıcının projesi** | Masaüstü / C:\ | Sıfırdan yazılmış mini ajan. Hermes'ten ilham almış ama farklı kod. |
-| 3 | **Yardımcı araçlar** | Ayrı klasör (örn: C:\hermes_output) | Dashboard, Telegram bot, Notion entegrasyonu gibi Hermes'in etrafına yazılmış modüller. |
+| 2 | **Kullanıcının projesi** | Masaüstü / C:\ | Sıfırdan yazılmış mini ajan. ReYMeN'ten ilham almış ama farklı kod. |
+| 3 | **Yardımcı araçlar** | Ayrı klasör (örn: C:\hermes_output) | Dashboard, Telegram bot, Notion entegrasyonu gibi ReYMeN'in etrafına yazılmış modüller. |
 
 ## Sık Yapılan Hatalar
 
-1. **Sistem 2'yi Sistem 1 sanmak** — Kullanıcının kendi projesi (R>eYMeN gibi) Hermes Agent ile aynı değildir. Aynı seviyeye getirmek aylarca sürer.
-2. **Sistem 3'ü Sistem 1'in alternatifi sanmak** — Hermes_output, Hermes Agent'ın **yerine geçmez**, **etrafına eklenen araçlardır**.
+1. **Sistem 2'yi Sistem 1 sanmak** — Kullanıcının kendi projesi (R>eYMeN gibi) ReYMeN Agent ile aynı değildir. Aynı seviyeye getirmek aylarca sürer.
+2. **Sistem 3'ü Sistem 1'in alternatifi sanmak** — Hermes_output, ReYMeN Agent'ın **yerine geçmez**, **etrafına eklenen araçlardır**.
 3. **En kısa yolu atlamak** — Bazen en mantıklısı Sistem 2'yi geliştirmek değil, Sistem 1'i kullanıp Sistem 3'ü ona bağlamaktır.
 
 ## Doğru Yaklaşım
@@ -40,6 +40,6 @@ ve bunların birbiriyle ilişkisini anlamak gerekir.
 2. Her birinin ne işe yaradığını belirle
 3. Kullanıcının asıl hedefini anla:
    - "Kendi ajanımı yapmak istiyorum" → Sistem 2'yi büyüt
-   - "Hermes gibi çalışan bir sistem istiyorum" → Sistem 1'i kullan
-   - "Hermes'i telefondan/web'den yönetmek istiyorum" → Sistem 3'ü Sistem 1'e bağla
+   - "ReYMeN gibi çalışan bir sistem istiyorum" → Sistem 1'i kullan
+   - "ReYMeN'i telefondan/web'den yönetmek istiyorum" → Sistem 3'ü Sistem 1'e bağla
 4. En kısa yolu öner, alternatifi de belirt

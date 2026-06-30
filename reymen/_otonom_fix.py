@@ -76,7 +76,7 @@ ATLANACAK_DIZIN = [
     r"\.git",
     r"venv",
     r"\.venv",
-    r"hermes-memory",
+    r"ReYMeN-memory",
     r"hermes_backup",
     r"node_modules",
     r"\.ReYMeN",
@@ -97,7 +97,7 @@ ATLANACAK_DOSYA = [
 # Kara liste — bu dosyalara asla dokunma (göreceli yol, proje kökünden)
 KARA_LISTE: list[str] = [
     # 3. parti / vendor kodları
-    "reymen/core/",  # Hermes vendor kopyası
+    "reymen/core/",  # ReYMeN vendor kopyası
 ]
 
 # Beyaz liste — boşsa tüm dosyalar taranır
@@ -805,7 +805,7 @@ def main():
     
     parser.add_argument(
         "--cikti",
-        choices=["terminal", "dosya", "hermes"],
+        choices=["terminal", "dosya", "ReYMeN"],
         default="terminal",
         help="Rapor çıktısı hedefi",
     )

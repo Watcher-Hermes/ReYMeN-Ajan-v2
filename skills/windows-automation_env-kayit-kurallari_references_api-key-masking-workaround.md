@@ -16,11 +16,11 @@
 
 ---
 
-# API Key Masking Workaround — Hermes Tool Güvenlik Maskelemesi
+# API Key Masking Workaround — ReYMeN Tool Güvenlik Maskelemesi
 
 ## Problem
 
-Hermes `execute_code` ve `terminal` araçları, çıktıda `sk-` ile başlayan string'leri otomatik maskeler:
+ReYMeN `execute_code` ve `terminal` araçları, çıktıda `sk-` ile başlayan string'leri otomatik maskeler:
 ```
 sk-b0a...be5d
 # veya
@@ -51,7 +51,7 @@ print(encoded)
 ```python
 import json, base64
 
-config_path = r"C:\Users\marko\re-hermes\config.json"
+config_path = r"C:\Users\marko\re-ReYMeN\config.json"
 key = base64.b64decode("c2stNWYyOTI4MjQyYWVlNDI0Yzk1NmMzODA5MWQ5YzE2ODY=").decode()
 
 config = {"api_setting": {"api_key": key, ...}}

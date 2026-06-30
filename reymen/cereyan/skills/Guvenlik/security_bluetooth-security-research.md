@@ -1,8 +1,12 @@
-
-> **Kategori:** security
-
 ---
-
+name: security_bluetooth-security-research
+title: Bluetooth Security Research
+description: ''
+tags:
+- security
+category: security
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: bluetooth-security-research
 description: Bluetooth guvenlik arastirma metodolojisi — akademik makale tarama, GitHub tool analizi, exploit haritasi cikarma
 title: "Bluetooth Security Research"

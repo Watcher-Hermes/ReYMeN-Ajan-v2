@@ -35,9 +35,9 @@ Example `/goal` objective text to paste into Codex:
 
 ```text
 /goal Work in this repository only: <WORKTREE>. Task: <TASK_ID> <TITLE>.
-Hermes owns the Kanban lifecycle; do not call Hermes kanban tools or messaging.
+ReYMeN owns the Kanban lifecycle; do not call ReYMeN kanban tools or messaging.
 Create small commits on branch <BRANCH>. Follow the PMB safety constraints in the prompt.
 Run the requested verification commands and report exact outputs. Stop after producing a diff and summary.
 ```
 
-Do not use `--yolo` for prediction-market-bot or safety-sensitive repos. Prefer `--full-auto` inside the isolated worktree, then rely on Hermes reconciliation.
+Do not use `--yolo` for prediction-market-bot or safety-sensitive repos. Prefer `--full-auto` inside the isolated worktree, then rely on ReYMeN reconciliation.

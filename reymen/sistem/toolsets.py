@@ -76,8 +76,8 @@ _ReYMeN_CORE_TOOLS = [
     "computer_use",
 ]
 
-# Hermes compatibility alias
-_HERMES_CORE_TOOLS = _ReYMeN_CORE_TOOLS
+# ReYMeN compatibility alias
+_REYMEN_CORE_TOOLS = _ReYMeN_CORE_TOOLS
 
 # Webhook events may originate from untrusted third-party content (for example,
 # public PR titles/comments). Keep the default webhook toolset intentionally

@@ -19,7 +19,7 @@ version: 1.0.0
 
 ## When to Use
 
-After copying files from an upstream repo (Hermes) into a fork (ReYMeN), tests that previously passed now fail — or new files cause import errors.
+After copying files from an upstream repo (ReYMeN) into a fork (ReYMeN), tests that previously passed now fail — or new files cause import errors.
 
 ## Step-by-Step Diagnostic
 

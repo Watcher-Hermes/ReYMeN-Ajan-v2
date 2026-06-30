@@ -1,7 +1,7 @@
 ---
-name: software-development_re-hermes-v3_references_livetranscribe-comparison-2026-06-12
+name: software-development_re-ReYMeN-v3_references_livetranscribe-comparison-2026-06-12
 description: LiveTranscribe APK Comparison — 2026-06-12
-title: "Software Development Re Hermes V3 References Livetranscribe Comparison 2026 06 12"
+title: "Software Development Re ReYMeN V3 References Livetranscribe Comparison 2026 06 12"
 version: 1.0.0
 ---
 
@@ -30,7 +30,7 @@ Dört APK karşılaştırıldı: base.apk, LiveTranscribe_24h_v3.apk, LiveTransc
 - Token footprint: AccessibilityService×6, chmod×6, getDeviceId×1
 
 ### Grup 2 — v3 + monolithic (🔴 En tehlikeli)
-- HERMES özel keystore ile imzalı (trojanize edilmiş)
+- ReYMeN özel keystore ile imzalı (trojanize edilmiş)
 - ~28-31 MB, **3412 dosya**
 - **7 adet native .so** (AArch64, TensorFlow Lite JNI dahil)
 - Token footprint (AYNI — familya aynı):
@@ -57,8 +57,8 @@ Dört APK karşılaştırıldı: base.apk, LiveTranscribe_24h_v3.apk, LiveTransc
 
 ## Anahtar Gözlemler
 
-1. v3 ve monolithic **aynı APK** — aynı dosya sayısı (3412), aynı token footprint, aynı HERMES imzası
+1. v3 ve monolithic **aynı APK** — aynı dosya sayısı (3412), aynı token footprint, aynı ReYMeN imzası
 2. v3 = 27.8MB, monolithic = 30.9MB farkı muhtemelen split APK merge artefaktı
 3. DeepSeek AI her iki gruptaki APK'ları doğru teşhis etti: "Live Transcribe taklidi infostealer"
 4. BIND_ACCESSIBILITY_SERVICE + RECORD_AUDIO + SYSTEM_ALERT_WINDOW kombinasyonu her dört APK'da da var — Live Transcribe'ın kendi izinleri
-5. **Eklenen zararlı imza:** v3/monolithic'te HERMES.RSA/SF imzası (base'de Google imzası)
+5. **Eklenen zararlı imza:** v3/monolithic'te ReYMeN.RSA/SF imzası (base'de Google imzası)

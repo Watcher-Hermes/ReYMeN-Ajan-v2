@@ -1,7 +1,7 @@
 ---
 name: software-development_hermes-s6-container-supervision_references_expect-19-passed-0-xfailed-against-the-s6-image
 description: Expect 19 passed, 0 xfailed against the s6 image
-title: "Software Development Hermes S6 Container Supervision References Expect 19 Passed 0 Xfailed Against The S6 Image"
+title: "Software Development ReYMeN S6 Container Supervision References Expect 19 Passed 0 Xfailed Against The S6 Image"
 version: 1.0.0
 ---
 

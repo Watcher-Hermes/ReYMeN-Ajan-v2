@@ -1,8 +1,12 @@
-
-> **Kategori:** productivity
-
 ---
-
+name: productivity_real-estate-investment-analysis
+title: Productivity Real Estate Investment Analysis
+description: ''
+tags:
+- productivity
+category: productivity
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: real-estate-investment-analysis
 title: Real Estate Investment Analysis
 description: Generate Excel investment templates and parse property listing data for urban regeneration (kentsel dönüşüm) analysis. Covers template creation, data parsing workflow, and blocked-scraping fallback patterns. Includes Playwright + Chrome profile/cookie transfer fallback to evade strict bot protection.</summary>
@@ -38,7 +39,7 @@ category: productivity---
 - If a platform blocks automatic scraping, **do not retry** in fetch/browser loops.
 - Immediately switch to **Data Parser mode**: wait for user-provided raw HTML/text dump.
 - Parse the dump locally, extract fields, and write directly into the Excel template.
-- Reuse the latest template file: `Kentsel-Donusum-Yatirim-Sablonu.xlsx` in the user's Obsidian Hermes folder.
+- Reuse the latest template file: `Kentsel-Donusum-Yatirim-Sablonu.xlsx` in the user's Obsidian ReYMeN folder.
 
 ## Template Structure (2 Sheets)
 

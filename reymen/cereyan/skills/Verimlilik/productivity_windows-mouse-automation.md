@@ -1,8 +1,12 @@
-
-> **Kategori:** productivity
-
 ---
-
+name: productivity_windows-mouse-automation
+title: Productivity Windows Mouse Automation
+description: ''
+tags:
+- productivity
+category: productivity
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: windows-mouse-automation
 description: >
 title: "Windows Mouse Automation"
@@ -25,12 +26,12 @@ version: 1.0.0
 author: marko
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [windows, mouse, automation, powershell, cursor, screenshot]
 category: productivity
 audience: user
 tags: [mouse, productivity, tools, windows]
----Windows’ta PowerShell + System.Windows.Forms ile fare imlecini hareket ettirme ve ekran goruntusu alma ornekleri.
+Windows’ta PowerShell + System.Windows.Forms ile fare imlecini hareket ettirme ve ekran goruntusu alma ornekleri.
 
 
 

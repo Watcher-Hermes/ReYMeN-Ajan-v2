@@ -154,8 +154,10 @@ class A2ADistributed:
             if remote:
                 try:
                     remote.kapat()
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
         self._nodes.clear()
         logger.info("[A2A-DIST] Tüm baglantilar kapatildi")
 

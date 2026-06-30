@@ -4,11 +4,11 @@ title: "Windows Forensic Assessment"
 tags: [security, windows]
 description: Systematic audit of forensic traces on Windows — Event Log, USBSTOR, SRUM, WiFi profiles, OneDrive, VirtualBox VM logs, PowerShell history, and disk encryption status. One-time evidence check before deciding on countermeasures.
 version: 1.0.0
-author: hermes
+author: ReYMeN
 license: MIT
 platforms: [windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [forensic, evidence, traces, windows, security, audit, event-log, usbstor, srum, virtualbox, onedrive, powershell]
 audience: user
 related_skills: [veracrypt-windows, guvenlik-izleme-sistemi, port-firewall-taramasi, tor-browser-arama]
@@ -162,7 +162,7 @@ Get-Content "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\PowerShell\PSRea
 
 **Ne görünür?**
 - PowerShell'de yazılan her komut satırı
-- Hermes'in çağırdığı Python script'lerinin tam yolu
+- ReYMeN'in çağırdığı Python script'lerinin tam yolu
 - VeraCrypt şifresi (CLI'da geçildiyse düz metin)
 
 **Silinebilir mi?** ✅

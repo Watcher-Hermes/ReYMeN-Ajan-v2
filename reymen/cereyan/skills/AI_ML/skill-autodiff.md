@@ -1,8 +1,12 @@
-
-> **Kategori:** skills
-
 ---
-
+name: skill-autodiff
+title: Skill Autodiff
+description: ''
+tags:
+- skills
+category: skills
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: skill-autodiff
 description: Build, debug, and reason about automatic differentiation systems
 title: "Skill Autodiff"

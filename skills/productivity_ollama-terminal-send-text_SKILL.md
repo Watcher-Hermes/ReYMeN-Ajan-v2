@@ -58,4 +58,4 @@ triggers: [ollama metin gönder, ollama sohbet, VS Code ollama, ollama terminal]
 
 ## Kaynaklar
 - VS Code Ollama uzantısı
-- HERMES otomasyon sistemleri
+- ReYMeN otomasyon sistemleri

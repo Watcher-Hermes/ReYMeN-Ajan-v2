@@ -39,4 +39,4 @@ Her mesajda şu sırayla çalıştır:
    - Kullanıcının bir önceki mesaja verdiği tepki varsa (beğendi/düzeltti) → `--user-reply "..."` ekle, reward otomatik algılansın
    - Decision layer active state'teyse → `--mab` flag'i ile MAB kararını kaydet
    - ÖNEMLİ: Bu adım diğer tüm adımlardan sonra EN SON çalıştırılır. Üçlü kontrolden sonra.
-10. **Günlük kaydı kontrolü** — işlem adımı varsa anında `hermes calisma gunlugu/hermes GG.AA.YYYY.txt` dosyasına yaz
+10. **Günlük kaydı kontrolü** — işlem adımı varsa anında `ReYMeN calisma gunlugu/ReYMeN GG.AA.YYYY.txt` dosyasına yaz

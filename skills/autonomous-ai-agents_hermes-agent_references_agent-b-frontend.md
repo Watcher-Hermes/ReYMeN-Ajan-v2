@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_agent-b-frontend
 description: "Agent B: frontend"
-title: "Autonomous Ai Agents Hermes Agent References Agent B Frontend"
+title: "Autonomous Ai Agents ReYMeN Agent References Agent B Frontend"
 version: 1.0.0
 ---
 
@@ -16,5 +16,5 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Agent B: frontend
-terminal(command="tmux new-session -d -s frontend -x 120 -y 40 'hermes -w'", timeout=10)
+terminal(command="tmux new-session -d -s frontend -x 120 -y 40 'ReYMeN -w'", timeout=10)
 terminal(command="sleep 8 && tmux send-keys -t frontend 'Build React dashboard for user management' Enter", timeout=15)

@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_adb-sdk-path-fix
+title: Windows Automation Adb Sdk Path Fix
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: adb-sdk-path-fix
 description: Windows'ta Android SDK Platform-Tools yolundaki boşluk nedeniyle ADB komutlarının çalışmaması durumunda PATH düzeltme ve tırnak kullanma rehberi.
 title: "Adb Sdk Path Fix"

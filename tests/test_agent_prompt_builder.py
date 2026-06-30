@@ -214,14 +214,14 @@ class TestLoadSoulMd:
     def test_dosya_yoksa_none(self):
         from agent.prompt_builder import load_soul_md, _SKILLS_PROMPT_CACHE
         _SKILLS_PROMPT_CACHE.clear()
-        with patch("agent.prompt_builder.get_ReYMeN_home") as mock_home:
+        with patch("agent.prompt_builder.get_reymen_home") as mock_home:
             mock_home.return_value = Path("/nonexistent")
             result = load_soul_md()
         assert result is None
 
     def test_dosya_var_okunur(self):
         from agent.prompt_builder import load_soul_md
-        with patch("agent.prompt_builder.get_ReYMeN_home") as mock_home:
+        with patch("agent.prompt_builder.get_reymen_home") as mock_home:
             mock_path = MagicMock(spec=Path)
             mock_path.exists.return_value = True
             mock_path.read_text.return_value = "Benim soul md'im"
@@ -238,7 +238,7 @@ class TestLoadSoulMd:
         mock_path = MagicMock(spec=Path)
         mock_path.exists.return_value = True
         mock_path.read_text.return_value = "   "
-        with patch("agent.prompt_builder.get_ReYMeN_home") as mock_home:
+        with patch("agent.prompt_builder.get_reymen_home") as mock_home:
             mock_home.return_value = MagicMock()
             mock_home.return_value.__truediv__.return_value = mock_path
             result = load_soul_md()

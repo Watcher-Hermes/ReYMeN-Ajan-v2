@@ -10,8 +10,8 @@
 - Sessiz onay: soru sorunca 3dk bekle, cevap yoksa onay say
 
 ## Teknik Bilgiler
-- ReYMeN Agent proje sahibi (Hermes fork'u)
-- GitHub: asdafgf (Watcher-Hermes organizasyonu)
+- ReYMeN Agent proje sahibi (ReYMeN fork'u)
+- GitHub: asdafgf (Watcher-ReYMeN organizasyonu)
 - Python bilgisi ileri seviye
 - Windows 10 kullanıcısı
 - Kali Linux VM kullanıyor (192.168.56.103)
@@ -23,10 +23,10 @@
 - ReYMeN-Ajan projesi: C:\Users\marko\Desktop\Reymen Proje\ReYMeN-Ajan
 - Türkçe dokümantasyon öncelikli
 - Açık kaynak (MIT lisansı)
-- GitHub'da Watcher-Hermes organizasyonu altında
+- GitHub'da Watcher-ReYMeN organizasyonu altında
 - Kod kalitesi: shell=True yasak, except:pass yasak, CLI < 2000 satır
 - Batch fix'ler Python script'i ile yapılır (manuel edit yasak)
-- Cline kod çalıştırıcı, Hermes planlayıcı/yönetici
+- Cline kod çalıştırıcı, ReYMeN planlayıcı/yönetici
 
 ## Karar Mekanizması
 - Pragmatik: fayda yoksa yapma

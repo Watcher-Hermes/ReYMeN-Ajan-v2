@@ -3,7 +3,7 @@ name: polymarket
 description: "Query Polymarket: markets, prices, orderbooks, history."
 title: "Polymarket"
 version: 1.0.0
-author: Hermes Agent + Teknium
+author: ReYMeN Agent + Teknium
 tags: [polymarket, prediction-markets, market-data, trading]
 category: research
 audience: user

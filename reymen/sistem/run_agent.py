@@ -62,7 +62,7 @@ from typing import List, Dict, Any, Optional
 from datetime import datetime
 from pathlib import Path
 
-from reymen.sistem.ReYMeN_constants import get_ReYMeN_home
+from reymen.sistem.ReYMeN_constants import get_reymen_home
 
 # OpenAI lazy proxy + safe stdio + proxy URL helpers — see agent/process_bootstrap.py.
 # `OpenAI` is re-exported here so `patch("run_agent.OpenAI", ...)` in tests works.
@@ -78,15 +78,15 @@ from agent.process_bootstrap import (
 from agent.iteration_budget import IterationBudget
 
 
-from ReYMeN_cli.env_loader import load_ReYMeN_dotenv
+from ReYMeN_cli.env_loader import load_reymen_dotenv
 from ReYMeN_cli.timeouts import (
     get_provider_request_timeout,
     get_provider_stale_timeout,
 )
 
-_ReYMeN_home = get_ReYMeN_home()
+_ReYMeN_home = get_reymen_home()
 _project_env = Path(__file__).parent / '.env'
-_loaded_env_paths = load_ReYMeN_dotenv(ReYMeN_home=_ReYMeN_home, project_env=_project_env)
+_loaded_env_paths = load_reymen_dotenv(ReYMeN_home=_ReYMeN_home, project_env=_project_env)
 if _loaded_env_paths:
     for _env_path in _loaded_env_paths:
         logger.info("Loaded environment variables from %s", _env_path)
@@ -200,7 +200,7 @@ def _launch_cwd_for_session(source: str) -> Optional[str]:
     """Working directory to stamp on a new session row, or None.
 
     Only local CLI sessions get a recorded cwd: the directory the process was
-    launched from is meaningful for ``hermes -c`` / ``--resume`` (relaunch
+    launched from is meaningful for ``ReYMeN -c`` / ``--resume`` (relaunch
     where you left off). Gateway/cron/remote-backend sessions have no stable
     host cwd to restore, so they record nothing.
 
@@ -1958,7 +1958,9 @@ class AIAgent:
                         )
                         return
                 except Exception as _e:
-                    pass  # corrupted existing file — allow the overwrite
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )  # corrupted existing file — allow the overwrite
 
             entry = {
                 "session_id": self.session_id,
@@ -2439,7 +2441,9 @@ class AIAgent:
             if state is not None:
                 self._rate_limit_state = state
         except Exception as _e:
-            pass  # Never let header parsing break the agent loop
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # Never let header parsing break the agent loop
 
     def get_rate_limit_state(self):
         """Return the last captured RateLimitState, or None."""
@@ -2464,8 +2468,10 @@ class AIAgent:
                 logger.info("OpenRouter response cache HIT (total: %d)", self._or_cache_hits)
             else:
                 logger.debug("OpenRouter response cache %s", status.upper())
-        except Exception:
-            pass  # Never let header parsing break the agent loop
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # Never let header parsing break the agent loop
 
     def get_activity_summary(self) -> dict:
         """Return a snapshot of the agent's current activity for diagnostics.

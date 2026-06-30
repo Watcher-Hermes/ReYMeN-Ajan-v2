@@ -1,24 +1,12 @@
 ---
-name: songsee
-description: "Audio spectrograms/features (mel, chroma, MFCC) via CLI."
-version: 1.0.0
-author: community
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [Audio, Visualization, Spectrogram, Music, Analysis]
-audience: user
-    homepage: https://github.com/steipete/songsee
-prerequisites:
-  commands: [songsee]
+name: media_songsee
+title: Media Songsee
+description: ''
+tags:
+- medya
+category: Medya
+audience: agent
 ---
-
-
-> **Kategori:** media
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +17,6 @@ prerequisites:
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # songsee
 

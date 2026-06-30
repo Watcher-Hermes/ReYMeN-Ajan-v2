@@ -36,7 +36,7 @@ REST API, MCP, ACP ve Open WebUI uyumlulugu. [API](API.md)
 
 ## Hizli Bakis
 
-git clone https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2.git
+git clone https://github.com/Watcher-ReYMeN/ReYMeN-Ajan-v2.git
 cd ReYMeN-Ajan-v2
 pip install -e .
 reymen chat

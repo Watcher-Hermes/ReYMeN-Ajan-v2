@@ -6,7 +6,7 @@ Sonradan analiz, hata ayiklama ve ogrenme icin kullanilir.
 
 Desteklenen formatlar:
   - ReYMeN ozel JSON (varsayilan)
-  - ShareGPT JSONL (Hermes Agent / HuggingFace egitim veri formati)
+  - ShareGPT JSONL (ReYMeN Agent / HuggingFace egitim veri formati)
 """
 
 import json

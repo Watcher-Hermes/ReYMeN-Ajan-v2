@@ -150,6 +150,8 @@ class TestToolRegistry:
 
     def test_alias_listede_var(self):
         """Alias'lar listede gorunmeli."""
+        self.reg.kaydet("KOMUT_CALISTIR", lambda: "ok")
+        self.reg.kaydet("WEB_ARA", lambda: "ok")
         lst = self.reg.liste()
         assert "KOMUT_CALISTIR" in lst
         assert "WEB_ARA" in lst

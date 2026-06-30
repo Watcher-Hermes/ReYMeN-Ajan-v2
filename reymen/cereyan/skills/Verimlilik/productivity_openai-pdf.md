@@ -1,8 +1,12 @@
-
-> **Kategori:** productivity
-
 ---
-
+name: productivity_openai-pdf
+title: Productivity Openai Pdf
+description: ''
+tags:
+- productivity
+category: productivity
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: "pdf"
 description: "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction."
 title: "PDF"

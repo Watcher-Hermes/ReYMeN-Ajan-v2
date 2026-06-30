@@ -1,8 +1,12 @@
-
-> **Kategori:** ecc
-
 ---
-
+name: ecc_nanoclaw-repl
+title: Ecc Nanoclaw Repl
+description: ''
+tags:
+- ecc
+category: ecc
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: nanoclaw-repl
 description: Operate and extend NanoClaw v2, ECC's zero-dependency session-aware REPL built on claude -p.
 title: "Nanoclaw Repl"

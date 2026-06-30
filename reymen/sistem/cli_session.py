@@ -656,7 +656,9 @@ class SessionMixin:
                     reasoning=msg.get("reasoning"),
                 )
             except Exception as _e:
-                pass  # Best-effort copy
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )  # Best-effort copy
 
         # Set title on the branch
         try:
@@ -726,7 +728,7 @@ class SessionMixin:
             return
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        saved_dir = get_ReYMeN_home() / "sessions" / "saved"
+        saved_dir = get_reymen_home() / "sessions" / "saved"
         try:
             saved_dir.mkdir(parents=True, exist_ok=True)
         except Exception as e:
@@ -1231,7 +1233,7 @@ class SessionMixin:
                 plugins = mgr.list_plugins()
                 if not plugins:
                     print("No plugins installed.")
-                    print(f"Drop plugin directories into {display_ReYMeN_home()}/plugins/ to get started.")
+                    print(f"Drop plugin directories into {display_reymen_home()}/plugins/ to get started.")
                 else:
                     print(f"Plugins ({len(plugins)}):")
                     for p in plugins:

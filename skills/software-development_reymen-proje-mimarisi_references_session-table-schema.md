@@ -1,6 +1,6 @@
 ---
 name: software-development_reymen-proje-mimarisi_references_session-table-schema
-description: Hermes Agent Sessions Tablo Schema
+description: ReYMeN Agent Sessions Tablo Schema
 title: "Software Development Reymen Proje Mimarisi References Session Table Schema"
 version: 1.0.0
 ---
@@ -9,13 +9,13 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Agent Sessions Tablo Schema |
+| **Ne** | ReYMeN Agent Sessions Tablo Schema |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes Agent Sessions Tablo Schema
+# ReYMeN Agent Sessions Tablo Schema
 
 ## CREATE TABLE
 

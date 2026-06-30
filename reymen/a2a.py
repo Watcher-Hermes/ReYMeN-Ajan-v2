@@ -159,7 +159,9 @@ class Broker:
             try:
                 handler(message)
             except Exception as _e:
-                pass  # Handler hatası mesaj akışını bozmamalı
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )  # Handler hatası mesaj akışını bozmamalı
 
     def broadcast(self, sender: str, content: Any, *, exclude: set[str] | None = None) -> list[str]:
         """Tüm kayıtlı agent'lara broadcast mesaj gönderir.

@@ -1,7 +1,7 @@
 ---
 name: software-development_hermes-s6-container-supervision_references_2026-05-21t06-18-05-0000-profile-writer-prior_state-stopped-
 description: 2026-05-21T06:18:05+0000 profile=writer prior_state=stopped action=registered
-title: "Software Development Hermes S6 Container Supervision References 2026 05 21T06 18 05 0000 Profile Writer Prior State Stopped "
+title: "Software Development ReYMeN S6 Container Supervision References 2026 05 21T06 18 05 0000 Profile Writer Prior State Stopped "
 version: 1.0.0
 ---
 
@@ -21,7 +21,7 @@ version: 1.0.0
 ### Add a new static service
 
 1. Create `docker/s6-rc.d/<name>/type` with `longrun\n` and `docker/s6-rc.d/<name>/run` (use `#!/command/with-contenv sh` + `# shellcheck shell=sh`).
-2. Drop to hermes via `s6-setuidgid hermes` at the top of run (unless you specifically need root).
+2. Drop to ReYMeN via `s6-setuidgid ReYMeN` at the top of run (unless you specifically need root).
 3. Create empty `docker/s6-rc.d/<name>/dependencies.d/base` so it waits for the base bundle.
 4. Create empty `docker/s6-rc.d/user/contents.d/<name>` so it joins the user bundle.
 5. The `COPY docker/s6-rc.d/` in the Dockerfile picks it up automatically — no other changes.
@@ -33,5 +33,5 @@ Edit `S6ServiceManager._render_run_script` in `hermes_cli/service_manager.py`. T
 ### Run the docker test harness
 
 ```sh
-docker build -t hermes-agent-harness:latest .
-HERMES_TEST_IMAGE=hermes-agent-harness:latest scripts/run_tests.sh tests/docker/ -v
+docker build -t ReYMeN-agent-harness:latest .
+HERMES_TEST_IMAGE=ReYMeN-agent-harness:latest scripts/run_tests.sh tests/docker/ -v

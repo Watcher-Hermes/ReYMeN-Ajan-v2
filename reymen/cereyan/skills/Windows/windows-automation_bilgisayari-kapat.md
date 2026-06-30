@@ -1,17 +1,15 @@
 ---
-tags: [hermes, skill, system, power]
+name: windows-automation_bilgisayari-kapat
+title: Windows Automation Bilgisayari Kapat
+description: ''
+tags:
+- ReYMeN
+- skill
+- system
+- power
 category: windows-automation
 audience: user
-shortcut: Win + X + U + U
-function: Bilgisayarı kapat
-created: 2026-06-05
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -22,8 +20,6 @@ created: 2026-06-05
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Klavye Kısayol
 

@@ -58,7 +58,7 @@ class MemoryAgent:
             self._memory_dir = Path(memory_dir)
         else:
             self._memory_dir = (
-                Path(os.environ.get("LOCALAPPDATA", "")) / "ReYMeN" / "memory"
+                Path(os.environ.get("LOCALAPPDATA", "")) / "reymen" / "memory"
             )
         self._memory_dir.mkdir(parents=True, exist_ok=True)
         self._memory_file = self._memory_dir / "chat_memory.json"

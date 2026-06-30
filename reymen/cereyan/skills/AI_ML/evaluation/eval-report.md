@@ -1,16 +1,16 @@
 ---
 name: eval-report
-title: "Eval Report"
-description: "Plan a full generative-model evaluation: sample quality, adherence, preference, failure audit."
-version: 1.0.0
-phase: 8
-lesson: 14
-tags: [evaluation, fid, clip, elo]
+title: Eval Report
+description: 'Plan a full generative-model evaluation: sample quality, adherence,
+  preference, failure audit.'
+tags:
+- evaluation
+- fid
+- clip
+- elo
+category: evaluation
 audience: user
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -31,8 +31,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: AI gelistiricisi
 Ne: "Plan a full generative-model evaluation: sample quality, adherence, preference, failure audit."

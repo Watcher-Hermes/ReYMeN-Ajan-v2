@@ -277,8 +277,10 @@ class VectorMemory:
         if self._vb is not None:
             try:
                 basarili = self._vb.sil(kayit_id) or basarili
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
         return self._sqlite.sil(kayit_id) or basarili
 
@@ -308,16 +310,20 @@ class VectorMemory:
         if self._vb is not None:
             try:
                 return self._vb.listele(limit=limit)
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
         return self._sqlite.listele(limit=limit)
 
     def __len__(self) -> int:
         if self._vb is not None:
             try:
                 return len(self._vb)
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
         return len(self._sqlite)
 
     def bilgi(self) -> Dict:
@@ -369,8 +375,10 @@ class _SQLiteVectorMemory:
             self._conn.execute(
                 "CREATE VIRTUAL TABLE IF NOT EXISTS vector_memory_fts USING fts5(id, metin)"
             )
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
         self._conn.commit()
 
     def ekle(self, metin: str, metadata: Optional[Dict] = None, embedding: Optional[List[float]] = None) -> str:
@@ -390,8 +398,10 @@ class _SQLiteVectorMemory:
                     "INSERT OR REPLACE INTO vector_memory_fts (id, metin) VALUES (?, ?)",
                     (kayit_id, metin),
                 )
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
             self._conn.commit()
         except Exception as e:
             logger.warning("[SQLiteVectorMemory] Ekleme hatasi: %s", e)
@@ -464,8 +474,10 @@ class _SQLiteVectorMemory:
                         "skor": 0.5,
                         "metadata": meta,
                     })
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
         return sonuclar[:limit]
 
@@ -474,8 +486,10 @@ class _SQLiteVectorMemory:
             self._conn.execute("DELETE FROM vector_memory WHERE id = ?", (kayit_id,))
             try:
                 self._conn.execute("DELETE FROM vector_memory_fts WHERE id = ?", (kayit_id,))
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
             self._conn.commit()
             return True
         except Exception as e:
@@ -506,8 +520,10 @@ class _SQLiteVectorMemory:
     def kapat(self):
         try:
             self._conn.close()
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

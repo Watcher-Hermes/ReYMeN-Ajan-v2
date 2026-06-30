@@ -5,7 +5,7 @@
 1. Import hataları (43→3) — ReYMeN modül stub'ları oluşturuldu, conftest fix
 2. Self-improvement meta-döngüsü `closed_learning_loop.py`'ye eklendi (observe→discover→compare→test→save)
 3. 672 iterasyon test_mode ile başlatıldı
-4. Telegram bot gateway restart (bloklandı, Hermes chat ile çözüm dene)
+4. Telegram bot gateway restart (bloklandı, ReYMeN chat ile çözüm dene)
 5. Geçmiş 2 konuşma işlendi → 16 skill + 16 karar + teknik bilgi
 
 ### Kararlar

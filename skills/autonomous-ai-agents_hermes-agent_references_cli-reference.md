@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_cli-reference
 description: CLI Reference
-title: "Autonomous Ai Agents Hermes Agent References Cli Reference"
+title: "Autonomous Ai Agents ReYMeN Agent References Cli Reference"
 version: 1.0.0
 ---
 
@@ -20,7 +20,7 @@ version: 1.0.0
 ### Global Flags
 
 ```
-hermes [flags] [command]
+ReYMeN [flags] [command]
 
   --version, -V             Show version
   --resume, -r SESSION      Resume session by ID or title
@@ -37,7 +37,7 @@ No subcommand defaults to `chat`.
 ### Chat
 
 ```
-hermes chat [flags]
+ReYMeN chat [flags]
   -q, --query TEXT          Single query, non-interactive
   -m, --model MODEL         Model (e.g. anthropic/claude-sonnet-4)
   -t, --toolsets LIST       Comma-separated toolsets
@@ -51,137 +51,137 @@ hermes chat [flags]
 ### Configuration
 
 ```
-hermes setup [section]      Interactive wizard (model|terminal|gateway|tools|agent)
-hermes model                Interactive model/provider picker
-hermes config               View current config
-hermes config edit          Open config.yaml in $EDITOR
-hermes config set KEY VAL   Set a config value
-hermes config path          Print config.yaml path
-hermes config env-path      Print .env path
-hermes config check         Check for missing/outdated config
-hermes config migrate       Update config with new options
-hermes auth                 Interactive credential manager
-hermes auth add PROVIDER    Add OAuth or API-key credential (e.g. nous, openai-codex, qwen-oauth)
-hermes auth list            List stored credentials
-hermes auth remove PROVIDER Remove a stored credential
-hermes doctor [--fix]       Check dependencies and config
-hermes status [--all]       Show component status
+ReYMeN setup [section]      Interactive wizard (model|terminal|gateway|tools|agent)
+ReYMeN model                Interactive model/provider picker
+ReYMeN config               View current config
+ReYMeN config edit          Open config.yaml in $EDITOR
+ReYMeN config set KEY VAL   Set a config value
+ReYMeN config path          Print config.yaml path
+ReYMeN config env-path      Print .env path
+ReYMeN config check         Check for missing/outdated config
+ReYMeN config migrate       Update config with new options
+ReYMeN auth                 Interactive credential manager
+ReYMeN auth add PROVIDER    Add OAuth or API-key credential (e.g. nous, openai-codex, qwen-oauth)
+ReYMeN auth list            List stored credentials
+ReYMeN auth remove PROVIDER Remove a stored credential
+ReYMeN doctor [--fix]       Check dependencies and config
+ReYMeN status [--all]       Show component status
 ```
 
 ### Tools & Skills
 
 ```
-hermes tools                Interactive tool enable/disable (curses UI)
-hermes tools list           Show all tools and status
-hermes tools enable NAME    Enable a toolset
-hermes tools disable NAME   Disable a toolset
+ReYMeN tools                Interactive tool enable/disable (curses UI)
+ReYMeN tools list           Show all tools and status
+ReYMeN tools enable NAME    Enable a toolset
+ReYMeN tools disable NAME   Disable a toolset
 
-hermes skills list          List installed skills
-hermes skills search QUERY  Search the skills hub
-hermes skills install ID    Install a skill (ID can be a hub identifier OR a direct https://…/SKILL.md URL; pass --name to override when frontmatter has no name)
-hermes skills inspect ID    Preview without installing
-hermes skills config        Enable/disable skills per platform
-hermes skills check         Check for updates
-hermes skills update        Update outdated skills
-hermes skills uninstall N   Remove a hub skill
-hermes skills publish PATH  Publish to registry
-hermes skills browse        Browse all available skills
-hermes skills tap add REPO  Add a GitHub repo as skill source
+ReYMeN skills list          List installed skills
+ReYMeN skills search QUERY  Search the skills hub
+ReYMeN skills install ID    Install a skill (ID can be a hub identifier OR a direct https://…/SKILL.md URL; pass --name to override when frontmatter has no name)
+ReYMeN skills inspect ID    Preview without installing
+ReYMeN skills config        Enable/disable skills per platform
+ReYMeN skills check         Check for updates
+ReYMeN skills update        Update outdated skills
+ReYMeN skills uninstall N   Remove a hub skill
+ReYMeN skills publish PATH  Publish to registry
+ReYMeN skills browse        Browse all available skills
+ReYMeN skills tap add REPO  Add a GitHub repo as skill source
 ```
 
 ### MCP Servers
 
 ```
-hermes mcp serve            Run Hermes as an MCP server
-hermes mcp add NAME         Add an MCP server (--url or --command)
-hermes mcp remove NAME      Remove an MCP server
-hermes mcp list             List configured servers
-hermes mcp test NAME        Test connection
-hermes mcp configure NAME   Toggle tool selection
+ReYMeN mcp serve            Run ReYMeN as an MCP server
+ReYMeN mcp add NAME         Add an MCP server (--url or --command)
+ReYMeN mcp remove NAME      Remove an MCP server
+ReYMeN mcp list             List configured servers
+ReYMeN mcp test NAME        Test connection
+ReYMeN mcp configure NAME   Toggle tool selection
 ```
 
 ### Gateway (Messaging Platforms)
 
 ```
-hermes gateway run          Start gateway foreground
-hermes gateway install      Install as background service
-hermes gateway start/stop   Control the service
-hermes gateway restart      Restart the service
-hermes gateway status       Check status
-hermes gateway setup        Configure platforms
+ReYMeN gateway run          Start gateway foreground
+ReYMeN gateway install      Install as background service
+ReYMeN gateway start/stop   Control the service
+ReYMeN gateway restart      Restart the service
+ReYMeN gateway status       Check status
+ReYMeN gateway setup        Configure platforms
 ```
 
 Supported platforms: Telegram, Discord, Slack, WhatsApp, Signal, Email, SMS, Matrix, Mattermost, Home Assistant, DingTalk, Feishu, WeCom, BlueBubbles (iMessage), Weixin (WeChat), API Server, Webhooks. Open WebUI connects via the API Server adapter.
 
-Platform docs: https://hermes-agent.nousresearch.com/docs/user-guide/messaging/
+Platform docs: https://ReYMeN-agent.nousresearch.com/docs/user-guide/messaging/
 
 ### Sessions
 
 ```
-hermes sessions list        List recent sessions
-hermes sessions browse      Interactive picker
-hermes sessions export OUT  Export to JSONL
-hermes sessions rename ID T Rename a session
-hermes sessions delete ID   Delete a session
-hermes sessions prune       Clean up old sessions (--older-than N days)
-hermes sessions stats       Session store statistics
+ReYMeN sessions list        List recent sessions
+ReYMeN sessions browse      Interactive picker
+ReYMeN sessions export OUT  Export to JSONL
+ReYMeN sessions rename ID T Rename a session
+ReYMeN sessions delete ID   Delete a session
+ReYMeN sessions prune       Clean up old sessions (--older-than N days)
+ReYMeN sessions stats       Session store statistics
 ```
 
 ### Cron Jobs
 
 ```
-hermes cron list            List jobs (--all for disabled)
-hermes cron create SCHED    Create: '30m', 'every 2h', '0 9 * * *'
-hermes cron edit ID         Edit schedule, prompt, delivery
-hermes cron pause/resume ID Control job state
-hermes cron run ID          Trigger on next tick
-hermes cron remove ID       Delete a job
-hermes cron status          Scheduler status
+ReYMeN cron list            List jobs (--all for disabled)
+ReYMeN cron create SCHED    Create: '30m', 'every 2h', '0 9 * * *'
+ReYMeN cron edit ID         Edit schedule, prompt, delivery
+ReYMeN cron pause/resume ID Control job state
+ReYMeN cron run ID          Trigger on next tick
+ReYMeN cron remove ID       Delete a job
+ReYMeN cron status          Scheduler status
 ```
 
 ### Webhooks
 
 ```
-hermes webhook subscribe N  Create route at /webhooks/<name>
-hermes webhook list         List subscriptions
-hermes webhook remove NAME  Remove a subscription
-hermes webhook test NAME    Send a test POST
+ReYMeN webhook subscribe N  Create route at /webhooks/<name>
+ReYMeN webhook list         List subscriptions
+ReYMeN webhook remove NAME  Remove a subscription
+ReYMeN webhook test NAME    Send a test POST
 ```
 
 ### Profiles
 
 ```
-hermes profile list         List all profiles
-hermes profile create NAME  Create (--clone, --clone-all, --clone-from)
-hermes profile use NAME     Set sticky default
-hermes profile delete NAME  Delete a profile
-hermes profile show NAME    Show details
-hermes profile alias NAME   Manage wrapper scripts
-hermes profile rename A B   Rename a profile
-hermes profile export NAME  Export to tar.gz
-hermes profile import FILE  Import from archive
+ReYMeN profile list         List all profiles
+ReYMeN profile create NAME  Create (--clone, --clone-all, --clone-from)
+ReYMeN profile use NAME     Set sticky default
+ReYMeN profile delete NAME  Delete a profile
+ReYMeN profile show NAME    Show details
+ReYMeN profile alias NAME   Manage wrapper scripts
+ReYMeN profile rename A B   Rename a profile
+ReYMeN profile export NAME  Export to tar.gz
+ReYMeN profile import FILE  Import from archive
 ```
 
 ### Credential Pools
 
 ```
-hermes auth add             Interactive credential wizard
-hermes auth list [PROVIDER] List pooled credentials
-hermes auth remove P INDEX  Remove by provider + index
-hermes auth reset PROVIDER  Clear exhaustion status
+ReYMeN auth add             Interactive credential wizard
+ReYMeN auth list [PROVIDER] List pooled credentials
+ReYMeN auth remove P INDEX  Remove by provider + index
+ReYMeN auth reset PROVIDER  Clear exhaustion status
 ```
 
 ### Other
 
 ```
-hermes insights [--days N]  Usage analytics
-hermes update               Update to latest version
-hermes pairing list/approve/revoke  DM authorization
-hermes plugins list/install/remove  Plugin management
-hermes honcho setup/status  Honcho memory integration (requires honcho plugin)
-hermes memory setup/status/off  Memory provider config
-hermes completion bash|zsh  Shell completions
-hermes acp                  ACP server (IDE integration)
-hermes claw migrate         Migrate from OpenClaw
-hermes uninstall            Uninstall Hermes
+ReYMeN insights [--days N]  Usage analytics
+ReYMeN update               Update to latest version
+ReYMeN pairing list/approve/revoke  DM authorization
+ReYMeN plugins list/install/remove  Plugin management
+ReYMeN honcho setup/status  Honcho memory integration (requires honcho plugin)
+ReYMeN memory setup/status/off  Memory provider config
+ReYMeN completion bash|zsh  Shell completions
+ReYMeN acp                  ACP server (IDE integration)
+ReYMeN claw migrate         Migrate from OpenClaw
+ReYMeN uninstall            Uninstall ReYMeN
 ```

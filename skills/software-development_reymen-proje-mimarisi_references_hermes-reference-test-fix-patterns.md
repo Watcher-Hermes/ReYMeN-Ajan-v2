@@ -1,7 +1,7 @@
 ---
 name: software-development_reymen-proje-mimarisi_references_hermes-reference-test-fix-patterns
-description: Hermes Reference Test Fix Patterns
-title: "Software Development Reymen Proje Mimarisi References Hermes Reference Test Fix Patterns"
+description: ReYMeN Reference Test Fix Patterns
+title: "Software Development Reymen Proje Mimarisi References ReYMeN Reference Test Fix Patterns"
 version: 1.0.0
 ---
 
@@ -9,15 +9,15 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Reference Test Fix Patterns |
+| **Ne** | ReYMeN Reference Test Fix Patterns |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes Reference Test Fix Patterns
+# ReYMeN Reference Test Fix Patterns
 
-Reymen projesinde Hermes'ten kopyalanan referans testleri (`tests/hermes_reference/`) çalıştırırken karşılaşılan yaygın hatalar ve çözümleri.
+Reymen projesinde ReYMeN'ten kopyalanan referans testleri (`tests/hermes_reference/`) çalıştırırken karşılaşılan yaygın hatalar ve çözümleri.
 
 ## 1. session_db.py — Eksik Metodlar
 
@@ -121,7 +121,7 @@ return first.lower().replace(" ", "-") if first else "uncategorized"
 1. **Collection check:** Her kategoriyi ayrı ayrı `--collect-only` ile dene
 2. **Çalışan kategoriler:** `--tb=short -q` ile koş, hataları kategorize et
 3. **Basit fix:** Eksik metod/import/fonksiyon varsa direkt ekle
-4. **Karmaşık fix:** Collection error (Hermes import'ları) → Claude Code'a task olarak ver
+4. **Karmaşık fix:** Collection error (ReYMeN import'ları) → Claude Code'a task olarak ver
 5. **Doğrulama:** Fix sonrası kategoriyi tekrar koş, tüm testler geçene kadar tekrarla
 
 ## 5. Silinen/Değiştirilen Dosyayı Kurtarma

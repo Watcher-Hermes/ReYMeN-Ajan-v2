@@ -1,8 +1,12 @@
-
-> **Kategori:** note-taking
-
 ---
-
+name: note-taking_notion-research-documentation
+title: Note Taking Notion Research Documentation
+description: ''
+tags:
+- note-taking
+category: note-taking
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: notion-research-documentation-notion-research-documentation
 description: Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.
 title: "Notion Research Documentation"

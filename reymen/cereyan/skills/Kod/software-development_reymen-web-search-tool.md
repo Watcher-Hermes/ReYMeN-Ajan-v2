@@ -1,12 +1,15 @@
 ---
 name: reymen-web-search-tool
-category: software-development
-version: 1.0.0
+title: Software Development Reymen Web Search Tool
 description: R>eYMeN projesine web_search_tool.py ekleme ve motor.py'ye kaydetme adimlari
-tags: [skill, hermes, reymen, web-search]
+tags:
+- skill
+- ReYMeN
+- reymen
+- web-search
+category: software-development
+audience: agent
 ---
-
-
 > **Kategori:** software-development
 
 ---

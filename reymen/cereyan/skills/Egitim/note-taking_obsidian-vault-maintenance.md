@@ -1,26 +1,12 @@
 ---
-
-name: obsidian-vault-maintenance
-description: >-
-title: "Obsidian Vault Maintenance"
-  toplu etiket ekleme, link audit ve doğrulama. 100-1000+ dosyalı vault'lar için
-  Python script tabanlı yaklaşım.
-version: 2.0.0
-author: marko
-license: MIT
-metadata:
-  hermes:
-    tags: [obsidian, vault, maintenance, cleanup, audit, links, tags]
-category: note-taking
-audience: user
-tags: [note-taking, obsidian, productivity]
+name: note-taking_obsidian-vault-maintenance
+title: Note Taking Obsidian Vault Maintenance
+description: ''
+tags:
+- egitim
+category: Egitim
+audience: agent
 ---
-
-
-> **Kategori:** note-taking
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -31,8 +17,6 @@ tags: [note-taking, obsidian, productivity]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Obsidian Vault Maintenance
 

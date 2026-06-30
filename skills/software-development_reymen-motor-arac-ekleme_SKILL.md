@@ -57,7 +57,7 @@ if arac in ("ARAC1", "ARAC2", ...):
         return f"[Hata]: yeni_modul: {e}"
 ```
 
-**ONEMLI:** Erken kontrol ToolRegistry ve PluginManager'dan ONCE eklenmeli, yoksa Hermes araclari intercept eder.
+**ONEMLI:** Erken kontrol ToolRegistry ve PluginManager'dan ONCE eklenmeli, yoksa ReYMeN araclari intercept eder.
 
 ## Adim 3: sistem_talimati.py'yi Guncelle
 

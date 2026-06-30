@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_tor-arama-bypass-cozumu
+title: Windows Automation Tor Arama Bypass Cozumu
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,14 +18,11 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: tor-arama-bypass-cozumu
 description: "Tamamlayici skill - Tor bypass teknikleri. Ana skil: tor-browser-arama"
 title: "Tor Arama Bypass Cozumu"
 version: 1.0.0
-author: hermes
+author: ReYMeN
 platforms: [windows]
 
 audience: user
@@ -87,7 +88,7 @@ Browser aracı ile `https://lite.duckduckgo.com/lite/` adresine git, sorgu yaz, 
 
 ## Önemli: Doğru Python Kullan
 ```bash
-# Hermes varsayılan python (3.11) → PySocks yok!
+# ReYMeN varsayılan python (3.11) → PySocks yok!
 python3 -c "..."  # HATA: Missing dependencies
 
 # Python 3.14 → PySocks VAR

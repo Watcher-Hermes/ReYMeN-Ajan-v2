@@ -1,19 +1,15 @@
 ---
 name: tersine-muhendislik
-title: "Tersine Muhendislik"
-tags: [security]
-description: Kullanıcı bir .exe, .dll, .apk, .elf veya bilinmeyen ikili dosyayı analiz ettirmek istediğinde çalıştır. RE-HERMES v3 aracıyla pasif statik analiz yapar; hash, entropy, IOC, şüpheli API ve 5N1K raporu üretir. Dosya hiçbir zaman çalıştırılmaz.
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-metadata:
-  hermes:
-    tags: [security, reverse-engineering, malware, apk, pe, elf, static-analysis, ioc]
+title: Tersine Muhendislik
+description: Kullanıcı bir .exe, .dll, .apk, .elf veya bilinmeyen ikili dosyayı analiz
+  ettirmek istediğinde çalıştır. RE-ReYMeN v3 aracıyla pasif statik analiz yapar;
+  hash, entropy, IOC, şüpheli API ve 5N1K raporu üretir. Dosya hiçbir zaman çalıştırılmaz.
+tags:
+- security
+category: Guvenlik
 audience: user
-related_skills: [security-best-practices, port-firewall-taramasi]
 ---
-
-# Tersine Mühendislik — RE-HERMES v3
+# Tersine Mühendislik — RE-ReYMeN v3
 
 ## Ne Zaman Kullan
 

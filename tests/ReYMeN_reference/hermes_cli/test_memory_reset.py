@@ -36,9 +36,9 @@ def _run_memory_reset(target="all", yes=False, monkeypatch=None, confirm_input="
 
     Simulates what happens when `ReYMeN memory reset` is run.
     """
-    from ReYMeN_constants import get_ReYMeN_home
+    from ReYMeN_constants import get_reymen_home
 
-    mem_dir = get_ReYMeN_home() / "memories"
+    mem_dir = get_reymen_home() / "memories"
     files_to_reset = []
     if target in {"all", "memory"}:
         files_to_reset.append(("MEMORY.md", "agent notes"))
@@ -149,6 +149,6 @@ class TestMemoryReset:
         # No memories dir
         monkeypatch.setenv("ReYMeN_HOME", str(ReYMeN_home))
 
-        # The memories dir won't exist; get_ReYMeN_home() / "memories" won't have files
+        # The memories dir won't exist; get_reymen_home() / "memories" won't have files
         result = _run_memory_reset(target="all", yes=True)
         assert result == "nothing"

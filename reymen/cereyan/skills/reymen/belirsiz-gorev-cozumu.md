@@ -1,21 +1,12 @@
 ---
 name: belirsiz-gorev-cozumu
-title: Belirsiz Görev Çözümü
-description: Belirsiz görev geldiğinde önce hafızayı kontrol et, en alakalı kategoriyi bul, ona göre öneri sun.
-category: kullanici
-Kim: ReYMeN ajani
-Ne: Belirsiz görev geldiğinde önce hafızayı kontrol et, en alakalı kategoriyi bul, ona göre öneri sun.
-Nerede: `reymen\belirsiz-gorev-cozumu.md`
-Ne Zaman: ReYMeN sistemi yapilandirmasi gerektiginde
-Neden: Belirsiz Gorev Cozumu islemini standartlastirmak ve tekrarlanabilir kilmak icin
-Nasil: Skill dosyasindaki adimlari takip ederek
-
-
-# Belirsiz Görev Çözümü
-
-
+title: Belirsiz Gorev Cozumu
+description: ''
+tags:
+- reymen
+category: reymen
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ReYMeN ajani |
@@ -30,14 +21,12 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 | Soru | Cevap |
 |:-----|:------|
-| **Kim?** | Tüm ajanlar (Kali, Windows, CAD, Hermes). Kullanıcıya yanıt veren herhangi bir ajan. |
+| **Kim?** | Tüm ajanlar (Kali, Windows, CAD, ReYMeN). Kullanıcıya yanıt veren herhangi bir ajan. |
 | **Ne?** | Kullanıcının belirsiz/tek kelimelik görevini analiz eder, hafızadaki en alakalı kategoriyi bulur, ona göre öneri sunar. |
 | **Nerede?** | `reymen/cereyan/once_hafiza.py` → `ogrenmeler.db`. Tüm ajanlar ortak DB'yi kullanır. |
 | **Ne Zaman?** | Kullanıcı "güvenli yap", "ağda sorun var", "dronu uçur" gibi net olmayan bir görev verdiğinde. |
 | **Neden?** | 0 LLM çağrısı ile cevap vermek için. Hafızada varsa direkt döndür, yoksa en yakın kategoriden yönlendir. |
 | **Nasıl?** | 1. `once_hafiza.ara()` ile anahtar kelime eşleştir 2. Puan = kelime×0.3 + hafiza_guven×0.7 3. En yüksek puanlı kategoriyi öner 4. Max 2 seçenek sun |
-
----
 
 ## Akış
 
@@ -65,8 +54,6 @@ BELİRSİZ GÖREV GELDİ
    └── HAYIR → farklı kategori dene veya açık uçlu sor
 ```
 
----
-
 ## Keyword → Kategori Eşleme Tablosu
 
 | Kategori | Tetikleyici Kelimeler | Puan Çarpanı |
@@ -82,8 +69,6 @@ BELİRSİZ GÖREV GELDİ
 
 **Puan = kelime_eslesme(x0.3) + hafiza_guven(x0.7)**
 
----
-
 ## Örnekler
 
 ### Örnek 1: "Sistemi güvenli yap"
@@ -98,8 +83,6 @@ BELİRSİZ GÖREV GELDİ
 "python"+"nmap" → video/python/nmap (daha spesifik)
 → "Python'da nmap öğren dedin. Hafızamda video/python/nmap ile ilgili kayıtlarım var. python-nmap kütüphanesini kurup başlayalım mı?"
 
----
-
 ## Kurallar
 
 1. ASLA 4 seçenek sunma — clarify()'de max 2 choices
@@ -109,8 +92,6 @@ BELİRSİZ GÖREV GELDİ
 5. 2. denemede bulamazsa -> "Hafızamda bu konuda kaydım yok, biraz daha detay verebilir misin?"
 6. Tahmin yanlış çıkarsa -> özür dileme, direkt "Ne yapmak istemiştin?" diye sor
 7. Çok fazla kategori eşleşirse -> en yüksek guven_skoru + en yeni son_kullanim
-
----
 
 ## Hafıza Önceliği
 

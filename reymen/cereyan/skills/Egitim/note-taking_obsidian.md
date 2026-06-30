@@ -1,8 +1,12 @@
-
-> **Kategori:** note-taking
-
 ---
-
+name: note-taking_obsidian
+title: Note Taking Obsidian
+description: ''
+tags:
+- note-taking
+category: note-taking
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: obsidian
 description: Read, search, create, and edit notes in the Obsidian vault.
 title: "Obsidian"

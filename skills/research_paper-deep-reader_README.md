@@ -18,7 +18,7 @@
 
 # paper-deep-reader
 
-Hermes Agent skill for deep reading academic papers. Extracts structured content via MinerU Cloud API, analyzes with NotebookLM for key figure identification, and generates comprehensive reading notes with HTML output.
+ReYMeN Agent skill for deep reading academic papers. Extracts structured content via MinerU Cloud API, analyzes with NotebookLM for key figure identification, and generates comprehensive reading notes with HTML output.
 
 ## Features
 
@@ -55,9 +55,9 @@ notebooklm auth check --test --json
 
 ## Installation
 
-This is a Hermes Agent skill. To install:
+This is a ReYMeN Agent skill. To install:
 
-1. Copy the skill directory to your Hermes skills folder:
+1. Copy the skill directory to your ReYMeN skills folder:
    ```bash
    # Windows
    cp -r paper-deep-reader ~/AppData/Local/hermes/skills/research/
@@ -78,7 +78,7 @@ This is a Hermes Agent skill. To install:
 
 ## Usage
 
-### Via Hermes Agent
+### Via ReYMeN Agent
 
 ```
 # Full analysis

@@ -1,16 +1,16 @@
-# GÖREV: ReYMeN'e Hermes Benzeri Hafıza Sistemi Ekle
+# GÖREV: ReYMeN'e ReYMeN Benzeri Hafıza Sistemi Ekle
 
 ## NE
-ReYMeN ajanına Hermes'teki gibi kalıcı hafıza (memory) sistemi ekle.
+ReYMeN ajanına ReYMeN'teki gibi kalıcı hafıza (memory) sistemi ekle.
 
 ## NEDEN
-Hermes'te:
+ReYMeN'te:
 - MEMORY.md (50K karakter) — kalıcı notlar, ortam bilgileri, kullanıcı tercihleri
 - USER.md (50K karakter) — kullanıcı profili
 - Session search (FTS5) — geçmiş konuşmalarda arama
 - Her oturumda otomatik yüklenir
 
-ReYMeN'de zaten OnceHafiza ve session_search var ama Hermes'teki gibi yapılandırılmış memory sistemi yok.
+ReYMeN'de zaten OnceHafiza ve session_search var ama ReYMeN'teki gibi yapılandırılmış memory sistemi yok.
 
 ## YAPILACAKLAR
 
@@ -43,7 +43,7 @@ USER.md formatı:
 
 ## Teknik Bilgiler
 - ReYMeN Agent sahibi
-- Hermes fork'u
+- ReYMeN fork'u
 - ...
 ```
 
@@ -54,7 +54,7 @@ USER.md formatı:
 """
 memory_manager.py — ReYMeN kalıcı hafıza yöneticisi.
 
-Hermes'teki MEMORY.md + USER.md sisteminin ReYMeN versiyonu.
+ReYMeN'teki MEMORY.md + USER.md sisteminin ReYMeN versiyonu.
 Her oturum başında hafızayı yükler, sonunda kaydeder.
 """
 
@@ -95,7 +95,7 @@ hafiza = mm.yukle()
 - Limit aşılınca uyarı ver, en eski kayıtları buda
 
 ### 5. Session Arşivleme
-Hermes'te olduğu gibi, eski session'lar `.ReYMeN/notes/` altında .md olarak saklansın. Bunun için `session_export` fonksiyonu ekle.
+ReYMeN'te olduğu gibi, eski session'lar `.ReYMeN/notes/` altında .md olarak saklansın. Bunun için `session_export` fonksiyonu ekle.
 
 ## DOĞRULAMA
 - MEMORY.md ve USER.md var mı?

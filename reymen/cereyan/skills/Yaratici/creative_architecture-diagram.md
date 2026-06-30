@@ -1,25 +1,13 @@
 ---
 name: architecture-diagram
-title: "Architecture Diagram"
-tags: [creative, design]
-description: "Dark-themed SVG architecture/cloud/infra diagrams as HTML."
-version: 1.0.0
-author: Cocoon AI (hello@cocoon-ai.com), ported by Hermes Agent
-license: MIT
-dependencies: []
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [architecture, diagrams, SVG, HTML, visualization, infrastructure, cloud]
+title: Architecture Diagram
+description: Dark-themed SVG architecture/cloud/infra diagrams as HTML.
+tags:
+- creative
+- design
+category: Yaratici
 audience: user
-related_skills: [concept-diagrams, excalidraw]
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -30,8 +18,6 @@ related_skills: [concept-diagrams, excalidraw]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Architecture Diagram Skill
 

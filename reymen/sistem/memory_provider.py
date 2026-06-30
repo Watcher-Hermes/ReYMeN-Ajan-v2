@@ -8,7 +8,7 @@ Iki katman:
      Yeni backend eklemek icin @MemoryProviderRegistry.register dekoratorunu kullan.
 
   2. AbstraktHafizaSaglayici + HafizaPluginKayit
-     Hermes Memory Provider Plugin arayuzu (lifecycle kancalari).
+     ReYMeN Memory Provider Plugin arayuzu (lifecycle kancalari).
      Plugin'ler plugins/memory/<ad>/__init__.py icinde bu sinifi miras alir.
 
 Kullanim:
@@ -79,7 +79,7 @@ class MemoryProvider(ABC):
         """Ajan baslarken bir kez cagirilir.
 
         kwargs her zaman icermelidir:
-          hermes_home (str): Aktif HERMES_HOME dizin yolu — depolama icin kullan.
+          hermes_home (str): Aktif REYMEN_HOME dizin yolu — depolama icin kullan.
         """
         ...
 
@@ -836,11 +836,11 @@ def get_default_provider(backend: str = "json", dosya_yolu: Optional[str] = None
 
 
 # =====================================================================
-# KATMAN 2: HERMES MEMORY PROVIDER PLUGIN ARAYUZU
+# KATMAN 2: ReYMeN MEMORY PROVIDER PLUGIN ARAYUZU
 # =====================================================================
 
 class AbstraktHafizaSaglayici(ABC):
-    """Hermes Memory Provider Plugin ABC'si — ReYMeN uyarlamasi.
+    """ReYMeN Memory Provider Plugin ABC'si — ReYMeN uyarlamasi.
 
     Her hafiza plugin'i bu sinifi miras alir ve plugins/memory/<ad>/ altinda
     yasar. Tek bir eklenti ayni anda aktif olabilir (cakisma onleme).

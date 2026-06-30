@@ -1,16 +1,16 @@
 ---
 name: windows-ai-ajan-kurulumu
 title: Windows AI Ajan Kurulumu
-description: Windows'ta AI ajani kurulumu, LM Studio ayarlari, .bat baslatici, pip/venv yonetimi
-tags: [windows, lm-studio, ai-agent, setup]
+description: Windows'ta AI ajani kurulumu, LM Studio ayarlari, .bat baslatici, pip/venv
+  yonetimi
+tags:
+- windows
+- lm-studio
+- ai-agent
+- setup
+category: DevOps
 audience: user
 ---
-
-
-> **Kategori:** devops
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -21,8 +21,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Windows AI Ajan Kurulumu
 

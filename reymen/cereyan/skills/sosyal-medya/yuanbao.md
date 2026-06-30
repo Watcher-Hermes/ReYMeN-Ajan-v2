@@ -1,19 +1,12 @@
 ---
 name: yuanbao
-title: "Yuanbao"
-tags: [general]
-description: "Yuanbao (元宝) groups: @mention users, query info/members."
-version: 1.0.0
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [yuanbao, mention, at, group, members, 元宝, 派, 艾特]
+title: Yuanbao
+description: 'Yuanbao (元宝) groups: @mention users, query info/members.'
+tags:
+- general
+category: sosyal-medya
 audience: user
-related_skills: []
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | Sosyal medya yoneticisi |
@@ -34,8 +27,6 @@ related_skills: []
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: Sosyal medya yoneticisi
 Ne: "Yuanbao (元宝) groups: @mention users, query info/members."

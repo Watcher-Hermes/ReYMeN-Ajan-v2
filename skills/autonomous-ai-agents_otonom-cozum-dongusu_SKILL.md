@@ -54,7 +54,7 @@ Don't use for: Kullanici onay gerektiren kritik islemler.
 
 Before generating or running any solution, ALWAYS:
 
-1. Search Hermes skills for an existing applicable rule.
+1. Search ReYMeN skills for an existing applicable rule.
 2. Search the Obsidian vault for an existing note/skill on the topic.
 3. If a relevant item exists, reuse it verbatim and do not re-create the solution.
 
@@ -98,7 +98,7 @@ if yeni_ajan != mevcut_ajan:
 
 - Saf regex+kural tabanli, milisaniyelerde karar verir, LLM cagrisi yapmaz.
 - Hata eslesmezse mevcut ajani korur.
-- 30+ hata deseni tanir. Detay: `references/persona-detay.md`\nDetayli gorev formati: `references/yapilandirilmis-gorev-formati.md`\nModul entegrasyon patterni: `references/hermes-modul-entegrasyonu.md`\n\n## Cokus Raporlayici (Crash Report)
+- 30+ hata deseni tanir. Detay: `references/persona-detay.md`\nDetayli gorev formati: `references/yapilandirilmis-gorev-formati.md`\nModul entegrasyon patterni: `references/ReYMeN-modul-entegrasyonu.md`\n\n## Cokus Raporlayici (Crash Report)
 
 Otonom cozum sinirlari tukendiginde (max_tur asildi, tum ajanlar basarisiz oldu) insan-okunabilir crash raporu uret ve kullaniciya devret.
 
@@ -205,7 +205,7 @@ Tur 1:
   → BASARILI (1. turda!)
 
 Skill kaydedildi: autonomous-ai-agents/auto-python-ile-port-9150...
-Obsidian: Hermes/Skills/autonomous-ai-agents/ altina eklendi
+Obsidian: ReYMeN/Skills/autonomous-ai-agents/ altina eklendi
 ```
 
 ## Otomatik Skill Kaydetme
@@ -214,7 +214,7 @@ Her basarili cozum otomatik kaydedilir:
 
 ```
 ~/.hermes/skills/autonomous-ai-agents/auto-<slug>/SKILL.md
-Obsidian: Hermes/Skills/autonomous-ai-agents/auto-<slug>.md
+Obsidian: ReYMeN/Skills/autonomous-ai-agents/auto-<slug>.md
 ```
 
 Cozulemeyenler de kaydedilir ([COZULEMEDI] prefix ile).
@@ -249,7 +249,7 @@ screen = hl.llava_analyze("Ekranda ne var?")
 2. **llava ekrani anlayamazsa** — Problem tanimi daha net yaz, llava baglam oluyor.
 3. **Tor sorunu** — `--tor` modu kullan, Tor Browser yolu skill'de taninmis.
 4. **Cok uzun suruyor** — `--turns 3` ile hizli test, basarisizsa artir.
-5. **Skill kaydedilmedi** — Obsidian klasoru kontrol et: `Hermes/Skills/autonomous-ai-agents/`.
+5. **Skill kaydedilmedi** — Obsidian klasoru kontrol et: `ReYMeN/Skills/autonomous-ai-agents/`.
 
 ## Verification Checklist
 

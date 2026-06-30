@@ -22,7 +22,7 @@ def server():
         "sys.modules",
         {
             "ReYMeN_constants": MagicMock(
-                get_ReYMeN_home=MagicMock(return_value="/tmp/ReYMeN_test_review_summary")
+                get_reymen_home=MagicMock(return_value="/tmp/ReYMeN_test_review_summary")
             ),
             "ReYMeN_cli.env_loader": MagicMock(),
             "ReYMeN_cli.banner": MagicMock(),

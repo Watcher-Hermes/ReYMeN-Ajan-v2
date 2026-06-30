@@ -9,7 +9,7 @@ version: 2.0.0
 author: marko
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [obsidian, vault, maintenance, cleanup, audit, links, tags]
 category: note-taking
 audience: user

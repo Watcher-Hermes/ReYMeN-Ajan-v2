@@ -150,7 +150,7 @@ class TestGatewayPersonalityNone:
         (tmp_path / "config.yaml").write_text(yaml.dump({"agent": {"personalities": {}}}))
 
         with patch("gateway.run._ReYMeN_home", tmp_path), \
-             patch("ReYMeN_constants.display_ReYMeN_home", return_value="~/.ReYMeN/profiles/coder"):
+             patch("ReYMeN_constants.display_reymen_home", return_value="~/.ReYMeN/profiles/coder"):
             event = self._make_event("")
             result = await runner._handle_personality_command(event)
 

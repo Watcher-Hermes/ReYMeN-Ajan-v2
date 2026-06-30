@@ -102,8 +102,10 @@ class ModulTarayici:
                 if doc:
                     # İlk satırı al
                     aciklama = doc.strip().split("\n")[0][:120]
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
         # Kategori: reymen.xxx.yyy -> xxx
         kategori = ""

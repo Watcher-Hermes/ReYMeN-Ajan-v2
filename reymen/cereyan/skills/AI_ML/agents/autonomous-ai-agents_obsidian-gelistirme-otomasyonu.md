@@ -1,23 +1,18 @@
 ---
 name: obsidian-gelistirme-otomasyonu
-title: "Obsidian Gelistirme Otomasyonu"
-tags: [agents, ai, obsidian]
-description: >
-  Hermes otomasyon döngüsü: Tor Browser üzerinden sürekli yeni görev
-  keşfi ve Obsidian geliştirme. 8 saat boyunca her 3 dakikada bir
-  yeni konu araştır ve bilgi ekle.
-version: 1.0.0
-author: marko
-license: MIT
-metadata:
-  hermes:
-    tags: [obsidian, gelistirme, tor, otomasyon, arastirma]
+title: Obsidian Gelistirme Otomasyonu
+description: 'ReYMeN otomasyon döngüsü: Tor Browser üzerinden sürekli yeni görev keşfi
+  ve Obsidian geliştirme. 8 saat boyunca her 3 dakikada bir yeni konu araştır ve bilgi
+  ekle.
+
+  '
+tags:
+- agents
+- ai
+- obsidian
+category: agents
 audience: user
-related_skills: [tor-browser-arama, obsidian]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -39,8 +34,6 @@ related_skills: [tor-browser-arama, obsidian]
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: Otonom ajan gelistiricisi
 Ne: >
 Nerede: `autonomous-ai-agents\autonomous-ai-agents_obsidian-gelistirme-otomasyonu.md`
@@ -60,7 +53,7 @@ Tor Browser üzerinden yeni konular araştırır ve bilgi ekler.
 
 1. `tor-browser-arama` skill'ini yükle.
 2. `obsidian` skill'ini yükle.
-3. Hermes otomasyon döngüsünü başlat:
+3. ReYMeN otomasyon döngüsünü başlat:
    - Her 3 dakikada bir yeni görev al
    - Tor Browser ile yeni konular araştır
    - Bulunan bilgileri Obsidian vault'a ekle

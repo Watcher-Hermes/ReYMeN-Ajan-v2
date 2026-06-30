@@ -8,7 +8,7 @@ author: Ekko
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     source: markdown-viewer/skills
     tags: [markdown-viewer, diagrams, visualization, plantuml, vega, infographic, documentation]
 category: markdown-viewer

@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-advanced-rag-debugger
+title: Prompt Advanced Rag Debugger
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-advanced-rag-debugger
 description: Diagnose and fix RAG quality issues across retrieval, generation, and evaluation
 title: "PRompt Advanced RAG Debugger"

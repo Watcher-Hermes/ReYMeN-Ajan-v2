@@ -255,11 +255,11 @@ plugins/google_meet/node/registry.py
 plugins/google_meet/node/server.py
 plugins/google_meet/realtime/__init__.py
 plugins/google_meet/realtime/openai_client.py
-plugins/hermes-achievements/__init__.py
-plugins/hermes-achievements/dashboard/__init__.py
-plugins/hermes-achievements/dashboard/plugin_api.py
-plugins/hermes-achievements/tests/__init__.py
-plugins/hermes-achievements/tests/test_achievement_engine.py
+plugins/ReYMeN-achievements/__init__.py
+plugins/ReYMeN-achievements/dashboard/__init__.py
+plugins/ReYMeN-achievements/dashboard/plugin_api.py
+plugins/ReYMeN-achievements/tests/__init__.py
+plugins/ReYMeN-achievements/tests/test_achievement_engine.py
 plugins/image_gen/__init__.py
 plugins/image_gen/fal/__init__.py
 plugins/image_gen/krea/__init__.py

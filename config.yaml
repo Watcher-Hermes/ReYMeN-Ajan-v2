@@ -62,10 +62,8 @@ max_concurrent_sessions: null
 mcp_servers:
   filesystem:
     args:
-    - -y
-    - '@modelcontextprotocol/server-filesystem'
     - C:\Users\marko\Desktop\Reymen Proje\ReYMeN-Ajan
-    command: npx
+    command: mcp-server-filesystem
     connect_timeout: 30
     timeout: 60
   github:
@@ -103,7 +101,7 @@ onboarding:
     build_offered: true
     busy_input_prompt: true
     tool_progress_prompt: true
-provider: xiaomi
+provider: deepseek
 providers: {}
 skills:
   external_dirs:
@@ -121,3 +119,24 @@ terminal:
   timeout: 180
 web:
   backend: firecrawl
+general.agent_name: ReYMeN
+general.default_model: deepseek-v4-flash
+general.default_provider: deepseek
+general.max_turns: 15
+general.secure_binding: true
+logging.level: INFO
+logging.file: .ReYMeN/logs/reymen.log
+logging.max_size_mb: 10
+logging.backup_count: 5
+skills.dir: .ReYMeN/skills
+checkpoint.dir: .ReYMeN/checkpoints
+checkpoint.enabled: true
+checkpoint.max_restore_attempts: 3
+telegram.default_chat_id: ''
+state_machine.enabled: true
+service_bridge.enabled: true
+auto_recovery.enabled: true
+memory.max_records: 2000
+web.backend: auto
+approvals.mode: smart
+spotify.enabled: true

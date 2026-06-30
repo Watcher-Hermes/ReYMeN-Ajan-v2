@@ -1,6 +1,6 @@
 ---
 name: software-development_reymen-proje-mimarisi_references_license-compliance
-description: Hermes Agent Fork'ta LICENSE ve ATTRIBUTION Yonetimi
+description: ReYMeN Agent Fork'ta LICENSE ve ATTRIBUTION Yonetimi
 title: "Software Development Reymen Proje Mimarisi References License Compliance"
 version: 1.0.0
 ---
@@ -9,17 +9,17 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Agent Fork'ta LICENSE ve ATTRIBUTION Yonetimi |
+| **Ne** | ReYMeN Agent Fork'ta LICENSE ve ATTRIBUTION Yonetimi |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes Agent Fork'ta LICENSE ve ATTRIBUTION Yonetimi
+# ReYMeN Agent Fork'ta LICENSE ve ATTRIBUTION Yonetimi
 
 ## Fork Yaparken Yasal Yukumlulukler (MIT)
 
-Hermes Agent MIT lisansi ile yayinlanir. Fork edildiginde:
+ReYMeN Agent MIT lisansi ile yayinlanir. Fork edildiginde:
 
 ### Zorunlu
 1. **Copyright bildirimi korunmali**: `Copyright (c) 2025 Nous Research` LICENSE dosyasinda durmali
@@ -55,14 +55,14 @@ Bu proje ... temel alinarak gelistirilmistir.
 |-------|--------|
 | Orijinal Kaynak | Proje adi + URL + sahip |
 | Lisans | MIT, LICENSE'a yonlendir |
-| ReYMeN'e Ozgu Dosyalar | Hermes'te OLMAYAN dosyalar (Türkçe modüller, ozgun CLI) |
+| ReYMeN'e Ozgu Dosyalar | ReYMeN'te OLMAYAN dosyalar (Türkçe modüller, ozgun CLI) |
 | Ortak Dosyalar | Ayni ada sahip ama uyarlanmis dosyalar |
 | Dizinler | tools/, skills/, tests/ gibi kopyalanmis dizinler |
 
 ### Dosya Karsilastirma Yontemi
 
 ```bash
-# Hermes'te olmayan dosyalari bul
+# ReYMeN'te olmayan dosyalari bul
 for f in /proje/*.py; do
   name=$(basename "$f")
   if [ ! -f "/hermes/hermes-agent/$name" ]; then

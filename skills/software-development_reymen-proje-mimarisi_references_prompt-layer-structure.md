@@ -1,6 +1,6 @@
 ---
 name: software-development_reymen-proje-mimarisi_references_prompt-layer-structure
-description: Prompt Layer Structure (Hermes Agent vs ReYMeN)
+description: Prompt Layer Structure (ReYMeN Agent vs ReYMeN)
 title: "Software Development Reymen Proje Mimarisi References Prompt Layer Structure"
 version: 1.0.0
 ---
@@ -9,15 +9,15 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Prompt Layer Structure (Hermes Agent vs ReYMeN) |
+| **Ne** | Prompt Layer Structure (ReYMeN Agent vs ReYMeN) |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Prompt Layer Structure (Hermes Agent vs ReYMeN)
+# Prompt Layer Structure (ReYMeN Agent vs ReYMeN)
 
-## Hermes Agent 10-Katmanli Sistem Prompt Yapisi
+## ReYMeN Agent 10-Katmanli Sistem Prompt Yapisi
 
 | Katman | Icerik | Kaynak |
 |--------|--------|--------|
@@ -32,7 +32,7 @@ version: 1.0.0
 | 9 | Timestamp + Session ID | Runtime |
 | 10 | Platform hint | CLI / Telegram / Discord farki |
 
-### load_soul_md() (Hermes)
+### load_soul_md() (ReYMeN)
 ```python
 def load_soul_md() -> Optional[str]:
     soul_path = get_hermes_home() / "SOUL.md"
@@ -73,7 +73,7 @@ for each tool_call in response.tool_calls:
 
 ReYMeN'de iki prompt_builder var:
 - `prompt_builder.py` (kok, 499 satir) — ReYMeN'in kendi prompt insa motoru
-- `agent/prompt_builder.py` (1.507 satir) — Hermes'ten fork edilmis, `load_soul_md()` dahil
+- `agent/prompt_builder.py` (1.507 satir) — ReYMeN'ten fork edilmis, `load_soul_md()` dahil
 
 ### load_soul_md() (ReYMeN, agent/prompt_builder.py)
 ```python
@@ -87,11 +87,11 @@ def load_soul_md() -> Optional[str]:
     return content
 ```
 
-Hermes'tekiyle neredeyse ayni, sadece `get_hermes_home()` yerine `get_ReYMeN_home()` kullanir.
+ReYMeN'tekiyle neredeyse ayni, sadece `get_hermes_home()` yerine `get_ReYMeN_home()` kullanir.
 
 ## Eksik Katmanlar (ReYMeN'de yapilmasi gereken)
 
-ReYMeN'in `conversation_loop.py` (162 satir) Hermes'in `run_conversation()` (~3.900 satir) seviyesinde degil.
+ReYMeN'in `conversation_loop.py` (162 satir) ReYMeN'in `run_conversation()` (~3.900 satir) seviyesinde degil.
 Eksiksiz bir implementasyon icin: `lOOP_UPDATE_TASK.md`
 
 Kritik eksikler:

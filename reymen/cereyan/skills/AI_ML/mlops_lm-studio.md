@@ -29,7 +29,7 @@ audience: user
 
 LM Studio ile local GGUF modelleri yönetme, GPU offload ayarlama, API serve etme.
 
-Öncelikle `hermes-agent` skill'ini yükle — `lms` ve `hermes` CLI komutları için.
+Öncelikle `ReYMeN-agent` skill'ini yükle — `lms` ve `ReYMeN` CLI komutları için.
 
 ---
 
@@ -140,17 +140,17 @@ curl -s --max-time 300 http://localhost:1234/v1/chat/completions \
 
 ---
 
-## Hermes Provider Olarak Kullanma
+## ReYMeN Provider Olarak Kullanma
 
 ```bash
-# LM Studio'yu Hermes'in ana provider'ı yap:
-hermes config set model.provider custom
-hermes config set model.base_url "http://localhost:1234/v1"
-hermes config set model.default "<model-identifier>"
-hermes config set model.api_key ""         # LM Studio key istemez
+# LM Studio'yu ReYMeN'in ana provider'ı yap:
+ReYMeN config set model.provider custom
+ReYMeN config set model.base_url "http://localhost:1234/v1"
+ReYMeN config set model.default "<model-identifier>"
+ReYMeN config set model.api_key ""         # LM Studio key istemez
 
 # Eski provider'a dön:
-# hermes config set model.provider deepseek
+# ReYMeN config set model.provider deepseek
 ```
 
 Değişiklikler **yeni session'da** aktif olur (`/reset` veya CLI'ı yeniden başlat).

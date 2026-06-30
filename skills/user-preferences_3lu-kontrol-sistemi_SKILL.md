@@ -24,7 +24,7 @@ yapıldı mı (3) kayıt doğru girildi mi'
 
 Her işlem adımı yapıldığı ANDA günlük dosyasına yazılır. Bekletme, biriktirme, sonra yazarım yok.
 
-- Günlük yolu: `C:\Users\marko\OneDrive\Desktop\hermes calisma gunlugu\hermes GG.AA.YYYY.txt`
+- Günlük yolu: `C:\Users\marko\OneDrive\Desktop\ReYMeN calisma gunlugu\ReYMeN GG.AA.YYYY.txt`
 - Dosya yoksa oluştur, varsa ekle
 - Kullanıcının söylediği cümle aynen yazılır (düzeltme yapma, olduğu gibi bırak)
 - Her işlem: numaralı madde + kullanıcı sözü + yapılan komut/adım + not/varsa hata
@@ -48,7 +48,7 @@ Görev bittiğinde, cevabı kullanıcıya göndermeden ÖNCE şu 3 kontrolü yap
 
 ### KONTROL 3 — KAYIT DENETİMİ
 - İşlem adımları çalışma günlüğüne doğru girildi mi?
-- Günlük formatı: `C:\Users\marko\OneDrive\Desktop\hermes calisma gunlugu\hermes GG.AA.YYYY.txt`
+- Günlük formatı: `C:\Users\marko\OneDrive\Desktop\ReYMeN calisma gunlugu\ReYMeN GG.AA.YYYY.txt`
 - Kullanıcının söylediği cümleler aynen kaydedildi mi?
 - Anında kayıt kuralına uyuldu mu? (bekletme yapılmadı mı?)
 - Eksik kayıt varsa tamamla.

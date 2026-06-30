@@ -18,7 +18,7 @@ version: 1.0.0
 # Reymen Fork Analizi (14 Haziran 2026)
 
 ## Proje
-- **Fork:** Reymen (Hermes Agent tabanlı)
+- **Fork:** Reymen (ReYMeN Agent tabanlı)
 - **Klasör:** C:\Users\marko\OneDrive\Desktop\Reymen Proje\hermes_projesi
 - **Orijinal:** Hermes Agent (C:\Users\marko\AppData\Local\hermes\hermes-agent)
 
@@ -26,7 +26,7 @@ version: 1.0.0
 - Toplam .py: 2.837 (venv hariç)
 - Toplam satır: 990.877
 - Reymen'e özel: 11 dosya, 3.298 satır (%0.3)
-- Hermes kopyası: ~2.826 dosya, ~987.579 satır (%99.7)
+- ReYMeN kopyası: ~2.826 dosya, ~987.579 satır (%99.7)
 
 ## Reymen'e Özel 11 Dosya
 | Dosya | Satır | İşlev |
@@ -49,10 +49,10 @@ hermes_state.py → agent/memory_manager.py → tools.registry.tool_error (YOK)
 
 ## Test Durumu
 - test_learning_loop.py: 17/17 PASSED (0.71sn) ✅
-- tests/ altında 1.578 dosya: sadece 3'ü Reymen import'lu, 561'i Hermes import'lu
-- Hermes testleri çalışmaz (import bağımlılığı kırık)
+- tests/ altında 1.578 dosya: sadece 3'ü Reymen import'lu, 561'i ReYMeN import'lu
+- ReYMeN testleri çalışmaz (import bağımlılığı kırık)
 
 ## İş Bölümü
-- 🧠 Hermes: analiz, strateji, bulgu, proje yönetimi
+- 🧠 ReYMeN: analiz, strateji, bulgu, proje yönetimi
 - 🛠️ Claude Code: kod düzeltme, implementasyon
 - Köprü: vscode_yaz.bat → vscode_ctrl.py → VS Code Claude Agent

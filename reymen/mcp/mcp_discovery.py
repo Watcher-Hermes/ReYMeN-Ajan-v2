@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 # ── Varsayılan config/env yolları ────────────────────────────────────────
 PROJE_KOK = Path(__file__).parent.parent.parent
-HERMES_PROFIL_KOK = Path.home() / ".hermes" / "profiles" / "reymen"
+HERMES_PROFIL_KOK = Path.home() / ".ReYMeN" / "profiles" / "reymen"
 
 CONFIG_YOLLARI = [
     PROJE_KOK / "config.yaml",
@@ -40,7 +40,7 @@ CONFIG_YOLLARI = [
 ENV_YOLLARI = [
     PROJE_KOK / ".env",
     PROJE_KOK / ".ReYMeN" / ".env",
-    Path.home() / ".hermes" / ".env",
+    Path.home() / ".ReYMeN" / ".env",
     HERMES_PROFIL_KOK / ".env",
 ]
 

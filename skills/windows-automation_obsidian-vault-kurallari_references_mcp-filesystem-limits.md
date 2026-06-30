@@ -19,15 +19,15 @@
 # MCP Filesystem Sınırlamaları
 
 MCP filesystem tool'u sadece **izin verilen dizinler** altında çalışır.
-Hermes Agent'da bu şu anlama gelir:
+ReYMeN Agent'da bu şu anlama gelir:
 
 ## İzin Verilen
-- `C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\Hermes` — skill dosyaları, indeksler
+- `C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\ReYMeN` — skill dosyaları, indeksler
 
 ## İzin Verilmeyen
 - Vault'un geri kalanı (`Notlar/`, `Gunluk/`, diğer klasörler)
 - `C:\Users\marko\AppData\Local\hermes\skills\` — Hermes skill'leri (MCP ile okunamaz)
-- `C:\Users\marko\hermes-ai\` — proje dosyaları
+- `C:\Users\marko\ReYMeN-ai\` — proje dosyaları
 - Herhangi bir sistem dizini
 
 ## Pratik Etkisi
@@ -45,5 +45,5 @@ Hermes Agent'da bu şu anlama gelir:
 ## Çözüm
 
 - **Obsidian dosyaları için:** MCP filesystem kullan (izinli)
-- **Hermes skills dizini için:** `terminal` (bash) veya `read_file`/`write_file`/`patch` kullan
+- **ReYMeN skills dizini için:** `terminal` (bash) veya `read_file`/`write_file`/`patch` kullan
 - **Root seviyesinde .md temizliği:** `terminal` ile `mv <file> <file>.obsolete` yap (rm kullanma, approval gerekir)

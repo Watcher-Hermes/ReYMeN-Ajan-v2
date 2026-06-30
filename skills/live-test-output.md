@@ -125,7 +125,7 @@ Active Connections
 | 135 | RPC Endpoint Mapper |
 | 139 | NetBIOS Session |
 | 445 | SMB (Dosya paylaşımı) |
-| 1234 | ✅ **Hermes Agent** |
+| 1234 | ✅ **ReYMeN Agent** |
 | 5040 | Windows Sistemi |
 | 7680 | Windows Update |
 | 6942 | Localhost servis |
@@ -144,7 +144,7 @@ Active Connections
 | 34.120.76.157:443 | Google Cloud |
 
 ### Öğrenilenler
-- Hermes port 1234'te çalışıyor ✅
+- ReYMeN port 1234'te çalışıyor ✅
 - SMB (445) açık → dosya paylaşımı aktif
 - GitHub, Microsoft, Google, Azure bağlantıları var
 - Telegram, tarayıcı, VS Code muhtemelen açık

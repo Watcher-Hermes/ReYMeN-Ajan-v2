@@ -1,22 +1,12 @@
 ---
-name: nano-pdf
-description: "Edit PDF text/typos/titles via nano-pdf CLI (NL prompts)."
-version: 1.0.0
-author: community
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [PDF, Documents, Editing, NLP, Productivity]
-audience: user
-    homepage: https://pypi.org/project/nano-pdf/
+name: productivity_nano-pdf
+title: Productivity Nano Pdf
+description: ''
+tags:
+- verimlilik
+category: Verimlilik
+audience: agent
 ---
-
-
-> **Kategori:** productivity
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -28,8 +18,6 @@ audience: user
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 # nano-pdf
 
 Edit PDFs using natural-language instructions. Point it at a page and describe what to change.
@@ -37,7 +25,7 @@ Edit PDFs using natural-language instructions. Point it at a page and describe w
 ## Prerequisites
 
 ```bash
-# Install with uv (recommended — already available in Hermes)
+# Install with uv (recommended — already available in ReYMeN)
 uv pip install nano-pdf
 
 # Or with pip

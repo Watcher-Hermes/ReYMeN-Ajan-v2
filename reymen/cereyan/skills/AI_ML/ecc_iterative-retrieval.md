@@ -1,8 +1,12 @@
-
-> **Kategori:** ecc
-
 ---
-
+name: ecc_iterative-retrieval
+title: Ecc Iterative Retrieval
+description: ''
+tags:
+- ecc
+category: ecc
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: iterative-retrieval
 description: Pattern for progressively refining context retrieval to solve the subagent context problem
 title: "Iterative Retrieval"

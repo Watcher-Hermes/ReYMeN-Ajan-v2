@@ -97,7 +97,7 @@ class CredentialPool:
     def __init__(self):
         self._sources = [
             "env_file:.env",         # project env
-            "env_file:hermes.env",    # system env (fallback)
+            "env_file:ReYMeN.env",    # system env (fallback)
             "wcm",                    # Windows Credential Manager
         ]
 

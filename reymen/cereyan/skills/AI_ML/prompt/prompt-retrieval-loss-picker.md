@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-retrieval-loss-picker
+title: Prompt Retrieval Loss Picker
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-retrieval-loss-picker
 description: Pick triplet / InfoNCE / ProxyNCA for a given retrieval problem
 title: "PRompt Retrieval Loss Picker"

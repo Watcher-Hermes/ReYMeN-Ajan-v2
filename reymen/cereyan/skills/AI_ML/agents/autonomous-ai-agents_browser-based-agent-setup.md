@@ -1,8 +1,12 @@
-
-> **Kategori:** autonomous-ai-agents
-
 ---
-
+name: autonomous-ai-agents_browser-based-agent-setup
+title: Browser Based Agent Setup
+description: ''
+tags:
+- autonomous-ai-agents
+category: autonomous-ai-agents
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: browser-based-agent-setup
 title: Browser-Based Agent Setup
 description: >

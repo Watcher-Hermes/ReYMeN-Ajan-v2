@@ -49,7 +49,7 @@ pip install --upgrade mcp
 
 - Check that the server is listed under `mcp_servers` (not `mcp` or `servers`)
 - Ensure the YAML indentation is correct
-- Look at Hermes Agent startup logs for connection messages
+- Look at ReYMeN Agent startup logs for connection messages
 - Tool names are prefixed with `mcp_{server}_{tool}` -- look for that pattern
 
 ### Connection keeps dropping

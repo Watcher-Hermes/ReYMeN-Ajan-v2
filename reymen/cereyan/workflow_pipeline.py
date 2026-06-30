@@ -239,8 +239,10 @@ def gorev_coz_pipeline(broker: MessageBroker, gorev_tanimi: str, script_path: st
             aciklama=gorev_tanimi[:200],
             adimlar=Path(kayit_path).read_text(encoding="utf-8")[:500],
         )
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
     
     logger.info("[Pipeline] ✅ GÖREV TAMAM: %s", kayit_path)
     return kayit_path

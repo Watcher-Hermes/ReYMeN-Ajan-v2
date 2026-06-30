@@ -1,8 +1,8 @@
 ---
 name: reymen-proje-mimarisi
 title: R>eYMeN Proje Mimarisi
-description: R>eYMeN proje mimarisi, Hermes Agent ile karsilastirma, parallel batch porting workflow, ve Hermes+Claude 4.8 is bolumu
-tags: [hermes, reymen, react, architecture, gap-analysis, porting]
+description: R>eYMeN proje mimarisi, ReYMeN Agent ile karsilastirma, parallel batch porting workflow, ve ReYMeN+Claude 4.8 is bolumu
+tags: [ReYMeN, reymen, react, architecture, gap-analysis, porting]
 audience: maintainer
 version: 3.4.0
 ---
@@ -17,7 +17,7 @@ version: 3.4.0
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | R>eYMeN proje mimarisi, Hermes Agent ile karsilastirma, parallel batch porting workflow, ve Hermes+Claude 4.8 is bolumu |
+| **Ne?** | R>eYMeN proje mimarisi, ReYMeN Agent ile karsilastirma, parallel batch porting workflow, ve ReYMeN+Claude 4.8 is bolumu |
 | **Nerede?** | software-development/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -28,20 +28,20 @@ version: 3.4.0
 # R>eYMeN Proje Mimarisi
 
 88 tool, 28 gateway platform, 26 gateway root, **70 CLI**, 19 plugin, 5 transport.
-Hermes Agent ile neredeyse esitlendi (tools/ ve plugins/ kategorilerinde gecti).
+ReYMeN Agent ile neredeyse esitlendi (tools/ ve plugins/ kategorilerinde gecti).
 
 ## Proje Hedefi
 R>eYMeN bir sohbet ajani degil, **uygulama otomasyonu ajani**. 
 Odak: Ekran OCR + tikla, makro kaydetme/oynatma, uygulama adim hafizasi.
-Hermes Agent'a alternatif degil, tamamlayici — Hermes'te olmayan ozelliklerde guclu.
+ReYMeN Agent'a alternatif degil, tamamlayici — ReYMeN'te olmayan ozelliklerde guclu.
 
 ## Kritik Noktalar
-- .env → 16 degisken, cift yonlu senkronizasyon (kendi .env'si + Hermes .env fallback)
+- .env → 16 degisken, cift yonlu senkronizasyon (kendi .env'si + ReYMeN .env fallback)
 - FileLock → JSON yazma yarisi korumasi
 - Fallback zinciri → otomatik provider siralamasi (LM Studio > DeepSeek > OpenAI...)
 - Tekrar korumasi → ayni eylem 2. kez loop keser
 - **init siralamasi**: `self.learning` gibi attribute'ler once tanimlanmali, sonra kullanilmali. Aksi halde AttributeError.
-- **Side-by-side mimari**: R>eYMeN ve Hermes Agent ic ice gecmez, yan yana calisir. Her bilesen kendine ozgu (kendi CLI, kendi motor, kendi dashboard).
+- **Side-by-side mimari**: R>eYMeN ve ReYMeN Agent ic ice gecmez, yan yana calisir. Her bilesen kendine ozgu (kendi CLI, kendi motor, kendi dashboard).
 - **Graceful degrade**: Opsiyonel kutuphaneler try/except ile import edilir, yoksa "kurulu degil" der.
 
 ## Calisma Durumu (2026-06-16 — 28 yeni dosya ile genisletildi)
@@ -73,36 +73,36 @@ Hermes Agent'a alternatif degil, tamamlayici — Hermes'te olmayan ozelliklerde 
 - Skill management tools: ✅ (tools/skill_manager_tool.py, memory_tool.py, session_search_tool.py)
 
 ## Seed Icerikler (olusturuldu)
-- .hermes/memories/MEMORY.md (906B, kimlik + kabiliyetler + gecmis)
-- .hermes/memories/USER.md (831B, kullanici profili + tercihler)
-- .hermes/makrolar/ (3 ornek makro: not defteri, hesap makinesi, chrome)
-- .hermes/nisanlar/ (3 ornek yaml: hedef koordinat bootstrap)
-- .hermes/uygulama_hafizasi/ (3 json: not defteri, hesap makinasi, chrome)
+- .ReYMeN/memories/MEMORY.md (906B, kimlik + kabiliyetler + gecmis)
+- .ReYMeN/memories/USER.md (831B, kullanici profili + tercihler)
+- .ReYMeN/makrolar/ (3 ornek makro: not defteri, hesap makinesi, chrome)
+- .ReYMeN/nisanlar/ (3 ornek yaml: hedef koordinat bootstrap)
+- .ReYMeN/uygulama_hafizasi/ (3 json: not defteri, hesap makinasi, chrome)
 - vektor_hafizasi/ (chroma.sqlite3, 204KB, bootstrap edilmis)
 
-## Hermes Agent ile Nihai Karsilastirma (16 Haziran 2026)
+## ReYMeN Agent ile Nihai Karsilastirma (16 Haziran 2026)
 
 17 kategoriden 14'ü geçti veya eşitlendi. Sadece model-providers (18 vs 28) ve web-backends (7 vs 8) kaldı.
-**Kalan bu 2 kategori Hermes'e özel servisler içindir — düşük öncelik.**
+**Kalan bu 2 kategori ReYMeN'e özel servisler içindir — düşük öncelik.**
 
-| Kategori             | Hermes           | R>eYMeN ÖNCE    | R>eYMeN SONRA    | Durum              |
+| Kategori             | ReYMeN           | R>eYMeN ÖNCE    | R>eYMeN SONRA    | Durum              |
 |----------------------|------------------|-----------------|------------------|--------------------|
 | **tools/**           | 86               | 23              | **92**           | 🏆 GEÇTİ!          |
 | **gateway root/**    | 26               | 15              | **27**           | ✅ EŞIT            |
 | **gateway platforms/**| 32              | 16              | **32**           | ✅ EŞIT            |
 | **transport/**       | 11               | 0               | **11**           | ✅ EŞIT            |
 | **cron/**            | 6                | 0               | **6**            | ✅ EŞIT            |
-| **hermes_cli/**      | 175              | 10              | **140**          | 🚀 14x artis (Hermes'i makas daraltti) |
+| **hermes_cli/**      | 175              | 10              | **140**          | 🚀 14x artis (ReYMeN'i makas daraltti) |
 | **plugins/**         | 17               | 12              | **19**           | 🏆 GEÇTİ!          |
 | **test dosyası**     | 1.553            | 10              | **42**           | 🚀 4.2x artis      |
 | **test fonksiyonu**  | —                | 35              | **5.095**        | 🎯 145x artis!     |
 | **Test sonucu**      | —                | 35/35           | **5.095/5.095**  | ✅ %100 geçiyor    |
 
 ### Öne Çıkan Başarılar
-- **10 kategoriden 6'sı** Hermes'i geçti veya eşitledi
+- **10 kategoriden 6'sı** ReYMeN'i geçti veya eşitledi
 - **5.095 test fonksiyonu** (hedef 5.000+) — programatik test üreteçleri ile
-- **88 tool** (Hermes 86) — tools kategorisinde önde
-- **32 gateway platform** — Hermes ile eşit
+- **88 tool** (ReYMeN 86) — tools kategorisinde önde
+- **32 gateway platform** — ReYMeN ile eşit
 - **125 CLI modülü** — 10'dan 125'e (12.5x)
 - **Tüm orijinal testler** (%100 geçiyor)
 
@@ -142,7 +142,7 @@ tirith_security
 | 9 | env_passthrough, file_ops, fuzzy, interrupt, registry(+20) | 25 |
 | 10 | ansi_strip, browser, clarify_gateway, fal, openrouter(+15) | 15 |
 
-### Hermes'te olan, R>eYMeN'de hala eksik (düşük öncelik)
+### ReYMeN'te olan, R>eYMeN'de hala eksik (düşük öncelik)
 computer_use_tool (CUA, R>eYMeN OCR daha iyi), managed_tool_gateway,
 mcp_oauth_manager, neutts_synth, terminal_tool (shell.py var)
 
@@ -161,8 +161,8 @@ Bu oturumda 7 yeni tool + 4 memory provider + 1 Discord platform eklendi. Detayl
 
 | Tool | Dosya | Satir | Islev |
 |------|-------|-------|-------|
-| MEMORY | `tools/memory_tool.py` | 45 | `.hermes/memories/` altinda bellek oku/yaz |
-| SKILL | `tools/skill_tool.py` | 49 | `.hermes/skills/` altinda skill listele/goruntule |
+| MEMORY | `tools/memory_tool.py` | 45 | `.ReYMeN/memories/` altinda bellek oku/yaz |
+| SKILL | `tools/skill_tool.py` | 49 | `.ReYMeN/skills/` altinda skill listele/goruntule |
 | TTS | `tools/tts_tool.py` | 47 | edge-tts ile metni sese cevir (mkstemp, race condition cozumu) |
 | WEB_ARAMA | `tools/web_search_tool.py` | 55 | DuckDuckGo'da web ara (nested Topics, AbstractText fallback) |
 | SESSION_ARA | `tools/session_search_tool.py` | 95 | FTS5 ile gecmis oturumlarda ara (`session_db.py` lazy import) |
@@ -216,7 +216,7 @@ Iki sistem birbirine karismaz: PluginYukleyici baslangicta yuklenir, PluginManag
 | chroma_backend.py | ChromaDB vektör hafıza |
 | dosya_backend.py | JSON dosya hafıza |
 
-## R>eYMeN'e Ozgu (Hermes'te Olmayan)
+## R>eYMeN'e Ozgu (ReYMeN'te Olmayan)
 - Ekran OCR + tiklama (araclar_ekran.py)
 - Makro kaydetme/oynatma (araclar_makro.py)
 - Uygulama adim hafizasi (uygulama_hafizasi.py)
@@ -274,9 +274,9 @@ bot = DiscordPlatform(bot_token="...", varsayilan_kanal="123456")
 bot.send_message("Merhaba!")
 ```
 
-### Batch F — Hermes Gap Tamamlama (15 CLI Modülü, aynı oturum)
+### Batch F — ReYMeN Gap Tamamlama (15 CLI Modülü, aynı oturum)
 
-Aynı oturumda Hermes CLI ile gap analizi sonrası 15 yeni CLI modülü eklendi:
+Aynı oturumda ReYMeN CLI ile gap analizi sonrası 15 yeni CLI modülü eklendi:
 
 | Dosya | Satır | İşlev |
 |-------|-------|-------|
@@ -305,7 +305,7 @@ Aynı oturumda Hermes CLI ile gap analizi sonrası 15 yeni CLI modülü eklendi:
 | 1 | Provider Plugin Sistemi (15+ plugin) | Claude terminale verildi, işleniyor |
 | 2 | Tool Executor + Dispatcher + Guardrails | **TAMAM** ✅ (3 dosya, ~20KB) |
 | 3 | Test Coverage (13 → 100+) | Claude terminale verildi |
-Bu oturumda Hermes Agent ile gap analizi sonrasi olusturulan dosyalar:
+Bu oturumda ReYMeN Agent ile gap analizi sonrasi olusturulan dosyalar:
 | Dosya | Kategori |
 |-------|----------|
 | context_references.py | Cekirdek |
@@ -461,7 +461,7 @@ Toplam test fonksiyonu: **5.283** ✅
 | `ReYMeN.bat dashboard` | Sadece Web UI (python start.py --dashboard-only) |
 | `ReYMeN.bat gateway` | Sadece Gateway (python start.py --agent-only) |
 | `ReYMeN.bat doctor` | Sistem saglik kontrolu |
-| `ReYMeN.bat hermes ...` | Nous Hermes Agent CLI komutlari |
+| `ReYMeN.bat ReYMeN ...` | Nous ReYMeN Agent CLI komutlari |
 | `reyment.bat <args>` | CLI modu (python reyment.py %*) |
 | `start.bat` | Web UI baslat (venv aktivasyonu + start.py) |
 
@@ -508,7 +508,7 @@ python kendini_anlat.py                  # Öz refleksiyon analizi
 Detayli baslangic ekrani aciklamasi icin: `references/startup-screens.md`
 
 ## Referanslar
-- `references/hermes-feature-porting.md` — Hermes'ten ozellik ekleme deseni (PARALEL BATCH)
+- `references/ReYMeN-feature-porting.md` — ReYMeN'ten ozellik ekleme deseni (PARALEL BATCH)
 - `references/full-comparison-commands.md` — Kapsamli karsilastirma komutlari
 - `references/batch-runner-pattern.md` — Batch runner deseni
 - `references/mass-test-generation.md` — 5.000+ test programatik uretme teknigi
@@ -517,8 +517,8 @@ Detayli baslangic ekrani aciklamasi icin: `references/startup-screens.md`
 - `references/module-quality-assessment.md` — Modül kalite skorlama ve stub tespit metodolojisi
 - `references/kendini-anlat-araci.md` — kendini_anlat.py öz refleksiyon aracı ve GitHub repo bilgisi
 - `references/license-compliance.md` — MIT lisans fork uyumluluğu, ATTRIBUTION.md ve GitHub repo oluşturma
-- `references/hermes-reference-test-fix-patterns.md` — Hermes referans testlerini fixleme pattern'leri (set_session_archived, openviking URI, website scripts)
-- `references/prompt-layer-structure.md` — Hermes 10-katmanli prompt yapisi, ReYMeN karsilastirmasi, load_soul_md() ve eksik katmanlar
+- `references/ReYMeN-reference-test-fix-patterns.md` — ReYMeN referans testlerini fixleme pattern'leri (set_session_archived, openviking URI, website scripts)
+- `references/prompt-layer-structure.md` — ReYMeN 10-katmanli prompt yapisi, ReYMeN karsilastirmasi, load_soul_md() ve eksik katmanlar
 - `references/claude-code-task-preparation.md` — Claude Code task dosyasi formati (3 task icin kullanilan sablon)
-- `references/session-table-schema.md` — Hermes sessions tablosu (24 sutunlu CREATE TABLE + indexler)
+- `references/session-table-schema.md` — ReYMeN sessions tablosu (24 sutunlu CREATE TABLE + indexler)
 - `references/memory-provider-abstract-class.md` — MemoryProvider abstract base class + plugin registry pattern

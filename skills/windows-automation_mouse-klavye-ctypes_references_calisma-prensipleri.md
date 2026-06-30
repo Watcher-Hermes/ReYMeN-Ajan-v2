@@ -63,7 +63,7 @@
 
 ## Sınırlamalar
 - Oyunlar/DirectX/OpenGL uygulamaları: element bulma çalışmaz (UI Automation desteklemez)
-- Elevated uygulamalar: Hermes elevated değilse tıklamalar sessizce yutulur (UIPI)
+- Elevated uygulamalar: ReYMeN elevated değilse tıklamalar sessizce yutulur (UIPI)
 - Notepad: bu ortamda açılamayabilir (headless sandbox)
 
 ---
@@ -71,8 +71,8 @@
 ## Kurulum (GitHub)
 
 ```powershell
-iex "& { $(irm https://raw.githubusercontent.com/Watcher-Hermes/hermes-mouse/master/install.ps1) }"
+iex "& { $(irm https://raw.githubusercontent.com/Watcher-ReYMeN/ReYMeN-mouse/master/install.ps1) }"
 hermesmouse pos
 ```
 
-Resmi repo: https://github.com/Watcher-Hermes/hermes-mouse
+Resmi repo: https://github.com/Watcher-ReYMeN/ReYMeN-mouse

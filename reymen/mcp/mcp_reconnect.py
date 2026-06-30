@@ -216,7 +216,7 @@ async def _reconnect_dongusu() -> None:
     except asyncio.CancelledError:
         logger.info("MCP Reconnect: döngü iptal edildi")
     except Exception as e:
-        logger.error("MCP Reconnect: döngü hatası: %s", e)
+        logger.warning("MCP Reconnect: döngü hatası: %s", e)
     finally:
         _durum["aktif"] = False
 

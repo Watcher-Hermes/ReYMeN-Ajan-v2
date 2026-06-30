@@ -4,11 +4,11 @@ title: "Codebase Inspection"
 tags: [development, git, github]
 description: "Inspect codebases w/ pygount: LOC, languages, ratios."
 version: 1.0.0
-author: Hermes Agent
+author: ReYMeN Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [LOC, Code Analysis, pygount, Codebase, Metrics, Repository]
 audience: contributor
 related_skills: [github-repo-management]
@@ -250,13 +250,13 @@ Projects forked from a larger upstream often develop this structure:
 ### Example: This Session's Finding
 
 ```bash
-# Reymen (fork) → Hermes (upstream) analysis
+# Reymen (fork) → ReYMeN (upstream) analysis
 
-# Step 1: Reymen's own files use NO Hermes imports
+# Step 1: Reymen's own files use NO ReYMeN imports
 grep -n "^from hermes\|^import hermes" motor.py main.py yetenek_fabrikasi.py ...
 # → empty! No real dependency.
 
-# Step 2: Only copied test files use Hermes imports
+# Step 2: Only copied test files use ReYMeN imports
 grep -rl "^from hermes\|^import hermes" tests/ --include="*.py" | wc -l
 # → 561 test files (out of 1,578 total)
 

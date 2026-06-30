@@ -8,7 +8,7 @@
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Kali ajanı |
-| **Ne?** | Windows Automation_Kali Linux Remote_References_Calisma Akisi Kullanici Hermes Onay Kali Rapor |
+| **Ne?** | Windows Automation_Kali Linux Remote_References_Calisma Akisi Kullanici ReYMeN Onay Kali Rapor |
 | **Nerede?** | Windows/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -16,20 +16,20 @@
 
 ---
 
-## Calisma Akisi (Kullanici -> Hermes -> Onay -> Kali -> Rapor)
+## Calisma Akisi (Kullanici -> ReYMeN -> Onay -> Kali -> Rapor)
 
 ```
 Kullanici -> "sudo arp-scan -l" yazar
     |
-Hermes -> Kullaniciya sorar: "arp-scan ile 192.168.0.0/24 taranacak, onayliyor musun?"
+ReYMeN -> Kullaniciya sorar: "arp-scan ile 192.168.0.0/24 taranacak, onayliyor musun?"
     |
 Kullanici -> "evet" yazar (klavyeden onay)
     |
-Hermes -> SSH ile Kali'ye komutu gonderir
+ReYMeN -> SSH ile Kali'ye komutu gonderir
     |
-Kali -> komutu calistirir, cikti SSH uzerinden Hermes'e doner
+Kali -> komutu calistirir, cikti SSH uzerinden ReYMeN'e doner
     |
-Hermes -> kendi terminalinde sonucu tablo/ozet olarak raporlar
+ReYMeN -> kendi terminalinde sonucu tablo/ozet olarak raporlar
 ```
 
 **KRITIK:** HER ADIMDA kullanicidan onay alinir. "evet" veya "tamam" cevabini bekle. Cevap gelmezse (bir kere bekle, suskunluk = devam kuralina uy) DEVAM ETME.

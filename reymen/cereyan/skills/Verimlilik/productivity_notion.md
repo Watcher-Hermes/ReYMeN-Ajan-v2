@@ -1,25 +1,12 @@
 ---
-
-name: notion
-description: "Notion API + ntn CLI: pages, databases, markdown, Workers."
-version: 2.0.0
-author: community
-license: MIT
-platforms: [linux, macos, windows]
-prerequisites:
-  env_vars: [NOTION_API_KEY]
-metadata:
-  hermes:
-    tags: [Notion, Productivity, Notes, Database, API, CLI, Workers]
-audience: user
-    homepage: https://developers.notion.com
+name: productivity_notion
+title: Productivity Notion
+description: ''
+tags:
+- verimlilik
+category: Verimlilik
+audience: agent
 ---
-
-
-> **Kategori:** productivity
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -30,8 +17,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Notion
 

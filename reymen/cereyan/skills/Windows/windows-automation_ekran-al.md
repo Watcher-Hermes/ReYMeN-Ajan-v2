@@ -1,20 +1,12 @@
 ---
 name: ekran-al
-title: "Ekran Al"
-tags: [automation, windows]
-title: "Ekran Al"
-title: ""
-audience: user
-tags: [automation, windows]
+title: Windows Automation Ekran Al
+description: ''
+tags:
+- windows
 category: windows-automation
-tags: []
+audience: user
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -25,8 +17,6 @@ tags: []
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 **Skill ID:** `ekran-al`
 **Kısayol/Önemi:** Win+Shift+S (alan seçimli kesme)

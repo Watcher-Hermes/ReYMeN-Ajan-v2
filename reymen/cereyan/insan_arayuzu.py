@@ -166,7 +166,7 @@ class HumanInterface:
         Kullanicidan onay alir.
 
         REYMEN_OTOMATIK_ONAY=true ise direkt True döner (kullanıcıya sormaz).
-        Hermes Agent'ın approvals.mode=off / Allow Once pattern'i ile aynı.
+        ReYMeN Agent'ın approvals.mode=off / Allow Once pattern'i ile aynı.
 
         Args:
             mesaj: Onay mesaji.

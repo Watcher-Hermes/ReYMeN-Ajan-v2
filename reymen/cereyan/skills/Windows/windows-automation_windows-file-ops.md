@@ -1,24 +1,14 @@
 ---
 name: windows-file-ops
-title: "Windows File Ops"
-tags: [automation, windows]
-description: Windows'ta dosya/klasör oluşturma, açma ve yönetme işlemleri. Uzantı kuralları, Notepad/uygulama seçimi, dosya yolu yönetimi.
-version: 1.0.0
-author: marko
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [windows, dosya, file, notepad, uzanti]
+title: Windows File Ops
+description: Windows'ta dosya/klasör oluşturma, açma ve yönetme işlemleri. Uzantı
+  kuralları, Notepad/uygulama seçimi, dosya yolu yönetimi.
+tags:
+- automation
+- windows
+category: Windows
 audience: user
-related_skills: [tam-sistem-yetkisi, windows-automation-shortcuts]
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +19,6 @@ related_skills: [tam-sistem-yetkisi, windows-automation-shortcuts]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Windows Dosya İşlemleri (windows-file-ops)
 

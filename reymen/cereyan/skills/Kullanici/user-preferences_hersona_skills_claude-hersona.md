@@ -1,8 +1,12 @@
-
-> **Kategori:** preferences
-
 ---
-
+name: user-preferences_hersona_skills_claude-hersona
+title: User Preferences Hersona Skills Claude Hersona
+description: ''
+tags:
+- preferences
+category: preferences
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: hersona-claude
 version: 1.0.0
  description: Claude (Anthropic) オプティマイズ版 hersona スキルアダプタ。属性テンプレートを使ってキャラクターペルソナを構築。

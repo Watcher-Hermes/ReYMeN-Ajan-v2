@@ -1,7 +1,7 @@
 ---
 name: software-development_fork-project-audit_references_hermes-reference-test-fix-17-haziran-2026
-description: Hermes Reference Test Fix — 17 Haziran 2026 Oturumu
-title: "Software Development Fork Project Audit References Hermes Reference Test Fix 17 Haziran 2026"
+description: ReYMeN Reference Test Fix — 17 Haziran 2026 Oturumu
+title: "Software Development Fork Project Audit References ReYMeN Reference Test Fix 17 Haziran 2026"
 version: 1.0.0
 ---
 
@@ -9,17 +9,17 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Reference Test Fix — 17 Haziran 2026 Oturumu |
+| **Ne** | ReYMeN Reference Test Fix — 17 Haziran 2026 Oturumu |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes Reference Test Fix — 17 Haziran 2026 Oturumu
+# ReYMeN Reference Test Fix — 17 Haziran 2026 Oturumu
 
 ## Genel Durum
 
-Reymen projesinde 1.555 Hermes reference test dosyasi tarandi.
+Reymen projesinde 1.555 ReYMeN reference test dosyasi tarandi.
 25 kategoriden 4'u calisabildi, 12'si collection error (import), gerisi destek.
 
 ## Duzeltilenler
@@ -79,9 +79,9 @@ Ayrica script'lere 2 fonksiyon eklendi:
 | Kategori | Hata | Sebep |
 |----------|------|-------|
 | cron | 100 FAIL + 92 ERROR | import path + runtime_provider + scheduler |
-| hermes_cli | 131 collection error | Hermes CLI import'lari |
+| hermes_cli | 131 collection error | ReYMeN CLI import'lari |
 | agent | 45 | agent.transports, lsp |
-| cli | 35 | Hermes CLI yapisi |
+| cli | 35 | ReYMeN CLI yapisi |
 | plugins | 21 | memory/image_gen/video_gen eklentileri |
 | run_agent | 56 | agent_guardrails, compression |
 | acp | 10 | acp_adapter.auth import |
@@ -98,7 +98,7 @@ Ayrica script'lere 2 fonksiyon eklendi:
 1. **Toplu kosma -> bloke:** Collection error'lar tum suite'i bloke eder.
    Her kategoriyi AYRI kos.
 
-2. **parents[2] tuzagi:** Test'in `REPO_ROOT` hesaplamasi Hermes'te dogru,
+2. **parents[2] tuzagi:** Test'in `REPO_ROOT` hesaplamasi ReYMeN'te dogru,
    Reymen'de yanlis dizine gider. Her zaman kontrol et.
 
 3. **`SELECT *` avantaji:** `get_session()` gibi `SELECT *` kullanan metodlar

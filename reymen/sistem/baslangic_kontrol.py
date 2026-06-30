@@ -43,7 +43,7 @@ def _reymen_env_yolu() -> Path:
     import platform
     ev = Path.home()
     if platform.system() == "Windows":
-        return ev / "AppData" / "Local" / "ReYMeN" / ".env"
+        return ev / "AppData" / "Local" / "reymen" / ".env"
     return ev / ".config" / "reymen" / ".env"
 
 

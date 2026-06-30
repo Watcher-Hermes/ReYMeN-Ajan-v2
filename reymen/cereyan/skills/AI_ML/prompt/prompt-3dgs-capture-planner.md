@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-3dgs-capture-planner
+title: Prompt 3Dgs Capture Planner
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-3dgs-capture-planner
 description: Plan a photo capture session for 3DGS reconstruction given scene type and hardware
 title: "PRompt 3Dgs Capture Planner"

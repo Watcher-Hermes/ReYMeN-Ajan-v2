@@ -17,12 +17,12 @@ version: 1.0.0
 
 ## Recipe 5: Remote debug with debugpy (attach to running process)
 
-For long-lived processes: Hermes gateway, tui_gateway, a daemon, a process that's already misbehaving and can't be restarted clean.
+For long-lived processes: ReYMeN gateway, tui_gateway, a daemon, a process that's already misbehaving and can't be restarted clean.
 
 ### Setup
 
 ```bash
-source /home/bb/hermes-agent/.venv/bin/activate
+source /home/bb/ReYMeN-agent/.venv/bin/activate
 pip install debugpy
 ```
 

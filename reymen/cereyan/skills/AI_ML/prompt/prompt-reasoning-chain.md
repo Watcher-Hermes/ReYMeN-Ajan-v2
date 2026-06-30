@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-reasoning-chain
+title: Prompt Reasoning Chain
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-reasoning-chain
 description: Production-ready few-shot CoT prompt with self-consistency support for multi-step reasoning tasks
 title: "PRompt Reasoning Chain"

@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: karar-dongusu-ornek
+title: Karar Dongusu Ornek
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 ## Ornek 1 — Karar #1: Hangi Kural Ilk Uygulanmali?
 
@@ -34,8 +36,6 @@ Disiplin olmadan arac anlamsiz. Once gereksiz is yapmayi birak, sonra kalan arac
 
 **Sonuc:** Once disiplin (No Goblins), sonra araclar.
 
----
-
 ## Ornek 2 — Karar #2: RPG Sorusu Cozum Yaklasimi
 
 **Tarih:** 21 Haziran 2026
@@ -52,8 +52,6 @@ execute_code ile brute force yapmaliydim. Tum olasiliklari tarayip dogru sonucu 
 - **Brute force:** execute_code ile tum (a,b,g) kombinasyonlarini denerdim → dogru sonuc + kanit.
 
 **Sonuc:** Her zaman once execute_code brute force, sonra cevap.
-
----
 
 ## Ornek 3 — Karar #3: YouTube Video Talimatlarini Uygulama
 

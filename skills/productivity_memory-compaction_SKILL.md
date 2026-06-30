@@ -3,14 +3,14 @@ name: memory-compaction
 title: "Memory Compaction"
 tags: [productivity]
 description: >-
-  Hermes MEMORY.md 50.000 char sınırına yaklaştığında veya dolduğunda
+  ReYMeN MEMORY.md 50.000 char sınırına yaklaştığında veya dolduğunda
   eski/stale/dağınık memory entry'lerini konsolide edip yer açma pattern'i.
   Kullanıcının "memory dolu" veya memory add başarısız olduğunda kullan.
 version: 1.0.0
 author: marko
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [memory, compaction, cleanup, consolidation]
 audience: user
 related_skills: [telegram-gateway-monitor]

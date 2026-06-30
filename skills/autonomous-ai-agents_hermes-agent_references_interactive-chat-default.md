@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_interactive-chat-default
 description: Interactive chat (default)
-title: "Autonomous Ai Agents Hermes Agent References Interactive Chat Default"
+title: "Autonomous Ai Agents ReYMeN Agent References Interactive Chat Default"
 version: 1.0.0
 ---
 
@@ -16,4 +16,4 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Interactive chat (default)
-hermes
+ReYMeN

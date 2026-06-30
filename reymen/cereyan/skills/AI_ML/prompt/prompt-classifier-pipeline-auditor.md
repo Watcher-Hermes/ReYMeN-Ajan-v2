@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-classifier-pipeline-auditor
+title: Prompt Classifier Pipeline Auditor
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-classifier-pipeline-auditor
 description: Audit a PyTorch image classification training script for the five invariants that cover most silent bugs
 title: "PRompt Classifier Pipeline Auditor"

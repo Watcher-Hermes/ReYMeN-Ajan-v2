@@ -39,7 +39,7 @@
 
 ## Yöntem
 
-1. **Runtime temizlik:** `hermes cron delete <id>` ile batch shell loop
+1. **Runtime temizlik:** `ReYMeN cron delete <id>` ile batch shell loop
 2. **Persisted temizlik:** Bir `.py` script yazıldı (`write_file`), sonra `terminal("python script.py")` ile çalıştırıldı
 3. **Kendini silme:** Bu cron job (bcd517dc45ad "do a thing") da silindi — son çalışması buydu
 
@@ -48,5 +48,5 @@
 - `execute_code` cron modunda bloke olur (approval gerekir, cron'da onaylayan yok)
 - `terminal` ile inline `python -c "..."` da bloke olur
 - **Çözüm:** `write_file()` ile `.py` yaz → `terminal("python file.py")` ile çalıştır
-- `hermes cron delete` sadece runtime'dan siler — jobs.json ayrıca temizlenmezse restart'ta geri gelir
+- `ReYMeN cron delete` sadece runtime'dan siler — jobs.json ayrıca temizlenmezse restart'ta geri gelir
 - Cron job kendini silebilir (önce diğerlerini sil, en son kendini)

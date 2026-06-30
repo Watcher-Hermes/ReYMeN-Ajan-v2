@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Mesaj sıralı tamiri ve sanitizasyon.
 
-Hermes agent'ın agent_runtime_helpers.py'sindeki aşağıdaki fonksiyonların
+ReYMeN agent'ın agent_runtime_helpers.py'sindeki aşağıdaki fonksiyonların
 ReYMeN için adapte edilmiş versiyonları:
   - sanitize_tool_call_arguments  → arac_cagri_argumanlarini_temizle
   - repair_message_sequence       → mesaj_siralamasi_tamir_et
@@ -136,7 +136,7 @@ def arac_cagri_argumanlarini_temizle(
     return tamirler
 
 
-# Hermes uyumluluğu için alias
+# ReYMeN uyumluluğu için alias
 sanitize_tool_call_arguments = arac_cagri_argumanlarini_temizle
 
 
@@ -222,7 +222,7 @@ def mesaj_siralamasi_tamir_et(mesajlar: List[Dict]) -> int:
     return tamirler
 
 
-# Hermes uyumluluğu için alias
+# ReYMeN uyumluluğu için alias
 repair_message_sequence = mesaj_siralamasi_tamir_et
 
 

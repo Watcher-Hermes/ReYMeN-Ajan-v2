@@ -38,7 +38,7 @@ Three-tier approach, applied in order:
 
 ### Tier 1: MOC (Map of Content) notes
 Create one MOC per broad domain at the vault root (e.g.,
-`Hermes/MOC - Yapay Zeka Ekosistemi.md`). Each MOC:
+`ReYMeN/MOC - Yapay Zeka Ekosistemi.md`). Each MOC:
 - Lists related category `[[index]]` notes
 - Lists category-to-category cross-references
 - Lives at the vault root so it catches attention in Graph View
@@ -77,7 +77,7 @@ insertion point. Typical anchors:
 
 ### Step 3: Priority ordering for which notes to link
 1. **Category index files** (`_index.md`) → link to parent MOC first
-2. **Hub/umbrella notes** (Hibrit AI, hermes-agent) → link to sub-skills
+2. **Hub/umbrella notes** (Hibrit AI, ReYMeN-agent) → link to sub-skills
 3. **Skill notes that reference other categories** (e.g., vscode-otomasyon → windows-automation)
 4. **Cron/Knowledge notes** → link back to active skills
 
@@ -87,7 +87,7 @@ After all patches are applied, spot-check with:
 import re
 from pathlib import Path
 v = Path(r"C:\Users\marko\OneDrive\Belgeler\Obsidian Vault"
-         r"\Hermes")
+         r"\ReYMeN")
 for md in sorted(v.rglob("*.md")):
     c = md.read_text(encoding="utf-8", errors="replace")
     if "## Cross-category links" in c:

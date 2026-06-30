@@ -1,7 +1,7 @@
 ---
 name: software-development-reymen-proje-benchmark
 description: 'Sadece 2 kategori kaldı: model-providers (18 vs 28) ve web-backends
-  (7 vs 8). Bunlar Hermes''e özel servisler.'
+  (7 vs 8). Bunlar ReYMeN''e özel servisler.'
 title: Software Development Reymen Proje Benchmark
 version: 1.0.0
 ---
@@ -21,7 +21,7 @@ version: 1.0.0
 
 ## Genel Metrikler (16 Haziran 2026 — Final)
 
-| Metrik | Deger | Hermes | Fark |
+| Metrik | Deger | ReYMeN | Fark |
 |--------|-------|--------|------|
 | Core Python dosyasi (kok) | 152 | — | — |
 | Tool sayisi (tools/) | **88** | 86 | 🏆 **GEÇTİ!** |
@@ -44,7 +44,7 @@ version: 1.0.0
 
 ### 17 Kategoriden 14'ü Geçti veya Eşitlendi
 
-Sadece 2 kategori kaldı: model-providers (18 vs 28) ve web-backends (7 vs 8). Bunlar Hermes'e özel servisler.
+Sadece 2 kategori kaldı: model-providers (18 vs 28) ve web-backends (7 vs 8). Bunlar ReYMeN'e özel servisler.
 
 ### Modül Kalite Skorları (Çözüm Üretimi)
 
@@ -110,9 +110,9 @@ PUAN = satir/10 + fonk*3 + doc. 27 stub modül geliştirildi.
 | **Diger** | bluebubbles, weixin, yuanbao, yuanbao_media, _http_client_limits |
 | **Proxy** | telegram_bot/ (ayri), gateway_runner.py |
 
-## Esitlenme Durumu (Hermes Agent karsilastirmasi — FINAL)
+## Esitlenme Durumu (ReYMeN Agent karsilastirmasi — FINAL)
 
-| Alan | Hermes Agent | R>eYMeN Once | R>eYMeN Sonra | Durum |
+| Alan | ReYMeN Agent | R>eYMeN Once | R>eYMeN Sonra | Durum |
 |------|-------------|-------------|--------------|-------|
 | Tool sayisi | 86 | 23 | **88** 🔥🔥 | ✅ R>eYMeN önde! |
 | Gateway platform | 32 | 16 | **28** 🔥 | %88 esitlendi |
@@ -126,9 +126,9 @@ PUAN = satir/10 + fonk*3 + doc. 27 stub modül geliştirildi.
 
 ### Batch Basarisi
 10 batch, 65+ yeni tool, 12 yeni gateway, 5 transport, 3 memory plugin, 3 test dosyasi
-Tum testler %100 gecti, R>eYMeN kimligi korundu, Hermes tool sayisi asildi.
+Tum testler %100 gecti, R>eYMeN kimligi korundu, ReYMeN tool sayisi asildi.
 
-## R>eYMeN'e Ozgu (Hermes'te Yok, Korunan)
+## R>eYMeN'e Ozgu (ReYMeN'te Yok, Korunan)
 
 | Ozellik | Dosya | Guclu |
 |---------|-------|-------|
@@ -143,13 +143,13 @@ Tum testler %100 gecti, R>eYMeN kimligi korundu, Hermes tool sayisi asildi.
 
 | Dosya | İçerik |
 |-------|--------|
-| `references/hermes-reference-test-workflow.md` | Hermes referans testlerini Reymen'de çalıştırma ve hata raporlama |
+| `references/ReYMeN-reference-test-workflow.md` | ReYMeN referans testlerini Reymen'de çalıştırma ve hata raporlama |
 
-## En Buyuk 3 Fark (Hermes'te olan)
+## En Buyuk 3 Fark (ReYMeN'te olan)
 
-1. **Model provider** — Hermes 28 plugin, R>eYMeN'de 2 provider. Plugin mimarisi kurulmali. (Claude 4.8'e task olarak verildi)
-2. **Tool executor** — Hermes'te tool_executor.py + dispatch_helpers + guardrails mevcut. R>eYMeN'de yeni eklenecek. (Claude 4.8'e task olarak verildi)
-3. **Test coverage** — Hermes 1.553 test, R>eYMeN 13 test. Kapsamli test gerekiyor. (Claude 4.8'e task olarak verildi)
+1. **Model provider** — ReYMeN 28 plugin, R>eYMeN'de 2 provider. Plugin mimarisi kurulmali. (Claude 4.8'e task olarak verildi)
+2. **Tool executor** — ReYMeN'te tool_executor.py + dispatch_helpers + guardrails mevcut. R>eYMeN'de yeni eklenecek. (Claude 4.8'e task olarak verildi)
+3. **Test coverage** — ReYMeN 1.553 test, R>eYMeN 13 test. Kapsamli test gerekiyor. (Claude 4.8'e task olarak verildi)
 
 ## Son Dogrulama (16 Haziran 2026 — 14:30)
 

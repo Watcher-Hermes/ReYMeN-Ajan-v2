@@ -17,7 +17,7 @@ version: 1.0.0
 
 ## Two Orchestration Modes
 
-Hermes interacts with Claude Code in two fundamentally different ways. Choose based on the task.
+ReYMeN interacts with Claude Code in two fundamentally different ways. Choose based on the task.
 
 ### Mode 1: Print Mode (`-p`) — Non-Interactive (PREFERRED for most tasks)
 

@@ -161,7 +161,7 @@ Mümkünse terminal/gateway altında:
 ...
 ```
 
-3 profile eklenir: `kiral38`, `reymen`, `hermes` (global).
+3 profile eklenir: `kiral38`, `reymen`, `ReYMeN` (global).
 
 Referans: `references/karar-agaci.md` — Full karar ağacı (hafıza → cache → web → LLM)
 Referans: `references/inter-agent-coordination.md` — Kali↔Windows ajan koordinasyon protokolü

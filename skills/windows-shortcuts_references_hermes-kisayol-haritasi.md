@@ -16,9 +16,9 @@
 
 ---
 
-# Hermes Kısayol Haritası
+# ReYMeN Kısayol Haritası
 
-Bu referans, Hermes Agent'in Windows otomasyon script'leri ve bunlara atanmış klavye kısayollarını içerir.
+Bu referans, ReYMeN Agent'in Windows otomasyon script'leri ve bunlara atanmış klavye kısayollarını içerir.
 
 ## Özel Scriptler — AutoHotkey ile `Ctrl+Alt+Harf`
 
@@ -59,4 +59,4 @@ Bu referans, Hermes Agent'in Windows otomasyon script'leri ve bunlara atanmış 
 `C:\Users\marko\AppData\Local\hermes\skills\windows-automation\windows-automation-shortcuts\scripts\windows-shortcuts.ahk`
 
 ## Başlangıç Kısayolu
-`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Hermes-AHK.lnk`
+`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\ReYMeN-AHK.lnk`

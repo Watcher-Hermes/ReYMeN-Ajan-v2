@@ -19,7 +19,7 @@ version: 1.0.0
 
 ## Scope
 
-ReYMeN: a fork of Hermes Agent with 159 root `.py` files (all moved). No breakage, 243 tests passing.
+ReYMeN: a fork of ReYMeN Agent with 159 root `.py` files (all moved). No breakage, 243 tests passing.
 
 ## Package Design
 

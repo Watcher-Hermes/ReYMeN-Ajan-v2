@@ -3,11 +3,11 @@ name: apple-reminders-apple-reminders
 description: "Apple Reminders via remindctl: add, list, complete."
 title: "Apple Reminders"
 version: 1.0.0
-author: Hermes Agent
+author: ReYMeN Agent
 license: MIT
 platforms: [macos]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [Reminders, tasks, todo, macOS, Apple]
 category: note-taking
 audience: user

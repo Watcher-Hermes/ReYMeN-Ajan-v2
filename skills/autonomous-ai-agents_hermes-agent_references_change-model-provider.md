@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_change-model-provider
 description: Change model/provider
-title: "Autonomous Ai Agents Hermes Agent References Change Model Provider"
+title: "Autonomous Ai Agents ReYMeN Agent References Change Model Provider"
 version: 1.0.0
 ---
 
@@ -16,4 +16,4 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Change model/provider
-hermes model
+ReYMeN model

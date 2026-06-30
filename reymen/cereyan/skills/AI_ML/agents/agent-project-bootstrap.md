@@ -1,7 +1,7 @@
 ---
 name: agent-project-bootstrap
 title: "Agent Projesi Bootstrap"
-description: "Kod tamam ama config/install/run eksik olan multi-service AI ajan projelerini ayağa kaldırma deseni. .env, Windows launcher, Hermes Agent entegrasyonu, health check."
+description: "Kod tamam ama config/install/run eksik olan multi-service AI ajan projelerini ayağa kaldırma deseni. .env, Windows launcher, ReYMeN Agent entegrasyonu, health check."
 tags: [bootstrap, setup, deployment, windows, multi-service, agent, integration]
 audience: contributor
 category: software-development
@@ -12,7 +12,7 @@ category: software-development
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
-| **Ne** | "Kod tamam ama config/install/run eksik olan multi-service AI ajan projelerini ayağa kaldırma deseni. .env, Windows launcher, Hermes Agent entegrasyonu, health check." |
+| **Ne** | "Kod tamam ama config/install/run eksik olan multi-service AI ajan projelerini ayağa kaldırma deseni. .env, Windows launcher, ReYMeN Agent entegrasyonu, health check." |
 | **Nerede** | `misc\agent-systems\agent-project-bootstrap.md` |
 | **Ne Zaman** | Genel AI/ML gorevlerinde |
 | **Neden** | Agent Project Bootstrap islemini standartlastirmak icin |
@@ -24,7 +24,7 @@ category: software-development
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Kod tamam ama config/install/run eksik olan multi-service AI ajan projelerini ayağa kaldırma deseni. .env, Windows launcher, Hermes Agent entegrasyonu, health check. |
+| **Ne?** | Kod tamam ama config/install/run eksik olan multi-service AI ajan projelerini ayağa kaldırma deseni. .env, Windows launcher, ReYMeN Agent entegrasyonu, health check. |
 | **Nerede?** | agent-systems/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -33,7 +33,7 @@ category: software-development
 ---
 
 Kim: AI gelistiricisi
-Ne: "Kod tamam ama config/install/run eksik olan multi-service AI ajan projelerini ayağa kaldırma deseni. .env, Windows launcher, Hermes Agent entegrasyonu, health check."
+Ne: "Kod tamam ama config/install/run eksik olan multi-service AI ajan projelerini ayağa kaldırma deseni. .env, Windows launcher, ReYMeN Agent entegrasyonu, health check."
 Nerede: `misc\agent-systems\agent-project-bootstrap.md`
 Ne Zaman: Genel AI/ML gorevlerinde
 Neden: Agent Project Bootstrap islemini standartlastirmak ve tekrarlanabilir kilmak icin
@@ -101,14 +101,14 @@ Projenin sağlık kontrolü için Python betiği:
 - Modül varlığını kontrol et
 - Özet tablosu göster
 
-## Hermes Agent Entegrasyonu
+## ReYMeN Agent Entegrasyonu
 
-Hermes Agent (Nous Research) ayrı bir repo olarak kalır. Reymen Proje'den bir wrapper ile çağrılır:
+ReYMeN Agent (Nous Research) ayrı bir repo olarak kalır. Reymen Proje'den bir wrapper ile çağrılır:
 
 ```
 proje/
-  hermes_cli.py       # Hermes CLI wrapper (env sync + subprocess)
-  reyemen.bat         # Başlatıcı (hermes komutu dahil)
+  hermes_cli.py       # ReYMeN CLI wrapper (env sync + subprocess)
+  reyemen.bat         # Başlatıcı (ReYMeN komutu dahil)
   main.py             # ReAct ajanı
   gateway_runner.py   # Multi-channel gateway
   dashboard/          # Web UI
@@ -116,11 +116,11 @@ proje/
 ```
 
 Wrapper'ın yaptığı:
-1. Reymen .env'den Hermes .env'ye anahtar senkronizasyonu
-2. Hermes CLI'ı subprocess olarak çağırma
+1. Reymen .env'den ReYMeN .env'ye anahtar senkronizasyonu
+2. ReYMeN CLI'ı subprocess olarak çağırma
 3. Çıktıyı kullanıcıya yansıtma
 
-Detaylı desen: `references/hermes-entegrasyonu.md`
+Detaylı desen: `references/ReYMeN-entegrasyonu.md`
 
 ## Kullanıcı Tercihi: "Atla" (Skip Debugging)
 
@@ -133,5 +133,5 @@ Bu kullanıcı hataları debug etmekle vakit kaybetmek istemez. Bir yol çalış
 
 - `.env`'yi `read_file` ile okuyamazsın (güvenlik engeli) — `terminal` ile oku
 - LM Studio jinja template hatası ("Only user and assistant roles are supported") → model sorunu, çözmeye çalışma, alternatif provider'a geç
-- Windows'ta `pip install` Hermes venv'ine kurulabilir — `--target` gerekmez
+- Windows'ta `pip install` ReYMeN venv'ine kurulabilir — `--target` gerekmez
 - `__init__.py` eksik olabilir — import'lar sessizce çalışmayabilir

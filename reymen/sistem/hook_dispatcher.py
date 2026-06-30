@@ -60,8 +60,10 @@ class HookDispatcher:
             try:
                 from reymen.cereyan.hook_dispatcher import hook_kaydet as _hk
                 _hk(olay, fn)
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
             logger.info(f"Hook kaydedildi: {olay} -> {fn.__name__}")
             return f"[HookDispatcher] '{olay}' icin {fn.__name__} kaydedildi."
         except Exception as e:

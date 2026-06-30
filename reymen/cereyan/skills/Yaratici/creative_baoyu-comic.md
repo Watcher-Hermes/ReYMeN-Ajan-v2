@@ -1,23 +1,12 @@
 ---
-
-name: baoyu-comic
-description: "Knowledge comics (知识漫画): educational, biography, tutorial."
-version: 1.56.1
-author: 宝玉 (JimLiu)
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [comic, knowledge-comic, creative, image-generation]
-audience: user
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-comic
+name: creative_baoyu-comic
+title: Creative Baoyu Comic
+description: ''
+tags:
+- yaratici
+category: Yaratici
+audience: agent
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -28,8 +17,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Baoyu Comic
 

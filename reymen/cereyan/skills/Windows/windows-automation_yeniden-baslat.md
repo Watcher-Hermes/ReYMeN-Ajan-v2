@@ -1,17 +1,15 @@
 ---
-tags: [hermes, skill, system, power]
+name: windows-automation_yeniden-baslat
+title: Windows Automation Yeniden Baslat
+description: ''
+tags:
+- ReYMeN
+- skill
+- system
+- power
 category: windows-automation
 audience: user
-shortcut: Win + X + U + R
-function: Yeniden başlat
-created: 2026-06-05
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -22,8 +20,6 @@ created: 2026-06-05
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Klavye Kısayol
 

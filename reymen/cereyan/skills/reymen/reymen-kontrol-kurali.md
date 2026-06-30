@@ -1,10 +1,12 @@
 ---
 name: reymen-kontrol-kurali
-title: ReYMeN Kontrol Kuralı
-description: "Yok" demeden önce 3 farklı yöntemle kontrol et.
+title: Kontrol Kurali
+description: ''
+tags:
+- reymen
 category: reymen
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ReYMeN ajani |
@@ -24,7 +26,6 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 # ReYMeN Kontrol Kuralı
 
-> **Kategori:** reymen/kural
 
 ## 📋 5N1K
 

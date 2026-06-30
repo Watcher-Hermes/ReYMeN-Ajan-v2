@@ -8,7 +8,7 @@
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Creative_Humanizer_References_How To Use It In Hermes |
+| **Ne?** | Creative_Humanizer_References_How To Use It In ReYMeN |
 | **Nerede?** | Yaratici/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -16,7 +16,7 @@
 
 ---
 
-## How to use it in Hermes
+## How to use it in ReYMeN
 
 The text usually arrives one of three ways:
 1. **Inline** — user pastes the text directly into the message. Work on it in-place, reply with the rewrite.

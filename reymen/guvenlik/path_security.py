@@ -33,7 +33,7 @@ def yol_dogrula(hedef_yol: str) -> tuple[bool, str]:
         # Proje kokunun disinda - izin verilen ozel dizinler var mi?
         izinli_ozel = [
             Path.home() / ".ReYMeN",
-            Path.home() / "AppData/Local/ReYMeN",
+            Path.home() / "AppData/Local/hermes",
         ]
         for izin in izinli_ozel:
             try:

@@ -51,7 +51,7 @@ delegate_task(
 - Hedef proje yolu (tam mutlak yol)
 - Template/shadow kod (mevcut bir tool'un kodu, örnek olsun diye)
 - Stil kuralları (docstring, try/except, hangi dil)
-- Benzersizlik vurgusu ("Hermes kopyası değil, X kimliğine uygun")
+- Benzersizlik vurgusu ("ReYMeN kopyası değil, X kimliğine uygun")
 - Dosyaların tam listesi ve her birinin ne yapacağı
 
 ### Adım 2: Her Subagent Kendi İşini Yapar

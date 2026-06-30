@@ -19,12 +19,12 @@ version: 1.0.0
 
 ## Dosya Yolu
 ```
-C:\Users\marko\OneDrive\Desktop\hermes calisma gunlugu\hermes GG.AA.YYYY.txt
+C:\Users\marko\OneDrive\Desktop\ReYMeN calisma gunlugu\ReYMeN GG.AA.YYYY.txt
 ```
 
 ## Başlık Formatı
 ```
-HERMES ÇALIŞMA GÜNLÜĞÜ — GG.AA.YYYY
+ReYMeN ÇALIŞMA GÜNLÜĞÜ — GG.AA.YYYY
 ====================================
 ```
 
@@ -38,7 +38,7 @@ N. MADDE ADI
 
 ## Örnek
 ```
-HERMES ÇALIŞMA GÜNLÜĞÜ — 12.06.2026
+ReYMeN ÇALIŞMA GÜNLÜĞÜ — 12.06.2026
 ====================================
 
 1. DOSYA OLUŞTURMA

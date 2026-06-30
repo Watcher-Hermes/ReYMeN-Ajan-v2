@@ -1,25 +1,13 @@
 ---
-
 name: claude-design
-title: "Claude Design"
-tags: [creative, design]
+title: Claude Design
 description: Design one-off HTML artifacts (landing, deck, prototype).
-version: 1.0.0
-author: BadTechBandit
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [design, html, prototype, ux, ui, creative, artifact, deck, motion, design-system]
+tags:
+- creative
+- design
+category: Yaratici
 audience: user
-related_skills: [design-md, popular-web-designs, excalidraw, architecture-diagram]
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -30,8 +18,6 @@ related_skills: [design-md, popular-web-designs, excalidraw, architecture-diagra
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Claude Design
 

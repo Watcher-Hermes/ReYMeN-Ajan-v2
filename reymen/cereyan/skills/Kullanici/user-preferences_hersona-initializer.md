@@ -1,23 +1,12 @@
 ---
-name: hersona-initializer
-description: Initializes hersona persona on first use of a profile and assists in maintaining the applied speech style if deviation is detected during conversation.
-version: 0.0.2
-author: shiro-0x
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [hersona, persona, initialization, maintenance, enforcement]
-    category: personality
-audience: user
-    requires_toolsets: []
+name: user-preferences_hersona-initializer
+title: User Preferences Hersona Initializer
+description: ''
+tags:
+- kullanici
+category: Kullanici
+audience: agent
 ---
-
-
-> **Kategori:** preferences
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -28,8 +17,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # hersona-initializer
 

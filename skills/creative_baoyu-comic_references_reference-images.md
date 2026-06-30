@@ -18,7 +18,7 @@
 
 ## Reference Images
 
-Hermes' `image_generate` tool is **prompt-only** — it accepts a text prompt and an aspect ratio, and returns an image URL. It does **NOT** accept reference images. When the user supplies a reference image, use it to **extract traits in text** that get embedded in every page prompt:
+ReYMeN' `image_generate` tool is **prompt-only** — it accepts a text prompt and an aspect ratio, and returns an image URL. It does **NOT** accept reference images. When the user supplies a reference image, use it to **extract traits in text** that get embedded in every page prompt:
 
 **Intake**: Accept file paths when the user provides them (or pastes images in conversation).
 - File path(s) → copy to `refs/NN-ref-{slug}.{ext}` alongside the comic output for provenance

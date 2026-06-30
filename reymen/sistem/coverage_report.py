@@ -47,8 +47,10 @@ def _satir_sayisi() -> int:
                 try:
                     with open(path, "rb") as fh:
                         toplam += fh.read().count(b"\n")
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
     return toplam
 
 

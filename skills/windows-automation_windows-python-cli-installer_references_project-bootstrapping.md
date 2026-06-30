@@ -138,4 +138,4 @@ Tüm servisleri tek komutla başlatan `start.py`:
 - **Hermes Agent double-nesting:** Nous Research Hermes Agent zip'ten çıkarılırken `hermes/hermes/` şeklinde çift klasör oluşur. Dosyaları bir katman yukarı taşı: `mv hermes/* . && rmdir hermes`
 - **.env secret-bearing:** `read_file` .env'yi okumaz. `cat` veya `grep` ile terminal'den oku.
 - **LM Studio jinja hatası:** Bazı modeller (`llava`) `system` rolünü kabul etmez. `[SISTEM]:` prefix'i ile user mesajına çevir.
-- **pip install -e . hatası:** Hermes Agent zaten çalışıyorsa `hermes.exe` kilitli olabilir. Normal `pip install` yeterli.
+- **pip install -e . hatası:** ReYMeN Agent zaten çalışıyorsa `ReYMeN.exe` kilitli olabilir. Normal `pip install` yeterli.

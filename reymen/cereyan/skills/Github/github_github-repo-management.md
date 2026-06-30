@@ -1,25 +1,14 @@
 ---
-
 name: github-repo-management
-title: "GitHub Repo Management"
-tags: [development, git, github]
-description: "Clone/create/fork repos; manage remotes, releases."
-version: 1.1.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [GitHub, Repositories, Git, Releases, Secrets, Configuration]
+title: GitHub Repo Management
+description: Clone/create/fork repos; manage remotes, releases.
+tags:
+- development
+- git
+- github
+category: Github
 audience: contributor
-related_skills: [github-auth, github-pr-workflow, github-issues]
 ---
-
-
-> **Kategori:** github
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -30,8 +19,6 @@ related_skills: [github-auth, github-pr-workflow, github-issues]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Github Repo Management
 

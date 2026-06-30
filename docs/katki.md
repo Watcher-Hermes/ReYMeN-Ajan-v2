@@ -9,4 +9,4 @@ ReYMeN acik kaynak bir projedir. Katkida bulunmak icin:
 5. Kodla + test ekle
 6. PR ac
 
-Detayli rehber: [CONTRIBUTING.md](https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2/blob/main/CONTRIBUTING.md)
+Detayli rehber: [CONTRIBUTING.md](https://github.com/Watcher-ReYMeN/ReYMeN-Ajan-v2/blob/main/CONTRIBUTING.md)

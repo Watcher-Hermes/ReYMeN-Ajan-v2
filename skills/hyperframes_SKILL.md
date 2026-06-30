@@ -1,6 +1,6 @@
 ---
 name: skill
-description: Use this skill when the user asks Hermes to make a video with HyperFrames,
+description: Use this skill when the user asks ReYMeN to make a video with HyperFrames,
   such as a 30-second vertical video, a short intro, a cinematic micro-trailer, a
   product promo, animated captions, HUD-style tech visuals, a website-to-video piece,
   or an HTML/CSS/JS motion graphics render.
@@ -23,7 +23,7 @@ compositions, then validate and render them to MP4. Use for short video intros,
   work, and motion graphics.
 # HyperFrames
 
-Use this skill when the user asks Hermes to make a video with HyperFrames, such as a 30-second vertical video, a short intro, a cinematic micro-trailer, a product promo, animated captions, HUD-style tech visuals, a website-to-video piece, or an HTML/CSS/JS motion graphics render.
+Use this skill when the user asks ReYMeN to make a video with HyperFrames, such as a 30-second vertical video, a short intro, a cinematic micro-trailer, a product promo, animated captions, HUD-style tech visuals, a website-to-video piece, or an HTML/CSS/JS motion graphics render.
 
 HyperFrames treats HTML as the video source of truth. Build video scenes as HTML compositions with CSS layout and JavaScript animation, validate the layout, then render the result to MP4.
 
@@ -32,7 +32,7 @@ HyperFrames treats HTML as the video source of truth. Build video scenes as HTML
 If HyperFrames is not installed or the official skill is missing, install it first:
 
 ```bash
-hermes skills install official/creative/hyperframes
+ReYMeN skills install official/creative/hyperframes
 ```
 
 Use `npx hyperframes` for project operations. HyperFrames requires Node.js and FFmpeg. If rendering or preview fails, run:

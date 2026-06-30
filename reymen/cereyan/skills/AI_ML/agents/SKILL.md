@@ -1,16 +1,16 @@
 ---
 name: reymen-kontrol-kurali
-title: "ReYMeN Kontrol ve Pes Etmeme Kuralı"
-description: "Bir şeyin olmadığını iddia etmeden önce 3 farklı yöntemle kontrol et. Altyapı eksikse pes etme, alternatif dene."
-tags: [reymen, kural, kontrol, dogrulama]
+title: ReYMeN Kontrol ve Pes Etmeme Kuralı
+description: Bir şeyin olmadığını iddia etmeden önce 3 farklı yöntemle kontrol et.
+  Altyapı eksikse pes etme, alternatif dene.
+tags:
+- reymen
+- kural
+- kontrol
+- dogrulama
+category: agents
 audience: agent
 ---
-
-
-> **Kategori:** reymen-kontrol-kurali
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -21,8 +21,6 @@ audience: agent
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # ReYMeN Kontrol ve Pes Etmeme Kuralı
 
@@ -70,7 +68,7 @@ Kullanıcıya "Nereden çıktı bu hata?" sorusunu bekleme — kendin açıkla.
 
 ## Kural 4 — Windows'da Cron Script'leri .py Olmalı
 
-Hermes cron'u Windows'ta bash bulamaz. `.sh` script'i patlar:
+ReYMeN cron'u Windows'ta bash bulamaz. `.sh` script'i patlar:
 ```
 WSL (11 - Relay) ERROR: execvpe(/bin/bash) failed: No such file or directory
 ```
@@ -92,14 +90,14 @@ Detaylı pattern için `reymen-calisma-prensipleri` skill'inin `references/cron-
 
 ## Kural 5 — Reference Test'leri Kod'a Göre Yeniden Yaz
 
-Eski Hermes reference test'leri (`tests/ReYMeN_reference/`) olmayan API'lere bağımlıysa:
+Eski ReYMeN reference test'leri (`tests/ReYMeN_reference/`) olmayan API'lere bağımlıysa:
 
 1. **Import ekleme** — Kaynak modüle eksik export'u ekle (alias/stub)
 2. **Namespace çakışması** — Test `acp/` dizinindeyse `__init__.py`'yi sil
 3. **API uyumla** — Test'i mevcut kodun API'sine göre yeniden yaz
 4. **async kontrol** — `async def` varsa `await` kullan
 
-Örnek: `test_server.py` 1862 satır Hermes ACP test'inden 397 satır ReYMeN native test'e düşürüldü (47 test).
+Örnek: `test_server.py` 1862 satır ReYMeN ACP test'inden 397 satır ReYMeN native test'e düşürüldü (47 test).
 
 ## Kural 6 — Memory Consolidation & Kayıt Güncelleme
 

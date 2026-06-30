@@ -293,8 +293,8 @@ def _run_state_db_auto_maintenance(session_db) -> None:
         return
     try:
         from ReYMeN_cli.config import load_config as _load_full_config
-        from reymen.sistem.ReYMeN_constants import get_ReYMeN_home as _get_ReYMeN_home
-        _ReYMeN_home_maint = _get_ReYMeN_home()
+        from reymen.sistem.ReYMeN_constants import get_reymen_home as _get_reymen_home
+        _ReYMeN_home_maint = _get_reymen_home()
 
         # One-time prune of empty TUI ghost sessions.
         try:

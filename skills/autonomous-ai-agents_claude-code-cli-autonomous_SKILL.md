@@ -1,6 +1,6 @@
 ---
 name: autonomous-ai-agents-claude-code-cli-autonomous
-description: Hermes, Claude Code CLI'ı (`claude -p` print mode) kullanarak otonom
+description: ReYMeN, Claude Code CLI'ı (`claude -p` print mode) kullanarak otonom
   kodlama görevleri yürütür. Print mode **hiçbir onay sormaz** — `--allowedTools`
   ile izin verilen araçları doğrudan kullanır. VS Code agent modundan daha stabildir.
 title: Autonomous Ai Agents Claude Code Cli Autonomous
@@ -22,13 +22,13 @@ Claude Code delegasyonu, onay gerektirmez, planlı çalışma.
 
 ## Overview
 
-Hermes, Claude Code CLI'ı (`claude -p` print mode) kullanarak otonom kodlama görevleri yürütür. Print mode **hiçbir onay sormaz** — `--allowedTools` ile izin verilen araçları doğrudan kullanır. VS Code agent modundan daha stabildir.
+ReYMeN, Claude Code CLI'ı (`claude -p` print mode) kullanarak otonom kodlama görevleri yürütür. Print mode **hiçbir onay sormaz** — `--allowedTools` ile izin verilen araçları doğrudan kullanır. VS Code agent modundan daha stabildir.
 
 ## Ne Zaman Kullanılır
 
 - Karmaşık kodlama görevleri (modül kurulumu + script yazımı + test)
 - Çok adımlı otomasyon (araştır → kodla → test et → raporla)
-- Hermes'in yapamayacağı uzun soluklu işlemler (10+ döngü)
+- ReYMeN'in yapamayacağı uzun soluklu işlemler (10+ döngü)
 - Python modülü kurulumu + test içeren görevler
 
 ## Kullanma
@@ -76,7 +76,7 @@ Görev: <başlık>
 - <kısıtlamalar>
 ```
 
-## Örnek: Hermes Agent Toolkit
+## Örnek: ReYMeN Agent Toolkit
 
 ```bash
 cat /c/Users/marko/Desktop/_claude_task.txt | claude -p \
@@ -113,7 +113,7 @@ Claude Code bitince şunları döndürür:
    - Oluşturulan dosyaları kontrol et (var mı, çalışıyor mu)
    - Test sonuçlarını doğrula
    - **skill/memory olarak kaydet** — bu bir kazanımdır
-   - Obsidian notu yaz (Hermes Memories/)
+   - Obsidian notu yaz (ReYMeN Memories/)
 5. Claude'ın çıktısını kullanıcıya kısa raporla (tablo tercih edilir)
 
 ## Önemli Uyarılar

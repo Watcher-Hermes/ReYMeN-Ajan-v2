@@ -51,7 +51,7 @@ def _install_fake_tools_package(*, credential_mounts=None):
     ReYMeN_cli.__path__ = []  # type: ignore[attr-defined]
     sys.modules["ReYMeN_cli"] = ReYMeN_cli
     sys.modules["ReYMeN_cli.config"] = types.SimpleNamespace(
-        get_ReYMeN_home=lambda: Path(tempfile.gettempdir()) / "ReYMeN-home",
+        get_reymen_home=lambda: Path(tempfile.gettempdir()) / "ReYMeN-home",
     )
 
     tools_package = types.ModuleType("tools")

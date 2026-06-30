@@ -18,7 +18,7 @@
 
 ---
 name: skill-obsidian-first-check
-description: Her görevde ilk olarak Hermes skill listesi ve Obsidian vault taraması yap. Eğer konu zaten kayıtlıysa yeni dokümantasyon oluşturma, mevcut kayda devam et. Bu, tekrar kaydetme zaman kaybını önler.
+description: Her görevde ilk olarak ReYMeN skill listesi ve Obsidian vault taraması yap. Eğer konu zaten kayıtlıysa yeni dokümantasyon oluşturma, mevcut kayda devam et. Bu, tekrar kaydetme zaman kaybını önler.
 title: "Skill Obsidian First Check"
 
 audience: user
@@ -29,7 +29,7 @@ category: windows-automation---
 
 ## Amaç
 Herhangi bir görevi başlatmadan önce aşağıdaki sırayı takip et:
-1. `skills_list` ile ilgili Hermes becerilerini kontrol et.
+1. `skills_list` ile ilgili ReYMeN becerilerini kontrol et.
 2. `search_files` ile Obsidian vault taraması yap.
 3. Eğer konu zaten kayıtlıysa, mevcut kayda devam et veya yeniden kullan. Yeni dokümantasyon oluşturma.
 
@@ -40,9 +40,9 @@ Herhangi bir görevi başlatmadan önce aşağıdaki sırayı takip et:
 
 ## Adım Adım
 
-1. **skills_list()** — önce Hermes skill'lerini tara, konuyla ilgili skill varsa `skill_view()` ile yükle
+1. **skills_list()** — önce ReYMeN skill'lerini tara, konuyla ilgili skill varsa `skill_view()` ile yükle
 2. **search_files()** — Obsidian vault'ta konuyla ilgili not ara:
-   - `path: "C:\\Users\\marko\\OneDrive\\Belgeler\\Obsidian Vault\\Hermes"`
+   - `path: "C:\\Users\\marko\\OneDrive\\Belgeler\\Obsidian Vault\\ReYMeN"`
    - Kategori klasörleri: Skills/, Knowledge/, Cron/
 3. **Bulunan kaydı kullan** — varsa yeniden oluşturma, mevcut kayda devam et
 4. **Yoksa oluştur** — hem skill (gerekirse) hem Obsidian notu olarak kaydet

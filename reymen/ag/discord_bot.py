@@ -53,6 +53,17 @@ if ALLOWED_CHANNELS_STR:
         if c:
             ALLOWED_CHANNELS.add(int(c))
 
+# ── Otomatik durum/komut guncelleme (her bot baslangicinda) ──────────────
+try:
+    sys.path.insert(1, str(ROOT.parent.parent))  # proje koku
+    from reymen.sistem.ortak_komut import guncelle as durum_otomatik_guncelle
+    from reymen.sistem.ortak_watchdog import watchdog_baslat
+    durum_otomatik_guncelle()
+    watchdog_baslat(interval=30)
+except Exception as _e:
+    logger = logging.getLogger("discord_bot")
+    logger.warning("[OrtakKomut] Yukleme hatasi: %s", _e)
+
 logger = logging.getLogger("discord_bot")
 
 # Durum dosyasi (process_manager ile iletisim)
@@ -66,8 +77,10 @@ def _durum_yaz(anahtar: str, deger: object) -> None:
     if STATUS_DOSYASI.exists():
         try:
             veri = json.loads(STATUS_DOSYASI.read_text(encoding="utf-8"))
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
     veri[anahtar] = deger
     veri["son_guncelleme"] = datetime.now().isoformat()
     STATUS_DOSYASI.write_text(json.dumps(veri, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -175,8 +188,10 @@ async def cmd_status(ctx: commands.Context) -> None:
         ozet = AdvancedKanbanOrchestrator().ozet()
         toplam = ozet.get("toplam", 0)
         satirlar.append(f"Kanban: {toplam} gorev")
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
 
     await ctx.send("\n".join(satirlar))
 

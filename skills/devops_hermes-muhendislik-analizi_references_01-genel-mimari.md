@@ -18,7 +18,7 @@
 
 # Bölüm 1: Genel Mimari
 
-## Hermes Nedir
+## ReYMeN Nedir
 
 5 aşamalı kapalı öğrenme döngüsü:
 1. Bağlam Yükleme — MEMORY.md + USER.md yüklenir
@@ -43,7 +43,7 @@
 ## Genel Mimari Harita
 
 OBSIDIAN VAULT (Komuta Merkezi)
-  #hermes-run etiketli notlar tetikler
+  #ReYMeN-run etiketli notlar tetikler
         |
   watchdog (FileSystemEventHandler, 2s debounce)
         |

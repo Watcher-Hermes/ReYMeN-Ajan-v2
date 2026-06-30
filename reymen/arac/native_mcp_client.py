@@ -13,7 +13,7 @@ native_mcp_client.py — LEGACY Native MCP Client (Korunuyor).
     Bu modul silinmemeli, cunku dis bagimliliklar (plugin'ler, skill'ler,
     dogrudan import eden kodlar) olabilir. Ancak yeni ozellik eklenmez.
 
-Hermes Native MCP Client ozellikleri (legacy):
+ReYMeN Native MCP Client ozellikleri (legacy):
   - Baslangicta otomatik kesif (discover_mcp_tools)
   - Her sunucu ayri arkaplan thread'de calisir
   - Otomatik yeniden baglanma (exponential backoff, max 5, 60s)
@@ -53,7 +53,7 @@ CONFIG_YOLLARI = [
     PROJE_KOK / ".ReYMeN" / "config.yaml",
     PROJE_KOK / ".ReYMeN" / "mcp_client.json",
     PROJE_KOK / "config.yaml",
-    Path.home() / ".hermes" / "config.yaml",
+    Path.home() / ".ReYMeN" / "config.yaml",
 ]
 
 # aiohttp opsiyonel
@@ -152,8 +152,10 @@ class MCPBaglanti:
             if self._loop and not self._loop.is_closed():
                 try:
                     self._loop.call_soon_threadsafe(self._loop.stop)
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
             if self._proses and self._proses.poll() is None:
                 self._proses.terminate()
         else:
@@ -387,7 +389,7 @@ class MCPBaglanti:
 
 
 class NativeMCPClient:
-    """Hermes-tarzi Native MCP Client yoneticisi.
+    """ReYMeN-tarzi Native MCP Client yoneticisi.
 
     Baslangicta config'deki tum sunuculara otomatik baglanir,
     araclari kesfeder ve motor'a kaydeder.
@@ -546,7 +548,7 @@ class NativeMCPClient:
     # ── Araclari Kesfetme ve Kaydetme ─────────────────────────────────────
 
     def discover_mcp_tools(self, motor_ref: Any = None):
-        """Hermes-tarzi otomatik MCP arac kesfi.
+        """ReYMeN-tarzi otomatik MCP arac kesfi.
 
         Cagri sirasi:
           1. Config'deki tum sunuculari yukle
@@ -580,7 +582,7 @@ class NativeMCPClient:
     def motor_kaydet(self):
         """Tum MCP tool'larini motora kaydet.
 
-        Hermes uyumlu isimlendirme: mcp_{sunucu}_{arac}
+        ReYMeN uyumlu isimlendirme: mcp_{sunucu}_{arac}
         """
         if not self._motor_ref:
             return
@@ -590,7 +592,7 @@ class NativeMCPClient:
 
         for sunucu_ad, baglanti in self._baglantilar.items():
             for arac in baglanti.araclar:
-                # mcp_{sunucu}_{arac} — Hermes standardi
+                # mcp_{sunucu}_{arac} — ReYMeN standardi
                 arac_adi = f"mcp_{sunucu_ad}_{arac['name']}"
                 # Karakter temizligi (tire/nokta -> altcizgi)
                 arac_adi = arac_adi.replace("-", "_").replace(".", "_").upper()
@@ -666,7 +668,7 @@ def native_mcp() -> NativeMCPClient:
 
 
 def discover_mcp_tools(motor_ref: Any = None):
-    """Hermes-tarzi: baslangicta MCP araclarini otomatik kesfet.
+    """ReYMeN-tarzi: baslangicta MCP araclarini otomatik kesfet.
 
     motor.py _plugin_moduller_yukle icinde cagrilmasi icin.
     """

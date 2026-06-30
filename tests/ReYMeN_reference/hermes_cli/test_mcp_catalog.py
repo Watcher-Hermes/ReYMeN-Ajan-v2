@@ -51,7 +51,7 @@ def _isolate_ReYMeN_home(tmp_path, monkeypatch):
     hh.mkdir()
     monkeypatch.setenv("ReYMeN_HOME", str(hh))
     monkeypatch.setattr(
-        "ReYMeN_cli.config.get_ReYMeN_home", lambda: hh
+        "ReYMeN_cli.config.get_reymen_home", lambda: hh
     )
     monkeypatch.setattr(
         "ReYMeN_cli.config.get_config_path", lambda: hh / "config.yaml"
@@ -59,9 +59,9 @@ def _isolate_ReYMeN_home(tmp_path, monkeypatch):
     monkeypatch.setattr(
         "ReYMeN_cli.config.get_env_path", lambda: hh / ".env"
     )
-    # mcp_catalog grabs get_ReYMeN_home() lazily through ReYMeN_constants
+    # mcp_catalog grabs get_reymen_home() lazily through ReYMeN_constants
     monkeypatch.setattr(
-        "ReYMeN_constants.get_ReYMeN_home", lambda: hh
+        "ReYMeN_constants.get_reymen_home", lambda: hh
     )
     return hh
 

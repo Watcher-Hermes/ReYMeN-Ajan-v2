@@ -10,7 +10,7 @@ plugin_loader.py — ReYMeN Plugin Sistemi (ReYMeN-seviyesi).
        Arayüz: AbstraktHafizaSaglayici alt sinifi + kaydet(ctx)
        ctx: HafizaPluginKayit nesnesi
 
-HERMES UYUMLULUK:
+ReYMeN UYUMLULUK:
   - plugin.yaml okuma ve parse etme
   - kind: backend  → otomatik yukle
   - kind: tool     → istege bagli yukle

@@ -8,7 +8,7 @@ author: marko
 license: MIT
 platforms: [windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [screenshot, desktop, capture, windows, keyboard shortcut]
 audience: user
 related_skills: [windows-system-automation, obsidian, gorsel-onaylama]

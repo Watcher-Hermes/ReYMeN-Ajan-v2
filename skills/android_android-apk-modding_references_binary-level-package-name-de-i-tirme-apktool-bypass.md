@@ -24,7 +24,7 @@ Python ile binary AndroidManifest.xml'de UTF-16LE string değiştir:
 ```python
 import zipfile
 orig = "com.google.audio.hearing.visualization.accessibility.scribe"
-new_pkg = "com.live.transcribe.hermes.twentyfourhours.extended.android"
+new_pkg = "com.live.transcribe.ReYMeN.twentyfourhours.extended.android"
 assert len(orig) == len(new_pkg), "Uzunluklar esit olmali!"
 with zipfile.ZipFile("target.apk", "r") as z:
     manifest = z.read("AndroidManifest.xml")

@@ -38,7 +38,7 @@ Kullanıcı "bot engellendi" hatası alıp yeni token verdiğinde (veya herhangi
 
 3. **Gateway state'i sıfırla** — `gateway_state.json`'u aşağıdaki içerikle değiştir:
    ```json
-   {"pid":null,"kind":"hermes-gateway","gateway_state":"stopped","platforms":{"telegram":{"state":"disconnected","error_code":null,"error_message":null}}}
+   {"pid":null,"kind":"ReYMeN-gateway","gateway_state":"stopped","platforms":{"telegram":{"state":"disconnected","error_code":null,"error_message":null}}}
    ```
    Veya script: `scripts/reset_gateway_state.py` (varsa kullan)
 
@@ -62,7 +62,7 @@ Kullanıcı "bot engellendi" hatası alıp yeni token verdiğinde (veya herhangi
 
 7. **Test mesajı gönder:**
    ```
-   hermes send --to "telegram:Q !" "Test mesajı"
+   ReYMeN send --to "telegram:Q !" "Test mesajı"
    ```
    - `Forbidden: bot was blocked by the user` → kullanıcıya bot @username'ini söyle, Telegram'da unblock yapmasını iste
    - Başarılı → gateway çalışıyor, sorun yok

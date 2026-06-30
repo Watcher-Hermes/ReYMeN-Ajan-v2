@@ -1,8 +1,12 @@
-
-> **Kategori:** creative
-
 ---
-
+name: creative_harmonic-mixing
+title: Creative Harmonic Mixing
+description: ''
+tags:
+- creative
+category: creative
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: harmonic-mixing
 description: Harmonic mixing and DJ fundamentals — Camelot wheel key compatibility, harmonic mixing rules, mix techniques, and energy flow management for DJ sets.
 title: "Harmonic Mixing"

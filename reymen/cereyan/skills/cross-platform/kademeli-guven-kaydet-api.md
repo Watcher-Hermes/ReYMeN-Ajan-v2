@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: kademeli-guven-kaydet-api
+title: Kademeli Guven Kaydet Api
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # `kaydet()` API ve `_kademeli_guven()` Referansı
 

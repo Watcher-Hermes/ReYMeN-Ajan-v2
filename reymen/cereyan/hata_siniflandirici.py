@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """API hata sınıflandırması — akıllı failover ve recovery için.
 
-Hermes agent'ın error_classifier.py'sinden ReYMeN için adapte edilmiştir.
+ReYMeN agent'ın error_classifier.py'sinden ReYMeN için adapte edilmiştir.
 Tüm API hatalarını yapısal FailoverReason enum değerleriyle sınıflandırır;
 retry loop doğrudan bu değerlere göre karar verir.
 """
@@ -63,9 +63,9 @@ class FailoverNedeni(enum.Enum):
     bilinmiyor = "bilinmiyor"               # Sınıflandırılamadı — backoff ile yeniden dene
 
 
-# Geriye uyumluluk: İngilizce isimler (Hermes kodlarıyla uyumlu)
+# Geriye uyumluluk: İngilizce isimler (ReYMeN kodlarıyla uyumlu)
 class FailoverReason(enum.Enum):
-    """Hermes API-uyumlu İngilizce alias'lar."""
+    """ReYMeN API-uyumlu İngilizce alias'lar."""
     auth = "auth"
     auth_permanent = "auth_permanent"
     billing = "billing"
@@ -112,7 +112,7 @@ class SiniflandirilmisHata:
     def is_auth(self) -> bool:
         return self.neden in {FailoverReason.auth, FailoverReason.auth_permanent}
 
-    # Hermes API uyumluluğu için property'ler
+    # ReYMeN API uyumluluğu için property'ler
     @property
     def reason(self) -> FailoverReason:
         return self.neden
@@ -134,7 +134,7 @@ class SiniflandirilmisHata:
         return self.fallback_olmali
 
 
-# Hermes uyumluluğu için alias
+# ReYMeN uyumluluğu için alias
 ClassifiedError = SiniflandirilmisHata
 
 
@@ -402,7 +402,7 @@ def api_hatasini_siniflandir(
     return _sonuc(FailoverReason.unknown, yeniden_denenebilir=True)
 
 
-# Hermes uyumluluğu için İngilizce alias
+# ReYMeN uyumluluğu için İngilizce alias
 classify_api_error = api_hatasini_siniflandir
 
 

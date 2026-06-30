@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-debug-ai-code
+title: Prompt Debug Ai Code
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-debug-ai-code
 description: Diagnose AI-specific bugs including NaN loss, shape errors, training failures, and OOM
 title: "PRompt Debug AI Code"

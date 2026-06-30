@@ -57,10 +57,10 @@ Konum: `C:\Users\marko\AppData\Local\hermes\scripts\gece_01_otomasyon.py`
 ## Bilinen Sorunlar
 
 1. **Gateway çökmesi** — `"Devam et ip ucuc gateway cokmnis olduğunda PID 2564 hatası veryor"` — gateway çökünce PID 2564 hatası verir. Çözüm: Enter tuşuna basmak veya OK butonuna tıklamak yeterlidir. `gorsel-onaylama` skill'ine bak.
-2. **Session limit** — Hermes "You've hit your session limit" uyarısı verirse, OK/Enter yeterlidir. Cron job script'i bu uyarıyı otomatik geçemez (no_agent, sadece screenshot alır). Gerekirse LLM cron job'ına çevir.
+2. **Session limit** — ReYMeN "You've hit your session limit" uyarısı verirse, OK/Enter yeterlidir. Cron job script'i bu uyarıyı otomatik geçemez (no_agent, sadece screenshot alır). Gerekirse LLM cron job'ına çevir.
 
 ## İlgili Skill'ler
 
-- `hermes-backup-otomasyonu` — Bu cron job'un bağlı olduğu umbrella skill
+- `ReYMeN-backup-otomasyonu` — Bu cron job'un bağlı olduğu umbrella skill
 - `gorsel-onaylama` — OK/Allow Once butonlarını otomatik tıklama
 - `windows-automation/gorsel-onaylama` — Aynı skill'in Windows yolu

@@ -8,7 +8,7 @@
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Devops_Hermes Muhendislik Analizi_References_08 Yerel Hermes Projeleri |
+| **Ne?** | Devops_Hermes Muhendislik Analizi_References_08 Yerel ReYMeN Projeleri |
 | **Nerede?** | DevOps/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -16,11 +16,11 @@
 
 ---
 
-# Yerel Hermes Projeleri Envanteri
+# Yerel ReYMeN Projeleri Envanteri
 
-Bu makinede bulunan 4 Hermes kod tabanının konumları, durumları ve birbirleriyle ilişkileri.
+Bu makinede bulunan 4 ReYMeN kod tabanının konumları, durumları ve birbirleriyle ilişkileri.
 
-## 1. Hermes Agent (ÇALIŞAN — ŞU ANKİ SİSTEM)
+## 1. ReYMeN Agent (ÇALIŞAN — ŞU ANKİ SİSTEM)
 
 | Özellik | Detay |
 |---------|-------|
@@ -30,17 +30,17 @@ Bu makinede bulunan 4 Hermes kod tabanının konumları, durumları ve birbirler
 | Konfigürasyon | `.env` dolu, `config.yaml` dolu |
 | Skill'ler | 1.045 modüler skill, Router+Reference yapısı |
 | Profiller | default (aktif) + diğerleri `~/.hermes/profiles/` |
-| CLI | `hermes` komutu kullanılabilir |
+| CLI | `ReYMeN` komutu kullanılabilir |
 | Bağımlılıklar | Python 3.11 venv + npm paketleri |
 | Not | Bu sistemle şu an konuşuluyor. Sürekli güncellenir. |
 
-## 2. Hermes Agent Ham Repo (KURULU DEĞİL)
+## 2. ReYMeN Agent Ham Repo (KURULU DEĞİL)
 
 | Özellik | Detay |
 |---------|-------|
 | Konum | `C:\hermes\hermes\` (çift iç içe — `C:\hermes\` içinde `hermes/`) |
 | Durum | ❌ Çalışmıyor, kurulum yapılmamış |
-| İçerik | Nous Research Hermes Agent reposunun tam kopyası |
+| İçerik | Nous Research ReYMeN Agent reposunun tam kopyası |
 | Sürüm | v0.15.x (RELEASE_NOTES mevcut) |
 | Git | `.git` mevcut (288MB pack), remote origin tanımlı |
 | Eksikler | `.env` yok, `cli-config.yaml` yok, venv yok, `pip install` / `uv sync` yapılmamış |
@@ -48,7 +48,7 @@ Bu makinede bulunan 4 Hermes kod tabanının konumları, durumları ve birbirler
 | Gereksiz | `import yaml.py` (boşluklu isim, 3.6KB) — muhtemelen test amaçlı |
 | Not | `C:\Users\marko\AppData\Local\hermes\` ile %99 aynı kod tabanı. Sadece kurulum yapılmamış. |
 
-## 3. Hermes Output — Yardımcı Araçlar (KURULU DEĞİL)
+## 3. ReYMeN Output — Yardımcı Araçlar (KURULU DEĞİL)
 
 | Özellik | Detay |
 |---------|-------|
@@ -101,9 +101,9 @@ python <modul>.py
 | USER.md | 10 byte (neredeyse boş) |
 | vektor_hafizasi/ | Boş (ChromaDB hiç kullanılmamış) |
 | skills/ | 6 beceri kartı (küçük, basit düzeyde) |
-| .hermes/makrolar/ | Boş |
-| .hermes/nisanlar/ | Boş |
-| .hermes/uygulama_hafizasi/ | Boş |
+| .ReYMeN/makrolar/ | Boş |
+| .ReYMeN/nisanlar/ | Boş |
+| .ReYMeN/uygulama_hafizasi/ | Boş |
 
 ### Çalıştırma
 ```bash
@@ -121,18 +121,18 @@ python main.py
 ## İlişki Diyagramı
 
 ```
-Hermes Agent (resmi, Nous Research)     ← KULLANILIYOR
+ReYMeN Agent (resmi, Nous Research)     ← KULLANILIYOR
   ├── C:\Users\marko\AppData\Local\hermes\     (kurulu, çalışıyor)
   └── C:\hermes\hermes\                        (ham repo, kurulum yok)
 
 Hermes_output (yardımcı araçlar)              ← HİÇ ÇALIŞTIRILMAMIŞ
   └── C:\hermes_output\                        (4 modül, kod tam)
 
-R>eYMeN (mini ajan, Hermes felsefesi)         ← ÇALIŞABİLİR
+R>eYMeN (mini ajan, ReYMeN felsefesi)         ← ÇALIŞABİLİR
   └── Masaüstü/Reymen Proje/hermes_projesi/   (53 dosya, Ollama gerek)
 ```
 
 ## Önemli Not
-- R>eYMeN ve Hermes_output, **Hermes Agent'ın kendisi değil**, etrafına eklenen yardımcı sistemler
+- R>eYMeN ve Hermes_output, **ReYMeN Agent'ın kendisi değil**, etrafına eklenen yardımcı sistemler
 - 4 kod tabanı da birbirinden bağımsız, farklı teknolojiler kullanıyor
-- Sadece #1 (Hermes Agent, AppData) şu an aktif ve kullanılıyor
+- Sadece #1 (ReYMeN Agent, AppData) şu an aktif ve kullanılıyor

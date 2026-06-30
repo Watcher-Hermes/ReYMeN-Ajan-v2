@@ -55,7 +55,7 @@
 
 ### Tor Kapalı Uyarı Sistemi
 - `tor_kapali.flag` dosyası sadece startup'ta oluşur/silinir
-- Hermes kullanıcı mesaj attığında flag'i kontrol eder
+- ReYMeN kullanıcı mesaj attığında flag'i kontrol eder
 - Flag varsa → "Bu arada Tor kapalı, haberin olsun." uyarısı
 - Flag yoksa → normal devam
 - Kullanıcı Tor'u açar, bir sonraki startup'ta flag otomatik silinir

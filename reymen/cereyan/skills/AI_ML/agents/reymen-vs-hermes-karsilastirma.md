@@ -1,28 +1,30 @@
-
-> **Kategori:** references
-
 ---
-
+name: reymen-vs-hermes-karsilastirma
+title: Vs ReYMeN Karsilastirma
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Reymen Vs Hermes Karsilastirma |
+| **Ne?** | Reymen Vs ReYMeN Karsilastirma |
 | **Nerede?** | references/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
-# ReYMeN vs Varsayılan LLM (Hermes) Karşılaştırması
+# ReYMeN vs Varsayılan LLM (ReYMeN) Karşılaştırması
 
 Bu tablo, ReYMeN (OnceHafiza sistemi) ile varsayılan LLM ajanı arasındaki farkları özetler. Kullanıcının Telegram'da gönderdiği analiz ekran görüntülerinden derlenmiştir.
 
 ## Özet Tablo
 
-| Boyut | ReYMeN | Varsayılan LLM (Hermes) |
+| Boyut | ReYMeN | Varsayılan LLM (ReYMeN) |
 |:------|:-------|:------------------------|
 | **Mimari** | Mühendislik: hafıza öncelikli, LLM son çare | LLM merkezli: her adım LLM |
 | **Maliyet** | Düşük (cache + LLM'siz kararlar) | Yüksek (her şey LLM'den geçer) |
@@ -47,7 +49,7 @@ SONRA CACHE (selam/teşekkür?) → direkt döndür, 0 LLM
 EN SON LLM → 90 tur max, 3 retry, CB kalıcı
 ```
 
-### Varsayılan LLM (Hermes)
+### Varsayılan LLM (ReYMeN)
 ```
 Görev gelir
   ↓

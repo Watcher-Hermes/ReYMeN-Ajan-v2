@@ -5,11 +5,11 @@ title: "Systematic Debugging"
 tags: [coding, development]
 description: "4-phase root cause debugging: understand bugs before fixing."
 version: 1.1.0
-author: Hermes Agent (adapted from obra/superpowers)
+author: ReYMeN Agent (adapted from obra/superpowers)
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [debugging, troubleshooting, problem-solving, root-cause, investigation]
 audience: contributor
 related_skills: [test-driven-development, plan, subagent-driven-development]
@@ -62,7 +62,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Common Rationalizations | `references/common-rationalizations.md` |
 | Quick Reference | `references/quick-reference.md` |
 | ToolRegistry Resolution Failures | `references/tool-registry-resolution-failures.md` |
-| Hermes Agent Integration | `references/hermes-agent-integration.md` |
+| ReYMeN Agent Integration | `references/ReYMeN-agent-integration.md` |
 | Registry Prefix Mismatch & Dead Code | `references/registry-prefix-dead-code.md` |
 | Real-World Impact | `references/real-world-impact.md` |
 | Import Chain Debugging | `references/module-import-chain-debugging.md` |

@@ -18,7 +18,7 @@
 
 # Skill Quality Benchmark
 
-Tüm Hermes skill'lerinin yapısal kalite analizi ve toplu düzeltme prosedürü.
+Tüm ReYMeN skill'lerinin yapısal kalite analizi ve toplu düzeltme prosedürü.
 
 ## Ne Zaman Kullanılır
 

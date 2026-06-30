@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-linear-algebra-tutor
+title: Prompt Linear Algebra Tutor
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-linear-algebra-tutor
 description: Teach linear algebra through geometric intuition and AI applications
 title: "PRompt Linear Algebra Tutor"

@@ -1,24 +1,18 @@
 ---
-
 name: kanban-orchestrator
-title: "Kanban Orchestrator"
-tags: [automation, devops, system, tor]
-description: Decomposition playbook + anti-temptation rules for an orchestrator profile routing work through Kanban. The "don't do the work yourself" rule and the basic lifecycle are auto-injected into every kanban worker's system prompt; this skill is the deeper playbook when you're specifically playing the orchestrator role.
-version: 3.0.0
-platforms: [linux, macos, windows]
-environments: [kanban]
-metadata:
-  hermes:
-    tags: [kanban, multi-agent, orchestration, routing]
+title: Kanban Orchestrator
+description: Decomposition playbook + anti-temptation rules for an orchestrator profile
+  routing work through Kanban. The "don't do the work yourself" rule and the basic
+  lifecycle are auto-injected into every kanban worker's system prompt; this skill
+  is the deeper playbook when you're specifically playing the orchestrator role.
+tags:
+- automation
+- devops
+- system
+- tor
+category: DevOps
 audience: maintainer
-related_skills: [kanban-worker]
 ---
-
-
-> **Kategori:** devops
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +23,6 @@ related_skills: [kanban-worker]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Kanban Orchestrator
 

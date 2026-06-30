@@ -8,7 +8,7 @@
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Hermes Import 2026 06 21 |
+| **Ne?** | ReYMeN Import 2026 06 21 |
 | **Nerede?** | references/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -16,7 +16,7 @@
 
 ---
 
-# Hermes → ReYMeN Toplu Import
+# ReYMeN → ReYMeN Toplu Import
 
 **Tarih:** 2026-06-21
 **Süre:** 2.6 saniye

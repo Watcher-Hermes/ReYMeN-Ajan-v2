@@ -1,8 +1,12 @@
-
-> **Kategori:** software-development
-
 ---
-
+name: software-development_html-report-dashboard
+title: Software Development Html Report Dashboard
+description: ''
+tags:
+- software-development
+category: software-development
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 title: "HTML Report Dashboard"
 description: "Edit, debug, and maintain self-contained HTML report dashboards with embedded JS libraries (Chart.js, SheetJS/XLSX, chartjs-plugin-datalabels)."
 trigger: "User references an .HTM or .HTML file with embedded Chart.js/XLSX libraries, or asks to fix numbers/tables/charts in a self-contained HTML report."

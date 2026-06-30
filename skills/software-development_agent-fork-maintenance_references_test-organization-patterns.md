@@ -33,7 +33,7 @@ After dead-file cleanup and before declaring "done," consolidate any remaining r
 ## What NOT to move
 
 - `tests/` is already the test directory — files inside it are already organized
-- Hermes Reference tests (`tests/hermes_reference/`) — these come from upstream and should NOT be touched
+- ReYMeN Reference tests (`tests/hermes_reference/`) — these come from upstream and should NOT be touched
 - `conftest.py` (only one should exist, in `tests/` root)
 - `__init__.py` files needed for package imports
 

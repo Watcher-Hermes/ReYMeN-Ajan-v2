@@ -179,7 +179,7 @@ Eski kod (`get_transcript()`) `AttributeError: type object has no attribute 'get
 **Çözüm:** `YouTubeTranscriptApi().fetch(video_id, languages=['tr','en'])` kullan, çıktıyı `' '.join([s.text for s in transcript])` ile birleştir.
 
 ## Kullanıcı Profili
-- Kullanıcı YouTube videolarından öğrenip Hermes'e özellik eklememi ister
+- Kullanıcı YouTube videolarından öğrenip ReYMeN'e özellik eklememi ister
 - Çıktıları Obsidian vault'ta düzenli görmek ister
 - Hata durumunda alternatif çözümle devam etmemi bekler
 - Sormamı değil, çözüp raporlamamı ister

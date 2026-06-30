@@ -1,6 +1,6 @@
 ---
 name: software-development_reymen-proje-mimarisi_references_claude-task-handoff
-description: Claude 4.8 Task Handoff — Hermes Analiz → Claude Implementasyon
+description: Claude 4.8 Task Handoff — ReYMeN Analiz → Claude Implementasyon
 title: "Software Development Reymen Proje Mimarisi References Claude Task Handoff"
 version: 1.0.0
 ---
@@ -9,15 +9,15 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Claude 4.8 Task Handoff — Hermes Analiz → Claude Implementasyon |
+| **Ne** | Claude 4.8 Task Handoff — ReYMeN Analiz → Claude Implementasyon |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Claude 4.8 Task Handoff — Hermes Analiz → Claude Implementasyon
+# Claude 4.8 Task Handoff — ReYMeN Analiz → Claude Implementasyon
 
-Bu desen, Hermes Agent'in analiz yapıp önceliklendirdiği görevleri Claude 4.8'e (VS Code Claude Code) devretmek için kullanılır.
+Bu desen, ReYMeN Agent'in analiz yapıp önceliklendirdiği görevleri Claude 4.8'e (VS Code Claude Code) devretmek için kullanılır.
 
 ## Ne Zaman Kullanılır
 
@@ -48,13 +48,13 @@ find . -name '*.py' -not -path '*/venv/*' -printf '%s %p\n' | sort -rn | head -1
 
 ### Adım 2: Gap Önceliklendirme
 
-Hermes ile karşılaştır, 3 kriter:
+ReYMeN ile karşılaştır, 3 kriter:
 1. **Sayısal fark** — test: 13 vs 1.553 = KRİTİK
 2. **Mimari etki** — provider plugin: tüm LLM bağlantıları bundan geçer
 3. **Claude'un gücü** — test yazma, provider implementasyonu, refactoring
 
 Kategorilendir:
-- 🔴 KRİTİK — Hermes'te var, R>eYMeN'de yok, temel işlev
+- 🔴 KRİTİK — ReYMeN'te var, R>eYMeN'de yok, temel işlev
 - 🟡 YÜKSEK — Önemli ama çalışmayı engellemiyor
 - 🔵 ORTA — İyi-olmali ama bekleyebilir
 
@@ -151,7 +151,7 @@ Rapor formatı (kullanıcıya):
 
 Kullanıcı "reymen hermesden eksik yönleri karsilastir" dediğinde delegate_task ile 3 paralel kanal tara:
 - Kanal A: R>eYMeN metrikleri (tools, CLI, gateway, test, provider)
-- Kanal B: Hermes metrikleri (aynı kategoriler)
+- Kanal B: ReYMeN metrikleri (aynı kategoriler)
 - Kanal C: Unique feature tespiti (araclar_*.py, Türkçe modüller)
 
 Rapor yapısı:

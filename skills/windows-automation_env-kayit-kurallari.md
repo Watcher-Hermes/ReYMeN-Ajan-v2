@@ -8,7 +8,7 @@ author: marko
 license: MIT
 platforms: [windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [env, config, api-key, token, obsidian, kayit, oncelik, source-of-truth, kalici]
 audience: user
 related_skills: [obsidian-vault-kurallari, tam-sistem-yetkisi, obsidian]
@@ -50,19 +50,19 @@ Herhangi bir ayar, API anahtarı veya token gerektiğinde:
 ## .env Dosya Konumları (KESİN)
 
 ```
-Hermes Agent .env (CLI):
+ReYMeN Agent .env (CLI):
   C:\Users\marko\AppData\Local\hermes\.env
 
-Hermes Gateway .env (ÖNCELİKLİ — gateway burayı okur):
+ReYMeN Gateway .env (ÖNCELİKLİ — gateway burayı okur):
   C:\Users\marko\.hermes\.env          (*~/.hermes/.env)
   NOT: Gateway her zaman önce ~/.hermes/.env'yi okur.
        AppData/.env'deki ayarlar buraya da kopyalanmalıdır.
        Yoksa oluşturulmalıdır.
 
-hermes.py (özel sistem) .env:
-  C:\Users\marko\hermes-ai\.env
+ReYMeN.py (özel sistem) .env:
+  C:\Users\marko\ReYMeN-ai\.env
 
-hermes-ai yapılandırma:
+ReYMeN-ai yapılandırma:
   C:\Users\marko\AppData\Local\hermes\config.yaml
 ```
 
@@ -74,7 +74,7 @@ C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\Hermes\env-hermes-ai.md
 
 ---
 
-## Hermes Agent .env — Anahtar Listesi
+## ReYMeN Agent .env — Anahtar Listesi
 
 | Anahtar | Açıklama |
 |---------|---------|
@@ -88,7 +88,7 @@ C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\Hermes\env-hermes-ai.md
 | `OBSIDIAN_VAULT_PATH` | `C:\Users\marko\OneDrive\Belgeler\Obsidian Vault` |
 | `TERMINAL_TIMEOUT` | Terminal komut zaman aşımı (saniye) |
 
-## hermes-ai .env — Anahtar Listesi
+## ReYMeN-ai .env — Anahtar Listesi
 
 | Anahtar | Değer |
 |---------|-------|
@@ -104,13 +104,13 @@ C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\Hermes\env-hermes-ai.md
 Her `.env` değişikliğinden sonra şu komutu çalıştır:
 
 ```bash
-"C:\Users\marko\hermes-ai\venv\Scripts\python.exe" "C:\Users\marko\hermes-ai\env_watcher.py"
+"C:\Users\marko\ReYMeN-ai\venv\Scripts\python.exe" "C:\Users\marko\ReYMeN-ai\env_watcher.py"
 ```
 
 Veya arka planda sürekli izle:
 ```bash
 # Arka planda calistir (Ctrl+C ile durdur)
-"C:\Users\marko\hermes-ai\venv\Scripts\python.exe" "C:\Users\marko\hermes-ai\env_watcher.py"
+"C:\Users\marko\ReYMeN-ai\venv\Scripts\python.exe" "C:\Users\marko\ReYMeN-ai\env_watcher.py"
 ```
 
 ---
@@ -122,7 +122,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Hermes Agent .env
+# ReYMeN Agent .env
 load_dotenv(r"C:\Users\marko\AppData\Local\hermes\.env")
 
 # Değeri oku
@@ -168,8 +168,8 @@ set_env(
 
 Obsidian'da şu dosyalar her zaman güncel olmalı:
 
-- `[[env-hermes-agent]]` — Ana Hermes anahtarları (maskeli)
-- `[[env-hermes-ai]]` — hermes.py anahtarları (maskeli)
+- `[[env-ReYMeN-agent]]` — Ana ReYMeN anahtarları (maskeli)
+- `[[env-ReYMeN-ai]]` — ReYMeN.py anahtarları (maskeli)
 
 Bu notlar `env_watcher.py` tarafından otomatik güncellenir.
 Değerlerin tamamını görmek için gerçek `.env` dosyasını oku.
@@ -179,7 +179,7 @@ Değerlerin tamamını görmek için gerçek `.env` dosyasını oku.
 ## Hangi .env Neyi Etkiler
 
 ```
-TELEGRAM_BOT_TOKEN    → hermes gateway, Telegram mesajları
+TELEGRAM_BOT_TOKEN    → ReYMeN gateway, Telegram mesajları
 TELEGRAM_ALLOWED_USERS → gateway yetkilendirme (NOT: ALLOWLIST değil)
 GATEWAY_ALLOW_ALL_USERS → gateway acil durum bypass'ı
 OBSIDIAN_VAULT_PATH   → skill sync, not yazma (DOGRU YOL)
@@ -198,11 +198,11 @@ RUNWAYML_API_KEY      → RunwayML video (key_ + 128 hex = 132 char)
 
 1. **env_watcher.py çalışmıyor** — Docstring'de `\\U` escape hatası; `env_watcher.py` update edildi.
 2. **Yanlış vault yolu** — `OBSIDIAN_VAULT_PATH` her zaman `OneDrive\\Belgeler\\Obsidian Vault`.
-3. **Hermes maskeleme + env_watcher token bozma** — Hermes `read_file`, `cat` gibi araçlarla `.env` okunduğunda değerleri maskeler (`***`). Eğer bu maskelenmiş içerik `env_watcher.py` tarafından `.env`'ye geri yazılırsa, tüm token'lar bozulur. **Belirti**: `.env`'de `TELEGRAM_BOT_TOKEN=851817***9aM` gibi satırlar olması. **Çözüm**:
+3. **ReYMeN maskeleme + env_watcher token bozma** — ReYMeN `read_file`, `cat` gibi araçlarla `.env` okunduğunda değerleri maskeler (`***`). Eğer bu maskelenmiş içerik `env_watcher.py` tarafından `.env`'ye geri yazılırsa, tüm token'lar bozulur. **Belirti**: `.env`'de `TELEGRAM_BOT_TOKEN=851817***9aM` gibi satırlar olması. **Çözüm**:
    - Token değişikliği sonrası env_watcher'ı çalıştırma
    - `.env` okumak için `Path(env_path).read_bytes()` (binary mode) kullan, `read_file` veya `cat` kullanma
    - Gerçek içeriği doğrulamak için: `python -c "with open(r'.env','rb') as f: print(f.read().decode())"`
-4. **GITHUB_TOKEN bozulduysa** — `.env`'yi manuel düzelt veya yeniden yaz. Hermes'in maskelenmiş değerini kopyalayıp yapıştırma — her zaman orijinal token'ı kullan.
+4. **GITHUB_TOKEN bozulduysa** — `.env`'yi manuel düzelt veya yeniden yaz. ReYMeN'in maskelenmiş değerini kopyalayıp yapıştırma — her zaman orijinal token'ı kullan.
 5. **Key bulunamıyor** — Önce doğru `.env` dosyasını `load_dotenv()` ile yüklediğinden emin ol.
 6. **.env değişti ama Obsidian güncel değil** — `env_watcher.py` başlatılmamış olabilir.
 7. **Gateway env adı farkı:** Gateway `TELEGRAM_ALLOWED_USERS` bekler. Eğer `.env`'de `TELEGRAM_ALLOWLIST` yazıyorsa gateway onu görmez ve tüm kullanıcıları unauthorized olarak reddeder. Gateway "connected" gösterir ama mesaj işlemez. **Çözüm:** Her zaman `TELEGRAM_ALLOWED_USERS` kullan, `TELEGRAM_ALLOWLIST` veya başka varyant değil.
@@ -230,5 +230,5 @@ RUNWAYML_API_KEY      → RunwayML video (key_ + 128 hex = 132 char)
 - [ ] `C:\Users\marko\AppData\Local\hermes\.env` okunabildi
 - [ ] `TELEGRAM_BOT_TOKEN` boş değil
 - [ ] `OBSIDIAN_VAULT_PATH` doğru yolu gösteriyor
-- [ ] Obsidian'da `env-hermes-agent.md` güncel timestamp'e sahip
+- [ ] Obsidian'da `env-ReYMeN-agent.md` güncel timestamp'e sahip
 - [ ] `env_watcher.py` arka planda çalışıyor (veya elle tetiklendi)

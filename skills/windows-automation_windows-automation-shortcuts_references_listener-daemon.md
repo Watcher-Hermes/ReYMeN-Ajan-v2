@@ -16,7 +16,7 @@
 
 ---
 
-# Hermes Listener Daemon Architecture
+# ReYMeN Listener Daemon Architecture
 
 ## Overview
 
@@ -53,7 +53,7 @@ approach. Both can run side-by-side without conflict.
   └─── Subprocess         — python other_script.py
        ↓
   logging to:
-  ├─── stdout (Hermes panel)
+  ├─── stdout (ReYMeN panel)
   └─── ~/.hermes/logs/listener.log
 ```
 
@@ -147,7 +147,7 @@ Two easy steps:
 def on_my_action():
     log.info("My action triggered")
     # your code here
-    print(">>> [HERMES] My action ran")
+    print(">>> [ReYMeN] My action ran")
 ```
 
 2. Add to HOTKEYS list:

@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-gradient-debugger
+title: Prompt Gradient Debugger
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-gradient-debugger
 description: Diagnose and fix gradient problems in neural networks -- vanishing gradients, exploding gradients, and NaN values
 title: "PRompt Gradient Debugger"

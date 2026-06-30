@@ -220,8 +220,10 @@ class TelegramAdapter(GatewayAdapter):
             if self._durum_dosyasi.exists():
                 try:
                     mevcut = json.loads(self._durum_dosyasi.read_text(encoding="utf-8"))
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
 
             mevcut["_sira_bekleyen_mesaj"] = payload
             self._durum_dosyasi.write_text(
@@ -245,8 +247,10 @@ class TelegramAdapter(GatewayAdapter):
         if self._durum_dosyasi.exists():
             try:
                 bot_durum = json.loads(self._durum_dosyasi.read_text(encoding="utf-8"))
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
         return {
             "ad": self._ad,
@@ -351,8 +355,10 @@ class DiscordAdapter(GatewayAdapter):
             if self._durum_dosyasi.exists():
                 try:
                     mevcut = json.loads(self._durum_dosyasi.read_text(encoding="utf-8"))
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
 
             mevcut["_sira_bekleyen_mesaj"] = payload
             self._durum_dosyasi.write_text(
@@ -375,8 +381,10 @@ class DiscordAdapter(GatewayAdapter):
         if self._durum_dosyasi.exists():
             try:
                 bot_durum = json.loads(self._durum_dosyasi.read_text(encoding="utf-8"))
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
 
         return {
             "ad": self._ad,
@@ -489,8 +497,10 @@ class CLIAdapter(GatewayAdapter):
         """Programatik girdi ekle (test / otomasyon)."""
         try:
             self._girdi_kuyrugu.put_nowait(satir)
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -538,8 +548,10 @@ class GatewayYoneticisi:
                     loop = asyncio.get_event_loop()
                     if loop.is_running():
                         loop.create_task(eski.durdur())
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
 
         self._adapters[adapter.ad] = adapter
         logger.info("[Gateway] '%s' kaydedildi (%s).", adapter.ad, type(adapter).__name__)
@@ -560,8 +572,10 @@ class GatewayYoneticisi:
                 loop = asyncio.get_event_loop()
                 if loop.is_running():
                     loop.create_task(adapter.durdur())
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
             logger.info("[Gateway] '%s' kaldirildi.", ad)
         return adapter
 

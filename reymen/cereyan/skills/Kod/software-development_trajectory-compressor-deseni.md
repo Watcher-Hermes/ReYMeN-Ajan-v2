@@ -1,16 +1,16 @@
 ---
 name: trajectory-compressor-deseni
 title: Trajectory Compressor ile Context Yonetimi
-description: "LLM destekli konusma gecmisi sikistirma: token budget, yapisal ozet, rule-based fallback, iteratif guncelleme, arac cikti budama"
-tags: [context, compression, token-management, pattern]
+description: 'LLM destekli konusma gecmisi sikistirma: token budget, yapisal ozet,
+  rule-based fallback, iteratif guncelleme, arac cikti budama'
+tags:
+- context
+- compression
+- token-management
+- pattern
+category: Kod
 audience: contributor
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -21,8 +21,6 @@ audience: contributor
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Trajectory Compressor ile Context Yonetimi
 

@@ -1,36 +1,27 @@
 ---
 name: skill-creation-standards
-title: "Skill Oluşturma ve Güncelleme Standartları"
-tags: [skills, standards, conventions, hermes-agent]
-description: "Use when creating or updating any Hermes skill. Enforces Router+Reference structure, frontmatter requirements, and zero-bloat policy. Load before any skill_manage(action='create') or skill_manage(action='edit') call."
-version: 1.0.0
-author: Hermes User
-license: MIT
-metadata:
-  hermes:
-    tags: [skills, standards, conventions, hermes-agent]
-    related_skills: [hermes-agent-skill-authoring, skill-shrink, skill-library, skill-cataloging]
+title: Skill Oluşturma ve Güncelleme Standartları
+description: Use when creating or updating any ReYMeN skill. Enforces Router+Reference
+  structure, frontmatter requirements, and zero-bloat policy. Load before any skill_manage(action='create')
+  or skill_manage(action='edit') call.
+tags:
+- skills
+- standards
+- conventions
+- ReYMeN-agent
+category: Kod
 audience: maintainer
-related_skills: [hermes-agent-skill-authoring, skill-shrink, skill-library, skill-cataloging]
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Use when creating or updating any Hermes skill. Enforces Router+Reference structure, frontmatter requirements, and zero-bloat policy. Load before any skill_manage(action='create') or skill_manage(action='edit') call. |
+| **Ne?** | Use when creating or updating any ReYMeN skill. Enforces Router+Reference structure, frontmatter requirements, and zero-bloat policy. Load before any skill_manage(action='create') or skill_manage(action='edit') call. |
 | **Nerede?** | software-development/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Skill Oluşturma ve Güncelleme Standartları
 
@@ -55,14 +46,12 @@ Detaylı kılavuz → [references/router-reference-yapisi.md](references/router-
 Her yeni skill dosyasının başında YAML valid frontmatter bulunmalıdır:
 
 ```yaml
----
 name: skill-adi
 title: "[Temiz ve Büyük Harfli Başlık]"
 tags: [kategori, alt-kategori]
 description: "Use when <trigger>. <one-line behavior>."
 version: 1.0.0
 audience: user|contributor|maintainer
----
 ```
 
 **YASAL UYARI:** `license:` alanı frontmatter'da **kullanılmaz**. Bu repo Unlicense (Public Domain) olarak yayımlanmıştır — hiçbir yasal yükümlülük, garanti veya kısıtlama yoktur. Skill içinde license belirtmek bu durumla çelişir.
@@ -97,16 +86,16 @@ Kod taşıma kuralları → [references/sifir-siskinlik.md](references/sifir-sis
 Skill kaydedildikten sonra **5 adım tamamlanmalıdır**:
 
 ```
-1. Hermes'e kaydet (skill_manage)
+1. ReYMeN'e kaydet (skill_manage)
 2. Origin izlerini temizle (phase/lesson/origin/tools — NemoClaw/ECC/NVIDIA kalıntıları)
 3. Obsidian'a sync et (sync_skills_to_obsidian.py)
-4. GitHub hermes-skills reposuna push et
+4. GitHub ReYMeN-skills reposuna push et
 5. Repo README + description/topics güncel mi kontrol et
 ```
 
 Detaylı workflow → [references/deployment-workflow.md](references/deployment-workflow.md)
 
-**Sık yapılan hata:** Skill sadece yerel Hermes'e kaydedilip GitHub'a push edilmez. Bu durumda skill diğer cihazlara gitmez ve repo güncel kalmaz.
+**Sık yapılan hata:** Skill sadece yerel ReYMeN'e kaydedilip GitHub'a push edilmez. Bu durumda skill diğer cihazlara gitmez ve repo güncel kalmaz.
 
 **Sık yapılan hata #2:** Repo README'si, description ve topic'ler güncellenmez. GitHub ana sayfası eski/kalabalık kalır. README'deki istatistikler (skill sayısı, reference sayısı) güncellenmeli.
 
@@ -149,7 +138,7 @@ Standartlara uymayan bir skill oluşturulursa (örn. 10KB+ tek dosya, frontmatte
 - [ ] Origin izleri temiz (phase/lesson/origin/tools yok)
 - [ ] Tag'lerde nemo/nvidia marka adları yok
 - [ ] Obsidian'a sync edildi
-- [ ] GitHub hermes-skills reposuna push edildi
+- [ ] GitHub ReYMeN-skills reposuna push edildi
 - [ ] Eski reference'lar GitHub'da temizlendi (git rm)
 - [ ] Repo README istatistikleri güncel
 

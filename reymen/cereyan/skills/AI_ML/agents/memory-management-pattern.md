@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: memory-management-pattern
+title: Memory Management Pattern
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,13 +18,11 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 # Memory Yönetimi — Consolidation Pattern
 
 ## Ne Zaman
 
-Hermes memory limiti 50K'ya çıktı ama yine de dolabilir. Her session'da memory'ye eklenen bayat entry'ler (teknik test detayları, eski session notları, tamamlanmış iş kayıtları) zamanla birikir.
+ReYMeN memory limiti 50K'ya çıktı ama yine de dolabilir. Her session'da memory'ye eklenen bayat entry'ler (teknik test detayları, eski session notları, tamamlanmış iş kayıtları) zamanla birikir.
 
 ## Consolidation Sinyalleri
 

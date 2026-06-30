@@ -18,7 +18,7 @@ version: 1.0.0
 # State DB Session Extraction
 
 ## Problem
-Hermes/ReYMeN konuşma geçmişi SQLite state.db'de saklanır. Bu veriyi Markdown'a dönüştürüp arşivlemek gerekebilir.
+ReYMeN/ReYMeN konuşma geçmişi SQLite state.db'de saklanır. Bu veriyi Markdown'a dönüştürüp arşivlemek gerekebilir.
 
 ## Schema
 

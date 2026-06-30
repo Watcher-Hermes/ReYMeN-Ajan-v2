@@ -39,7 +39,7 @@ Bu oturumda elde edilen tüm kazanımlar. ReYMeN'e entegre edildi.
 
 ## 6. Yedekleme Altyapısı
 **Cron:** `memory-backup-daily` → hermes-memory-backup.git (00:30)
-**Cron:** `full-backup-daily` → hermes-full-backup.git (03:00)
+**Cron:** `full-backup-daily` → ReYMeN-full-backup.git (03:00)
 - memory: .ReYMeN/ + config.yaml push
 - full: tüm proje push (node_modules/ hariç)
 
@@ -51,7 +51,7 @@ Bu oturumda elde edilen tüm kazanımlar. ReYMeN'e entegre edildi.
 - 15 dk'da bir kategori çözülecek
 
 ## 8. SOUL.md Kuralları
-**Dosya:** 3 profil SOUL.md (kiral38, reymen, hermes global)
+**Dosya:** 3 profil SOUL.md (kiral38, reymen, ReYMeN global)
 - Cave Modu (Concise Mode)
 - No Goblins
 - Side Quest → Sub-Agent
@@ -78,7 +78,7 @@ Bu oturumda elde edilen tüm kazanımlar. ReYMeN'e entegre edildi.
 | 6 | Güncelleme sistemi (.ReYMeN_sync.sh) | ✅ |
 | 7 | Ölü/gereksiz dosya temizliği (101 dosya) | ✅ |
 | 8 | Çakışma dosyaları çözümü (27 override) | ✅ |
-| 9 | Hermes → ReYMeN marka değişimi (100+ dosya) | ✅ |
+| 9 | ReYMeN → ReYMeN marka değişimi (100+ dosya) | ✅ |
 
 ### Keşfedilen Skill'ler (9 adet)
 - Sessiz hata yutmayı düzeltme, Provider Router (circuit breaker), Kod konsolidasyonu, Windows Event Bus, Test düzenleme, Browser Tool Türkçe alias, Marka değişimi, Shim oluşturucu, Güncelleme sistemi
@@ -99,7 +99,7 @@ Bu oturumda elde edilen tüm kazanımlar. ReYMeN'e entegre edildi.
 ### Yapılanlar
 | # | Konu | Durum |
 |:-:|------|:-----:|
-| 1 | Hermes vs ReYMeN detaylı karşılaştırma (20 özellik) | ✅ |
+| 1 | ReYMeN vs ReYMeN detaylı karşılaştırma (20 özellik) | ✅ |
 | 2 | Delegasyon sistemi analizi (13 kriter) | ✅ |
 | 3 | Loop Detector keşfi ve 5N1K görev tanımı | ✅ |
 | 4 | Canlı veri/piyasa analizi standart formatı | ✅ |
@@ -114,10 +114,10 @@ Bu oturumda elde edilen tüm kazanımlar. ReYMeN'e entegre edildi.
 - Karşılaştırma standardı, canlı veri formatı, loop detector, bağımsız kimlik, cevap kalitesi, RPG çözüm yaklaşımı, gateway iyileştirme
 
 ### Kritik Bilgiler
-- **Hermes Puanı:** 85/110 | **ReYMeN Puanı:** 72/110
-- **Delegasyon:** Hermes 53/60 — ReYMeN 29/60 (en büyük fark)
+- **ReYMeN Puanı:** 85/110 | **ReYMeN Puanı:** 72/110
+- **Delegasyon:** ReYMeN 53/60 — ReYMeN 29/60 (en büyük fark)
 - **ReYMeN güçlü:** Hafıza, Öğrenme, Güvenlik, Öz Yansıma, Windows
-- **En kritik eksik:** Cron sistemi (Hermes 9/10 — ReYMeN 1/10)
+- **En kritik eksik:** Cron sistemi (ReYMeN 9/10 — ReYMeN 1/10)
 
 ### Kaydedilen Dosyalar
 - `altin_kayitlar/20260621_063124_AutonomousAgentIntro_skills.md`

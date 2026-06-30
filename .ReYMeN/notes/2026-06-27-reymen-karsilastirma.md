@@ -1,13 +1,13 @@
 # ReYMeN vs Sıfırdan İnşa — Derinlemesine Karşılaştırma
 
-> Hermes fork'u olmasaydı, ReYMeN aynı noktaya gelmek için **5-6 hafta** daha gerekirdi.
+> ReYMeN fork'u olmasaydı, ReYMeN aynı noktaya gelmek için **5-6 hafta** daha gerekirdi.
 > İşte her kalemin metriklerle kanıtı.
 
 ---
 
 ## 1. CLI Altyapısı
 
-| Bileşen | Hermes Fork | Sıfırdan | Fark |
+| Bileşen | ReYMeN Fork | Sıfırdan | Fark |
 |---------|------------|----------|------|
 | Modül sayısı | **168** .py dosyası | 0 | Fork 168 hazır getirdi |
 | Toplam satır | ~150K | 0 | ~150K hazır |
@@ -26,7 +26,7 @@
 
 ## 2. Test Framework'ü
 
-| Metrik | Hermes Fork | Sıfırdan |
+| Metrik | ReYMeN Fork | Sıfırdan |
 |--------|------------|----------|
 | Toplam test | **649** | 0 |
 | Passed | 250 | 0 |
@@ -45,7 +45,7 @@
 
 ## 3. Provider Sistemi
 
-| Bileşen | Hermes Fork | Sıfırdan |
+| Bileşen | ReYMeN Fork | Sıfırdan |
 |---------|------------|----------|
 | Provider sayısı | **6** (deepseek, xiaomi, xai, openrouter, groq, lmstudio) | 1 |
 | Fallback zinciri | `_saglayici_baglantisi_kur()` + otomatik sıralama | Manuel if/elif |
@@ -63,25 +63,25 @@
 
 ## 4. Gateway / Telegram
 
-| Bileşen | Hermes Fork | Sıfırdan |
+| Bileşen | ReYMeN Fork | Sıfırdan |
 |---------|------------|----------|
 | Bot sayısı | **3** (@Pasa_38_bot, @Kiral38bot, @ReYMeN_ReYMeNbot) | 1 |
 | Multi-profile | **3** profil (default, reymen, kiral38) | 1 |
 | SOUL.md kişilik | Her profile ayrı kişilik | Sabit system prompt |
 | Gateway watchdog | Kilit yakalama, restart, 409 çözümü | Manüel monitör |
 | Scheduled task | Windows schtasks ile otomatik başlatma | elle çalıştırma |
-| Cron job | Hermes cron — zamanlanmış bot mesajı | Yok |
+| Cron job | ReYMeN cron — zamanlanmış bot mesajı | Yok |
 
 **Sıfırdan süre: 1.5 hafta**
 **Fork'tan süre: 0 gün**
 
-> **Kazanç: 10 gün.** 3 bot, 3 profil, gateway watchdog, scheduled task — hepsi fork'un Windows altyapısı sayesinde. `python-telegram-bot` + Hermes gateway entegrasyonu hazırdı.
+> **Kazanç: 10 gün.** 3 bot, 3 profil, gateway watchdog, scheduled task — hepsi fork'un Windows altyapısı sayesinde. `python-telegram-bot` + ReYMeN gateway entegrasyonu hazırdı.
 
 ---
 
 ## 5. OnceHafiza / Yapay Zeka Hafıza
 
-| Bileşen | Hermes Fork | Sıfırdan |
+| Bileşen | ReYMeN Fork | Sıfırdan |
 |---------|------------|----------|
 | SQLite hafıza | `once_hafiza.py` — 3 bot ortak DB | Ayrı DB |
 | Güven puanı | Sigmoid: `1/(1+e^(-0.5*(basari-hata-1)))` | Sabit eşik |
@@ -98,7 +98,7 @@
 
 ## 6. Güvenlik / Windows
 
-| Bileşen | Hermes Fork | Sıfırdan |
+| Bileşen | ReYMeN Fork | Sıfırdan |
 |---------|------------|----------|
 | Task manager | `gorev_yoneticisi.py` — process kill | taskkill /F |
 | Screen capture | `ekran_al.py`, `screen-vision-analiz` | PIL + OCR kurulumu |

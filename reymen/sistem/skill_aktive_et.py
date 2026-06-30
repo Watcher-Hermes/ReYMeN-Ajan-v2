@@ -38,8 +38,10 @@ def skill_aktif_et(ad: str) -> Optional[str]:
         p = Path(path)
         if p.exists():
             return p.read_text(encoding="utf-8", errors="replace")
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
     return None
 
 

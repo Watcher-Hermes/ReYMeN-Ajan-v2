@@ -905,7 +905,9 @@ class MixinCommands:
                         self.conversation_history,
                     )
                 except Exception as _e:
-                    pass  # Best-effort
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )  # Best-effort
 
             print(f"  ✅ Agent updated — {len(self.agent.tools if self.agent else [])} tool(s) available")
 

@@ -1,7 +1,7 @@
 # ReYMeN-Ajan Temizlik Görevi
 
 ## NE
-ReYMeN-Ajan projesindeki yapısal dağınıklığı temizle. Çekirdek sağlam ama etrafta ölü dosyalar ve Hermes mirası var.
+ReYMeN-Ajan projesindeki yapısal dağınıklığı temizle. Çekirdek sağlam ama etrafta ölü dosyalar ve ReYMeN mirası var.
 
 ## NIYE
 Tek CLI, tek entry point, temiz dosya yapısı. Sorunsuz çalışmaya devam etmeli.

@@ -1,6 +1,6 @@
 ---
 name: cron-job-bakimi
-description: Hermes cron job lifecycle management — list, audit, diagnose failures, batch-clean stale/placeholder jobs, and verify state. For when cron jobs pile up, fail silently, or need mass cleanup.
+description: ReYMeN cron job lifecycle management — list, audit, diagnose failures, batch-clean stale/placeholder jobs, and verify state. For when cron jobs pile up, fail silently, or need mass cleanup.
 version: 1.0.0
 author: marko
 tags: [cron, jobs, bakim, cleanup, audit, scheduler, devops]
@@ -16,7 +16,7 @@ tags: [cron, jobs, bakim, cleanup, audit, scheduler, devops]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Hermes cron job lifecycle management — list, audit, diagnose failures, batch-clean stale/placeholder jobs, and verify state. For when cron jobs pile up, fail silently, or need mass cleanup. |
+| **Ne?** | ReYMeN cron job lifecycle management — list, audit, diagnose failures, batch-clean stale/placeholder jobs, and verify state. For when cron jobs pile up, fail silently, or need mass cleanup. |
 | **Nerede?** | DevOps/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -26,7 +26,7 @@ tags: [cron, jobs, bakim, cleanup, audit, scheduler, devops]
 
 # Cron Job Bakımı
 
-Hermes cron job'larının tüm yaşam döngüsü yönetimi. Kullanılması gereken durumlar:
+ReYMeN cron job'larının tüm yaşam döngüsü yönetimi. Kullanılması gereken durumlar:
 - Cron job'lar hata veriyor
 - Kullanıcı "cron temizliği" istiyor
 - Sistemde çok sayıda cron job birikmiş
@@ -36,21 +36,21 @@ Hermes cron job'larının tüm yaşam döngüsü yönetimi. Kullanılması gerek
 
 ```bash
 # Tüm job'ları listele
-hermes cron list                  # Sadece aktif
-hermes cron list --all            # Devre dışı olanlar dahil
-hermes cron list --json           # JSON çıktısı
+ReYMeN cron list                  # Sadece aktif
+ReYMeN cron list --all            # Devre dışı olanlar dahil
+ReYMeN cron list --json           # JSON çıktısı
 
 # Job yönetimi
-hermes cron pause <id>            # Askıya al
-hermes cron resume <id>           # Devam ettir
-hermes cron remove <id>           # Sil
-hermes cron run <id>              # Hemen çalıştır
-hermes cron edit <id>             # Ayarları değiştir
+ReYMeN cron pause <id>            # Askıya al
+ReYMeN cron resume <id>           # Devam ettir
+ReYMeN cron remove <id>           # Sil
+ReYMeN cron run <id>              # Hemen çalıştır
+ReYMeN cron edit <id>             # Ayarları değiştir
 ```
 
 ## 🔍 Cron Job Denetimi (Audit)
 
-Toplu cron job temizliği gerektiğinde, `jobs.json`'a doğrudan müdahale gerekir çünkü `hermes cron remove` tek tek çalışır.
+Toplu cron job temizliği gerektiğinde, `jobs.json`'a doğrudan müdahale gerekir çünkü `ReYMeN cron remove` tek tek çalışır.
 
 ### Cron Modunda Kod Çalıştırma Kısıtlamaları
 
@@ -114,9 +114,9 @@ python check_duplicates.py
 
 **Yaklaşım B — Runtime delete (tamamen silme):**
 
-1. `hermes cron list` ile tüm job ID'lerini al
+1. `ReYMeN cron list` ile tüm job ID'lerini al
 2. Test/placeholder job'ların ID'lerini belirle (isim bazlı)
-3. Batch halinde sil: `for id in <id1> <id2> ...; do hermes cron delete "$id"; done`
+3. Batch halinde sil: `for id in <id1> <id2> ...; do ReYMeN cron delete "$id"; done`
 4. `write_file()` ile bir `.py` script yaz, jobs.json'ı da temizle (sadece 5 real job'ı tut)
 5. Script'i `terminal(...)` ile çalıştır
 
@@ -131,7 +131,7 @@ python check_duplicates.py
 | `4e537bd89a9a` | allow-once-watcher | Script | Allow Once onay izleyicisi |
 | `d0e778272e9e` | gece-01-otomasyon | Script | Gece bakım (01:00) |
 | `553900c90a51` | sabah-08-raporu | Script | Sabah raporu (08:00) |
-| `659609b4799e` | hermes-sync | Agent | Haftalık sync (Pazartesi 03:00) |
+| `659609b4799e` | ReYMeN-sync | Agent | Haftalık sync (Pazartesi 03:00) |
 
 ## 🤖 `_cron_cleanup.py` — Otomatik Temizlik Scripti
 
@@ -175,11 +175,11 @@ Birden fazla cron job aynı anda `jobs.json`'ı okuyup yazmaya çalışabilir. 1
 
 ### İkinci Dalga Temizliği — Runtime Delete + JSON Cleanup
 
-İlk dalgada `pause` (enable=false) yeterliydi. Ancak ikinci dalgada yeni placeholder job'lar runtime'da `hermes cron delete` ile **tamamen silindi**:
+İlk dalgada `pause` (enable=false) yeterliydi. Ancak ikinci dalgada yeni placeholder job'lar runtime'da `ReYMeN cron delete` ile **tamamen silindi**:
 
 ```bash
 # Toplu runtime silme (shell loop ile):
-for id in id1 id2 id3; do hermes cron delete "$id"; done
+for id in id1 id2 id3; do ReYMeN cron delete "$id"; done
 ```
 
 Bu sadece runtime'dan siler — jobs.json ayrıca temizlenmezse scheduler restart'ta eski job'lar geri gelebilir. jobs.json'ı cron modunda temizlemek için:
@@ -191,7 +191,7 @@ Bu sadece runtime'dan siler — jobs.json ayrıca temizlenmezse scheduler restar
 **`execute_code` ve inline `python -c` cron'da bloke olur** — approval gerekir, cron'da onaylayan yok. Bu yüzden write_file + terminal ayrı ayrı kullanılır.
 
 **Kendi job'ını silme pattern'i:** Cron job bir placeholder ise ve kendini silmek istiyor:
-1. Önce diğer placeholder job'ları sil (`hermes cron delete`)
+1. Önce diğer placeholder job'ları sil (`ReYMeN cron delete`)
 2. En son kendi ID'ni sil
 3. Job ID'si `HERMES_SESSION_ID` env var'ından alınır (format: `cron_<id>_<timestamp>`)
 
@@ -229,7 +229,7 @@ ls /c/Users/marko/AppData/Local/hermes/scripts/ | grep -c "script.sh"
 
 - **Hiçbir zaman `.env`'deki değerleri direkt okumaya çalışma** — `read_file` erişimi engeller. `grep` ile terminal'den oku.
 - **Cron job'lar `no_agent` (script) veya LLM-tabanlı (skill+prompt) olabilir.** LLM job'ları API key sorunlarına daha duyarlıdır.
-- **jobs.json elle düzenlenebilir** — `hermes cron` komutları tercih edilir ama toplu işlemler için direkt JSON müdahalesi gerekebilir.
+- **jobs.json elle düzenlenebilir** — `ReYMeN cron` komutları tercih edilir ama toplu işlemler için direkt JSON müdahalesi gerekebilir.
 - **Placeholder job'lar geri gelebilir** — kaynak (bot/scheduler bug) bulunup düzeltilmezse temizlik geçici çözümdür. `created_at` timestamp kümelenmesi aynı kaynaktan geldiğinin işaretidir.
 - **Concurrent modification riski** — birden fazla cron session aynı anda jobs.json'a yazabilir. `read_file`'ın `file_size` alanını karşılaştırarak tespit edin.
 - Temizlik sonrası her zaman doğrulama yap: kaç job kaldı, önemli job'lar yerinde mi?
@@ -240,4 +240,4 @@ ls /c/Users/marko/AppData/Local/hermes/scripts/ | grep -c "script.sh"
 |-------|--------|
 | `references/2026-06-17-120-duplicate-job-cleanup.md` | Dalga-1: 120+ duplicate test job'ının tespiti, temizliği ve dersler — 17 Haziran 2026 |
 | `references/2026-06-17-34-duplicate-job-cleanup-wave2.md` | Dalga-2: Runtime delete + JSON cleanup ile 34 duplicate job silme — 17 Haziran 2026 |
-| `references/2026-06-17-cron-cleanup-script-update.md` | `_cron_cleanup.py` güncellemesi, cron-silme race condition keşfi, hermes-sync job — 17 Haziran 2026 |
+| `references/2026-06-17-cron-cleanup-script-update.md` | `_cron_cleanup.py` güncellemesi, cron-silme race condition keşfi, ReYMeN-sync job — 17 Haziran 2026 |

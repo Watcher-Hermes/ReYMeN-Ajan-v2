@@ -1,23 +1,12 @@
 ---
-name: baoyu-article-illustrator
-description: "Article illustrations: type × style × palette consistency."
-version: 1.57.0
-author: 宝玉 (JimLiu)
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [article-illustration, creative, image-generation]
-    category: creative
-audience: user
-    homepage: https://github.com/JimLiu/baoyu-skills#baoyu-article-illustrator
+name: creative_baoyu-article-illustrator
+title: Creative Baoyu Article Illustrator
+description: ''
+tags:
+- yaratici
+category: Yaratici
+audience: agent
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,11 +18,9 @@ audience: user
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 # Article Illustrator
 
-Adapted from [baoyu-article-illustrator](https://github.com/JimLiu/baoyu-skills) for Hermes Agent's tool ecosystem.
+Adapted from [baoyu-article-illustrator](https://github.com/JimLiu/baoyu-skills) for ReYMeN Agent's tool ecosystem.
 
 Analyze articles, identify illustration positions, generate images with **Type × Style × Palette** consistency.
 

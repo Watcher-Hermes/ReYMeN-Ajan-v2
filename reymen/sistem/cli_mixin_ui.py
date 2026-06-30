@@ -92,7 +92,7 @@ class MixinUI:
                 source = f" ({s['source']})" if s["source"] == "user" else ""
                 print(f"   {marker} {s['name']}{source} — {s['description']}")
             print("\n  Usage: /skin <name>")
-            print(f"  Custom skins: drop a YAML file in {display_ReYMeN_home()}/skins/\n")
+            print(f"  Custom skins: drop a YAML file in {display_reymen_home()}/skins/\n")
             return
 
         new_skin = parts[1].strip().lower()

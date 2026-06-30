@@ -1,8 +1,12 @@
-
-> **Kategori:** preferences
-
 ---
-
+name: user-preferences_grok-hersona
+title: User Preferences Grok Hersona
+description: ''
+tags:
+- preferences
+category: preferences
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: hersona
 version: 1.0.0-grok
 description: Grok-specific hersona skill adapter. Enables /hersona attribute attachment for personality, speech, and archetype templates in Grok conversations. Supports listing, showing, blending, recommending, and custom attribute creation.

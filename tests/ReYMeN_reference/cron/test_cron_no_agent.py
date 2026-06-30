@@ -27,7 +27,7 @@ def ReYMeN_env(tmp_path, monkeypatch):
 
     monkeypatch.setenv("ReYMeN_HOME", str(home))
 
-    # Reload modules that cache get_ReYMeN_home() at import time.
+    # Reload modules that cache get_reymen_home() at import time.
     import importlib
     import ReYMeN_constants
     importlib.reload(ReYMeN_constants)

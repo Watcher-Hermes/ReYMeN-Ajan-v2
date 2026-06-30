@@ -1,8 +1,12 @@
-
-> **Kategori:** skills
-
 ---
-
+name: skill-dimensionality-reduction
+title: Skill Dimensionality Reduction
+description: ''
+tags:
+- skills
+category: skills
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: skill-dimensionality-reduction
 description: Choose the right dimensionality reduction technique for a given task based on data size, goal, and downstream use
 title: "Skill Dimensionality Reduction"

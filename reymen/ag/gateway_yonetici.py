@@ -312,7 +312,8 @@ class GatewayManager:
             gorev.cancel()
             try:
                 await gorev
-            except asyncio.CancelledError:
+            except asyncio.CancelledError as _e:
+                logger.warning("[GatewayYonetici] except asyncio.CancelledError (L315): %s", asyncio.CancelledError)
                 pass
 
     def genel_callback_ayarla(self, callback: callable) -> None:

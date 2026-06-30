@@ -1,26 +1,13 @@
 ---
 name: excalidraw
-title: "Excalidraw"
-tags: [creative, design]
-description: "Hand-drawn Excalidraw JSON diagrams (arch, flow, seq)."
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-dependencies: []
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [Excalidraw, Diagrams, Flowcharts, Architecture, Visualization, JSON]
+title: Excalidraw
+description: Hand-drawn Excalidraw JSON diagrams (arch, flow, seq).
+tags:
+- creative
+- design
+category: Yaratici
 audience: user
-related_skills: []
-
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -31,8 +18,6 @@ related_skills: []
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Excalidraw Diagram Skill
 
@@ -57,7 +42,7 @@ Wrap your elements array in the standard `.excalidraw` envelope and save with `w
 {
   "type": "excalidraw",
   "version": 2,
-  "source": "hermes-agent",
+  "source": "ReYMeN-agent",
   "elements": [ ...your elements array here... ],
   "appState": {
     "viewBackgroundColor": "#ffffff"
@@ -76,8 +61,6 @@ python skills/diagramming/excalidraw/scripts/upload.py ~/diagrams/my_diagram.exc
 ```
 
 This uploads to excalidraw.com (no account needed) and prints a shareable URL. Requires the `cryptography` pip package (`pip install cryptography`).
-
----
 
 ## Element Format Reference
 
@@ -216,5 +199,3 @@ See `references/colors.md` for full color tables. Quick reference:
 - Do NOT use emoji in text -- they don't render in Excalidraw's font
 - For dark mode diagrams, see `references/dark-mode.md`
 - For larger examples, see `references/examples.md`
-
-

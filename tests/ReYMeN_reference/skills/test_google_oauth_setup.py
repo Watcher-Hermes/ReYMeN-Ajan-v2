@@ -279,37 +279,37 @@ class TestReYMeNConstantsFallback:
         """When ReYMeN_constants is missing, ReYMeN_HOME comes from env var."""
         monkeypatch.setenv("ReYMeN_HOME", str(tmp_path / "custom-ReYMeN"))
         module = self._load_helper(monkeypatch)
-        assert module.get_ReYMeN_home() == tmp_path / "custom-ReYMeN"
+        assert module.get_reymen_home() == tmp_path / "custom-ReYMeN"
 
     def test_fallback_defaults_to_dot_ReYMeN(self, monkeypatch):
         """When ReYMeN_constants is missing and ReYMeN_HOME unset, default to ~/.ReYMeN."""
         monkeypatch.delenv("ReYMeN_HOME", raising=False)
         module = self._load_helper(monkeypatch)
-        assert module.get_ReYMeN_home() == Path.home() / ".ReYMeN"
+        assert module.get_reymen_home() == Path.home() / ".ReYMeN"
 
     def test_fallback_ignores_empty_ReYMeN_home(self, monkeypatch):
         """Empty/whitespace ReYMeN_HOME is treated as unset."""
         monkeypatch.setenv("ReYMeN_HOME", "  ")
         module = self._load_helper(monkeypatch)
-        assert module.get_ReYMeN_home() == Path.home() / ".ReYMeN"
+        assert module.get_reymen_home() == Path.home() / ".ReYMeN"
 
-    def test_fallback_display_ReYMeN_home_shortens_path(self, monkeypatch):
-        """Fallback display_ReYMeN_home() uses ~/ shorthand like the real one."""
+    def test_fallback_display_reymen_home_shortens_path(self, monkeypatch):
+        """Fallback display_reymen_home() uses ~/ shorthand like the real one."""
         monkeypatch.delenv("ReYMeN_HOME", raising=False)
         module = self._load_helper(monkeypatch)
-        assert module.display_ReYMeN_home() == "~/.ReYMeN"
+        assert module.display_reymen_home() == "~/.ReYMeN"
 
-    def test_fallback_display_ReYMeN_home_profile_path(self, monkeypatch):
-        """Fallback display_ReYMeN_home() handles profile paths under ~/."""
+    def test_fallback_display_reymen_home_profile_path(self, monkeypatch):
+        """Fallback display_reymen_home() handles profile paths under ~/."""
         monkeypatch.setenv("ReYMeN_HOME", str(Path.home() / ".ReYMeN/profiles/coder"))
         module = self._load_helper(monkeypatch)
-        assert module.display_ReYMeN_home() == "~/.ReYMeN/profiles/coder"
+        assert module.display_reymen_home() == "~/.ReYMeN/profiles/coder"
 
-    def test_fallback_display_ReYMeN_home_custom_path(self, monkeypatch):
-        """Fallback display_ReYMeN_home() returns full path for non-home locations."""
+    def test_fallback_display_reymen_home_custom_path(self, monkeypatch):
+        """Fallback display_reymen_home() returns full path for non-home locations."""
         monkeypatch.setenv("ReYMeN_HOME", "/opt/ReYMeN-custom")
         module = self._load_helper(monkeypatch)
-        assert module.display_ReYMeN_home() == "/opt/ReYMeN-custom"
+        assert module.display_reymen_home() == "/opt/ReYMeN-custom"
 
     def test_delegates_to_ReYMeN_constants_when_available(self):
         """When ReYMeN_constants IS importable, _ReYMeN_home delegates to it."""
@@ -320,8 +320,8 @@ class TestReYMeNConstantsFallback:
         assert spec.loader is not None
         spec.loader.exec_module(module)
         import ReYMeN_constants
-        assert module.get_ReYMeN_home is ReYMeN_constants.get_ReYMeN_home
-        assert module.display_ReYMeN_home is ReYMeN_constants.display_ReYMeN_home
+        assert module.get_reymen_home is ReYMeN_constants.get_reymen_home
+        assert module.display_reymen_home is ReYMeN_constants.display_reymen_home
 
 
 def _load_setup_module(monkeypatch):

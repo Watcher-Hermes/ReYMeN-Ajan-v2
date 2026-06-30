@@ -1,16 +1,17 @@
 ---
 name: bulk-text-replace
-title: "Bulk Text Replace Across a Codebase"
-tags: [devops, codebase, refactoring, text-manipulation]
-description: "Mass find-and-replace across thousands of source files using find + perl. Covers backup, word boundary semantics, Windows git-bash quoting, and verification. Use when renaming identifiers, migrating imports, or doing codebase-wide text substitutions."
+title: Bulk Text Replace Across a Codebase
+description: Mass find-and-replace across thousands of source files using find + perl.
+  Covers backup, word boundary semantics, Windows git-bash quoting, and verification.
+  Use when renaming identifiers, migrating imports, or doing codebase-wide text substitutions.
+tags:
+- devops
+- codebase
+- refactoring
+- text-manipulation
+category: DevOps
 audience: contributor
 ---
-
-
-> **Kategori:** devops
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -21,8 +22,6 @@ audience: contributor
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Bulk Text Replace Across a Codebase
 
@@ -89,11 +88,11 @@ grep -ro 'NEW_STRING' --include='*.py' [excludes] | wc -l
 
 Perl `\b` treats underscore (`_`) as a **word character**. This means:
 
-| Pattern | `\bhermes\b` matches? | Plain `hermes` matches? |
+| Pattern | `\bhermes\b` matches? | Plain `ReYMeN` matches? |
 |---------|----------------------|------------------------|
-| `hermes` standalone | ✅ | ✅ |
-| `Hermes` (capital) | ✅ (with `/i`) | ✅ |
-| `.hermes/skills` | ✅ (`.` is non-word) | ✅ |
+| `ReYMeN` standalone | ✅ | ✅ |
+| `ReYMeN` (capital) | ✅ (with `/i`) | ✅ |
+| `.ReYMeN/skills` | ✅ (`.` is non-word) | ✅ |
 | `hermes_pkce` | ❌ (`_` is word char) | ✅ |
 | `hermes_cli` | ❌ (`_` is word char) | ✅ |
 | `hermes_output` | ❌ (`_` is word char) | ✅ |
@@ -111,7 +110,7 @@ Perl `\b` treats underscore (`_`) as a **word character**. This means:
 
 ## Reference Files
 
-- `references/real-world-example.md` — Full-scale rename (2,845 files, hermes → R>eYMeN)
+- `references/real-world-example.md` — Full-scale rename (2,845 files, ReYMeN → R>eYMeN)
 - `references/context-aware-rename.md` — **Context-aware rename:** project name change when some occurrences reference external projects. Covers categorization (rename / skip / adapt), user review workflow, and special character handling (`>` in batch scripts).
 
 ## Pitfalls

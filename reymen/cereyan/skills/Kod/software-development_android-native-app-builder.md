@@ -1,8 +1,12 @@
-
-> **Kategori:** software-development
-
 ---
-
+name: software-development_android-native-app-builder
+title: Software Development Android Native App Builder
+description: ''
+tags:
+- software-development
+category: software-development
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,10 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
-
----
 
 name: android-native-app-builder
 description: Sıfırdan native Android APK oluşturma — Java + Gradle + SpeechRecognizer. ADB, SDK, Gradle wrapper ile CLI üzerinden tam build.

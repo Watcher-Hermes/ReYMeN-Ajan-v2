@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_troubleshooting
 description: Troubleshooting
-title: "Autonomous Ai Agents Hermes Agent References Troubleshooting"
+title: "Autonomous Ai Agents ReYMeN Agent References Troubleshooting"
 version: 1.0.0
 ---
 
@@ -23,15 +23,15 @@ version: 1.0.0
 3. In gateway: `/restart`. In CLI: exit and relaunch.
 
 ### Tool not available
-1. `hermes tools` — check if toolset is enabled for your platform
+1. `ReYMeN tools` — check if toolset is enabled for your platform
 2. Some tools need env vars (check `.env`)
 3. `/reset` after enabling tools
 
 ### Model/provider issues
-1. `hermes doctor` — check config and dependencies
-2. `hermes auth` — re-authenticate OAuth providers (or `hermes auth add <provider>`)
+1. `ReYMeN doctor` — check config and dependencies
+2. `ReYMeN auth` — re-authenticate OAuth providers (or `ReYMeN auth add <provider>`)
 3. Check `.env` has the right API key
-4. **Copilot 403**: `gh auth login` tokens do NOT work for Copilot API. You must use the Copilot-specific OAuth device code flow via `hermes model` → GitHub Copilot.
+4. **Copilot 403**: `gh auth login` tokens do NOT work for Copilot API. You must use the Copilot-specific OAuth device code flow via `ReYMeN model` → GitHub Copilot.
 
 ### Changes not taking effect
 - **Tools/skills:** `/reset` starts a new session with updated toolset
@@ -39,9 +39,9 @@ version: 1.0.0
 - **Code changes:** Restart the CLI or gateway process
 
 ### Skills not showing
-1. `hermes skills list` — verify installed
-2. `hermes skills config` — check platform enablement
-3. Load explicitly: `/skill name` or `hermes -s name`
+1. `ReYMeN skills list` — verify installed
+2. `ReYMeN skills config` — check platform enablement
+3. Load explicitly: `/skill name` or `ReYMeN -s name`
 
 ### Gateway issues
 Check logs first:
@@ -52,7 +52,7 @@ grep -i "failed to send\|error" ~/.hermes/logs/gateway.log | tail -20
 Common gateway problems:
 - **Gateway dies on SSH logout**: Enable linger: `sudo loginctl enable-linger $USER`
 - **Gateway dies on WSL2 close**: WSL2 requires `systemd=true` in `/etc/wsl.conf` for systemd services to work. Without it, gateway falls back to `nohup` (dies when session closes).
-- **Gateway crash loop**: Reset the failed state: `systemctl --user reset-failed hermes-gateway`
+- **Gateway crash loop**: Reset the failed state: `systemctl --user reset-failed ReYMeN-gateway`
 
 ### Platform-specific issues
 - **Discord bot silent**: Must enable **Message Content Intent** in Bot → Privileged Gateway Intents.
@@ -62,8 +62,8 @@ Common gateway problems:
 ### Auxiliary models not working
 If `auxiliary` tasks (vision, compression, session_search) fail silently, the `auto` provider can't find a backend. Either set `OPENROUTER_API_KEY` or `GOOGLE_API_KEY`, or explicitly configure each auxiliary task's provider:
 ```bash
-hermes config set auxiliary.vision.provider <your_provider>
-hermes config set auxiliary.vision.model <model_name>
+ReYMeN config set auxiliary.vision.provider <your_provider>
+ReYMeN config set auxiliary.vision.model <model_name>
 ```
 
 ### Nous Portal / DeepSeek key pitfalls

@@ -1,8 +1,12 @@
-
-> **Kategori:** skills
-
 ---
-
+name: skill-anomaly-detector
+title: Skill Anomaly Detector
+description: ''
+tags:
+- skills
+category: skills
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: skill-anomaly-detector
 description: Choose the right anomaly detection approach for your problem
 title: "Skill Anomaly Detector"

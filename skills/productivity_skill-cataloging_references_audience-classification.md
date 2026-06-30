@@ -106,7 +106,7 @@ Her SKILL.md frontmatter'ına `audience: user | maintainer | contributor` alanı
 `product-capability`, `product-lens`, `team-builder`, `team-agent-orchestration`,
 `ui-to-vue`, `documentation-lookup`, `skill-comply`, `skill-scout`, `skill-stocktake`,
 `hookify-rules`, `inherit-legacy-style`, `ecc-tools-cost-audit`,
-`opensource-pipeline`, `hermes-imports`, `nutrient-document-processing`,
+`opensource-pipeline`, `ReYMeN-imports`, `nutrient-document-processing`,
 `enterprise-agent-ops`, `uncloud`, `project-flow-ops`, `ralphinho-rfc-pipeline`,
 `token-budget-advisor`, `strategic-compact`, `workspace-surface-audit`,
 `terminal-ops`, `research-ops`, `email-ops`, `messages-ops`, `knowledge-ops`,
@@ -152,11 +152,11 @@ ROOT_CONTRIBUTOR = {
     "spring-boot-scaffold", "spring-boot-microservice-scaffold",
     "writing-plans", "test-driven-development", "systematic-debugging",
     "vscode-python-dongusu", "vscode-otomasyon", "vscode-agent-control", "vscode-control",
-    "hermes-agent-skill-authoring", "debugging-hermes-tui-commands",
+    "ReYMeN-agent-skill-authoring", "debugging-ReYMeN-tui-commands",
     "node-inspect-debugger", "playwright",
     "subagent-driven-development", "spike", "plan", "requesting-code-review",
     "dogfood", "ai-fullstack-kodlamiyoruz",
-    "re-hermes-triage", "re-hermes-v3", "tersine-muhendislik",
+    "re-ReYMeN-triage", "re-ReYMeN-v3", "tersine-muhendislik",
     "html-report-dashboard", "self-contained-report-dashboard",
     "money-printer-turbo", "money-printer-turbo-kurulum",
     "mobile-expo-dev", "streamlit-setup", "odysseus",
@@ -175,8 +175,8 @@ ROOT_MAINTAINER = {
     "__cleanup_deprecated_obsidian_vault_path_fix",
     "self-improvement", "obsidian-vault-maintenance", "obsidian-vault-analysis",
     "vault-fix-and-tag", "obsidian-vault-kurallari",
-    "gece-3-github-yedek", "hermes-backup-otomasyonu",
-    "hermes-migration-restore", "hermes-kurulacak-repolar",
+    "gece-3-github-yedek", "ReYMeN-backup-otomasyonu",
+    "ReYMeN-migration-restore", "ReYMeN-kurulacak-repolar",
     "hafiza-temizligi-hard-reset", "memory-compaction",
     "guvenlik-izleme-sistemi", "wifi-network-tools",
     "port-firewall-taramasi", "network-camera-discovery",
@@ -353,5 +353,5 @@ TOPLAM:     1.184
 ## İlgili
 
 - Kaynak: NVIDIA/NemoClaw → `.agents/skills/` → 3 audience bucket yapısı
-- Obsidian notu: `Hermes/Skills/audience-kategorizasyonu.md`
+- Obsidian notu: `ReYMeN/Skills/audience-kategorizasyonu.md`
 - Bu prosedür `skill-cataloging` skill'inin parçasıdır

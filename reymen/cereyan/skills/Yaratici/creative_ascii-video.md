@@ -1,8 +1,12 @@
-
-> **Kategori:** creative
-
 ---
-
+name: creative_ascii-video
+title: Creative Ascii Video
+description: ''
+tags:
+- creative
+category: creative
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,10 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
-
----
 
 name: ascii-video
 description: "ASCII video: convert video/audio to colored ASCII MP4/GIF."

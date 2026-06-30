@@ -1,7 +1,7 @@
 ---
-name: software-development_reymen-hermes-sync_references_batch-test-runner
+name: software-development_reymen-ReYMeN-sync_references_batch-test-runner
 description: Batch Test Runner — 1,500+ Test Parallel Execution
-title: "Software Development Reymen Hermes Sync References Batch Test Runner"
+title: "Software Development Reymen ReYMeN Sync References Batch Test Runner"
 version: 1.0.0
 ---
 
@@ -82,5 +82,5 @@ def log(msg):
 1. **Stdout buffering on Windows** — Background process stdout is fully buffered and unreadable until the process ends. Always redirect to a file.
 2. **PyTest collection errors** — ImportError at module level prevents pytest from running any tests in that file. These errors show in stderr, not stdout.
 3. **`-x` flag** — Never use `-x` (stop on first failure) for batch runs. Let all files finish.
-4. **Hermes reference tests** — Most require Hermes's full environment and fail in Reymen. File-level pass rate is ~15–20%.
+4. **ReYMeN reference tests** — Most require ReYMeN's full environment and fail in Reymen. File-level pass rate is ~15–20%.
 5. **Hersona tests** — `test_attributes.py` and `test_cli.py` tend to timeout (30s+). Consider running them separately with a longer timeout.

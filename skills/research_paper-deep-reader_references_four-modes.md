@@ -36,7 +36,7 @@ When triggered, ask user which mode:
 
 **Speed-read mode** uses MinerU Cloud for extraction, then LLM generates a ~2KB note with only: basic info (module 1), core problems & contributions (module 2), evaluation (module 5). No figures, no HTML, no NotebookLM. Template: `templates/speed-read.md`. Ideal for batch processing multiple papers.
 
-**Output location:** Save results in the current Hermes working directory. Create a subfolder named after the paper (e.g., `paper-readings/<paper_short_name>/`). If user specifies a path, use that instead.
+**Output location:** Save results in the current ReYMeN working directory. Create a subfolder named after the paper (e.g., `paper-readings/<paper_short_name>/`). If user specifies a path, use that instead.
 
 **Default to "完整解读" if user doesn't specify.**
 

@@ -35,7 +35,7 @@ def durum_ozeti() -> str:
         f"Son guncelleme: {guncel} ({bot})",
         f"Toplam: {tamam}/{toplam} tamam, {isleniyor} isleniyor",
         "",
-        "### Eksikler (Hermes'te var, ReYMeN'de yok):",
+        "### Eksikler (ReYMeN'te var, ReYMeN'de yok):",
     ]
     
     # durum.json'daki eksikleri oku
@@ -43,10 +43,10 @@ def durum_ozeti() -> str:
     if eksikler:
         for e in eksikler:
             ad = e.get("eksik", "?")
-            hermes = e.get("hermes", "?")
+            ReYMeN = e.get("ReYMeN", "?")
             cozuldu = e.get("cozuldu_mu", "hayir")
             ikon = "✅" if cozuldu == "evet" else ("⚠️" if cozuldu == "kismen" else "❌")
-            satirlar.append(f"- {ikon} {ad}: Hermes'te {hermes}")
+            satirlar.append(f"- {ikon} {ad}: ReYMeN'te {ReYMeN}")
     else:
         satirlar.append("- (eksik listesi bos)")
     

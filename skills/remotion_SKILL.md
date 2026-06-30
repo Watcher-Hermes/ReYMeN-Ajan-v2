@@ -8,7 +8,7 @@ author: Ekko
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     source: skills-sh/google-labs-code/stitch-skills/remotion
     tags: [remotion, react-video, ai-video, mp4, animation, short-video]
 category: remotion
@@ -37,7 +37,7 @@ prerequisites:
 
 # Remotion
 
-Use this skill when the user wants Hermes to turn a short video idea into an editable, renderable React video project with Remotion.
+Use this skill when the user wants ReYMeN to turn a short video idea into an editable, renderable React video project with Remotion.
 
 Remotion is different from prompt-only AI video tools: it produces a code project. That means the agent can repeatedly edit subtitles, timing, characters, scenes, voiceover, sound effects, and visual rhythm, then render a new MP4.
 
@@ -48,7 +48,7 @@ Good fits include vertical short videos, product demos, story-driven animations,
 If the upstream Remotion skill is not installed, install it first:
 
 ```bash
-hermes skills install skills-sh/google-labs-code/stitch-skills/remotion
+ReYMeN skills install skills-sh/google-labs-code/stitch-skills/remotion
 ```
 
 For a new Remotion project, scaffold from an empty folder:

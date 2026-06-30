@@ -1,6 +1,6 @@
 ---
 name: knowledge-repo-import
-description: GitHub repo'yu klonla, içerik dizinini çıkar, Hermes skill + Obsidian vault kopyasını otomatik oluştur.
+description: GitHub repo'yu klonla, içerik dizinini çıkar, ReYMeN skill + Obsidian vault kopyasını otomatik oluştur.
 title: "Knowledge Repo Import"
 tags: [github, clone, obsidian, knowledge-base, import, research]
 category: research
@@ -17,7 +17,7 @@ audience: user
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | GitHub repo'yu klonla, içerik dizinini çıkar, Hermes skill + Obsidian vault kopyasını otomatik oluştur. |
+| **Ne?** | GitHub repo'yu klonla, içerik dizinini çıkar, ReYMeN skill + Obsidian vault kopyasını otomatik oluştur. |
 | **Nerede?** | research/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -42,8 +42,8 @@ Repodan skill/prompt yüklemeden önce şu adımlar ZORUNLU:
    - Upstream ile fork arasında SHA farkı var mı? (önemli script'leri karşılaştır)
 3. **Fayda analizi:**
    - Kaç skill/prompt içeriyor? (phases/**/outputs/*.md)
-   - Hangi konuları kapsıyor? Hermes'te eksik olan ne var?
-   - Skill formatı Hermes ile uyumlu mu? (SKILL.md frontmatter)
+   - Hangi konuları kapsıyor? ReYMeN'te eksik olan ne var?
+   - Skill formatı ReYMeN ile uyumlu mu? (SKILL.md frontmatter)
 4. **Rapor formatı:**
    - Güvenlik: TEMİZ / RİSK var
    - Fayda puanı: X/10
@@ -88,20 +88,20 @@ Pentest/güvenlik skill repolarında (kali-pentest gibi) `netcat.md`, `payloads.
 Kullanıcı tercihi: **SADECE skill istiyor, sistem değişikliği değil.**
 
 Repoları değerlendirirken:
-- **Skill-only:** Sadece SKILL.md/prompt dosyaları kopyalanır. Hermes'in mevcut yapılandırması değişmez. ✅ Güvenli
+- **Skill-only:** Sadece SKILL.md/prompt dosyaları kopyalanır. ReYMeN'in mevcut yapılandırması değişmez. ✅ Güvenli
 - **System-changing:** pip paketi kurulumu, memory provider değişikliği, config.yaml güncellemesi, daemon/cron kurulumu gerektirir. ❌ Kullanıcı istemiyor
 
 Örnekler:
 - `kali-pentest` → skill-only ✅
 - `ai-engineering-from-scratch-zh` → skill-only ✅
 - `mnemosyne` → memory provider değişikliği, pip install, mevcut MEMORY.md/USER.md kapatma ❌
-- `brigade` → pipx install, cron/daemon, Hermes'in kendi memory sistemiyle çakışma ❌
+- `brigade` → pipx install, cron/daemon, ReYMeN'in kendi memory sistemiyle çakışma ❌
 
 Raporda mutlaka belirt: "Bu repo skill-only mi yoksa system-changing mi?"
 
-## MOD 3: Mevcut Hermes Skill'leri ile Repo Karşılaştırması
+## MOD 3: Mevcut ReYMeN Skill'leri ile Repo Karşılaştırması
 
-Repodaki skill'leri yüklemeden ÖNCE mevcut Hermes kütüphanesini kontrol et:
+Repodaki skill'leri yüklemeden ÖNCE mevcut ReYMeN kütüphanesini kontrol et:
 
 ### Adım 1 — skills_list() ile mevcut durumu tara
 ```python
@@ -113,28 +113,28 @@ Repodaki skill'leri yüklemeden ÖNCE mevcut Hermes kütüphanesini kontrol et:
 ### Adım 2 — Boyut karşılaştırması YETERLİ DEĞİL, içerik analizi yap
 ```python
 # Repo'daki SKILL.md === büyük şişkin dosya (eski format)
-# Hermes'teki SKILL.md === küçük Router (3-4KB) + references/ dosyaları
+# ReYMeN'teki SKILL.md === küçük Router (3-4KB) + references/ dosyaları
 #
-# Eğer repo > Hermes ise:
-#   İhtimal A: Repo güncel, Hermes eski → references/ ekle
-#   İhtimal B: Repo ESKİ/şişkin, Hermes Router+Reference'a bölünmüş → güncelleme GEREKMEZ
+# Eğer repo > ReYMeN ise:
+#   İhtimal A: Repo güncel, ReYMeN eski → references/ ekle
+#   İhtimal B: Repo ESKİ/şişkin, ReYMeN Router+Reference'a bölünmüş → güncelleme GEREKMEZ
 #
-# Karar: skill_view() ile Hermes versiyonunun references/ yapısını kontrol et
+# Karar: skill_view() ile ReYMeN versiyonunun references/ yapısını kontrol et
 # Eğer references/ varsa → Router+Reference yapısı oturmuş, repo eski demektir
 ```
 
 ### Adım 3 — Güncelleme stratejisi
 ```python
-# Repo versiyonu büyük AMA Hermes'te references/ varsa:
+# Repo versiyonu büyük AMA ReYMeN'te references/ varsa:
 #   → Repo ESKİ şişkin versiyon. Güncelleme gerekmez.
-#   → Kullanıcıya raporla: "Repo versiyonu şişkin/eski, Hermes zaten güncel"
+#   → Kullanıcıya raporla: "Repo versiyonu şişkin/eski, ReYMeN zaten güncel"
 #
-# Repo versiyonu farklı içerik İÇERİYORSA (Hermes'te olmayan konular):
+# Repo versiyonu farklı içerik İÇERİYORSA (ReYMeN'te olmayan konular):
 #   → Yeni references/ dosyası oluştur (skill_manage write_file ile)
 #   → SKILL.md'ye bir satır yönlendirme ekle
 #   → TÜM repodaki içeriği SKILL.md'ye kopyalama (şişkinlik yasağı!)
 #
-# Repo versiyonu GERÇEKTEN daha güncelse (Hermes references/'siz):
+# Repo versiyonu GERÇEKTEN daha güncelse (ReYMeN references/'siz):
 #   → skill_manage edit ile SKILL.md'yi güncelle
 ```
 
@@ -143,7 +143,7 @@ Repodaki skill'leri yüklemeden ÖNCE mevcut Hermes kütüphanesini kontrol et:
 - `--type all` ile hem skill hem prompt hem agent dosyaları yüklenir
 - `--force` ile çakışmaları otomatik aş (çakışma varsa uyarı basar, ilkini korur)
 - Repo büyükse (2000+ dosya) `--depth 1` ile clone'la
-- **Repo versiyonu büyük diye güncel sanma** — Hermes Router+Reference yapısına bölmüş olabilir. Önce `skill_view()` ile references/ varlığını kontrol et.
+- **Repo versiyonu büyük diye güncel sanma** — ReYMeN Router+Reference yapısına bölmüş olabilir. Önce `skill_view()` ile references/ varlığını kontrol et.
 - **"Hepsi yüklü" raporu yeterli değil** — Kullanıcı "yükle" dediyse, zaten varsa bile raporla ve fark varsa güncelle. Boş rapor kullanıcıyı tatmin etmez.
 
 ## MOD 1: Skill + Vault Copy (varsayılan)

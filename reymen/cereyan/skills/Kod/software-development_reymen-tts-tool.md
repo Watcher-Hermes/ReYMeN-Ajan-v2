@@ -1,12 +1,15 @@
 ---
 name: reymen-tts-tool
-category: software-development
-version: 1.0.0
+title: Software Development Reymen Tts Tool
 description: R>eYMeN projesine tts_tool.py ekleme adimlari
-tags: [skill, hermes, reymen, tts]
+tags:
+- skill
+- ReYMeN
+- reymen
+- tts
+category: software-development
+audience: agent
 ---
-
-
 > **Kategori:** software-development
 
 ---

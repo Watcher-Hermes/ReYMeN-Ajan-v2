@@ -50,7 +50,7 @@ version: 1.0.0
     `tail -20 C:\Users\marko\AppData\Local\hermes\logs\gateway.log | grep "inbound message"`
     Son mesaj >30dk önceyse ve kullanıcı mesaj attığını söylüyorsa → polling dondu.
     *(Not: Gateway yeni restart olduysa log'da `[Telegram] Connected to Telegram` yakın zamanda görünür — inbound mesaj yoksa normaldir.)*
-  - **Çözüm (scheduled task ile — `hermes.exe` ModuleNotFoundError verir):**
+  - **Çözüm (scheduled task ile — `ReYMeN.exe` ModuleNotFoundError verir):**
     `powershell.exe -NoProfile -Command "Start-ScheduledTask -TaskName Hermes_Gateway"`
     Bekleme: 15-20 sn
   - **Doğrulama:** Restart sonrası log'da şu satırları ara:

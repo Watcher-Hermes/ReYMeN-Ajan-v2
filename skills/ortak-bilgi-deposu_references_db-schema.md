@@ -58,7 +58,7 @@ VALUES
 | 🐉 Kali | `kali/network/*`, `kali/web/*`, `kali/network/nmap` | `kali/network/nmap` |
 | 🪟 Windows | `windows/terminal/*`, `windows/terminal/network` | `windows/terminal/network` |
 | 🏗 CAD | `cad/*`, `dron` | `cad/solidworks` |
-| 🤖 Hermes | `kullanici/*`, `sistem/*`, `video/*` | `kullanici/profil` |
+| 🤖 ReYMeN | `kullanici/*`, `sistem/*`, `video/*` | `kullanici/profil` |
 | 🎬 Video | `video/learning`, `video/python/nmap` | `video/learning` |
 | 🔗 Cross | `cross-platform/*`, `test` | `cross-platform/network` |
 

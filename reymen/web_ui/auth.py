@@ -1,7 +1,7 @@
 """🔐 ReYMeN Auth — Provider pattern + JWT cookie + roller.
 
-Hermes dashboard_auth pattern'inin birebir kopyası:
-  - AuthProvider ABC (Hermes'teki DashboardAuthProvider)
+ReYMeN dashboard_auth pattern'inin birebir kopyası:
+  - AuthProvider ABC (ReYMeN'teki DashboardAuthProvider)
   - Session dataclass (user_id, display_name, role, provider, expires_at)
   - Provider registry (register_provider, get_provider, list_providers)
   - JWT cookie (hermes_session_at / hermes_session_rt)
@@ -75,12 +75,12 @@ ROLE_PERMISSIONS = {
 }
 
 # ---------------------------------------------------------------------------
-# Session (Hermes'teki Session dataclass'inin birebir karsiligi)
+# Session (ReYMeN'teki Session dataclass'inin birebir karsiligi)
 # ---------------------------------------------------------------------------
 
 @dataclass(frozen=True)
 class Session:
-    """Dogrulanmis kullanici oturumu. Hermes'teki Session ile ayni desen.
+    """Dogrulanmis kullanici oturumu. ReYMeN'teki Session ile ayni desen.
 
     user_id:   kullanici adi
     role:      admin | operator | viewer
@@ -98,7 +98,7 @@ class Session:
     refresh_token: str = ""
 
 # ---------------------------------------------------------------------------
-# Hata siniflari (Hermes pattern)
+# Hata siniflari (ReYMeN pattern)
 # ---------------------------------------------------------------------------
 
 class ProviderError(Exception):
@@ -108,7 +108,7 @@ class InvalidCredentialsError(Exception):
     """Kullanici adi/sifre yanlis -> HTTP 401"""
 
 # ---------------------------------------------------------------------------
-# AuthProvider ABC (Hermes'teki DashboardAuthProvider)
+# AuthProvider ABC (ReYMeN'teki DashboardAuthProvider)
 # ---------------------------------------------------------------------------
 
 class AuthProvider(ABC):
@@ -140,7 +140,7 @@ class AuthProvider(ABC):
         """Session'i sonlandir (best-effort)."""
 
 # ---------------------------------------------------------------------------
-# Provider Registry (Hermes pattern)
+# Provider Registry (ReYMeN pattern)
 # ---------------------------------------------------------------------------
 
 _providers: dict[str, AuthProvider] = {}
@@ -176,7 +176,7 @@ class AuthConfig:
     ))
     token_expiry: int = 86400          # 24 saat (access token)
     refresh_expiry: int = 604800        # 7 gun (refresh token)
-    cookie_name: str = "hermes_session_at"   # Hermes ile uyumlu
+    cookie_name: str = "hermes_session_at"   # ReYMeN ile uyumlu
     cookie_rt_name: str = "hermes_session_rt"  # refresh token cookie
     users_file: Path = field(default_factory=lambda: PROJE_KOK / ".ReYMeN" / "web" / "users.json")
     password_provider: str = field(default_factory=lambda: os.getenv("AUTH_PROVIDER", "password"))
@@ -318,7 +318,7 @@ class UserManager:
         return self.get_role(username)
 
 # ---------------------------------------------------------------------------
-# JWT Token (HMAC-SHA256, Hermes cookie uyumlu)
+# JWT Token (HMAC-SHA256, ReYMeN cookie uyumlu)
 # ---------------------------------------------------------------------------
 
 class TokenManager:
@@ -410,13 +410,13 @@ class TokenManager:
         return bytes.fromhex(data)
 
 # ---------------------------------------------------------------------------
-# PasswordAuthProvider (Hermes'teki DashboardAuthProvider'in ReYMeN implementasyonu)
+# PasswordAuthProvider (ReYMeN'teki DashboardAuthProvider'in ReYMeN implementasyonu)
 # ---------------------------------------------------------------------------
 
 class PasswordAuthProvider(AuthProvider):
     """Kullanici adi/sifre ile giris yapan auth provider.
 
-    Hermes'teki password provider pattern'inin birebir karsiligi:
+    ReYMeN'teki password provider pattern'inin birebir karsiligi:
       - supports_password = True
       - complete_password_login(username, password) -> Session
       - verify_session(access_token) -> Session | None
@@ -487,7 +487,7 @@ class PasswordAuthProvider(AuthProvider):
         """Refresh token ile yeni access token olustur.
 
         Raises:
-            ProviderError: refresh token gecersizse (Hermes pattern)
+            ProviderError: refresh token gecersizse (ReYMeN pattern)
         """
         username = self.tm.verify_refresh(refresh_token)
         if not username:
@@ -512,7 +512,7 @@ class PasswordAuthProvider(AuthProvider):
         pass
 
 # ---------------------------------------------------------------------------
-# Audit logging (Hermes'teki AuditEvent pattern)
+# Audit logging (ReYMeN'teki AuditEvent pattern)
 # ---------------------------------------------------------------------------
 
 class AuditEvent:
@@ -527,7 +527,7 @@ class AuditEvent:
 
 def audit_log(event: str, *, provider: str = "", user_id: str = "",
               ip: str = "", reason: str = "", **extra) -> None:
-    """Hermes audit_log islevi ile ayni desen."""
+    """ReYMeN audit_log islevi ile ayni desen."""
     entry = {
         "event": event,
         "timestamp": time.time(),

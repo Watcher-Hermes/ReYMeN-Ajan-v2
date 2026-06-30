@@ -13,10 +13,10 @@ import yaml
 @pytest.fixture
 def isolated_profiles(tmp_path, monkeypatch, _isolate_ReYMeN_home):
     """Isolated default home + one named profile, each with config + .env."""
-    from ReYMeN_constants import get_ReYMeN_home
+    from ReYMeN_constants import get_reymen_home
     from ReYMeN_cli import profiles
 
-    default_home = get_ReYMeN_home()
+    default_home = get_reymen_home()
     profiles_root = default_home / "profiles"
     worker_home = profiles_root / "worker_beta"
     for home in (default_home, worker_home):
@@ -37,10 +37,10 @@ def client(monkeypatch, isolated_profiles):
         pytest.skip("fastapi/starlette not installed")
 
     import ReYMeN_state
-    from ReYMeN_constants import get_ReYMeN_home
+    from ReYMeN_constants import get_reymen_home
     from ReYMeN_cli.web_server import app, _SESSION_HEADER_NAME, _SESSION_TOKEN
 
-    monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_ReYMeN_home() / "state.db")
+    monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_reymen_home() / "state.db")
     c = TestClient(app)
     c.headers[_SESSION_HEADER_NAME] = _SESSION_TOKEN
     return c
@@ -180,7 +180,7 @@ class TestProfileScopedMcp:
         scope active so env-placeholder expansion reads the profile's .env,
         matching the config the server was saved into."""
         import ReYMeN_cli.mcp_config as mcp_config
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
         (isolated_profiles["worker_beta"] / "config.yaml").write_text(
             "mcp_servers:\n  probe-srv:\n    url: http://x/sse\n",
@@ -189,7 +189,7 @@ class TestProfileScopedMcp:
         seen = {}
 
         def fake_probe(name, config, connect_timeout=30):
-            seen["home"] = str(get_ReYMeN_home())
+            seen["home"] = str(get_reymen_home())
             return [("tool-a", "desc")]
 
         monkeypatch.setattr(mcp_config, "_probe_single_server", fake_probe)

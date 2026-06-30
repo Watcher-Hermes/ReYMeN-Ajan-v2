@@ -1,7 +1,7 @@
 # Web UI — ReYMeN Dashboard Geliştirme
 
 ## NE
-ReYMeN'in web arayüzünü Hermes Web UI seviyesine çıkar.
+ReYMeN'in web arayüzünü ReYMeN Web UI seviyesine çıkar.
 
 ## MEVCUT DURUM
 - `dashboard/app.py` var (basit dashboard)
@@ -26,7 +26,7 @@ ReYMeN'in web arayüzünü Hermes Web UI seviyesine çıkar.
 - `POST /api/gorev-baslat` — görev başlat
 
 ### 3. Frontend
-- Koyu tema (Hermes ile uyumlu)
+- Koyu tema (ReYMeN ile uyumlu)
 - Mobil uyumlu
 - Canlı güncelleme (SSE veya polling)
 

@@ -314,7 +314,7 @@ class TestBuildSessionContextPrompt:
         assert "Local" in prompt
         assert "machine running this agent" in prompt
 
-    def test_local_delivery_path_uses_display_ReYMeN_home(self):
+    def test_local_delivery_path_uses_display_reymen_home(self):
         config = GatewayConfig()
         source = SessionSource(
             platform=Platform.LOCAL, chat_id="cli",
@@ -322,7 +322,7 @@ class TestBuildSessionContextPrompt:
         )
         ctx = build_session_context(source, config)
 
-        with patch("ReYMeN_constants.display_ReYMeN_home", return_value="~/.ReYMeN/profiles/coder"):
+        with patch("ReYMeN_constants.display_reymen_home", return_value="~/.ReYMeN/profiles/coder"):
             prompt = build_session_context_prompt(ctx)
 
         assert "~/.ReYMeN/profiles/coder/cron/output/" in prompt

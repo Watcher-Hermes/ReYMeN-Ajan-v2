@@ -1,22 +1,12 @@
 ---
 name: yuanbao
-title: "Yuanbao"
-tags: [productivity]
-description: "Yuanbao (元宝) groups: @mention users, query info/members."
-version: 1.0.0
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [yuanbao, mention, at, group, members, 元宝, 派, 艾特]
+title: Yuanbao
+description: 'Yuanbao (元宝) groups: @mention users, query info/members.'
+tags:
+- productivity
+category: Verimlilik
 audience: user
-related_skills: []
 ---
-
-
-> **Kategori:** productivity
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -27,8 +17,6 @@ related_skills: []
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Yuanbao Group Interaction
 

@@ -1,25 +1,25 @@
 ---
-name: re-hermes-v3
-title: "RE-Hermes v3 — Reverse Engineering Triage Agent"
+name: re-ReYMeN-v3
+title: "RE-ReYMeN v3 — Reverse Engineering Triage Agent"
 description: "Python stdlib ile APK/PE/ELF/ham ikili dosyalardan PASIF statik analiz. Hash, entropy, PE/ELF header, APK izin+dex, IOC, suspicious token, 5N1K eğitim katmanı, opsiyonel DeepSeek AI yorumu."
 tags: [reverse-engineering, malware-analysis, apk, pe, elf, static-analysis, triage]
 category: software-development
 audience: contributor
 ---
 
-# RE-Hermes v3 — Reverse Engineering Triage Agent
+# RE-ReYMeN v3 — Reverse Engineering Triage Agent
 
 ## Konum
-- Script: `C:\Users\marko\re-hermes\re-hermes.py`
-- Batch: `C:\Users\marko\re-hermes\re-hermes.bat`
-- Config: `C:\Users\marko\re-hermes\config.json`
+- Script: `C:\Users\marko\re-ReYMeN\re-ReYMeN.py`
+- Batch: `C:\Users\marko\re-ReYMeN\re-ReYMeN.bat`
+- Config: `C:\Users\marko\re-ReYMeN\config.json`
 
 ## Kullanım
 ```bash
-cd C:\Users\marko\re-hermes
-python re-hermes.py <hedef_dosya>
+cd C:\Users\marko\re-ReYMeN
+python re-ReYMeN.py <hedef_dosya>
 # veya:
-re-hermes.bat <hedef_dosya>
+re-ReYMeN.bat <hedef_dosya>
 ```
 
 ## Desteklenen dosya türleri
@@ -58,7 +58,7 @@ Kullanıcı birden çok APK'yı analiz edip karşılaştırmak istediğinde:
 
 ## Derin Analiz — Jadx ile Decompile
 
-RE-Hermes triyajı tamamlandıktan sonra şüpheli APK'lar için:
+RE-ReYMeN triyajı tamamlandıktan sonra şüpheli APK'lar için:
 
 ```bash
 # jadx kurulum (bir kere)

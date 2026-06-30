@@ -1,23 +1,17 @@
 ---
 name: nightly-self-improvement
-title: "Nightly Self Improvement"
-tags: [agents, ai]
-description: >
-  Gece otomatik geliştirme cron job'u. Obsidian vault ve Hermes skill
-  kütüphanesini tarar, eksik/eksik parçaları tamamlar, skill'leri
-  günceller ve sonucu Telegram'a bildirir. Her gece 02:00'de çalışır.
-version: 1.0.0
-author: hermes-agent
-license: MIT
-metadata:
-  hermes:
-    tags: [nightly, self-improvement, cron, obsidian, skill-maintenance]
+title: Nightly Self Improvement
+description: 'Gece otomatik geliştirme cron job''u. Obsidian vault ve ReYMeN skill
+  kütüphanesini tarar, eksik/eksik parçaları tamamlar, skill''leri günceller ve sonucu
+  Telegram''a bildirir. Her gece 02:00''de çalışır.
+
+  '
+tags:
+- agents
+- ai
+category: agents
 audience: user
-related_skills: [obsidian-vault-kurallari, hermes-agent, telegram-gateway-monitor]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -39,8 +33,6 @@ related_skills: [obsidian-vault-kurallari, hermes-agent, telegram-gateway-monito
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: Otonom ajan gelistiricisi
 Ne: >
 Nerede: `autonomous-ai-agents\autonomous-ai-agents_nightly-self-improvement.md`
@@ -53,7 +45,7 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 ## Amaç
 
-Bu cron job, her gece 02:00'de otomatik olarak çalışır. Hermes'in skill kütüphanesini
+Bu cron job, her gece 02:00'de otomatik olarak çalışır. ReYMeN'in skill kütüphanesini
 ve Obsidian vault'u tarar, geliştirme fırsatlarını belirler ve uygular.
 
 ## Zorunlu Adımlar (sıralı)
@@ -65,18 +57,18 @@ ve Obsidian vault'u tarar, geliştirme fırsatlarını belirler ve uygular.
 ls "/c/Users/marko/OneDrive/Belgeler/Obsidian Vault" 2>&1 || echo "VAULT_YOK"
 
 # Skill listesini al
-hermes skills list 2>&1
+ReYMeN skills list 2>&1
 
 # Cron job listesini al
-hermes cron list 2>&1
+ReYMeN cron list 2>&1
 ```
 
 ### 2. Skill + Obsidian Taraması
 
 1. `skills_list()` ile tüm skill'leri tara
 2. `search_files()` ile Obsidian vault'ta güncellenmesi gereken notları bul:
-   - `Hermes/Skills/` altındaki skill notları
-   - `Hermes/` altındaki yapılandırma notları
+   - `ReYMeN/Skills/` altındaki skill notları
+   - `ReYMeN/` altındaki yapılandırma notları
 3. Her skill için `skill_view()` ile oku
 4. Eksik veya güncellenmesi gereken kısımları belirle:
    - Skill adı çakışması var mı? (duplicate kontrol)

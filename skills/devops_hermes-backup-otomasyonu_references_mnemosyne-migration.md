@@ -20,11 +20,11 @@
 
 > Researched: 2026-06-14
 > Source: github.com/AxDSan/mnemosyne (v3.7.0, MIT)
-> Hermes provider: `mnemosyne-hermes` pip package
+> ReYMeN provider: `mnemosyne-ReYMeN` pip package
 
 ## Overview
 
-Mnemosyne is a zero-dependency, SQLite-backed AI memory system that replaces Hermes' built-in MEMORY.md/USER.md file system. It implements **BEAM** (Bilevel Episodic-Associative Memory) — a 3-tier architecture:
+Mnemosyne is a zero-dependency, SQLite-backed AI memory system that replaces ReYMeN' built-in MEMORY.md/USER.md file system. It implements **BEAM** (Bilevel Episodic-Associative Memory) — a 3-tier architecture:
 
 | Tier | Purpose | Details |
 |------|---------|---------|
@@ -36,7 +36,7 @@ Mnemosyne is a zero-dependency, SQLite-backed AI memory system that replaces Her
 
 ## Prerequisites
 
-- Hermes Agent installed (current version)
+- ReYMeN Agent installed (current version)
 - Python 3.9+
 - Disk space: ~50 MB (core) to ~1.5 GB (full with local embeddings + LLM)
 
@@ -57,14 +57,14 @@ cp /c/Users/marko/AppData/Local/hermes/memories/USER.md \
 ### Step 2: Install Mnemosyne
 
 ```bash
-# Core only (uses Hermes' API for embeddings — ~50 MB RAM)
-pip install mnemosyne-hermes
+# Core only (uses ReYMeN' API for embeddings — ~50 MB RAM)
+pip install mnemosyne-ReYMeN
 
 # Or with local embeddings (~800 MB RAM)
-pip install "mnemosyne-hermes[embeddings]"
+pip install "mnemosyne-ReYMeN[embeddings]"
 
 # Or full (~1.5 GB RAM)
-pip install "mnemosyne-hermes[all]"
+pip install "mnemosyne-ReYMeN[all]"
 ```
 
 ### Step 3: Link Plugin
@@ -79,8 +79,8 @@ ln -sfn "$(python -c 'import pathlib, mnemosyne_hermes; print(pathlib.Path(mnemo
 ### Step 4: Activate
 
 ```bash
-hermes config set memory.provider mnemosyne
-hermes memory setup
+ReYMeN config set memory.provider mnemosyne
+ReYMeN memory setup
 ```
 
 ### Step 5: Migrate Existing Data
@@ -120,13 +120,13 @@ memory:
   user_profile_enabled: false
 ```
 
-**WARNING:** Do NOT use `hermes tools disable memory` — that also kills all 23 Mnemosyne-registered tools.
+**WARNING:** Do NOT use `ReYMeN tools disable memory` — that also kills all 23 Mnemosyne-registered tools.
 
 ### Step 7: Verify
 
 ```bash
-hermes memory status       # Should show "Provider: mnemosyne"
-hermes mnemosyne stats     # Working + episodic memory counts
+ReYMeN memory status       # Should show "Provider: mnemosyne"
+ReYMeN mnemosyne stats     # Working + episodic memory counts
 ```
 
 ## Architecture Details
@@ -191,15 +191,15 @@ export MNEMOSYNE_EMBEDDING_MODEL=sentence-transformers/paraphrase-multilingual-M
 ## Uninstall
 
 ```bash
-pip uninstall mnemosyne-hermes
-hermes config set memory.provider memory   # Switch back to built-in
-hermes memory setup
+pip uninstall mnemosyne-ReYMeN
+ReYMeN config set memory.provider memory   # Switch back to built-in
+ReYMeN memory setup
 ```
 
 ## Pitfalls
 
-1. **Don't use `hermes tools disable memory`** — kills all 23 Mnemosyne tools. Disable via config.yaml only.
+1. **Don't use `ReYMeN tools disable memory`** — kills all 23 Mnemosyne tools. Disable via config.yaml only.
 2. **Embedding model change** — Changing model after data storage causes dimension mismatch. The vec0 virtual table is locked to the dimension it was created with.
 3. **Data location** — Database lives at `~/.hermes/mnemosyne/data/mnemosyne.db` by default.
-4. **LLM consolidation** — Mnemosyne uses a local MiniCPM5-1B GGUF for sleep/consolidation. Can route through Hermes' provider instead with `MNEMOSYNE_HOST_LLM_ENABLED=true`.
+4. **LLM consolidation** — Mnemosyne uses a local MiniCPM5-1B GGUF for sleep/consolidation. Can route through ReYMeN' provider instead with `MNEMOSYNE_HOST_LLM_ENABLED=true`.
 5. **Backup before migration** — MEMORY.md/USER.md content is NOT automatically imported. Must snapshot and migrate explicitly.

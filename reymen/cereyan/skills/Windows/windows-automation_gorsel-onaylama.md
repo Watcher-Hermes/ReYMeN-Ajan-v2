@@ -1,36 +1,27 @@
 ---
 name: gorsel-onaylama
-title: "Gorsel Onaylama"
-tags: [automation, windows]
-description: Use when a dialog box, popup, or confirmation window appears on screen and needs to be approved. Also covers ANY choice/approval prompt — user never wants to be asked, always picks the most permissive option. Hermes takes a screenshot, uses llava-llama3 to find the OK/Yes/Tamam button, moves the mouse there, and clicks it automatically.
-version: 3.0.0
-author: marko
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [onay, approve, confirm, dialog, popup, tamam, ok, yes, mouse, vision, llava, gorsel, otomatik, allow-once, bir-kere-izin-ver]
+title: Gorsel Onaylama
+description: Use when a dialog box, popup, or confirmation window appears on screen
+  and needs to be approved. Also covers ANY choice/approval prompt — user never wants
+  to be asked, always picks the most permissive option. ReYMeN takes a screenshot,
+  uses llava-llama3 to find the OK/Yes/Tamam button, moves the mouse there, and clicks
+  it automatically.
+tags:
+- automation
+- windows
+category: Windows
 audience: user
-related_skills: [mouse-klavye-ctypes, screen-vision-analiz, tam-sistem-yetkisi]
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Use when a dialog box, popup, or confirmation window appears on screen and needs to be approved. Also covers ANY choice/approval prompt — user never wants to be asked, always picks the most permissive option. Hermes takes a screenshot, uses llava-llama3 to find the OK/Yes/Tamam button, moves the mouse there, and clicks it automatically. |
+| **Ne?** | Use when a dialog box, popup, or confirmation window appears on screen and needs to be approved. Also covers ANY choice/approval prompt — user never wants to be asked, always picks the most permissive option. ReYMeN takes a screenshot, uses llava-llama3 to find the OK/Yes/Tamam button, moves the mouse there, and clicks it automatically. |
 | **Nerede?** | automation/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Görsel Onaylama (Allow Once — Bir Kere İzin Ver)
 
@@ -40,7 +31,7 @@ related_skills: [mouse-klavye-ctypes, screen-vision-analiz, tam-sistem-yetkisi]
 
 Kullanıcı hiçbir seçenek/onay sorusunda beklemek istemez. Allow Once / Bir kere izin ver gibi seçenekler varsa otomatik seçilir. Sorma, bekleme — en olumlu/izinli seçenekle devam et.
 
-Herhangi bir dialog/popup/onay kutusu çıktığında Hermes otomatik olarak:
+Herhangi bir dialog/popup/onay kutusu çıktığında ReYMeN otomatik olarak:
 
 1. VS Code terminalinde `claude` veya VSCode çalışıyorsa bekle
 2. **Allow Once** / **Bir kere izin ver** / **Allow** / **Yes** / **OK** / **Tamam** gibi butonları bul
@@ -59,7 +50,7 @@ Herhangi bir dialog/popup/onay kutusu çıktığında Hermes otomatik olarak:
 - Windows güvenlik uyarıları
 - Herhangi bir ekran onayı gerektiğinde
 
-## Akış (Hermes Çalıştırma Sırası)
+## Akış (ReYMeN Çalıştırma Sırası)
 
 ```
 1. Onay gereken popup mı var? Kullanıcı "tamamla", "devam et", "Allow Once" dedi mi?
@@ -127,11 +118,11 @@ Gerçek koordinat: x=0.44*1536=675, y=0.815*960=782
 [ONAYLANDI] (675, 540) tıklandı.
 ```
 
-## Hermes İçin Çağırma Kalıbı
+## ReYMeN İçin Çağırma Kalıbı
 
 ```python
 # Otonom onay (kullanıcıya sormadan):
-# ÖNEMLİ: Python 3.14 (sistem Python) ile çalıştır, Hermes venv'ında PIL/pyautogui yok
+# ÖNEMLİ: Python 3.14 (sistem Python) ile çalıştır, ReYMeN venv'ında PIL/pyautogui yok
 terminal('powershell -ExecutionPolicy Bypass -Command "& \'C:\\Users\\marko\\AppData\\Local\\Python\\PythonCore-3.14-64\\python.exe\' \'C:\\Users\\marko\\hermesapprove.py\'"', timeout=120)
 
 # Çıktı kontrol:
@@ -140,7 +131,7 @@ terminal('powershell -ExecutionPolicy Bypass -Command "& \'C:\\Users\\marko\\App
 # - "ERROR" varsa → llava/bağlantı sorunu
 ```
 
-## Hermes'in Kullanım Adımları
+## ReYMeN'in Kullanım Adımları
 
 1. Onay gerekiyorsa → doğrudan `python C:\Users\marko\hermesapprove.py` çalıştır
 2. Çıktıyı kontrol et:
@@ -185,8 +176,8 @@ Bu sistem **artık tamamen otomatik** — kullanıcı müdahalesi gerektirmez.
 
 ### Yapılan Değişiklikler
 
-1. **`approvals.mode: off`** — Hermes'in kendi onay diyalogları tamamen kapatıldı
-   - Artık hiçbir Hermes onayı kullanıcıya sorulmaz
+1. **`approvals.mode: off`** — ReYMeN'in kendi onay diyalogları tamamen kapatıldı
+   - Artık hiçbir ReYMeN onayı kullanıcıya sorulmaz
    - Config: `C:\Users\marko\AppData\Local\hermes\config.yaml`
 
 2. **Cron job: `allow-once-watcher`** — Her 1 dakikada bir ekranı kontrol eder
@@ -218,13 +209,13 @@ cronjob action=remove job_id=4e537bd89a9a
 
 **KALICI KURAL (kullanıcı tarafından kalıcı olarak belirtildi — 30 Haziran 2026'da tekrar teyit edildi):**
 
-Hermes **hiçbir seçenek/onay sorusunda kullanıcıya danışmaz**. Allow Once / Bir kere izin ver / Yes / OK / Tamam gibi en olumlu/izinli seçeneği **beklemeden, sormadan** otomatik seçer ve ilerler.
+ReYMeN **hiçbir seçenek/onay sorusunda kullanıcıya danışmaz**. Allow Once / Bir kere izin ver / Yes / OK / Tamam gibi en olumlu/izinli seçeneği **beklemeden, sormadan** otomatik seçer ve ilerler.
 
 Bu kural **ASLA esnetilmez**. Kullanıcı "Kalıcı olarak söylüyorum" ifadesiyle kuralı kesinleştirmiştir.
 
-Hermes **hiçbir seçenek/onay sorusunda kullanıcıya danışmaz**. Allow Once / Bir kere izin ver / Yes / OK / Tamam gibi en olumlu/izinli seçeneği **beklemeden, sormadan** otomatik seçer ve ilerler.
+ReYMeN **hiçbir seçenek/onay sorusunda kullanıcıya danışmaz**. Allow Once / Bir kere izin ver / Yes / OK / Tamam gibi en olumlu/izinli seçeneği **beklemeden, sormadan** otomatik seçer ve ilerler.
 
-Bu kural **sadece ekran diyalogları için değil**, Hermes'in sorduğu her türlü seçenek sorusu için geçerlidir:
+Bu kural **sadece ekran diyalogları için değil**, ReYMeN'in sorduğu her türlü seçenek sorusu için geçerlidir:
 - "Ne yapalım / nasıl devam edelim?" → kararı kendin ver
 - "Allow Once / Allow Always / Block" → Allow Once seç
 - "Onaylıyor musun?" → evet, devam et
@@ -234,7 +225,7 @@ Bu kural **sadece ekran diyalogları için değil**, Hermes'in sorduğu her tür
 
 **Uygulama (katı sıra):**
 1. Ekranda popup/dialog varsa → `python hermesapprove.py` ile otomatik tıkla
-2. Hermes bir seçenek soruyorsa (clarify vb.) → bekleme, **doğrudan en olumlu seçeneği seç**
+2. ReYMeN bir seçenek soruyorsa (clarify vb.) → bekleme, **doğrudan en olumlu seçeneği seç**
 3. Kullanıcıya "ne yapalım", "nasıl devam edelim" diye sorma — kararı kendin ver
 4. Sessizlik = devam. Cevap gelmeyince bekleme, ilerle.
 

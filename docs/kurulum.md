@@ -9,7 +9,7 @@
 ## 1. Depoyu Klonla
 
 ```bash
-git clone https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2.git
+git clone https://github.com/Watcher-ReYMeN/ReYMeN-Ajan-v2.git
 cd ReYMeN-Ajan-v2
 ```
 

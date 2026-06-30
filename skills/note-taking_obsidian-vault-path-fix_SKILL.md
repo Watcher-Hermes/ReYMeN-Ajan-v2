@@ -27,7 +27,7 @@ version: 1.0.0
 author: marko
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [obsidian, vault, path, windows, fix]
 category: note-taking
 audience: user
@@ -49,8 +49,8 @@ Bu skill kullanıldığında yapılacaklar:
    - `.env`'de `OBSIDIAN_VAULT_PATH` olarak yukarıdaki doğru değeri yaz.
 4. Vault içindeki ana notları doğrula:
    - `Telegram Gateway Monitor.md`
-   - `Hermes Skills Sync.md`
-   - `GitHub Repo - asdafgf hermes-gemini-copilot.md`
+   - `ReYMeN Skills Sync.md`
+   - `GitHub Repo - asdafgf ReYMeN-gemini-copilot.md`
 5. Dosyalar gerekiyorsa doğru vault’a taşı. Dosyalar zaten doğru yerdeyse işlem yapma.
 6. Sonuç raporunu üret:
    - Yol düzeltildi.

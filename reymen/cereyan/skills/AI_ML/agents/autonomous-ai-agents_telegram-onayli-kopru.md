@@ -1,19 +1,14 @@
 ---
 name: telegram-onayli-kopru
-title: "Telegram Onayli Kopru"
-tags: [agents, ai, telegram]
+title: Telegram Onayli Kopru
 description: Claude + Ollama koprusu, dosya tabanli Telegram onayi ile
-version: 1.0.0
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [telegram, bridge, claude, ollama, approval, multi-model]
+tags:
+- agents
+- ai
+- telegram
+category: agents
 audience: user
-related_skills: [telegram-gateway-monitor, telegram-approval-bridge, dolphin-llama3]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -35,8 +30,6 @@ related_skills: [telegram-gateway-monitor, telegram-approval-bridge, dolphin-lla
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: Otonom ajan gelistiricisi
 Ne: Claude + Ollama koprusu, dosya tabanli Telegram onayi ile
 Nerede: `autonomous-ai-agents\autonomous-ai-agents_telegram-onayli-kopru.md`
@@ -52,8 +45,8 @@ Claude + Ollama (Dolphin) arasında dosya tabanlı köprü. Telegram üzerinden 
 ## Kullanım
 
 1. `python bridge_tg.py` çalıştır
-2. Hermes `bridge_status.txt` okur, Telegram'a aktarır
-3. Kullanıcı `devam` / `dur` der, Hermes `bridge_signal.txt`'e yazar
+2. ReYMeN `bridge_status.txt` okur, Telegram'a aktarır
+3. Kullanıcı `devam` / `dur` der, ReYMeN `bridge_signal.txt`'e yazar
 
 ## Güvenlik
 
@@ -64,10 +57,10 @@ Claude + Ollama (Dolphin) arasında dosya tabanlı köprü. Telegram üzerinden 
 ## Akış
 
 1. Kullanıcı Telegram'dan komut gönderir
-2. Hermes köprü script'ini çalıştırır
+2. ReYMeN köprü script'ini çalıştırır
 3. Script Claude + Ollama arasında gidiş-geliş yapar
 4. Her turda durumu `bridge_status.txt`'ye yazar
-5. Hermes durumu okur ve Telegram'a iletir
+5. ReYMeN durumu okur ve Telegram'a iletir
 6. Kullanıcı onay verene kadar veya timeout'a kadar devam eder
 
 ## Log Örneği

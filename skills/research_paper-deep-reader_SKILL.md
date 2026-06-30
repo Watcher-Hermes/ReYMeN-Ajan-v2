@@ -8,7 +8,7 @@ version: 3.2.0
 author: User
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [academic, paper-reading, mineru, notebooklm, research]
 audience: user
 related_skills: [notebooklm, arxiv]

@@ -7,7 +7,7 @@ description: >-
 version: 1
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [camera, rtsp, onvif, hikvision, dahua, surveillance, ip-camera, security, kali, network]
 audience: user
     platform: cross-platform

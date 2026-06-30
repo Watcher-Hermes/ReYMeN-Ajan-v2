@@ -10,7 +10,7 @@ import yaml
 from ReYMeN_cli.config import (
     DEFAULT_CONFIG,
     check_config_version,
-    get_ReYMeN_home,
+    get_reymen_home,
     ensure_ReYMeN_home,
     get_compatible_custom_providers,
     load_config,
@@ -29,12 +29,12 @@ class TestGetReYMeNHome:
     def test_default_path(self):
         with patch.dict(os.environ, {}, clear=False):
             os.environ.pop("ReYMeN_HOME", None)
-            home = get_ReYMeN_home()
+            home = get_reymen_home()
             assert home == Path.home() / ".ReYMeN"
 
     def test_env_override(self):
         with patch.dict(os.environ, {"ReYMeN_HOME": "/custom/path"}):
-            home = get_ReYMeN_home()
+            home = get_reymen_home()
             assert home == Path("/custom/path")
 
 

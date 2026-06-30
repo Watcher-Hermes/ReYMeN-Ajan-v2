@@ -20,13 +20,13 @@ version: 1.0.0
 > 実装先: hersona-duet (一部 hersona)。依存: Phase 2 (4.1, 4.2, 4.4) / Phase 3 (4.3)。
 > 4 つのサブプロジェクトは独立しており、別エージェントが並行実装できる。
 
-## 4.1 Hermes Agent アダプタ (`/duet` スキル)
+## 4.1 ReYMeN Agent アダプタ (`/duet` スキル)
 
 ### 構成
 
 ```
 adapters/hermes/
-├── SKILL.md              # Hermes スキル定義 (hersona の skills/hersona/SKILL.md と同形式)
+├── SKILL.md              # ReYMeN スキル定義 (hersona の skills/hersona/SKILL.md と同形式)
 └── bridge.py             # スキルコマンド → duet API の薄い橋
 ```
 
@@ -45,9 +45,9 @@ adapters/hermes/
 
 - bridge は Phase 1/2 の Python API (`run_scene` / `retake` / `QueueInputSource`) を呼ぶだけ。
   ロジックを持たない (core 共有原則)
-- join モード中の終了語: `/duet leave`。Hermes 側の会話とシーン内発話の混線を防ぐため、
+- join モード中の終了語: `/duet leave`。ReYMeN 側の会話とシーン内発話の混線を防ぐため、
   join 中は他コマンドを受けたら確認を挟む
-- 受け入れ基準: Hermes 上で `/duet run shopping_01` が台本を返す (live)
+- 受け入れ基準: ReYMeN 上で `/duet run shopping_01` が台本を返す (live)
 
 ## 4.2 ギャルゲーパック (v1 構想の回収)
 
@@ -132,6 +132,6 @@ duet import card <card.png|card.json> [--out actors_fragment.yaml] [--save-custo
 ```
 4.2 ギャルゲーパック (本体価値の証明・X 映え)
  → 4.3 ギャラリー (グロース接続)
- → 4.1 Hermes アダプタ (生態系の入口)
+ → 4.1 ReYMeN アダプタ (生態系の入口)
  → 4.4 カードインポータ (外部コミュニティ流入)
 ```

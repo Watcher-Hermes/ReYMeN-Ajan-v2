@@ -2,9 +2,11 @@
 name: powerbi-mcp
 title: Power BI MCP
 description: Power BI Desktop + MCP server yapılandırması ve AI agent entegrasyonu.
+tags:
+- powerbi
 category: windows
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -30,7 +32,7 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 | Soru | Cevap |
 |:-----|:------|
-| **Kim?** | Hermes ajanı. Kullanıcı Power BI sorgulaması istediğinde. |
+| **Kim?** | ReYMeN ajanı. Kullanıcı Power BI sorgulaması istediğinde. |
 | **Ne?** | Power BI Desktop'ı MCP server üzerinden AI agent'a bağlar. Veri modellerini sorgulamayı sağlar. |
 | **Nerede?** | Power BI Desktop (açık olmalı) + XMLA endpoint + VS Code MCP extension |
 | **Ne Zaman?** | Kullanıcı "Power BI'dan veri getir" dediğinde. |

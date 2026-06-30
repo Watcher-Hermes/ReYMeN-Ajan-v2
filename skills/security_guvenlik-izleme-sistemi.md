@@ -28,36 +28,36 @@ category: security---
 # Guvenlik Izleme Sistemi (Windows Task Scheduler)
 
 ## Guncel Durum (2026-06-11)
-Hermes cron API'si yerine Windows Task Scheduler kullaniliyor.
+ReYMeN cron API'si yerine Windows Task Scheduler kullaniliyor.
 Bu sayede API token israfi yok — script Telegram'a direkt baglaniyor.
 
 ## Genel Ilke: Cron'dan Bagimsiz Calisma
-Periyodik polling gerektiren islerde (her 2 dk / 5 dk / 30 dk) Hermes cron kullanma.
+Periyodik polling gerektiren islerde (her 2 dk / 5 dk / 30 dk) ReYMeN cron kullanma.
 Bunun yerine Windows Task Scheduler kullan:
 - 0 API token harcanir
-- Hermes guncellense/kapansa bile calisir
+- ReYMeN guncellense/kapansa bile calisir
 - Dogrudan Telegram Bot API'ine baglanir
 - Script ciktisi sadece olay varsa gonderilir (sessiz normal)
 
 ### Task Scheduler'a Gecis Adimlari
 1. Scripti `~/.hermes/scripts/` altina koy
-2. Uygun Python yolunu bul (`hermes-agent venv/Scripts/python.exe`)
+2. Uygun Python yolunu bul (`ReYMeN-agent venv/Scripts/python.exe`)
 3. `schtasks /create /tn Adi /tr \"'python.exe' 'script.py'\" /sc minute /mo N /f`
-4. Hermes cron'u sil: `cronjob action='remove' job_id=ID`
+4. ReYMeN cron'u sil: `cronjob action='remove' job_id=ID`
 5. Dogrula: `schtasks /query /tn Adi /fo list /v`
 
 ## Bilesenler
 
 ### 1. Windows Task Scheduler
-- **Gorev Adi:** `Hermes-GuvenlikIzleme`
+- **Gorev Adi:** `ReYMeN-GuvenlikIzleme`
 - **Tetikleyici:** Her 2 dakikada bir
 - **Calisan:** `python security_monitor.py`
 - **Calistiran:** `C:\\Users\\marko\\AppData\\Local\\hermes\\hermes-agent\\venv\\Scripts\\pythonw.exe` (windowless — terminal acilmaz)
 - **MultipleInstances:** IgnoreNew (zaten calisiyorsa yenisini baslatma)
-- **Script:** `C:\\Users\\marko\\.hermes\\scripts\\security_monitor.py`
+- **Script:** `C:\\Users\\marko\\.ReYMeN\\scripts\\security_monitor.py`
 - **Yedek konum:** `AppData/Local/hermes/scripts/security_monitor.py`
 - **Login Modu:** Interactive only (kullanici girisi varken calisir)
-- **Dogrulama:** `schtasks /query /tn Hermes-GuvenlikIzleme /fo list /v`
+- **Dogrulama:** `schtasks /query /tn ReYMeN-GuvenlikIzleme /fo list /v`
 
 ### 2. Tespit Edilenler
 
@@ -78,12 +78,12 @@ Bunun yerine Windows Task Scheduler kullan:
 ### 4. Kill Switch
 Kullanici Telegram'da "kontrol" dediginde:
 ```
-shutdown /s /t 30 /c "Hermes guvenlik kapatmasi - kullanici talebi"
+shutdown /s /t 30 /c "ReYMeN guvenlik kapatmasi - kullanici talebi"
 ```
 Bilgisayar 30 saniye icinde kapanir.
 
 ### 5. Bilinen Scriptler (Alarm Gecerli Degil)
-- hermes.exe, gateway, vscode_bot.py, mcp_server/app.py
+- ReYMeN.exe, gateway, vscode_bot.py, mcp_server/app.py
 - tor_multi_search.py, gmod_trainer.py, claude_send.py
 - send_clipboard.py, send_to_claude.py, birlesik_arama.py
 - tor_hizli_arama.py, env_watcher.py, gorsel_onaylama.py
@@ -122,7 +122,7 @@ UAC prompt gelir — kullanici "Evet" dedikten sonra sonuc dosyadan okunur.
 ## Dogrulama
 
 ```bash
-schtasks /query /tn Hermes-GuvenlikIzleme /fo list /v
+schtasks /query /tn ReYMeN-GuvenlikIzleme /fo list /v
 ```
 
 ## Durum Dosyasi

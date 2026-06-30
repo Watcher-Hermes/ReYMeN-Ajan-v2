@@ -1,8 +1,12 @@
-
-> **Kategori:** skills
-
 ---
-
+name: skill-complex-arithmetic
+title: Skill Complex Arithmetic
+description: ''
+tags:
+- skills
+category: skills
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: skill-complex-arithmetic
 description: Quick reference for complex number operations in ML and signal processing contexts
 title: "Skill Complex Arithmetic"

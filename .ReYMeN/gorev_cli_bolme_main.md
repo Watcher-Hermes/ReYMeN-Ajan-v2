@@ -22,7 +22,7 @@ ReYMeN-Ajan projesindeki CLI dosyalarını alt modüllere ayır.
 
 **Yer:** `reymen/reymen_cli/` — zaten 150+ dosyalık bir paket. main.py 225 fonksiyon içeriyor, hiç sınıf yok.
 
-**Ham veri:** Hermes CLI'nin bağımsız kopyası. main.py zaten `from reymen.reymen_cli.xxx import` ile alt modülleri import ediyor (150+ dosya var). Ama 225 fonksiyon hala main.py'nin içinde duruyor.
+**Ham veri:** ReYMeN CLI'nin bağımsız kopyası. main.py zaten `from reymen.reymen_cli.xxx import` ile alt modülleri import ediyor (150+ dosya var). Ama 225 fonksiyon hala main.py'nin içinde duruyor.
 
 **Yapılacak:** main.py'deki 225 fonksiyonu, konularına göre MEVCUT alt modüllere taşı veya yeni modüller oluştur.
 

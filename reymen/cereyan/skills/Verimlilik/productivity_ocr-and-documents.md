@@ -1,24 +1,12 @@
 ---
 name: ocr-and-documents
-title: "Ocr And Documents"
-tags: [productivity]
-description: "Extract text from PDFs/scans (pymupdf, marker-pdf)."
-version: 2.3.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [PDF, Documents, Research, Arxiv, Text-Extraction, OCR]
+title: Ocr And Documents
+description: Extract text from PDFs/scans (pymupdf, marker-pdf).
+tags:
+- productivity
+category: Verimlilik
 audience: user
-related_skills: [powerpoint]
 ---
-
-
-> **Kategori:** productivity
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +17,6 @@ related_skills: [powerpoint]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # PDF & Document Extraction
 
@@ -75,8 +61,6 @@ Only use local extraction when: the file is local, web_extract fails, or you nee
 If the user needs marker capabilities but the system lacks ~5GB free disk:
 > "This document needs OCR/advanced extraction (marker-pdf), which requires ~5GB for PyTorch and models. Your system has [X]GB free. Options: free up space, provide a URL so I can use web_extract, or I can try pymupdf which works for text-based PDFs but not scanned documents or equations."
 
----
-
 ## pymupdf (lightweight)
 
 ```bash
@@ -103,8 +87,6 @@ for page in doc:
 "
 ```
 
----
-
 ## marker-pdf (high-quality OCR)
 
 ```bash
@@ -128,8 +110,6 @@ python scripts/extract_marker.py document.pdf --use_llm      # LLM-boosted accur
 marker_single document.pdf --output_dir ./output
 marker /path/to/folder --workers 4    # Batch
 ```
-
----
 
 ## Arxiv Papers
 
@@ -179,8 +159,6 @@ for i, page in enumerate(doc):
 ```
 
 No extra dependencies needed — pymupdf covers split, merge, search, and text extraction in one package.
-
----
 
 ## Notes
 

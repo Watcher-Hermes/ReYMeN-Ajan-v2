@@ -34,7 +34,7 @@ audience: contributor
 ## Ne Zaman Kullanılır
 
 - Kullanıcı bir projeyi inceleyip eksiklerini sormak istediğinde
-- Bir projeyi başka bir sisteme (Hermes Agent, referans proje) benzetmek gerektiğinde
+- Bir projeyi başka bir sisteme (ReYMeN Agent, referans proje) benzetmek gerektiğinde
 - Kullanıcı "bunun eksikleri neler" veya "tamamlanınca nasıl olur" dediğinde
 - Mevcut bir projeyi yükseltmek/port etmek için plan yapılırken
 
@@ -96,12 +96,12 @@ Her dosyayı `read_file()` ile oku, içeriğini anla.
 Kullanıcı "şunu şuna benzet" dediğinde, ikisinin aynı yazılım mı yoksa farklı projeler mi olduğunu kontrol et:
 
 - Aynı kaynaktan türemiş (fork/kopya) mı?
-- İsim benzer ama kod tabanı farklı mı? (ör: R>eYMeN ≠ Nous Hermes Agent)
+- İsim benzer ama kod tabanı farklı mı? (ör: R>eYMeN ≠ Nous ReYMeN Agent)
 - Biri diğerinin etrafına yazılmış yardımcı araçlar mı?
 - Bunu netleştirmezsen yanlış karşılaştırma yaparsın.
 - **Fark büyükse "bu kötü değil, farklı işler için" diye çerçevele** — 2 farklı hedefi olan aracı kıyaslamak anlamsız.
 
-Kategorileri netleştirdikten sonra hedef sistem (ör: Hermes Agent) ile mevcut projeyi şu başlıklarda karşılaştır:
+Kategorileri netleştirdikten sonra hedef sistem (ör: ReYMeN Agent) ile mevcut projeyi şu başlıklarda karşılaştır:
 
 | Kategori | Neye Bak |
 |----------|----------|
@@ -126,7 +126,7 @@ Büyük fark olan durumlarda (örn: 59 dosya vs 7.078 dosya) modül bazlı tablo
 
 ```
 ╔══════════════════════════════════╤════════╤════════╤══════════════╗
-║ MODÜL / ÖZELLİK                 │ Hermes │ R>eYMeN│ Açıklama     ║
+║ MODÜL / ÖZELLİK                 │ ReYMeN │ R>eYMeN│ Açıklama     ║
 ╠══════════════════════════════════╪════════╪════════╪══════════════╣
 ║ **1. ÇEKİRDEK**                 │        │        │              ║
 ║----------------------------------│--------│--------│--------------║
@@ -161,7 +161,7 @@ FAZ 1 — KRITIK (önce bunlar)
 **N. Özellik adı** (ilgili dosya)
    Şu an: mevcut durum
    Olması gereken: hedef
-   Hermes'te: referans dosyalar
+   ReYMeN'te: referans dosyalar
    İş: iş günü tahmini
 
 ═════════════════════════════════════════════
@@ -176,7 +176,7 @@ Her eksik için iş günü tahmini ver (1 gün, 2-3 gün, 1 hafta vb.). Toplamı
 - İki sistemin hedefi farklıysa (genel amaçlı vs özel amaçlı) fark normaldir
 - Özgün özellikleri vurgula: Sistem A'da olup B'de olmayan ne var?
 - Orantıyı göster: dosya sayısı, araç sayısı, CLI komut sayısı
-- "Hermes İsviçre çakısı, R>eYMeN tornavida" gibi metafor kullan
+- "ReYMeN İsviçre çakısı, R>eYMeN tornavida" gibi metafor kullan
 
 ### Adım 5: Kategori Harfi Sistemi
 
@@ -258,7 +258,7 @@ Batch 1 → subagent C: tool_K, tool_L, tool_M
 - `delegate_task(goal=..., context=..., toolsets=["terminal","file"])` kullan
 - Her subagent 3-7 dosya yazsın (max 3 paralel)
 - Subagent'lar `write_file` ile yazar, `python -c "import ..."` ile doğrular
-- Bu = "copilot" demenin Hermes yoludur. Ayrı bir CLI ajanı başlatmak gerekmez.
+- Bu = "copilot" demenin ReYMeN yoludur. Ayrı bir CLI ajanı başlatmak gerekmez.
 - Kullanıcı "onay gerekmez" dediyse tüm batch'leri art arda üret, hiçbir şey sorma.
 
 **"Onay gerekmez" + "sonuna kadar sırasıyla" akışı (kanıtlanmış):**
@@ -485,7 +485,7 @@ Yüzde hesabı basit: (✅ sayısı / toplam kriter) × 100. 8-15 kriter yeterli
 - Hemen "bu kötü bir şey değil" diye çerçevele
 - İki sistemin farklı hedefleri olduğunu belirt
 - Özgün özellikleri sırala (A'da olup B'de olmayan)
-- "Hermes İsviçre çakısı, seninki tornavida" metaforu
+- "ReYMeN İsviçre çakısı, seninki tornavida" metaforu
 - Büyük farkın büyük kısmı referans sistemin ihtiyaç fazlası özellikleri
 
 ### Adım 12: Rapor Dosyası + Özet
@@ -541,6 +541,6 @@ Rapor yolunu `C:\Users\marko\OneDrive\Desktop\eksiklikler.txt` olarak kullan (On
     
     **Claude Code çalışırken 10 dakikada bir ilerleme takibi:** `cronjob` ile periyodik kontrol kur, Telegram'a puanlı rapor gönder. Cron adı: `claude-ilerleme-kontrol`, schedule: `10m`, deliver: `telegram:<chat_id>`. Her raporda Python dosya sayısı, skill sayısı, MEMORY boyutu, test sayısı gibi metrikler karşılaştırmalı gösterilir.
 
-Hermes Referans Testlerini Düzeltme → [references/hermes-reference-test-fix.md](references/hermes-reference-test-fix.md)
+ReYMeN Referans Testlerini Düzeltme → [references/ReYMeN-reference-test-fix.md](references/ReYMeN-reference-test-fix.md)
 
 19. **Claude Code'un test dosyasi kirliligini temizle** — Claude Code projeyi analiz ederken kendi kendine test_bulk_*.py (1000+ satir anlamsiz assert), test_gen_*.py (import edilemeyen tool'lari test eden), ve generate_tests.py/son_push.py gibi uretec dosyalari olusturur. Bunlar pytest'i dakikalarca asili birakir, 25.000+ satir gereksiz kod ekler. Her Claude Code calismasindan sonra bu dosyalari sil — referans icin [references/claude-code-test-cleanup.md](references/claude-code-test-cleanup.md).

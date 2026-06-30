@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-vit-vs-cnn-picker
+title: Prompt Vit Vs Cnn Picker
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-vit-vs-cnn-picker
 description: Pick between ViT, ConvNeXt, or Swin based on dataset size, compute, and inference stack
 title: "PRompt ViT Vs CNN Picker"

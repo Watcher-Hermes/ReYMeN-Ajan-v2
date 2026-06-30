@@ -1,7 +1,7 @@
 ---
 name: software-development_systematic-debugging_references_hermes-agent-integration
-description: Hermes Agent Integration
-title: "Software Development Systematic Debugging References Hermes Agent Integration"
+description: ReYMeN Agent Integration
+title: "Software Development Systematic Debugging References ReYMeN Agent Integration"
 version: 1.0.0
 ---
 
@@ -9,17 +9,17 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Agent Integration |
+| **Ne** | ReYMeN Agent Integration |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-## Hermes Agent Integration
+## ReYMeN Agent Integration
 
 ### Investigation Tools
 
-Use these Hermes tools during Phase 1:
+Use these ReYMeN tools during Phase 1:
 
 - **`search_files`** — Find error strings, trace function calls, locate patterns
 - **`read_file`** — Read source code with line numbers for precise analysis

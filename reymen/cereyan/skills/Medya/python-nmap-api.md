@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: python-nmap-api
+title: Python Nmap Api
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # python-nmap API Referansı
 

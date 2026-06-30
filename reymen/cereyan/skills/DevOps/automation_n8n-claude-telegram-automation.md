@@ -1,8 +1,12 @@
-
-> **Kategori:** devops
-
 ---
-
+name: automation_n8n-claude-telegram-automation
+title: Automation N8N Claude Telegram Automation
+description: ''
+tags:
+- devops
+category: devops
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: n8n-claude-telegram-automation
 description: n8n, Claude ve Telegram tabanlı otomasyon kurulumları ve workflow oluşturma.
 title: "N8N Claude Telegram Automation"

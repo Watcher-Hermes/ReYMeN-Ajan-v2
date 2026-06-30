@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_ollama-baslat-ekran-goster
+title: Windows Automation Ollama Baslat Ekran Goster
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: ollama-baslat-ekran-goster
 description: Belirtilen Ollama exe yolunu başlatıp hemen ekran görüntüsü al.
 title: "Ollama Baslat Ekran Goster"

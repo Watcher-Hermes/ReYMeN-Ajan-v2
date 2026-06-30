@@ -201,7 +201,7 @@ config/     → Konfigürasyon dosyaları
 
 | Model | Belirti | Örnek |
 |-------|---------|-------|
-| Monolith SPA | FastAPI + statik frontend, tek app.py | Odysseus, Hermes |
+| Monolith SPA | FastAPI + statik frontend, tek app.py | Odysseus, ReYMeN |
 | Microservice | docker-compose.yml + çoklu servis | Odysseus stack (4 container) |
 | Full-stack | pages/, components/, SSR | Next.js, Django |
 | CLI tool | Tek entry point, terminal çıktısı | gh CLI, docker CLI |

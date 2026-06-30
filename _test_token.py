@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 # ReYMeN token
-env_path = Path.home() / "AppData/Local/hermes/profiles/reymen/.env"
+env_path = Path.home() / "AppData/Local/reymen/profiles/reymen/.env"
 if env_path.exists():
     for line in env_path.read_text().splitlines():
         line = line.strip()
@@ -12,7 +12,7 @@ if env_path.exists():
             token = line.split("=", 1)[1].strip().strip("'\"")
 
 # Pasa token
-default_env = Path.home() / "AppData/Local/hermes/.env"
+default_env = Path.home() / "AppData/Local/reymen/.env"
 pasa_token = ""
 if default_env.exists():
     for line in default_env.read_text().splitlines():

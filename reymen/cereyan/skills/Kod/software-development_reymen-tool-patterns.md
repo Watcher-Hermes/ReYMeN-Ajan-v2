@@ -1,12 +1,16 @@
 ---
 name: reymen-tool-patterns
-category: software-development
-version: 1.0.0
+title: Software Development Reymen Tool Patterns
 description: R>eYMeN projesinde tool gelistirme pattern'leri ve kritik kod yapilari
-tags: [skill, hermes, reymen, patterns, tools]
+tags:
+- skill
+- ReYMeN
+- reymen
+- patterns
+- tools
+category: software-development
+audience: agent
 ---
-
-
 > **Kategori:** software-development
 
 ---

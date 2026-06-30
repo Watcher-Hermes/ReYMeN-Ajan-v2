@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 # .env yukle
 load_dotenv(".env", override=True)
-load_dotenv(os.path.join(os.environ.get("LOCALAPPDATA", ""), "hermes", ".env"), override=True)
+load_dotenv(os.path.join(os.environ.get("LOCALAPPDATA", ""), "reymen", ".env"), override=True)
 
 from reymen.cereyan.conversation_loop import ConversationLoop
 

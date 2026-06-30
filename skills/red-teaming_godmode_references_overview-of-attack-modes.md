@@ -23,7 +23,7 @@ Proven jailbreak system prompts paired with specific models. Each template uses 
 - **Unfiltered liberated response** (Grok) — divider-based refusal bypass
 - **Refusal inversion** (Gemini) — semantically inverts refusal text
 - **OG GODMODE l33t** (GPT-4) — classic format with refusal suppression
-- **Zero-refusal fast** (Hermes) — uncensored model, no jailbreak needed
+- **Zero-refusal fast** (ReYMeN) — uncensored model, no jailbreak needed
 
 See `references/jailbreak-templates.md` for all templates.
 

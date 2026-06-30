@@ -14,7 +14,7 @@ def _handle_snapshot_command(cli, command: str):
         create_quick_snapshot, list_quick_snapshots,
         restore_quick_snapshot, prune_quick_snapshots,
     )
-    from reymen.sistem.ReYMeN_constants import display_ReYMeN_home
+    from reymen.sistem.ReYMeN_constants import display_reymen_home
 
     parts = command.split()
     subcmd = parts[1].lower() if len(parts) > 1 else "list"
@@ -25,7 +25,7 @@ def _handle_snapshot_command(cli, command: str):
             print("  No state snapshots yet.")
             print("  Create one: /snapshot create [label]")
             return
-        print(f"  State snapshots ({display_ReYMeN_home()}/state-snapshots/):\n")
+        print(f"  State snapshots ({display_reymen_home()}/state-snapshots/):\n")
         print(f"  {'#':>3}  {'ID':<35} {'Files':>5} {'Size':>10} {'Label'}")
         print(f"  {'─'*3}  {'─'*35} {'─'*5} {'─'*10} {'─'*20}")
         for i, s in enumerate(snaps, 1):

@@ -165,7 +165,7 @@ class TestBackup:
         _make_ReYMeN_tree(ReYMeN_home)
 
         monkeypatch.setenv("ReYMeN_HOME", str(ReYMeN_home))
-        # get_default_ReYMeN_root needs this
+        # get_default_reymen_root needs this
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
 
         out_zip = tmp_path / "backup.zip"

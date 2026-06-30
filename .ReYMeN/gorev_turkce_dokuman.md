@@ -11,7 +11,7 @@ ReYMeN-Ajan projesinin tamamına Türkçe açıklamalar ekle. GitHub'da yüklend
 - Proje adı ve logosu (varsa)
 - **ReYMeN nedir?** — 2-3 paragraf Türkçe açıklama
   - "ReYMeN, yapay zeka asistanlarını tek bir merkezden yönetmek için geliştirilmiş açık kaynak bir platformdur."
-  - "Hermes Agent tabanlıdır, Türkçe dil desteği ile Windows odaklı çalışır."
+  - "ReYMeN Agent tabanlıdır, Türkçe dil desteği ile Windows odaklı çalışır."
 - **Özellikler** (maddeler halinde):
   - 🧠 Çoklu yapay zeka sağlayıcı desteği (DeepSeek, OpenAI, Groq, OpenRouter...)
   - 🤖 Telegram bot yönetimi (3 bot aynı anda)

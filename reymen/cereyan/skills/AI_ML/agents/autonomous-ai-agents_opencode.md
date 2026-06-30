@@ -1,21 +1,13 @@
 ---
 name: opencode
-title: "Opencode"
-tags: [agents, ai]
-description: "Delegate coding to OpenCode CLI (features, PR review)."
-version: 1.2.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [Coding-Agent, OpenCode, Autonomous, Refactoring, Code-Review]
+title: Opencode
+description: Delegate coding to OpenCode CLI (features, PR review).
+tags:
+- agents
+- ai
+category: agents
 audience: user
-related_skills: [claude-code, codex, hermes-agent]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -37,8 +29,6 @@ related_skills: [claude-code, codex, hermes-agent]
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: Otonom ajan gelistiricisi
 Ne: "Delegate coding to OpenCode CLI (features, PR review)."
 Nerede: `autonomous-ai-agents\autonomous-ai-agents_opencode.md`
@@ -49,7 +39,7 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 # OpenCode CLI
 
-Use [OpenCode](https://opencode.ai) as an autonomous coding worker orchestrated by Hermes terminal/process tools. OpenCode is a provider-agnostic, open-source AI coding agent with a TUI and CLI.
+Use [OpenCode](https://opencode.ai) as an autonomous coding worker orchestrated by ReYMeN terminal/process tools. OpenCode is a provider-agnostic, open-source AI coding agent with a TUI and CLI.
 
 ## When to Use
 
@@ -68,7 +58,7 @@ Use [OpenCode](https://opencode.ai) as an autonomous coding worker orchestrated 
 
 ## Binary Resolution (Important)
 
-Shell environments may resolve different OpenCode binaries. If behavior differs between your terminal and Hermes, check:
+Shell environments may resolve different OpenCode binaries. If behavior differs between your terminal and ReYMeN, check:
 
 ```
 terminal(command="which -a opencode")

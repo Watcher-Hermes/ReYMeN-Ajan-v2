@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_wifi-network-tools
+title: Windows Automation Wifi Network Tools
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: wifi-network-tools
 description: Windows WiFi ağ tarama ve yerel ağ cihazı keşfi araçlarının kurulumu, bağımlılık kontrolü ve çalıştırılması. wifi-ag-tarayici repo'sunu klonlamak, bağımlılıkları yüklemek ve GUI/CLI modda çalıştırmak için.
 title: "Wifi Network Tools"

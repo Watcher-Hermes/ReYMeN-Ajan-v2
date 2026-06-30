@@ -18,7 +18,7 @@ version: 1.0.0
 # Vision Model Kurulumu (LM Studio + llava)
 
 ## Amaç
-Hermes Agent'in görsel analiz (`vision_analyze`) yeteneğini LM Studio üzerinden çalıştırmak.
+ReYMeN Agent'in görsel analiz (`vision_analyze`) yeteneğini LM Studio üzerinden çalıştırmak.
 
 ## Gerekenler
 - LM Studio (yüklü ve çalışıyor)
@@ -40,7 +40,7 @@ https://huggingface.co/shadowbeast/llava-v1.6-mistral-7b-Q5_K_S-GGUF
 - Settings (⚙️) → General → **Launch on system startup** → Aç
 - Model seçiliyken **Load model on startup** → Aç
 
-### 3. Hermes Config (config.yaml)
+### 3. ReYMeN Config (config.yaml)
 ```yaml
 auxiliary:
   vision:
@@ -60,11 +60,11 @@ C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\
 ```bash
 curl -s http://localhost:1234/v1/models
 ```
-Model listede görünmeli. Sonra Hermes'te `vision_analyze` ile test et.
+Model listede görünmeli. Sonra ReYMeN'te `vision_analyze` ile test et.
 
 ## Pitfall'lar
 - **İki model varsa (bozuk + gerçek)**: LM Studio Hub'dan indirme bazen 29 bytes'lık bozuk GGUF dosyası oluşturur (`lmstudio-community/...`). Bu listede görünür ama yüklenemez. Yanında 4.7+ GB olan asıl model (`ShadowBeast/...`) de varsa config'de **gerçek model adını** kullan. Bozuk dosyayı elle sil: `rm -rf ~/.lmstudio/models/lmstudio-community/`
 - **Model API key ≠ klasör adı**: API'de görünen model adı (`shadowbeast/llava-v1.6-mistral-7b`) GGUF dosyasının bulunduğu klasör adıyla (`ShadowBeast/llava-v1.6-mistral-7b-Q5_K_S-GGUF`) birebir aynı olmayabilir. API key'i `/v1/models` endpoint'inden oku, klasör adından tahmin etme.
-- **Config düzenleme**: `patch` tool'u config.yaml'a yazmayı reddeder (`Refusing to write to Hermes config file`). Çözüm: terminal'de `python3 -c` ile `open().read().replace().write()` yap veya `.env`'yi Python ile düzenle.
+- **Config düzenleme**: `patch` tool'u config.yaml'a yazmayı reddeder (`Refusing to write to ReYMeN config file`). Çözüm: terminal'de `python3 -c` ile `open().read().replace().write()` yap veya `.env`'yi Python ile düzenle.
 - **"Failed to load model"**: Model ya yüklenmemiş (LM Studio'da Load butonu) ya da bozuk/eksik. Önce LM Studio'da modeli seçip ▶️ Load'a bas, sonra API'den dene.
 - **Connection error**: LM Studio kapalı veya model boşaltılmış. Yeniden Load et. LM Studio'nun `enableLocalService: true` olduğundan emin ol (settings.json).

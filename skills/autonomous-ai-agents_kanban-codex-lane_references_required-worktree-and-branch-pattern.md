@@ -38,7 +38,7 @@ git -C "$REPO" worktree add -b "$BRANCH" "$WORKTREE" "$BASE"
 git -C "$WORKTREE" status --short --branch
 ```
 
-If the current Kanban workspace is already an isolated git worktree created for this task, you may create a sibling Codex branch inside it only if `git status --short` is clean except for intentional Hermes edits. Otherwise create a separate temporary worktree and cherry-pick or copy accepted commits back after reconciliation.
+If the current Kanban workspace is already an isolated git worktree created for this task, you may create a sibling Codex branch inside it only if `git status --short` is clean except for intentional ReYMeN edits. Otherwise create a separate temporary worktree and cherry-pick or copy accepted commits back after reconciliation.
 
 Cleanup after reconciliation:
 

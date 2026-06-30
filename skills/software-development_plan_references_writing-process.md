@@ -27,6 +27,6 @@ Read and understand:
 
 ### Step 2: Explore the Codebase
 
-Use Hermes tools to understand the project:
+Use ReYMeN tools to understand the project:
 
 ```python

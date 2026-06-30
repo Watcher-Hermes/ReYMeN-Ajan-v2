@@ -1,24 +1,15 @@
 ---
 name: openai-screenshot
-title: "Openai Screenshot"
-tags: [ai, productivity, screen]
-description: "OS-level screenshot and capture tooling for desktop, window, and region captures. Camera hardware capture is delegated to `camera-capture`."
-version: 1.2.0
-author: marko
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [screenshot, desktop, capture, windows, keyboard shortcut]
+title: Openai Screenshot
+description: OS-level screenshot and capture tooling for desktop, window, and region
+  captures. Camera hardware capture is delegated to `camera-capture`.
+tags:
+- ai
+- productivity
+- screen
+category: Verimlilik
 audience: user
-related_skills: [windows-system-automation, obsidian, gorsel-onaylama]
 ---
-
-
-> **Kategori:** productivity
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +20,6 @@ related_skills: [windows-system-automation, obsidian, gorsel-onaylama]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Screenshot Capture
 

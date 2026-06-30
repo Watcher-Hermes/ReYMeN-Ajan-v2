@@ -1,66 +1,12 @@
 ---
-name: laravel-plugin-discovery
-description: Discover and evaluate Laravel packages via LaraPlugins.io MCP. Use when the user wants to find plugins, check package health, or assess Laravel/PHP compatibility.
-title: "Laravel Plugin Discovery"
-origin: ECC
-
-audience: contributor
-tags: [ai, automation, development]
-category: ecc---
-
-# Laravel Plugin Discovery
-
-Find, evaluate, and choose healthy Laravel packages using the LaraPlugins.io MCP server.
-
-## When to Use
-
-- User wants to find Laravel packages for a specific feature (e.g. "auth", "permissions", "admin panel")
-- User asks "what package should I use for..." or "is there a Laravel package for..."
-- User wants to check if a package is actively maintained
-- User needs to verify Laravel version compatibility
-- User wants to assess package health before adding to a project
-
-## MCP Requirement
-
-LaraPlugins MCP server must be configured. Add to your `~/.claude.json` mcpServers:
-
-```json
-"laraplugins": {
-  "type": "http",
-  "url": "https://laraplugins.io/mcp/plugins"
-}
-```
-
-No API key required — the server is free for the Laravel community.
-
-## MCP Tools
-
-The LaraPlugins MCP provides two primary tools:
-
-### SearchPluginTool
-
-Search packages by keyword, health score, vendor, and version compatibility.
-
-**Parameters:**
-- `text_search` (string, optional): Keyword to search (e.g. "permission", "admin", "api")
-- `health_score` (string, optional): Filter by health band — `Healthy`, `Medium`, `Unhealthy`, or `Unrated`
-- `laravel_compatibility` (string, optional): Filter by Laravel version — `"5"`, `"6"`, `"7"`, `"8"`, `"9"`, `"10"`, `"11"`, `"12"`, `"13"`
-- `php_compatibility` (string, optional): Filter by PHP version — `"7.4"`, `"8.0"`, `"8.1"`, `"8.2"`, `"8.3"`, `"8.4"`, `"8.5"`
-- `vendor_filter` (string, optional): Filter by vendor name (e.g. "spatie", "laravel")
-- `page` (number, optional): Page number for pagination
-
-### GetPluginDetailsTool
-
-Fetch detailed metrics, readme content, and version history for a specific package.
-
-**Parameters:**
-- `package` (string, required): Full Composer package name (e.g. "spatie/laravel-permission")
-- `include_versions` (boolean, optional): Include version history in response
-
-
-
+name: ecc_laravel-plugin-discovery
+title: Ecc Laravel Plugin Discovery
+description: ''
+tags:
+- ai_ml
+category: AI_ML
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI muhendisi |
@@ -81,8 +27,6 @@ Fetch detailed metrics, readme content, and version history for a specific packa
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: AI muhendisi
 Ne: Discover and evaluate Laravel packages via LaraPlugins.io MCP. Use when the user wants to find plugins, check package health, or assess Laravel/PHP compatibility.
@@ -116,8 +60,6 @@ When the user needs Laravel or PHP version compatibility:
 
 1. Search with `laravel_compatibility` filter set to their version
 2. Or get details on a specific package to see its supported versions
-
----
 
 ## Examples
 
@@ -174,8 +116,6 @@ SearchPluginTool({
 
 Returns all healthy packages from vendor "spatie".
 
----
-
 ## Filtering Best Practices
 
 ### By Health Score
@@ -212,8 +152,6 @@ SearchPluginTool({
 })
 ```
 
----
-
 ## Response Interpretation
 
 ### Search Results
@@ -234,8 +172,6 @@ The detailed response includes:
 - **Risk Score**: Vendor trust indicators
 - **Version History**: Recent release timeline
 
----
-
 ## Common Use Cases
 
 | Scenario | Recommended Approach |
@@ -246,8 +182,6 @@ The detailed response includes:
 | "Find admin panel packages" | Search "admin panel", review results |
 | "Check vendor reputation" | Search by vendor, check details |
 
----
-
 ## Best Practices
 
 1. **Always filter by health** — Use `health_score: "Healthy"` for production projects
@@ -255,8 +189,6 @@ The detailed response includes:
 3. **Check vendor reputation** — Prefer packages from known vendors (spatie, laravel, etc.)
 4. **Review before recommending** — Use GetPluginDetailsTool for a comprehensive assessment
 5. **No API key needed** — The MCP is free, no authentication required
-
----
 
 ## Related Skills
 

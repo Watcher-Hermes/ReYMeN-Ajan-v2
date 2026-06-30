@@ -1,7 +1,7 @@
 ---
 name: software-development_test-driven-development_references_hermes-api-test-patterns
-description: Hermes API Test Patterns
-title: "Software Development Test Driven Development References Hermes Api Test Patterns"
+description: ReYMeN API Test Patterns
+title: "Software Development Test Driven Development References ReYMeN Api Test Patterns"
 version: 1.0.0
 ---
 
@@ -9,17 +9,17 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes API Test Patterns |
+| **Ne** | ReYMeN API Test Patterns |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes API Test Patterns
+# ReYMeN API Test Patterns
 
 ## 1. MagicMock for Complex Agent Mocks
 
-When a Hermes function (e.g. `compress_context`) accesses many agent attributes
+When a ReYMeN function (e.g. `compress_context`) accesses many agent attributes
 (`_emit_status`, `_memory_manager`, `context_compressor`, `_build_system_prompt`, etc.),
 **do NOT** define a custom MockAgent class — use `MagicMock` instead.
 
@@ -60,9 +60,9 @@ t.calistir(komut, timeout=timeout)
 ### Pattern
 If you see `**kwargs` in the target signature, ALL extra params must be keyword.
 
-## 3. Hermes API Return Types
+## 3. ReYMeN API Return Types
 
-Key Hermes functions that differ from older API expectations:
+Key ReYMeN functions that differ from older API expectations:
 
 | Function | Returns | Old Expectation |
 |----------|---------|-----------------|

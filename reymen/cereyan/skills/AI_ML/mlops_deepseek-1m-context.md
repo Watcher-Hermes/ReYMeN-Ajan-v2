@@ -1,23 +1,14 @@
 ---
 name: deepseek-1m-context
-title: "DeepSeek 1M Context"
-tags: [machine-learning, mlops]
-description: "DeepSeek 1M token context penceresini aktif eder — context_length=1048576, ollama_num_ctx=1048576"
-version: 1.0.0
-author: Hermes Agent
-platforms: [windows, linux, macos]
-metadata:
-  hermes:
-    tags: [deepseek, context, 1m, config, setup]
+title: DeepSeek 1M Context
+description: DeepSeek 1M token context penceresini aktif eder — context_length=1048576,
+  ollama_num_ctx=1048576
+tags:
+- machine-learning
+- mlops
+category: AI_ML
 audience: user
-related_skills: [hermes-agent, hibrit-ai-mimarisi]
 ---
-
-
-> **Kategori:** mlops
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -28,8 +19,6 @@ related_skills: [hermes-agent, hibrit-ai-mimarisi]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # DeepSeek 1M Context
 
@@ -64,8 +53,8 @@ ollama_num_ctx: 1048576
 ### 2. El İle Ayarla (gerekirse)
 
 ```bash
-hermes config set model.context_length 1048576
-hermes config set model.ollama_num_ctx 1048576
+ReYMeN config set model.context_length 1048576
+ReYMeN config set model.ollama_num_ctx 1048576
 ```
 
 ### 3. On-Session-Start Hook (Otomatik)

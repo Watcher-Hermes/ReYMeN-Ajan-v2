@@ -6,7 +6,7 @@ author: shiro-0x
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [persona, character, anime, roleplay, japanese, english, maintenance, strict]
     category: personality
 audience: user

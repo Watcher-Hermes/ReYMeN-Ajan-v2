@@ -17,7 +17,7 @@ version: 1.0.0
 
 # MemoryProvider Pattern (Plugin-Based Memory Backend)
 
-## Hermes Agent MemoryProvider
+## ReYMeN Agent MemoryProvider
 
 ```python
 from abc import ABC, abstractmethod

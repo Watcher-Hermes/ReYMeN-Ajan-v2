@@ -8,7 +8,7 @@ ReYMeN-Ajan projesindeki 3 büyük .py dosyasını alt modüllere ayır:
 3. `reymen/reymen_cli/main.py` — 14,988 satır (225 fonksiyon)
 
 ## NİYE
-800+ satırlık dosyalar bakımı zorlaştırıyor, import döngülerine yol açıyor, Cline/Claude Code token limitini şişiriyor. Hermes'te de aynı standart uygulanıyor (cli.py 15,762 → 485'e düştü).
+800+ satırlık dosyalar bakımı zorlaştırıyor, import döngülerine yol açıyor, Cline/Claude Code token limitini şişiriyor. ReYMeN'te de aynı standart uygulanıyor (cli.py 15,762 → 485'e düştü).
 
 ## NASIL
 
@@ -54,7 +54,7 @@ ReYMeN-Ajan projesindeki 3 büyük .py dosyasını alt modüllere ayır:
 
 **Yer:** `reymen/reymen_cli/main.py` — mevcut dosyayı koru
 
-**Ham veri:** 225 fonksiyon, hiç sınıf yok. Hermes CLI'nin bağımsızlaştırılmış kopyası.
+**Ham veri:** 225 fonksiyon, hiç sınıf yok. ReYMeN CLI'nin bağımsızlaştırılmış kopyası.
 **Bölme şeması (fonksiyon adına göre):**
 
 | Modül | İçerik |

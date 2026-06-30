@@ -68,7 +68,7 @@ Kullanıcı "n8n", "workflow", "telegram bot", "otomasyon" veya "tek mesajla iş
 ### Kullanım Akışı
 1. Telegram'dan mesaj alınır
 2. n8n veya benzeri bir katman `POST /_bridge/queue/{chat_id}.json` endpoint'ine mesajı gönderir
-3. Hermes Agent kuyruğu dinler, mesajı işler
+3. ReYMeN Agent kuyruğu dinler, mesajı işler
 4. Sonuç `POST /_bridge/answers/{chat_id}.json` endpoint'ine yazılır
 5. n8n yanlış yana dönüş yapar
 

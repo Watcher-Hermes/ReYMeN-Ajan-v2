@@ -18,7 +18,7 @@ version: 1.0.0
 # PluginManager Pattern
 
 ## Problem
-Hermes Agent'te pluginler klasör tabanlıydı (her plugin bir alt dizin + `__init__.py`).
+ReYMeN Agent'te pluginler klasör tabanlıydı (her plugin bir alt dizin + `__init__.py`).
 R>eYMeN için daha hafif, tek dosyalı bir plugin sistemi gerekiyordu.
 
 ## Cozum: PluginManager + PluginManifest

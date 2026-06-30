@@ -1,8 +1,12 @@
-
-> **Kategori:** media
-
 ---
-
+name: media_money-printer-turbo-video
+title: Media Money Printer Turbo Video
+description: ''
+tags:
+- media
+category: media
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: money-printer-turbo-video
 description: MoneyPrinterTurbo ile otomatik video oluşturma — kurulum, yapılandırma, CLI ve WebUI kullanımı.
 title: "Money PRinter Turbo Video"

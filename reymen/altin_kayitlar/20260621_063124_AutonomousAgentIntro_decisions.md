@@ -4,7 +4,7 @@
 
 ## Karar 1: Karşılaştırma Standardı Oluşturma
 - **Ne yapıldı:** reymen-karsilastirma-standardi skill'i oluşturuldu
-- **Neden:** Önceki Hermes vs ReYMeN karşılaştırmasında %31 doğruluk oranı (%31 → %100 düzeltildi)
+- **Neden:** Önceki ReYMeN vs ReYMeN karşılaştırmasında %31 doğruluk oranı (%31 → %100 düzeltildi)
 - **Kural:** Önce canlı doküman oku (web_extract), sonra cevap ver
 
 ## Karar 2: Canlı Veri Formatı
@@ -19,8 +19,8 @@
 - **5N1K:** Claude Code'a görev tanımı olarak hazırlandı
 
 ## Karar 4: ReYMeN Kendini Konumlandırma
-- **Ne yapıldı:** Hermes'e bağımlılık vurgusu kaldırıldı, "ReYMeN ajanı" olarak tanımlandı
-- **Neden:** Kullanıcı "Hermes agent altyapısı üzerine calisan kaldir" dedi
+- **Ne yapıldı:** ReYMeN'e bağımlılık vurgusu kaldırıldı, "ReYMeN ajanı" olarak tanımlandı
+- **Neden:** Kullanıcı "ReYMeN agent altyapısı üzerine calisan kaldir" dedi
 
 ## Karar 5: Cevap Kalitesi Metodolojisi
 - **Ne yapıldı:** 7 aşamalı metodoloji oluşturuldu

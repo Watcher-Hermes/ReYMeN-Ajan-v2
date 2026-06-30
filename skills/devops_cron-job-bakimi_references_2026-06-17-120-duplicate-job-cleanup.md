@@ -20,7 +20,7 @@
 
 ## Olay — Dalga 1 (14:40)
 
-17 Haziran 2026'da Hermes cron sisteminde **126 cron job** bulundu — sadece 5'i gerçek. Geri kalan 121'i aynı anda (T14:40:38) oluşturulmuş test/placeholder job'lardı.
+17 Haziran 2026'da ReYMeN cron sisteminde **126 cron job** bulundu — sadece 5'i gerçek. Geri kalan 121'i aynı anda (T14:40:38) oluşturulmuş test/placeholder job'lardı.
 
 "do a thing" cron job'ı çalıştığında prompt'ta anlamlı bir talimat yoktu ("do a thing"). Sorgulama sonucu aynı zaman damgasında 120+ duplicate job görüldü.
 
@@ -59,7 +59,7 @@ Not: İlk dalgada 120+ duplicate vardı, 44 yeni duplicate eklendi (toplam 164).
 
 ## Tüm job'lar aynı anda oluşmuş — muhtemel sebep:
 
-Paylaşılan özellik: tüm duplicate job'ların `created_at` timestamp'i aynı saniyede kümelenmiş. Bu bir bot/script döngüsüne işarettir — `hermes cron create` art arda 30+ kez aynı anda çağrılmış.
+Paylaşılan özellik: tüm duplicate job'ların `created_at` timestamp'i aynı saniyede kümelenmiş. Bu bir bot/script döngüsüne işarettir — `ReYMeN cron create` art arda 30+ kez aynı anda çağrılmış.
 
 ## Dersler
 

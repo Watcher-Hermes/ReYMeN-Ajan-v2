@@ -1,13 +1,15 @@
 ---
 name: skıl dosyaları ve memory kontorl et
-description: Skill ve memory kontrolü tamamlandı. Toplam 9 adet skill bulunuyor (2___2_kac_eder_, slm, kac_skill_var, sen_c__users_marko_desktop_reymen_proje_hermes_pro, koontrol_et, c__users_marko_desktop_reymen_proje_hermes_projesi, memory_kontrol_et, https___github_com_watcher_hermes_hermes_full_back, tekrar_
-created: 2026-06-21
-usage_count: 1
-last_used: 2026-06-21
-
-
+title: Skıl Dosyaları Ve Memory Kontorl Et
+description: Skill ve memory kontrolü tamamlandı. Toplam 9 adet skill bulunuyor (2___2_kac_eder_,
+  slm, kac_skill_var, sen_c__users_marko_desktop_reymen_proje_hermes_pro, koontrol_et,
+  c__users_marko_desktop_reymen_proje_hermes_projesi, memory_kontrol_et, https___github_com_watcher_hermes_hermes_full_back,
+  tekrar_
+tags:
+- reymen
+category: reymen
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ReYMeN ajani |

@@ -1,17 +1,17 @@
 ---
-name: reymen-hermes-sync
-title: "Reymen-Hermes Sync & Merge"
-tags: [reymen, hermes, merge, sync, git, github, update, workflow]
-description: "Systematic protocol for merging Hermes Agent updates into Reymen (derived project) while preserving Reymen-specific customizations. Covers 3-step merge, reymen_ prefix convention, duplicate detection, protected files, and self-update setup."
+name: reymen-ReYMeN-sync
+title: "Reymen-ReYMeN Sync & Merge"
+tags: [reymen, ReYMeN, merge, sync, git, github, update, workflow]
+description: "Systematic protocol for merging ReYMeN Agent updates into Reymen (derived project) while preserving Reymen-specific customizations. Covers 3-step merge, reymen_ prefix convention, duplicate detection, protected files, and self-update setup."
 version: 1.0.0
 author: marko
 license: MIT
 platforms: [windows]
 metadata:
-  hermes:
-    tags: [reymen, hermes, merge, sync, git, github, workflow, update, migration]
+  ReYMeN:
+    tags: [reymen, ReYMeN, merge, sync, git, github, workflow, update, migration]
 audience: agent
-related_skills: [hermes-agent, obsidian-vault-kurallari, github-pr-workflow]
+related_skills: [ReYMeN-agent, obsidian-vault-kurallari, github-pr-workflow]
 ---
 
 
@@ -24,7 +24,7 @@ related_skills: [hermes-agent, obsidian-vault-kurallari, github-pr-workflow]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Systematic protocol for merging Hermes Agent updates into Reymen (derived project) while preserving Reymen-specific customizations. Covers 3-step merge, reymen_ prefix convention, duplicate detection, protected files, and self-update setup. |
+| **Ne?** | Systematic protocol for merging ReYMeN Agent updates into Reymen (derived project) while preserving Reymen-specific customizations. Covers 3-step merge, reymen_ prefix convention, duplicate detection, protected files, and self-update setup. |
 | **Nerede?** | software-development/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -32,19 +32,19 @@ related_skills: [hermes-agent, obsidian-vault-kurallari, github-pr-workflow]
 
 ---
 
-# Reymen-Hermes Sync & Merge
+# Reymen-ReYMeN Sync & Merge
 
 ## Overview
 
-When Hermes Agent gets updated, Reymen (a derived project) needs to selectively absorb the changes. Not all Hermes files can be blindly copied — Reymen has custom modifications, renamed modules, and a different architecture.
+When ReYMeN Agent gets updated, Reymen (a derived project) needs to selectively absorb the changes. Not all ReYMeN files can be blindly copied — Reymen has custom modifications, renamed modules, and a different architecture.
 
-This skill defines the **3-step merge protocol** for safely propagating Hermes updates into Reymen.
+This skill defines the **3-step merge protocol** for safely propagating ReYMeN updates into Reymen.
 
 ## Principles
 
-1. **NEVER overwrite a Reymen-customized file.** If a file exists in both Hermes and Reymen, check if Reymen modified it first.
-2. **Two copies are fine if they serve different callers.** Root versions (Reymen's simplified) for `beyin.py`/`motor.py` callers, agent/ versions (Hermes full) for `run_agent.py`/`cli.py` callers.
-3. **reymen_ prefix** — when Hermes replaces a file that has the same name but different purpose, rename Reymen's original to `reymen_<name>.py` before copying.
+1. **NEVER overwrite a Reymen-customized file.** If a file exists in both ReYMeN and Reymen, check if Reymen modified it first.
+2. **Two copies are fine if they serve different callers.** Root versions (Reymen's simplified) for `beyin.py`/`motor.py` callers, agent/ versions (ReYMeN full) for `run_agent.py`/`cli.py` callers.
+3. **reymen_ prefix** — when ReYMeN replaces a file that has the same name but different purpose, rename Reymen's original to `reymen_<name>.py` before copying.
 4. **Always compile-check** after every merge batch.
 5. **Push only when user says OK** — never push to GitHub without explicit instruction.
 
@@ -53,16 +53,16 @@ This skill defines the **3-step merge protocol** for safely propagating Hermes u
 **BEFORE you tell the user anything is "missing" from Reymen, you MUST check BOTH locations:**
 
 1. `root/*.py` — Reymen's own simplified versions
-2. `agent/*.py` — Hermes's full versions (often the REAL location of what's "missing")
+2. `agent/*.py` — ReYMeN's full versions (often the REAL location of what's "missing")
 
 ### The Root/Agent Layer Pitfall
 
-Hermes's core modules live in its top-level directory. Reymen has these same modules in TWO places:
+ReYMeN's core modules live in its top-level directory. Reymen has these same modules in TWO places:
 
 | Location | Contains | Purpose |
 |----------|----------|---------|
 | `root/*.py` | Simplified versions | Used by Reymen-native modules (beyin.py, motor.py) |
-| `agent/*.py` | Full Hermes versions | Used by Hermes-compatible modules (run_agent.py, cli.py) |
+| `agent/*.py` | Full ReYMeN versions | Used by ReYMeN-compatible modules (run_agent.py, cli.py) |
 
 **If you only check root/ and find a file "missing," you haven't finished checking yet.** The file almost certainly exists in `agent/`. Verify with:
 
@@ -89,7 +89,7 @@ if missing:
     print(f'Gercekten eksik: {len(missing)} dosya')
     for f in missing: print(f'  + {f}')
 else:
-    print('Hermes\'teki her sey Reymen\'de mevcut')
+    print('ReYMeN\'teki her sey Reymen\'de mevcut')
 "
 ```
 
@@ -132,7 +132,7 @@ for f in sorted(os.listdir('.')):
 
 ### Step 1: Copy Untouched Files
 
-Files that exist ONLY in Hermes (not in Reymen at all) or are pure documentation/build files that Reymen hasn't modified:
+Files that exist ONLY in ReYMeN (not in Reymen at all) or are pure documentation/build files that Reymen hasn't modified:
 
 ```
 AGENTS.md, CONTRIBUTING.md, .env.example
@@ -145,7 +145,7 @@ docs/, assets/, packaging/
 
 ### Step 2: Copy Missing Agent Modules
 
-Files that exist in Hermes's `agent/` directory but Reymen doesn't have a root equivalent for:
+Files that exist in ReYMeN's `agent/` directory but Reymen doesn't have a root equivalent for:
 
 ```bash
 # Check what's missing
@@ -154,18 +154,18 @@ for f in coding_context.py credits_tracker.py errors.py runtime_cwd.py ssl_guard
 done
 ```
 
-**Action:** Copy Hermes files to Reymen root. These are new modules that Reymen doesn't have yet.
+**Action:** Copy ReYMeN files to Reymen root. These are new modules that Reymen doesn't have yet.
 
 ### Step 3: Merge Shared Files
 
-Files that exist in BOTH Hermes AND Reymen with different content. Use the comparison method:
+Files that exist in BOTH ReYMeN AND Reymen with different content. Use the comparison method:
 
 ```bash
 # Quick size comparison
 for f in file1.py file2.py; do
   H=$(wc -l < "HERMES_DIR/$f")
   R=$(wc -l < "REYMEN_DIR/$f")
-  [ "$H" -ne "$R" ] && echo "DIFF: $f (Hermes=$H, Reymen=$R)" || echo "SAME: $f"
+  [ "$H" -ne "$R" ] && echo "DIFF: $f (ReYMeN=$H, Reymen=$R)" || echo "SAME: $f"
 done
 ```
 
@@ -173,9 +173,9 @@ done
 
 | Situation | Action |
 |-----------|--------|
-| Same purpose, Hermes has new functions | Keep Reymen's file, add new functions |
-| Different purpose, same name | Rename Reymen's → `reymen_<name>.py`, copy Hermes's version |
-| Hermes's version is standalone CLI tool | Rename Reymen's, copy Hermes's (both usable) |
+| Same purpose, ReYMeN has new functions | Keep Reymen's file, add new functions |
+| Different purpose, same name | Rename Reymen's → `reymen_<name>.py`, copy ReYMeN's version |
+| ReYMeN's version is standalone CLI tool | Rename Reymen's, copy ReYMeN's (both usable) |
 
 ### Protected Files (NEVER modified)
 
@@ -188,9 +188,9 @@ araclar_nisan.py, nisan_yakala.py, otonom_nisan_olusturucu.py
 akilli_yonlendirici.py, cokus_raporlayici.py
 ```
 
-### Step 4: Fix Test Suite (Hermes API Adaptation)
+### Step 4: Fix Test Suite (ReYMeN API Adaptation)
 
-After Steps 1-3, the test suite will likely break because tests were written for Reymen's simplified API but now use Hermes's full API (via agent/ imports).
+After Steps 1-3, the test suite will likely break because tests were written for Reymen's simplified API but now use ReYMeN's full API (via agent/ imports).
 
 Fix systematically:
 
@@ -252,7 +252,7 @@ Reymen has **two layers** of files with the same names:
 | Location | Contains | Used by |
 |----------|----------|---------|
 | `root/*.py` | Reymen's simplified/stripped versions | `beyin.py`, `motor.py` (Reymen ReAct loop) |
-| `agent/*.py` | Hermes's full versions | `run_agent.py`, `cli.py` (Hermes-compatible modules) |
+| `agent/*.py` | ReYMeN's full versions | `run_agent.py`, `cli.py` (ReYMeN-compatible modules) |
 
 To detect duplicates:
 ```bash
@@ -272,7 +272,7 @@ These are **intentional** — both layers are needed. Do NOT merge them.
 Reymen self-updates from its own GitHub repo, NOT from Hermes source.
 
 ```bash
-# Repo: https://github.com/Watcher-Hermes/ReYMeN-Ajan
+# Repo: https://github.com/Watcher-ReYMeN/ReYMeN-Ajan
 # Sync script: .hermes_sync.sh
 # Usage:
 bash .hermes_sync.sh              # Status

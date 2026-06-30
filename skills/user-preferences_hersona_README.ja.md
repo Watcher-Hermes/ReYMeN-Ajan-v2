@@ -20,7 +20,7 @@ version: 1.0.0
 **日本語** · [English](./README.md)
 
 > 二次元キャラの **口調・性格・語彙** 属性テンプレート集
-> AI エージェント (Hermes Agent 等) で `/hersona` プリセットとして使えるようにすることを目的にしたプロジェクト
+> AI エージェント (ReYMeN Agent 等) で `/hersona` プリセットとして使えるようにすることを目的にしたプロジェクト
 
 [![License: MIT (code)](https://img.shields.io/badge/License-MIT-lightgrey.svg)](./LICENSE)
 [![Templates: CC0 1.0](https://img.shields.io/badge/Templates-CC0_1.0-lightgrey.svg)](./LICENSE-CC0.txt)
@@ -44,7 +44,7 @@ version: 1.0.0
 
 ## 使い方
 
-### Hermes Agent で使う
+### ReYMeN Agent で使う
 
 `/hersona <category>/<name>` 形式で属性をアタッチ:
 

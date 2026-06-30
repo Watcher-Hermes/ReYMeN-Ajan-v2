@@ -7,7 +7,7 @@ author: 宝玉 (JimLiu)
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [infographic, visual-summary, creative, image-generation]
 audience: user
     homepage: https://github.com/JimLiu/baoyu-skills#baoyu-infographic

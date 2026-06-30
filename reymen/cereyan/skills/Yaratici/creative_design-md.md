@@ -1,24 +1,13 @@
 ---
 name: design-md
-title: "Design Md"
-tags: [creative, design]
+title: Design Md
 description: Author/validate/export Google's DESIGN.md token spec files.
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [design, design-system, tokens, ui, accessibility, wcag, tailwind, dtcg, google]
+tags:
+- creative
+- design
+category: Yaratici
 audience: user
-related_skills: [popular-web-designs, claude-design, excalidraw, architecture-diagram]
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +18,6 @@ related_skills: [popular-web-designs, claude-design, excalidraw, architecture-di
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # DESIGN.md Skill
 
@@ -60,7 +47,6 @@ from scratch (prototype, deck, landing page, component lab), use
 ## File anatomy
 
 ```md
----
 version: alpha
 name: Heritage
 description: Architectural minimalism meets journalistic gravitas.
@@ -95,8 +81,6 @@ components:
     padding: 12px
   button-primary-hover:
     backgroundColor: "{colors.primary}"
----
-
 ## Overview
 
 Architectural Minimalism meets Journalistic Gravitas...

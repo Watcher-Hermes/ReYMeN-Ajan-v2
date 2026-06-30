@@ -1,25 +1,14 @@
 ---
-
 name: github-pr-workflow
-title: "GitHub Pr Workflow"
-tags: [development, git, github]
-description: "GitHub PR lifecycle: branch, commit, open, CI, merge."
-version: 1.1.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [GitHub, Pull-Requests, CI/CD, Git, Automation, Merge]
+title: GitHub Pr Workflow
+description: 'GitHub PR lifecycle: branch, commit, open, CI, merge.'
+tags:
+- development
+- git
+- github
+category: Github
 audience: contributor
-related_skills: [github-auth, github-code-review]
 ---
-
-
-> **Kategori:** github
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -30,8 +19,6 @@ related_skills: [github-auth, github-code-review]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Github Pr Workflow
 

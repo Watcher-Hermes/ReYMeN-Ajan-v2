@@ -1,26 +1,14 @@
 ---
 name: memory-compaction
-title: "Memory Compaction"
-tags: [productivity]
-description: >-
-  Hermes MEMORY.md 50.000 char sınırına yaklaştığında veya dolduğunda
-  eski/stale/dağınık memory entry'lerini konsolide edip yer açma pattern'i.
-  Kullanıcının "memory dolu" veya memory add başarısız olduğunda kullan.
-version: 1.0.0
-author: marko
-license: MIT
-metadata:
-  hermes:
-    tags: [memory, compaction, cleanup, consolidation]
+title: Memory Compaction
+description: ReYMeN MEMORY.md 50.000 char sınırına yaklaştığında veya dolduğunda eski/stale/dağınık
+  memory entry'lerini konsolide edip yer açma pattern'i. Kullanıcının "memory dolu"
+  veya memory add başarısız olduğunda kullan.
+tags:
+- productivity
+category: Verimlilik
 audience: user
-related_skills: [telegram-gateway-monitor]
 ---
-
-
-> **Kategori:** productivity
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -31,8 +19,6 @@ related_skills: [telegram-gateway-monitor]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Memory Compaction
 

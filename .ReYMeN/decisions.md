@@ -1,4 +1,4 @@
-## Karar #36: TUI Hermes Seviyesine Yükseltme
+## Karar #36: TUI ReYMeN Seviyesine Yükseltme
 
 **Ne yapıldı:** `tui.py` sade metin → prompt_toolkit + Rich tabanlı etkileşimli TUI
 
@@ -17,7 +17,7 @@
 ## Karar #31 — Bot Çince cevap fix + Ensemble akışı
 
 **Ne yapıldı?**
-1. Hermes reymen profili SOUL.md'sine Türkçe talimatı eklendi (başa)
+1. ReYMeN reymen profili SOUL.md'sine Türkçe talimatı eklendi (başa)
 2. telegram_bot/__init__.py AIAgentOrchestrator → ConversationLoop ensemble akışına çevrildi
 3. conversation_loop.py'ye .env yükleme eklendi (API key okunamıyordu)
 4. OnceHafiza'daki eski Çince kayıt (dunyada guncel haberler) temizlendi
@@ -32,14 +32,14 @@
 - conversation_loop.py'deki ensemble zaten yazılıydı, sadece bot yönlendirilmedi
 - SOUL.md'yi proje köküne koymak da çözümdü ama profil override ediyor
 
-## Karar #42 — Auth: Hermes Pattern JWT + Role Bazli
+## Karar #42 — Auth: ReYMeN Pattern JWT + Role Bazli
 
-**Ne yapildi:** Mevcut auth.py + web_ui/__init__.py auth sistemi Hermes dashboard_auth pattern'ine donusturuldu.
+**Ne yapildi:** Mevcut auth.py + web_ui/__init__.py auth sistemi ReYMeN dashboard_auth pattern'ine donusturuldu.
 
-**Neden:** Kullanici "Jwt var role bazli hermes de olan sekili ile yap" dedi — Hermes'teki AuthProvider ABC + Session dataclass + provider registry + cookie yonetimi birebir uygulandi.
+**Neden:** Kullanici "Jwt var role bazli ReYMeN de olan sekili ile yap" dedi — ReYMeN'teki AuthProvider ABC + Session dataclass + provider registry + cookie yonetimi birebir uygulandi.
 
 **Detay:**
-- AuthProvider ABC (Hermes DashboardAuthProvider pattern)
+- AuthProvider ABC (ReYMeN DashboardAuthProvider pattern)
 - Session dataclass (user_id, display_name, role, provider, expires_at, access_token, refresh_token)
 - Provider registry: register_provider(), get_provider(), list_providers()
 - PasswordAuthProvider: complete_password_login(), verify_session(), refresh_session(), revoke_session()
@@ -52,7 +52,7 @@
 - Eski _get_user/_require_auth/_izin_kontrol helper'lari temizlendi
 - Commit: 61846927
 
-**Karar:** Kabul. Hermes'teki ile birebir ayni desen.
+**Karar:** Kabul. ReYMeN'teki ile birebir ayni desen.
 
 ## Karar #43 — CLI Handler Ayristirma (83 _handle_ komutu ayrı dosyalara)
 
@@ -115,3 +115,151 @@
 - reymen/sistem/rate_limiter.py: plugins.kanban try/except
 - reymen/cereyan/motor.py: import asyncio
 - reymen/cereyan/conversation_loop.py: MEMORY/USER path fix + profil bilgisi ekleme
+
+## Karar #31 — reymen_launcher profesyonel açılış
+
+**Ne yapıldı:** reymen_launcher.py açılış sayfası ReYMeN seviyesine yükseltildi
+**Neden:** Kullanıcı "reymen ajan hıc profosyenel degıl" dedi
+**Değişiklikler:** Banner (ASCII blok), versiyon, istatistik paneli, çerçeveli model seçim/cevap kutuları, status line
+**Commit:** 017d5364
+
+## Karar #35 — ReYMeN 4 Entry Point Oluşturma
+
+**Ne yapıldı:** ReYMeN'in ReYMeN'teki gibi 4 entry point'i oluşturuldu:
+
+| Yönlendirici | Tür | İçerik |
+|---|---|---|
+| `reymen\bin\reymen.cmd` | `.cmd → python` | `reymen_launcher.py`'yi çağırır |
+| `venv\Scripts\reymen.cmd` | `.cmd → python` | `reymen_launcher.py`'yi çağırır |
+| `venv\Scripts\reymen.exe` | `.exe direkt` | PyInstaller build (60MB) |
+| `~/.local/bin/reymen.exe` | `.exe direkt` | pip console_scripts stub (106KB) |
+
+**Neden:** ReYMeN'te 4 entry point var, ReYMeN'de sadece 1'di. Kullanıcı birebir aynı yapıyı istedi.
+
+**Ek değişiklikler:**
+1. `pyproject.toml` oluşturuldu (`[project.scripts]` ile `reymen = "reymen_launcher:main"`)
+2. `pip install -e .` ile console_scripts stub kuruldu
+3. `ReYMeN\bin\reymen.bat`, `WindowsApps\reymen.bat`, `C:\Users\marko\reymen.bat` redirector'lar silindi (sadece ANA dosya kaldı)
+4. `reymen/reymen` Python script'i denenemedi (`reymen/` paket dizini ile isim çakışması)
+
+**Kalıcı dosyalar:** `pyproject.toml`, `setup.py`, `reymen\bin\reymen.cmd`, `venv\Scripts\reymen.cmd`, `~/.local/bin/reymen.exe`
+
+## Karar #32 — reymen_launcher ReYMeN acilis sayfasi ile birebir ayni
+
+**Ne yapildi:** reymen_launcher.py, ReYMeN'in build_welcome_banner() fonksiyonunu dogrudan import edip kullanacak sekilde yeniden yazildi
+**Neden:** Kullanici "bire bir ReYMeN ajan ana sayfası kullan", "kopyala" dedi
+**Nasil:** sys.path'e hermes-agent eklendi, hermes_cli.banner.build_welcome_banner() cagrilir. Ayni HERMES-AGENT ASCII art + caduceus + 2-kolon layout + Panel cercevesi + tools/skills/MCP listesi
+**Commit:** 6b9424dc
+
+## Karar #33 — REYMEN-AGENT logosu ile ReYMeN acilis sayfasi
+
+**Ne yapildi:** ReYMeN'in build_welcome_banner() fonksiyonu monkey-patch ile REYMEN markali hale getirildi
+**Degisiklikler:**
+- _REYMEN_AGENT_LOGO: pyfiglet ansi_regular font ile "REYMEN-AGENT" ASCII art (gold/orange/bronze)
+- _hb.HERMES_AGENT_LOGO monkey-patch
+- _hb.HERMES_CADUCEUS = "" (kaldirildi)
+- _hb.format_banner_version_label = "ReYMeN Agent v0.1.0"
+- hermes_cli/banner.py:617 "Nous Research" → "ReYMeN Agent" (disk patch)
+**Commit:** bf23d961
+**Not:** banner.py patch ReYMeN agent dizininde, ReYMeN-Ajan repo'sunda degil
+
+## Karar #34 — ReYMeN acilis sayfasi tamamen Turkce
+
+**Ne yapildi:** banner.py'deki 15+ İngilizce string Türkçe'ye çevrildi, panel başlığı "R>eYMeN Ajan" oldu
+**Neden:** Kullanici "reymen turkce degıl", "ReYMeN dıye bırsey yazmasın" dedi
+**Degisiklikler:**
+- banner.py: Available Tools→Kullanılabilir Araçlar, Skills→Yetenekler, MCP Servers→MCP Sunucuları
+- Session→Oturum, context→bağlam, disabled/failed/connecting/configured→Türkçe
+- tools→araç, skills→yetenek, /help for commands→/yardım komutlar
+- "Nous Research"→"R>eYMeN Ajan"
+- format_banner_version_label→"R>eYMeN Ajan v0.1.0"
+- Welcome mesaji→"R>eYMeN Ajan'a hoş geldiniz!"
+**Commit:** bd330712
+
+## Karar #36 — ReYMeN Veri Lokasyonu (ReYMeN Profili Olarak)
+
+**Tespit:** `reymen` komutu hala `ReYMeN.exe -p reymen` çalıştırıyor. ReYMeN-Ajan projesindeki bağımsız dosyalar (conversation_loop.py, motor.py, vb.) kullanılmıyor. ReYMeN, ReYMeN'in bir profili halinde.
+
+**Veri lokasyonu haritası:**
+
+| Veri | Konum |
+|---|---|
+| Config | `~/.hermes/profiles/reymen/config.yaml` |
+| API key'ler | `~/.hermes/profiles/reymen/.env` |
+| Kişilik/SOUL.md | `~/.hermes/profiles/reymen/SOUL.md` |
+| Motor | ReYMeN'in kendi motoru (agent loop) |
+| Tool'lar | ReYMeN'in tool'ları (browser, web, vs.) |
+| Skill'ler | ReYMeN'in 1033 skill'i |
+| Banner | `hermes-agent/hermes_cli/banner.py` (REYMEN-AGENT logolu) |
+| Entry point | `reymen/bin/reymen.cmd` → `ReYMeN.exe -p reymen` |
+| Exe stub | `~/.local/bin/reymen.exe` (pip console_scripts → reymen_launcher:main) |
+
+**Not:** `~/.local/bin/reymen.exe` pip stub'ı teknik olarak `reymen_launcher:main()`'i çağırır ama `reymen.cmd` hala `ReYMeN.exe -p reymen` kullanır. Hangisinin PATH'te önce geldiğine bağlı olarak farklı davranış oluşur.
+
+**Bağımsız hale getirmek için:** `reymen/bin/reymen.cmd` içeriği `python "%~dp0..\..\reymen_launcher.py"` olarak değiştirilmeli ve ReYMeN-Ajan'daki motor/conversation_loop kullanılmalı. O zaman config, .env, SOUL.md de proje içine taşınabilir.
+
+## Karar #37 — ReYMeN Bağımsız Hale Getirildi
+
+**Ne yapıldı:** ReYMeN, ReYMeN profili olmaktan çıkarıldı, bağımsız launcher haline getirildi.
+
+**Değişiklikler:**
+1. `reymen/bin/reymen.cmd` → `ReYMeN.exe -p reymen` yerine `python reymen_launcher.py`
+2. ReYMeN profilinden `.env`, `SOUL.md`, `config.yaml` → ReYMeN-Ajan proje köküne kopyalandı
+3. Artık `reymen` yazınca ReYMeN'in kendi motoru (conversation_loop.py) çalışır, ReYMeN'in değil
+
+**Yeni veri lokasyonu:**
+
+| Veri | Eski (ReYMeN profili) | Yeni (Bağımsız) |
+|---|---|---|
+| Config | `~/.hermes/profiles/reymen/config.yaml` | `ReYMeN-Ajan/config.yaml` |
+| API key'ler | `~/.hermes/profiles/reymen/.env` | `ReYMeN-Ajan/.env` |
+| SOUL.md | `~/.hermes/profiles/reymen/SOUL.md` | `ReYMeN-Ajan/SOUL.md` |
+| Motor | ReYMeN agent loop | `reymen/cereyan/conversation_loop.py` |
+
+**Not:** ReYMeN profilindeki orijinal dosyalar silinmedi — ReYMeN hala `ReYMeN.exe -p reymen` ile de çalışabilir ama artık varsayılan değil.
+
+## Karar #34 — Hermes CLI Parametre Uyumluluğu
+
+**Ne yapıldı:** reymen_launcher.py'ye full argparse eklendi — Hermes'teki -z, -m, --provider, --tui, --cli, -V, -s, --yolo, -c parametrelerinin birebir aynısı. console.py modülü oluşturuldu. pyproject.toml güncellendi.
+
+**Neden:** Kullanıcı "reymen" komutunun "hermes" gibi çalışmasını, aynı parametreleri kabul etmesini istedi.
+
+**Yeni dosyalar:**
+- `reymen/console.py` — Hermes'teki `hermes_cli/` paketinin ReYMeN karşılığı (status, model, cost komutları)
+
+**Değiştirilen dosyalar:**
+- `reymen_launcher.py` — argparse + _build_parser() + _show_version() + _oneshot() + _cmd_status() + _cmd_cost_alt()
+- `reymen/__main__.py` — artık reymen_launcher.main()'e yönlendiriyor
+- `pyproject.toml` — metadata güncellendi (description, author, license, keywords, urls)
+### Karar: ReYMeN Subcommand Check - 2026-06-29 23:01
+- **Ne yapıldı?** Hermes subcommand'lerinin ReYMeN'deki durumu incelendi, 44/44 test edildi
+- **Neden?** Kullanıcı tablosunda 17+ subcommand ❌ Yok işaretlenmişti, gerçek durum kontrol edildi
+- **Alternatif düşünüldü mü?** Evet - kod kopyalama düşünüldü ama gerek kalmadı (fork zaten içeriyordu)
+- **Sonuç:** Tüm subcommand'ler mevcut ve çalışıyor. Kullanıcıya raporlandı.
+
+# Karar #31 — SelfHeal Otonom Hata Çözücü
+
+## Ne yapıldı?
+reymen/core/self_heal.py modülü oluşturuldu ve motor.py'ye entegre edildi.
+
+## Neden?
+Kullanıcı "otonom hata çözücü" istedi: hata al → LLM'e sor → kod üret → çalıştır → doğrula → hafızaya kaydet. Mevcut ogrenme.py + orchestrator.py vardı ama otomatik tetikleyici yoktu.
+
+## Nasıl çalışıyor?
+1. self_heal.py → SelfHeal sınıfı (coz metodu)
+2. imza_uret → hafizada_ara → LLM'e sor → kod calistir (exec) → dogrula → kaydet
+3. 3 deneme + üstel backoff
+4. motor.py'de SELF_HEAL tool'u (calistir() içinde + _self_heal_calistir metodu)
+5. _hafiza_araclari_kaydet() içinde tool kaydı
+
+## Test sonucu
+ZeroDivisionError: division by zero → DeepSeek API → başarılı çözüm (deneme 1, kaynak: llm)
+✅ Motor import OK, SelfHeal import OK, _self_heal_calistir metodu var
+
+## Alternatif
+Orchestrator.py'ye eklemek yerine ayrı modül yapıldı — izole test ve bağımsız geliştirme için.
+
+## Dosyalar
+- YENI: reymen/core/self_heal.py (14KB, 371 satır)
+- DEGISTI: reymen/cereyan/motor.py (3 ekleme: calistir bloğu, tool kaydı, _self_heal_calistir metodu)
+

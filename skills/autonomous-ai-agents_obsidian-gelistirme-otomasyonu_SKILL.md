@@ -18,7 +18,7 @@ version: 1.0.0
 ve Obsidian geliştirme. 8 saat boyunca her 3 dakikada bir yeni konu araştır ve bilgi
   ekle.
   '
-  Hermes otomasyon döngüsü: Tor Browser üzerinden sürekli yeni görev
+  ReYMeN otomasyon döngüsü: Tor Browser üzerinden sürekli yeni görev
   keşfi ve Obsidian geliştirme. 8 saat boyunca her 3 dakikada bir
   yeni konu araştır ve bilgi ekle.
  |
@@ -33,7 +33,7 @@ Tor Browser üzerinden yeni konular araştırır ve bilgi ekler.
 
 1. `tor-browser-arama` skill'ini yükle.
 2. `obsidian` skill'ini yükle.
-3. Hermes otomasyon döngüsünü başlat:
+3. ReYMeN otomasyon döngüsünü başlat:
    - Her 3 dakikada bir yeni görev al
    - Tor Browser ile yeni konular araştır
    - Bulunan bilgileri Obsidian vault'a ekle

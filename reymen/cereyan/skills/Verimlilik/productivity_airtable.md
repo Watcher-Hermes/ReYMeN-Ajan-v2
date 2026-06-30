@@ -1,26 +1,12 @@
 ---
-
-name: airtable
-description: Airtable REST API via curl. Records CRUD, filters, upserts.
-version: 1.1.0
-author: community
-license: MIT
-platforms: [linux, macos, windows]
-prerequisites:
-  env_vars: [AIRTABLE_API_KEY]
-  commands: [curl]
-metadata:
-  hermes:
-    tags: [Airtable, Productivity, Database, API]
-audience: user
-    homepage: https://airtable.com/developers/web/api/introduction
+name: productivity_airtable
+title: Productivity Airtable
+description: ''
+tags:
+- verimlilik
+category: Verimlilik
+audience: agent
 ---
-
-
-> **Kategori:** productivity
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -31,8 +17,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Airtable
 
@@ -49,9 +33,9 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Common Queries | `references/common-queries.md` |
 | Common Mutations | `references/common-mutations.md` |
 | Pagination | `references/pagination.md` |
-| Typical Hermes Workflow | `references/typical-hermes-workflow.md` |
+| Typical ReYMeN Workflow | `references/typical-ReYMeN-workflow.md` |
 | Pitfalls | `references/pitfalls.md` |
-| Important Notes for Hermes | `references/important-notes-for-hermes.md` |
+| Important Notes for ReYMeN | `references/important-notes-for-ReYMeN.md` |
 
 ## Kullanım
 

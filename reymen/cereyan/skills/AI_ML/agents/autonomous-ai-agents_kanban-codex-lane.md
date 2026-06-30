@@ -1,24 +1,19 @@
 ---
 name: kanban-codex-lane
-title: "Kanban Codex Lane"
-tags: [agents, ai]
-description: Use when a Hermes Kanban worker wants to run Codex CLI as an isolated implementation lane while Hermes keeps ownership of task lifecycle, reconciliation, testing, and handoff.
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-metadata:
-  hermes:
-    tags: [kanban, codex, worktrees, autonomous-agents, prediction-market-bot]
+title: Kanban Codex Lane
+description: Use when a ReYMeN Kanban worker wants to run Codex CLI as an isolated
+  implementation lane while ReYMeN keeps ownership of task lifecycle, reconciliation,
+  testing, and handoff.
+tags:
+- agents
+- ai
+category: agents
 audience: user
-related_skills: [kanban-worker, codex, hermes-agent]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
-| **Ne** | Use when a Hermes Kanban worker wants to run Codex CLI as an isolated implementation lane while Hermes keeps ownership of task lifecycle, reconciliation, testing, and handoff. |
+| **Ne** | Use when a ReYMeN Kanban worker wants to run Codex CLI as an isolated implementation lane while ReYMeN keeps ownership of task lifecycle, reconciliation, testing, and handoff. |
 | **Nerede** | `autonomous-ai-agents\autonomous-ai-agents_kanban-codex-lane.md` |
 | **Ne Zaman** | Ilgili gorev gerektiginde |
 | **Neden** | Autonomous Ai Agents Kanban Codex Lane islemini standartlastirmak icin |
@@ -30,16 +25,14 @@ related_skills: [kanban-worker, codex, hermes-agent]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Use when a Hermes Kanban worker wants to run Codex CLI as an isolated implementation lane while Hermes keeps ownership of task lifecycle, reconciliation, testing, and handoff. |
+| **Ne?** | Use when a ReYMeN Kanban worker wants to run Codex CLI as an isolated implementation lane while ReYMeN keeps ownership of task lifecycle, reconciliation, testing, and handoff. |
 | **Nerede?** | autonomous-ai-agents/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: Otonom ajan gelistiricisi
-Ne: Use when a Hermes Kanban worker wants to run Codex CLI as an isolated implementation lane while Hermes keeps ownership of task lifecycle, reconciliation, testing, and handoff.
+Ne: Use when a ReYMeN Kanban worker wants to run Codex CLI as an isolated implementation lane while ReYMeN keeps ownership of task lifecycle, reconciliation, testing, and handoff.
 Nerede: `autonomous-ai-agents\autonomous-ai-agents_kanban-codex-lane.md`
 Ne Zaman: Ilgili gorev gerektiginde
 Neden: Autonomous Ai Agents Kanban Codex Lane islemini standartlastirmak ve tekrarlanabilir kilmak icin

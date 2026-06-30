@@ -1,17 +1,15 @@
 ---
-tags: [hermes, skill, system, task-manager]
+name: windows-automation_gorev-yoneticisi
+title: Windows Automation Gorev Yoneticisi
+description: ''
+tags:
+- ReYMeN
+- skill
+- system
+- task-manager
 category: windows-automation
 audience: user
-shortcut: Ctrl + Shift + Esc
-function: Görev Yöneticisi (doğrudan)
-created: 2026-06-05
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -22,8 +20,6 @@ created: 2026-06-05
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Klavye Kısayol
 

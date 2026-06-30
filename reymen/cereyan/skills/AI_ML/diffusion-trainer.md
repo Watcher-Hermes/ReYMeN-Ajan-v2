@@ -1,16 +1,15 @@
 ---
 name: diffusion-trainer
-title: "Diffusion Trainer"
-description: "Configure a diffusion training run: schedule, prediction target, sampler, and eval plan."
-version: 1.0.0
-phase: 8
-lesson: 06
-tags: [diffusion, ddpm, training]
+title: Diffusion Trainer
+description: 'Configure a diffusion training run: schedule, prediction target, sampler,
+  and eval plan.'
+tags:
+- diffusion
+- ddpm
+- training
+category: AI_ML
 audience: user
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ML/Veri bilimci |
@@ -31,8 +30,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: ML/Veri bilimci
 Ne: "Configure a diffusion training run: schedule, prediction target, sampler, and eval plan."

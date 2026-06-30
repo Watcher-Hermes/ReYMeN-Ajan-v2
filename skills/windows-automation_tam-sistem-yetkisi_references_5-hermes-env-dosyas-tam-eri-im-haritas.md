@@ -8,7 +8,7 @@
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Windows ajanı |
-| **Ne?** | Windows Automation_Tam Sistem Yetkisi_References_5 Hermes Env Dosyas Tam Eri Im Haritas |
+| **Ne?** | Windows Automation_Tam Sistem Yetkisi_References_5 ReYMeN Env Dosyas Tam Eri Im Haritas |
 | **Nerede?** | Windows/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -16,13 +16,13 @@
 
 ---
 
-## 5. Hermes .env Dosyası Tam Erişim Haritası
+## 5. ReYMeN .env Dosyası Tam Erişim Haritası
 
 | Dosya | Yol |
 |-------|-----|
 | Ana .env | `C:\Users\marko\AppData\Local\hermes\.env` |
 | config.yaml | `C:\Users\marko\AppData\Local\hermes\config.yaml` |
-| hermes-ai .env | `C:\Users\marko\hermes-ai\.env` |
+| ReYMeN-ai .env | `C:\Users\marko\ReYMeN-ai\.env` |
 | Auth | `C:\Users\marko\AppData\Local\hermes\auth.json` |
 
 ### .env'den belirli değeri oku

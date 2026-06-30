@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_install
 description: Install
-title: "Autonomous Ai Agents Hermes Agent References Install"
+title: "Autonomous Ai Agents ReYMeN Agent References Install"
 version: 1.0.0
 ---
 
@@ -16,4 +16,4 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Install
-curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/NousResearch/ReYMeN-agent/main/scripts/install.sh | bash

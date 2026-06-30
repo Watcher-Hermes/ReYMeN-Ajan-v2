@@ -16,12 +16,12 @@
 
 ---
 
-# GitHub Repo Yapısı — Hermes Skills
+# GitHub Repo Yapısı — ReYMeN Skills
 
 ## Genel Yapı
 
 ```
-Watcher-Hermes/hermes-skills/
+Watcher-ReYMeN/ReYMeN-skills/
 ├── skills/                 # Tüm skill'ler burada (1.184 adet, 529 klasör)
 │   ├── ecc/                    # AI/ML workflow'ları, pattern'ler
 │   ├── windows-automation/     # Windows otomasyon script'leri
@@ -42,26 +42,26 @@ Watcher-Hermes/hermes-skills/
 │   ├── android/                # APK modding
 │   ├── apple/                  # iOS/macOS
 │   ├── user-preferences/       # Persona, startup config
-│   ├── hermes-agent/           # Hermes konfigürasyonu
+│   ├── ReYMeN-agent/           # ReYMeN konfigürasyonu
 │   ├── mcp/                    # MCP client
 │   ├── self-improvement/       # Gece rutini
-│   ├── hermes-mouse-klavye/    # Mouse/klavye otomasyonu
+│   ├── ReYMeN-mouse-klavye/    # Mouse/klavye otomasyonu
 │   ├── mouse-klavye-ctypes/    # Ctypes mouse kütüphanesi
 │   ├── AmbientEar/             # Ses kayıt araçları
-│   ├── Hermes Memor/           # Hafıza yönetimi
+│   ├── ReYMeN Memor/           # Hafıza yönetimi
 │   └── LiveTranscriber/        # Canlı transkripsiyon
 ├── AGENTS.md              # Repo rehberi (NemoClaw formatında)
 └── README.md
 ```
 
-## Yedek Yapısı (hermes-full-backup)
+## Yedek Yapısı (ReYMeN-full-backup)
 
 ```
-hermes-full-backup/
+ReYMeN-full-backup/
 ├── skills/                 # Skill'ler (skills/ altında)
-├── hermes-config-template.yaml
-├── hermes-full-restore.ps1
-├── hermes-state-part*.zip
+├── ReYMeN-config-template.yaml
+├── ReYMeN-full-restore.ps1
+├── ReYMeN-state-part*.zip
 ├── gmod_trainer.py
 └── ...
 ```
@@ -69,5 +69,5 @@ hermes-full-backup/
 ## Taşıma Geçmişi
 
 - **14 Haziran 2026:** Tüm skill'ler GitHub reposunda `skills/` altına taşındı (529 klasör, 2.399 dosya, git rename %100)
-- **hermes-full-backup**'ta da aynı structer korunuyor (AmbientEar, Hermes Memor, LiveTranscriber eklendi)
+- **ReYMeN-full-backup**'ta da aynı structer korunuyor (AmbientEar, ReYMeN Memor, LiveTranscriber eklendi)
 - Asıl Hermes okuma yeri: `AppData\Local\hermes\skills\` — burada da skill'ler doğrudan ana dizinde (iç içe skills/skills/ olmaz)

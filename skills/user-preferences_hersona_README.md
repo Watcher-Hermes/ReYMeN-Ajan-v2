@@ -20,7 +20,7 @@ version: 1.0.0
 [**English**](./README.md) · [日本語](./README.ja.md)
 
 > A template collection of **speech style, personality, and vocabulary** attributes for anime characters
-> Designed to be used as a `/hersona` preset in AI agents (Hermes Agent, etc.)
+> Designed to be used as a `/hersona` preset in AI agents (ReYMeN Agent, etc.)
 
 [![License: MIT (code)](https://img.shields.io/badge/License-MIT-lightgrey.svg)](./LICENSE)
 [![Templates: CC0 1.0](https://img.shields.io/badge/Templates-CC0_1.0-lightgrey.svg)](./LICENSE-CC0.txt)
@@ -44,7 +44,7 @@ as a template collection that can be injected into an AI agent's system prompt.
 
 ## Usage
 
-### Use with Hermes Agent
+### Use with ReYMeN Agent
 
 Attach attributes via `/hersona <category>/<name>`:
 

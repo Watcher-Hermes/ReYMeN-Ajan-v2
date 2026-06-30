@@ -30,7 +30,7 @@ related_skills: [tam-sistem-yetkisi, tor-browser-arama]
 ## Overview
 
 Kullanıcı "ekranda ne var", "ekranı gör", "screenshot al ve analiz et" dediğinde
-Hermes şu adımları uygular:
+ReYMeN şu adımları uygular:
 
 1. `mss` ile ekran görüntüsü alır (Python 3.14, `screenshot_v2.py`)
 2. Tesseract OCR ile metne çevirir
@@ -156,7 +156,7 @@ print(resp.json()['choices'][0]['message']['content'])
 
 ## Common Pitfalls
 
-1. **Screenshot icin Python 3.14 kullan** — Hermes venv'inda (Python 3.11) `mss` paketi yok. Daima `C:\Users\marko\AppData\Local\Python\PythonCore-3.14-64\python.exe` kullan.
+1. **Screenshot icin Python 3.14 kullan** — ReYMeN venv'inda (Python 3.11) `mss` paketi yok. Daima `C:\Users\marko\AppData\Local\Python\PythonCore-3.14-64\python.exe` kullan.
 2. **`screenshot_v2.py` oncelikli** — `screenshot.ps1` bazen alt kismi keser. `screenshot_v2.py` (mss, monitors[1]) daha guvenilir.
 3. **OCR karanlik temada karisik okur** — GitHub koyu temasiyla Tesseract bazen bozuk karakter verir. `ImageOps.invert()` dene veya parlaklik artir.
 4. **Crop alani dogru ayarla** — 1920x1200 ekranda Tor Browser icin `(0, 80, 1440, 1120)` ise yaradi. Farkli cozunurlukte ayarla.

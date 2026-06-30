@@ -2,7 +2,7 @@
 **Tarih:** 2026-06-21
 **Kaynak:** gecmis_konusmalar/reymen_20260621_063124__Autonomous Software Agent Introduction.md
 
-## Hermes Agent Mimarisi (Upstream)
+## ReYMeN Agent Mimarisi (Upstream)
 - **Agent core:** `run_agent.py` (tek döngü)
 - **Prompt builder:** `prompt_builder.py`
 - **Model router:** Model Router + Credential Pool
@@ -17,8 +17,8 @@
 - **Model:** Beyin (çok sağlayıcılı fallback)
 - **Tool:** `tool_registry.py` + `motor.py`
 
-## Hermes vs ReYMeN Karşılaştırma Puanları
-| Kategori | Hermes | ReYMeN |
+## ReYMeN vs ReYMeN Karşılaştırma Puanları
+| Kategori | ReYMeN | ReYMeN |
 |----------|:------:|:------:|
 | Çekirdek Mimarisi | 8/10 | 7/10 |
 | ReAct Loop | 9/10 | 8/10 |
@@ -33,7 +33,7 @@
 | **TOPLAM** | **85/110** | **72/110** |
 
 ## ReYMeN'in Güçlü Yanları
-1. Otomatik Öğrenme (beceri kristalleştirme) — Hermes'te yok
+1. Otomatik Öğrenme (beceri kristalleştirme) — ReYMeN'te yok
 2. Hafıza Derinliği — 51K satır, 9 tablo, 3 hafıza türü
 3. 4 Katman Güvenlik — Tirith+Threat+Anayasa+Redact
 4. Reflexion Motoru — Kendi çıktısını analiz edip iyileştirir
@@ -47,8 +47,8 @@
 3. Checkpoints/Rollback — Dosya değişiklikleri geri alınamaz
 4. Test Coverage — 592 vs 25.000
 
-## Delegasyon Karşılaştırması (Hermes 53/60 vs ReYMeN 29/60)
-| Özellik | Hermes | ReYMeN |
+## Delegasyon Karşılaştırması (ReYMeN 53/60 vs ReYMeN 29/60)
+| Özellik | ReYMeN | ReYMeN |
 |---------|--------|--------|
 | Batch/Parallel Tasks | ✅ 3 task aynı anda | ❌ Tek tek sıralı |
 | Background Async | ✅ Sonuç konuşmaya döner | ❌ Thread'de kalır |

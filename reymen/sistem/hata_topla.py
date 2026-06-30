@@ -30,7 +30,7 @@ from typing import Any, Optional
 logger = logging.getLogger(__name__)
 
 # ── Varsayılan yapılandırma ───────────────────────────────────────
-HATA_DIZINI = Path.home() / ".hermes" / "errors"
+HATA_DIZINI = Path.home() / ".ReYMeN" / "errors"
 HATA_DOSYASI = HATA_DIZINI / "errors.jsonl"
 AZAMI_KAYIT = 500  # maksimum kayıt sayısı
 SEVIYE_SIRASI = {
@@ -218,8 +218,10 @@ def _excepthook(tip, deger, tb):
         depo = HataDeposu()
         depo.kaydet(kayit)
         _bildirim_gonder(kayit)
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
     finally:
         if _eski_excepthook:
             _eski_excepthook(tip, deger, tb)

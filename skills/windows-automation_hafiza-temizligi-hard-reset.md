@@ -1,6 +1,6 @@
 ---
 name: hafiza-temizligi-hard-reset
-description: "Hermes Agent cache/session/state temizligi. IKI MOD: 'konusma gecmisimi sil' (sadece state.db + sessions) veya 'hard reset' (cache, history, log + her sey)."
+description: "ReYMeN Agent cache/session/state temizligi. IKI MOD: 'konusma gecmisimi sil' (sadece state.db + sessions) veya 'hard reset' (cache, history, log + her sey)."
 title: "Hafiza Temizligi Hard Reset"
 category: windows-automation
 audience: user
@@ -17,7 +17,7 @@ tags: [automation, windows]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Hermes Agent cache/session/state temizligi. IKI MOD: 'konusma gecmisimi sil' (sadece state.db + sessions) veya 'hard reset' (cache, history, log + her sey). |
+| **Ne?** | ReYMeN Agent cache/session/state temizligi. IKI MOD: 'konusma gecmisimi sil' (sadece state.db + sessions) veya 'hard reset' (cache, history, log + her sey). |
 | **Nerede?** | automation/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -49,7 +49,7 @@ Tetikleyiciler: "hard reset", "hafıza temizliği yap", "her şeyi sil", "cache 
 ## MOD A — Konuşma Geçmişi Sil (LIGHT)
 
 ```powershell
-$h = "$env:LOCALAPPDATA\hermes"
+$h = "$env:LOCALAPPDATA\ReYMeN"
 
 # state.db boyutunu raporla
 if (Test-Path "$h\state.db") {
@@ -87,7 +87,7 @@ Korunan:
 ## MOD B — Hard Reset (FULL)
 
 ```powershell
-$h = "$env:LOCALAPPDATA\hermes"
+$h = "$env:LOCALAPPDATA\ReYMeN"
 
 # state.db boyutu
 if (Test-Path "$h\state.db") {
@@ -146,7 +146,7 @@ Temizlenenler:
 Korunanlar:
   * .env, config.yaml, skills/, memories/, hooks/
   * SOUL.md, auth.json, channel_directory.json
-  * hermes-agent/, obsidian_rag_db/, cron/
+  * ReYMeN-agent/, obsidian_rag_db/, cron/
   * memory_store.db — memory kayitlari
   * gateway_state.json — gateway baglantilari
 ```
@@ -155,7 +155,7 @@ Korunanlar:
 
 ## KORUNANLAR (TÜM MODLARDA)
 `.env`, `config.yaml`, `skills/`, `memories/`, `hooks/`, `scripts/`,
-`cron/`, `SOUL.md`, `hermes-agent/`, `auth.json`, `auth.lock`,
+`cron/`, `SOUL.md`, `ReYMeN-agent/`, `auth.json`, `auth.lock`,
 `channel_directory.json`, `gateway-service/`, `.git/`, `bin/`,
 `obsidian_rag_db/`, `gateway_state.json`, `memory_store.db`,
 `.clean_shutdown`, `.update_check`

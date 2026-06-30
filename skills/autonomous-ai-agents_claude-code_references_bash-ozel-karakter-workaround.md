@@ -101,5 +101,5 @@ print('Gonderildi')
 ## Not
 
 - Python 3.14 yolu: `C:\Users\marko\AppData\Local\Python\PythonCore-3.14-64\python.exe`
-- `pyautogui` ve `ctypes` Python 3.14'te yüklü (Hermes venv'ında değil)
+- `pyautogui` ve `ctypes` Python 3.14'te yüklü (ReYMeN venv'ında değil)
 - Temp dosya yolu: `C:\Users\marko\AppData\Local\Temp\hermes_task.txt`

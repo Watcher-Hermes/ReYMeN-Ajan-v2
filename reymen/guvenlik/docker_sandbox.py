@@ -39,8 +39,10 @@ DOCKER_MEVCUT = False
 try:
     r = subprocess.run(["docker", "--version"], capture_output=True, text=True, timeout=5)
     DOCKER_MEVCUT = r.returncode == 0
-except Exception:
-    pass
+except Exception as _e:
+    __import__("logging").getLogger(__name__).warning(
+        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+    )
 
 # Image mevcut mu?
 IMAGE_MEVCUT = False
@@ -51,8 +53,10 @@ if DOCKER_MEVCUT:
             capture_output=True, text=True, timeout=10
         )
         IMAGE_MEVCUT = bool(r.stdout.strip())
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
 
 # Fallback: subprocess sandbox
 try:

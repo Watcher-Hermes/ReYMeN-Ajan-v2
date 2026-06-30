@@ -8,7 +8,7 @@
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Productivity_Airtable_References_Important Notes For Hermes |
+| **Ne?** | Productivity_Airtable_References_Important Notes For ReYMeN |
 | **Nerede?** | Verimlilik/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -16,7 +16,7 @@
 
 ---
 
-## Important Notes for Hermes
+## Important Notes for ReYMeN
 
 - **Always use the `terminal` tool with `curl`.** Do NOT use `web_extract` (it can't send auth headers) or `browser_navigate` (needs UI auth and is slow).
 - **`AIRTABLE_API_KEY` flows from `~/.hermes/.env` into the subprocess automatically** when this skill is loaded — no need to re-export it before each `curl` call.

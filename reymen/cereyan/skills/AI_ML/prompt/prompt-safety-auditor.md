@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-safety-auditor
+title: Prompt Safety Auditor
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-safety-auditor
 description: Audit any LLM application for safety vulnerabilities -- prompt injection, data leakage, jailbreaks, and output risks
 title: "PRompt Safety Auditor"

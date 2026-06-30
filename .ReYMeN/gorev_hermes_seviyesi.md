@@ -1,7 +1,7 @@
-# GÖREV: ReYMeN'i Hermes Seviyesine Getir
+# GÖREV: ReYMeN'i ReYMeN Seviyesine Getir
 
 ## NE
-ReYMeN ajanının çıktı kalitesini, hata yönetimini ve kullanıcı deneyimini Hermes Agent seviyesine yükselt.
+ReYMeN ajanının çıktı kalitesini, hata yönetimini ve kullanıcı deneyimini ReYMeN Agent seviyesine yükselt.
 
 ## SORUNLAR
 
@@ -33,10 +33,10 @@ maliyet = getattr(self.budget_config, 'provider_maliyeti', 0)
 ```
 Veya `budget_config.py`'ye `provider_maliyeti` property'si ekle.
 
-### 3. Cevap Formatı — Hermes Gibi Olmalı
+### 3. Cevap Formatı — ReYMeN Gibi Olmalı
 **Yer:** `reymen/cereyan/conversation_loop.py` (yanit hazirlama kısmı)
 
-**Sorun:** ReYMeN'in cevapları ham metin, Hermes'teki gibi düzenli değil.
+**Sorun:** ReYMeN'in cevapları ham metin, ReYMeN'teki gibi düzenli değil.
 **Çözüm:** Cevap formatını şu şablona uydur:
 ```
 [emoji] [Başlık]
@@ -87,7 +87,7 @@ logging.getLogger('reymen').setLevel(logging.WARNING)
 ### Adım 3: Cevap Formatlama
 ```python
 def _format_yanit(self, yanit: str) -> str:
-    """Yanıtı Hermes formatına çevir."""
+    """Yanıtı ReYMeN formatına çevir."""
     # Emoji + başlık
     # Tablo formatı
     # Gereksiz satırları temizle
@@ -102,7 +102,7 @@ if web_sonucu:
 ## DOĞRULAMA
 - `python -m pytest tests/ -x --timeout=10 -q` geçiyor mu?
 - Log'lar terminalde görünmüyor mu?
-- Cevap formatı Hermes'teki gibi mi?
+- Cevap formatı ReYMeN'teki gibi mi?
 
 ## YASAKLAR
 - Kod mantığını değiştirme

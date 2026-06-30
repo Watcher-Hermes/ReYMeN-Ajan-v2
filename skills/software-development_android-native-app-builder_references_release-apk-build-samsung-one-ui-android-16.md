@@ -27,7 +27,7 @@ Samsung One UI 8+ (Android 16+) cihazlarda debug APK'ler **Auto Blocker** tarafÄ
   -alias <app_alias> \
   -keyalg RSA -keysize 2048 -validity 10000 \
   -storepass <sifre> -keypass <sifre> \
-  -dname "CN=Hermes, OU=Dev, O=Hermes, L=Unknown, ST=Unknown, C=TR"
+  -dname "CN=ReYMeN, OU=Dev, O=ReYMeN, L=Unknown, ST=Unknown, C=TR"
 ```
 
 JDK yolunu `which keytool` ile bul. Ã–rn: `C:\Program Files\Microsoft\jdk-21.0.11.10-hotspot\bin\keytool`

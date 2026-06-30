@@ -34,10 +34,10 @@ def _write_skill(skills_dir, name):
 @pytest.fixture
 def isolated_profiles(tmp_path, monkeypatch, _isolate_ReYMeN_home):
     """Isolated default home + one named profile, each with its own skills."""
-    from ReYMeN_constants import get_ReYMeN_home
+    from ReYMeN_constants import get_reymen_home
     from ReYMeN_cli import profiles
 
-    default_home = get_ReYMeN_home()
+    default_home = get_reymen_home()
     profiles_root = default_home / "profiles"
     worker_home = profiles_root / "worker_alpha"
     for home in (default_home, worker_home):
@@ -60,10 +60,10 @@ def client(monkeypatch, isolated_profiles):
         pytest.skip("fastapi/starlette not installed")
 
     import ReYMeN_state
-    from ReYMeN_constants import get_ReYMeN_home
+    from ReYMeN_constants import get_reymen_home
     from ReYMeN_cli.web_server import app, _SESSION_HEADER_NAME, _SESSION_TOKEN
 
-    monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_ReYMeN_home() / "state.db")
+    monkeypatch.setattr(ReYMeN_state, "DEFAULT_DB_PATH", get_reymen_home() / "state.db")
     c = TestClient(app)
     c.headers[_SESSION_HEADER_NAME] = _SESSION_TOKEN
     return c

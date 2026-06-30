@@ -1,8 +1,12 @@
-
-> **Kategori:** security
-
 ---
-
+name: security_port-firewall-taramasi
+title: Port Firewall Taramasi
+description: ''
+tags:
+- security
+category: security
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: port-firewall-taramasi
 description: >-
 title: "Port Firewall Taramasi"
@@ -27,7 +28,7 @@ author: marko
 tags: [guvenlik, windows, port, firewall, tarama, nmap]
 category: security
 audience: user
----Açık port tespiti ve firewall analizi — netstat + güvenlik duvarı kontrolü,
+Açık port tespiti ve firewall analizi — netstat + güvenlik duvarı kontrolü,
 
 
 

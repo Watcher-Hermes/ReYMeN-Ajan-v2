@@ -1,8 +1,12 @@
-
-> **Kategori:** autonomous-ai-agents
-
 ---
-
+name: autonomous-ai-agents_dolphin-llama3
+title: Dolphin Llama3
+description: ''
+tags:
+- autonomous-ai-agents
+category: autonomous-ai-agents
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: dolphin-llama3
 description: Dolphin Llama3 yedek modeli — bu modelle reddedilen, düşük öncelikli ya da alternatif akış gerektiren görevleri yönlendir.
 title: "Dolphin LLaMA3"
@@ -32,7 +33,7 @@ category: autonomous-ai-agents---
 - Ana akış: `stepfun/step-3.7-flash:free`
 - Reddit-benzeri görevler için `dolphin-llama3` kullan.
 - Dolphin-llama3 görev bitince tekrar `stepfun/step-3.7-flash:free` (mevcut ana akış) moduna geç.
-- Kullanıcı her görevde ilk adım olarak Hermes skill + Obsidian kontrolü yap.
+- Kullanıcı her görevde ilk adım olarak ReYMeN skill + Obsidian kontrolü yap.
 - Eğer kayıt varsa yeniden yazmadan ilerle.
 - Kullanıcı onayı verdiğinde görev, ilgili skill + Obsidian’a kaydedilir.
 

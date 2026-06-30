@@ -1,8 +1,8 @@
 ---
-name: hermes-venv-fix-windows
-title: "Hermes Venv Fix - Windows .pyd Kilit Hatasi"
-tags: [devops, hermes, venv, windows, update]
-description: "Use when Hermes guncellenemiyor, venv icindeki .pyd dosyalari kilitli hatasi aliniyor. Windows'ta process kill + venv silme cozumu."
+name: ReYMeN-venv-fix-windows
+title: "ReYMeN Venv Fix - Windows .pyd Kilit Hatasi"
+tags: [devops, ReYMeN, venv, windows, update]
+description: "Use when ReYMeN guncellenemiyor, venv icindeki .pyd dosyalari kilitli hatasi aliniyor. Windows'ta process kill + venv silme cozumu."
 version: 1.0.0
 audience: user
 ---
@@ -17,7 +17,7 @@ audience: user
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Windows ajanı |
-| **Ne?** | Use when Hermes guncellenemiyor, venv icindeki .pyd dosyalari kilitli hatasi aliniyor. Windows'ta process kill + venv silme cozumu. |
+| **Ne?** | Use when ReYMeN guncellenemiyor, venv icindeki .pyd dosyalari kilitli hatasi aliniyor. Windows'ta process kill + venv silme cozumu. |
 | **Nerede?** | devops/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -25,13 +25,13 @@ audience: user
 
 ---
 
-# Hermes Venv Fix - Windows
+# ReYMeN Venv Fix - Windows
 
 ## Sorun
-Hermes güncellenemiyor: venv içindeki `.pyd` dosyaları Windows tarafından kilitlenmiş.
+ReYMeN güncellenemiyor: venv içindeki `.pyd` dosyaları Windows tarafından kilitlenmiş.
 
 ## Kök Neden
-Hermes çalışırken installer venv'i silmeye çalışır ama Windows, belleğe yüklenmiş `.pyd` dosyalarını kilitler. Hermes arka planda otomatik yeniden başladığı için kill + delete döngüsü başarısız olur.
+ReYMeN çalışırken installer venv'i silmeye çalışır ama Windows, belleğe yüklenmiş `.pyd` dosyalarını kilitler. ReYMeN arka planda otomatik yeniden başladığı için kill + delete döngüsü başarısız olur.
 
 ## Çözüm Adımları
 
@@ -46,7 +46,7 @@ PowerShell ile:
 # psutil benzeri: process modüllerini tara
 Get-Process | Where-Object { $_.Modules.FileName -like "*.pyd" } | Select-Object Id, ProcessName
 ```
-Elle PID tespit et (genelde `python.exe` veya `hermes.exe`).
+Elle PID tespit et (genelde `python.exe` veya `ReYMeN.exe`).
 
 ### 3. O PID'i öldür
 ```powershell
@@ -65,13 +65,13 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\hermes\hermes-agent\venv"
 `[y/N]` sorusuna `n` yaz.
 
 ## Kritik Uyarı
-Kill ile Delete arasında **2-3 saniyeden fazla beklenmez**. Hermes otomatik yeniden başlarsa kilit geri gelir ve işlem başarısız olur.
+Kill ile Delete arasında **2-3 saniyeden fazla beklenmez**. ReYMeN otomatik yeniden başlarsa kilit geri gelir ve işlem başarısız olur.
 
 Hızlı tek satır PowerShell (tüm adımlar):
 ```powershell
 # package-lock temizle + kilidi bul + öldür + venv sil
 git -C "$env:LOCALAPPDATA\hermes\hermes-agent" checkout -- package-lock.json
-$p = Get-Process | Where-Object { $_.Modules.FileName -like "*hermes*venv*" } | Select-Object -First 1
+$p = Get-Process | Where-Object { $_.Modules.FileName -like "*ReYMeN*venv*" } | Select-Object -First 1
 if ($p) { Stop-Process -Id $p.Id -Force }
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\hermes\hermes-agent\venv"
 ```

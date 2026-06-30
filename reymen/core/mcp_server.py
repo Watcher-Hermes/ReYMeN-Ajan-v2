@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-reymen/core/mcp_server.py — ReYMeN MCP Server Host (Hermes seviyesi).
+reymen/core/mcp_server.py — ReYMeN MCP Server Host (ReYMeN seviyesi).
 
 ReYMeN'i bir MCP (Model Context Protocol) sunucusu olarak yayınlar.
 Diğer MCP client'ları (Claude Code, Cursor, Windsurf vb.) buraya bağlanıp

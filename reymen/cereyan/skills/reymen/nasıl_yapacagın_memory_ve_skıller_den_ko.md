@@ -1,13 +1,15 @@
 ---
 name: nasıl yapacagın memory ve skıller den ko
-description: Web scraping için memory ve skill'leri kontrol ettim. İşte tüm yetenekler:\n\n## 1. Temel Web Arama\n- **WEB_ARA()** aracı ile DuckDuckGo/Brave üzerinden arama yapabilirim\n- Sonuçları WEB_ICERIK ile detaylandırabilirim\n\n## 2. Sayfa İçeriği Çekme\n- **WEB_ICERIK()** aracı ile doğrudan sayfa içeriğ
-created: 2026-06-21
-usage_count: 1
-last_used: 2026-06-21
-
-
+title: Nasıl Yapacagın Memory Ve Skıller Den Ko
+description: Web scraping için memory ve skill'leri kontrol ettim. İşte tüm yetenekler:\n\n##
+  1. Temel Web Arama\n- **WEB_ARA()** aracı ile DuckDuckGo/Brave üzerinden arama yapabilirim\n-
+  Sonuçları WEB_ICERIK ile detaylandırabilirim\n\n## 2. Sayfa İçeriği Çekme\n- **WEB_ICERIK()**
+  aracı ile doğrudan sayfa içeriğ
+tags:
+- reymen
+category: reymen
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ReYMeN ajani |

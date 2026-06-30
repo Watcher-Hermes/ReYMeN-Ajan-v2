@@ -13,7 +13,7 @@
 - İşletim Sistemi: Windows 10 (22H2)
 - Çalışma Dizini: C:\Users\marko\Desktop\Reymen Proje\ReYMeN-Ajan
 - Python: 3.11.15 (venv), 3.14.5 (python3)
-- GitHub: Watcher-Hermes/ReYMeN-Ajan-v2
+- GitHub: Watcher-ReYMeN/ReYMeN-Ajan-v2
 - GitHub hesabı: asdafgf@
 - Provider: deepseek/deepseek-v4-flash (birincil), OpenRouter (fallback)
 - Kali VM: 192.168.56.103
@@ -22,7 +22,7 @@
 ## Öğrenilen Bilgiler
 - Proje kökü: C:\Users\marko\Desktop\Reymen Proje\ReYMeN-Ajan
 - .env dosyaları: AppData/Local/hermes/profiles/<profil>/.env (asla write_file ile yazma, terminal echo ile append yap)
-- ReYMeN özel skill'leri: reymen/cereyan/skills/ altında (proje kökü skills/ Hermes kopyası)
+- ReYMeN özel skill'leri: reymen/cereyan/skills/ altında (proje kökü skills/ ReYMeN kopyası)
 - Cline: GLM 5.2, VS Code extension, Act moduna manuel geçirilir
 - 3 bot profili: default (Pasa_38_bot), reymen (ReYMeN_ReYMeNbot), kiral38 (Kiral38bot)
 - Cevap stili: Tablo + emoji + kısa öz
@@ -37,5 +37,5 @@
 - 7 modül ✅ (cost_tracker, platform_adapter, self_improve, video_tools, a2a, kanban, tui)
 - CLI split ✅ (cli_mixin_commands 9 satır, cli_main 4.857 satır)
 - Hafıza sistemi ✅ (MEMORY.md + USER.md + MemoryManager)
-- GitHub: https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2
+- GitHub: https://github.com/Watcher-ReYMeN/ReYMeN-Ajan-v2
 - Docstring'ler (.py): ⏳ Bekliyor (Cline kredisi bitince)

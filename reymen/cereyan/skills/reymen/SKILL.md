@@ -1,24 +1,13 @@
 ---
 name: reymen-hafiza-oncelikli-akis
-description: ReYMeN hafıza-öncelikli karar ağacı — isle() API'si, 3 iyileştirme, kategori/guven_skoru/gecerlilik sistemi
+title: Skill
+description: ReYMeN hafıza-öncelikli karar ağacı — isle() API'si, 3 iyileştirme, kategori/guven_skoru/gecerlilik
+  sistemi
+tags:
+- reymen
 category: reymen
-version: 2.1.0
-triggers:
-  - hafiza
-  - once hafiza
-  - karar agaci
-  - isle api
-  - memory first
-  - cache bypass
-  - circuit breaker
-  - retry
-  - cron job
-  - guven hesaplama
-  - kademeli guven
-  - kaynak url
+audience: agent
 ---
-
-
 > **Kategori:** reymen-hafiza-oncelikli-akis
 
 ---
@@ -230,4 +219,4 @@ sonuc = isle(
 | 8 | Ctrl+C | Kullanıcı iptali |
 
 ## Referanslar
-- `references/hermes-import-2026-06-21.md` — 125 session → ReYMeN hafıza toplu import detayı
+- `references/ReYMeN-import-2026-06-21.md` — 125 session → ReYMeN hafıza toplu import detayı

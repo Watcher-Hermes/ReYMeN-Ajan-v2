@@ -1,16 +1,17 @@
 ---
 name: task-store-designer
-title: "Task Store Designer"
-description: "Design the task store for a long-running MCP tool: state shape, ttl, durability, cancellation, crash recovery."
-version: 1.0.0
-phase: 13
-lesson: 13
-tags: [mcp, tasks, durable-store, long-running, sep-1686]
+title: Task Store Designer
+description: 'Design the task store for a long-running MCP tool: state shape, ttl,
+  durability, cancellation, crash recovery.'
+tags:
+- mcp
+- tasks
+- durable-store
+- long-running
+- sep-1686
+category: agents
 audience: user
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -31,8 +32,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: AI gelistiricisi
 Ne: "Design the task store for a long-running MCP tool: state shape, ttl, durability, cancellation, crash recovery."

@@ -1,24 +1,12 @@
 ---
-name: ideation
-title: Creative Ideation — Constraint-Driven Project Generation
-description: "Generate project ideas via creative constraints."
-version: 1.0.0
-author: SHL0MS
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [Creative, Ideation, Projects, Brainstorming, Inspiration]
-    category: creative
-audience: user
-    requires_toolsets: []
+name: creative_creative-ideation
+title: Creative Creative Ideation
+description: ''
+tags:
+- yaratici
+category: Yaratici
+audience: agent
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +17,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Creative Ideation
 

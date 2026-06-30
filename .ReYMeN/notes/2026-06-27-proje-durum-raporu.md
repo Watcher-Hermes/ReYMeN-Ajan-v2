@@ -36,7 +36,7 @@
 |--------|-------|
 | Yol | `C:\Users\marko\Desktop\Reymen Proje\hermes_projesi` |
 | Boyut | **5.5 GB** |
-| Icerik | 26,453 .py dosyasi (eski Hermes fork) |
+| Icerik | 26,453 .py dosyasi (eski ReYMeN fork) |
 
 ---
 
@@ -47,9 +47,9 @@
 | # | Is | AI | Sure | Gerekce |
 |---|----|----|------|---------|
 | 1 | Stub class doldur | **Claude Code** | 15 dk | Kucuk net is, CLI kodu |
-| 2 | pytest-cov kur + coverage | **Hermes (ben)** | 10 dk | pip install + tek kosu |
+| 2 | pytest-cov kur + coverage | **ReYMeN (ben)** | 10 dk | pip install + tek kosu |
 | 3 | 322 xfailed temizle | **Claude Code** | 1 saat | Batch bulk fix, prompt verilir |
-| 4 | Ikinci proje konsolidasyonu | **Claude Code** + Hermes | 2-3 gun | Buyuk is, once tarama sonra merge |
+| 4 | Ikinci proje konsolidasyonu | **Claude Code** + ReYMeN | 2-3 gun | Buyuk is, once tarama sonra merge |
 
 ### Oncelik Siralamasi
 

@@ -1,13 +1,12 @@
 ---
-name: deepseek-v4-flash │ 64.6K/1M │ [█░░░░░░░
-description: Merhaba! Ben ReYMeN, otonom bir yazılım ajanıyım. Konuşma tarzımı şöyle ayarlayabilirim:\n\n• **Resmi**: Saygılı ve profesyonel bir dille konuşurum.\n• **Samimi**: Arkadaşça ve rahat bir üslup kullanırım.\n• **Teknik**: Detaylı ve teknik terimlerle açıklama yaparım.\n• **Kısa ve öz**: Doğrudan ve ne
-created: 2026-06-21
-usage_count: 1
-last_used: 2026-06-21
-
-
+name: deepseek-v4-flash__646k1m__
+title: Deepseek V4 Flash  646K1M
+description: ''
+tags:
+- research
+category: Research
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | Arastirmaci |
@@ -28,8 +27,6 @@ last_used: 2026-06-21
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: Arastirmaci
 Ne: Merhaba! Ben ReYMeN, otonom bir yazılım ajanıyım. Konuşma tarzımı şöyle ayarlayabilirim:\n\n• **Resmi**: Saygılı ve profesyonel bir dille konuşurum.\n• **Samimi**: Arkadaşça ve rahat bir üslup kullanı

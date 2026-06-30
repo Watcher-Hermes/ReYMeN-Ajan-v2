@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-tokenizer-analyzer
+title: Prompt Tokenizer Analyzer
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-tokenizer-analyzer
 description: Analyze tokenization efficiency for a given text across different models and tokenizer types
 title: "PRompt Tokenizer Analyzer"

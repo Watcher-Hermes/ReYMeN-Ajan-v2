@@ -1,13 +1,13 @@
 ---
 name: grok-image-to-video
-description: "Animate a local image into a short mp4 video through Hermes Web UI using xAI Grok Imagine."
+description: "Animate a local image into a short mp4 video through ReYMeN Web UI using xAI Grok Imagine."
 title: "Grok Image To Video"
 version: 1.0.0
 author: Ekko
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [xAI, Grok, image-to-video, video-generation, media]
 category: grok-image-to-video
 audience: user
@@ -26,7 +26,7 @@ prerequisites:
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Video ajanı |
-| **Ne?** | Animate a local image into a short mp4 video through Hermes Web UI using xAI Grok Imagine. |
+| **Ne?** | Animate a local image into a short mp4 video through ReYMeN Web UI using xAI Grok Imagine. |
 | **Nerede?** | video/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -38,11 +38,11 @@ prerequisites:
 
 Use this skill when the user wants to animate a local image into a short video with xAI Grok Imagine.
 
-Do not use any built-in image or video generation tool as a fallback. If the Hermes Web UI endpoint returns `401`, `403`, connection failure, or any other error, stop and report the Hermes Web UI error to the user.
+Do not use any built-in image or video generation tool as a fallback. If the ReYMeN Web UI endpoint returns `401`, `403`, connection failure, or any other error, stop and report the ReYMeN Web UI error to the user.
 
 ## Workflow
 
-Call the local Hermes Web UI media endpoint. Pass a local image path; the server will check for xAI credentials, read the file, convert it to a base64 data URI, call xAI, poll until completion, and optionally save the generated mp4.
+Call the local ReYMeN Web UI media endpoint. Pass a local image path; the server will check for xAI credentials, read the file, convert it to a base64 data URI, call xAI, poll until completion, and optionally save the generated mp4.
 
 Endpoint:
 
@@ -50,17 +50,17 @@ Endpoint:
 POST <Hermes Web UI base URL>/api/hermes/media/grok-image-to-video
 ```
 
-Resolve the Hermes Web UI base URL in this order:
+Resolve the ReYMeN Web UI base URL in this order:
 
 1. `HERMES_WEB_UI_URL` environment variable, if set.
 2. `http://127.0.0.1:${PORT}`, if `PORT` is set.
 3. `http://127.0.0.1:8648` for local development.
 
-When Hermes Web UI is running from the provided Docker Compose setup, the default external URL is `http://127.0.0.1:6060`.
+When ReYMeN Web UI is running from the provided Docker Compose setup, the default external URL is `http://127.0.0.1:6060`.
 
 Authentication:
 
-The endpoint is protected by Hermes Web UI auth. Always send the Hermes Web UI server bearer token. This token is accepted only by Hermes Web UI media generation endpoints for agent skills; it is not a general Web UI login token.
+The endpoint is protected by ReYMeN Web UI auth. Always send the ReYMeN Web UI server bearer token. This token is accepted only by ReYMeN Web UI media generation endpoints for agent skills; it is not a general Web UI login token.
 
 Resolve the token in this order:
 
@@ -71,17 +71,17 @@ Resolve the token in this order:
 
 Profile selection:
 
-Use the current Hermes profile from the run instructions by sending `X-Hermes-Profile`.
+Use the current ReYMeN profile from the run instructions by sending `X-ReYMeN-Profile`.
 
-If the run instructions include `[Current Hermes profile: <name>]`, include:
+If the run instructions include `[Current ReYMeN profile: <name>]`, include:
 
 ```bash
--H "X-Hermes-Profile: <name>"
+-H "X-ReYMeN-Profile: <name>"
 ```
 
-Replace `<name>` with the exact profile name from the run instructions. Never send a placeholder value such as `<name>` or `<current-hermes-profile>`.
+Replace `<name>` with the exact profile name from the run instructions. Never send a placeholder value such as `<name>` or `<current-ReYMeN-profile>`.
 
-If no current profile is provided, omit the header and let the server fall back to the current Hermes active profile.
+If no current profile is provided, omit the header and let the server fall back to the current ReYMeN active profile.
 
 Required JSON fields:
 
@@ -104,8 +104,8 @@ fi
 if [ -z "$TOKEN" ] && [ -n "${HERMES_WEBUI_STATE_DIR:-}" ] && [ -f "$HERMES_WEBUI_STATE_DIR/.token" ]; then
   TOKEN="$(cat "$HERMES_WEBUI_STATE_DIR/.token")"
 fi
-if [ -z "$TOKEN" ] && [ -f "$HOME/.hermes-web-ui/.token" ]; then
-  TOKEN="$(cat "$HOME/.hermes-web-ui/.token")"
+if [ -z "$TOKEN" ] && [ -f "$HOME/.ReYMeN-web-ui/.token" ]; then
+  TOKEN="$(cat "$HOME/.ReYMeN-web-ui/.token")"
 fi
 if [ -z "$TOKEN" ]; then
   echo "Missing Hermes Web UI token. Check AUTH_TOKEN, HERMES_WEB_UI_HOME, HERMES_WEBUI_STATE_DIR, or ~/.hermes-web-ui/.token." >&2
@@ -129,6 +129,6 @@ curl -sS -X POST "$BASE_URL/api/hermes/media/grok-image-to-video" \
   }'
 ```
 
-If the response has `code: "missing_xai_token"`, tell the user to set `XAI_API_KEY` or complete xAI OAuth login in Hermes Web UI before retrying.
+If the response has `code: "missing_xai_token"`, tell the user to set `XAI_API_KEY` or complete xAI OAuth login in ReYMeN Web UI before retrying.
 
 Return the generated `output_path`.

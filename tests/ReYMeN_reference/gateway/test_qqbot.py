@@ -1658,7 +1658,7 @@ class TestDefaultInteractionDispatch:
         ReYMeN_home = tmp_path / "ReYMeN_home"
         ReYMeN_home.mkdir()
         monkeypatch.setattr(
-            "ReYMeN_constants.get_ReYMeN_home",
+            "ReYMeN_constants.get_reymen_home",
             lambda: ReYMeN_home,
         )
 
@@ -1679,7 +1679,7 @@ class TestDefaultInteractionDispatch:
         ReYMeN_home = tmp_path / "ReYMeN_home"
         ReYMeN_home.mkdir()
         monkeypatch.setattr(
-            "ReYMeN_constants.get_ReYMeN_home",
+            "ReYMeN_constants.get_reymen_home",
             lambda: ReYMeN_home,
         )
         from gateway.platforms.qqbot.keyboards import parse_interaction_event

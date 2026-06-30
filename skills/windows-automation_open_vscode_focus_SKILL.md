@@ -49,4 +49,4 @@ category: windows-automation---
 - `launch_claude_alt.vbs`
 
 ## Kaynak
-- Hermes Agent
+- ReYMeN Agent

@@ -1,7 +1,7 @@
 ---
 name: software-development_reymen-proje-benchmark_references_hermes-reference-test-workflow
-description: Hermes Reference Test Workflow
-title: "Software Development Reymen Proje Benchmark References Hermes Reference Test Workflow"
+description: ReYMeN Reference Test Workflow
+title: "Software Development Reymen Proje Benchmark References ReYMeN Reference Test Workflow"
 version: 1.0.0
 ---
 
@@ -9,15 +9,15 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Reference Test Workflow |
+| **Ne** | ReYMeN Reference Test Workflow |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes Reference Test Workflow
+# ReYMeN Reference Test Workflow
 
-Reymen projesindeki `tests/hermes_reference/` klasörü, Hermes Agent'tan kopyalanmış **1.555 test dosyası** içerir. Bunların çoğu Hermes'e özel modüller import ettiği için Reymen'de collection error verir.
+Reymen projesindeki `tests/hermes_reference/` klasörü, ReYMeN Agent'tan kopyalanmış **1.555 test dosyası** içerir. Bunların çoğu ReYMeN'e özel modüller import ettiği için Reymen'de collection error verir.
 
 ## Doğru Test Stratejisi
 
@@ -49,7 +49,7 @@ python -m pytest tests/hermes_reference/ --collect-only 2>&1 | grep "^ERROR " | 
 ```
 
 Kategori dağılımı:
-- `hermes_cli/`: 131 dosya (Hermes CLI komutları)
+- `hermes_cli/`: 131 dosya (ReYMeN CLI komutları)
 - `agent/`: 45 dosya (transport, lsp, compressor)
 - `cli/`: 35 dosya (TUI, status, skin)
 - `plugins/`: 32 dosya (memory, image_gen, google_meet)
@@ -66,7 +66,7 @@ Collection error'ları JUnit XML'de `classname` boş gelir — kategori bazlı g
 
 | Tür | Örnek | Çözüm |
 |-----|-------|-------|
-| ImportError | `cannot import name 'COMMAND_REGISTRY'` | Hermes modülü Reymen'de yok |
+| ImportError | `cannot import name 'COMMAND_REGISTRY'` | ReYMeN modülü Reymen'de yok |
 | ModuleNotFoundError | `No module named 'gateway.platforms.base'` | Paket tamamen eksik |
 | AttributeError | `format_runtime_provider_error` | Reymen'de farklı isimlendirme |
 

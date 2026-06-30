@@ -18,10 +18,10 @@
 
 ---
 name: repos-ve-mcp-koprusu
-description: Hermes-Obsidian MCP bridge kurulumu ve 6 yeni GitHub reposu. obsidian-pkm MCP server config, repo klonlama ve yapılandırma adımları.
+description: ReYMeN-Obsidian MCP bridge kurulumu ve 6 yeni GitHub reposu. obsidian-pkm MCP server config, repo klonlama ve yapılandırma adımları.
 title: "Repos Ve MCP Koprusu"
 version: 1.0.0
-author: hermes
+author: ReYMeN
 platforms: [windows]
 
 audience: maintainer
@@ -47,7 +47,7 @@ git clone https://github.com/takeshy/obsidian-llm-hub.git
 git clone https://github.com/AdrianV101/obsidian-pkm-plugin.git
 ```
 
-## Obsidian MCP Server (Hermes <-> Obsidian)
+## Obsidian MCP Server (ReYMeN <-> Obsidian)
 
 **Paket:** `obsidian-pkm` (npm) - 20 MCP tool
 **Config yolu:** `C:\Users\marko\AppData\Local\hermes\config.yaml`

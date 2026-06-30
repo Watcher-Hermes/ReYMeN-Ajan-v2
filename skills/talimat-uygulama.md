@@ -30,7 +30,7 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 | Soru | Cevap |
 |:-----|:------|
-| **Kim?** | Hermes ajanı. Kullanıcı video URL'si paylaştığında. |
+| **Kim?** | ReYMeN ajanı. Kullanıcı video URL'si paylaştığında. |
 | **Ne?** | Video'daki talimatları/adımları çıkarır, terminal ile uygular, decisions.md'ye kaydeder. |
 | **Nerede?** | Terminal + `.ReYMeN/decisions.md` |
 | **Ne Zaman?** | Kullanıcı YouTube/video URL'si paylaştığında. |

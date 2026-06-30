@@ -1,8 +1,12 @@
-
-> **Kategori:** ecc
-
 ---
-
+name: ecc_team-agent-orchestration
+title: Ecc Team Agent Orchestration
+description: ''
+tags:
+- ecc
+category: ecc
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: team-agent-orchestration
 description: "Run team-based orchestration for agent squads using work items, ownership, agent Kanban, merge gates, and control pane handoffs."
 title: "Team Agent Orchestration"
@@ -33,7 +34,7 @@ Use this skill when agents are being managed like a team rather than a single as
 ## When To Activate
 
 - The task spans multiple agents, tools, harnesses, branches, or worktrees.
-- The user mentions team orchestration, agent Kanban, squad, conductor, control pane, manager, desktop app, Zellij, tmux, Hermes, Devin, Codex, Claude Code, or multi-agent work.
+- The user mentions team orchestration, agent Kanban, squad, conductor, control pane, manager, desktop app, Zellij, tmux, ReYMeN, Devin, Codex, Claude Code, or multi-agent work.
 - A project needs shared workflow state across people and agents.
 - Existing agent fan-out is producing output but not mergeable product.
 

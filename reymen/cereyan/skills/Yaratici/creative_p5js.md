@@ -1,23 +1,13 @@
 ---
-
 name: p5js
-title: "P5Js"
-tags: [creative, design]
-description: "p5.js sketches: gen art, shaders, interactive, 3D."
-version: 1.0.0
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [creative-coding, generative-art, p5js, canvas, interactive, visualization, webgl, shaders, animation]
+title: P5Js
+description: 'p5.js sketches: gen art, shaders, interactive, 3D.'
+tags:
+- creative
+- design
+category: Yaratici
 audience: user
-related_skills: [ascii-video, manim-video, excalidraw]
 ---
-
-
-> **Kategori:** creative
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -28,8 +18,6 @@ related_skills: [ascii-video, manim-video, excalidraw]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # P5Js
 

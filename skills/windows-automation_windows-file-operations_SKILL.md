@@ -3,11 +3,11 @@ name: windows-file-operations
 description: Windows'ta dosya oluşturma, açma, düzenleme işlemleri için temel kurallar. Uzantı kullanımı, Notepad entegrasyonu ve GUI dosya yönetimi.
 title: "Windows File Operations"
 version: 1.0.0
-author: hermes
+author: ReYMeN
 license: MIT
 platforms: [windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [windows, dosya, file, notepad, txt, uzanti, extension]
 category: windows-automation
 audience: user

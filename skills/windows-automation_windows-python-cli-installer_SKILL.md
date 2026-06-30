@@ -112,5 +112,5 @@ Kurulum yolu, kullanım komutu, notlar.
 ## References
 
 - `references/project-bootstrapping.md` — Çok modüllü Python projelerini Windows'ta çalışır hale getirme (pip install, .env, .bat launcher, filelock, fallback zinciri, ReAct tekrar koruması, multi-service orchestrator)
-- `references/re-hermes-setup.md` — RE-Hermes v2 kurulum detayları
+- `references/re-ReYMeN-setup.md` — RE-ReYMeN v2 kurulum detayları
 - `references/apkmirror-download.md` — APKMirror'dan Python ile APK indirme

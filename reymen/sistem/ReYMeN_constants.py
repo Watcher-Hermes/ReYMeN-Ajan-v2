@@ -34,7 +34,7 @@ def reset_ReYMeN_home_override(token: Token) -> None:
     _ReYMeN_HOME_OVERRIDE.reset(token)
 
 
-def get_ReYMeN_home_override() -> str | None:
+def get_reymen_home_override() -> str | None:
     """Return the active context-local ReYMeN home override, if any."""
     override = _ReYMeN_HOME_OVERRIDE.get()
     if override is _UNSET or not override:
@@ -42,7 +42,7 @@ def get_ReYMeN_home_override() -> str | None:
     return str(override)
 
 
-def get_ReYMeN_home() -> Path:
+def get_reymen_home() -> Path:
     """Return the ReYMeN home directory (default: ~/.ReYMeN).
 
     Reads ReYMeN_HOME env var, falls back to ~/.ReYMeN.
@@ -58,7 +58,7 @@ def get_ReYMeN_home() -> Path:
     template in ``ReYMeN_cli/gateway.py`` and the kanban dispatcher in
     ``ReYMeN_cli/kanban_db.py``).  See https://github.com/NousResearch/ReYMeN-agent/issues/18594.
     """
-    override = get_ReYMeN_home_override()
+    override = get_reymen_home_override()
     if override:
         return Path(override)
 
@@ -71,7 +71,7 @@ def get_ReYMeN_home() -> Path:
     global _profile_fallback_warned
     if not _profile_fallback_warned:
         try:
-            # Inline the default-root resolution from get_default_ReYMeN_root()
+            # Inline the default-root resolution from get_default_reymen_root()
             # to stay import-safe (this function is called from module scope
             # in 30+ files; we cannot afford to trigger logging setup here).
             active_path = (Path.home() / ".ReYMeN" / "active_profile")
@@ -103,7 +103,7 @@ def get_ReYMeN_home() -> Path:
     return Path.home() / ".ReYMeN"
 
 
-def get_default_ReYMeN_root() -> Path:
+def get_default_reymen_root() -> Path:
     """Return the root ReYMeN directory for profile-level operations.
 
     In standard deployments this is ``~/.ReYMeN``.
@@ -173,7 +173,7 @@ def get_optional_skills_dir(default: Path | None = None) -> Path:
         return packaged
     if default is not None:
         return default
-    return get_ReYMeN_home() / "optional-skills"
+    return get_reymen_home() / "optional-skills"
 
 
 def get_optional_mcps_dir(default: Path | None = None) -> Path:
@@ -192,7 +192,7 @@ def get_optional_mcps_dir(default: Path | None = None) -> Path:
         return packaged
     if default is not None:
         return default
-    return get_ReYMeN_home() / "optional-mcps"
+    return get_reymen_home() / "optional-mcps"
 
 
 def get_bundled_skills_dir(default: Path | None = None) -> Path:
@@ -212,10 +212,10 @@ def get_bundled_skills_dir(default: Path | None = None) -> Path:
         return packaged
     if default is not None:
         return default
-    return get_ReYMeN_home() / "skills"
+    return get_reymen_home() / "skills"
 
 
-def get_ReYMeN_dir(new_subpath: str, old_name: str) -> Path:
+def get_reymen_dir(new_subpath: str, old_name: str) -> Path:
     """Resolve a ReYMeN subdirectory with backward compatibility.
 
     New installs get the consolidated layout (e.g. ``cache/images``).
@@ -229,14 +229,14 @@ def get_ReYMeN_dir(new_subpath: str, old_name: str) -> Path:
     Returns:
         Absolute ``Path`` — old location if it exists on disk, otherwise the new one.
     """
-    home = get_ReYMeN_home()
+    home = get_reymen_home()
     old_path = home / old_name
     if old_path.exists():
         return old_path
     return home / new_subpath
 
 
-def display_ReYMeN_home() -> str:
+def display_reymen_home() -> str:
     """Return a user-friendly display string for the current ReYMeN_HOME.
 
     Uses ``~/`` shorthand for readability::
@@ -247,9 +247,9 @@ def display_ReYMeN_home() -> str:
 
     Use this in **user-facing** print/log messages instead of hardcoding
     ``~/.ReYMeN``.  For code that needs a real ``Path``, use
-    :func:`get_ReYMeN_home` instead.
+    :func:`get_reymen_home` instead.
     """
-    home = get_ReYMeN_home()
+    home = get_reymen_home()
     try:
         return "~/" + str(home.relative_to(Path.home()))
     except ValueError:
@@ -293,7 +293,7 @@ def get_subprocess_home() -> str | None:
     Activation is directory-based: if the ``home/`` subdirectory doesn't
     exist, returns ``None`` and behavior is unchanged.
     """
-    ReYMeN_home = get_ReYMeN_home_override() or os.getenv("ReYMeN_HOME")
+    ReYMeN_home = get_reymen_home_override() or os.getenv("ReYMeN_HOME")
     if not ReYMeN_home:
         return None
     profile_home = os.path.join(ReYMeN_home, "home")
@@ -391,21 +391,21 @@ def is_container() -> bool:
 def get_config_path() -> Path:
     """Return the path to ``config.yaml`` under ReYMeN_HOME.
 
-    Replaces the ``get_ReYMeN_home() / "config.yaml"`` pattern repeated
+    Replaces the ``get_reymen_home() / "config.yaml"`` pattern repeated
     in 7+ files (skill_utils.py, ReYMeN_logging.py, ReYMeN_time.py, etc.).
     """
-    return get_ReYMeN_home() / "config.yaml"
+    return get_reymen_home() / "config.yaml"
 
 
 def get_skills_dir() -> Path:
     """Return the path to the skills directory under ReYMeN_HOME."""
-    return get_ReYMeN_home() / "skills"
+    return get_reymen_home() / "skills"
 
 
 
 def get_env_path() -> Path:
     """Return the path to the ``.env`` file under ReYMeN_HOME."""
-    return get_ReYMeN_home() / ".env"
+    return get_reymen_home() / ".env"
 
 
 # ─── Network Preferences ─────────────────────────────────────────────────────

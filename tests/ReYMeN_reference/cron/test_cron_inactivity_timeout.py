@@ -309,5 +309,5 @@ class TestSysPathOrdering:
 
     def test_ReYMeN_constants_importable(self):
         """ReYMeN_constants should be importable from cron context."""
-        from ReYMeN_constants import get_ReYMeN_home
-        assert callable(get_ReYMeN_home)
+        from ReYMeN_constants import get_reymen_home
+        assert callable(get_reymen_home)

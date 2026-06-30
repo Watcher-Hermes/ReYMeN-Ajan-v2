@@ -2,7 +2,7 @@
 """
 continuous_learning.py — Session'lar Arası Sürekli Öğrenme Sistemi.
 
-Hermes'teki "Session'lar arasi ogrenme" ozelliginin ReYMeN implementasyonu.
+ReYMeN'teki "Session'lar arasi ogrenme" ozelliginin ReYMeN implementasyonu.
 
 Ne yapar:
 - Her session sonunda ogrenilenleri kaydeder (beceri, hata, cozum)
@@ -113,8 +113,10 @@ class ContinuousLearning:
                     "hata_sayisi": r[4], "ogrenme_sayisi": r[5],
                     "ozet": r[6] or "",
                 })
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
     def session_baslat(self, session_id: str) -> None:
         self._aktif_session_id = session_id
@@ -131,8 +133,10 @@ class ContinuousLearning:
         if self._closed_loop:
             try:
                 self._closed_loop.tum_becerileri_indeksle()
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
         logger.info("[CL] Session basladi: %s", session_id)
 
     def ogrenmeyi_kaydet(self, tip: str, icerik: str, kaynak: str = "",
@@ -161,8 +165,10 @@ class ContinuousLearning:
             if tip == "beceri" and self._closed_loop:
                 try:
                     self._closed_loop.beceri_kristallestir(ad=f"cl_{kayit_id}", aciklama=icerik[:200], icerik=icerik)
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
             return kayit_id
         except Exception as e:
             logger.warning("[CL] Kayit hatasi: %s", e)
@@ -178,8 +184,10 @@ class ContinuousLearning:
                        (bitis, json.dumps(ozet), session_id))
             con.commit()
             con.close()
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
         self._aktif_session_id = None
         return ozet
 
@@ -202,8 +210,10 @@ class ContinuousLearning:
                     parcalar.append(f"\n## Ilgili Beceriler ({len(b['beceriler'])})")
                     for bec in b["beceriler"][:3]:
                         parcalar.append(f"- {bec.get('ad','?')}: {bec.get('aciklama','')[:100]}")
-            except Exception:
-                pass
+            except Exception as _e:
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )
         metin = "\n".join(parcalar)
         if len(metin) > max_char:
             metin = metin[:max_char] + "\n...(kesildi)"

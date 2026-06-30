@@ -1,11 +1,12 @@
 ---
 name: test-skill
+title: Free Skill
 description: A test skill
-version: 1.0.0
-
-
+tags:
+- ai_ml
+category: AI_ML
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ML/Veri bilimci |

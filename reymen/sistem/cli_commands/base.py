@@ -145,7 +145,10 @@ class MixinCommands:
 
         # Warn about low context lengths (common with local servers). Keep
         # this tied to the runtime guard so guidance cannot drift again.
-        from agent.model_metadata import MINIMUM_CONTEXT_LENGTH
+        try:
+            from agent.model_metadata import MINIMUM_CONTEXT_LENGTH
+        except ImportError:
+            MINIMUM_CONTEXT_LENGTH = 4096
         if ctx_len and ctx_len < MINIMUM_CONTEXT_LENGTH:
             self._console_print()
             self._console_print(
@@ -364,7 +367,7 @@ class MixinCommands:
         """
         from reymen.reymen_cli.clipboard import save_clipboard_image
 
-        img_dir = get_ReYMeN_home() / "images"
+        img_dir = get_reymen_home() / "images"
         self._image_counter += 1
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         img_path = img_dir / f"clip_{ts}_{self._image_counter}.png"

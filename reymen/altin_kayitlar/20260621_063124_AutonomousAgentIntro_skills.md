@@ -2,7 +2,7 @@
 **Tarih:** 2026-06-21
 **Kaynak:** gecmis_konusmalar/reymen_20260621_063124__Autonomous Software Agent Introduction.md
 
-## 1. Hermes vs ReYMeN Karşılaştırma Standardı
+## 1. ReYMeN vs ReYMeN Karşılaştırma Standardı
 - **Tanım:** Kullanıcı değerlendirmesinden çıkarılan 4 kural: güncellik, derinlik, objektiflik, bağlam
 - **Skill adı:** `reymen-karsilastirma-standardi`
 - **Puanlama kuralı:** Verdiğin puandan başlangıçta -3 çıkar, atlanan/yanlış başına -1 ekle

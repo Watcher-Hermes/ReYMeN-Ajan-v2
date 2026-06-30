@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_win-subprocess-shell-fix
+title: Windows Automation Win Subprocess Shell Fix
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: win-subprocess-shell-fix
 description: Windows'ta komutları subprocess.run ile çalıştırırken tam yol ve shell=True kullanma kuralı.
 title: "Win Subprocess Shell Fix"

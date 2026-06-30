@@ -1,8 +1,12 @@
-
-> **Kategori:** nlp
-
 ---
-
+name: text-encoder-picker
+title: Text Encoder Picker
+description: ''
+tags:
+- nlp
+category: nlp
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: text-encoder-picker
 description: Pick a text encoder architecture for a given constraint set.
 title: "Text Encoder Picker"

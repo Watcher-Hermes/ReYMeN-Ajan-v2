@@ -23,7 +23,7 @@ Run Streamlit apps (`streamlit run`) on this Windows setup. Covers the full pipe
 
 ## Prerequisites
 
-- Streamlit installed in the **hermes-ai** venv (`C:\Users\marko\hermes-ai\venv\Lib\site-packages`)
+- Streamlit installed in the **ReYMeN-ai** venv (`C:\Users\marko\ReYMeN-ai\venv\Lib\site-packages`)
 - Correct Python: use full venv path, not `python` or `python3`
 
 ## Workflow
@@ -31,19 +31,19 @@ Run Streamlit apps (`streamlit run`) on this Windows setup. Covers the full pipe
 ### 1. Install / verify
 
 ```bash
-C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m pip install streamlit
+C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m pip install streamlit
 ```
 
 Verify:
 ```bash
-C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m pip show streamlit
+C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m pip show streamlit
 ```
 
 ### 2. Run the app
 
 **Required flags:**
 ```bash
-C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m streamlit run app.py \
+C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m streamlit run app.py \
   --server.port=8501 \
   --server.headless=true
 ```
@@ -61,8 +61,8 @@ Since streamlit runs as a long-lived server, always use `background=true` and `n
 
 ```bash
 # Start (from hermes terminal)
-cd /c/Users/marko/hermes-ai && \
-  C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m streamlit run app.py \
+cd /c/Users/marko/ReYMeN-ai && \
+  C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m streamlit run app.py \
     --server.port=8501 --server.headless=true
 
 # Verify
@@ -100,7 +100,7 @@ Streamlit asks for an email address on first launch and waits for stdin input.
 Running `python -m streamlit run ...` calls the *system* python (3.11.15 or 3.14.5), NOT the venv python where streamlit is installed.
 **Fix:** Always use the full venv path:
 ```
-C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m streamlit run ...
+C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m streamlit run ...
 ```
 
 ### Git-bash venv activation fails
@@ -136,7 +136,7 @@ New users often try `localhost:8080` (the classic dev-server port) but Streamlit
 
 ### Repos with their own venv + launcher scripts
 Some GitHub repos (e.g. MoneyPrinterTurbo) ship with their own `.venv/` and a `webui.bat` / `webui.sh` wrapper instead of requiring direct `streamlit run`. These wrappers handle:
-- Finding the repo's own Python/venv (not the hermes-ai venv)
+- Finding the repo's own Python/venv (not the ReYMeN-ai venv)
 - Port allocation (sometimes auto-selects 8501-8599 if 8501 is busy)
 - Setting PYTHONPATH to the repo root
 

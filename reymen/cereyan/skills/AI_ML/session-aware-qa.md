@@ -2,9 +2,11 @@
 name: session-aware-qa
 title: Session Bilinçli QA
 description: Soruları önce geçmiş session'larda kontrol et, aynıysa tekrar cevaplama.
+tags:
+- ai_ml
 category: kullanici
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ML/Veri bilimci |

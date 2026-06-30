@@ -140,7 +140,7 @@ class TestGetSubprocessHome:
         monkeypatch.setenv("ReYMeN_HOME", str(root))
 
         from ReYMeN_constants import (
-            get_ReYMeN_home,
+            get_reymen_home,
             reset_ReYMeN_home_override,
             set_ReYMeN_home_override,
         )
@@ -152,7 +152,7 @@ class TestGetSubprocessHome:
         def read_from_other_thread():
             ready.set()
             release.wait(timeout=5)
-            seen.append(str(get_ReYMeN_home()))
+            seen.append(str(get_reymen_home()))
 
         thread = threading.Thread(target=read_from_other_thread)
         thread.start()
@@ -160,7 +160,7 @@ class TestGetSubprocessHome:
 
         token = set_ReYMeN_home_override(profile)
         try:
-            assert get_ReYMeN_home() == profile
+            assert get_reymen_home() == profile
             release.set()
             thread.join(timeout=5)
         finally:
@@ -168,7 +168,7 @@ class TestGetSubprocessHome:
             release.set()
 
         assert seen == [str(root)]
-        assert get_ReYMeN_home() == root
+        assert get_reymen_home() == root
 
 
 # ---------------------------------------------------------------------------

@@ -44,7 +44,7 @@ def ReYMeN_home(tmp_path, monkeypatch):
     home = tmp_path / ".ReYMeN"
     home.mkdir()
     monkeypatch.setenv("ReYMeN_HOME", str(home))
-    # Some modules cache get_ReYMeN_home; clear if needed.
+    # Some modules cache get_reymen_home; clear if needed.
     import ReYMeN_constants
     if hasattr(ReYMeN_constants, "_ReYMeN_HOME_CACHE"):
         ReYMeN_constants._ReYMeN_HOME_CACHE = None  # type: ignore[attr-defined]

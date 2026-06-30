@@ -16,7 +16,7 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-implementation lane while Hermes keeps ownership of task lifecycle, reconciliation,
+implementation lane while ReYMeN keeps ownership of task lifecycle, reconciliation,
   testing, and handoff.
 # Kanban Codex Lane
 

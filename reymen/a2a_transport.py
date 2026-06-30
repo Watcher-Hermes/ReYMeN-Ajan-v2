@@ -167,8 +167,10 @@ def _create_app(broker):
                         await websocket.send_json(msg.as_dict())
 
             await asyncio.gather(_dinle(), _gonder())
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
         finally:
             broker.unregister(agent_id)
             logger.info("[A2A-WS] %s ayrildi", agent_id)
@@ -362,8 +364,10 @@ class NetworkBroker:
         self._agent_uzak.pop(agent_id, None)
         try:
             self.broker.unregister(agent_id)
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
     def send(self, message) -> None:
         """Mesaj gonder — otomatik yerel/uzak yonlendirme."""

@@ -1,9 +1,9 @@
-"""Tests for get_ReYMeN_home() profile-mode fallback warning.
+"""Tests for get_reymen_home() profile-mode fallback warning.
 
 Regression test for https://github.com/NousResearch/ReYMeN-agent/issues/18594.
 
 When ReYMeN_HOME is unset but an active_profile file indicates a non-default
-profile is active, get_ReYMeN_home() should:
+profile is active, get_reymen_home() should:
   1. STILL return ~/.ReYMeN (raising would brick 30+ module-level callers)
   2. Emit a loud one-shot warning to stderr so operators can diagnose
      cross-profile data contamination after the fact.
@@ -34,7 +34,7 @@ class TestGetReYMeNHomeProfileWarning:
         self, fresh_constants, tmp_path, capsys
     ):
         """Classic mode: no active_profile file → silent, returns ~/.ReYMeN."""
-        result = fresh_constants.get_ReYMeN_home()
+        result = fresh_constants.get_reymen_home()
         assert result == tmp_path / ".ReYMeN"
         assert "ReYMeN_HOME fallback" not in capsys.readouterr().err
 
@@ -45,7 +45,7 @@ class TestGetReYMeNHomeProfileWarning:
         ReYMeN_dir = tmp_path / ".ReYMeN"
         ReYMeN_dir.mkdir()
         (ReYMeN_dir / "active_profile").write_text("default\n")
-        result = fresh_constants.get_ReYMeN_home()
+        result = fresh_constants.get_reymen_home()
         assert result == tmp_path / ".ReYMeN"
         assert "ReYMeN_HOME fallback" not in capsys.readouterr().err
 
@@ -57,7 +57,7 @@ class TestGetReYMeNHomeProfileWarning:
         ReYMeN_dir.mkdir()
         (ReYMeN_dir / "active_profile").write_text("coder\n")
 
-        result = fresh_constants.get_ReYMeN_home()
+        result = fresh_constants.get_reymen_home()
 
         # 1. Still returns the fallback — no import-time crash
         assert result == tmp_path / ".ReYMeN"
@@ -68,8 +68,8 @@ class TestGetReYMeNHomeProfileWarning:
         assert "#18594" in err
 
         # 3. One-shot: second and third calls don't re-warn
-        fresh_constants.get_ReYMeN_home()
-        fresh_constants.get_ReYMeN_home()
+        fresh_constants.get_reymen_home()
+        fresh_constants.get_reymen_home()
         err2 = capsys.readouterr().err
         assert "ReYMeN_HOME fallback" not in err2
 
@@ -82,7 +82,7 @@ class TestGetReYMeNHomeProfileWarning:
         (tmp_path / ".ReYMeN" / "active_profile").write_text("coder\n")
         monkeypatch.setenv("ReYMeN_HOME", str(profile_dir))
 
-        result = fresh_constants.get_ReYMeN_home()
+        result = fresh_constants.get_reymen_home()
 
         assert result == profile_dir
         assert "ReYMeN_HOME fallback" not in capsys.readouterr().err
@@ -96,7 +96,7 @@ class TestGetReYMeNHomeProfileWarning:
         # Write bytes that aren't valid utf-8
         (ReYMeN_dir / "active_profile").write_bytes(b"\xff\xfe\x00\x00")
 
-        result = fresh_constants.get_ReYMeN_home()
+        result = fresh_constants.get_reymen_home()
 
         assert result == tmp_path / ".ReYMeN"
         # Shouldn't crash; shouldn't warn either (can't tell what profile was intended)
@@ -110,7 +110,7 @@ class TestGetReYMeNHomeProfileWarning:
         ReYMeN_dir.mkdir()
         (ReYMeN_dir / "active_profile").write_text("")
 
-        result = fresh_constants.get_ReYMeN_home()
+        result = fresh_constants.get_reymen_home()
 
         assert result == tmp_path / ".ReYMeN"
         assert "ReYMeN_HOME fallback" not in capsys.readouterr().err

@@ -1,21 +1,12 @@
 ---
 name: godmode
-title: "Godmode"
-tags: [security]
-description: "Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN."
-version: 1.0.0
-author: Hermes Agent + Teknium
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [jailbreak, red-teaming, G0DM0D3, Parseltongue, GODMODE, uncensoring, safety-bypass, prompt-engineering, L1B3RT4S]
+title: Godmode
+description: 'Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN.'
+tags:
+- security
+category: Guvenlik
 audience: user
-related_skills: [obliteratus]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | Guvenlik arastirmacisi |
@@ -36,8 +27,6 @@ related_skills: [obliteratus]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: Guvenlik arastirmacisi
 Ne: "Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN."

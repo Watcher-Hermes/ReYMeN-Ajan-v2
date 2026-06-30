@@ -37,7 +37,14 @@ def _metrik_topla() -> dict:
     try:
         sys.path.insert(0, str(ROOT))
         from reymen.self_improve import report as si_report
-        return si_report()
+        raw = si_report()
+        # Map Turkish keys → English keys for cron template
+        return {
+            "total_steps": raw.get("toplam_adim", 0),
+            "avg_score": raw.get("ortalama_skor", 0.0),
+            "pass_rate": raw.get("gecme_orani", 0.0),
+            "low_quality_steps": raw.get("dusuk_kalite", 0),
+        }
     except Exception as e:
         log.warning("Metrik toplama hatasi: %s", e)
         return {"total_steps": 0, "avg_score": 0.0, "pass_rate": 0.0, "low_quality_steps": 0}

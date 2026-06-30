@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """iteration_budget.py — ReYMeN thread-safe iterasyon butcesi.
 
-Hermes Agent IterationBudget pattern'i ile ayni.
+ReYMeN Agent IterationBudget pattern'i ile ayni.
 Her ajan (ana veya alt) kendi butcesine sahiptir.
 Thread-safe consume/refund sayaci.
 

@@ -1,12 +1,15 @@
 ---
 name: tor tarayıcıyı ac ekranda
-description: Tor Browser sisteminizde kurulu görünmüyor. Tor Browser'ı kullanmak için:\n\n1. https://www.torproject.org/download/ adresinden indirin\n2. İndirilen dosyayı çalıştırıp kurulumu tamamlayın\n3. Kurulumdan sonra 'start-tor-browser' veya 'Tor Browser' komutuyla çalıştırabilirsiniz\n\nAlternatif olarak,
-created: 2026-06-21
-usage_count: 1
-last_used: 2026-06-21
+title: Tor Tarayıcıyı Ac Ekranda
+description: Tor Browser sisteminizde kurulu görünmüyor. Tor Browser'ı kullanmak için:\n\n1.
+  https://www.torproject.org/download/ adresinden indirin\n2. İndirilen dosyayı çalıştırıp
+  kurulumu tamamlayın\n3. Kurulumdan sonra 'start-tor-browser' veya 'Tor Browser'
+  komutuyla çalıştırabilirsiniz\n\nAlternatif olarak,
+tags:
+- guvenlik
+category: Guvenlik
+audience: agent
 ---
-
-
 > **Kategori:** tor
 
 ---

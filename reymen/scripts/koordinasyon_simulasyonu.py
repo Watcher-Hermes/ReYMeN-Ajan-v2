@@ -46,7 +46,7 @@ acik_portlar = [
     ("445", "SMB", "Windows File Sharing"),
     ("5040", "WSD", "WSDAPI"),
     ("7680", "WUDO", "Windows Update Delivery Opt"),
-    ("1234", "DEBUG", "Muhtemelen Hermes Gateway debug portu"),
+    ("1234", "DEBUG", "Muhtemelen ReYMeN Gateway debug portu"),
     ("5939", "TV", "TeamViewer"),
     ("49664-49684", "EPHEMERAL", "Windows Ephemeral Portlar"),
 ]

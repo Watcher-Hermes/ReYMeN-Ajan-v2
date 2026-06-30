@@ -1,4 +1,4 @@
-"""📊 Kanban Board + Worker — Hermes Kanban Worker seviyesinde.
+"""📊 Kanban Board + Worker — ReYMeN Kanban Worker seviyesinde.
 
 Görevleri kanban panosunda yönetir. Kartlar kolonlar arasında taşınabilir,
 önceliklendirilebilir, deadline takibi yapılabilir. Worker lifecycle
@@ -147,7 +147,7 @@ class RunRecord:
 # ---------------------------------------------------------------------------
 @dataclass
 class Card:
-    """Kanban kartı — Hermes worker lifecycle destekli."""
+    """Kanban kartı — ReYMeN worker lifecycle destekli."""
 
     title: str
     id: str = field(default_factory=lambda: uuid.uuid4().hex[:12])
@@ -291,7 +291,7 @@ class Column:
 # Board
 # ---------------------------------------------------------------------------
 class Board:
-    """Kanban panosu — Hermes worker lifecycle destekli.
+    """Kanban panosu — ReYMeN worker lifecycle destekli.
 
     Varsayılan kolonlar:
         backlog → todo → ready → in_progress → blocked → review → done
@@ -992,8 +992,10 @@ def kanban_worker_baslat(interval: int = 300) -> str:
                                     card.status = "done"
                                     card.add_comment("Worker", "Auto-completed by worker")
                     board.save()
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
                 time.sleep(interval)
         t = threading.Thread(target=_loop, daemon=True)
         t.start()

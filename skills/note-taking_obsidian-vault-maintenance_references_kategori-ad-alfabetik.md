@@ -49,10 +49,10 @@ for md in all_md:
 Frontmatter'a `tags:` alanı ekle. Etiket politikası:
 
 ```
-#hermes            → kök Hermes notları
-#hermes #skill     → skill notları
-#hermes #knowledge → Knowledge/ altı (taşınmış notlar)
-#hermes #skill #kategori → kategori bazlı
+#ReYMeN            → kök ReYMeN notları
+#ReYMeN #skill     → skill notları
+#ReYMeN #knowledge → Knowledge/ altı (taşınmış notlar)
+#ReYMeN #skill #kategori → kategori bazlı
 ```
 
 Dotayı direkt `write_file` ile baştan yaz. `patch` riskli çünkü önceki içerik tutarsız olabilir.

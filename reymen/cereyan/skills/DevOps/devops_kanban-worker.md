@@ -1,36 +1,27 @@
 ---
-
 name: kanban-worker
-title: "Kanban Worker"
-tags: [automation, devops, system]
-description: Pitfalls, examples, and edge cases for Hermes Kanban workers. The lifecycle itself is auto-injected into every worker's system prompt as KANBAN_GUIDANCE (from agent/prompt_builder.py); this skill is what you load when you want deeper detail on specific scenarios.
-version: 2.0.0
-platforms: [linux, macos, windows]
-environments: [kanban]
-metadata:
-  hermes:
-    tags: [kanban, multi-agent, collaboration, workflow, pitfalls]
+title: Kanban Worker
+description: Pitfalls, examples, and edge cases for ReYMeN Kanban workers. The lifecycle
+  itself is auto-injected into every worker's system prompt as KANBAN_GUIDANCE (from
+  agent/prompt_builder.py); this skill is what you load when you want deeper detail
+  on specific scenarios.
+tags:
+- automation
+- devops
+- system
+category: DevOps
 audience: maintainer
-related_skills: [kanban-orchestrator]
 ---
-
-
-> **Kategori:** devops
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Pitfalls, examples, and edge cases for Hermes Kanban workers. The lifecycle itself is auto-injected into every worker's system prompt as KANBAN_GUIDANCE (from agent/prompt_builder.py); this skill is what you load when you want deeper detail on specific scenarios. |
+| **Ne?** | Pitfalls, examples, and edge cases for ReYMeN Kanban workers. The lifecycle itself is auto-injected into every worker's system prompt as KANBAN_GUIDANCE (from agent/prompt_builder.py); this skill is what you load when you want deeper detail on specific scenarios. |
 | **Nerede?** | devops/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Kanban Worker
 

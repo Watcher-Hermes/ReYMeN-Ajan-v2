@@ -1085,7 +1085,9 @@ def handle_function_call(
                 from tools.file_tools import notify_other_tool_call
                 notify_other_tool_call(task_id or "default")
             except Exception as _e:
-                pass  # file_tools may not be loaded yet
+                __import__("logging").getLogger(__name__).warning(
+                    "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                )  # file_tools may not be loaded yet
 
         # Measure tool dispatch latency so post_tool_call and
         # transform_tool_result hooks can observe per-tool duration.

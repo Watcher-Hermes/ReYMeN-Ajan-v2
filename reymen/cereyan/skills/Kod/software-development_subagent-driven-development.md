@@ -1,25 +1,13 @@
 ---
-
 name: subagent-driven-development
-title: "Subagent Driven Development"
-tags: [coding, development]
-description: "Execute plans via delegate_task subagents (2-stage review)."
-version: 1.1.0
-author: Hermes Agent (adapted from obra/superpowers)
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [delegation, subagent, implementation, workflow, parallel]
+title: Subagent Driven Development
+description: Execute plans via delegate_task subagents (2-stage review).
+tags:
+- coding
+- development
+category: Kod
 audience: contributor
-related_skills: [writing-plans, requesting-code-review, test-driven-development]
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -30,8 +18,6 @@ related_skills: [writing-plans, requesting-code-review, test-driven-development]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Subagent Driven Development
 

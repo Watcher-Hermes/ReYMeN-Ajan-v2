@@ -4,11 +4,11 @@ title: "Ocr And Documents"
 tags: [productivity]
 description: "Extract text from PDFs/scans (pymupdf, marker-pdf)."
 version: 2.3.0
-author: Hermes Agent
+author: ReYMeN Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [PDF, Documents, Research, Arxiv, Text-Extraction, OCR]
 audience: user
 related_skills: [powerpoint]

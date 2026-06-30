@@ -2,7 +2,7 @@
 """
 delegasyon.py — Subagent + Görev Ayrıştırma Sistemi (P2)
 
-ReYMeN için gelişmiş delegasyon sistemi. Hermes legacy'deki delegate_task_tool
+ReYMeN için gelişmiş delegasyon sistemi. ReYMeN legacy'deki delegate_task_tool
 ve delegate_tool pattern'lerini referans alır, ReYMeN yapısına uyarlanmıştır.
 
 Desteklenen Modlar:
@@ -347,8 +347,10 @@ class SubAgentCalistirici:
             if proc is not None:
                 try:
                     proc.kill()
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
             agent.status = "error"
             agent.error = f"Zaman aşımı ({timeout}s)"
             agent.result = agent.error
@@ -798,7 +800,7 @@ class DelegasyonSistemi:
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# Singleton
+# Singletons
 # ═══════════════════════════════════════════════════════════════════════════
 
 _DELEGASYON_SISTEMI: Optional[DelegasyonSistemi] = None
@@ -813,6 +815,153 @@ def sistem_al() -> DelegasyonSistemi:
             if _DELEGASYON_SISTEMI is None:
                 _DELEGASYON_SISTEMI = DelegasyonSistemi()
     return _DELEGASYON_SISTEMI
+
+
+# ── Conversation Loop Entegrasyonu (Hermes-level subagent) ─────────────
+
+
+def subagent_olarak_calistir(
+    goal: str,
+    context: str = "",
+    toolsets: Optional[List[str]] = None,
+    timeout: int = ZAMAN_ASIMI,
+    motor_nesnesi: Any = None,
+) -> Dict[str, Any]:
+    """Subagent'i conversation_loop seviyesinde calistirir.
+
+    Hermes'teki ``delegate_task`` gibi calisir:
+    - SubAgent olustur
+    - Konusma dongusu ile calistir (motor+beyin uzerinden)
+    - Sonucu dict olarak dondur
+    - Hata durumunda try/except ile yakala
+
+    Args:
+        goal: Subagent hedefi
+        context: Baglam bilgisi
+        toolsets: Kullanilacak tool set'leri
+        timeout: Zaman asimi (saniye)
+        motor_nesnesi: Motor nesnesi (varsa, tool erisimi icin)
+
+    Returns:
+        {
+            "basarili": bool,
+            "yanit": str,
+            "sure": float,
+            "hata": str (opsiyonel),
+            "agent_id": str,
+        }
+    """
+    sistem = sistem_al()
+    agent = SubAgent(
+        id=str(uuid.uuid4()),
+        goal=goal,
+        context=context,
+        toolsets=toolsets or [],
+        mod=MOD_TEK,
+    )
+    with _sistem_lock:
+        sistem._agentler[agent.id] = agent
+
+    baslangic = time.time()
+    logger.info("[SubagentConversation] Basliyor: %s", goal[:60])
+
+    try:
+        # Conversation loop uzerinden calistir (motor+beyin ile)
+        # Motor varsa tool'lari kaydet
+        from reymen.cereyan.conversation_loop import ConversationLoop
+
+        loop = ConversationLoop(motor=motor_nesnesi)
+        sonuc = loop.run_conversation(hedef=goal, baglam={"context": context})
+
+        agent.completed_at = time.time()
+        agent.sure = round(agent.completed_at - baslangic, 2)
+
+        if sonuc.get("basarili"):
+            agent.status = "success"
+            agent.result = sonuc.get("yanit") or sonuc.get("mesaj", "")
+            logger.info(
+                "[SubagentConversation] Basarili: %s (%.1fs)",
+                goal[:40], agent.sure,
+            )
+            return {
+                "basarili": True,
+                "yanit": agent.result,
+                "sure": agent.sure,
+                "agent_id": agent.id,
+            }
+        else:
+            agent.status = "error"
+            agent.error = sonuc.get("hata", "Bilinmeyen hata")
+            agent.result = agent.error
+            logger.warning(
+                "[SubagentConversation] Hata: %s", agent.error[:100],
+            )
+            return {
+                "basarili": False,
+                "yanit": agent.error,
+                "sure": agent.sure,
+                "hata": agent.error,
+                "agent_id": agent.id,
+            }
+
+    except Exception as e:
+        agent.completed_at = time.time()
+        agent.sure = round(agent.completed_at - baslangic, 2)
+        agent.status = "error"
+        agent.error = f"Subagent conversation hatasi: {type(e).__name__}: {e}"
+        agent.result = agent.error
+        logger.error("[SubagentConversation] Istisna: %s", agent.error)
+        return {
+            "basarili": False,
+            "yanit": agent.error,
+            "sure": agent.sure,
+            "hata": agent.error,
+            "agent_id": agent.id,
+        }
+
+
+def paralel_subagent_calistir(
+    gorevler: List[Dict[str, Any]],
+    timeout: int = ZAMAN_ASIMI,
+    motor_nesnesi: Any = None,
+) -> List[Dict[str, Any]]:
+    """Birden cok subagent'i paralel conversation loop ile calistirir.
+
+    Args:
+        gorevler: [{"goal": ..., "context": ...}, ...]
+        timeout: Her subagent icin zaman asimi
+        motor_nesnesi: Motor nesnesi (opsiyonel)
+
+    Returns:
+        [{"basarili": bool, "yanit": str, ...}, ...]
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    sonuclar = []
+    with ThreadPoolExecutor(max_workers=MAKS_PARALEL) as havuz:
+        futures = {}
+        for g in gorevler[:MAKS_PARALEL]:
+            future = havuz.submit(
+                subagent_olarak_calistir,
+                goal=g.get("goal", ""),
+                context=g.get("context", ""),
+                timeout=timeout,
+                motor_nesnesi=motor_nesnesi,
+            )
+            futures[future] = g.get("goal", "?")
+
+        for future in as_completed(futures):
+            try:
+                sonuc = future.result(timeout=timeout)
+                sonuclar.append(sonuc)
+            except Exception as e:
+                sonuclar.append({
+                    "basarili": False,
+                    "yanit": f"Paralel hata: {e}",
+                    "hata": str(e),
+                })
+
+    return sonuclar
 
 
 # ═══════════════════════════════════════════════════════════════════════════

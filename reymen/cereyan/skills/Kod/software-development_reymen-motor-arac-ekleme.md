@@ -1,9 +1,13 @@
 ---
 name: reymen-motor-arac-ekleme
-description: ReYMeN motor.py'ye yeni arac/tool modulu ekleme pattern'i. Graceful degradation, TOOLSET kaydi, calistir() erken kontrol, sistem_talimati.py guncellemesi.
+title: Software Development Reymen Motor Arac Ekleme
+description: ReYMeN motor.py'ye yeni arac/tool modulu ekleme pattern'i. Graceful degradation,
+  TOOLSET kaydi, calistir() erken kontrol, sistem_talimati.py guncellemesi.
+tags:
+- kod
+category: Kod
+audience: agent
 ---
-
-
 > **Kategori:** software-development
 
 ---
@@ -61,7 +65,7 @@ if arac in ("ARAC1", "ARAC2", ...):
         return f"[Hata]: yeni_modul: {e}"
 ```
 
-**ONEMLI:** Erken kontrol ToolRegistry ve PluginManager'dan ONCE eklenmeli, yoksa Hermes araclari intercept eder.
+**ONEMLI:** Erken kontrol ToolRegistry ve PluginManager'dan ONCE eklenmeli, yoksa ReYMeN araclari intercept eder.
 
 ## Adim 3: sistem_talimati.py'yi Guncelle
 

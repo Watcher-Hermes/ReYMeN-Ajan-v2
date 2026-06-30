@@ -106,7 +106,7 @@ def tool_error(message, success=False):
     return json.dumps({"success": success, "error": message}, ensure_ascii=False)
 ```
 
-**Common Hermes-compatibility shims:**
+**Common ReYMeN-compatibility shims:**
 | Function | Module | Purpose |
 |----------|--------|---------|
 | `tool_error()` | `tools.registry` | Error response format |
@@ -131,7 +131,7 @@ Not all broken modules matter. Check if main.py actually reaches them:
 grep -n "^from\|^import" main.py
 ```
 
-**Rule:** Hermes `agent/` internal modules with deep chains are often dead code in forks. Only fix what the app entry point actually imports.
+**Rule:** ReYMeN `agent/` internal modules with deep chains are often dead code in forks. Only fix what the app entry point actually imports.
 
 ## Verification
 

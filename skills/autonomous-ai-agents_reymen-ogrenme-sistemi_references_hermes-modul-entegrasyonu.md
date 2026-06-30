@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_reymen-ogrenme-sistemi_references_hermes-modul-entegrasyonu
-description: Reymen'de Hermes Modül Entegrasyonu
-title: "Autonomous Ai Agents Reymen Ogrenme Sistemi References Hermes Modul Entegrasyonu"
+description: Reymen'de ReYMeN Modül Entegrasyonu
+title: "Autonomous Ai Agents Reymen Ogrenme Sistemi References ReYMeN Modul Entegrasyonu"
 version: 1.0.0
 ---
 
@@ -9,19 +9,19 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Reymen'de Hermes Modül Entegrasyonu |
+| **Ne** | Reymen'de ReYMeN Modül Entegrasyonu |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Reymen'de Hermes Modül Entegrasyonu
+# Reymen'de ReYMeN Modül Entegrasyonu
 
-Hermes'ten kopyalanan modülleri Reymen'in main.py'sine ekleme ve import zincirlerini düzeltme.
+ReYMeN'ten kopyalanan modülleri Reymen'in main.py'sine ekleme ve import zincirlerini düzeltme.
 
 ## Entegrasyon Patterni
 
-Her Hermes modülü main.py'ye **try/except ile opsiyonel** olarak eklenir:
+Her ReYMeN modülü main.py'ye **try/except ile opsiyonel** olarak eklenir:
 
 ```python
 try:
@@ -42,7 +42,7 @@ Bu pattern:
 
 ## Import Zinciri Düzeltme
 
-Hermes modülleri import edilirken genellikle ReYMeN_cli.* modüllerine bağımlıdır.
+ReYMeN modülleri import edilirken genellikle ReYMeN_cli.* modüllerine bağımlıdır.
 
 ### ReYMeN_cli/config.py - Eklenecek fonksiyonlar
 
@@ -138,10 +138,10 @@ python -m pytest test_learning_loop.py -v
 
 ## Bilinen Kırık Modüller
 
-Su moduller Hermes ic bagimliliklari nedeniyle calismaz - Reymen tarafindan kullanilmaz:
+Su moduller ReYMeN ic bagimliliklari nedeniyle calismaz - Reymen tarafindan kullanilmaz:
 - agent.agent_init, agent.context_compressor, agent.conversation_loop, agent.credential_pool
 
 ## Ana Kural
 
-Hermes modullerini main.py'ye try/except ile ekle, asla zorunlu import yapma.
+ReYMeN modullerini main.py'ye try/except ile ekle, asla zorunlu import yapma.
 Graceful degrade = Reymen dusmez, sadece o ozellik calismaz.

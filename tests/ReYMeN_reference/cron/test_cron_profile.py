@@ -165,7 +165,7 @@ class TestRunJobProfileContext:
 
         class FakeAgent:
             def __init__(self, **kwargs):
-                from ReYMeN_constants import get_ReYMeN_home
+                from ReYMeN_constants import get_reymen_home
 
                 observed["env_home_during_init"] = os.environ.get("ReYMeN_HOME")
                 observed["profile_env_only_during_init"] = os.environ.get(
@@ -174,12 +174,12 @@ class TestRunJobProfileContext:
                 observed["profile_env_shared_during_init"] = os.environ.get(
                     "ReYMeN_PROFILE_TEST_SHARED"
                 )
-                observed["ReYMeN_home_during_init"] = str(get_ReYMeN_home())
-                observed["scheduler_home_during_init"] = str(sched._get_ReYMeN_home())
+                observed["ReYMeN_home_during_init"] = str(get_reymen_home())
+                observed["scheduler_home_during_init"] = str(sched._get_reymen_home())
                 observed["skip_context_files"] = kwargs.get("skip_context_files")
 
             def run_conversation(self, *_a, **_kw):
-                from ReYMeN_constants import get_ReYMeN_home
+                from ReYMeN_constants import get_reymen_home
 
                 observed["env_home_during_run"] = os.environ.get("ReYMeN_HOME")
                 observed["profile_env_only_during_run"] = os.environ.get(
@@ -188,8 +188,8 @@ class TestRunJobProfileContext:
                 observed["profile_env_shared_during_run"] = os.environ.get(
                     "ReYMeN_PROFILE_TEST_SHARED"
                 )
-                observed["ReYMeN_home_during_run"] = str(get_ReYMeN_home())
-                observed["scheduler_home_during_run"] = str(sched._get_ReYMeN_home())
+                observed["ReYMeN_home_during_run"] = str(get_reymen_home())
+                observed["scheduler_home_during_run"] = str(sched._get_reymen_home())
                 return {"final_response": "done", "messages": []}
 
             def get_activity_summary(self):
@@ -258,7 +258,7 @@ class TestRunJobProfileContext:
         assert observed["scheduler_home_during_run"] == str(profile_home.resolve())
         assert observed["skip_context_files"] is True
         assert os.environ["ReYMeN_HOME"] == str(root)
-        assert sched._get_ReYMeN_home() == root
+        assert sched._get_reymen_home() == root
 
     def test_profile_dotenv_environment_is_restored(
         self, isolated_cron_profile_home, monkeypatch
@@ -300,7 +300,7 @@ class TestRunJobProfileContext:
         assert "ReYMeN_PROFILE_TEST_ONLY" not in os.environ
         assert os.environ["ReYMeN_CRON_TIMEOUT"] == "0"
         assert os.environ["ReYMeN_HOME"] == str(root)
-        assert sched._get_ReYMeN_home() == root
+        assert sched._get_reymen_home() == root
 
     def test_no_agent_profile_uses_profile_scripts_dir_and_restores_env(
         self, isolated_cron_profile_home, monkeypatch
@@ -329,7 +329,7 @@ class TestRunJobProfileContext:
         assert success is True, error
         assert response.strip() == str(profile_home.resolve())
         assert os.environ["ReYMeN_HOME"] == str(root)
-        assert sched._get_ReYMeN_home() == root
+        assert sched._get_reymen_home() == root
 
     def test_run_job_without_profile_leaves_ReYMeN_home_untouched(
         self, isolated_cron_profile_home, monkeypatch
@@ -404,7 +404,7 @@ class TestTickProfilePartition:
         assert os.environ.get("TERMINAL_CWD", "") != fake_workdir, \
             "TERMINAL_CWD should be restored after job"
         assert os.environ["ReYMeN_HOME"] == str(root)
-        assert sched._get_ReYMeN_home() == root
+        assert sched._get_reymen_home() == root
 
     def test_profile_jobs_run_sequentially(self, isolated_cron_profile_home, monkeypatch):
         import threading

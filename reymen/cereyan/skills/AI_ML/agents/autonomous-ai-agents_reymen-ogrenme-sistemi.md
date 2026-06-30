@@ -1,14 +1,17 @@
 ---
 name: reymen-ogrenme-sistemi
-description: R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan geçişi + hata raporlama + Hermes modül entegrasyonu — tüm Reymen bileşenleri
-
-
+title: Reymen Ogrenme Sistemi
+description: R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan geçişi + hata
+  raporlama + ReYMeN modül entegrasyonu — tüm Reymen bileşenleri
+tags:
+- agents
+category: agents
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
-| **Ne** | R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan geçişi + hata raporlama + Hermes modül entegrasyonu — tüm Reymen bileşenleri |
+| **Ne** | R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan geçişi + hata raporlama + ReYMeN modül entegrasyonu — tüm Reymen bileşenleri |
 | **Nerede** | `autonomous-ai-agents\autonomous-ai-agents_reymen-ogrenme-sistemi.md` |
 | **Ne Zaman** | Ilgili gorev gerektiginde |
 | **Neden** | Autonomous Ai Agents Reymen Ogrenme Sistemi islemini standartlastirmak icin |
@@ -20,7 +23,7 @@ description: R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan 
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan geçişi + hata raporlama + Hermes modül entegrasyonu — tüm Reymen bileşenleri |
+| **Ne?** | R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan geçişi + hata raporlama + ReYMeN modül entegrasyonu — tüm Reymen bileşenleri |
 | **Nerede?** | autonomous-ai-agents/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -29,7 +32,7 @@ description: R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan 
 ---
 
 Kim: Otonom ajan gelistiricisi
-Ne: R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan geçişi + hata raporlama + Hermes modül entegrasyonu — tüm Reymen bileşenleri
+Ne: R>eYMeN ajanı için kapalı öğrenme döngüsü + stratejik ajan geçişi + hata raporlama + ReYMeN modül entegrasyonu — tüm Reymen bileşenleri
 Nerede: `autonomous-ai-agents\autonomous-ai-agents_reymen-ogrenme-sistemi.md`
 Ne Zaman: Ilgili gorev gerektiginde
 Neden: Autonomous Ai Agents Reymen Ogrenme Sistemi islemini standartlastirmak ve tekrarlanabilir kilmak icin
@@ -47,7 +50,7 @@ Referans: `references/read-only-teardown-pattern.md`
 Referans: `references/auto-index-performans-pattern.md`
 Referans: `references/main-entegrasyon-pattern.md`
 Referans: `references/kod-analiz-yontemi.md`
-Referans: `references/hermes-modul-entegrasyonu.md`\nReferans: `references/stratejik-ajan-secici.md`\nReferans: `references/cokus-raporlayici.md`\n\n## Aşama 0: Veri Taşıma (Migration)
+Referans: `references/ReYMeN-modul-entegrasyonu.md`\nReferans: `references/stratejik-ajan-secici.md`\nReferans: `references/cokus-raporlayici.md`\n\n## Aşama 0: Veri Taşıma (Migration)
 
 **Dosya:** `migrate_skills.py` (tek seferlik bağımsız betik)
 
@@ -63,7 +66,7 @@ Mevcut skills/ dizinindeki frontmatter içermeyen .md dosyalarına YAML frontmat
 
 ### ÖNEMLİ: FTS5 Güncellemesi
 
-Migration betiği sadece dosyayı güncellemekle kalmaz, `.hermes/skills_index.db` içindeki FTS5 kaydını da UPDATE eder. Bu olmazsa FTS5 aramaları eski (frontmatter'sız) içeriği tarar.
+Migration betiği sadece dosyayı güncellemekle kalmaz, `.ReYMeN/skills_index.db` içindeki FTS5 kaydını da UPDATE eder. Bu olmazsa FTS5 aramaları eski (frontmatter'sız) içeriği tarar.
 
 ### Kullanım
 

@@ -1,5 +1,5 @@
 ---
-tags: [hermes, skill, system, power]
+tags: [ReYMeN, skill, system, power]
 category: windows-automation
 audience: user
 shortcut: Win + X + U + R

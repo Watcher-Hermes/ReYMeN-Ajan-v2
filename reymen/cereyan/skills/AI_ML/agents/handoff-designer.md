@@ -1,16 +1,16 @@
 ---
 name: handoff-designer
-title: "Handoff Designer"
-description: "Design a handoff topology for a Swarm/Agents-SDK-style system: which agents exist, which handoffs they can call, what context transfers."
-version: 1.0.0
-phase: 16
-lesson: 11
-tags: [multi-agent, swarm, handoff, openai-agents-sdk]
+title: Handoff Designer
+description: 'Design a handoff topology for a Swarm/Agents-SDK-style system: which
+  agents exist, which handoffs they can call, what context transfers.'
+tags:
+- multi-agent
+- swarm
+- handoff
+- openai-agents-sdk
+category: agents
 audience: user
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -31,8 +31,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: AI gelistiricisi
 Ne: "Design a handoff topology for a Swarm/Agents-SDK-style system: which agents exist, which handoffs they can call, what context transfers."

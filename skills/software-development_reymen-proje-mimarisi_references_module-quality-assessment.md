@@ -89,7 +89,7 @@ Her yeni modül şunları içermelidir:
 6. `logging` entegrasyonu
 7. Min 60 satır (tercihen 150+)
 8. `if __name__ == "__main__"` test bloğu
-9. NOT Hermes kopyası — R>eYMeN kimliğine uygun
+9. NOT ReYMeN kopyası — R>eYMeN kimliğine uygun
 
 ## Stub Geliştirme Batch Çalışma Deseni
 
@@ -131,7 +131,7 @@ karsilastir → tespit et → skorla → düzelt → test et → tekrar (karsila
 ```
 
 Her turda:
-1. Kategori bazında Hermes vs R>eYMeN karşılaştırması yap
+1. Kategori bazında ReYMeN vs R>eYMeN karşılaştırması yap
 2. Eksik/stub modülleri tespit et (60 satır altı)
 3. Skorla (puan < 50 = zayıf)
 4. Çözüm üretim fonksiyonlarına öncelik ver

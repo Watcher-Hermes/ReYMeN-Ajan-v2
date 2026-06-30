@@ -19,19 +19,19 @@ version: 1.0.0
 
 ## Goal
 
-Keep an `agent/` subdirectory synced with the upstream Hermes Agent while protecting ReYMeN-custom files in the root.
+Keep an `agent/` subdirectory synced with the upstream ReYMeN Agent while protecting ReYMeN-custom files in the root.
 
 ## Remote Setup
 
 ```bash
-# Add upstream Hermes Agent repo
-git remote add upstream https://github.com/nousresearch/hermes-agent.git
+# Add upstream ReYMeN Agent repo
+git remote add upstream https://github.com/nousresearch/ReYMeN-agent.git
 
 # Verify
 git remote -v
 # Should show:
-#   origin    https://github.com/Watcher-Hermes/ReYMeN-Ajan.git (fetch/push)
-#   upstream  https://github.com/nousresearch/hermes-agent.git (fetch/push)
+#   origin    https://github.com/Watcher-ReYMeN/ReYMeN-Ajan.git (fetch/push)
+#   upstream  https://github.com/nousresearch/ReYMeN-agent.git (fetch/push)
 ```
 
 ## Manual Sync Procedure

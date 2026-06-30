@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_ag-taramasi-arp-vs-nmap
+title: Windows Automation Ag Taramasi Arp Vs Nmap
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: ag-taramasi-arp-vs-nmap
 description: Karsilastirmali ag tarama egitimi — arp-scan vs nmap -sn. Hangisi daha hizli, hangisi daha fazla cihaz bulur, nasil birlikte kullanilir.
 title: "Ag Taramasi Arp Vs Nmap"

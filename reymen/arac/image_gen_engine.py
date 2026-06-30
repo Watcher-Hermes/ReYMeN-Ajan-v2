@@ -171,8 +171,10 @@ class FALEngine(ImageGenEngine):
                 try:
                     govde = e.read().decode(errors="replace")[:300]
                     return f"[RESIM_OLUSTUR/FAL] HTTP hatasi: {govde}"
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
             return f"[RESIM_OLUSTUR/FAL] Hata: {e}"
 
 
@@ -228,8 +230,10 @@ class OpenAIEngine(ImageGenEngine):
                 try:
                     govde = e.read().decode(errors="replace")[:300]
                     return f"[RESIM_OLUSTUR/OpenAI] HTTP hatasi: {govde}"
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
             return f"[RESIM_OLUSTUR/OpenAI] Hata: {e}"
 
 
@@ -312,8 +316,10 @@ class xAIEngine(ImageGenEngine):
                 try:
                     govde = e.read().decode(errors="replace")[:300]
                     return f"[RESIM_OLUSTUR/xAI] HTTP hatasi: {govde}"
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
             return f"[RESIM_OLUSTUR/xAI] Hata: {e}"
 
 

@@ -179,8 +179,10 @@ class OpenAITTS(VoiceEngine):
                 try:
                     govde = e.read().decode(errors="replace")[:300]
                     return f"[SESLENDIR/OpenAI] HTTP hatasi: {govde}"
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
             return f"[SESLENDIR/OpenAI] Hata: {e}"
 
     def yaziya_cevir(self, ses_dosyasi: str) -> str:
@@ -401,8 +403,10 @@ class WhisperSTT(VoiceEngine):
                 try:
                     govde = e.read().decode(errors="replace")[:300]
                     return f"[YAZIYA_CEVIR/Whisper] HTTP hatasi: {govde}"
-                except Exception:
-                    pass
+                except Exception as _e:
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )
             return f"[YAZIYA_CEVIR/Whisper] Hata: {e}"
 
 

@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents-codex
 description: Delegate coding tasks to [Codex](https://github.com/openai/codex) via
-  the Hermes terminal. Codex is OpenAI's autonomous coding agent CLI.
+  the ReYMeN terminal. Codex is OpenAI's autonomous coding agent CLI.
 title: Autonomous Ai Agents Codex
 version: 1.0.0
 ---
@@ -18,7 +18,7 @@ version: 1.0.0
 
 # Codex CLI
 
-Delegate coding tasks to [Codex](https://github.com/openai/codex) via the Hermes terminal. Codex is OpenAI's autonomous coding agent CLI.
+Delegate coding tasks to [Codex](https://github.com/openai/codex) via the ReYMeN terminal. Codex is OpenAI's autonomous coding agent CLI.
 
 ## When to use
 
@@ -37,7 +37,7 @@ Requires the codex CLI and a git repository.
 - **Must run inside a git repository** — Codex refuses to run outside one
 - Use `pty=true` in terminal calls — Codex is an interactive terminal app
 
-For Hermes itself, `model.provider: openai-codex` uses Hermes-managed Codex
+For ReYMeN itself, `model.provider: openai-codex` uses ReYMeN-managed Codex
 OAuth from `~/.hermes/auth.json` after `hermes auth add openai-codex`. For the
 standalone Codex CLI, a valid CLI OAuth session may live under
 `~/.codex/auth.json`; do not treat a missing `OPENAI_API_KEY` alone as proof

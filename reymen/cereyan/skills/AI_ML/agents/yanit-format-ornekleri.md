@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: yanit-format-ornekleri
+title: Yanit Format Ornekleri
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Yanit Format Ornekleri — Cave Mode
 

@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-detection-metric-reader
+title: Prompt Detection Metric Reader
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-detection-metric-reader
 description: Turn a precision/recall/AP/mAP row into a one-line diagnosis and the single most useful next experiment
 title: "PRompt Detection Metric Reader"

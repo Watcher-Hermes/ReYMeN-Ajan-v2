@@ -116,91 +116,100 @@ def test_adim2_session_baslatma():
 
 
 # ====================================================================
-# ADIM 3: Hafıza kontrolü — guven > 0.8 → LLM atla
+# ADIM 3: (KALDIRILDI) OnceHafiza bypass — ReYMeN-style ReAct'ta yok
 # ====================================================================
 def test_adim3_hafiza_atlama():
-    """ADIM 3: guven_skoru > 0.8 ise LLM atlanir, direkt yanit doner"""
-    with patch("reymen.cereyan.conversation_loop._hafizada_ara") as mock_hafiza:
-        mock_hafiza.return_value = {
-            "guven": 0.95,
-            "yanit": "Test hafiza yaniti",
-            "kaynak": "test",
-        }
-
-        from reymen.cereyan.conversation_loop import ConversationLoop
-        loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
-        loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=False))
-
-        sonuc = loop.run_conversation(hedef=TEST_HEDEF)
-        assert sonuc.get("basarili"), "basarili=True olmali"
-        assert sonuc.get("kaynak") == "once_hafiza", "once_hafiza kaynagi olmali"
-        assert "Test hafiza" in sonuc.get("yanit", ""), "hafiza yaniti icerilmeli"
-        assert sonuc.get("tur") == 0, "LLM cagrilmamali (tur=0)"
-        print(f"  ✅ Hafiza atlamasi: guven=0.95, tur=0, maliyet=0")
-
-
-# ====================================================================
-# ADIM 4: Belirsiz görev önerisi (oneri_uret)
-# ====================================================================
-def test_adim4_belirsiz_gorev_oneri():
-    """ADIM 4: Hafizada bulunamadiysa oneri uret"""
-    with patch("reymen.cereyan.conversation_loop.ConversationLoop._oneri_uret") as mock_oneri:
-        mock_oneri.return_value = "Sanirim test_kategori ile ilgili bir sey istiyorsun, dogru mu?"
-
-        from reymen.cereyan.conversation_loop import ConversationLoop
-        loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
-        loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=False))
-
-        sonuc = loop.run_conversation(hedef="belirsiz")
-        assert sonuc.get("kaynak") == "oneri_uret", "oneri_uret kaynagi olmali"
-        assert "Sanirim" in sonuc.get("oneri", ""), "oneri mesaji icermeli"
-        assert sonuc.get("tur") == 0, "tur=0 olmali"
-        print(f"  ✅ Oneri uretildi: {sonuc['oneri'][:50]}")
-
-
-# ====================================================================
-# ADIM 5: Konuşma geçmişi (önceki session'dan son 10 mesaj)
-# ====================================================================
-def test_adim5_konusma_gecmisi():
-    """ADIM 5: _gecmis_mesajlar yeni konusmaya eklenmeli"""
+    """ADIM 3: OnceHafiza bypass KALDIRILDI — mesajlar direkt API'ye gider"""
     from reymen.cereyan.conversation_loop import ConversationLoop
 
     loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
-    # Önceki mesajları simüle et
+    loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=True))
+    loop._sistem_promptu_olustur = MagicMock(return_value="test prompt")
+    loop._direct_api_call = MagicMock(return_value={
+        "role": "assistant", "content": "API yaniti", "tool_calls": []
+    })
+    loop._tool_calls_al = MagicMock(return_value=[])
+    loop._yanit_icerigi_al = MagicMock(return_value="API yaniti")
+
+    sonuc = loop.run_conversation(hedef=TEST_HEDEF)
+    # ReYMeN-style: OnceHafiza bypass YOK, direkt API'ye gider
+    assert loop._direct_api_call.called, "Hermes-style: direkt API cagrilmali"
+    assert sonuc.get("basarili"), "basarili=True olmali"
+    print(f"  ✅ Hermes-style: OnceHafiza atlanir, direkt API cagrilir")
+
+
+# ====================================================================
+# ADIM 4: (KALDIRILDI) Belirsiz gorev oneri — ReYMeN'te model karar verir
+# ====================================================================
+def test_adim4_belirsiz_gorev_oneri():
+    """ADIM 4: Belirsiz gorevde model karar verir, ayri oneri_uret yok"""
+    from reymen.cereyan.conversation_loop import ConversationLoop
+
+    loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
+    loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=True))
+    loop._sistem_promptu_olustur = MagicMock(return_value="test prompt")
+    loop._direct_api_call = MagicMock(return_value={
+        "role": "assistant", "content": "Ne demek istediginizi anlamadim, aciklar misiniz?", "tool_calls": []
+    })
+    loop._tool_calls_al = MagicMock(return_value=[])
+    loop._yanit_icerigi_al = MagicMock(return_value="Ne demek istediginizi anlamadim, aciklar misiniz?")
+
+    sonuc = loop.run_conversation(hedef="belirsiz")
+    # ReYMeN-style: model direkt yanit verir, oneri_uret katmani yok
+    assert sonuc.get("basarili"), "basarili=True olmali"
+    assert sonuc.get("yanit"), "yanit olmali"
+    print(f"  ✅ Hermes-style: model direkt yanit verir (oneri_uret yok)")
+
+
+# ====================================================================
+# ADIM 5: Konuşma geçmişi (messages listesine eklenir)
+# ====================================================================
+def test_adim5_konusma_gecmisi():
+    """ADIM 5: _gecmis_mesajlar messages listesine eklenmeli"""
+    from reymen.cereyan.conversation_loop import ConversationLoop
+
+    loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
+    loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=True))
+    loop._sistem_promptu_olustur = MagicMock(return_value="test prompt")
+    loop._direct_api_call = MagicMock(return_value={
+        "role": "assistant", "content": "cevap", "tool_calls": []
+    })
+    loop._tool_calls_al = MagicMock(return_value=[])
+    loop._yanit_icerigi_al = MagicMock(return_value="cevap")
+
+    # Onceki mesajlari simule et
     loop._gecmis_mesajlar = [
         {"role": "user", "content": "onceki soru"},
         {"role": "assistant", "content": "onceki cevap"},
     ]
-    loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=False))
 
     sonuc = loop.run_conversation(hedef=TEST_HEDEF)
-    # En az 1 mesaj (hedef) eklenmis olmali
-    assert len(loop._konusma_gecmisi) > 0, "konusma gecmisi bos"
-    # Son mesaj hedef olmali
-    assert loop._konusma_gecmisi[-1]["content"] == TEST_HEDEF, "son mesaj hedef degil"
-    print(f"  ✅ Konusma gecmisi: {len(loop._konusma_gecmisi)} mesaj")
+    # _gecmis_mesajlar guncellenmis olmali (post-process'te)
+    assert len(loop._gecmis_mesajlar) > 0, "gecmis mesajlar bos"
+    print(f"  ✅ Konusma gecmisi: {len(loop._gecmis_mesajlar)} mesaj")
 
 
 # ====================================================================
-# ADIM 6: Cache kontrolü (ONCELIK_CACHE)
+# ADIM 6: (KALDIRILDI) ONCELIK_CACHE — ReYMeN'te ayri cache katmani yok
 # ====================================================================
 def test_adim6_cache_kontrol():
-    """ADIM 6: ONCELIK_CACHE eslesmesi → LLM atlanir"""
-    with patch("reymen.cereyan.conversation_loop._hafizada_ara") as mock_hafiza:
-        # Hafiza bos - cache kontrolune gececek
-        mock_hafiza.return_value = {"guven": 0.0, "yanit": ""}
+    """ADIM 6: ONCELIK_CACHE KALDIRILDI — model direkt API'den cevaplar"""
+    from reymen.cereyan.conversation_loop import ConversationLoop
 
-        from reymen.cereyan.conversation_loop import ConversationLoop, ONCELIK_CACHE
+    loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
+    loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=True))
+    loop._sistem_promptu_olustur = MagicMock(return_value="test prompt")
+    loop._direct_api_call = MagicMock(return_value={
+        "role": "assistant", "content": "Merhaba! Size nasil yardimci olabilirim?", "tool_calls": []
+    })
+    loop._tool_calls_al = MagicMock(return_value=[])
+    loop._yanit_icerigi_al = MagicMock(return_value="Merhaba! Size nasil yardimci olabilirim?")
 
-        for anahtar, beklendik_yanit in list(ONCELIK_CACHE.items())[:3]:
-            loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
-            loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=False))
-
-            sonuc = loop.run_conversation(hedef=anahtar)
-            assert sonuc.get("kaynak") == "oncelik_cache", f"'{anahtar}' cache atlamamali (kaynak={sonuc.get('kaynak')})"
-            assert sonuc.get("tur") == 0, f"'{anahtar}' tur=0 olmali"
-            assert sonuc.get("yanit") == beklendik_yanit, f"'{anahtar}' cache yaniti yanlis"
-            print(f"  ✅ Cache: '{anahtar}' → {beklendik_yanit[:30]}...")
+    sonuc = loop.run_conversation(hedef="selam")
+    # ReYMeN-style: cache katmani yok, direkt API'ye gider
+    assert sonuc.get("basarili"), "basarili=True olmali"
+    assert sonuc.get("yanit"), "yanit olmali"
+    print(f"  ✅ Hermes-style: cache yok, direkt API (selam={sonuc['yanit'][:30]})")
 
 
 # ====================================================================
@@ -259,30 +268,25 @@ def test_adim9_ephemeral_layer():
 
 
 # ====================================================================
-# ADIM 10: API call
+# ADIM 10: API call (_direct_api_call ile ReYMeN-style)
 # ====================================================================
 def test_adim10_api_call():
-    """ADIM 10: _api_call_with_retry cagrilmali (mock)"""
-    with patch("reymen.cereyan.conversation_loop._hafizada_ara") as mock_hf:
-        mock_hf.return_value = {"guven": 0.0, "yanit": ""}
+    """ADIM 10: _direct_api_call cagrilmali (ReYMeN-style)"""
+    from reymen.cereyan.conversation_loop import ConversationLoop
 
-        from reymen.cereyan.conversation_loop import ConversationLoop
-        loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
-        loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=True))
-        loop._sistem_promptu_olustur = MagicMock(return_value="test prompt")
-        loop._api_mesajlari_olustur = MagicMock(return_value=[])
-        loop._ephemeral_layerlar_ekle = MagicMock(return_value=[])
-        loop._context_preflight = MagicMock(return_value=[])
-        loop._api_call_with_retry = MagicMock(return_value={
-            "choices": [{"message": {"content": "test yanit", "role": "assistant"}}]
-        })
-        loop._tool_calls_al = MagicMock(return_value=[])
-        loop._yanit_icerigi_al = MagicMock(return_value="test yanit")
+    loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
+    loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=True))
+    loop._sistem_promptu_olustur = MagicMock(return_value="test prompt")
+    loop._direct_api_call = MagicMock(return_value={
+        "role": "assistant", "content": "test yanit", "tool_calls": []
+    })
+    loop._tool_calls_al = MagicMock(return_value=[])
+    loop._yanit_icerigi_al = MagicMock(return_value="test yanit")
 
-        sonuc = loop.run_conversation(hedef=TEST_HEDEF)
-        assert loop._api_call_with_retry.called, "_api_call_with_retry cagrilmadi"
-        assert sonuc.get("basarili"), "basarili=False"
-        print(f"  ✅ API call (mock): basarili=True, tur={sonuc.get('turlar')}")
+    sonuc = loop.run_conversation(hedef=TEST_HEDEF)
+    assert loop._direct_api_call.called, "_direct_api_call cagrilmadi"
+    assert sonuc.get("basarili"), "basarili=False"
+    print(f"  ✅ API call (Hermes-style): _direct_api_call, basarili=True")
 
 
 # ====================================================================
@@ -372,48 +376,32 @@ def test_adim13_circuit_breaker():
 
 
 # ====================================================================
-# ADIM 14: Takılma dedektörü (aynı eylem 3x → durdur)
+# ADIM 14: (KALDIRILDI) Takılma dedektörü — ReYMeN'te budget kontrol eder
 # ====================================================================
 def test_adim14_takilma_dedektoru():
-    """ADIM 14: ayni eylem 3x tekrarlanirsa → durdur"""
+    """ADIM 14: Takilma dedektoru KALDIRILDI — budget/tur siniri kontrol eder"""
     from reymen.cereyan.conversation_loop import ConversationLoop
 
     loop = ConversationLoop(motor=MagicMock(), beyin=MagicMock())
-    # Önceki eylemler: aynı tool 3x (takilma esigi)
-    loop._onceki_eylemler = ["test_tool", "test_tool", "test_tool"]
     loop._cb_acik = False
-
     loop._budget_olustur = MagicMock(return_value=_mock_budget(devam=True))
     loop._sistem_promptu_olustur = MagicMock(return_value="test prompt")
-    loop._api_mesajlari_olustur = MagicMock(return_value=[])
-    loop._ephemeral_layerlar_ekle = MagicMock(return_value=[])
-    loop._context_preflight = MagicMock(return_value=[])
-    loop._api_call_with_retry = MagicMock(return_value={
-        "choices": [{
-            "message": {
-                "content": "test_tool kullaniyorum",
-                "role": "assistant",
-                "tool_calls": [{
-                    "id": "tc_test_1",
-                    "name": "test_tool",
-                    "arguments": {"param": "test"},
-                }],
-            }
-        }]
+    # Simule et: surekli tool cagir but hep basarisiz -> budget biter
+    loop._direct_api_call = MagicMock(return_value={
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [{"id": "tc1", "type": "function", "function": {"name": "test_tool", "arguments": "{}"}}]
     })
-    loop._tool_calls_al = MagicMock(return_value=[{
-        "id": "tc_test_1",
-        "name": "test_tool",
-        "arguments": {"param": "test"},
-    }])
-    loop._yanit_icerigi_al = MagicMock(return_value="test_tool kullaniyorum")
-    loop._arac_calistir = MagicMock(return_value={"basarili": False, "hata": "simule"})
+    loop._tool_calls_al = MagicMock(return_value=[
+        {"id": "tc1", "type": "function", "function": {"name": "test_tool", "arguments": "{}"}}
+    ])
+    loop._yanit_icerigi_al = MagicMock(return_value="")
+    loop._arac_calistir = MagicMock(return_value={"basarili": False, "hata": "simule", "tamamlandi": False})
 
     sonuc = loop.run_conversation(hedef=TEST_HEDEF)
+    # ReYMeN-style: tool loop dener ama basarisiz -> budget biter -> False
     assert sonuc.get("basarili") is False, "basarili=False olmali"
-    assert sonuc.get("hata") is not None, "hata mesaji olmali"
-    assert "Takilma" in sonuc["hata"], f"takilma mesaji icermeli: {sonuc['hata']}"
-    print(f"  ✅ Takilma dedektoru: 3x tekrar → durdur")
+    print(f"  ✅ Hermes-style: budget/tur siniri loop'u durdurur (takilma yok)")
 
 
 # ====================================================================

@@ -17,7 +17,7 @@ HUB_CACHE = SKILLS_KLASOR / "index-cache" / "hub"
 # Varsayilan hub kaynaklari
 HUBS = {
     "ReYMeN-skills": {
-        "url": "https://github.com/Watcher-Hermes/ReYMeN-skills/archive/refs/heads/main.zip",
+        "url": "https://github.com/Watcher-ReYMeN/ReYMeN-skills/archive/refs/heads/main.zip",
         "aciklama": "Kullaniciya ait ReYMeN-skills reposu",
     },
     "ReYMeN-agent-skills": {

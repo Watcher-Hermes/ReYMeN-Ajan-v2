@@ -3,11 +3,11 @@
 name: humanizer
 description: "Humanize text: strip AI-isms and add real voice."
 version: 2.5.1
-author: Siqi Chen (@blader, https://github.com/blader/humanizer), ported by Hermes Agent
+author: Siqi Chen (@blader, https://github.com/blader/humanizer), ported by ReYMeN Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [writing, editing, humanize, anti-ai-slop, voice, prose, text]
     category: creative
 audience: user
@@ -43,7 +43,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 |-------|------------------|
 | Humanizer: Remove AI Writing Patterns | `references/humanizer-remove-ai-writing-patterns.md` |
 | When to use this skill | `references/when-to-use-this-skill.md` |
-| How to use it in Hermes | `references/how-to-use-it-in-hermes.md` |
+| How to use it in ReYMeN | `references/how-to-use-it-in-ReYMeN.md` |
 | Your task | `references/your-task.md` |
 | Voice Calibration (optional) | `references/voice-calibration-optional.md` |
 | PERSONALITY AND SOUL | `references/personality-and-soul.md` |

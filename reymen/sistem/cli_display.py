@@ -646,7 +646,9 @@ def _cprint(text: str):
             # else: run_in_terminal ran the lambda synchronously; nothing more
             # to do (double-scheduling would print twice).
         except Exception as _e:
-            pass  # best-effort; the line may already have been printed
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # best-effort; the line may already have been printed
 
     try:
         loop.call_soon_threadsafe(_schedule)

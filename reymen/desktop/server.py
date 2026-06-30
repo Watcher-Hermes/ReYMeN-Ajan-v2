@@ -86,8 +86,10 @@ class WebServerManager:
             proc.poll()
             if proc.returncode is not None:
                 return f"[CROSSMARK] Sunucu cikti (kod: {proc.returncode})"
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
         return f"[WARNING] Sunucu baslatildi (port kontrolu gecikti): {self.url}"
 
     def stop(self) -> str:
@@ -107,7 +109,8 @@ class WebServerManager:
                         return "[YESARROW] Sunucu durduruldu"
                 os.kill(pid, signal.SIGKILL)
                 time.sleep(0.5)
-            except (OSError, ProcessLookupError):
+            except (OSError, ProcessLookupError) as _e:
+                logger.warning("[Server] Dosya/klasor hatasi (L112): %s", OSError)
                 pass
 
         # PID'siz de dene: port'tan process bul
@@ -118,7 +121,8 @@ class WebServerManager:
                     os.kill(conn.pid, signal.SIGTERM)
                     self._clear_pid()
                     return "[YESARROW] Sunucu durduruldu (psutil)"
-        except ImportError:
+        except ImportError as _e:
+            logger.warning("[Server] Modul yuklenemedi (L123): %s", ImportError)
             pass
 
         self._clear_pid()

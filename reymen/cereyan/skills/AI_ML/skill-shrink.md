@@ -47,7 +47,7 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 ## Ne İşe Yarar
 
-Büyük skill'ler (10KB+ veya 300+ satır) Hermes'in token limitini gereksiz yere şişirir ve yüklenme süresini artırır. Bu skill, şişkin skill'leri tarar, her `##` bölümünü ayrı bir `references/` dosyasına taşır ve ana SKILL.md'yi hafif bir yönlendiriciye dönüştürür.
+Büyük skill'ler (10KB+ veya 300+ satır) ReYMeN'in token limitini gereksiz yere şişirir ve yüklenme süresini artırır. Bu skill, şişkin skill'leri tarar, her `##` bölümünü ayrı bir `references/` dosyasına taşır ve ana SKILL.md'yi hafif bir yönlendiriciye dönüştürür.
 
 ## Kullanım
 

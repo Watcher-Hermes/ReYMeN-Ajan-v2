@@ -1,4 +1,4 @@
-"""Hermes skill'lerini ReYMeN formatına dönüştür.
+"""ReYMeN skill'lerini ReYMeN formatına dönüştür.
 Kullanım: python reymen/scripts/skill_import.py [--kategori AI_ML,DevOps]
 
 Hermes: ~/AppData/Local/hermes/skills/<kategori>/<skill>/SKILL.md
@@ -10,7 +10,7 @@ from pathlib import Path
 HERMES_SKILLS = Path.home() / "AppData/Local/hermes/skills"
 REYMEN_SKILLS = Path(__file__).parent.parent / "cereyan/skills/Skiller"
 
-# Kategori eşleme: Hermes → ReYMeN
+# Kategori eşleme: ReYMeN → ReYMeN
 KATEGORI_MAP = {
     "devops": "DevOps",
     "data-science": "AI_ML",
@@ -39,7 +39,7 @@ KATEGORI_MAP = {
 }
 
 def skill_aktar(hedef_klasor: str = "", limit: int = 0):
-    """Hermes skill'lerini ReYMeN formatına çevir."""
+    """ReYMeN skill'lerini ReYMeN formatına çevir."""
     hedef = REYMEN_SKILLS
     if hedef_klasor:
         hedef = hedef / hedef_klasor
@@ -60,7 +60,7 @@ def skill_aktar(hedef_klasor: str = "", limit: int = 0):
             if not skill_md.exists():
                 continue
 
-            # Hermes formatı: <kategori>/<skill>/SKILL.md
+            # ReYMeN formatı: <kategori>/<skill>/SKILL.md
             # ReYMeN formatı: <kategori>/<skill>_SKILL.md (düz dosya)
             icerik = skill_md.read_text("utf-8", errors="replace")
 
@@ -81,11 +81,11 @@ def skill_aktar(hedef_klasor: str = "", limit: int = 0):
     return aktarilan
 
 def skill_say():
-    """Hermes ve ReYMeN'deki skill sayılarını göster."""
-    hermes = sum(1 for k in HERMES_SKILLS.iterdir() if k.is_dir()
+    """ReYMeN ve ReYMeN'deki skill sayılarını göster."""
+    ReYMeN = sum(1 for k in HERMES_SKILLS.iterdir() if k.is_dir()
                  for s in k.iterdir() if (s / "SKILL.md").exists())
     reymen = sum(1 for f in REYMEN_SKILLS.rglob("*_SKILL.md"))
-    return {"hermes": hermes, "reymen": reymen, "eksik": hermes - reymen}
+    return {"ReYMeN": ReYMeN, "reymen": reymen, "eksik": ReYMeN - reymen}
 
 if __name__ == "__main__":
     import sys
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     lim = int(sys.argv[2]) if len(sys.argv) > 2 else 0
 
     once = skill_say()
-    print(f"HERMES skill: {once['hermes']} | ReYMeN skill: {once['reymen']}")
+    print(f"ReYMeN skill: {once['ReYMeN']} | ReYMeN skill: {once['reymen']}")
 
     adet = skill_aktar(hedef, lim)
     sonra = skill_say()

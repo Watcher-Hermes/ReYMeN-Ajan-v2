@@ -49,5 +49,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Compatibility matrix with conflict/compatible resolution
 - Intensity scoring for speech attributes
 - Diagnostic quiz with multilingual support (en/ja)
-- `skills/hersona/SKILL.md` for Hermes Agent integration
+- `skills/hersona/SKILL.md` for ReYMeN Agent integration
 - MIT license for code, CC0 1.0 for attribute templates

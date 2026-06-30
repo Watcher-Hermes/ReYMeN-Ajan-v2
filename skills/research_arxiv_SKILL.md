@@ -4,11 +4,11 @@ title: "Arxiv"
 tags: [academic, research]
 description: "Search arXiv papers by keyword, author, category, or ID."
 version: 1.0.0
-author: Hermes Agent
+author: ReYMeN Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [Research, Arxiv, Papers, Academic, Science, API]
 audience: user
 related_skills: [ocr-and-documents]

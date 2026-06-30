@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_voice-transcription
 description: Voice & Transcription
-title: "Autonomous Ai Agents Hermes Agent References Voice Transcription"
+title: "Autonomous Ai Agents ReYMeN Agent References Voice Transcription"
 version: 1.0.0
 ---
 

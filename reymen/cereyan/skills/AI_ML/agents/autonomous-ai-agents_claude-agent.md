@@ -1,19 +1,13 @@
 ---
 name: claude-agent
-title: "Claude Agent"
-tags: [agents, ai]
+title: Claude Agent
 description: Claude Code CLI agent modunu terminalde baslatma ve kullanma
-version: 1.0.0
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [claude, agent, terminal, cli, coding]
+tags:
+- agents
+- ai
+category: agents
 audience: user
-related_skills: [powershell-claude-agent, codex, opencode]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -34,8 +28,6 @@ related_skills: [powershell-claude-agent, codex, opencode]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: Otonom ajan gelistiricisi
 Ne: Claude Code CLI agent modunu terminalde baslatma ve kullanma

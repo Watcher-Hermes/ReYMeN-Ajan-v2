@@ -145,7 +145,7 @@ DeepSeek: Kod %100 | Mantık %95 | Güvenlik %73 | Bilgi %85
 - Hızlı → Groq Llama 3.3 70B (826ms)
 ```
 
-Rapor Obsidian vault: `Hermes/benchmark_sonuclari.md`
+Rapor Obsidian vault: `ReYMeN/benchmark_sonuclari.md`
 
 ## İlgili Skill'ler
 

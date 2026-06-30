@@ -1,27 +1,12 @@
 ---
-name: hookify-rules
-description: This skill should be used when the user asks to create a hookify rule, write a hook rule, configure hookify, add a hookify rule, or needs guidance on hookify rule syntax and patterns.
-title: "Hookify Rules"
-
-audience: contributor
-tags: [ai, automation, development]
-category: ecc---
-
-# Writing Hookify Rules
-
-## Overview
-
-Hookify rules are markdown files with YAML frontmatter that define patterns to watch for and messages to show when those patterns match. Rules are stored in `.claude/hookify.{rule-name}.local.md` files.
-
-## Rule File Format
-
-### Basic Structure
-
-```markdown
-
-
+name: ecc_hookify-rules
+title: Ecc Hookify Rules
+description: ''
+tags:
+- ai_ml
+category: AI_ML
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI muhendisi |
@@ -43,8 +28,6 @@ Hookify rules are markdown files with YAML frontmatter that define patterns to w
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: AI muhendisi
 Ne: This skill should be used when the user asks to create a hookify rule, write a hook rule, configure hookify, add a hookify rule, or needs guidance on hookify rule syntax and patterns.
 Nerede: `ai\ecc\ecc_hookify-rules.md`
@@ -56,8 +39,6 @@ name: rule-identifier
 enabled: true
 event: bash|file|stop|prompt|all
 pattern: regex-pattern-here
----
-
 Message to show Claude when this rule triggers.
 Can include markdown formatting, warnings, suggestions, etc.
 ```
@@ -75,7 +56,6 @@ Can include markdown formatting, warnings, suggestions, etc.
 ### Advanced Format (Multiple Conditions)
 
 ```markdown
----
 name: warn-env-api-keys
 enabled: true
 event: file
@@ -86,8 +66,6 @@ conditions:
   - field: new_text
     operator: contains
     pattern: API_KEY
----
-
 You're adding an API key to a .env file. Ensure this file is in .gitignore!
 ```
 
@@ -155,11 +133,9 @@ python3 -c "import re; print(re.search(r'your_pattern', 'test text'))"
 
 Minimum viable rule:
 ```markdown
----
 name: my-rule
 enabled: true
 event: bash
 pattern: dangerous_command
----
 Warning message here
 ```

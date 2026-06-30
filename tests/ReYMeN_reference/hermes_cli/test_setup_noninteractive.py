@@ -74,7 +74,7 @@ class TestNonInteractiveSetup:
         with (
             patch("ReYMeN_cli.setup.ensure_ReYMeN_home"),
             patch("ReYMeN_cli.setup.load_config", return_value={}),
-            patch("ReYMeN_cli.setup.get_ReYMeN_home", return_value="/tmp/.ReYMeN"),
+            patch("ReYMeN_cli.setup.get_reymen_home", return_value="/tmp/.ReYMeN"),
             patch("ReYMeN_cli.auth.get_active_provider", side_effect=AssertionError("wizard continued")),
             patch("builtins.input", side_effect=AssertionError("input should not be called")),
         ):
@@ -92,7 +92,7 @@ class TestNonInteractiveSetup:
         with (
             patch("ReYMeN_cli.setup.ensure_ReYMeN_home"),
             patch("ReYMeN_cli.setup.load_config", return_value={}),
-            patch("ReYMeN_cli.setup.get_ReYMeN_home", return_value="/tmp/.ReYMeN"),
+            patch("ReYMeN_cli.setup.get_reymen_home", return_value="/tmp/.ReYMeN"),
             patch("ReYMeN_cli.auth.get_active_provider", side_effect=AssertionError("wizard continued")),
             patch("sys.stdin") as mock_stdin,
             patch("builtins.input", side_effect=AssertionError("input should not be called")),

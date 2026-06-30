@@ -24,7 +24,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 
 | Bölüm | Reference Dosyası |
 |-------|------------------|
-| Claude Code — Hermes Orchestration Guide | `references/claude-code-hermes-orchestration-guide.md` |
+| Claude Code — ReYMeN Orchestration Guide | `references/claude-code-ReYMeN-orchestration-guide.md` |
 | Prerequisites | `references/prerequisites.md` |
 | Two Orchestration Modes | `references/two-orchestration-modes.md` |
 | Start a tmux session | `references/start-a-tmux-session.md` |
@@ -75,7 +75,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Environment Variables | `references/environment-variables.md` |
 | Cost & Performance Tips | `references/cost-performance-tips.md` |
 | Pitfalls & Gotchas | `references/pitfalls-gotchas.md` |
-| Rules for Hermes Agents | `references/rules-for-hermes-agents.md` |
+| Rules for ReYMeN Agents | `references/rules-for-ReYMeN-agents.md` |
 | **Import Chain Debugging** | `references/import-chain-debugging.md` |
 | **Windows Orchestration Bridge** (VS Code GUI pipeline) | `references/windows-orchestration-bridge.md` |
 | **Bash Özel Karakter Workaround** (temp dosya + Python inline) | `references/bash-ozel-karakter-workaround.md` |

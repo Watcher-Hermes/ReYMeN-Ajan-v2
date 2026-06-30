@@ -1,24 +1,12 @@
 ---
-name: network-camera-discovery
-description: >-
-  IP kamera kesfi, RTSP/ONVIF port taramasi, canli goruntu akisi testi ve
-  sifre brute force. Hikvision, Dahua, Axis, Reolink ve diger IP kameralar
-  icin eksiksiz workflow. Kali Linux + Windows ortaminda calisir.
-version: 1
-license: MIT
-metadata:
-  hermes:
-    tags: [camera, rtsp, onvif, hikvision, dahua, surveillance, ip-camera, security, kali, network]
-audience: user
-    platform: cross-platform
-    lang: turkish
+name: security_network-camera-discovery
+title: Network Camera Discovery
+description: ''
+tags:
+- ag
+category: Ag
+audience: agent
 ---
-
-
-> **Kategori:** security
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +17,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Network Camera Discovery
 

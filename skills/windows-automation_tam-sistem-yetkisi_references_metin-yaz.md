@@ -17,4 +17,4 @@
 ---
 
 # Metin yaz
-pyautogui.write("Merhaba, bu Hermes!", interval=0.05)
+pyautogui.write("Merhaba, bu ReYMeN!", interval=0.05)

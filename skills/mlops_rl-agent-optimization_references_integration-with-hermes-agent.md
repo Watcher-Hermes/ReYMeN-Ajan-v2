@@ -1,7 +1,7 @@
 ---
-name: mlops_rl-agent-optimization_references_integration-with-hermes-agent
-description: Integration with Hermes Agent
-title: "Mlops Rl Agent Optimization References Integration With Hermes Agent"
+name: mlops_rl-agent-optimization_references_integration-with-ReYMeN-agent
+description: Integration with ReYMeN Agent
+title: "Mlops Rl Agent Optimization References Integration With ReYMeN Agent"
 version: 1.0.0
 ---
 
@@ -9,13 +9,13 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Integration with Hermes Agent |
+| **Ne** | Integration with ReYMeN Agent |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-## Integration with Hermes Agent
+## Integration with ReYMeN Agent
 
 The integration point is **nexus-core-omega-v5** execution sequence step 9.5 (ZORUNLU RL SKILL LOG). Every message response ends with a call to the CLI bridge.
 
@@ -83,7 +83,7 @@ Two cron jobs run daily for RL system health:
    Değerlendirme: 1-2 cümlelik yorum
    ```
 
-**21:00 job structure (workdir: hermes-backup):**
+**21:00 job structure (workdir: ReYMeN-backup):**
 1. RL kod dosyalarını `AppData/Local/hermes/rl_observation/` → `hermes-backup/rl_observation/` e kopyala
 2. `git status` + `git diff --stat`
 3. Değişiklik varsa → add, commit ("auto-sync YYYY-MM-DD_HH:MM"), push
@@ -96,7 +96,7 @@ A cron job runs daily at 04:00:
 - Prunes to keep only last 1000 entries
 - 30-day half-life exponential decay on old weights
 
-### For Hermes Agent specifically:
+### For ReYMeN Agent specifically:
 
 1. **Logger installed at:** `C:\Users\marko\AppData\Local\hermes\rl_observation\rl_skill_logger.py`
 2. **Log file:** `C:\Users\marko\AppData\Local\hermes\rl_observation\skill_log.jsonl`

@@ -1,21 +1,20 @@
 ---
 name: agent-loop-optimization
-title: "Agent Loop Optimization — 8 Pattern Patch Set"
-tags: [optimization, python, agent, performance, debugging]
-description: "Eight proven patterns for optimizing Python agent loops: (1) cache deterministic ops outside loops, (2) active error feedback, (3) single init for persistent resources, (4) always-raise retry, (5) dispatch dict instead of if/elif, (6) init-order safety, (7) dataclass return types, (8) print→logging migration. Each pattern includes detection signals, fix code, and verification."
-version: 2.0.0
-author: marko
-license: MIT
-platforms: [windows, linux, macos]
+title: Agent Loop Optimization — 8 Pattern Patch Set
+description: 'Eight proven patterns for optimizing Python agent loops: (1) cache deterministic
+  ops outside loops, (2) active error feedback, (3) single init for persistent resources,
+  (4) always-raise retry, (5) dispatch dict instead of if/elif, (6) init-order safety,
+  (7) dataclass return types, (8) print→logging migration. Each pattern includes detection
+  signals, fix code, and verification.'
+tags:
+- optimization
+- python
+- agent
+- performance
+- debugging
+category: Kod
 audience: developer
-related_skills: [python-patterns, benchmark-optimization-loop]
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -27,15 +26,11 @@ related_skills: [python-patterns, benchmark-optimization-loop]
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 # Agent Loop Optimization — 3 Pattern Patch Set
 
 ## Overview
 
 Three optimization patterns that together reduced per-task DB queries by 93%, fixed thread leaks, and made hallucination detection actively self-correcting. Apply to any Python agent loop where `for tur in range(max_tur)` drives repeated work.
-
----
 
 ## Pattern 1: Cache Deterministic Ops Outside Loops
 
@@ -121,8 +116,6 @@ if _yukleme_hatalari:
 
 **Impact:** Real errors become visible instantly during startup. Debug time drops from "blind bisect" to immediate fix.
 
----
-
 ## Pattern 2: Active Error Feedback (Not Passive Logging)
 
 **Problem:** Guard/filter modules detect problems (hallucinations, policy violations) but only `print()` the warning. The LLM never sees it, so the same error repeats next tur.
@@ -171,8 +164,6 @@ if self.filter and cevap:
 **Impact:** LLM sees its own mistake and self-corrects. No more silent hallucination loops.
 
 **Design rule:** `continue` must come BEFORE `mesajlar.append({"role": "assistant"})` in the loop body. Hallucination filter should be positioned right after the LLM response and before the message is committed to history.
-
----
 
 ## Pattern 3: Single Init for Persistent Resources
 
@@ -235,8 +226,6 @@ except TimeoutError:
 
 **Impact:** Buggy network tools can't freeze the agent. Failed workers get a timeout error instead of blocking forever.
 
----
-
 ## Applying All Three
 
 Apply in this order (lowest risk first):
@@ -251,8 +240,6 @@ Sub-patterns apply alongside their parent:
 - **1c (error separation):** Split `except Exception: pass` into `except ImportError: pass` + `except Exception: log`
 - **2a (string fallacy):** Search for `"keyword" not in` where the string is initialized containing that keyword — replace with `startswith()`
 - **3b (parallel timeout):** Add `timeout=` to every `as_completed()` call in ThreadPoolExecutor usage
-
----
 
 ## Pattern 4: Always-Raise Retry Loop
 
@@ -298,8 +285,6 @@ raise son_hata or RuntimeError("[Beyin] _cagir_ile_retry: unknown error")
 **Key change:** Use `range(1, MAKS_DENEME + 1)` so `deneme < MAKS_DENEME` correctly identifies "not last attempt." The old `range(MAKS_DENEME)` with `deneme < MAKS_DENEME - 1` always left one silent fallthrough.
 
 **Impact:** Zero silent failures. Every API call either returns or raises.
-
----
 
 ## Pattern 5: Dispatch Dict Instead of if/elif Chains
 
@@ -356,8 +341,6 @@ metin = fn()
 
 **Pitfall:** Lambda dispatch captures variables by reference — use `functools.partial` if late-binding causes issues.
 
----
-
 ## Pattern 6: Init-Order Safety (Shared State Before Usage)
 
 **Problem:** A `threading.Event` (or other shared-state flag) created inside a method that's called from `__init__`. Other methods called between init start and that method may check the event before it exists → `AttributeError`.
@@ -395,8 +378,6 @@ class Beyin:
 ```
 
 **Impact:** No `hasattr` guards needed. All methods can safely check the event from the moment they're called. Predictable crash if something's wrong (fail-fast) instead of silent no-op.
-
----
 
 ## Pattern 7: Dataclass Return Types (Structured Metadata)
 
@@ -443,8 +424,6 @@ logger.info("API: %.2fs, %d tokens", meta.sure_sn, meta.cikis_token)
 ```
 
 **Impact:** One source of truth for timing and token data. No recomputation. Works with `_cagir_ile_retry` — timing stays accurate across retries.
-
----
 
 ## Pattern 8: Systematic print() → logging Migration
 
@@ -499,8 +478,6 @@ grep -n "print(" *.py | grep -v '__main__\|if __name__'
 ```
 
 **Impact:** Logs can be filtered by severity, routed to files, enriched with timestamps, and searched without grep'ing through user-facing CLI output.
-
----
 
 ## Applying All Patterns
 

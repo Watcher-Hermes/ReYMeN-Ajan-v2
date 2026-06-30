@@ -58,7 +58,7 @@ def fake_ReYMeN(tmp_path, monkeypatch):
     # Monkeypatch the resolver functions used by file_safety so each test
     # can choose which profile is "active".
     import ReYMeN_constants
-    monkeypatch.setattr(ReYMeN_constants, "get_default_ReYMeN_root", lambda: root)
+    monkeypatch.setattr(ReYMeN_constants, "get_default_reymen_root", lambda: root)
 
     # The reloads below ensure get_cross_profile_warning/classify see the patched root.
     import agent.file_safety as fs

@@ -122,7 +122,7 @@ for t in TOOLS:
 ```bash
 python -c "
 import sqlite3
-con = sqlite3.connect('PROJE_YOLU/.hermes/session.db')
+con = sqlite3.connect('PROJE_YOLU/.ReYMeN/session.db')
 tables = con.execute(\"SELECT name FROM sqlite_master WHERE type='table'\").fetchall()
 for t in tables:
     count = con.execute(f'SELECT COUNT(*) FROM \"{t[0]}\"').fetchone()[0]

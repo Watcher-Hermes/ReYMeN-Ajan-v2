@@ -3019,7 +3019,7 @@
       "duzeltme": 2
     },
     {
-      "dosya": "plugins\\hermes-achievements\\dashboard\\plugin_api.py",
+      "dosya": "plugins\\ReYMeN-achievements\\dashboard\\plugin_api.py",
       "duzeltme": 6
     },
     {
@@ -6154,7 +6154,7 @@
     "plugins\\google_meet\\node\\server.py",
     "plugins\\google_meet\\process_manager.py",
     "plugins\\google_meet\\realtime\\openai_client.py",
-    "plugins\\hermes-achievements\\dashboard\\plugin_api.py",
+    "plugins\\ReYMeN-achievements\\dashboard\\plugin_api.py",
     "plugins\\image_gen\\fal\\__init__.py",
     "plugins\\kanban\\dashboard\\plugin_api.py",
     "plugins\\memory\\byterover\\__init__.py",

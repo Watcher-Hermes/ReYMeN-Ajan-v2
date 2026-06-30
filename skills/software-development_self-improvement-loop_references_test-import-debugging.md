@@ -19,7 +19,7 @@ version: 1.0.0
 
 ## Problem
 Fork/proje dönüşümü sonrası `tests/` dizininde çok sayıda import hatası.
-Hermes → ReYMeN gibi bir rebranding sonrası sembol isimleri, modül yolları
+ReYMeN → ReYMeN gibi bir rebranding sonrası sembol isimleri, modül yolları
 ve API'ler değiştiği için testler import edemez hale gelir.
 
 ## ⚠️ Ön-Kategorilendirme Tuzakları
@@ -109,7 +109,7 @@ Tüm import fix'leri eşit değerde DEĞİLDİR. Kullanıcı şüphe duyduğunda
 - **Fix yap ve çalıştır.** Proje için kritik.
 
 ### Öncelik 2 — Upstream Referans Testleri (🟡 Orta)
-- `tests/ReYMeN_reference/` altındaki upstream Hermes testleri
+- `tests/ReYMeN_reference/` altındaki upstream ReYMeN testleri
 - **Import fix yap** (shim/stub ekle) ama testin kendisi hala çalışmayabilir
 - Test mantığı projeye uymuyorsa **testi sil**, sadece import'ı düzeltme
 
@@ -152,7 +152,7 @@ gerçek mantığı değiştirme.
 ```python
 @dataclasses.dataclass
 class SessionEntry:
-    """Upstream Hermes uyumluluk katmani — test import zinciri için."""
+    """Upstream ReYMeN uyumluluk katmani — test import zinciri için."""
     session_key: str = ""
     session_id: str = ""
     created_at: Any = None
@@ -268,7 +268,7 @@ search_stickers("zzz_nonexistent_xyz_12345") → 0 sonuç
 
 ## Referans: env_float / env_int
 
-Upstream Hermes'ten port edilmiştir. `utils` modülüne eklenir:
+Upstream ReYMeN'ten port edilmiştir. `utils` modülüne eklenir:
 
 ```python
 import math
@@ -318,12 +318,12 @@ def env_int(
 
 ## Referans: SessionEntry Stub
 
-`gateway/session.py`'ye eklenir (upstream Hermes e2e conftest.py uyumluluğu):
+`gateway/session.py`'ye eklenir (upstream ReYMeN e2e conftest.py uyumluluğu):
 
 ```python
 @dataclasses.dataclass
 class SessionEntry:
-    """Session kaydi — upstream Hermes uyumluluk katmani.
+    """Session kaydi — upstream ReYMeN uyumluluk katmani.
     Test ve gateway.run import zincirini kirabilmek icin minimum alanlari iceren dataclass.
     """
     session_key: str = ""

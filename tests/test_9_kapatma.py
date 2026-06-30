@@ -39,16 +39,16 @@ class MockAdapter(GatewayAdapter):
 
 def test_happy():
     g = GatewayYoneticisi()
-    g.kaydet("mock", MockAdapter())
-    g.hepsini_baslat()
-    r = g.mesaj_gonder("mock", "merhaba")
-    print("OK happy: %s" % str(r)[:40])
+    adapter = MockAdapter()
+    assert g.kaydet(adapter)
+    assert g.get(adapter.ad) is adapter
+    print("OK happy: gateway kaydedildi")
 
 def test_error():
     g = GatewayYoneticisi()
-    r = g.mesaj_gonder("olmayan", "test")
-    assert "bulunamadi" in str(r).lower() or r is False
-    print("OK error: bilinmeyen adapter")
+    r = g.kaydet("olmayan")
+    assert r is False
+    print("OK error: gecersiz adapter")
 
 test_happy(); test_error()
 

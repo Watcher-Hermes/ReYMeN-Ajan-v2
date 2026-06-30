@@ -18,7 +18,7 @@ version: 1.0.0
 # Root-Level Shim Pattern — Session 2026-06-21
 
 ## Problem
-Hermes internal modules exist in subdirectories (`agent/`, `tools/`), but tests import them from root.
+ReYMeN internal modules exist in subdirectories (`agent/`, `tools/`), but tests import them from root.
 
 ## Solution
 Create one-liner shim at project root:

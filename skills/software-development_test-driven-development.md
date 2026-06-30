@@ -5,11 +5,11 @@ title: "Test Driven Development"
 tags: [coding, development, testing]
 description: "TDD: enforce RED-GREEN-REFACTOR, tests before code."
 version: 1.1.0
-author: Hermes Agent (adapted from obra/superpowers)
+author: ReYMeN Agent (adapted from obra/superpowers)
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [testing, tdd, development, quality, red-green-refactor]
 audience: contributor
 related_skills: [systematic-debugging, plan, subagent-driven-development]
@@ -53,12 +53,12 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Red Flags — STOP and Start Over | `references/red-flags-stop-and-start-over.md` |
 | Verification Checklist | `references/verification-checklist.md` |
 | When Stuck | `references/when-stuck.md` |
-| Hermes Agent Integration | `references/hermes-agent-integration.md` |
+| ReYMeN Agent Integration | `references/ReYMeN-agent-integration.md` |
 | RED — verify failure | `references/red-verify-failure.md` |
 | GREEN — verify pass | `references/green-verify-pass.md` |
 | Full suite — verify no regressions | `references/full-suite-verify-no-regressions.md` |
 | Testing Anti-Patterns | `references/testing-anti-patterns.md` |
-| Hermes API Test Patterns | `references/hermes-api-test-patterns.md` |
+| ReYMeN API Test Patterns | `references/ReYMeN-api-test-patterns.md` |
 | Bulk & Parametric Test Generation | `references/bulk-parametric-test-generation.md` |
 | Final Rule | `references/final-rule.md` |
 

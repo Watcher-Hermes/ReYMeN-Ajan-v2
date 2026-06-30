@@ -1,6 +1,6 @@
 ---
 name: autonomous-ai-agents-nightly-self-improvement
-description: Bu cron job, her gece 02:00'de otomatik olarak çalışır. Hermes'in skill
+description: Bu cron job, her gece 02:00'de otomatik olarak çalışır. ReYMeN'in skill
   kütüphanesini
 title: Autonomous Ai Agents Nightly Self Improvement
 version: 1.0.0
@@ -19,7 +19,7 @@ version: 1.0.0
 kütüphanesini tarar, eksik/eksik parçaları tamamlar, skill''leri günceller ve sonucu
   Telegram''a bildirir. Her gece 02:00''de çalışır.
   '
-  Gece otomatik geliştirme cron job'u. Obsidian vault ve Hermes skill
+  Gece otomatik geliştirme cron job'u. Obsidian vault ve ReYMeN skill
   kütüphanesini tarar, eksik/eksik parçaları tamamlar, skill'leri
   günceller ve sonucu Telegram'a bildirir. Her gece 02:00'de çalışır.
  |
@@ -27,7 +27,7 @@ kütüphanesini tarar, eksik/eksik parçaları tamamlar, skill''leri günceller 
 
 ## Amaç
 
-Bu cron job, her gece 02:00'de otomatik olarak çalışır. Hermes'in skill kütüphanesini
+Bu cron job, her gece 02:00'de otomatik olarak çalışır. ReYMeN'in skill kütüphanesini
 ve Obsidian vault'u tarar, geliştirme fırsatlarını belirler ve uygular.
 
 ## Zorunlu Adımlar (sıralı)
@@ -39,18 +39,18 @@ ve Obsidian vault'u tarar, geliştirme fırsatlarını belirler ve uygular.
 ls "/c/Users/marko/OneDrive/Belgeler/Obsidian Vault" 2>&1 || echo "VAULT_YOK"
 
 # Skill listesini al
-hermes skills list 2>&1
+ReYMeN skills list 2>&1
 
 # Cron job listesini al
-hermes cron list 2>&1
+ReYMeN cron list 2>&1
 ```
 
 ### 2. Skill + Obsidian Taraması
 
 1. `skills_list()` ile tüm skill'leri tara
 2. `search_files()` ile Obsidian vault'ta güncellenmesi gereken notları bul:
-   - `Hermes/Skills/` altındaki skill notları
-   - `Hermes/` altındaki yapılandırma notları
+   - `ReYMeN/Skills/` altındaki skill notları
+   - `ReYMeN/` altındaki yapılandırma notları
 3. Her skill için `skill_view()` ile oku
 4. Eksik veya güncellenmesi gereken kısımları belirle:
    - Skill adı çakışması var mı? (duplicate kontrol)

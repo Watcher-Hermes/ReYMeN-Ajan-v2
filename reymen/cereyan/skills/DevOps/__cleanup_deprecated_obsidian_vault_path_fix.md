@@ -1,8 +1,12 @@
-
-> **Kategori:** devops
-
 ---
-
+name: __cleanup_deprecated_obsidian_vault_path_fix
+title: Cleanup Deprecated Obsidian Vault Path Fix
+description: ''
+tags:
+- devops
+category: devops
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: obsidian-vault-path-fix
 description: "Use whenever reading, writing, or syncing anything to Obsidian. Contains correct vault path and sync rules so cached wrong paths are never used again."
 title: "Obsidian Vault Path Fix"
@@ -37,16 +38,16 @@ Always use the correct vault path for every Obsidian read/create/edit operation.
 
 ## Startup verification
 
-Run first on Hermes open:
+Run first on ReYMeN open:
 
 ```
-python C:\Users\marko\hermes-ai\venv\Scripts\python.exe -c "from pathlib import Path; v=Path(r'C:\Users\marko\OneDrive\Belgeler\Obsidian Vault'); print('[OK]' if v.exists() else '[HATA]', v)"
+python C:\Users\marko\ReYMeN-ai\venv\Scripts\python.exe -c "from pathlib import Path; v=Path(r'C:\Users\marko\OneDrive\Belgeler\Obsidian Vault'); print('[OK]' if v.exists() else '[HATA]', v)"
 ```
 
 ## Skill sync target
 
 - Source of truth: `skills_list`
-- Markdown note: `C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\Hermes Skills Sync.md`
+- Markdown note: `C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\ReYMeN Skills Sync.md`
 - Optional skill bundle dir: `C:\Users\marko\OneDrive\Belgeler\Obsidian Vault\obsidian_skill_all_tree_0`
 
 ## Permanent request

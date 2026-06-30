@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 # ── Varsayilan katalog kaynagi ──────────────────────────────────────────
 # GitHub'daki plugin katalog repomuz
-KATALOG_URL = "https://raw.githubusercontent.com/Watcher-Hermes/ReYMeN-Ajan-v2/main/plugin_katalog.json"
+KATALOG_URL = "https://raw.githubusercontent.com/Watcher-ReYMeN/ReYMeN-Ajan-v2/main/plugin_katalog.json"
 
 # Yerel katalog yolu (cache)
 KATALOG_DOSYASI = Path(__file__).resolve().parent / "plugin_katalog.json"
@@ -232,8 +232,10 @@ def paylas(ad: str, kaynak: str, aciklama: str = "", yazar: str = "") -> str:
                 aciklama = yaml_veri.get("description", "")
             if not yazar:
                 yazar = yaml_veri.get("author", "")
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
     yeni = {
         "ad": ad,

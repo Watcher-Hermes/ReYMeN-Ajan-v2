@@ -28,9 +28,9 @@
 | Var olmayan skill notu (vllm, gguf vb.) | `[[link]]` → `\`link\`` |
 | Koordinat formatı (`[[500, 375]]`) | `[[500, 375]]` → `` `[500, 375]` `` |
 | `skills/XXX` formatı (Obsidian'a skill yazarken oluşur) | `skills/xxx` → `[[xxx]]` regex toplu dönüşümü: `re.sub(r'\[\[skills/([^\]]+?)\]\]', r'[[\1]]', content)` |
-| `Hermes/Skills/xxx/yyy` formatı (eski yol) | `re.sub(r'\[\[Hermes/Skills/[^\]]+?\]\]', lambda m: '[[' + m.group(0)[2:-2].split('/')[-1] + ']]', content)` |
-| `Hermes/Cron/xxx` formatı | `re.sub(r'\[\[Hermes/Cron/([^\]]+?)\]\]', r'[[\1]]', content)` |
-| `Hermes/Skills/MOC - ...` gibi özel isimler | `content.replace('[[Hermes/Skills/MOC - X]]', '[[MOC - X]]')` — elle tek tek |
+| `ReYMeN/Skills/xxx/yyy` formatı (eski yol) | `re.sub(r'\[\[ReYMeN/Skills/[^\]]+?\]\]', lambda m: '[[' + m.group(0)[2:-2].split('/')[-1] + ']]', content)` |
+| `ReYMeN/Cron/xxx` formatı | `re.sub(r'\[\[ReYMeN/Cron/([^\]]+?)\]\]', r'[[\1]]', content)` |
+| `ReYMeN/Skills/MOC - ...` gibi özel isimler | `content.replace('[[ReYMeN/Skills/MOC - X]]', '[[MOC - X]]')` — elle tek tek |
 | Eğitim amaçlı örnekler (`[[wikilinks]]`) | Kod bloğuna çevir |
 | Kategori/alt yol linkleri (`windows-automation/vscode-ac`) | Obsidian'da `windows-automation\vscode-ac` dosyasına yönlendir |
 | JavaNotes .png360/.webp uzantı hataları | `.png360` → `.png` (gerçek dosya adı) |
@@ -55,7 +55,7 @@ Orphan = hiçbir yerden `[[link]]` almayan dosya.
 - Skills/ kökündeki anlamlı dosyalar (Hibrit AI, Dolphin vb.) → `_Skills_index.md`'ye link ekle
 
 **Aşama 3 — Eski/Skills-root legacy taşıma:**
-- Skills/ kökündeki `DESCRIPTION.md`, `SKILL.md`, `README.md` gibi Hermes repo'dan kalan dosyalar → `Knowledge/Skills-legacy/` altına taşı
+- Skills/ kökündeki `DESCRIPTION.md`, `SKILL.md`, `README.md` gibi ReYMeN repo'dan kalan dosyalar → `Knowledge/Skills-legacy/` altına taşı
 - `<50` satırlık taslak/boş skill şablonları → aynı arşive taşı
 - Anlamlı içerikli dosyalar (Hibrit AI Mimarisi, dolphin-llama3, self-improvement vb.) → olduğu yerde kal, _Skills_index'e ekle
 

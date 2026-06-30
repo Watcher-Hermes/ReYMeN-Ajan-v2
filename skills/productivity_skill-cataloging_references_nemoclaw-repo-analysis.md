@@ -25,7 +25,7 @@ Durum: Alpha (aktif geliştirme)
 
 ## Ne İşe Yarar
 
-NemoClaw, OpenClaw ve Hermes agent'larını NVIDIA OpenShell sandbox'ları içinde güvenle çalıştırmak için referans stack.
+NemoClaw, OpenClaw ve ReYMeN agent'larını NVIDIA OpenShell sandbox'ları içinde güvenle çalıştırmak için referans stack.
 Linux Docker container bazlı — Windows'ta direkt çalışmaz.
 
 ## Bizim İçin Değerli Olan Parçalar
@@ -37,7 +37,7 @@ NemoClaw'ın `.agents/skills/` dizini 3 audience bucket'a ayrılmış:
 - `nemoclaw-maintainer-*` (12 adet) — bakım skill'leri
 - `nemoclaw-contributor-*` (2 adet) — geliştirici skill'leri
 
-Bu pattern Hermes'in 1.184 skill'ine uygulandı. Detay: `references/audience-classification.md`
+Bu pattern ReYMeN'in 1.184 skill'ine uygulandı. Detay: `references/audience-classification.md`
 
 ### 2. AGENTS.md Formatı (KULLANILDI)
 
@@ -51,17 +51,17 @@ NemoClaw'ın AGENTS.md'si çok kapsamlı:
 - PR requirements
 - Gotchas bölümü
 
-**Hermes için AGENTS.md oluşturuldu:**
-`Watcher-Hermes/hermes-skills/blob/main/AGENTS.md`
+**ReYMeN için AGENTS.md oluşturuldu:**
+`Watcher-ReYMeN/ReYMeN-skills/blob/main/AGENTS.md`
 
 İçerik: repo yapısı, skill formatı (frontmatter şeması), audience kategorizasyonu tablosu,
 CLI quick reference, commit konvansiyonları (Conventional Commits), güvenlik kuralları.
 
-### 3. Hermes Manifest Yapısı
+### 3. ReYMeN Manifest Yapısı
 
 `agents/hermes/manifest.yaml` — Hermes'in NemoClaw içindeki resmi konfigürasyon haritası:
 - Health probe: port 8642 (GET /health)
-- Config: `.hermes/config.yaml` + `.env`
+- Config: `.ReYMeN/config.yaml` + `.env`
 - State dirs: memories, sessions, skills, plugins, cron, logs
 - Dashboard: port 18789
 - Inference: custom provider + model.base_url
@@ -73,7 +73,7 @@ CLI quick reference, commit konvansiyonları (Conventional Commits), güvenlik k
 
 ### 5. Model-Specific Setup Schema
 
-`nemoclaw-blueprint/model-specific-setup/schema.json` — model/provider compat registry için JSON schema. Hermes'e yeni model eklerken kullanılabilecek standart format.
+`nemoclaw-blueprint/model-specific-setup/schema.json` — model/provider compat registry için JSON schema. ReYMeN'e yeni model eklerken kullanılabilecek standart format.
 
 ## Kullanılmayan Parçalar (Windows'ta Çalışmaz)
 
@@ -89,7 +89,7 @@ CLI quick reference, commit konvansiyonları (Conventional Commits), güvenlik k
 | Komut | Açıklama |
 |-------|----------|
 | `nemoclaw` | Ana CLI (OpenClaw için) |
-| `nemohermes` | Hermes alias |
+| `nemohermes` | ReYMeN alias |
 | `nemoclaw onboard` | İlk kurulum |
 | `nemoclaw blueprint` | Sandbox yönetimi |
 | `nemoclaw policies` | Network policy yönetimi |
@@ -109,7 +109,7 @@ CLI quick reference, commit konvansiyonları (Conventional Commits), güvenlik k
 | NVIDIA/OpenShell | Alttaki sandbox runtime |
 | VoltAgent/awesome-nemoclaw | NemoClaw preset/recipe koleksiyonu |
 | vivekchand/clawmetry | 12 agent runtime için real-time observability |
-| TheAiSingularity/hermesclaw | Hermes + OpenShell sandbox |
+| TheAiSingularity/hermesclaw | ReYMeN + OpenShell sandbox |
 | Hmbown/NemoHermes | NVIDIA capability registry + Spark routing |
 | jetsonhacks/NemoClaw-Orin | Jetson Orin kurulumu |
 | LazaUK/AIFoundry-NemoClaw-AKS | Azure Kubernetes deployment |

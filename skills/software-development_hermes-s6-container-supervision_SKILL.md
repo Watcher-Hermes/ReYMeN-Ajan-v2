@@ -1,8 +1,8 @@
 ---
-name: software-development-hermes-s6-container-supervision
+name: software-development-ReYMeN-s6-container-supervision
 description: Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve
   ilgili reference dosyasını yükleyin.
-title: Software Development Hermes S6 Container Supervision
+title: Software Development ReYMeN S6 Container Supervision
 version: 1.0.0
 ---
 
@@ -18,7 +18,7 @@ version: 1.0.0
 
 Agent Docker image — adding new services, debugging profile gateways, understanding
   the Architecture B main-program pattern.
-# Hermes S6 Container Supervision
+# ReYMeN S6 Container Supervision
 
 Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve ilgili reference dosyasını yükleyin.
 

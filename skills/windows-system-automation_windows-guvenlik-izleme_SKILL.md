@@ -32,7 +32,7 @@ trigger: "Kullanıcı 'güvenlik izle', 'watchdog', 'tehdit kontrol' dediğinde 
 ## Ne İşe Yarar
 - Windows Defender tehdit algılamalarını periyodik kontrol eder
 - Dışarıya açık beklenmeyen portları tespit eder
-- Yeni sorun bulduğunda Hermes üzerinden raporlar
+- Yeni sorun bulduğunda ReYMeN üzerinden raporlar
 - State tutar: sadece **son kontrolden sonraki** olayları bildirir
 
 ## Kurulum
@@ -50,7 +50,7 @@ Dosya: `~/.hermes/scripts/guvenlik_watchdog.ps1`
 }
 ```
 
-Hermes cron'a şu komutla oluşturuldu (tekrar gerekmez):
+ReYMeN cron'a şu komutla oluşturuldu (tekrar gerekmez):
 ```
 cronjob create schedule="every 10m" script=guvenlik_watchdog.ps1 no_agent=true name="Guvenlik Watchdog (10dk)"
 ```
@@ -76,7 +76,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Users\marko\AppData\
 
 Sorun bulunduğunda:
 ```
-=== HERMES GUVENLIK UYARISI: N yeni sorun ===
+=== ReYMeN GUVENLIK UYARISI: N yeni sorun ===
 
 [{"Type":"DEFENDER","ThreatID":...,"Source":"...","Action":true,...}]
 ```

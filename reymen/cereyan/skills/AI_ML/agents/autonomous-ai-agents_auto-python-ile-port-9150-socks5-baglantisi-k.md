@@ -1,20 +1,16 @@
 ---
 name: auto-python-ile-port-9150-socks5-baglantisi-k
-title: "Auto Python Ile Port 9150 Socks5 Baglantisi K"
-tags: [agents, ai, python]
-description: "Autonomous solution for: Python ile port 9150 SOCKS5 baglantisi kontrol et ve sonucu ekrana yaz. Solved in 1 iteration(s) using dolphin-llama3 + VS Code loop."
-version: 1.0.0
-author: hermes-auto
-license: MIT
-metadata:
-  hermes:
-    tags: [autonomous, auto-generated, dolphin, vscode, loop]
+title: Auto Python Ile Port 9150 Socks5 Baglantisi K
+description: 'Autonomous solution for: Python ile port 9150 SOCKS5 baglantisi kontrol
+  et ve sonucu ekrana yaz. Solved in 1 iteration(s) using dolphin-llama3 + VS Code
+  loop.'
+tags:
+- agents
+- ai
+- python
+category: agents
 audience: user
-related_skills: [vscode-otomasyon, gorsel-onaylama]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -35,8 +31,6 @@ related_skills: [vscode-otomasyon, gorsel-onaylama]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: Otonom ajan gelistiricisi
 Ne: "Autonomous solution for: Python ile port 9150 SOCKS5 baglantisi kontrol et ve sonucu ekrana yaz. Solved in 1 iteration(s) using dolphin-llama3 + VS Code loop."

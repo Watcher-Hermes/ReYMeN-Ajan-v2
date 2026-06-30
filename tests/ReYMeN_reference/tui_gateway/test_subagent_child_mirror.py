@@ -21,7 +21,7 @@ def server():
         "sys.modules",
         {
             "ReYMeN_constants": MagicMock(
-                get_ReYMeN_home=MagicMock(return_value="/tmp/ReYMeN_test_child_mirror")
+                get_reymen_home=MagicMock(return_value="/tmp/ReYMeN_test_child_mirror")
             ),
             "ReYMeN_cli.env_loader": MagicMock(),
             "ReYMeN_cli.banner": MagicMock(),

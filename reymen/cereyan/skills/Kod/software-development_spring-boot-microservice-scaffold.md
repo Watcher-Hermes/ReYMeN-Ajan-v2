@@ -1,8 +1,12 @@
-
-> **Kategori:** software-development
-
 ---
-
+name: software-development_spring-boot-microservice-scaffold
+title: Software Development Spring Boot Microservice Scaffold
+description: ''
+tags:
+- software-development
+category: software-development
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: spring-boot-microservice-scaffold
 description: >-
 title: "Spring Boot Microservice Scaffold"

@@ -29,14 +29,14 @@ except ImportError:
     def sanitize_context(text: str, max_chars: int = 10000) -> str:
         """Fallback: truncate text to max_chars."""
         return text[:max_chars]
-from reymen.sistem.ReYMeN_constants import get_ReYMeN_home
+from reymen.sistem.ReYMeN_constants import get_reymen_home
 from typing import Any, Callable, Dict, List, Optional, Tuple, TypeVar
 
 logger = logging.getLogger(__name__)
 
 T = TypeVar("T")
 
-DEFAULT_DB_PATH = get_ReYMeN_home() / "state.db"
+DEFAULT_DB_PATH = get_reymen_home() / "state.db"
 
 SCHEMA_VERSION = 14
 
@@ -620,8 +620,10 @@ class SessionDB:
                         "WAL checkpoint: %d/%d pages checkpointed",
                         result[2], result[1],
                     )
-        except Exception:
-            pass  # Best effort — never fatal.
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # Best effort — never fatal.
 
     def close(self):
         """Close the database connection.

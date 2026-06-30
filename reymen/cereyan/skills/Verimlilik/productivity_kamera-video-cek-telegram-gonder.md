@@ -1,8 +1,12 @@
-
-> **Kategori:** productivity
-
 ---
-
+name: productivity_kamera-video-cek-telegram-gonder
+title: Productivity Kamera Video Cek Telegram Gonder
+description: ''
+tags:
+- productivity
+category: productivity
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: kamera-video-cek-telegram-gonder
 description: Windows laptop kamerasından 10 sn video çekip Telegram'a gönder. OpenCV kurulumu, kamera indeksi taraması, kayıt doğrulama ve iletim adımlarını kapsar.
 title: "Kamera Video Cek Telegram Gonder"

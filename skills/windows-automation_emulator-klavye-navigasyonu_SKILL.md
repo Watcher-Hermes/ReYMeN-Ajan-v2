@@ -5,7 +5,7 @@ description: "Android emülatörüne fare tıklaması ile odaklanıp klavye kıs
 category: windows-automation
 audience: user
 tags: [automation, tor, windows]
-author: Hermes
+author: ReYMeN
 version: 1.0
 ---
 

@@ -28,7 +28,7 @@ def _isolate_config(tmp_path, monkeypatch):
     """Redirect all config I/O to a temp directory."""
     monkeypatch.setenv("ReYMeN_HOME", str(tmp_path))
     monkeypatch.setattr(
-        "ReYMeN_cli.config.get_ReYMeN_home", lambda: tmp_path
+        "ReYMeN_cli.config.get_reymen_home", lambda: tmp_path
     )
     config_path = tmp_path / "config.yaml"
     env_path = tmp_path / ".env"
@@ -158,9 +158,9 @@ class TestMcpRemove:
             "oauth-srv": {"url": "https://example.com/mcp", "auth": "oauth"},
         })
         monkeypatch.setattr("builtins.input", lambda _: "y")
-        # Also patch get_ReYMeN_home in the mcp_config module namespace
+        # Also patch get_reymen_home in the mcp_config module namespace
         monkeypatch.setattr(
-            "ReYMeN_cli.mcp_config.get_ReYMeN_home", lambda: tmp_path
+            "ReYMeN_cli.mcp_config.get_reymen_home", lambda: tmp_path
         )
 
         # Create a fake token file
@@ -654,7 +654,7 @@ class TestMcpRemoveEvictsManager:
         })
         monkeypatch.setattr("builtins.input", lambda _: "y")
         monkeypatch.setattr(
-            "ReYMeN_cli.mcp_config.get_ReYMeN_home", lambda: tmp_path
+            "ReYMeN_cli.mcp_config.get_reymen_home", lambda: tmp_path
         )
         monkeypatch.setenv("ReYMeN_HOME", str(tmp_path))
         _set_interactive_stdin(monkeypatch)

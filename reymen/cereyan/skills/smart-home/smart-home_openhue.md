@@ -1,24 +1,12 @@
 ---
-name: openhue
-description: "Control Philips Hue lights, scenes, rooms via OpenHue CLI."
-version: 1.0.0
-author: community
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [Smart-Home, Hue, Lights, IoT, Automation]
-audience: user
-    homepage: https://www.openhue.io/cli
-prerequisites:
-  commands: [openhue]
+name: smart-home_openhue
+title: Smart Home Openhue
+description: ''
+tags:
+- smart-home
+category: smart-home
+audience: agent
 ---
-
-
-> **Kategori:** smart-home
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +17,6 @@ prerequisites:
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # OpenHue CLI
 
@@ -121,7 +107,7 @@ openhue set room "Living Room" --off
 
 ## Notes
 
-- Bridge must be on the same local network as the machine running Hermes
+- Bridge must be on the same local network as the machine running ReYMeN
 - First run requires physically pressing the button on the Hue Bridge to authorize
 - Colors only work on color-capable bulbs (not white-only models)
 - Light and room names are case-sensitive — use `openhue get light` to check exact names

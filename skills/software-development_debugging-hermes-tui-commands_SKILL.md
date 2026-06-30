@@ -1,10 +1,10 @@
 ---
-name: software-development-debugging-hermes-tui-commands
-description: Hermes slash commands span three layers — Python command registry, tui_gateway
+name: software-development-debugging-ReYMeN-tui-commands
+description: ReYMeN slash commands span three layers — Python command registry, tui_gateway
   JSON-RPC bridge, and the Ink/TypeScript frontend. When a command misbehaves (missing
   from autocomplete, works in CLI but not TUI, config persists but UI doesn't update),
   the bug is almost always one layer being out of sync with another.
-title: Software Development Debugging Hermes Tui Commands
+title: Software Development Debugging ReYMeN Tui Commands
 version: 1.0.0
 ---
 
@@ -18,13 +18,13 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-# Debugging Hermes TUI Slash Commands
+# Debugging ReYMeN TUI Slash Commands
 
 ## Overview
 
-Hermes slash commands span three layers — Python command registry, tui_gateway JSON-RPC bridge, and the Ink/TypeScript frontend. When a command misbehaves (missing from autocomplete, works in CLI but not TUI, config persists but UI doesn't update), the bug is almost always one layer being out of sync with another.
+ReYMeN slash commands span three layers — Python command registry, tui_gateway JSON-RPC bridge, and the Ink/TypeScript frontend. When a command misbehaves (missing from autocomplete, works in CLI but not TUI, config persists but UI doesn't update), the bug is almost always one layer being out of sync with another.
 
-Use this skill when you encounter issues with slash commands in the Hermes TUI, particularly when commands aren't showing in autocomplete, aren't working properly in the TUI, or need to be added/updated.
+Use this skill when you encounter issues with slash commands in the ReYMeN TUI, particularly when commands aren't showing in autocomplete, aren't working properly in the TUI, or need to be added/updated.
 
 ## When to Use
 
@@ -141,12 +141,12 @@ After fixing:
 
 1. Rebuild the TUI:
    ```bash
-   cd /home/bb/hermes-agent && npm --prefix ui-tui run build
+   cd /home/bb/ReYMeN-agent && npm --prefix ui-tui run build
    ```
 
 2. Run the TUI and test the command:
    ```bash
-   hermes --tui
+   ReYMeN --tui
    ```
 
 3. Type `/` and verify the command appears in autocomplete suggestions with the expected description and args hint.

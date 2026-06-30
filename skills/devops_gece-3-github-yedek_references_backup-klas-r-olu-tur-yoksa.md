@@ -17,4 +17,4 @@
 ---
 
 # Backup klasörü oluştur (yoksa)
-mkdir -p /c/Users/marko/hermes-skills-backup
+mkdir -p /c/Users/marko/ReYMeN-skills-backup

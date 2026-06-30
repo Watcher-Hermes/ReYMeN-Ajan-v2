@@ -84,7 +84,9 @@ def handle_branch_command(cli, cmd_original: str) -> None:
                 reasoning=msg.get("reasoning"),
             )
         except Exception as _e:
-            pass  # Best-effort copy
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # Best-effort copy
 
     # Set title on the branch
     try:

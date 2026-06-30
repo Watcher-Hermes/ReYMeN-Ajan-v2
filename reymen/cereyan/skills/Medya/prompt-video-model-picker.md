@@ -1,8 +1,12 @@
-
-> **Kategori:** video
-
 ---
-
+name: prompt-video-model-picker
+title: Prompt Video Model Picker
+description: ''
+tags:
+- video
+category: video
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-video-model-picker
 description: Pick Sora 2 / Runway Gen-5 / Wan-Video / HunyuanVideo / Cosmos for a given task, license, and latency target
 title: "PRompt Video Model Picker"

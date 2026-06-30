@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: coordination-simulation
+title: Coordination Simulation
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Koordinasyon Simülasyonu — 2026-06-21
 

@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_open_vscode_focus
+title: Windows Automation Open Vscode Focus
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: open_vscode_focus
 description: Oyun ekranından VS Code’a hızlı geçiş. Çalışma alanı sıfırlanmadan öndeki pencereyi kapatır veya en sona alır, ardından VS Code’u sıfırdan başlatır ve odaklar.
 title: "Open VS Code Focus"
@@ -49,4 +50,4 @@ category: windows-automation---
 - `launch_claude_alt.vbs`
 
 ## Kaynak
-- Hermes Agent
+- ReYMeN Agent

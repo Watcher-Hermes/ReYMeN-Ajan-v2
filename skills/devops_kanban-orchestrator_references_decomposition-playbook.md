@@ -108,4 +108,4 @@ Tell them what you created in plain prose, naming the actual profiles you used:
 > - **T3** (`<profile-B>`): synthesizes T1 + T2 into a recommendation
 > - **T4** (`<profile-C>`): turns T3 into a CTO memo
 >
-> The dispatcher will pick up T1 and T2 now. T3 starts when both finish. You'll get a gateway ping when T4 completes. Use the dashboard or `hermes kanban tail <id>` to follow along.
+> The dispatcher will pick up T1 and T2 now. T3 starts when both finish. You'll get a gateway ping when T4 completes. Use the dashboard or `ReYMeN kanban tail <id>` to follow along.

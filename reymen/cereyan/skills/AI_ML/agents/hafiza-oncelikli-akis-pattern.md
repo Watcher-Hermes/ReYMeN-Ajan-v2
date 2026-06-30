@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: hafiza-oncelikli-akis-pattern
+title: Hafiza Oncelikli Akis Pattern
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Hafıza-Öncelikli Akış Pattern
 
@@ -137,7 +139,7 @@ bulunanlar = cross_agent_tara("nmap tarama")
 | isle() hata: kaydedildi | ✅ |
 | kaydet_isle() → guven_skoru=1.0 | ✅ |
 | kayit_guncelle() → yeni kayıt açılmadı | ✅ |
-| 125 Hermes session import (2.6 sn) | ✅ |
+| 125 ReYMeN session import (2.6 sn) | ✅ |
 | 55 ACP test | PASS |
 
 ## İyileştirme 4 — oneri_uret() Belirsiz Görev Tahmini

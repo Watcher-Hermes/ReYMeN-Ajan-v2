@@ -42,7 +42,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | /tmp/dap_client.py | `references/tmp-dap_client-py.md` |
 | ... loop reading events and sending continue/stepIn/etc. | `references/loop-reading-events-and-sending-continue-stepin-etc.md` |
 | You get a (Pdb) prompt exactly as if debugging locally. | `references/you-get-a-pdb-prompt-exactly-as-if-debugging-locally.md` |
-| Debugging Hermes-specific Processes | `references/debugging-hermes-specific-processes.md` |
+| Debugging ReYMeN-specific Processes | `references/debugging-ReYMeN-specific-processes.md` |
 | tui_gateway/server.py near the top of serve() | `references/tui_gateway-server-py-near-the-top-of-serve.md` |
 | Common Pitfalls | `references/common-pitfalls.md` |
 | Verification Checklist | `references/verification-checklist.md` |

@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: cron-no-agent-pattern
+title: Cron No Agent Pattern
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,8 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Cron Job no_agent Pattern — Token-Free Otomasyon
 
@@ -62,7 +64,7 @@ import os, subprocess, sys
 from datetime import datetime
 
 HOME = os.path.expanduser("~")
-LOG_DIR = os.path.join(HOME, "AppData", "Local", "hermes", "profiles",
+LOG_DIR = os.path.join(HOME, "AppData", "Local", "ReYMeN", "profiles",
                        "reymen", "cron", "output")
 os.makedirs(LOG_DIR, exist_ok=True)
 

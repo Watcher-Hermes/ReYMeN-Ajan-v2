@@ -1,17 +1,12 @@
 ---
 name: find-your-level
-version: 1.0.0
-description: >
-title: "Find Your Level"
-  260-lesson, 20-phase AI Engineering from Scratch curriculum.
-  Trigger phrases: "where should I start", "find my level", "what do I know",
-  "which phase", "assess my knowledge", "placement test", "skip ahead"
-tags: [assessment, onboarding, curriculum, ai-engineering]
-audience: user
-
-
+title: Find Your Level
+description: ''
+tags:
+- ai_ml
+category: AI_ML
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ML/Veri bilimci |
@@ -32,8 +27,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: ML/Veri bilimci
 Ne: >
@@ -71,8 +64,6 @@ their score for that area (e.g. "Math & Statistics: 2/2") before moving to the
 next round. Keep commentary short. Do not explain the answers until the very
 end.
 
----
-
 ### Round 1 -- Math & Statistics
 
 **Q1.** You have two vectors, a = [1, 2, 3] and b = [4, 5, 6]. What is their
@@ -95,8 +86,6 @@ exactly 2 heads?
 
 **Correct: B) 3/8** (C(3,2) * (1/2)^3 = 3/8)
 
----
-
 ### Round 2 -- Classical ML
 
 **Q3.** In a classification task with 90% negative and 10% positive samples,
@@ -118,8 +107,6 @@ a model predicts everything as negative. What is its accuracy?
 
 **Correct: B) The number of trees**
 
----
-
 ### Round 3 -- Deep Learning
 
 **Q5.** During backpropagation, what does the chain rule compute?
@@ -140,8 +127,6 @@ primarily address?
 - D) High memory usage
 
 **Correct: B) Vanishing gradients in deep networks**
-
----
 
 ### Round 4 -- NLP & Transformers
 
@@ -165,8 +150,6 @@ fine-tuning a large language model?
 
 **Correct: B) It freezes most weights and trains small low-rank update matrices**
 
----
-
 ### Round 5 -- Applied AI
 
 **Q9.** In a RAG (Retrieval-Augmented Generation) system, what happens before
@@ -189,8 +172,6 @@ the LLM generates an answer?
 
 **Correct: B) To assign tasks, route messages, and manage agent collaboration**
 
----
-
 ## After All 5 Rounds
 
 Display the area breakdown and total:
@@ -201,7 +182,7 @@ Classical ML:         X/2
 Deep Learning:        X/2
 NLP & Transformers:   X/2
 Applied AI:           X/2
-----------------------------
+----------------------
 Total:                X/10
 ```
 

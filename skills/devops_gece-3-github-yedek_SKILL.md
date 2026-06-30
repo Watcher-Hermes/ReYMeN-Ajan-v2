@@ -3,7 +3,7 @@ name: gece-3-github-yedek
 title: "GitHub Yedekleme"
 tags: [automation, devops, git, system, backup, github, memory]
 description: >-
-  Hermes Agent yedekleme: memory (MEMORY.md + USER.md), skills, config, state.db
+  ReYMeN Agent yedekleme: memory (MEMORY.md + USER.md), skills, config, state.db
   GitHub'a yedeklenir. İki yöntem: (1) gh CLI ile basit memory yedek, (2) full
   backup scripti ile skills+state.db+memory.
 version: 3.0.0
@@ -45,7 +45,7 @@ Memory dosyalarını (MEMORY.md + USER.md) GitHub'a yedeklemek için:
 python3 -c "
 import re, shutil, os
 src = r'C:\\Users\\marko\\AppData\\Local\\hermes\\memories'
-dst = r'C:\\Users\\marko\\AppData\\Local\\Temp\\hermes-memory-temp'
+dst = r'C:\\Users\\marko\\AppData\\Local\\Temp\\ReYMeN-memory-temp'
 if os.path.exists(dst): shutil.rmtree(dst)
 os.makedirs(dst)
 for fname in ['MEMORY.md', 'USER.md']:
@@ -59,7 +59,7 @@ for fname in ['MEMORY.md', 'USER.md']:
 "
 
 # 2. Repo oluştur ve push et (tek seferde)
-cd /c/Users/marko/AppData/Local/Temp/hermes-memory-temp
+cd /c/Users/marko/AppData/Local/Temp/ReYMeN-memory-temp
 git init
 git add -A
 git commit -m "Memory backup $(date +%Y-%m-%d)"
@@ -100,7 +100,7 @@ gh auth status
 | Repo | Açıklama | Oluşturuldu |
 |------|----------|-------------|
 | `Watcher-Hermes/hermes-memory-backup` | Memory yedeği (MEMORY.md + USER.md) | ✅ 14 Haz 2026 |
-| `Watcher-Hermes/hermes-full-backup` | Skills + memory + state.db | Geçmişte oluşturuldu |
+| `Watcher-ReYMeN/ReYMeN-full-backup` | Skills + memory + state.db | Geçmişte oluşturuldu |
 
 ## Obsidian Vault Yedekleme
 
@@ -110,7 +110,7 @@ Obsidian vault zaten GitHub'a bağlıdır (kendi git repo'su). Ayrıca yedekleme
 
 1. **Token sızıntısı** — Memory'de GITHUB_TOKEN/PAT varsa, push öncesi `re.sub` ile temizle
 2. **gh CLI yoksa** — `gh` kurulu değilse `GITHUB_TOKEN` ile HTTPS+PAT dene
-3. **state.db kilitli** — Hermes açıkken state.db okunamayabilir; WAL modunda retry gerekebilir
+3. **state.db kilitli** — ReYMeN açıkken state.db okunamayabilir; WAL modunda retry gerekebilir
 4. **Eymen2016 çakışması** — Git credential helper'da eski hesap varsa `git config --unset credential.helper` ile temizle
 5. **Large file** — state.db 100MB+ ise GitHub 50MB limitine takılma; chunk'la veya Git LFS kullan
 6. **Repo yoksa** — `gh repo create` ile oluştur, `mcp_github_create_repository` her zaman auth vermeyebilir

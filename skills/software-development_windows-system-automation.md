@@ -7,10 +7,10 @@ version: 1.0.0
 author: marko
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [windows, automation, powershell, mouse, screenshot]
 audience: contributor
-related_skills: [hermes-agent]
+related_skills: [ReYMeN-agent]
 ---
 
 
@@ -89,7 +89,7 @@ Böylece kaçış karakterleri ve yorumlama sorunları önlenir.
 
 ## Cron Job (no_agent=True) + Watchdog Pattern
 
-Hermes cron job'larında `no_agent=True` ile LLM harcamadan script bazlı watchdog çalıştırma:
+ReYMeN cron job'larında `no_agent=True` ile LLM harcamadan script bazlı watchdog çalıştırma:
 
 **Ne zaman kullanılır:**
 - Periyodik kontrol/backup görevleri (disk alanı, ağ bağlantısı, dosya senkronizasyonu)
@@ -161,7 +161,7 @@ Detaylı mimari: `references/windows-error-pipeline.md`
 
 ## Claude Code İş Birliği Deseni
 
-Bazı durumlarda modül/çözüm doğrudan Hermes ile yazmak yerine **Claude Code CLI'a sorulur**, kullanıcı çözümü alır, Hermes entegre eder.
+Bazı durumlarda modül/çözüm doğrudan ReYMeN ile yazmak yerine **Claude Code CLI'a sorulur**, kullanıcı çözümü alır, ReYMeN entegre eder.
 
 **Ne zaman kullanılır:**
 - Büyük/yeni modüller (500+ satır)
@@ -169,7 +169,7 @@ Bazı durumlarda modül/çözüm doğrudan Hermes ile yazmak yerine **Claude Cod
 - Kullanıcının tercih ettiği durumlar
 
 **Akış:**
-1. Hermes, Claude Code'a sorulacak **soru metnini** hazırlar (açık, adım adım, teknik kurallarla)
+1. ReYMeN, Claude Code'a sorulacak **soru metnini** hazırlar (açık, adım adım, teknik kurallarla)
 2. Kullanıcı soruyu Claude Code terminaline yapıştırır
-3. Kullanıcı çözümü alıp Hermes'e iletir
-4. Hermes dosyayı Reymen projesine yazar, entegre eder, derleme testi yapar
+3. Kullanıcı çözümü alıp ReYMeN'e iletir
+4. ReYMeN dosyayı Reymen projesine yazar, entegre eder, derleme testi yapar

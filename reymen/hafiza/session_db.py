@@ -150,7 +150,9 @@ class AdvancedSessionStorage:
                         )
                     """)
                 except Exception as _e:
-                    pass  # Eski SQLite versiyonlari trigram desteklemez
+                    __import__("logging").getLogger(__name__).warning(
+                        "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+                    )  # Eski SQLite versiyonlari trigram desteklemez
 
                 # Session mesajlari FTS5 (icerik arama icin)
                 conn.execute("""
@@ -563,7 +565,7 @@ class AdvancedSessionStorage:
         return None, None
 
     def session_search(self, sorgu: str, limit: int = 10, tarih_araligi=None) -> list:
-        """Hermes'teki session_search benzeri: FTS5 ile arama yapip session bazinda grupla.
+        """ReYMeN'teki session_search benzeri: FTS5 ile arama yapip session bazinda grupla.
 
         Args:
             sorgu:        Aranacak kelime/ifade (FTS5 MATCH sozdizimi gecerlidir).

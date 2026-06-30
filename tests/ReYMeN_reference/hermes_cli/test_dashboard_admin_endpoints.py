@@ -16,14 +16,14 @@ def _client():
     except ImportError:
         pytest.skip("fastapi/starlette not installed")
     import ReYMeN_state
-    from ReYMeN_constants import get_ReYMeN_home
+    from ReYMeN_constants import get_reymen_home
     from ReYMeN_cli.web_server import app, _SESSION_HEADER_NAME, _SESSION_TOKEN
 
     client = TestClient(app)
     client.headers[_SESSION_HEADER_NAME] = _SESSION_TOKEN
     # Keep the state DB under the isolated ReYMeN_HOME for any handler that
     # touches it.
-    ReYMeN_state.DEFAULT_DB_PATH = get_ReYMeN_home() / "state.db"
+    ReYMeN_state.DEFAULT_DB_PATH = get_reymen_home() / "state.db"
     return client, _SESSION_HEADER_NAME
 
 
@@ -144,9 +144,9 @@ class TestMemoryEndpoints:
     @pytest.fixture(autouse=True)
     def _setup(self, _isolate_ReYMeN_home):
         self.client, _ = _client()
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        (get_ReYMeN_home() / "memories").mkdir(parents=True, exist_ok=True)
+        (get_reymen_home() / "memories").mkdir(parents=True, exist_ok=True)
 
     def test_status_and_select(self):
         data = self.client.get("/api/memory").json()
@@ -161,9 +161,9 @@ class TestMemoryEndpoints:
         assert r.status_code == 400
 
     def test_reset_targets(self):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        mem = get_ReYMeN_home() / "memories"
+        mem = get_reymen_home() / "memories"
         (mem / "MEMORY.md").write_text("notes")
         (mem / "USER.md").write_text("user")
 
@@ -829,9 +829,9 @@ class TestDebugShareEndpoint:
     @pytest.fixture(autouse=True)
     def _setup(self, _isolate_ReYMeN_home):
         self.client, self.header = _client()
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        logs = get_ReYMeN_home() / "logs"
+        logs = get_reymen_home() / "logs"
         logs.mkdir(parents=True, exist_ok=True)
         (logs / "agent.log").write_text("agent line\n")
         (logs / "errors.log").write_text("err line\n")

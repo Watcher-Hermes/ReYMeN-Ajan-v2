@@ -16,7 +16,7 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-# Mobile Expo Dev (Hermes Skill)
+# Mobile Expo Dev (ReYMeN Skill)
 
 Bu proje için oturumdan oturuma sürekli uygulanacak mobil geliştirme rehberi.
 

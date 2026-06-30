@@ -21,7 +21,7 @@ version: 1.0.0
 
 `ClosedLearningLoop.__init__()` her çağrıldığında `tum_becerileri_indeksle()` çalışır. 5.000+ skill dosyası varken bu FTS5 index taraması ~0.7sn sürer. Testlerde her fixture kurulumunda tekrarlanırsa toplam süre patlar.
 
-Ayrıca test temp dizininde çalışsa bile `SKILLS_DIZINLERI` sabiti = `[ROOT / "skills", ROOT / ".hermes" / "skills"]` ile GERÇEK skills dizinini tarar — temp skills_dir parametresi sadece yeni becerilerin kaydedileceği yeri belirler.
+Ayrıca test temp dizininde çalışsa bile `SKILLS_DIZINLERI` sabiti = `[ROOT / "skills", ROOT / ".ReYMeN" / "skills"]` ile GERÇEK skills dizinini tarar — temp skills_dir parametresi sadece yeni becerilerin kaydedileceği yeri belirler.
 
 ## Çözüm: auto_index Parametresi
 

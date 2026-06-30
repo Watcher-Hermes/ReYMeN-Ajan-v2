@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_exit
 description: Exit
-title: "Autonomous Ai Agents Hermes Agent References Exit"
+title: "Autonomous Ai Agents ReYMeN Agent References Exit"
 version: 1.0.0
 ---
 

@@ -17,7 +17,7 @@ version: 1.0.0
 
 # Session History Extraction (SQLite → Markdown)
 
-After a fork migration or branding rename, extract all past agent conversations from the Hermes session database into the ReYMeN project for archival and reference.
+After a fork migration or branding rename, extract all past agent conversations from the ReYMeN session database into the ReYMeN project for archival and reference.
 
 ## Data Sources
 

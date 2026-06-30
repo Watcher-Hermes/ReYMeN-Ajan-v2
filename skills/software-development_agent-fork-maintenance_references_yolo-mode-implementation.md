@@ -17,7 +17,7 @@ version: 1.0.0
 
 # YOLO Mode (Dangerous Mode) Implementation
 
-The fork's equivalent of Claude Code's `dangerous` flag — bypasses dangerous command approval prompts. In Hermes Agent this is called **YOLO mode**.
+The fork's equivalent of Claude Code's `dangerous` flag — bypasses dangerous command approval prompts. In ReYMeN Agent this is called **YOLO mode**.
 
 ## Tirith Security Interaction (Critical)
 

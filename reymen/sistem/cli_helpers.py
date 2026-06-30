@@ -166,19 +166,19 @@ _COMMAND_SPINNER_FRAMES = ("⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧
 
 # Load .env from ~/.ReYMeN/.env first, then project root as dev fallback.
 # User-managed env files should override stale shell exports on restart.
-from reymen.sistem.ReYMeN_constants import get_ReYMeN_home, display_ReYMeN_home
+from reymen.sistem.ReYMeN_constants import get_reymen_home, display_reymen_home
 from ReYMeN_cli.browser_connect import (
     DEFAULT_BROWSER_CDP_URL,
     is_browser_debug_ready,
     manual_chrome_debug_command,
     try_launch_chrome_debug,
 )
-from ReYMeN_cli.env_loader import load_ReYMeN_dotenv
+from ReYMeN_cli.env_loader import load_reymen_dotenv
 from reymen.sistem.utils import base_url_host_matches
 
-_ReYMeN_home = get_ReYMeN_home()
+_ReYMeN_home = get_reymen_home()
 _project_env = Path(__file__).parent / '.env'
-load_ReYMeN_dotenv(ReYMeN_home=_ReYMeN_home, project_env=_project_env)
+load_reymen_dotenv(ReYMeN_home=_ReYMeN_home, project_env=_project_env)
 
 
 _REASONING_TAGS = (

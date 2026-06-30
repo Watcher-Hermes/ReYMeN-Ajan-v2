@@ -1,7 +1,7 @@
 ---
-name: software-development_reymen-hermes-sync_references_2026-06-17-83-dupe-cleanup
+name: software-development_reymen-ReYMeN-sync_references_2026-06-17-83-dupe-cleanup
 description: 83 Duplicate File Cleanup — 17 Haziran 2026
-title: "Software Development Reymen Hermes Sync References 2026 06 17 83 Dupe Cleanup"
+title: "Software Development Reymen ReYMeN Sync References 2026 06 17 83 Dupe Cleanup"
 version: 1.0.0
 ---
 
@@ -25,7 +25,7 @@ Reymen (derived from Hermes Agent) had **83 files** duplicated between `root/` a
 
 When Reymen was forked from Hermes, the project maintained TWO parallel layers:
 - **root/**: Reymen's simplified/stripped-down versions (used by beyin.py, motor.py, main.py)
-- **agent/**: Hermes's full versions (used by run_agent.py, cli.py)
+- **agent/**: ReYMeN's full versions (used by run_agent.py, cli.py)
 
 These were created during earlier merge sessions but never cleaned up or documented as intentional.
 
@@ -42,19 +42,19 @@ During Step 3 merge (2026-06-17), a root vs agent/ comparison revealed that **83
 ### 2. Deletion
 - Deleted 83 files from root/ that had agent/ equivalents
 - Kept `reymen_batch_runner.py`, `reymen_mcp_serve.py`, `reymen_trajectory_compressor.py` (renamed originals)
-- Kept `model_tools.py` (Hermes version, actually used by run_agent.py/cli.py)
+- Kept `model_tools.py` (ReYMeN version, actually used by run_agent.py/cli.py)
 
 ### 3. Verification
 - 9 critical files compiled: beyin.py, motor.py, main.py, closed_learning_loop.py, planlayici.py, dispatcher.py, sistem_talimati.py, cli.py, run_agent.py ✅
 
 ## Result
 - **Before**: ~200 files in root (83 duplicates)
-- **After**: 115 files in root (all Reymen-specific), 83 files in agent/ (all Hermes full versions)
+- **After**: 115 files in root (all Reymen-specific), 83 files in agent/ (all ReYMeN full versions)
 - No functional change — both layers still work as intended
 
 ## Prevention
 
-The `reymen-hermes-sync` skill now has:
+The `reymen-ReYMeN-sync` skill now has:
 1. A "CRITICAL RULE: Check ALL Layers Before Reporting" section
 2. A "Cleanup Procedure" for duplicate discovery
 3. Pitfall #7 about the root/agent layer confusion

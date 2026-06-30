@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-3d-task-router
+title: Prompt 3D Task Router
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-3d-task-router
 description: Route to the right 3D representation (point cloud, mesh, voxel, NeRF, Gaussian splat) based on task and input
 title: "PRompt 3D Task Router"

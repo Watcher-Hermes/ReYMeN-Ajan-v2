@@ -8,7 +8,7 @@
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Kali ajanı |
-| **Ne?** | Windows Automation_Vm Web Terminal Ui_References_Telegram Hermes Kali Komut G Nderme Ak |
+| **Ne?** | Windows Automation_Vm Web Terminal Ui_References_Telegram ReYMeN Kali Komut G Nderme Ak |
 | **Nerede?** | Windows/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -16,8 +16,8 @@
 
 ---
 
-## Telegram Hermes → Kali Komut Gönderme Akışı
+## Telegram ReYMeN → Kali Komut Gönderme Akışı
 
-Flask sunucusu çalışırken, Telegram'daki Hermes `execute_code` üzerinden Kali'ye komut gönderebilir. Bu, web UI dışında ikinci bir erişim kanalıdır.
+Flask sunucusu çalışırken, Telegram'daki ReYMeN `execute_code` üzerinden Kali'ye komut gönderebilir. Bu, web UI dışında ikinci bir erişim kanalıdır.
 
 ```python

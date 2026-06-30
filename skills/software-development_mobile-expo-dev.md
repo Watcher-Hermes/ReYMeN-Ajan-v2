@@ -8,7 +8,7 @@ audience: contributor
 tags: [coding, development, mobile]
 category: software-development---
 
-# Mobile Expo Dev (Hermes Skill)
+# Mobile Expo Dev (ReYMeN Skill)
 
 Bu proje için oturumdan oturuma sürekli uygulanacak mobil geliştirme rehberi.
 

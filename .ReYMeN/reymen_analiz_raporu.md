@@ -133,7 +133,7 @@
 | Metrik | Değer |
 |--------|-------|
 | Proje içi SKILL.md | 5 (reymen/ altında) |
-| Hermes kopyası (skills/) | Hariç tutuldu |
+| ReYMeN kopyası (skills/) | Hariç tutuldu |
 | Genel durum | ⚠️ **ORTA** — 2 kritik + 3 yüksek bulgu |
 
 ---
@@ -144,24 +144,24 @@
 
 | # | İş | AI | Süre | Öncelik |
 |---|----|----|------|---------|
-| 1️⃣ | **cli.py Bölme** (15,762→7 modül) | **Hermes** → Claude Code task dosyası | ~1 gün | 🔴 KRİTİK |
+| 1️⃣ | **cli.py Bölme** (15,762→7 modül) | **ReYMeN** → Claude Code task dosyası | ~1 gün | 🔴 KRİTİK |
 | 2️⃣ | **Sessiz Except Temizle** (1,127 nokta) | **Claude Code** (batch AST) | ~3 saat | 🟠 YÜKSEK |
-| 3️⃣ | **Çift Proje Konsolidasyonu** | **Hermes** | ~1 gün | 🟠 YÜKSEK |
+| 3️⃣ | **Çift Proje Konsolidasyonu** | **ReYMeN** | ~1 gün | 🟠 YÜKSEK |
 
 ### Faz 2 — Kısa Vade (Bu Hafta)
 
 | # | İş | AI | Süre | Öncelik |
 |---|----|----|------|---------|
 | 4️⃣ | **__all__ Ekle** (121 init) | **Claude Code** (batch) | ~1 saat | 🟡 ORTA |
-| 5️⃣ | **Coverage Kurulumu** | **Hermes** | ~1 saat | 🟡 ORTA |
-| 6️⃣ | **Güvenlik Taraması** | **Hermes** | ~1 saat | 🟡 ORTA |
+| 5️⃣ | **Coverage Kurulumu** | **ReYMeN** | ~1 saat | 🟡 ORTA |
+| 6️⃣ | **Güvenlik Taraması** | **ReYMeN** | ~1 saat | 🟡 ORTA |
 
 ### Faz 3 — Orta Vade (Önümüzdeki Hafta)
 
 | # | İş | AI | Süre |
 |---|----|----|------|
-| 7️⃣ | gateway/run.py (19K) ve ReYMeN_cli/main.py (14K) inceleme | Hermes | ~1 gün |
-| 8️⃣ | test_bulk_5000.py (20K) — gereksizse temizle | Hermes | ~30 dk |
+| 7️⃣ | gateway/run.py (19K) ve ReYMeN_cli/main.py (14K) inceleme | ReYMeN | ~1 gün |
+| 8️⃣ | test_bulk_5000.py (20K) — gereksizse temizle | ReYMeN | ~30 dk |
 | 9️⃣ | Type hint eksiklerini tamamla | Claude Code | ~2 gün |
 
 ---
@@ -173,7 +173,7 @@ GÜÇLÜ:     Import düzeni temiz ✅, son commit temiz ✅
 RİSKLİ:    cli.py 15,762 satır (KRİTİK), 1,127 sessiz except
 FIRSAT:    Çift proje + 121 __all__ eksik = kolay kazanç
 İLK ADIM:  cli.py bölme planı → Claude Code task dosyası
-TAHMİN:    Tüm fazlar ~1 hafta (Hermes + Claude Code paralel)
+TAHMİN:    Tüm fazlar ~1 hafta (ReYMeN + Claude Code paralel)
 ```
 
 ---

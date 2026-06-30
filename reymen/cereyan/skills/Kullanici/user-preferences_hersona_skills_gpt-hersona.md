@@ -1,8 +1,12 @@
-
-> **Kategori:** preferences
-
 ---
-
+name: user-preferences_hersona_skills_gpt-hersona
+title: User Preferences Hersona Skills Gpt Hersona
+description: ''
+tags:
+- preferences
+category: preferences
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: hersona-gpt
 version: 1.0.0
  description: GPT / ChatGPT オプティマイズ版 hersona スキルアダプタ。Custom GPTや Assistants API用の属性テンプレート。

@@ -1,8 +1,12 @@
-
-> **Kategori:** research
-
 ---
-
+name: research_video-content-report
+title: Research Video Content Report
+description: ''
+tags:
+- research
+category: research
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: video-content-report
 title: Video İçerik Raporu Oluşturma
 description: YouTube videolarını analiz edip standart rapor şablonuyla (içerik bülteni, action items, engellenen içerikler, teşekkür notu + ikinci kaynak) txt dosyasına kaydetme. Türkçe, direkt işleyiş.

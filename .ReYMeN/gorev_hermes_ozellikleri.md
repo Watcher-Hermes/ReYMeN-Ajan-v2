@@ -1,13 +1,13 @@
-# GÖREV: ReYMeN'e Hermes Özellikleri Ekleme
+# GÖREV: ReYMeN'e ReYMeN Özellikleri Ekleme
 
 ## NE
-ReYMeN ajanına Hermes Agent'te olup eksik olan 3 temel özelliği ekle:
+ReYMeN ajanına ReYMeN Agent'te olup eksik olan 3 temel özelliği ekle:
 1. MCP client (mevcut MCP server'a client yeteneği)
 2. Firecrawl web extract/search tool
 3. OpenAI TTS/STT tool (mevcut araclar_ses.py'yi geliştir)
 
 ## NİYE
-ReYMeN, Hermes'ten bu yönlerde geri. Ekleyince web bilgisi alabilir, ses çıktısı üretebilir ve harici MCP server'lara bağlanabilir.
+ReYMeN, ReYMeN'ten bu yönlerde geri. Ekleyince web bilgisi alabilir, ses çıktısı üretebilir ve harici MCP server'lara bağlanabilir.
 
 ## NASIL
 

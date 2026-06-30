@@ -51,8 +51,11 @@ class OgrenmeDeposu:
                         o = Ogrenme.from_dict(json.loads(s))
                         if alan and o.alan != alan: continue
                         sonuc.append(o)
-                    except: continue
-        except: pass
+                    except Exception:
+                        logger.debug("[Ogrenme] Kayit cozulemedi, atlandi")
+                        continue
+        except Exception as e:
+            logger.warning("[Ogrenme] hepsini_getir hatasi: %s", e)
         return sonuc[-limit:]
     def alan_listesi(self) -> list[str]:
         a = set()
@@ -62,7 +65,9 @@ class OgrenmeDeposu:
     def sayi(self) -> int:
         if not self._dosya.exists(): return 0
         try: return sum(1 for s in open(self._dosya, "r", encoding="utf-8") if s.strip())
-        except: return 0
+        except Exception as e:
+            logger.warning("[Ogrenme] sayi hatasi: %s", e)
+            return 0
     def _temizle(self):
         if not self._dosya.exists(): return
         try:
@@ -71,7 +76,8 @@ class OgrenmeDeposu:
             if len(satirlar) <= MAKS_KAYIT: return
             with open(self._dosya, "w", encoding="utf-8") as f:
                 for s in satirlar[-MAKS_KAYIT:]: f.write(s + "\n")
-        except: pass
+        except Exception as e:
+            logger.warning("[Ogrenme] _temizle hatasi: %s", e)
 
 class SurekliOgrenmeYoneticisi:
     def __init__(self):
@@ -83,7 +89,8 @@ class SurekliOgrenmeYoneticisi:
             try:
                 from reymen.cereyan.adaptif_ogrenme import AdaptifOgrenme
                 self._adaptif = AdaptifOgrenme()
-            except: pass
+            except Exception as e:
+                logger.debug("[Ogrenme] Adaptif ogrenme yuklenemedi: %s", e)
         return self._adaptif
     def ogren(self, alan: str, icerik: str, kaynak: str = "manuel") -> str:
         o = Ogrenme(alan, icerik, kaynak)
@@ -103,7 +110,8 @@ class SurekliOgrenmeYoneticisi:
             for a in alanlar: satirlar.append(f"    {a}: {len(self.depo.hepsini_getir(alan=a, limit=10000))} kayit")
         if self.adaptif:
             try: satirlar.append(f"  Tercih: {self.adaptif.tercih_sayisi()} adet")
-            except: pass
+            except Exception as e:
+                logger.debug("[Ogrenme] Tercih bilgisi alinamadi: %s", e)
         return "\n".join(satirlar)
 
 _yonetici = None

@@ -1,8 +1,8 @@
 ---
-name: autonomous-ai-agents-hermes-agent
+name: autonomous-ai-agents-ReYMeN-agent
 description: Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve
   ilgili reference dosyasını yükleyin.
-title: Autonomous Ai Agents Hermes Agent
+title: Autonomous Ai Agents ReYMeN Agent
 version: 1.0.0
 ---
 
@@ -16,7 +16,7 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-# Hermes Agent
+# ReYMeN Agent
 
 Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve ilgili reference dosyasını yükleyin.
 
@@ -24,7 +24,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 
 | Bölüm | Reference Dosyası |
 |-------|------------------|
-| Hermes Agent | `references/hermes-agent.md` |
+| ReYMeN Agent | `references/ReYMeN-agent.md` |
 | Quick Start | `references/quick-start.md` |
 | Install | `references/install.md` |
 | Interactive chat (default) | `references/interactive-chat-default.md` |
@@ -37,7 +37,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Key Paths & Config | `references/key-paths-config.md` |
 | Security & Privacy Toggles | `references/security-privacy-toggles.md` |
 | Voice & Transcription | `references/voice-transcription.md` |
-| Spawning Additional Hermes Instances | `references/spawning-additional-hermes-instances.md` |
+| Spawning Additional ReYMeN Instances | `references/spawning-additional-ReYMeN-instances.md` |
 | Background for long tasks: | `references/background-for-long-tasks.md` |
 | Start | `references/start.md` |
 | Wait for startup, then send a message | `references/wait-for-startup-then-send-a-message.md` |

@@ -306,7 +306,7 @@ class FirecrawlEngine(WebSearchEngine):
 
         try:
             url = "https://api.firecrawl.dev/v1/search"
-            data = {"query": sorgu, "maxResults": max_sonuc, "lang": "tr"}
+            data = {"query": sorgu, "limit": max_sonuc, "lang": "tr"}
             result_text = _http_post_json(
                 url, data,
                 headers={"Authorization": f"Bearer {api_key}"},
@@ -683,15 +683,19 @@ def _load_config_for_registry() -> dict:
         cfg = load_config() or {}
         if cfg.get("web"):
             return cfg
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
     try:
         from ReYMeN_cli.config import load_config
         cfg = load_config() or {}
         if cfg.get("web"):
             return cfg
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
 
     # 2. Proje kökü config.yaml
     import yaml
@@ -704,8 +708,10 @@ def _load_config_for_registry() -> dict:
                 cfg = yaml.safe_load(f) or {}
                 if cfg.get("web"):
                     return cfg
-        except Exception:
-            pass
+        except Exception as _e:
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )
 
     # 3. .ReYMeN/config.yaml
     try:
@@ -713,8 +719,10 @@ def _load_config_for_registry() -> dict:
         with open(os.path.abspath(dot_reymen)) as f:
             cfg = yaml.safe_load(f) or {}
             return cfg
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
 
     return {}
 

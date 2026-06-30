@@ -1,29 +1,13 @@
 ---
 name: video-ogrenme-ajani
-description: YouTube videolarından öğrenme — transcript indir, bölümle, hata tespit et, skill çıkar, hafızaya kaydet
+title: Skill
+description: YouTube videolarından öğrenme — transcript indir, bölümle, hata tespit
+  et, skill çıkar, hafızaya kaydet
+tags:
+- medya
 category: video
-version: 1.0.0
-triggers:
-  - video
-  - youtube
-  - öğrenme
-  - transcript
-  - eğitim
-  - python video
-  - hata tespit
-  - kod doğrulama
-  - sandbox test
-  - retry mekanizması
-  - çelişkili bilgi
-  - kullanıcı hatası
-  - web doğrulama
-  - puanlama
-  - karşılaştırma
-  - UDP tarama
-  - wups döngüsü
+audience: agent
 ---
-
-
 > **Kategori:** video-ogrenme-ajani
 
 ---
@@ -261,7 +245,7 @@ toplam = hiz*0.2 + basari*0.3 + cikti*0.2 + guvenlik*0.15 + kaynak*0.15
 
 1. **Cron job'ları kontrol et** — `cronjob list()` ile mevcut otomasyonu tara. Aynı işi zaten yapan bir cron varsa manuel yapma.
 2. **Terminal durumunu kontrol et** — Önceki komut asılı kaldıysa `process kill` ile temizle. Terminal yanıt vermiyorsa yeni terminal oturumu aç.
-3. **Gateway durumunu kontrol et** — `hermes cron status` ile scheduler'ın çalıştığını doğrula. Gateway yoksa `hermes -p reymen gateway start`.
+3. **Gateway durumunu kontrol et** — `ReYMeN cron status` ile scheduler'ın çalıştığını doğrula. Gateway yoksa `ReYMeN -p reymen gateway start`.
 4. **Hafızada ara** — `once_hafiza.ara()` ile benzer çözüm var mı kontrol et. Varsa direkt uygula.
 5. **Web'de doğrula (gerekirse)** — T1-T5 tetikleyicilerinden biri aktifse WUPS döngüsünü başlat.
 

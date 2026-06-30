@@ -1,8 +1,12 @@
-
-> **Kategori:** video
-
 ---
-
+name: prompt-video-architecture-picker
+title: Prompt Video Architecture Picker
+description: ''
+tags:
+- video
+category: video
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-video-architecture-picker
 description: Pick 2D+pool / I3D / (2+1)D / spatio-temporal transformer based on appearance-vs-motion, dataset size, and compute budget
 title: "PRompt Video Architecture Picker"

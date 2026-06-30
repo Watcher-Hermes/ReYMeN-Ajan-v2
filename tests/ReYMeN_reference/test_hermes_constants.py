@@ -8,8 +8,8 @@ import pytest
 import ReYMeN_constants
 from ReYMeN_constants import (
     VALID_REASONING_EFFORTS,
-    get_default_ReYMeN_root,
-    get_ReYMeN_home,
+    get_default_reymen_root,
+    get_reymen_home,
     is_container,
     parse_reasoning_effort,
     secure_parent_dir,
@@ -17,14 +17,14 @@ from ReYMeN_constants import (
 
 
 class TestGetDefaultReYMeNRoot:
-    """Tests for get_default_ReYMeN_root() — Docker/custom deployment awareness."""
+    """Tests for get_default_reymen_root() — Docker/custom deployment awareness."""
 
     def test_no_ReYMeN_home_returns_native(self, tmp_path, monkeypatch):
         """When ReYMeN_HOME is not set, returns ~/.ReYMeN."""
         monkeypatch.delenv("ReYMeN_HOME", raising=False)
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
 
-        assert get_default_ReYMeN_root() == tmp_path / ".ReYMeN"
+        assert get_default_reymen_root() == tmp_path / ".ReYMeN"
 
     def test_ReYMeN_home_is_native(self, tmp_path, monkeypatch):
         """When ReYMeN_HOME = ~/.ReYMeN, returns ~/.ReYMeN."""
@@ -32,7 +32,7 @@ class TestGetDefaultReYMeNRoot:
         native.mkdir()
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
         monkeypatch.setenv("ReYMeN_HOME", str(native))
-        assert get_default_ReYMeN_root() == native
+        assert get_default_reymen_root() == native
 
     def test_ReYMeN_home_is_profile(self, tmp_path, monkeypatch):
         """When ReYMeN_HOME is a profile under ~/.ReYMeN, returns ~/.ReYMeN."""
@@ -41,7 +41,7 @@ class TestGetDefaultReYMeNRoot:
         profile.mkdir(parents=True)
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
         monkeypatch.setenv("ReYMeN_HOME", str(profile))
-        assert get_default_ReYMeN_root() == native
+        assert get_default_reymen_root() == native
 
     def test_ReYMeN_home_is_docker(self, tmp_path, monkeypatch):
         """When ReYMeN_HOME points outside ~/.ReYMeN (Docker), returns ReYMeN_HOME."""
@@ -49,7 +49,7 @@ class TestGetDefaultReYMeNRoot:
         docker_home.mkdir(parents=True)
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
         monkeypatch.setenv("ReYMeN_HOME", str(docker_home))
-        assert get_default_ReYMeN_root() == docker_home
+        assert get_default_reymen_root() == docker_home
 
     def test_ReYMeN_home_is_custom_path(self, tmp_path, monkeypatch):
         """Any ReYMeN_HOME outside ~/.ReYMeN is treated as the root."""
@@ -57,7 +57,7 @@ class TestGetDefaultReYMeNRoot:
         custom.mkdir()
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
         monkeypatch.setenv("ReYMeN_HOME", str(custom))
-        assert get_default_ReYMeN_root() == custom
+        assert get_default_reymen_root() == custom
 
     def test_docker_profile_active(self, tmp_path, monkeypatch):
         """When a Docker profile is active (ReYMeN_HOME=<root>/profiles/<name>),
@@ -67,7 +67,7 @@ class TestGetDefaultReYMeNRoot:
         profile.mkdir(parents=True)
         monkeypatch.setattr(Path, "home", lambda: tmp_path)
         monkeypatch.setenv("ReYMeN_HOME", str(profile))
-        assert get_default_ReYMeN_root() == docker_root
+        assert get_default_reymen_root() == docker_root
 
     def test_no_ReYMeN_home_returns_localappdata_root_on_windows(self, tmp_path, monkeypatch):
         """Native Windows falls back to %LOCALAPPDATA%\\ReYMeN, not ~/.ReYMeN."""
@@ -77,7 +77,7 @@ class TestGetDefaultReYMeNRoot:
         monkeypatch.setattr(Path, "home", lambda: tmp_path / "Home")
         monkeypatch.setattr(ReYMeN_constants.sys, "platform", "win32")
 
-        assert get_default_ReYMeN_root() == local_appdata / "ReYMeN"
+        assert get_default_reymen_root() == local_appdata / "ReYMeN"
 
     def test_no_ReYMeN_home_uses_windows_path_when_localappdata_missing(self, tmp_path, monkeypatch):
         """Windows fallback still uses AppData/Local/ReYMeN without LOCALAPPDATA."""
@@ -87,11 +87,11 @@ class TestGetDefaultReYMeNRoot:
         monkeypatch.setattr(Path, "home", lambda: home)
         monkeypatch.setattr(ReYMeN_constants.sys, "platform", "win32")
 
-        assert get_default_ReYMeN_root() == home / "AppData" / "Local" / "ReYMeN"
+        assert get_default_reymen_root() == home / "AppData" / "Local" / "ReYMeN"
 
 
 class TestGetReYMeNHome:
-    """Tests for get_ReYMeN_home() platform-aware fallback."""
+    """Tests for get_reymen_home() platform-aware fallback."""
 
     def test_windows_fallback_uses_localappdata(self, tmp_path, monkeypatch):
         """When ReYMeN_HOME is unset on Windows, use %LOCALAPPDATA%\\ReYMeN."""
@@ -102,7 +102,7 @@ class TestGetReYMeNHome:
         monkeypatch.setattr(ReYMeN_constants.sys, "platform", "win32")
         monkeypatch.setattr(ReYMeN_constants, "_profile_fallback_warned", False)
 
-        assert get_ReYMeN_home() == local_appdata / "ReYMeN"
+        assert get_reymen_home() == local_appdata / "ReYMeN"
 
 
 class TestIsContainer:

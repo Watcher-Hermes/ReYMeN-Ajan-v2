@@ -1,22 +1,12 @@
 ---
-name: open-url-as-html
-description: ""7000 aç" veya "localhost:PORT aç" dendiğinde otomatik giriş yapıp sayfayı tarayıcıda açar. Soru sormadan direkt yapar."
-version: 1.1.0
-author: Hermes Agent
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [browser, html, windows, url, açma, login, odysseus]
-audience: user
-related_skills: [open_vscode_focus]
+name: windows-automation_open-url-as-html
+title: Windows Automation Open Url As Html
+description: ''
+tags:
+- windows
+category: Windows
+audience: agent
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -27,8 +17,6 @@ related_skills: [open_vscode_focus]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Localhost Sayfası Aç + Otomatik Giriş
 
@@ -45,18 +33,18 @@ Kullanıcı şunları söylediğinde bu skill devreye girer:
 
 ## Hedef Davranış
 
-Kullanıcı "7000 aç" der → Hermes:
+Kullanıcı "7000 aç" der → ReYMeN:
 1. `browser_navigate` → `http://localhost:7000/login`
 2. `browser_type` → username alanına kullanıcı adı gir
-3. `browser_type` → password alanına şifre gir (`$env:ODYSSEUS_PASS` veya Hermes vault'tan)
+3. `browser_type` → password alanına şifre gir (`$env:ODYSSEUS_PASS` veya ReYMeN vault'tan)
 4. `browser_click` → Sign In butonu
 5. Giriş sonrası sayfa yüklenir → kullanıcı giriş yapmış halde görür
-6. Hermes sadece yazar: "Açıldı ✔"
+6. ReYMeN sadece yazar: "Açıldı ✔"
 
 ## Giriş Bilgileri (Odysseus / localhost:7000)
 
 Şifre `$env:ODYSSEUS_PASS` environment variable'ından okunur.
-Yoksa Hermes vault'tan `odysseus_admin` anahtarıyla al.
+Yoksa ReYMeN vault'tan `odysseus_admin` anahtarıyla al.
 
 | Alan | Değer |
 |------|-------|

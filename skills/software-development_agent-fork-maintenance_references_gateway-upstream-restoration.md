@@ -17,9 +17,9 @@ version: 1.0.0
 
 # Gateway Upstream Function Restoration
 
-When a fork (e.g. ReYMeN) replaces upstream Hermes gateway files with custom versions, certain functions/constants may go missing silently. These surface as import errors in downstream modules like `stream_consumer.py`.
+When a fork (e.g. ReYMeN) replaces upstream ReYMeN gateway files with custom versions, certain functions/constants may go missing silently. These surface as import errors in downstream modules like `stream_consumer.py`.
 
-> **Branding note:** This fork has been renamed from "Hermes" to "ReYMeN". Directory names in code examples below use the old `hermes_reference` only when referring to the upstream reference tests directory — the fork's actual directory is `ReYMeN_reference`. Update paths accordingly in practice.
+> **Branding note:** This fork has been renamed from "ReYMeN" to "ReYMeN". Directory names in code examples below use the old `hermes_reference` only when referring to the upstream reference tests directory — the fork's actual directory is `ReYMeN_reference`. Update paths accordingly in practice.
 
 ## Common Missing Items
 
@@ -121,4 +121,4 @@ print("✅ All gateway upstream restorations working")
 
 ## Why This Happens
 
-When a fork replaces files like `gateway/platforms/base.py` with custom versions, upstream additions (especially helper functions and constants added in later upstream commits) are lost. The functions are real Hermes upstream code that `stream_consumer.py` (which was kept from upstream) depends on. The fork's custom `base.py` just never had them.
+When a fork replaces files like `gateway/platforms/base.py` with custom versions, upstream additions (especially helper functions and constants added in later upstream commits) are lost. The functions are real ReYMeN upstream code that `stream_consumer.py` (which was kept from upstream) depends on. The fork's custom `base.py` just never had them.

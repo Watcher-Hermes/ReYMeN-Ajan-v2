@@ -1,8 +1,12 @@
-
-> **Kategori:** productivity
-
 ---
-
+name: productivity_camera-capture
+title: Productivity Camera Capture
+description: ''
+tags:
+- productivity
+category: productivity
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: camera-capture
 description: Gerçek kamera fotoğrafı çekme, yeniden çekim, ekran görüntüsü alma, canlı kamera akışı ve Telegram'a gönderme.
 title: "Camera Capture"
@@ -90,4 +91,4 @@ Kullanıcı, ekran görüntüsü veya kamera çekimi istediğinde bekleme, tekra
 - Fotoğraf betiği: `C:\Users\marko\AppData\Local\hermes\scripts\camera_real.py`
 - Ekran görüntüsü betiği: `C:\Users\marko\AppData\Local\hermes\scripts\screenshot_mss.py`
 - Canlı akış betiği: `C:\Users\marko\AppData\Local\hermes\scripts\camera_stream.py`
-- Obsidian notu: `Hermes\Skills\productivity\camera-capture.md`
+- Obsidian notu: `ReYMeN\Skills\productivity\camera-capture.md`

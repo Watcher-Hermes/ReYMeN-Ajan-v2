@@ -1,25 +1,12 @@
 ---
-name: jupyter-live-kernel
-description: "Iterative Python via live Jupyter kernel (hamelnb)."
-title: "Jupyter Live Kernel"
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [jupyter, notebook, repl, data-science, exploration, iterative]
-category: data-science
-    category: data-science
-audience: user
-tags: [data-science, python]
+name: data-science_jupyter-live-kernel
+title: Data Science Jupyter Live Kernel
+description: ''
+tags:
+- veri-bilimi
+category: veri-bilimi
+audience: agent
 ---
-
-
-> **Kategori:** data-science
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -30,8 +17,6 @@ tags: [data-science, python]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Jupyter Live Kernel (hamelnb)
 
@@ -44,7 +29,7 @@ state incrementally, explore APIs, inspect DataFrames, or iterate on complex cod
 | Tool | Use When |
 |------|----------|
 | **This skill** | Iterative exploration, state across steps, data science, ML, "let me try this and check" |
-| `execute_code` | One-shot scripts needing hermes tool access (web_search, file ops). Stateless. |
+| `execute_code` | One-shot scripts needing ReYMeN tool access (web_search, file ops). Stateless. |
 | `terminal` | Shell commands, builds, installs, git, process management |
 
 **Rule of thumb:** If you'd want a Jupyter notebook for the task, use this skill.

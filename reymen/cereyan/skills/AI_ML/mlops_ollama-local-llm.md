@@ -6,7 +6,7 @@ version: 1.0.0
 license: MIT
 platforms: [windows, linux, macos]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [ollama, local-llm, windows, network-enumeration, mac-address, codegen, alpsee]
 category: mlops
 audience: user

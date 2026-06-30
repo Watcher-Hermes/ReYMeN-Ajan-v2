@@ -20,7 +20,7 @@ IMPL = {
     "skills": 'print("[SKILLS] Skill listesi:\n  - Toplam: N/A")',
     "tools": 'print("[TOOLS] Tool listesi:\n  - Motor: aktif\n  - Tool sayisi: N/A")',
     "model": 'print("[MODEL] Model bilgisi:\n  - Birincil: deepseek-v4-flash\n  - Provider: deepseek")',
-    "config": 'print("[CONFIG] Config dosyasi:", str(Path.home() / ".hermes" / "config.yaml"))',
+    "config": 'print("[CONFIG] Config dosyasi:", str(Path.home() / ".ReYMeN" / "config.yaml"))',
     "auth": 'print("[AUTH] Auth durumu:\n  - Provider: deepseek\n  - API Key: ayarli")',
     "backup": 'print("[BACKUP] Yedekleme baslatiliyor...\n  Henuz implemente edilmedi.")',
     "cron": 'print("[CRON] Cron job listesi:\n  - Aktif job sayisi: N/A")',

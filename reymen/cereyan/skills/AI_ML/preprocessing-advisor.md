@@ -1,8 +1,12 @@
-
-> **Kategori:** training
-
 ---
-
+name: preprocessing-advisor
+title: Preprocessing Advisor
+description: ''
+tags:
+- training
+category: training
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: preprocessing-advisor
 description: Recommends a tokenization, stemming, and lemmatization setup for an NLP task.
 title: "PReprocessing Advisor"

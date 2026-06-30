@@ -1,8 +1,12 @@
-
-> **Kategori:** ecc
-
 ---
-
+name: ecc_visa-doc-translate
+title: Ecc Visa Doc Translate
+description: ''
+tags:
+- ecc
+category: ecc
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: visa-doc-translate
 description: Translate visa application documents (images) to English and create a bilingual PDF with original and translation
 title: "Visa Doc Translate"

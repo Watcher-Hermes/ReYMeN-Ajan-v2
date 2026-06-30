@@ -1,7 +1,7 @@
 ---
 name: software-development-agent-fork-maintenance
 description: Maintain, audit and improve a forked AI agent project. Designed for the
-  ReYMeN (Hermes Agent fork) pattern but generalizes to any fork.
+  ReYMeN (ReYMeN Agent fork) pattern but generalizes to any fork.
 title: Software Development Agent Fork Maintenance
 version: 1.0.0
 ---
@@ -16,16 +16,16 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-fork of Hermes Agent). Covers: fork health audit, dead file cleanup, try/except
+fork of ReYMeN Agent). Covers: fork health audit, dead file cleanup, try/except
   fix, provider routing with circuit breaker, upstream sync setup, duplicate resolution,
   and structured reporting.'
 # Agent Fork Maintenance
 
-Maintain, audit and improve a forked AI agent project. Designed for the ReYMeN (Hermes Agent fork) pattern but generalizes to any fork.
+Maintain, audit and improve a forked AI agent project. Designed for the ReYMeN (ReYMeN Agent fork) pattern but generalizes to any fork.
 
 ## User Preferences (ReYMeN Fork)
 
-- **Brand identity:** All "Hermes" references in ReYMeN's own code (comments, docstrings, file names, directory names, test paths) MUST be renamed to "ReYMeN". The upstream name belongs to the upstream project; the fork has its own brand.
+- **Brand identity:** All "ReYMeN" references in ReYMeN's own code (comments, docstrings, file names, directory names, test paths) MUST be renamed to "ReYMeN". The upstream name belongs to the upstream project; the fork has its own brand.
 - **Preserve unmodified:** Actual system paths (`~/AppData/Local/hermes/`, `C:\\Users\\...\\hermes\\`), env vars (`HERMES_HOME`, `HERMES_API_KEY`), installed package names (`hermes_cli`, `hermes-agent`), and upstream backup directories (`agent/`) stay as-is — they refer to upstream infrastructure, not the fork's brand.
 - **Method:** See `references/branding-rename-pattern.md` for the systematic find-and-replace approach.
 
@@ -367,13 +367,13 @@ bus.yayinla(OLAY_TOR_HATA, {"mesaj": "Timeout", "kaynak": "tor"})
 
 **Reference:** See `references/windows-event-bus.md` for full architecture.
 
-### Phase 10: Branding Rename (Hermes → ReYMeN)
+### Phase 10: Branding Rename (ReYMeN → ReYMeN)
 
 After the fork has diverged significantly from upstream, rename all brand references. This is both a user preference and a hygiene measure.
 
 **Scope decision (always ask the user):**
-- All "hermes" in the fork's own code (comments, docstrings, string literals)
-- All file/directory names with "hermes"
+- All "ReYMeN" in the fork's own code (comments, docstrings, string literals)
+- All file/directory names with "ReYMeN"
 - All test path references
 - **NOT** actual system paths (`~/AppData/Local/hermes/`), env vars (`HERMES_HOME`), installed packages (`hermes_cli`), or upstream backup dirs (`agent/`)
 
@@ -382,10 +382,10 @@ After the fork has diverged significantly from upstream, rename all brand refere
 1. **Directories first** — rename dirs, then fix references (otherwise the moved dir can't be found):
    ```bash
    mv tests/hermes_reference tests/ReYMeN_reference
-   mv reymen/hermes reymen/ReYMeN_mirror
+   mv reymen/ReYMeN reymen/ReYMeN_mirror
    mv tools/hermes_ajan.py tools/reymen_ajan.py
    mv .hermes_sync.sh .ReYMeN_sync.sh
-   mv hermes-full-backup ReYMeN-full-backup
+   mv ReYMeN-full-backup ReYMeN-full-backup
    ```
 
 2. **Code path references** — update all string/file-path references to the renamed dirs:
@@ -394,17 +394,17 @@ After the fork has diverged significantly from upstream, rename all brand refere
    replacements = {
        "hermes_reference": "ReYMeN_reference",
        ".hermes_sync.sh": ".ReYMeN_sync.sh",
-       "hermes-full-backup": "ReYMeN-full-backup",
+       "ReYMeN-full-backup": "ReYMeN-full-backup",
        "tools/hermes_ajan": "tools/reymen_ajan",
    }
    ```
 
-3. **Comment/docstring "Hermes" → "ReYMeN"** — only in the fork's own code:
+3. **Comment/docstring "ReYMeN" → "ReYMeN"** — only in the fork's own code:
    - Replace word-boundary `\bHermes\b` with `ReYMeN` in comments and docstrings
    - Replace word-boundary `\bhermes\b` with `reymen` in comments and docstrings
-   - **Skip** lines containing `OpenHermes`, `hermite`, `AppData`, `Local/hermes`, `hermes_projesi`
+   - **Skip** lines containing `OpenHermes`, `hermite`, `AppData`, `Local/reymen`, `hermes_projesi`
 
-4. **Function/variable names** — rename internal functions that use "hermes" prefix:
+4. **Function/variable names** — rename internal functions that use "ReYMeN" prefix:
    ```python
    def hermes_memory_buda → def reymen_memory_buda
    hermes_bot → reymen_bot
@@ -422,8 +422,8 @@ After the fork has diverged significantly from upstream, rename all brand refere
 
 **Verification:**
 ```bash
-# 1. Count remaining "hermes" references
-grep -r "hermes" --include="*.py" reymen/ tools/ gateway/ tests/ \
+# 1. Count remaining "ReYMeN" references
+grep -r "ReYMeN" --include="*.py" reymen/ tools/ gateway/ tests/ \
   | grep -vi "appdata\|local/hermes\|hermes_home\|openhermes\|hermite\|hermes_projesi\|hermes_cli" \
   | wc -l
 
@@ -440,7 +440,7 @@ ls *.py 2>/dev/null | wc -l  # expected: N shims (no real files)
 
 ### Phase 11: Session History Extraction
 
-After significant fork work (renaming, consolidation, gateway fixes), extract all past agent conversations from the Hermes session database into the ReYMeN project for archival and knowledge base.
+After significant fork work (renaming, consolidation, gateway fixes), extract all past agent conversations from the ReYMeN session database into the ReYMeN project for archival and knowledge base.
 
 **Why:** (1) Session DBs may be cleaned/archived in the future, (2) markdown copies are human-readable and searchable, (3) the fork's own code should own its conversation history, not depend on the upstream's session store.
 
@@ -520,7 +520,7 @@ Systematically fix hundreds of unresolved import errors across a forked project'
       ```
 
 4. **VERIFY** — Re-run the scan, confirm failed count drops to 0. If a few remain, check:
-   - Is it a runtime-only module? (`hermes_tools` only exists inside Hermes agent runtime — `ReYMeN_tools` wrapper can't import it standalone. Expected, skip.)
+   - Is it a runtime-only module? (`hermes_tools` only exists inside ReYMeN agent runtime — `ReYMeN_tools` wrapper can't import it standalone. Expected, skip.)
    - Is it a false positive from parsing? (Show in string literals, type hints, or `sys.modules` mock setup.)
 
 5. **RACE CONCURRENT JOBS** — For 200+ errors, delegate in batches of 3:
@@ -534,7 +534,7 @@ Systematically fix hundreds of unresolved import errors across a forked project'
    Each sub-agent handles ~60-80 imports per 45-second iteration. Repeat until all categories resolved.
 
 **Pitfalls:**
-- `hermes_tools` is Hermes runtime-only — `ReYMeN_tools` cannot resolve standalone. Tests that import it directly will fail outside Hermes; they only work inside the agent sandbox.
+- `hermes_tools` is ReYMeN runtime-only — `ReYMeN_tools` cannot resolve standalone. Tests that import it directly will fail outside ReYMeN; they only work inside the agent sandbox.
 - Parsing artifacts (`or`, `it`, `side`) come from `import os, sys, time, re, pathlib` splitting and from `from pathlib import Path` partials. Skip them.
 - `main` module triggers setuptools entry point — exclude from `__import__` test loops.
 - Verifying 200+ imports takes 30-60s; use fast line-based parsing (no `ast.parse` per file) and batch all try/except.
@@ -589,8 +589,8 @@ print('✅ YOLO mode fully operational')
 
 ```
 Claude dangerous:    onay kaldırır         ❌ güvenlik katmanı yok
-Hermes YOLO:         onay kaldırır         ✅ Tirith çalışır (güvenlik duvarı)
-Hermes FULL:         onay kaldırır         ❌ Tirith devre dışı
+ReYMeN YOLO:         onay kaldırır         ✅ Tirith çalışır (güvenlik duvarı)
+ReYMeN FULL:         onay kaldırır         ❌ Tirith devre dışı
 ```
 
 **To get full dangerous mode (Claude equivalent + more):**
@@ -631,7 +631,7 @@ security:
 - **`git pull` on a fork with protected files always risks conflict** — use `git checkout upstream/main -- dir/` pattern instead.
 - **Verify syntax after EVERY batch change** — 1 syntax error = project won't start.
 - **Provider health check can fail on auth-required endpoints** — 401/403 on `/v1/models` means API is alive but auth differs. Treat 401 as "API reachable".
-- **Missing upstream gateway functions** — fork's custom `base.py`/`config.py` may lack Hermes streaming constants and helper functions. See `references/gateway-upstream-restoration.md` for recovery pattern.
+- **Missing upstream gateway functions** — fork's custom `base.py`/`config.py` may lack ReYMeN streaming constants and helper functions. See `references/gateway-upstream-restoration.md` for recovery pattern.
 - **Remove duplicates one file at a time** — ensure nothing breaks after each removal.
-- **Profile-specific skills may collide with project skills** — when project dir is in the Hermes search path. Load by full path to disambiguate.
-- **Gateway cannot be restarted from inside the gateway process** — `hermes gateway restart` detects it's inside the gateway's process tree (SIGTERM propagation check) and blocks with "cannot restart or stop the gateway from inside the gateway process". Even `DETACHED_PROCESS` / `Start-Job` are blocked. Must run from a physically separate shell (new PowerShell window). Workaround: directly kill the gateway PID via `taskkill /F` then start fresh from this session's terminal.
+- **Profile-specific skills may collide with project skills** — when project dir is in the ReYMeN search path. Load by full path to disambiguate.
+- **Gateway cannot be restarted from inside the gateway process** — `ReYMeN gateway restart` detects it's inside the gateway's process tree (SIGTERM propagation check) and blocks with "cannot restart or stop the gateway from inside the gateway process". Even `DETACHED_PROCESS` / `Start-Job` are blocked. Must run from a physically separate shell (new PowerShell window). Workaround: directly kill the gateway PID via `taskkill /F` then start fresh from this session's terminal.

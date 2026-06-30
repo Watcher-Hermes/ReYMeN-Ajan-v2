@@ -15,7 +15,7 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-raporlama + Hermes modül entegrasyonu — tüm Reymen bileşenleri
+raporlama + ReYMeN modül entegrasyonu — tüm Reymen bileşenleri
 ```
 ### Fonksiyonlar
 ### Değişen Sınıf Metodları

@@ -6,7 +6,7 @@ description: "HeartMuLa: Suno-like song generation from lyrics + tags."
 version: 1.0.0
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [music, audio, generation, ai, heartmula, heartcodec, lyrics, songs]
 audience: user
 related_skills: [audiocraft]

@@ -10,7 +10,7 @@ IMPL = {
     "auth": 'print("[AUTH] deepseek provider aktif, API key ayarli.")',
     "backup": 'print("[BACKUP] Yedekleme henuz implemente edilmedi.")',
     "claw": 'print("[CLAW] CLAW modulu henuz implemente edilmedi.")',
-    "config": 'import os; print("[CONFIG]", os.path.join(os.path.expanduser("~"), ".hermes", "config.yaml"))',
+    "config": 'import os; print("[CONFIG]", os.path.join(os.path.expanduser("~"), ".ReYMeN", "config.yaml"))',
     "cron": 'print("[CRON] Cron job listesi henuz implemente edilmedi.")',
     "dashboard": 'print("[DASHBOARD] Web panel henuz implemente edilmedi.")',
     "debug": 'print("[DEBUG] Debug modu aktif.")',

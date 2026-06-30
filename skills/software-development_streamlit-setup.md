@@ -41,9 +41,9 @@ category: software-development---Install, configure, and run Streamlit data apps
 Streamlit'i proje venv'ine kur (sistem Python'una değil):
 
 ```bash
-# Hermes-ai venv'ine
-cd /c/Users/marko/hermes-ai
-C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m pip install streamlit
+# ReYMeN-ai venv'ine
+cd /c/Users/marko/ReYMeN-ai
+C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m pip install streamlit
 
 # Veya herhangi bir proje venv'ine
 cd /c/Users/marko/proje
@@ -67,7 +67,7 @@ streamlit run app.py
 python -m streamlit run app.py   # sistem Python'u venv dışındaysa patlar
 
 # ✅ DOĞRU — venv'deki Python'u doğrudan kullan
-C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m streamlit run app.py
+C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m streamlit run app.py
 ```
 
 ## First Run: Email Prompt Bypass
@@ -175,8 +175,8 @@ $port=8501; while($true){try{$s=[Net.Sockets.Socket]::new([Net.Sockets.AddressFa
 
 ```bash
 # terminal background=true ile başlat
-cd /c/Users/marko/hermes-ai
-C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m streamlit run app.py --server.port=8501 --server.headless=true
+cd /c/Users/marko/ReYMeN-ai
+C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m streamlit run app.py --server.port=8501 --server.headless=true
 
 # Doğrulama
 curl -s -o /dev/null -w "%{http_code}" http://localhost:8501
@@ -187,7 +187,7 @@ curl -s -o /dev/null -w "%{http_code}" http://localhost:8501
 
 1. **PATH'te streamlit yok** → `python -m streamlit` kullan veya venv'deki Python'a tam yol ver
 2. **Email prompt'ta takılma** → `--server.headless=true` EKLEMEDEN çalıştırma
-3. **`&` ile background yapma** → Hermes'te background=true kullan, shell `&` değil
+3. **`&` ile background yapma** → ReYMeN'te background=true kullan, shell `&` değil
 4. **ERR_CONNECTION_REFUSED** → streamlit çalışmıyor demektir, process log'una bak
 5. **`--server.allowIps`** → Streamlit 1.58.0+ yok, firewall veya localhost kullan
 6. **Yanlış Python** → streamlit hangi Python'un site-packages'ine kurulduysa o Python'la çağır

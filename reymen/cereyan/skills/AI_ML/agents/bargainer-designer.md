@@ -1,16 +1,18 @@
 ---
 name: bargainer-designer
-title: "Bargainer Designer"
-description: "Design a negotiation protocol: which agent narrates, which component generates offers, how private scratchpads separate from public messages, what the round bound is, and how deal rate is monitored."
-version: 1.0.0
-phase: 16
-lesson: 16
-tags: [multi-agent, negotiation, bargaining, contract-net, OG-Narrator]
+title: Bargainer Designer
+description: 'Design a negotiation protocol: which agent narrates, which component
+  generates offers, how private scratchpads separate from public messages, what the
+  round bound is, and how deal rate is monitored.'
+tags:
+- multi-agent
+- negotiation
+- bargaining
+- contract-net
+- OG-Narrator
+category: agents
 audience: user
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -31,8 +33,6 @@ audience: user
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: AI gelistiricisi
 Ne: "Design a negotiation protocol: which agent narrates, which component generates offers, how private scratchpads separate from public messages, what the round bound is, and how deal rate is monitored."

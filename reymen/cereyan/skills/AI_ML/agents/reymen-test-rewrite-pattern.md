@@ -1,8 +1,12 @@
-
-> **Kategori:** references
-
 ---
-
+name: reymen-test-rewrite-pattern
+title: Test Rewrite Pattern
+description: ''
+tags:
+- references
+category: references
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,13 +18,11 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 # ReYMeN Test Rewrite Pattern — Reference Tests
 
 ## Ne Zaman
 
-Hermes reference test'leri (`tests/ReYMeN_reference/`) import hatasi veriyor veya olmayan API'lere bagimli.
+ReYMeN reference test'leri (`tests/ReYMeN_reference/`) import hatasi veriyor veya olmayan API'lere bagimli.
 
 ## Akis
 
@@ -35,7 +37,7 @@ Hermes reference test'leri (`tests/ReYMeN_reference/`) import hatasi veriyor vey
 
 ## Ornek: test_server.py (1862 satir → 397 satir, 47 test)
 
-Eski test (Hermes ACP protocol, olmayan API):
+Eski test (ReYMeN ACP protocol, olmayan API):
 ```python
 from acp.schema import UsageUpdate, UserMessageChunk
 from acp_adapter.server import ReYMeNACPAgent

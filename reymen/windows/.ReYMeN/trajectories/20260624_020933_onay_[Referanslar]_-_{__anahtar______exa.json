@@ -36,7 +36,7 @@
       "tur": 5,
       "dusunce": "FC:1araç",
       "eylem": "['SKILL']",
-      "gozlem": "Skill (5785):\n  - 3d-pipeline\\SKILL.md\n  - __cleanup_deprecated_obsidian_vault_path_fix\\SKILL.md\n  - a2a-agent-spec\\SKILL.md\n  - a2a-integrator\\SKILL.md\n  - aar-deployment-review\\SKILL.md\n  - ab-plan\\SKILL.md\n  - actor-critic-trainer\\SKILL.md\n  - actor-runtime\\SKILL.md\n  - agent-budget-audit\\SKILL.md\n  - agent-bundle\\SKILL.md\n  - agent-loop\\SKILL.md\n  - agent-project-bootstrap\\references\\hermes-entegrasyonu.md\n  - agent-project-bootstrap\\SKILL.md\n  - agents-sdk-scaffold\\SKILL.md\n  - ai-scientist",
+      "gozlem": "Skill (5785):\n  - 3d-pipeline\\SKILL.md\n  - __cleanup_deprecated_obsidian_vault_path_fix\\SKILL.md\n  - a2a-agent-spec\\SKILL.md\n  - a2a-integrator\\SKILL.md\n  - aar-deployment-review\\SKILL.md\n  - ab-plan\\SKILL.md\n  - actor-critic-trainer\\SKILL.md\n  - actor-runtime\\SKILL.md\n  - agent-budget-audit\\SKILL.md\n  - agent-bundle\\SKILL.md\n  - agent-loop\\SKILL.md\n  - agent-project-bootstrap\\references\\ReYMeN-entegrasyonu.md\n  - agent-project-bootstrap\\SKILL.md\n  - agents-sdk-scaffold\\SKILL.md\n  - ai-scientist",
       "zaman": "2026-06-24T02:11:22.975568"
     },
     {
@@ -64,7 +64,7 @@
       "tur": 9,
       "dusunce": "FC:1araç",
       "eylem": "['EXECUTE_CODE']",
-      "gozlem": "[EXECUTE_CODE ✅]\n--- ÇIKTI ---\n - .android\n - .bashrc\n - .bash_profile\n - .cache\n - .claude\n - .claude.json\n - .config\n - .continue\n - .copilot\n - .docker\n - .EasyOCR\n - .emulator_console_auth_token\n - .git-credentials\n - .gitconfig\n - .gradle\n - .hermes\n - .hermes-web-ui\n - .javacpp\n - .lmstudio\n - .lmstudio-home-pointer\n... toplam 285 dosya/dizin",
+      "gozlem": "[EXECUTE_CODE ✅]\n--- ÇIKTI ---\n - .android\n - .bashrc\n - .bash_profile\n - .cache\n - .claude\n - .claude.json\n - .config\n - .continue\n - .copilot\n - .docker\n - .EasyOCR\n - .emulator_console_auth_token\n - .git-credentials\n - .gitconfig\n - .gradle\n - .ReYMeN\n - .ReYMeN-web-ui\n - .javacpp\n - .lmstudio\n - .lmstudio-home-pointer\n... toplam 285 dosya/dizin",
       "zaman": "2026-06-24T02:11:46.815416"
     },
     {

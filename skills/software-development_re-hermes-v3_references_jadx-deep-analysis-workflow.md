@@ -1,7 +1,7 @@
 ---
-name: software-development_re-hermes-v3_references_jadx-deep-analysis-workflow
+name: software-development_re-ReYMeN-v3_references_jadx-deep-analysis-workflow
 description: Jadx Derin Analiz Workflow
-title: "Software Development Re Hermes V3 References Jadx Deep Analysis Workflow"
+title: "Software Development Re ReYMeN V3 References Jadx Deep Analysis Workflow"
 version: 1.0.0
 ---
 
@@ -17,7 +17,7 @@ version: 1.0.0
 
 # Jadx Derin Analiz Workflow
 
-RE-Hermes triyajı tamamlandıktan sonra şüpheli token'ları doğrulamak için kullanılır.
+RE-ReYMeN triyajı tamamlandıktan sonra şüpheli token'ları doğrulamak için kullanılır.
 
 ## Adım 1 — jadx Kurulum (tek seferlik)
 
@@ -38,7 +38,7 @@ Obfuscated APK'larda Jadx 10-15 hata ile bitebilir — normaldir. Çoğu sınıf
 
 ## Adım 3 — Token Doğrulama
 
-### RE-Hermes'in bulduğu token'ları Java kodunda ara:
+### RE-ReYMeN'in bulduğu token'ları Java kodunda ara:
 
 ```bash
 # Tam kelime arama (false positive riski az)

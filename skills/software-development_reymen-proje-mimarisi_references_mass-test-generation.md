@@ -21,7 +21,7 @@ R>eYMeN projesinde 35 testten 5.095 teste çıkarken kullanılan teknik.
 
 ## Problem
 
-Bir projeyi Hermes Agent seviyesine çıkarırken 5.000+ test yazmak gerekti. 
+Bir projeyi ReYMeN Agent seviyesine çıkarırken 5.000+ test yazmak gerekti. 
 Her testi elle yazmak imkansız — programatik üretim şart.
 
 ## Çözüm: Python Test Üreteçleri

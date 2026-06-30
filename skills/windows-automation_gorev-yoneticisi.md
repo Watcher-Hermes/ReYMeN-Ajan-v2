@@ -1,5 +1,5 @@
 ---
-tags: [hermes, skill, system, task-manager]
+tags: [ReYMeN, skill, system, task-manager]
 category: windows-automation
 audience: user
 shortcut: Ctrl + Shift + Esc

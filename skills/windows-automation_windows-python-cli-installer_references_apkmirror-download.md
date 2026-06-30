@@ -35,7 +35,7 @@ document.querySelector('a[href*="download.php"]')?.href
 import urllib.request
 
 url = "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=XXXXX&key=YYYYY"
-output = r"C:\Users\marko\re-hermes\file.apk"
+output = r"C:\Users\marko\re-ReYMeN\file.apk"
 
 req = urllib.request.Request(url, headers={
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -58,9 +58,9 @@ with urllib.request.urlopen(req, timeout=60) as resp:
 
 ## APK Analiz
 
-APK'ler RE-Hermes ile analiz edilebilir:
+APK'ler RE-ReYMeN ile analiz edilebilir:
 ```bash
-re-hermes dosya.apk
+re-ReYMeN dosya.apk
 ```
 
 Not: APK'ler ZIP sıkıştırması kullandığı için entropy her zaman yüksektir (7.5+). Bu AI yorumunda false positive üretebilir.

@@ -70,7 +70,7 @@ class TestSiniflandirilmisHata:
         assert s.fallback_olmali is False
 
     def test_hermes_uyumlu_propertyler(self):
-        """Hermes ClassifiedError API uyumluluğu."""
+        """ReYMeN ClassifiedError API uyumluluğu."""
         s = SiniflandirilmisHata(
             neden=FailoverReason.billing,
             yeniden_denenebilir=False,

@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_tor-kore-siteleri-bypass
+title: Windows Automation Tor Kore Siteleri Bypass
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: tor-kore-siteleri-bypass
 description: Kore sitelerine Tor üzerinden erişim. Bing KR ve Naver çalışır. BoanNews SOCKS bloklu.
 title: "Tor Kore Siteleri Bypass"

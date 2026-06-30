@@ -9,7 +9,7 @@ author: BadTechBandit
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [design, html, prototype, ux, ui, creative, artifact, deck, motion, design-system]
 audience: user
 related_skills: [design-md, popular-web-designs, excalidraw, architecture-diagram]

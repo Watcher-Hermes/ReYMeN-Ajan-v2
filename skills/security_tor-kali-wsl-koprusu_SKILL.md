@@ -1,7 +1,7 @@
 ---
 name: tor-kali-wsl-koprusu
 title: Kali + Tor + WSL Köprüsü
-description: "Windows Hermes Agent ile Kali Linux (WSL) arasında SSH + Tor üzerinden güvenli köprü kurulumu."
+description: "Windows ReYMeN Agent ile Kali Linux (WSL) arasında SSH + Tor üzerinden güvenli köprü kurulumu."
 tags: [kali, tor, wsl, ssh, güvenlik, köprü]
 category: security
 audience: user
@@ -20,7 +20,7 @@ related_skills: [kali-linux-remote, tor-arama-bypass-cozumu]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Kali ajanı |
-| **Ne?** | Windows Hermes Agent ile Kali Linux (WSL) arasında SSH + Tor üzerinden güvenli köprü kurulumu. |
+| **Ne?** | Windows ReYMeN Agent ile Kali Linux (WSL) arasında SSH + Tor üzerinden güvenli köprü kurulumu. |
 | **Nerede?** | Guvenlik/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -31,12 +31,12 @@ related_skills: [kali-linux-remote, tor-arama-bypass-cozumu]
 # Kali + Tor + WSL Köprüsü
 
 ## Bulgular
-- Tor Browser + Hermes Agent arasında hazırda bilinen özel bir köprü yazılımı bulunamadı
+- Tor Browser + ReYMeN Agent arasında hazırda bilinen özel bir köprü yazılımı bulunamadı
 - Ancak SSH + Tor Hidden Service mimarisi ile benzer bir sistem kurmak mümkün
 
 ## Çözüm Yolu
 
-Windows'taki Hermes Agent, SSH üzerinden Kali Linux'ta komut çalıştırır. Tor üzerinden bu bağlantı gizlenebilir.
+Windows'taki ReYMeN Agent, SSH üzerinden Kali Linux'ta komut çalıştırır. Tor üzerinden bu bağlantı gizlenebilir.
 
 ### Adımlar
 1. Hyper-V özelliğini aç

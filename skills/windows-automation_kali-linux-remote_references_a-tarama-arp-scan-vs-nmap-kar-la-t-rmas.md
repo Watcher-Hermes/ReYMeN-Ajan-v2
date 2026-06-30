@@ -104,8 +104,8 @@ VBOX="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
 
 **Yöntem 3 — Tmux send-keys (ÖNERİLMEZ — git-bash/MSYS ortamında boşluk kırpma sorunu)**
 ```
-sshpass -p 'kali' ssh kali@<ip> 'tmux send-keys -t hermes "komut" Enter'
-sshpass -p 'kali' ssh kali@<ip> 'tmux capture-pane -t hermes -p -S -50'
+sshpass -p 'kali' ssh kali@<ip> 'tmux send-keys -t ReYMeN "komut" Enter'
+sshpass -p 'kali' ssh kali@<ip> 'tmux capture-pane -t ReYMeN -p -S -50'
 ```
 - **Bilinen sorun:** git-bash/MSYS üzerinden `send-keys` çağrıldığında, çift tırnak içindeki boşluklar yutulur (`"echo hello"` → `echohello`).
 - `send-keys -l` (literal mode) C-m (Enter) göndermeyi karmaşıklaştırır, zsh shell'de de ek sorun çıkarır.

@@ -8,7 +8,7 @@
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Kali ajanı |
-| **Ne?** | Windows Automation_Vm Web Terminal Ui_References_Kali De Komut Al T R Telegram Hermes Ten |
+| **Ne?** | Windows Automation_Vm Web Terminal Ui_References_Kali De Komut Al T R Telegram ReYMeN Ten |
 | **Nerede?** | Windows/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -16,7 +16,7 @@
 
 ---
 
-# Kali'de komut çalıştır — Telegram Hermes'ten
+# Kali'de komut çalıştır — Telegram ReYMeN'ten
 import urllib.request, json
 data = json.dumps({"cmd": "whoami && hostname -I"}).encode()
 req = urllib.request.Request("http://localhost:5050/exec", data=data, headers={"Content-Type": "application/json"})

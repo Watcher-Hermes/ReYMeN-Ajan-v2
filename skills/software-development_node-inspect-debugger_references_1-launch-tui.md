@@ -16,5 +16,5 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # 1. Launch TUI
-hermes --tui &
+ReYMeN --tui &
 TUI_PID=$(pgrep -f 'ui-tui/dist/entry' | head -1)

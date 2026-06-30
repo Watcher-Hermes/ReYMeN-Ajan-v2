@@ -771,7 +771,9 @@ class MixinDisplay:
                     self._console_print(f"   [dim]• {item['name']}[/] [dim italic]({', '.join(item['missing_vars'])})[/]")
                 self._console_print("[dim]   Run 'ReYMeN setup' to configure[/]")
         except Exception as _e:
-            pass  # Don't crash on import errors
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # Don't crash on import errors
 
 
     
@@ -861,7 +863,7 @@ class MixinDisplay:
             "ReYMeN CLI Status",
             "",
             f"Session ID: {self.session_id}",
-            f"Path: {display_ReYMeN_home()}",
+            f"Path: {display_reymen_home()}",
         ]
         if title:
             lines.append(f"Title: {title}")
@@ -974,7 +976,7 @@ class MixinDisplay:
             print("  To start the gateway:")
             print("    python cli.py --gateway")
             print()
-            print(f"  Configuration file: {display_ReYMeN_home()}/config.yaml")
+            print(f"  Configuration file: {display_reymen_home()}/config.yaml")
             print()
             
         except Exception as e:
@@ -984,7 +986,7 @@ class MixinDisplay:
             print("    1. Set environment variables:")
             print("       TELEGRAM_BOT_TOKEN=your_token")
             print("       DISCORD_BOT_TOKEN=your_token")
-            print(f"    2. Or configure settings in {display_ReYMeN_home()}/config.yaml")
+            print(f"    2. Or configure settings in {display_reymen_home()}/config.yaml")
             print()
 
 

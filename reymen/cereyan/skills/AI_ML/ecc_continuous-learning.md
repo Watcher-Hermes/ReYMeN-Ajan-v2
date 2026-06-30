@@ -1,23 +1,12 @@
 ---
-name: continuous-learning
-description: "[DEPRECATED - use continuous-learning-v2] Legacy v1 stop-hook skill extractor. v2 is a strict superset with instinct-based, project-scoped, hook-reliable learning. Do not invoke v1; route continuous learning, session learning, and pattern extraction requests to continuous-learning-v2."
-title: "Continuous Learning"
-origin: ECC
-
-audience: user
-tags: [ai, automation, development]
-category: ecc---
-
-# Continuous Learning Skill - DEPRECATED
-
-> **DEPRECATED 2026-04-28.** Use `continuous-learning-v2` instead. v2 is a strict superset: stop-hook observation becomes PreToolUse/PostToolUse observation, full skills become atomic instincts with confidence scoring, and global-only storage becomes project-scoped plus global promotion.
->
-> This file is kept for archival reference and backward compatibility with existing installs.
-
-
-
+name: ecc_continuous-learning
+title: Ecc Continuous Learning
+description: ''
+tags:
+- ai_ml
+category: AI_ML
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI muhendisi |
@@ -38,8 +27,6 @@ category: ecc---
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: AI muhendisi
 Ne: "[DEPRECATED - use continuous-learning-v2] Legacy v1 stop-hook skill extractor. v2 is a strict superset with instinct-based, project-scoped, hook-reliable learning. Do not invoke v1; route continuous 
@@ -136,8 +123,6 @@ Add to your `~/.claude/settings.json`:
 
 - [The Longform Guide](https://x.com/affaanmustafa/status/2014040193557471352) - Section on continuous learning
 - `/learn` command - Manual pattern extraction mid-session
-
----
 
 ## Comparison Notes (Research: Jan 2025)
 

@@ -6,7 +6,7 @@ version: 1.0.0
 author: marko
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [obsidian, vault, maintenance, cleanup, tags]
 category: productivity
 audience: user
@@ -46,7 +46,7 @@ from pathlib import Path
 import re
 
 vault = Path(r'C:\Users\marko\OneDrive\Belgeler\Obsidian Vault')
-hermes_root = vault / 'Hermes'
+hermes_root = vault / 'ReYMeN'
 
 files = list(hermes_root.rglob('*.md'))
 print(f'Dosya sayısı: {len(files)}')
@@ -64,16 +64,16 @@ Python script'i ile tüm `.md` dosyalarını tara, `[[Link]]` desenlerini bul ve
 
 ### 4. Orphan dosya taşıma
 Index notlarında bağlantısı olmayan dosyaları (true orphan) tespit et ve:
-- Vault dışı ilgisiz notlar → `Hermes/Knowledge/` altına taşı
+- Vault dışı ilgisiz notlar → `ReYMeN/Knowledge/` altına taşı
 - Skill notları → uygun `_index.md`'ye ekle
 
 ### 5. Etiket ekleme
-Etiketsiz Hermes notlarını tespit et ve dosya konumuna göre etiket ata:
-- `Hermes/Skills/**/*.md` → `#hermes #skill`
-- `Hermes/Skills/<kategori>/**/*.md` → `#hermes #skill #<kategori>`
-- `Hermes/Topics/**/*.md` → `#hermes`
-- `Hermes/Knowledge/**/*.md` → `#hermes #knowledge`
-- Kök `Hermes/*.md` → `#hermes`
+Etiketsiz ReYMeN notlarını tespit et ve dosya konumuna göre etiket ata:
+- `ReYMeN/Skills/**/*.md` → `#ReYMeN #skill`
+- `ReYMeN/Skills/<kategori>/**/*.md` → `#ReYMeN #skill #<kategori>`
+- `ReYMeN/Topics/**/*.md` → `#ReYMeN`
+- `ReYMeN/Knowledge/**/*.md` → `#ReYMeN #knowledge`
+- Kök `ReYMeN/*.md` → `#ReYMeN`
 
 ### 6. Önemli yollar
 ```

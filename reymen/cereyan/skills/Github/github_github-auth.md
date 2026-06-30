@@ -1,24 +1,14 @@
 ---
 name: github-auth
-title: "GitHub Auth"
-tags: [development, git, github]
-description: "GitHub auth setup: HTTPS tokens, SSH keys, gh CLI login."
-version: 1.1.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [GitHub, Authentication, Git, gh-cli, SSH, Setup]
+title: GitHub Auth
+description: 'GitHub auth setup: HTTPS tokens, SSH keys, gh CLI login.'
+tags:
+- development
+- git
+- github
+category: Github
 audience: contributor
-related_skills: [github-pr-workflow, github-code-review, github-issues, github-repo-management]
 ---
-
-
-> **Kategori:** github
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +19,6 @@ related_skills: [github-pr-workflow, github-code-review, github-issues, github-r
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # GitHub Authentication Setup
 
@@ -58,8 +46,6 @@ git config --global credential.helper 2>/dev/null || echo "no git credential hel
 2. If `gh` is installed but not authenticated → use "gh auth" method below
 3. If `gh` is not installed → use "git-only" method below (no sudo needed)
 
----
-
 ## Method 1: Git-Only Authentication (No gh, No sudo)
 
 This works on any machine with `git` installed. No root access needed.
@@ -73,7 +59,7 @@ This is the most portable method — works everywhere, no SSH config needed.
 Tell the user to go to: **https://github.com/settings/tokens**
 
 - Click "Generate new token (classic)"
-- Give it a name like "hermes-agent"
+- Give it a name like "ReYMeN-agent"
 - Select scopes:
   - `repo` (full repository access — read, write, push, PRs)
   - `workflow` (trigger and manage GitHub Actions)
@@ -152,7 +138,7 @@ cat ~/.ssh/id_ed25519.pub
 Tell the user to add the public key at: **https://github.com/settings/keys**
 - Click "New SSH key"
 - Paste the public key content
-- Give it a title like "hermes-agent-<machine-name>"
+- Give it a title like "ReYMeN-agent-<machine-name>"
 
 **Step 3: Test the connection**
 
@@ -174,8 +160,6 @@ git config --global url."git@github.com:".insteadOf "https://github.com/"
 git config --global user.name "Their Name"
 git config --global user.email "their-email@example.com"
 ```
-
----
 
 ## Method 2: gh CLI Authentication
 
@@ -204,8 +188,6 @@ gh auth setup-git
 ```bash
 gh auth status
 ```
-
----
 
 ## Using the GitHub API Without gh
 
@@ -252,8 +234,6 @@ else
   echo "Need to set up authentication first"
 fi
 ```
-
----
 
 ## Troubleshooting
 

@@ -1,8 +1,12 @@
-
-> **Kategori:** automation
-
 ---
-
+name: windows-automation_tor-hindistan-siteleri-bypass
+title: Windows Automation Tor Hindistan Siteleri Bypass
+description: ''
+tags:
+- automation
+category: automation
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: tor-hindistan-siteleri-bypass
 description: Hindistan sitelerine Tor üzerinden erişim. GBHackers ve Bing IN çalışır. TheHackerNews Cloudflare bloklu.
 title: "Tor Hindistan Siteleri Bypass"

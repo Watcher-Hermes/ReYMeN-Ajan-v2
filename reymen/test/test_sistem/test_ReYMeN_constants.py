@@ -26,36 +26,36 @@ def test_reset_ReYMeN_home_override():
     except Exception as hata:
         pytest.xfail('Runtime hatasi: ' + str(hata))
 
-def test_get_ReYMeN_home_override():
-    # Otomatik test: reymen.sistem.ReYMeN_constants.get_ReYMeN_home_override
+def test_get_reymen_home_override():
+    # Otomatik test: reymen.sistem.ReYMeN_constants.get_reymen_home_override
     try:
-        _modul.get_ReYMeN_home_override()
+        _modul.get_reymen_home_override()
     except SystemExit:
         pytest.xfail('SystemExit')
     except TypeError:
-        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.get_ReYMeN_home_override')
+        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.get_reymen_home_override')
     except Exception as hata:
         pytest.xfail('Runtime hatasi: ' + str(hata))
 
-def test_get_ReYMeN_home():
-    # Otomatik test: reymen.sistem.ReYMeN_constants.get_ReYMeN_home
+def test_get_reymen_home():
+    # Otomatik test: reymen.sistem.ReYMeN_constants.get_reymen_home
     try:
-        _modul.get_ReYMeN_home()
+        _modul.get_reymen_home()
     except SystemExit:
         pytest.xfail('SystemExit')
     except TypeError:
-        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.get_ReYMeN_home')
+        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.get_reymen_home')
     except Exception as hata:
         pytest.xfail('Runtime hatasi: ' + str(hata))
 
-def test_get_default_ReYMeN_root():
-    # Otomatik test: reymen.sistem.ReYMeN_constants.get_default_ReYMeN_root
+def test_get_default_reymen_root():
+    # Otomatik test: reymen.sistem.ReYMeN_constants.get_default_reymen_root
     try:
-        _modul.get_default_ReYMeN_root()
+        _modul.get_default_reymen_root()
     except SystemExit:
         pytest.xfail('SystemExit')
     except TypeError:
-        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.get_default_ReYMeN_root')
+        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.get_default_reymen_root')
     except Exception as hata:
         pytest.xfail('Runtime hatasi: ' + str(hata))
 
@@ -92,25 +92,25 @@ def test_get_bundled_skills_dir():
     except Exception as hata:
         pytest.xfail('Runtime hatasi: ' + str(hata))
 
-def test_get_ReYMeN_dir():
-    # Otomatik test: reymen.sistem.ReYMeN_constants.get_ReYMeN_dir
+def test_get_reymen_dir():
+    # Otomatik test: reymen.sistem.ReYMeN_constants.get_reymen_dir
     try:
-        _modul.get_ReYMeN_dir()
+        _modul.get_reymen_dir()
     except SystemExit:
         pytest.xfail('SystemExit')
     except TypeError:
-        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.get_ReYMeN_dir')
+        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.get_reymen_dir')
     except Exception as hata:
         pytest.xfail('Runtime hatasi: ' + str(hata))
 
-def test_display_ReYMeN_home():
-    # Otomatik test: reymen.sistem.ReYMeN_constants.display_ReYMeN_home
+def test_display_reymen_home():
+    # Otomatik test: reymen.sistem.ReYMeN_constants.display_reymen_home
     try:
-        _modul.display_ReYMeN_home()
+        _modul.display_reymen_home()
     except SystemExit:
         pytest.xfail('SystemExit')
     except TypeError:
-        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.display_ReYMeN_home')
+        pytest.skip('Arguman gerekli: reymen.sistem.ReYMeN_constants.display_reymen_home')
     except Exception as hata:
         pytest.xfail('Runtime hatasi: ' + str(hata))
 

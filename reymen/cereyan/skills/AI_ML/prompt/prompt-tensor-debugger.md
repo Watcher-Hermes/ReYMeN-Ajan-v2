@@ -1,31 +1,12 @@
 ---
 name: prompt-tensor-debugger
-description: Step-by-step debugging prompt for tensor shape errors in deep learning code
-title: "PRompt Tensor Debugger"
-tags: [general]
-phase: 1
-lesson: 12
-
-audience: user
-category: prompt-tensor-debugger---
-
-I have a tensor shape error in my deep learning code. Help me fix it.
-
-**Error message:** [paste the error here]
-
-**My tensor shapes:**
-- [name]: [shape]
-- [name]: [shape]
-
-**The operation I'm trying to do:** [describe it]
-
+title: Prompt Tensor Debugger
+description: ''
+tags:
+- prompt
+category: prompt
+audience: agent
 ---
-
-
-> **Kategori:** prompt-engineering
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -36,8 +17,6 @@ I have a tensor shape error in my deep learning code. Help me fix it.
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 When debugging, follow this exact process:
 

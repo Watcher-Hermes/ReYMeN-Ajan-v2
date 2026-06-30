@@ -1,16 +1,16 @@
 ---
 name: test-suite-ve-api-setup-deseni
 title: Test Suite ve API Anahtar Kurulumu Deseni
-description: "Entegrasyon test suite (try/except'li, 13 test) ve interaktif API anahtar kurulumu (--liste, --kontrol, interaktif)"
-tags: [testing, setup, api-keys, pattern]
+description: Entegrasyon test suite (try/except'li, 13 test) ve interaktif API anahtar
+  kurulumu (--liste, --kontrol, interaktif)
+tags:
+- testing
+- setup
+- api-keys
+- pattern
+category: Kod
 audience: contributor
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -21,8 +21,6 @@ audience: contributor
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Test Suite ve API Anahtar Kurulumu
 

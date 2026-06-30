@@ -30,7 +30,7 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 | Soru | Cevap |
 |:-----|:------|
-| **Kim?** | Tüm ajanlar (Kali, Windows, CAD, Hermes). Kullanıcıya yanıt veren herhangi bir ajan. |
+| **Kim?** | Tüm ajanlar (Kali, Windows, CAD, ReYMeN). Kullanıcıya yanıt veren herhangi bir ajan. |
 | **Ne?** | Kullanıcının belirsiz/tek kelimelik görevini analiz eder, hafızadaki en alakalı kategoriyi bulur, ona göre öneri sunar. |
 | **Nerede?** | `reymen/cereyan/once_hafiza.py` → `ogrenmeler.db`. Tüm ajanlar ortak DB'yi kullanır. |
 | **Ne Zaman?** | Kullanıcı "güvenli yap", "ağda sorun var", "dronu uçur" gibi net olmayan bir görev verdiğinde. |

@@ -1,35 +1,12 @@
 ---
-name: android-apk-repackaging
-description: APK repackaging pipeline — tek yön, geri dönüşsüz adımlar. Önbelge → Decompile → Yama (karar ağacı) → Rebuild → zipalign → İmzala → Doğrula+logcat.
-title: "Android Apk Repackaging"
-
-audience: contributor
-tags: [android, coding, development]
-category: software-development---
-
-# Android APK Repackaging Pipeline
-
-## Kural
-
-**Tek yön, geri dönüşsüz.** Her adımda başarı kontrolü var. Bir adım geçemezse DUR — sessiz hata bir sonraki adımda patlamaz.
-
-## Gereksinimler
-
-| Araç | Not |
-|------|-----|
-| apktool.jar | `C:\Users\marko\re-hermes\apktool.jar` |
-| zipalign | `$ANDROID_SDK/build-tools/35.0.0/zipalign.exe` |
-| apksigner | `$ANDROID_SDK/build-tools/35.0.0/apksigner.bat` |
-| jarsigner | **KULLANMA** — sadece v1 imza üretir, Android 7+ yetersiz |
-| Python | repack + compression fix için |
-
+name: software-development_android-apk-repackaging
+title: Software Development Android Apk Repackaging
+description: ''
+tags:
+- kod
+category: Kod
+audience: agent
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -40,8 +17,6 @@ category: software-development---
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 ## Pipeline
 
@@ -66,8 +41,6 @@ rm -rf _preview/
 
 **GATE 0:** Rapor hazırla. Split APK varsa merge planı not et. targetSdk yüksekse düşür. Native lib varsa ZIP_STORED kuralını hatırla.
 
----
-
 ### Adım 1 — DECOMPILE
 
 ```bash
@@ -83,8 +56,6 @@ java -jar apktool.jar d -f -o _work/ target.apk
 test -f _work/AndroidManifest.xml && echo "OK" || (echo "DECOMPILE_FAILED"; exit 1)
 test -d _work/smali && echo "SMALI_OK" || echo "SMALI_UYARI"
 ```
-
----
 
 ### Adım 2 — YAMA (Karar Ağacı)
 
@@ -169,8 +140,6 @@ with zipfile.ZipFile(out, 'w', zipfile.ZIP_DEFLATED) as zf:
 
 **GATE 2M (merge):** `python -c "import zipfile; z=zipfile.ZipFile('base_merged.apk'); [print(i.filename, i.compress_type) for i in z.infolist() if i.filename.endswith('.so')]"` ile .so'ların compress_type=0 (STORED) olduğunu doğrula.
 
----
-
 ### Adım 3 — REBUILD
 
 ```bash
@@ -190,8 +159,6 @@ apktool hataları:
 
 Hata varsa DUR. 3 başarısız denemeden sonra binary-level patch stratejisine geç.
 
----
-
 ### Adım 4 — ZIPALIGN (Atlanamaz)
 
 ```bash
@@ -204,8 +171,6 @@ zipalign -c 4 _build_aligned.apk | grep -q "Verification successful"
 ```
 
 Başarısız → APK bozuk. `-f` ile dene.
-
----
 
 ### Adım 5 — İMZALA
 
@@ -225,8 +190,6 @@ apksigner verify --verbose _build_aligned.apk | grep -q "v2\|v3"
 ```
 
 Sadece v1 varsa → jarsigner kullanılmış. Yeniden imzala.
-
----
 
 ### Adım 6 — DOĞRULA (En Değerli Adım)
 
@@ -265,8 +228,6 @@ Crash: 0
 APK: 14.2 MB
 ```
 
----
-
 ## Pitfall'lar
 
 1. **"Package invalid / Parse error"** — .so'lar DEFLATE ile sıkıştırılmış. ZIP_STORED ile yeniden paketle.
@@ -278,8 +239,6 @@ APK: 14.2 MB
 7. **zipalign sırası kritik** — rebuild → zipalign → apksigner. Sıra bozulursa sessiz hata.
 8. **Obfuscated APK** — smali'yi anlamaya çalışma, yeni sınıf ekle.
 9. **İmza çakışması** — Aynı uygulamanın iki farklı imzalı sürümü yan yana durmaz.
-
----
 
 ## Skill Dosyaları
 

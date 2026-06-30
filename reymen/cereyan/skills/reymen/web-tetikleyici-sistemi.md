@@ -1,21 +1,12 @@
 ---
 name: web-tetikleyici-sistemi
 title: Web Tetikleyici Sistemi
-description: 5 tetikleyici ile ajanin ne zaman web'e gidecegini otomatik belirleme.
-category: sistem
-Kim: ReYMeN ajani
-Ne: 5 tetikleyici ile ajanin ne zaman web'e gidecegini otomatik belirleme.
-Nerede: `reymen\web-tetikleyici-sistemi.md`
-Ne Zaman: ReYMeN sistemi yapilandirmasi gerektiginde
-Neden: Web Tetikleyici Sistemi islemini standartlastirmak ve tekrarlanabilir kilmak icin
-Nasil: Skill dosyasindaki adimlari takip ederek
-
-
-# Web Tetikleyici Sistemi
-
-
+description: ''
+tags:
+- reymen
+category: reymen
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ReYMeN ajani |
@@ -37,8 +28,6 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 | **Neden?** | LLM token israfını önlemek için. Boşuna web araması yapıp 50KB context şişirmek yerine, sadece gerektiğinde ara. |
 | **Nasıl?** | 5 tetikleyici sırayla kontrol edilir: T1(boş)→T3(hata)→T2(güven)→T4(tarih)→T5(çelişki). Her biri bir puan döndürür, eşik aşılırsa web'e gidilir. |
 
----
-
 ## 5 Tetikleyici (Öncelik Sırasıyla)
 
 | # | Tetikleyici | Koşul | Puan | Ne Zaman? |
@@ -48,8 +37,6 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 | 3 | **T2: Guven dusuk** | `guven < 0.5` | 0.5-0.3 | 1 basari 3 hata = guven 0.25 |
 | 4 | **T4: Gecerlilik asmis** | `tarih < bugun` | 0.3 | 6+ ay once ogrenilmis bilgi |
 | 5 | **T5: Celiski** | `icerik1 != icerik2` | 0.6-0.4 | Video/Kullanici farkli soyluyor |
-
----
 
 ## Akış
 
@@ -76,8 +63,6 @@ T5: Iki kaynak celisiyor mu?
   ├─ EVET → WEB'E GİT (hakem karar)
   └─ HAYIR → HAFIZADAN KULLAN
 ```
-
----
 
 ## Veritabanı
 

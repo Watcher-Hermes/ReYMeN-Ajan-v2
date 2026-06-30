@@ -1,7 +1,7 @@
 ---
 name: software-development_project-gap-analysis_references_hermes-reference-test-fix
-description: Hermes Reference Test Hata Düzeltme Pattern'leri
-title: "Software Development Project Gap Analysis References Hermes Reference Test Fix"
+description: ReYMeN Reference Test Hata Düzeltme Pattern'leri
+title: "Software Development Project Gap Analysis References ReYMeN Reference Test Fix"
 version: 1.0.0
 ---
 
@@ -9,15 +9,15 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Hermes Reference Test Hata Düzeltme Pattern'leri |
+| **Ne** | ReYMeN Reference Test Hata Düzeltme Pattern'leri |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Hermes Reference Test Hata Düzeltme Pattern'leri
+# ReYMeN Reference Test Hata Düzeltme Pattern'leri
 
-Bir projeyi (örn: ReYMeN) Hermes Agent seviyesine çıkarırken `tests/hermes_reference/` içindeki testlerin geçmesi gerekir. Bu referans dosyası, karşılaşılan hata türleri ve çözüm pattern'lerini belgeler.
+Bir projeyi (örn: ReYMeN) ReYMeN Agent seviyesine çıkarırken `tests/hermes_reference/` içindeki testlerin geçmesi gerekir. Bu referans dosyası, karşılaşılan hata türleri ve çözüm pattern'lerini belgeler.
 
 ## 1. Collection Error Cascade — Kategorilere Ayırarak Koş
 
@@ -78,7 +78,7 @@ def list_sessions_rich(self, ..., archived_only: bool = False):
 
 ## 3. Eksik Script Dosyaları — Doğru Yola Kopyala
 
-**Sorun:** Test `parents[2]` ile proje köküne gider ama Hermes test yapısında bu `tests/` dizinine denk gelir.
+**Sorun:** Test `parents[2]` ile proje köküne gider ama ReYMeN test yapısında bu `tests/` dizinine denk gelir.
 
 ```
 GENERATOR = REPO_ROOT / "website" / "scripts" / "generate-skill-docs.py"
@@ -93,7 +93,7 @@ cp website/scripts/extract-skills.py tests/website/scripts/
 cp website/scripts/generate-skill-docs.py tests/website/scripts/
 ```
 
-**Alternatif:** Test'teki `REPO_ROOT`'u `parents[2]` → `parents[3]` yap (ama Hermes referans testleri değişirse tekrar eski haline döner).
+**Alternatif:** Test'teki `REPO_ROOT`'u `parents[2]` → `parents[3]` yap (ama ReYMeN referans testleri değişirse tekrar eski haline döner).
 
 ## 4. Eksik Import / Fonksiyon — Modüle Ekle
 
@@ -101,7 +101,7 @@ cp website/scripts/generate-skill-docs.py tests/website/scripts/
 
 **Çözüm:** 
 1. İlgili modülde fonksiyon gerçekten var mı kontrol et (`grep -n "def model_forces" utils.py`)
-2. Yoksa Hermes'teki referans implementasyonu bul (`tests/hermes_reference/` içinde arama yap)
+2. Yoksa ReYMeN'teki referans implementasyonu bul (`tests/hermes_reference/` içinde arama yap)
 3. Eksik fonksiyonu taşı/yaz
 4. `python -c "from utils import model_forces_max_completion_tokens; print('OK')"` ile doğrula
 
@@ -115,12 +115,12 @@ assert mod._guess_category(["crypto"]) == "blockchain"
 
 **Çözüm:** 
 - Bu kod değişikliği gerektirir (Claude Code'a ver)
-- Eğer Reymen'in kendi mapping'i kasıtlıysa, test'i güncelle (Hermes sync'te kaybolur)
-- Eğer Hermes'teki mapping daha doğruysa, Reymen'in fonksiyonunu güncelle
+- Eğer Reymen'in kendi mapping'i kasıtlıysa, test'i güncelle (ReYMeN sync'te kaybolur)
+- Eğer ReYMeN'teki mapping daha doğruysa, Reymen'in fonksiyonunu güncelle
 
 ## 6. Cron Import Path Sorunu
 
-**Sorun:** Hermes testleri `from cron.suggestions import ...` yapar ama Reymen'de `ReYMeN_cli/cron/suggestions.py`
+**Sorun:** ReYMeN testleri `from cron.suggestions import ...` yapar ama Reymen'de `ReYMeN_cli/cron/suggestions.py`
 
 **Çözüm (geçici):**
 ```python

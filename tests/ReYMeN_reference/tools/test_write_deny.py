@@ -33,10 +33,10 @@ class TestWriteDenyExactPaths:
     def test_ReYMeN_env(self):
         # ``.env`` under the active ReYMeN_HOME (profile-aware, not just
         # ``~/.ReYMeN``) must be write-denied. The hermetic test conftest
-        # points ReYMeN_HOME at a tempdir — resolve via get_ReYMeN_home()
+        # points ReYMeN_HOME at a tempdir — resolve via get_reymen_home()
         # to match the denylist.
-        from ReYMeN_constants import get_ReYMeN_home
-        path = str(get_ReYMeN_home() / ".env")
+        from ReYMeN_constants import get_reymen_home
+        path = str(get_reymen_home() / ".env")
         assert _is_write_denied(path) is True
 
     def test_ReYMeN_root_env_when_running_under_profile(self, tmp_path, monkeypatch):
@@ -58,9 +58,9 @@ class TestWriteDenyExactPaths:
         monkeypatch.setenv("ReYMeN_HOME", str(profile_home))
 
         # Sanity check: ReYMeN_HOME does point to the profile dir, not the root.
-        from ReYMeN_constants import get_ReYMeN_home, get_default_ReYMeN_root
-        assert get_ReYMeN_home() == profile_home
-        assert get_default_ReYMeN_root() == root
+        from ReYMeN_constants import get_reymen_home, get_default_reymen_root
+        assert get_reymen_home() == profile_home
+        assert get_default_reymen_root() == root
 
         assert _is_write_denied(str(global_env)) is True
 
@@ -121,8 +121,8 @@ class TestWriteAllowed:
         assert _is_write_denied("/home/user/project/main.py") is False
 
     def test_ReYMeN_control_files_requested_writable(self):
-        from ReYMeN_constants import get_ReYMeN_home
+        from ReYMeN_constants import get_reymen_home
 
-        home = get_ReYMeN_home()
+        home = get_reymen_home()
         for name in ["auth.json", "config.yaml", "webhook_subscriptions.json"]:
             assert _is_write_denied(str(home / name)) is False, f"{name} should be writable"

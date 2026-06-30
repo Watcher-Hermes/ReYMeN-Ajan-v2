@@ -21,7 +21,7 @@ version: 1.0.0
 - Ana akış: `stepfun/step-3.7-flash:free`
 - Reddit-benzeri görevler için `dolphin-llama3` kullan.
 - Dolphin-llama3 görev bitince tekrar `stepfun/step-3.7-flash:free` (mevcut ana akış) moduna geç.
-- Kullanıcı her görevde ilk adım olarak Hermes skill + Obsidian kontrolü yap.
+- Kullanıcı her görevde ilk adım olarak ReYMeN skill + Obsidian kontrolü yap.
 - Eğer kayıt varsa yeniden yazmadan ilerle.
 - Kullanıcı onayı verdiğinde görev, ilgili skill + Obsidian’a kaydedilir.
 

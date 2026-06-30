@@ -1,21 +1,13 @@
 ---
 name: native-mcp
-title: "Native MCP"
-tags: [mcp, protocol]
-description: "MCP client: connect servers, register tools (stdio/HTTP)."
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [MCP, Tools, Integrations]
+title: Native MCP
+description: 'MCP client: connect servers, register tools (stdio/HTTP).'
+tags:
+- mcp
+- protocol
+category: mcp
 audience: user
-related_skills: [mcporter]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
@@ -36,8 +28,6 @@ related_skills: [mcporter]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: AI gelistiricisi
 Ne: "MCP client: connect servers, register tools (stdio/HTTP)."

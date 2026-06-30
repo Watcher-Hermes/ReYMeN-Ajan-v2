@@ -1,7 +1,7 @@
 ---
-name: autonomous-ai-agents_hermes-agent_references_spawning-additional-hermes-instances
-description: Spawning Additional Hermes Instances
-title: "Autonomous Ai Agents Hermes Agent References Spawning Additional Hermes Instances"
+name: autonomous-ai-agents_hermes-agent_references_spawning-additional-ReYMeN-instances
+description: Spawning Additional ReYMeN Instances
+title: "Autonomous Ai Agents ReYMeN Agent References Spawning Additional ReYMeN Instances"
 version: 1.0.0
 ---
 
@@ -9,19 +9,19 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Spawning Additional Hermes Instances |
+| **Ne** | Spawning Additional ReYMeN Instances |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-## Spawning Additional Hermes Instances
+## Spawning Additional ReYMeN Instances
 
-Run additional Hermes processes as fully independent subprocesses — separate sessions, tools, and environments.
+Run additional ReYMeN processes as fully independent subprocesses — separate sessions, tools, and environments.
 
 ### When to Use This vs delegate_task
 
-| | `delegate_task` | Spawning `hermes` process |
+| | `delegate_task` | Spawning `ReYMeN` process |
 |-|-----------------|--------------------------|
 | Isolation | Separate conversation, shared process | Fully independent process |
 | Duration | Minutes (bounded by parent loop) | Hours/days |
@@ -32,4 +32,4 @@ Run additional Hermes processes as fully independent subprocesses — separate s
 ### One-Shot Mode
 
 ```
-terminal(command="hermes chat -q 'Research GRPO papers and write summary to ~/research/grpo.md'", timeout=300)
+terminal(command="ReYMeN chat -q 'Research GRPO papers and write summary to ~/research/grpo.md'", timeout=300)

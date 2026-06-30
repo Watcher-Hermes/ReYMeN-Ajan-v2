@@ -1,21 +1,21 @@
 ---
 name: ortak-bilgi-deposu
 title: Ortak Bilgi Deposu
-description: Çoklu ajan (Kali/Windows/CAD/Hermes) paylaşımlı bilgi mimarisi.
+description: Çoklu ajan (Kali/Windows/CAD/ReYMeN) paylaşımlı bilgi mimarisi.
 category: kullanici
 ---
 
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | ReYMeN ajani |
-| **Ne** | Çoklu ajan (Kali/Windows/CAD/Hermes) paylaşımlı bilgi mimarisi. |
+| **Ne** | Çoklu ajan (Kali/Windows/CAD/ReYMeN) paylaşımlı bilgi mimarisi. |
 | **Nerede** | `reymen\ortak-bilgi-deposu.md` |
 | **Ne Zaman** | ReYMeN yapilandirmasi gerektiginde |
 | **Neden** | Ortak Bilgi Deposu islemini standartlastirmak icin |
 | **Nasıl** | Skill dosyasindaki adimlari takip ederek |
 
 Kim: ReYMeN ajani
-Ne: Çoklu ajan (Kali/Windows/CAD/Hermes) paylaşımlı bilgi mimarisi.
+Ne: Çoklu ajan (Kali/Windows/CAD/ReYMeN) paylaşımlı bilgi mimarisi.
 Nerede: `reymen\ortak-bilgi-deposu.md`
 Ne Zaman: ReYMeN sistemi yapilandirmasi gerektiginde
 Neden: Ortak Bilgi Deposu islemini standartlastirmak ve tekrarlanabilir kilmak icin
@@ -30,11 +30,11 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 
 | Soru | Cevap |
 |:-----|:------|
-| **Kim?** | Tüm ajanlar (Kali, Windows, CAD, Hermes) |
+| **Kim?** | Tüm ajanlar (Kali, Windows, CAD, ReYMeN) |
 | **Ne?** | Çoklu ajan paylaşımlı bilgi mimarisini tanımlar. Memory→DB, skill→.md, karar→.md, log→kazanimlar.md |
 | **Nerede?** | `hermes_projesi/` ağacı içinde. DB: `reymen/cereyan/.ReYMeN/ogrenmeler.db` |
 | **Ne Zaman?** | Her yeni kayıt/skill/karar oluşturulduğunda |
-| **Neden?** | 3 ajanın aynı bilgiyi paylaşması için. Hermes internal (AppData) kullanılmaz |
+| **Neden?** | 3 ajanın aynı bilgiyi paylaşması için. ReYMeN internal (AppData) kullanılmaz |
 | **Nasıl?** | Memory→Python sqlite3, Skill→write_file(), Karar→echo append, Log→kazanimlar.md |
 
 ## Mimari
@@ -62,7 +62,7 @@ hermes_projesi/
 
 ## Yasaklar
 
-1. ❌ Hermes `memory()` tool kullanma — AppData'ya yazar
+1. ❌ ReYMeN `memory()` tool kullanma — AppData'ya yazar
 2. ❌ Skills → AppData yazma — sadece `reymen/cereyan/skills/`
 3. ❌ `pytest --collect-only` — HANG yiyor
 4. ✅ Tüm ajanlar aynı DB'yi paylaşır, kategori ile ayrışır

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-hermes_to_reymen.py — Hermes state.db → ReYMeN hafiza toplu import.
+hermes_to_reymen.py — ReYMeN state.db → ReYMeN hafiza toplu import.
 
 124 session, 9078 mesaj → ReYMeN's hafiza.db + notes/sessions/ + skills/
 """
@@ -111,11 +111,11 @@ def main():
         return
 
     if not HERMES_DB.exists():
-        log.error("Hermes DB bulunamadi: %s", HERMES_DB)
+        log.error("ReYMeN DB bulunamadi: %s", HERMES_DB)
         return
 
-    # ── 1. Hermes DB'den session'lari oku ────────────────────────────
-    log.info("Hermes DB okunuyor: %s (%.0f MB)", HERMES_DB, HERMES_DB.stat().st_size / 1e6)
+    # ── 1. ReYMeN DB'den session'lari oku ────────────────────────────
+    log.info("ReYMeN DB okunuyor: %s (%.0f MB)", HERMES_DB, HERMES_DB.stat().st_size / 1e6)
 
     conn = sqlite3.connect(str(HERMES_DB))
     conn.row_factory = sqlite3.Row
@@ -126,7 +126,7 @@ def main():
     log.info("Toplam %d session bulundu", len(sessions))
 
     # ── 2. Zaten işlenmiş session ID'lerini çıkar ────────────────────
-    _hafiza.initialize("hermes_import", baslik="Hermes→ReYMeN toplu import")
+    _hafiza.initialize("hermes_import", baslik="ReYMeN→ReYMeN toplu import")
     islenmis = set()
 
     # ReYMeN DB'de kayitli session_id'leri tara
@@ -167,7 +167,7 @@ def main():
             continue
 
         title = session.get("title") or "İsimsiz Session"
-        source = session.get("source") or "hermes"
+        source = session.get("source") or "ReYMeN"
         msg_count = len(messages)
 
         # ── Notes dosyasi yaz ────────────────────────────────────────
@@ -288,7 +288,7 @@ def main():
 
     # ── 4. Session bitir ──────────────────────────────────────────────
     _hafiza.session_bitir(
-        ozet=f"Hermes→ReYMeN import: {islenen} yeni + {atlanan} atlanan session"
+        ozet=f"ReYMeN→ReYMeN import: {islenen} yeni + {atlanan} atlanan session"
     )
 
     # ── 5. Istatistik ────────────────────────────────────────────────

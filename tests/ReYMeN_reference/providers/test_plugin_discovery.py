@@ -79,7 +79,7 @@ def test_user_plugin_overrides_bundled(tmp_path, monkeypatch):
     ReYMeN_home = tmp_path / ".ReYMeN"
     ReYMeN_home.mkdir()
     monkeypatch.setenv("ReYMeN_HOME", str(ReYMeN_home))
-    # get_ReYMeN_home() may be module-cached depending on codebase; ensure the
+    # get_reymen_home() may be module-cached depending on codebase; ensure the
     # env var is the source of truth. Most code paths re-read it each call.
 
     # Drop a user plugin that replaces 'gmi'

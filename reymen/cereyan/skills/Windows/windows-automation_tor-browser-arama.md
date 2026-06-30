@@ -1,22 +1,12 @@
 ---
-name: tor-browser-arama
-description: "Use when searching for information, browsing the web, or researching any topic. ALWAYS use Tor Browser for ALL web searches — never use regular browser or direct connections. Tor Browser exe is at C:\Users\marko\OneDrive\Desktop\Tor Browser\Browser\firefox.exe and SOCKS5 proxy runs on port 9150."
-version: 2.1.0
-author: marko
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [tor, browser, search, arama, web, gizlilik, duckduckgo, proxy, socks5, internet]
-audience: user
-related_skills: [gorsel-onaylama, screen-vision-analiz, mouse-klavye-ctypes]
+name: windows-automation_tor-browser-arama
+title: Windows Automation Tor Browser Arama
+description: ''
+tags:
+- windows
+category: Windows
+audience: agent
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -28,13 +18,11 @@ related_skills: [gorsel-onaylama, screen-vision-analiz, mouse-klavye-ctypes]
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 # Tor Browser ile Web Araması
 
 ## Overview
 
-Hermes, internette bilgi ararken DAIMA Tor Browser kullanır.
+ReYMeN, internette bilgi ararken DAIMA Tor Browser kullanır.
 Normal tarayıcı veya doğrudan bağlantı YASAK. Her arama Tor üzerinden yapılır.
 
 **Script:** `C:\Users\marko\hermestor.py`
@@ -49,8 +37,6 @@ Normal tarayıcı veya doğrudan bağlantı YASAK. Her arama Tor üzerinden yap�
 - Herhangi bir URL içerik okuma gerektiğinde
 
 KURAL: Web'e bağlanmak gerekiyorsa → Tor kullan. İstisna yok.
-
----
 
 ## Is Akisi (Adim Adim)
 
@@ -86,8 +72,6 @@ python C:\Users\marko\hermesapprove.py scan
 
 Manuel alternatif: mouse ile Connect butonuna tikla (Tor Browser ortasinda, yaklasik 960, 540).
 
----
-
 ## Komut Referansi
 
 ```bash
@@ -117,8 +101,6 @@ python C:\Users\marko\hermestor.py open "https://check.torproject.org"
 python C:\Users\marko\hermestor.py navigate "https://duckduckgo.com"
 ```
 
----
-
 ## Python API (Script Icinden)
 
 ```python
@@ -142,8 +124,6 @@ print(icerik[:1000])
 # Gorsel baglanti
 tor.visual_connect()
 ```
-
----
 
 ## Ekran Goruntu Analizi ile Navigasyon
 
@@ -169,8 +149,6 @@ python C:\\Users\\marko\\hermestor.py navigate "https://duckduckgo.com/?q=sorgu"
 python C:\\Users\\marko\\hermesmouse.py click X Y
 ```
 
----
-
 ## Tor Proxy Ayarlari
 
 | Parametre | Deger |
@@ -181,8 +159,6 @@ python C:\\Users\\marko\\hermesmouse.py click X Y
 | requests proxies | `{"https": "socks5h://127.0.0.1:9150"}` |
 
 `socks5h://` kullan — `socks5://` degil. `h` harfi DNS'i de Tor'dan gecirmek icin gerekli.
-
----
 
 ## Arama Sonuclari Yorumlama
 
@@ -233,7 +209,7 @@ GitHub'dan clone yapmadan ÖNCE kullanıcıya sor. Asla izinsiz clone yapma.
 4. **Ekranda captcha** — Tor IP'si banli olabilir; Tor Browser'da "New Identity" kullan.
 5. **Port 9150 yerine 9050** — 9050 Tor daemon'u, 9150 Tor Browser'u. Tor Browser aciksa 9150.
 6. **SOCKS bagimliligi eksik → "Missing dependencies for SOCKS support""** — `hermestor.py search` ve `proxy` komutlari `requests[socks]` gerektirir. Cozum: `pip install requests[socks]` veya `pip install pysocks` calistir.
-7. **Windows bash (git-bash) yol bozulmasi** — Hermes `C:\WINDOWS\System32` altindan calisirken `python C:\Users\marko\hermestor.py` yazinca MSYS yol donusumu bozuyor (`C:\WINDOWS\System32\Usersmarkohermestor.py` haline geliyor). Cozum: `/c/Users/marko/hermestor.py` yaz (UNIX stil yol, bash duzgun cozer).
+7. **Windows bash (git-bash) yol bozulmasi** — ReYMeN `C:\WINDOWS\System32` altindan calisirken `python C:\Users\marko\hermestor.py` yazinca MSYS yol donusumu bozuyor (`C:\WINDOWS\System32\Usersmarkohermestor.py` haline geliyor). Cozum: `/c/Users/marko/hermestor.py` yaz (UNIX stil yol, bash duzgun cozer).
 8. **`open` komutu varsayilan sayfa acabilir** — `hermestor.py open` eski halinde `--new-tab` flag'i vardi; Tor Browser ilk acilista varsayilan donate.torproject.org sayfasini ana pencerede gosteriyor, verilen URL ise arka planda yeni sekmede aciyordu. Cozum: `--new-tab` kaldirildi, Firefox URL'i direkt aliyor. Eger hala default sayfa goruyorsan `hermestor.py`'nin `open_url` fonksiyonunu kontrol et — `--new-tab` flag'i OLMAMALI.
 
 9. **Python SOCKS timeout → curl ile fallback** — `hermestor.py proxy` veya `tor_get()` bazen SOCKS baglantisinda zaman asimina ugruyor. Cozum: `curl --socks5-hostname 127.0.0.1:9150 --connect-timeout 10 -s "https://..."` ile dogrudan HTTP al. Python `requests[socks]` yerine curl alternatifi genelde daha hizli baglanir. Detay icin `skill_view(name='tor-browser-arama', file_path='references/tor-curl-ocr-workflow.md')` yap.

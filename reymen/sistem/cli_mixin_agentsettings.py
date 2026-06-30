@@ -31,10 +31,10 @@ class MixinAgentSettings:
 
     def _handle_profile_command(self):
         """Display active profile name and home directory."""
-        from reymen.sistem.ReYMeN_constants import display_ReYMeN_home
+        from reymen.sistem.ReYMeN_constants import display_reymen_home
         from reymen.reymen_cli.profiles import get_active_profile_name
 
-        display = display_ReYMeN_home()
+        display = display_reymen_home()
         profile_name = get_active_profile_name()
 
         print()

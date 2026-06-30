@@ -14,4 +14,4 @@
 | E-posta | marko@reymen.dev |
 
 ## 🐛 Hata Bildirimi
-[Issue açın](https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2/issues/new/choose)
+[Issue açın](https://github.com/Watcher-ReYMeN/ReYMeN-Ajan-v2/issues/new/choose)

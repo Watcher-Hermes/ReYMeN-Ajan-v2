@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_setup-wizard
 description: Setup wizard
-title: "Autonomous Ai Agents Hermes Agent References Setup Wizard"
+title: "Autonomous Ai Agents ReYMeN Agent References Setup Wizard"
 version: 1.0.0
 ---
 
@@ -16,4 +16,4 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Setup wizard
-hermes setup
+ReYMeN setup

@@ -1,7 +1,7 @@
 ---
-name: autonomous-ai-agents_claude-code_references_rules-for-hermes-agents
-description: Rules for Hermes Agents
-title: "Autonomous Ai Agents Claude Code References Rules For Hermes Agents"
+name: autonomous-ai-agents_claude-code_references_rules-for-ReYMeN-agents
+description: Rules for ReYMeN Agents
+title: "Autonomous Ai Agents Claude Code References Rules For ReYMeN Agents"
 version: 1.0.0
 ---
 
@@ -9,13 +9,13 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Rules for Hermes Agents |
+| **Ne** | Rules for ReYMeN Agents |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-## Rules for Hermes Agents
+## Rules for ReYMeN Agents
 
 1. **Prefer print mode (`-p`) for single tasks** — cleaner, no dialog handling, structured output
 2. **Use tmux for multi-turn interactive work** — the only reliable way to orchestrate the TUI

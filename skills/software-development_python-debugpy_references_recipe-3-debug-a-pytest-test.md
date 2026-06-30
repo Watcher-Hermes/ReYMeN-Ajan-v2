@@ -17,6 +17,6 @@ version: 1.0.0
 
 ## Recipe 3: Debug a pytest test
 
-The hermes test runner and pytest both support this:
+The ReYMeN test runner and pytest both support this:
 
 ```bash

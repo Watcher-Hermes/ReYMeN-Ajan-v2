@@ -16,7 +16,7 @@ version: 1.0.0
 | **Neden?** | standardize etmek için |
 | **Nasıl?** | Skill adımlarını takip ederek |
 
-ayağa kaldırma deseni. .env, Windows launcher, Hermes Agent entegrasyonu, health
+ayağa kaldırma deseni. .env, Windows launcher, ReYMeN Agent entegrasyonu, health
   check.
 # Agent Projesi Bootstrap
 
@@ -79,14 +79,14 @@ Projenin sağlık kontrolü için Python betiği:
 - Modül varlığını kontrol et
 - Özet tablosu göster
 
-## Hermes Agent Entegrasyonu
+## ReYMeN Agent Entegrasyonu
 
-Hermes Agent (Nous Research) ayrı bir repo olarak kalır. Reymen Proje'den bir wrapper ile çağrılır:
+ReYMeN Agent (Nous Research) ayrı bir repo olarak kalır. Reymen Proje'den bir wrapper ile çağrılır:
 
 ```
 proje/
-  hermes_cli.py       # Hermes CLI wrapper (env sync + subprocess)
-  reyemen.bat         # Başlatıcı (hermes komutu dahil)
+  hermes_cli.py       # ReYMeN CLI wrapper (env sync + subprocess)
+  reyemen.bat         # Başlatıcı (ReYMeN komutu dahil)
   main.py             # ReAct ajanı
   gateway_runner.py   # Multi-channel gateway
   dashboard/          # Web UI
@@ -94,11 +94,11 @@ proje/
 ```
 
 Wrapper'ın yaptığı:
-1. Reymen .env'den Hermes .env'ye anahtar senkronizasyonu
-2. Hermes CLI'ı subprocess olarak çağırma
+1. Reymen .env'den ReYMeN .env'ye anahtar senkronizasyonu
+2. ReYMeN CLI'ı subprocess olarak çağırma
 3. Çıktıyı kullanıcıya yansıtma
 
-Detaylı desen: `references/hermes-entegrasyonu.md`
+Detaylı desen: `references/ReYMeN-entegrasyonu.md`
 
 ## Kullanıcı Tercihi: "Atla" (Skip Debugging)
 
@@ -111,5 +111,5 @@ Bu kullanıcı hataları debug etmekle vakit kaybetmek istemez. Bir yol çalış
 
 - `.env`'yi `read_file` ile okuyamazsın (güvenlik engeli) — `terminal` ile oku
 - LM Studio jinja template hatası ("Only user and assistant roles are supported") → model sorunu, çözmeye çalışma, alternatif provider'a geç
-- Windows'ta `pip install` Hermes venv'ine kurulabilir — `--target` gerekmez
+- Windows'ta `pip install` ReYMeN venv'ine kurulabilir — `--target` gerekmez
 - `__init__.py` eksik olabilir — import'lar sessizce çalışmayabilir

@@ -19,7 +19,7 @@
 ---
 
 name: virtualbox
-description: Manage VirtualBox VMs from Windows host via Hermes. Use for VM status, start/stop, networking, and remote access.
+description: Manage VirtualBox VMs from Windows host via ReYMeN. Use for VM status, start/stop, networking, and remote access.
 title: "Virtualbox"
 triggers:
   - virtualbox

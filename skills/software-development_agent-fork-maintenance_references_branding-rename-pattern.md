@@ -1,6 +1,6 @@
 ---
 name: software-development_agent-fork-maintenance_references_branding-rename-pattern
-description: Branding Rename Pattern (Hermes → ReYMeN)
+description: Branding Rename Pattern (ReYMeN → ReYMeN)
 title: "Software Development Agent Fork Maintenance References Branding Rename Pattern"
 version: 1.0.0
 ---
@@ -9,28 +9,28 @@ version: 1.0.0
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI/ML mühendisi |
-| **Ne** | Branding Rename Pattern (Hermes → ReYMeN) |
+| **Ne** | Branding Rename Pattern (ReYMeN → ReYMeN) |
 | **Nerede** | AI_ML/ |
 | **Ne Zaman** | AI/ML görevi gerektiğinde |
 | **Neden** | standardize etmek için |
 | **Nasıl** | Skill adımlarını takip ederek |
 
-# Branding Rename Pattern (Hermes → ReYMeN)
+# Branding Rename Pattern (ReYMeN → ReYMeN)
 
-Systematic approach for renaming an upstream project's brand references to the fork's brand. Designed for the ReYMeN (Hermes Agent fork) context but generalizes.
+Systematic approach for renaming an upstream project's brand references to the fork's brand. Designed for the ReYMeN (ReYMeN Agent fork) context but generalizes.
 
 ## Scope Rules
 
 | Change | Context | Examples |
 |--------|---------|---------|
 | ✅ **Always rename** | Fork's own code: comments, docstrings, file/dir names, test paths | `hermes_memory_buda()` → `reymen_memory_buda()`, `tests/hermes_reference/` → `tests/ReYMeN_reference/` |
-| ✅ **Always rename** | Internal function/variable names with "hermes" prefix | `hermes_bot` → `reymen_bot`, `_HERMES_CORE_TOOLS` → `_REYMEN_CORE_TOOLS` |
+| ✅ **Always rename** | Internal function/variable names with "ReYMeN" prefix | `hermes_bot` → `reymen_bot`, `_HERMES_CORE_TOOLS` → `_REYMEN_CORE_TOOLS` |
 | ❌ **Never rename** | Actual system paths | `~/AppData/Local/hermes/`, `C:\Users\...\hermes\` |
 | ❌ **Never rename** | Environment variables | `HERMES_HOME`, `HERMES_API_KEY`, `HERMES_KANBAN_TASK` |
 | ❌ **Never rename** | Installed Python packages | `hermes_cli`, `hermes-agent` |
-| ❌ **Never rename** | Upstream backup directories | `agent/` (Hermes upstream source backup) |
+| ❌ **Never rename** | Upstream backup directories | `agent/` (ReYMeN upstream source backup) |
 | ❌ **Never rename** | Third-party references | `OpenHermes` model name, numpy `hermite` polynomials |
-| ❌ **Never rename** | GitHub repo URLs | `github.com/nousresearch/hermes-agent.git` |
+| ❌ **Never rename** | GitHub repo URLs | `github.com/nousresearch/ReYMeN-agent.git` |
 
 ## Rename Order (Always This Sequence)
 
@@ -41,12 +41,12 @@ Rename directories **before** fixing code references — otherwise the path won'
 ```bash
 # Core directories
 mv tests/hermes_reference tests/ReYMeN_reference
-mv reymen/hermes reymen/ReYMeN_mirror
+mv reymen/ReYMeN reymen/ReYMeN_mirror
 
 # Files
 mv tools/hermes_ajan.py tools/reymen_ajan.py
 mv .hermes_sync.sh .ReYMeN_sync.sh
-mv hermes-full-backup ReYMeN-full-backup
+mv ReYMeN-full-backup ReYMeN-full-backup
 ```
 
 ### Step 2: Path References in Code
@@ -57,7 +57,7 @@ Update all string/file-path references to the renamed paths:
 REPLACEMENTS = {
     "hermes_reference": "ReYMeN_reference",
     ".hermes_sync.sh": ".ReYMeN_sync.sh",
-    "hermes-full-backup": "ReYMeN-full-backup",
+    "ReYMeN-full-backup": "ReYMeN-full-backup",
     "tools/hermes_ajan": "tools/reymen_ajan",
 }
 
@@ -83,7 +83,7 @@ for root, dirs, files in os.walk('.'):
             print(f"  ✅ {path}")
 ```
 
-### Step 3: Comment/Docstring "Hermes" → "ReYMeN"
+### Step 3: Comment/Docstring "ReYMeN" → "ReYMeN"
 
 Only in the fork's own code (skip `venv/`, `agent/`, `ReYMeN-full-backup/`):
 
@@ -91,7 +91,7 @@ Only in the fork's own code (skip `venv/`, `agent/`, `ReYMeN-full-backup/`):
 import re
 
 EXCLUDE_DIRS = {'venv', '__pycache__', 'agent', 'ReYMeN-full-backup', 'ReYMeN_mirror', '.git'}
-EXCLUDE_PATTERNS = ['openhermes', 'hermite', 'appdata', 'local/hermes', 'hermes_projesi', 'hermes_cli']
+EXCLUDE_PATTERNS = ['openhermes', 'hermite', 'appdata', 'local/reymen', 'hermes_projesi', 'hermes_cli']
 
 for root, dirs, files in os.walk(SOURCE_DIRS):
     dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
@@ -103,7 +103,7 @@ for root, dirs, files in os.walk(SOURCE_DIRS):
             content = fh.read()
         
         new_content = content
-        # Replace word-boundary "Hermes" in comments/docstrings
+        # Replace word-boundary "ReYMeN" in comments/docstrings
         new_content = re.sub(r'\bHermes\b', 'ReYMeN', new_content)
         new_content = re.sub(r'\bhermes\b', 'reymen', new_content)
         
@@ -127,7 +127,7 @@ for i, line in enumerate(content.split('\n')):
 
 ### Step 4: Internal Function/Variable Names
 
-Change function and variable names that use "hermes" as a prefix:
+Change function and variable names that use "ReYMeN" as a prefix:
 
 ```python
 FUNCTION_RENAMES = {
@@ -166,5 +166,5 @@ __path__ = [
 | `from agent/hermes_*` broken after rename | `agent/` is upstream backup, should not be renamed | Keep `agent/` as-is |
 | Renamed function callers missed | Something calls `hermes_memory_buda()` that you forgot | `grep -rn 'old_name' reymen/` before and after |
 | False positive in numpy `hermite` | numpy's `hermite_e.py` has `hermesub`, `hermemul` functions | Exclude all `numpy/polynomial/` paths |
-| "OpenHermes" model reference changed | "Hermes" → "ReYMeN" also matched model name | Exclude lines with `OpenHermes` |
+| "OpenHermes" model reference changed | "ReYMeN" → "ReYMeN" also matched model name | Exclude lines with `OpenHermes` |
 | VENV paths in `reymen/ReYMeN_mirror/venv/` | Absolute paths in pyvenv.cfg not affected by folder rename | No action needed — venv uses absolute interpreter paths |

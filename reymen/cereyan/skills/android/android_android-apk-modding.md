@@ -1,8 +1,12 @@
-
-> **Kategori:** android
-
 ---
-
+name: android_android-apk-modding
+title: Android Android Apk Modding
+description: ''
+tags:
+- android
+category: android
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,10 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
-
----
 
 name: android-apk-modding
 description: APK modding pipeline — tek yön, geri dönüşsüz adımlar. Sistem uygulaması bypass (package rename), split APK merge, smali/dex patching, onPause/onStop boşaltma, manifest düzenleme. Önbelge → Decompile → Yama (karar ağacı) → Rebuild → zipalign → İmzala → Doğrula+logcat.

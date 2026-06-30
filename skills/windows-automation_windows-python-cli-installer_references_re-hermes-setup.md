@@ -8,7 +8,7 @@
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Windows ajanı |
-| **Ne?** | Windows Automation_Windows Python Cli Installer_References_Re Hermes Setup |
+| **Ne?** | Windows Automation_Windows Python Cli Installer_References_Re ReYMeN Setup |
 | **Nerede?** | Windows/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
@@ -16,11 +16,11 @@
 
 ---
 
-# RE-Hermes v2 Kurulumu
+# RE-ReYMeN v2 Kurulumu
 
 ## Yer
 ```
-C:\Users\marko\re-hermes\
+C:\Users\marko\re-ReYMeN\
 ```
 
 ## Yapılan Değişiklikler
@@ -43,14 +43,14 @@ if not workspace:
 DeepSeek API key config'e kaydedildi.
 
 ### 4. PATH
-- Git Bash: alias `re-hermes="python /c/Users/marko/re-hermes/re-hermes.py"`
-- Windows PATH: `C:\Users\marko\re-hermes` eklendi
+- Git Bash: alias `re-ReYMeN="python /c/Users/marko/re-ReYMeN/re-ReYMeN.py"`
+- Windows PATH: `C:\Users\marko\re-ReYMeN` eklendi
 - `.bat` launcher oluşturuldu
 
 ## Kullanım
 ```bash
-re-hermes hedef.exe
-re-hermes hedef.exe -w ozel_klasor
+re-ReYMeN hedef.exe
+re-ReYMeN hedef.exe -w ozel_klasor
 ```
 
 ## AI False Positive Notları

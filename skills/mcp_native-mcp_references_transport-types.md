@@ -19,7 +19,7 @@ version: 1.0.0
 
 ### Stdio Transport
 
-The most common transport. Hermes launches the MCP server as a subprocess and communicates over stdin/stdout.
+The most common transport. ReYMeN launches the MCP server as a subprocess and communicates over stdin/stdout.
 
 ```yaml
 mcp_servers:

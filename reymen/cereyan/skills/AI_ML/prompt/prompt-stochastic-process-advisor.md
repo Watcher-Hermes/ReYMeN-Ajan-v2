@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-stochastic-process-advisor
+title: Prompt Stochastic Process Advisor
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-stochastic-process-advisor
 description: Identify which stochastic process framework applies to a given problem and recommend implementation
 title: "PRompt Stochastic PRocess Advisor"

@@ -5,7 +5,7 @@ description: "Kali Linux VM'ye SSH ile bağlanıp komut çalıştırma workflow'
 version: 3
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [kali, ssh, remote, linux, vm, network-scanning, kali-pentest]
 audience: user
     platform: windows
@@ -48,7 +48,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Ağ Tarama — Arp-scan vs Nmap Karşılaştırması | `references/a-tarama-arp-scan-vs-nmap-kar-la-t-rmas.md` |
 | SSH ile Kali'ye Bağlanma (Kalıcı şifresiz sudo) | `references/ssh-ile-kali-ye-ba-lanma-kal-c-ifresiz-sudo.md` |
 | Kullanıcı Çalışma Stili | `references/kullan-c-al-ma-stili.md` |
-| SSH Akışı (Kullanıcı → Hermes → Kali → Rapor) | `references/ssh-ak-kullan-c-hermes-kali-rapor.md` |
+| SSH Akışı (Kullanıcı → ReYMeN → Kali → Rapor) | `references/ssh-ak-kullan-c-ReYMeN-kali-rapor.md` |
 | Git Credential Bypass (Git Popup'larını Kapatma) | `references/git-credential-bypass-git-popup-lar-n-kapatma.md` |
 | Git credential manager'ı tamamen devre dışı bırakan alias | `references/git-credential-manager-tamamen-devre-d-b-rakan-alias.md` |
 | SSH varsayılan olarak sshpass kullansın (Windows OpenSSH) | `references/ssh-varsay-lan-olarak-sshpass-kullans-n-windows-openssh.md` |
@@ -61,7 +61,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | 3. Bekle (3 sn) | `references/3-bekle-3-sn.md` |
 | 4. Doğrula — hiçbir VM çalışmıyor olmalı | `references/4-do-rula-hi-bir-vm-al-m-yor-olmal.md` |
 | 5. Asıl VM'i başlat | `references/5-as-l-vm-i-ba-lat.md` |
-| Calisma Akisi (Kullanici -> Hermes -> Onay -> Kali -> Rapor) | `references/calisma-akisi-kullanici-hermes-onay-kali-rapor.md` |
+| Calisma Akisi (Kullanici -> ReYMeN -> Onay -> Kali -> Rapor) | `references/calisma-akisi-kullanici-ReYMeN-onay-kali-rapor.md` |
 | 1. Önce managed moda geç | `references/1-nce-managed-moda-ge.md` |
 | 2. Tara — tüm kanallar, otomatik tamamlanır | `references/2-tara-t-m-kanallar-otomatik-tamamlan-r.md` |
 | 3. Belli bir SSID'yi ara (örn: S22 PLAS) | `references/3-belli-bir-ssid-yi-ara-rn-s22-plas.md` |

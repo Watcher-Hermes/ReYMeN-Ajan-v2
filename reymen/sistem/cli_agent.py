@@ -664,7 +664,9 @@ class AgentMixin:
                     self._console_print(f"   [dim]• {item['name']}[/] [dim italic]({', '.join(item['missing_vars'])})[/]")
                 self._console_print("[dim]   Run 'ReYMeN setup' to configure[/]")
         except Exception as _e:
-            pass  # Don't crash on import errors
+            __import__("logging").getLogger(__name__).warning(
+                "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+            )  # Don't crash on import errors
 
     def _show_status(self):
         """Show compact startup status line."""
@@ -750,7 +752,7 @@ class AgentMixin:
             "ReYMeN CLI Status",
             "",
             f"Session ID: {self.session_id}",
-            f"Path: {display_ReYMeN_home()}",
+            f"Path: {display_reymen_home()}",
         ]
         if title:
             lines.append(f"Title: {title}")
@@ -1419,7 +1421,7 @@ class AgentMixin:
             print("  To start the gateway:")
             print("    python cli.py --gateway")
             print()
-            print(f"  Configuration file: {display_ReYMeN_home()}/config.yaml")
+            print(f"  Configuration file: {display_reymen_home()}/config.yaml")
             print()
             
         except Exception as e:
@@ -1429,7 +1431,7 @@ class AgentMixin:
             print("    1. Set environment variables:")
             print("       TELEGRAM_BOT_TOKEN=your_token")
             print("       DISCORD_BOT_TOKEN=your_token")
-            print(f"    2. Or configure settings in {display_ReYMeN_home()}/config.yaml")
+            print(f"    2. Or configure settings in {display_reymen_home()}/config.yaml")
             print()
 
     def _show_usage(self):
@@ -1448,10 +1450,13 @@ class AgentMixin:
         # ── Rate limits (shown first when available) ────────────────
         rl_state = agent.get_rate_limit_state()
         if rl_state and rl_state.has_data:
-            from agent.rate_limit_tracker import format_rate_limit_display
-            print()
-            print(format_rate_limit_display(rl_state))
-            print()
+            try:
+                from agent.rate_limit_tracker import format_rate_limit_display
+                print()
+                print(format_rate_limit_display(rl_state))
+                print()
+            except ImportError:
+                pass
 
         # ── Session token usage ─────────────────────────────────────
         input_tokens = getattr(agent, "session_input_tokens", 0) or 0
@@ -1519,7 +1524,10 @@ class AgentMixin:
         base_url = getattr(agent, "base_url", None) or getattr(self, "base_url", None)
         api_key = getattr(agent, "api_key", None) or getattr(self, "api_key", None)
         # Lazy import — pulls the OpenAI SDK chain, only needed here.
-        from agent.account_usage import fetch_account_usage, render_account_usage_lines
+        try:
+            from agent.account_usage import fetch_account_usage, render_account_usage_lines
+        except ImportError:
+            return None
         account_snapshot = None
         if provider:
             with concurrent.futures.ThreadPoolExecutor(max_workers=1) as _pool:

@@ -61,7 +61,7 @@ const PRESET_COMMANDS = {
     "uptime": "uptime && last -15",
     "arp-scan": "sudo arp-scan -l 2>&1",
     "OS info": "uname -a && cat /etc/os-release | head -5",
-    "tmux son": "tmux capture-pane -t hermes -p -S -50"
+    "tmux son": "tmux capture-pane -t ReYMeN -p -S -50"
 };
 ```
 

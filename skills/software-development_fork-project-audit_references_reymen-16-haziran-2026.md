@@ -37,7 +37,7 @@ version: 1.0.0
 | Modül | Hata |
 |-------|------|
 | hermes_state | `tools.registry`'de `tool_error` yok (Claude'un yazdığı registry'de eksik) |
-| agent.agent_init | `ReYMeN_cli.config` modülü arıyor (Hermes'te `hermes_cli`, fork'ta ad değişmiş) |
+| agent.agent_init | `ReYMeN_cli.config` modülü arıyor (ReYMeN'te `hermes_cli`, fork'ta ad değişmiş) |
 | agent.memory_manager | Aynı `tool_error` sorunu |
 | agent.conversation_loop | `tools.threat_patterns`'de `scan_for_threats` yok |
 | agent.context_compressor | Aynı `ReYMeN_cli.config` sorunu |
@@ -54,7 +54,7 @@ version: 1.0.0
 
 ## Özellik Karşılaştırması
 
-| Özellik | Hermes | Reymen (fork) |
+| Özellik | ReYMeN | Reymen (fork) |
 |---------|--------|---------------|
 | Toplam .py | 2.308 | 2.867 |
 | Toplam satır | 1.101.434 | 1.003.672 |
@@ -75,14 +75,14 @@ Bu oturumda kullanılan sistematik analiz:
 5. **Kıyaslama** — özellik tablosu çıkar, fork'un eksiklerini listele
 6. **Raporla** — Claude Code devretme brifi oluştur
 
-## Hermes → Claude Code İşbirliği Akışı
+## ReYMeN → Claude Code İşbirliği Akışı
 
 ```
-🧠 Hermes: 1-5 arası analizi yapar, brif hazırlar
+🧠 ReYMeN: 1-5 arası analizi yapar, brif hazırlar
    ↓
 📝 scripts/claude_kopru.py ile VS Code'a gönder (veya elle)
    ↓
 🛠️ Claude Code: brifi alır, kodu düzeltir, test eder
    ↓
-🔍 Hermes: sonucu doğrular, skill/memory'e kaydeder
+🔍 ReYMeN: sonucu doğrular, skill/memory'e kaydeder
 ```

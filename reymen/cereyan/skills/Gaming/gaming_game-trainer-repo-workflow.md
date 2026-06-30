@@ -1,8 +1,12 @@
-
-> **Kategori:** gaming
-
 ---
-
+name: gaming_game-trainer-repo-workflow
+title: Gaming Game Trainer Repo Workflow
+description: ''
+tags:
+- gaming
+category: gaming
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: game-trainer-repo-workflow
 description: Find, evaluate, and apply external game trainer/tool repositories for single-player character enhancement. Use when the user asks about trainers, cheats, character power-ups, repo hunting for game modifications, or any GitHub-based trainer discovery workflow.
 title: "Game Trainer Repo Workflow"

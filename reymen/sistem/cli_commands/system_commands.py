@@ -346,7 +346,7 @@ class MixinCommands:
                 plugins = mgr.list_plugins()
                 if not plugins:
                     print("No plugins installed.")
-                    print(f"Drop plugin directories into {display_ReYMeN_home()}/plugins/ to get started.")
+                    print(f"Drop plugin directories into {display_reymen_home()}/plugins/ to get started.")
                 else:
                     print(f"Plugins ({len(plugins)}):")
                     for p in plugins:

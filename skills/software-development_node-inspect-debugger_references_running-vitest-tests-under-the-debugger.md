@@ -18,4 +18,4 @@ version: 1.0.0
 ## Running Vitest Tests Under the Debugger
 
 ```bash
-cd /home/bb/hermes-agent/ui-tui
+cd /home/bb/ReYMeN-agent/ui-tui

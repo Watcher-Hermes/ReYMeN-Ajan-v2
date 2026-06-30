@@ -1,26 +1,13 @@
 ---
-
 name: llm-wiki
-title: "Llm Wiki"
-tags: [academic, research]
-description: "Karpathy's LLM Wiki: build/query interlinked markdown KB."
-version: 2.1.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [wiki, knowledge-base, research, notes, markdown, rag-alternative]
-    category: research
+title: Llm Wiki
+description: 'Karpathy''s LLM Wiki: build/query interlinked markdown KB.'
+tags:
+- academic
+- research
+category: Research
 audience: user
-related_skills: [obsidian, arxiv]
 ---
-
-
-> **Kategori:** research
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -31,8 +18,6 @@ related_skills: [obsidian, arxiv]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Llm Wiki
 

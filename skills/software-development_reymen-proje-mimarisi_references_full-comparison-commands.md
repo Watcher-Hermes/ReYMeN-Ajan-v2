@@ -31,7 +31,7 @@ echo "cron: $(ls cron/*.py 2>/dev/null|wc -l)"
 echo "tests: $(ls tests/test_*.py|wc -l)"
 echo "test funcs: $(for f in tests/test_*.py; do grep -c 'def test_' $f 2>/dev/null||echo 0; done|awk '{s+=$1}END{print s}')"
 
-# Hermes
+# ReYMeN
 cd /c/Users/marko/AppData/Local/hermes/hermes-agent
 echo "agent core: $(ls agent/*.py|wc -l)"
 echo "tools: $(ls tools/*.py|wc -l)"
@@ -44,7 +44,7 @@ echo "docs: $(find docs -maxdepth 1 -name "*.md" 2>/dev/null|wc -l)"
 ```
 
 ## Nihai Karsilastirma (16 Haziran 2026)
-| Kategori             | R>eYMeN | Hermes | Durum      |
+| Kategori             | R>eYMeN | ReYMeN | Durum      |
 |----------------------|---------|--------|------------|
 | agent/lsp/           | 12      | 11     | GEÇTİ      |
 | agent/secret_sources | 2       | 2      | EŞİT       |

@@ -50,7 +50,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | Loaded by ContextualMAB._load_seed() at engine init | `references/loaded-by-contextualmab-_load_seed-at-engine-init.md` |
 | Contextual Bandit (Advanced) | `references/contextual-bandit-advanced.md` |
 | Risk Mitigation | `references/risk-mitigation.md` |
-| Integration with Hermes Agent | `references/integration-with-hermes-agent.md` |
+| Integration with ReYMeN Agent | `references/integration-with-ReYMeN-agent.md` |
 | Related Skills | `references/related-skills.md` |
 | References | `references/references.md` |
 

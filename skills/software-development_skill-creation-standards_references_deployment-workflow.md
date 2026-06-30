@@ -21,7 +21,7 @@ Bir skill oluşturulduktan veya güncellendikten sonra şu adımlar TAMAMLANMALI
 
 ## Adımlar
 
-### 1. Hermes'e Kaydet
+### 1. ReYMeN'e Kaydet
 ```bash
 skill_manage(action='create'|'edit', name='...', content='...')
 ```
@@ -48,14 +48,14 @@ python "C:\Users\marko\hermes-ai\venv\Scripts\python.exe" "C:\Users\marko\AppDat
 # python "C:\Users\marko\AppData\Local\hermes\hooks\sync_skills_to_obsidian.py"
 ```
 
-### 4. GitHub'a Push Et (hermes-skills)
+### 4. GitHub'a Push Et (ReYMeN-skills)
 
 #### Tekil Skill (tek skill güncellemesi)
 ```bash
-cd /c/Users/marko/hermes-skills
+cd /c/Users/marko/ReYMeN-skills
 git pull origin master
 
-# Skill dosyalarını Hermes'ten GitHub kopyasına kopyala
+# Skill dosyalarını ReYMeN'ten GitHub kopyasına kopyala
 SKILL_DIR="skills/<kategori>/<skill-adi>"
 mkdir -p "$SKILL_DIR"
 cp -r "/c/Users/marko/AppData/Local/hermes/skills/<kategori>/<skill-adi>/"* "$SKILL_DIR/"
@@ -68,7 +68,7 @@ git push origin master
 #### Bulk Sync (çoklu skill — yeni kurulum/senaryo)
 Local'de olup GitHub'da olmayan tüm skill'leri bulup toplu push:
 ```bash
-cd /c/Users/marko/hermes-skills
+cd /c/Users/marko/ReYMeN-skills
 
 # 1. Eksik skill'leri bul
 find /c/Users/marko/AppData/Local/hermes/skills -name "SKILL.md" -exec dirname {} \; \
@@ -96,4 +96,4 @@ git push origin master
 ## Önemli
 - GitHub push atlanırsa skill sadece yerel kalır, diğer cihazlara gitmez
 - Origin izleri temizlenmezse telif/takip riski oluşur
-- Sıralama: HERMES'E KAYDET → TEMİZLE → OBSIDIAN SYNC → GITHUB PUSH
+- Sıralama: ReYMeN'E KAYDET → TEMİZLE → OBSIDIAN SYNC → GITHUB PUSH

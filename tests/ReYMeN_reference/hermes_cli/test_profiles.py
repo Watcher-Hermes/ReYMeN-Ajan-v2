@@ -48,7 +48,7 @@ def profile_env(tmp_path, monkeypatch):
     """Set up an isolated environment for profile tests.
 
     * Path.home() -> tmp_path  (so _get_profiles_root() = tmp_path/.ReYMeN/profiles)
-    * ReYMeN_HOME  -> tmp_path/.ReYMeN  (so get_ReYMeN_home() agrees)
+    * ReYMeN_HOME  -> tmp_path/.ReYMeN  (so get_reymen_home() agrees)
     * Creates the bare-minimum ~/.ReYMeN directory.
     """
     monkeypatch.setattr(Path, "home", lambda: tmp_path)

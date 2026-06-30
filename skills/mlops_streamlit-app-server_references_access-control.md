@@ -45,7 +45,7 @@ The `allowIps`/`denyIps` flags existed in older versions but were removed. The h
 Just run without `--server.address`. Default localhost-only binding is secure.
 
 ```bash
-C:/Users/marko/hermes-ai/venv/Scripts/python.exe -m streamlit run app.py \
+C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe -m streamlit run app.py \
   --server.port=8501 --server.headless=true
 ```
 Access: `http://localhost:8501`

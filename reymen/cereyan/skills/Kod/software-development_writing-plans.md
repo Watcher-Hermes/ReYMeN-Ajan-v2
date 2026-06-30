@@ -1,24 +1,13 @@
 ---
 name: writing-plans
-title: "Writing Plans"
-tags: [coding, development]
-description: "Write implementation plans: bite-sized tasks, paths, code."
-version: 1.1.0
-author: Hermes Agent (adapted from obra/superpowers)
-license: MIT
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [planning, design, implementation, workflow, documentation]
+title: Writing Plans
+description: 'Write implementation plans: bite-sized tasks, paths, code.'
+tags:
+- coding
+- development
+category: Kod
 audience: contributor
-related_skills: [subagent-driven-development, test-driven-development, requesting-code-review]
 ---
-
-
-> **Kategori:** software-development
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -29,8 +18,6 @@ related_skills: [subagent-driven-development, test-driven-development, requestin
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Writing Implementation Plans
 
@@ -92,7 +79,7 @@ Every plan MUST start with:
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.
+> **For ReYMeN:** Use subagent-driven-development skill to implement this plan task-by-task.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -100,7 +87,6 @@ Every plan MUST start with:
 
 **Tech Stack:** [Key technologies/libraries]
 
----
 ```
 
 ### Task Structure
@@ -162,7 +148,7 @@ Read and understand:
 
 ### Step 2: Explore the Codebase
 
-Use Hermes tools to understand the project:
+Use ReYMeN tools to understand the project:
 
 ```python
 # Understand project structure

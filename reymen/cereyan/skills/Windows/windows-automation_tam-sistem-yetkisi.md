@@ -1,37 +1,25 @@
 ---
-
 name: tam-sistem-yetkisi
-title: "Tam Sistem Yetkisi"
-tags: [automation, windows]
-description: Use when Hermes needs full system access on Windows — Telegram bot token writing to .env/config.yaml, terminal commands, mouse/keyboard automation, and screenshots. Covers all permission-sensitive operations without asking the user to do it manually.
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-platforms: [windows]
-metadata:
-  hermes:
-    tags: [telegram, terminal, mouse, keyboard, screenshot, automation, windows, env, config, full-access]
+title: Tam Sistem Yetkisi
+description: Use when ReYMeN needs full system access on Windows — Telegram bot token
+  writing to .env/config.yaml, terminal commands, mouse/keyboard automation, and screenshots.
+  Covers all permission-sensitive operations without asking the user to do it manually.
+tags:
+- automation
+- windows
+category: Windows
 audience: user
-related_skills: [hermes-agent-skill-authoring]
 ---
-
-
-> **Kategori:** automation
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Use when Hermes needs full system access on Windows — Telegram bot token writing to .env/config.yaml, terminal commands, mouse/keyboard automation, and screenshots. Covers all permission-sensitive operations without asking the user to do it manually. |
+| **Ne?** | Use when ReYMeN needs full system access on Windows — Telegram bot token writing to .env/config.yaml, terminal commands, mouse/keyboard automation, and screenshots. Covers all permission-sensitive operations without asking the user to do it manually. |
 | **Nerede?** | automation/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # Tam Sistem Yetkisi
 
@@ -65,7 +53,7 @@ Bu skill modüler bir yönlendiricidir. İhtiyacınız olan bölümü seçin ve 
 | 4. Ekran Görüntüsü Alma | `references/4-ekran-g-r-nt-s-alma.md` |
 | region = (left, top, width, height) | `references/region-left-top-width-height.md` |
 | Renk arama — belirli renk nerede? | `references/renk-arama-belirli-renk-nerede.md` |
-| 5. Hermes .env Dosyası Tam Erişim Haritası | `references/5-hermes-env-dosyas-tam-eri-im-haritas.md` |
+| 5. ReYMeN .env Dosyası Tam Erişim Haritası | `references/5-ReYMeN-env-dosyas-tam-eri-im-haritas.md` |
 | Common Pitfalls | `references/common-pitfalls.md` |
 | Verification Checklist | `references/verification-checklist.md` |
 

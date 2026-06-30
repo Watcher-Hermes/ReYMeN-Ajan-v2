@@ -19,7 +19,7 @@
 ## Mimari
 
 ```
-Windows Host (Hermes)
+Windows Host (ReYMeN)
   └─ Flask server (localhost:5050)
        └─ Paramiko SSH client
             └─ Kali VM (192.168.0.19:22 - bridged)

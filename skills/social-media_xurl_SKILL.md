@@ -3,13 +3,13 @@
 name: xurl
 description: "X/Twitter via xurl CLI: post, search, DM, media, v2 API."
 version: 1.1.1
-author: xdevplatform + openclaw + Hermes Agent
+author: xdevplatform + openclaw + ReYMeN Agent
 license: MIT
 platforms: [linux, macos]
 prerequisites:
   commands: [xurl]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [twitter, x, social-media, xurl, official-api]
 audience: user
     homepage: https://github.com/xdevplatform/xurl

@@ -273,4 +273,4 @@ subprocess.run(
 - **属性 YAML 追加** → `hersona-attribute-development`
 - **セッションへのペルソナ attach** → `hersona`（`/hersona personality/tsundere` 等）
 - **hersona 戦略・複数 PR 横断** → `hersona-project-operations`
-- **SKILL.md 記法・frontmatter** → `hermes-agent-skill-authoring`
+- **SKILL.md 記法・frontmatter** → `ReYMeN-agent-skill-authoring`

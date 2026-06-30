@@ -46,7 +46,7 @@ def test_import_gateway_config():
     # Verify config functions exist
     assert hasattr(ReYMeN_cli.config, "load_config")
     assert hasattr(ReYMeN_cli.config, "load_env")
-    assert hasattr(ReYMeN_cli.config, "get_ReYMeN_home")
+    assert hasattr(ReYMeN_cli.config, "get_reymen_home")
     assert hasattr(ReYMeN_cli.config, "save_config")
     assert hasattr(ReYMeN_cli.config, "get_env_value")
     assert hasattr(ReYMeN_cli.config, "save_env_value")
@@ -73,7 +73,7 @@ def test_import_nested_gateway_config():
     # Verify config functions exist
     assert hasattr(config, "load_config")
     assert hasattr(config, "load_env")
-    assert hasattr(config, "get_ReYMeN_home")
+    assert hasattr(config, "get_reymen_home")
 
     # Verify gateway functions exist
     assert hasattr(gateway, "calistir")

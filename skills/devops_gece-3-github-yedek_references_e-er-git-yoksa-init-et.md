@@ -19,7 +19,7 @@
 # Eğer .git yoksa init et
 if [ ! -d .git ]; then
   git init
-  git remote add origin git@github.com:Izleyici-Hermes/hermes-skills.git
+  git remote add origin git@github.com:Izleyici-ReYMeN/ReYMeN-skills.git
 fi
 
 git add -A

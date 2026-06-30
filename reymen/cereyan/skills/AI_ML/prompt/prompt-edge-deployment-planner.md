@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-edge-deployment-planner
+title: Prompt Edge Deployment Planner
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-edge-deployment-planner
 description: Pick backbone, quantisation strategy, and runtime given target device and latency SLA
 title: "PRompt Edge Deployment Planner"

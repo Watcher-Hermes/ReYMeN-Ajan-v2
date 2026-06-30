@@ -31,9 +31,9 @@
 ## Proje Remote'ları
 
 ```
-origin  → https://github.com/Watcher-Hermes/ReYMeN-Ajan.git
+origin  → https://github.com/Watcher-ReYMeN/ReYMeN-Ajan.git
 backup  → https://github.com/Watcher-Hermes/hermes-memory-backup.git
-full-backup → https://github.com/Watcher-Hermes/hermes-full-backup.git
+full-backup → https://github.com/Watcher-ReYMeN/ReYMeN-full-backup.git
 ```
 
 ## Push Script'leri
@@ -49,19 +49,19 @@ full-backup → https://github.com/Watcher-Hermes/hermes-full-backup.git
 process kill <session_id>
 
 # Gateway'i yeniden başlat:
-hermes -p reymen gateway stop
-hermes -p reymen gateway start
+ReYMeN -p reymen gateway stop
+ReYMeN -p reymen gateway start
 
 # Cron tick'i canlandır:
-hermes cron tick
+ReYMeN cron tick
 ```
 
 ### Cron Job Ateşlenmiyor
-1. `hermes cron status` ile scheduler'ı kontrol et
-2. Gateway çalışıyorsa `hermes cron tick` ile manuel tetikle
+1. `ReYMeN cron status` ile scheduler'ı kontrol et
+2. Gateway çalışıyorsa `ReYMeN cron tick` ile manuel tetikle
 3. Çalışmıyorsa gateway'i yeniden başlat
 
 ### Test Runner Çalışmıyor
 ```
-hermes cron run 3e4395759774  # Job ID ile manuel çalıştır
+ReYMeN cron run 3e4395759774  # Job ID ile manuel çalıştır
 ```

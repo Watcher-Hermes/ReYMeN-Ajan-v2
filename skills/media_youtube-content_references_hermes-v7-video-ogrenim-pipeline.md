@@ -16,7 +16,7 @@
 
 ---
 
-# Hermes v7 Video Öğrenim Pipeline
+# ReYMeN v7 Video Öğrenim Pipeline
 
 ## Ne Zaman Kullanılır
 

@@ -17,7 +17,7 @@ version: 1.0.0
 
 # Puanlı Karşılaştırma Formatı
 
-İki sistemi (örn: Hermes vs R>eYMeN, Hermes vs Claude) tüm geçmiş verilerle kapsamlı ve puanlı karşılaştırmak için kullanılan format.
+İki sistemi (örn: ReYMeN vs R>eYMeN, ReYMeN vs Claude) tüm geçmiş verilerle kapsamlı ve puanlı karşılaştırmak için kullanılan format.
 
 ## Ne Zaman Kullanılır
 
@@ -110,7 +110,7 @@ Her sistemin kullanıcıyla yaşadığı önemli olayları kronolojik sırala (s
 - ⚠️ Telegram gateway 2 kere düştü, kurtarıldı
 
 **Sistem B'nin yolculuğu:**
-- ✏️ 23 araçtan 88 araca (Hermes'i geçti)
+- ✏️ 23 araçtan 88 araca (ReYMeN'i geçti)
 - ✏️ CLI: 10 modülden 130 modüle (12.5x)
 - ✏️ 5.095 test, %100 başarı
 

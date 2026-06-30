@@ -1,15 +1,15 @@
 ---
-name: hermes-backup-otomasyonu
-title: "Hermes Backup Otomasyonu"
+name: ReYMeN-backup-otomasyonu
+title: "ReYMeN Backup Otomasyonu"
 tags: [automation, backup, devops, system]
 description: >-
-  Hermes tam yedek otomasyonu. Gunluk no_agent diff+sync (21:00) +
+  ReYMeN tam yedek otomasyonu. Gunluk no_agent diff+sync (21:00) +
   haftalik LLM bakim (Carsamba). Startup .bat ile flag tabanli tetikleme.
 version: 1.1.0
-author: hermes-agent
+author: ReYMeN-agent
 license: MIT
 metadata:
-  hermes:
+  ReYMeN:
     tags: [yedek, github, backup, cron, otomasyon, sync]
 audience: maintainer
 related_skills: [gece-3-github-yedek]
@@ -33,11 +33,11 @@ related_skills: [gece-3-github-yedek]
 
 ---
 
-# Hermes Backup Otomasyonu
+# ReYMeN Backup Otomasyonu
 
 ## Amaç
 
-`hermes-full-backup` reposunu otomatik güncel tutar:
+`ReYMeN-full-backup` reposunu otomatik güncel tutar:
 - **Günlük:** skills + memory + state.db diff'i alır, sadece farkları push eder
 - **Haftalık:** Çarşamba günü bilgisayar ilk açıldığında LLM ile bakım yapar
 
@@ -55,7 +55,7 @@ related_skills: [gece-3-github-yedek]
 1. Backup repo'sunu git pull ile günceller
 2. `skills/` klasörünü karşılaştırır (SHA256 hash ile)
 3. Fark varsa skills'i kopyalar
-4. `Hermes Memor/` (MEMORY.md + USER.md) karşılaştırıp kopyalar
+4. `ReYMeN Memor/` (MEMORY.md + USER.md) karşılaştırıp kopyalar
 5. `state.db` boyut/mtime karşılaştırması yapar, fark varsa zip'ler
 6. Değişiklik varsa commit + push eder
 7. Fark yoksa sessiz kalır (watchdog pattern)
@@ -133,14 +133,14 @@ Kullanıcı `"sıkıl ve memory guncellensın"` (veya `"skill ve memory guncelle
 
 ### Zorunlu Adımlar (Hiçbiri Atlanmaz)
 
-1. **`Watcher-Hermes/hermes-skills`** — Skill güncellemeleri push edilir
+1. **`Watcher-ReYMeN/ReYMeN-skills`** — Skill güncellemeleri push edilir
 2. **`Watcher-Hermes/hermes-memory-backup`** — MEMORY.md + USER.md (token temizlenmiş) push edilir
-3. **`Watcher-Hermes/hermes-full-backup`** — Skills klasörü **komple silinir**, yeniden kopyalanır, git add + commit + push main yapılır
+3. **`Watcher-ReYMeN/ReYMeN-full-backup`** — Skills klasörü **komple silinir**, yeniden kopyalanır, git add + commit + push main yapılır
 
-### hermes-full-backup İçin Özel Adımlar
+### ReYMeN-full-backup İçin Özel Adımlar
 
 ```bash
-cd /c/Users/marko/hermes-full-backup
+cd /c/Users/marko/ReYMeN-full-backup
 git pull origin main
 rm -rf skills/
 cp -r /c/Users/marko/AppData/Local/hermes/skills/ skills/
@@ -153,9 +153,9 @@ git push origin main
 
 | Repo | İçerik | Amaç |
 |------|--------|------|
-| `hermes-skills` | SKILL.md + references | Canlı skill kütüphanesi (geliştirme) |
+| `ReYMeN-skills` | SKILL.md + references | Canlı skill kütüphanesi (geliştirme) |
 | `hermes-memory-backup` | MEMORY.md + USER.md | Hafıza snapshot (token temiz) |
-| `hermes-full-backup` | skills/ + memory/ + config/ | Tam felaket kurtarma (bare metal restore) |
+| `ReYMeN-full-backup` | skills/ + memory/ + config/ | Tam felaket kurtarma (bare metal restore) |
 
 Bu kural MEMORY'de kayıtlıdır ve her oturumda uygulanır. Atlama yapılırsa kullanıcı uyarır.
 
@@ -168,7 +168,7 @@ python3 /c/Users/marko/AppData/Local/hermes/scripts/sync_hermes_backup.py
 
 # Haftalik bakim (flag elle olustur)
 echo "%date% %time%" > /c/Users/marko/AppData/Local/hermes/haftalik-bakim.flag
-# Sonra cron'u bekle veya Hermes'ten cronjob action='run' job_id='066c3c1ed9e3'
+# Sonra cron'u bekle veya ReYMeN'ten cronjob action='run' job_id='066c3c1ed9e3'
 ```
 
 ## Referans Dosyaları
@@ -181,15 +181,15 @@ Bu skill'in şu referans dosyaları vardır:
 
 ## Bilinen Sorunlar
 
-1. **Skills backup remote branch korumasi** (2026-06-16 itibarıyla): `Watcher-Hermes/hermes-skills` reposu **canlı ve erişilebilir** ancak **public repo branch koruma kuralları** nedeniyle doğrudan push reddediliyor:
+1. **Skills backup remote branch korumasi** (2026-06-16 itibarıyla): `Watcher-ReYMeN/ReYMeN-skills` reposu **canlı ve erişilebilir** ancak **public repo branch koruma kuralları** nedeniyle doğrudan push reddediliyor:
    - Hata: `push declined due to repository rule violations`
    - Sebep: Public repo'da branch koruma aktif (signed commit, PR zorunluluğu, vs.)
    - Çözüm: Private repo'ya push et, veya `main` branch'ine `master:main` formatında push dene. Branch koruması kaldırılana kadar skills güncellemeleri local'de kalır, GitHub'a itilemez.
 
    **Yeni repo yapısı (14 Haziran 2026 itibarıyla):**
-   - `Watcher-Hermes/hermes-mouse` → windows-automation skill'leri
-   - `Watcher-Hermes/hermes-skills` → diğer tüm skill'ler
-   - `Watcher-Hermes/obsidian-vault` → Obsidian vault yedekleri
+   - `Watcher-ReYMeN/ReYMeN-mouse` → windows-automation skill'leri
+   - `Watcher-ReYMeN/ReYMeN-skills` → diğer tüm skill'ler
+   - `Watcher-ReYMeN/obsidian-vault` → Obsidian vault yedekleri
 
    `sync_hermes_backup.py` script'i remote URL'i `Watcher-Hermes/hermes-skills` olarak güncellenmeli.
 

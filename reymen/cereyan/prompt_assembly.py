@@ -29,13 +29,13 @@ _VARSAYILAN_USER_MD = _PROJE_KOKU / "reymen" / "hafiza" / "USER.md"
 _VARSAYILAN_SOUL_MD = _PROJE_KOKU / "SOUL.md"
 _VARSAYILAN_CONFIG = _PROJE_KOKU / "config.yaml"
 
-# Hermes profil SOUL.md (varsa oncelikli)
-_HERMES_PROFIL = Path(os.environ.get("LOCALAPPDATA", "")) / "hermes" / "profiles" / "reymen" / "SOUL.md"
+# ReYMeN profil SOUL.md (varsa oncelikli)
+_REYMEN_PROFIL = Path(os.environ.get("LOCALAPPDATA", "")) / "reymen" / "profiles" / "reymen" / "SOUL.md"
 
 
 def _profil_soul_yolu() -> Path:
     """Profil SOUL.md yolunu dondur; yoksa proje kokundekini dene."""
-    yol = Path(str(_HERMES_PROFIL))
+    yol = Path(str(_REYMEN_PROFIL))
     if yol.exists():
         return yol
     if _VARSAYILAN_SOUL_MD.exists():

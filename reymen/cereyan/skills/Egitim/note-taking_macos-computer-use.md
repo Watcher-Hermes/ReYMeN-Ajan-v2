@@ -1,27 +1,22 @@
 ---
 name: macos-computer-use
-title: "macOS Computer Use"
-tags: [macos, note-taking, obsidian]
-description: |
-  Drive the macOS desktop in the background — screenshots, mouse, keyboard,
-  scroll, drag — without stealing the user's cursor, keyboard focus, or
+title: macOS Computer Use
+description: 'Drive the macOS desktop in the background — screenshots, mouse, keyboard,
+
+  scroll, drag — without stealing the user''s cursor, keyboard focus, or
+
   Space. Works with any tool-capable model. Load this skill whenever the
+
   `computer_use` tool is available.
-version: 1.0.0
-platforms: [macos]
-metadata:
-  hermes:
-    tags: [computer-use, macos, desktop, automation, gui]
-    category: desktop
+
+  '
+tags:
+- macos
+- note-taking
+- obsidian
+category: Egitim
 audience: user
-related_skills: [browser]
 ---
-
-
-> **Kategori:** note-taking
-
----
-
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -32,8 +27,6 @@ related_skills: [browser]
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 # macOS Computer Use (universal, any-model)
 
@@ -197,7 +190,7 @@ your conversation context.
 
 ## Failure modes
 
-- **"cua-driver not installed"** — Run `hermes tools` and enable Computer
+- **"cua-driver not installed"** — Run `ReYMeN tools` and enable Computer
   Use; the setup will install cua-driver via its upstream script. Requires
   macOS + Accessibility + Screen Recording permissions.
 - **Element index stale** — SOM indices come from the last `capture` call.

@@ -84,8 +84,8 @@ class TestUnifiedDashboardRouting:
         # ReYMeN_HOME.  For a standard install (ReYMeN_HOME unset) that root is
         # the platform-native default (~/.ReYMeN), NOT dropped — see the Docker
         # test below for why we resolve explicitly instead of popping.
-        from ReYMeN_constants import get_default_ReYMeN_root
-        assert env.get("ReYMeN_HOME") == str(get_default_ReYMeN_root())
+        from ReYMeN_constants import get_default_reymen_root
+        assert env.get("ReYMeN_HOME") == str(get_default_reymen_root())
 
     def test_reexec_pins_docker_machine_root(self, main_mod, monkeypatch):
         """In the Docker layout (ReYMeN_HOME=/opt/data, profiles under
@@ -116,7 +116,7 @@ class TestUnifiedDashboardRouting:
 
         assert len(execs) == 1
         _exe, _argv, env = execs[0]
-        # get_default_ReYMeN_root() strips the trailing profiles/<name>, so the
+        # get_default_reymen_root() strips the trailing profiles/<name>, so the
         # child binds /opt/data — where the real default/oracle/saga profiles
         # and the .install_method stamp actually live.
         assert env.get("ReYMeN_HOME") == "/opt/data"

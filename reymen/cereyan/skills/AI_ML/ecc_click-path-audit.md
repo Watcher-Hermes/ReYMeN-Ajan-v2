@@ -1,35 +1,12 @@
 ---
-name: click-path-audit
-description: "Trace every user-facing button/touchpoint through its full state change sequence to find bugs where functions individually work but cancel each other out, produce wrong final state, or leave the UI in an inconsistent state. Use when: systematic debugging found no bugs but users report broken buttons, or after any major refactor touching shared state stores."
-title: "CLIck Path Audit"
-origin: community
-
-audience: contributor
-tags: [ai, automation, development]
-category: ecc---
-
-# /click-path-audit — Behavioural Flow Audit
-
-Find bugs that static code reading misses: state interaction side effects, race conditions between sequential calls, and handlers that silently undo each other.
-
-## The Problem This Solves
-
-Traditional debugging checks:
-- Does the function exist? (missing wiring)
-- Does it crash? (runtime errors)
-- Does it return the right type? (data flow)
-
-But it does NOT check:
-- **Does the final UI state match what the button label promises?**
-- **Does function B silently undo what function A just did?**
-- **Does shared state (Zustand/Redux/context) have side effects that cancel the intended action?**
-
-Real example: A "New Email" button called `setComposeMode(true)` then `selectThread(null)`. Both worked individually. But `selectThread` had a side effect resetting `composeMode: false`. The button did nothing. 54 bugs were found by systematic debugging — this one was missed.
-
-
-
+name: ecc_click-path-audit
+title: Ecc Click Path Audit
+description: ''
+tags:
+- ai_ml
+category: AI_ML
+audience: agent
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI muhendisi |
@@ -50,8 +27,6 @@ Real example: A "New Email" button called `setComposeMode(true)` then `selectThr
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
 
 Kim: AI muhendisi
 Ne: "Trace every user-facing button/touchpoint through its full state change sequence to find bugs where functions individually work but cancel each other out, produce wrong final state, or leave the UI i
@@ -77,8 +52,6 @@ For EVERY interactive touchpoint in the target area:
 5. CHECK: Is the FINAL state what the user expects from the button label?
 6. CHECK: Are there race conditions (async calls that resolve in wrong order)?
 ```
-
----
 
 ## Execution Steps
 
@@ -193,8 +166,6 @@ CLICK-PATH-NNN: [severity: CRITICAL/HIGH/MEDIUM/LOW]
   Fix: [specific fix]
 ```
 
----
-
 ## Scope Control
 
 This audit is expensive. Scope it appropriately:
@@ -218,8 +189,6 @@ Agent 8: Management Suite (all pages)
 
 Agent 1 MUST complete first. Its output is input for all other agents.
 
----
-
 ## When to Use
 
 - After systematic debugging finds "no bugs" but users report broken UI
@@ -234,15 +203,11 @@ Agent 1 MUST complete first. Its output is input for all other agents.
 - For styling/layout issues — visual inspection
 - For performance issues — profiling tools
 
----
-
 ## Integration with Other Skills
 
 - Run AFTER `/superpowers:systematic-debugging` (which finds the other 54 bug types)
 - Run BEFORE `/superpowers:verification-before-completion` (which verifies fixes work)
 - Feeds into `/superpowers:test-driven-development` — every bug found here should get a test
-
----
 
 ## Example: The Bug That Inspired This Skill
 

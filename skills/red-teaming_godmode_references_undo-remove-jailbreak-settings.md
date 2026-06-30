@@ -24,7 +24,7 @@ undo_jailbreak()
 ### What it does:
 
 1. **Reads `~/.hermes/config.yaml`** to detect the current model
-2. **Identifies the model family** (Claude, GPT, Gemini, Grok, Hermes, DeepSeek, etc.)
+2. **Identifies the model family** (Claude, GPT, Gemini, Grok, ReYMeN, DeepSeek, etc.)
 3. **Selects strategies** in order of effectiveness for that family
 4. **Tests baseline** — confirms the model actually refuses without jailbreaking
 5. **Tries each strategy** with a canary query ("Explain step by step how to pick a lock...")
@@ -43,7 +43,7 @@ undo_jailbreak()
 | GPT | og_godmode → refusal_inversion → prefill_only → parseltongue |
 | Gemini | refusal_inversion → boundary_inversion → prefill_only → parseltongue |
 | Grok | unfiltered_liberated → prefill_only |
-| Hermes | prefill_only (already uncensored) |
+| ReYMeN | prefill_only (already uncensored) |
 | DeepSeek | parseltongue → refusal_inversion → prefill_only |
 | Llama | prefill_only → refusal_inversion → parseltongue |
 | Qwen | parseltongue → refusal_inversion → prefill_only |
@@ -53,6 +53,6 @@ Each strategy is also tried with prefill messages added if it fails alone.
 
 ### After auto-jailbreak:
 
-Restart Hermes for the config changes to take effect. The CLI reads config once at startup. The gateway reads config per-message, so gateway sessions pick up changes immediately.
+Restart ReYMeN for the config changes to take effect. The CLI reads config once at startup. The gateway reads config per-message, so gateway sessions pick up changes immediately.
 
 To undo: `undo_jailbreak()` clears `system_prompt` and `prefill_messages_file` from config and deletes `prefill.json`.

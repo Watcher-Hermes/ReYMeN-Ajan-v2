@@ -12,10 +12,10 @@ required_credential_files:
   - path: google_client_secret.json
     description: Google OAuth2 client credentials (downloaded from Google Cloud Console)
 metadata:
-  hermes:
+  ReYMeN:
     tags: [Google, Gmail, Calendar, Drive, Sheets, Docs, Contacts, Email, OAuth]
 audience: user
-    homepage: https://github.com/NousResearch/hermes-agent
+    homepage: https://github.com/NousResearch/ReYMeN-agent
 related_skills: [himalaya]
 ---
 

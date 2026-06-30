@@ -1,8 +1,12 @@
-
-> **Kategori:** devops
-
 ---
-
+name: devops_android-api-apk-manager
+title: Devops Android Api Apk Manager
+description: ''
+tags:
+- devops
+category: devops
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -13,10 +17,6 @@
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
-
----
-
----
 
 name: android-api-apk-manager
 description: Android APK kontrolü yükleme yönetme. Mevcut varlıkları kontrol et, eksikleri indir/kur, yükleme olmayanları işle, tüm süreci doğrula.

@@ -1,7 +1,7 @@
 ---
 name: software-development_hermes-vs-claude-kod-kalitesi_references_xray-protokolu
 description: XRAY Kod Analiz Protokolu
-title: "Software Development Hermes Vs Claude Kod Kalitesi References Xray Protokolu"
+title: "Software Development ReYMeN Vs Claude Kod Kalitesi References Xray Protokolu"
 version: 1.0.0
 ---
 

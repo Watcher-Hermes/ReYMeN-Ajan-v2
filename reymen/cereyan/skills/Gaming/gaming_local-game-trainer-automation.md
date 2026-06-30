@@ -1,8 +1,12 @@
-
-> **Kategori:** gaming
-
 ---
-
+name: gaming_local-game-trainer-automation
+title: Gaming Local Game Trainer Automation
+description: ''
+tags:
+- gaming
+category: gaming
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: local-game-trainer-automation
 title: Local Game Trainer Automation
 description: Author, debug, and operate single-player trainer scripts on Windows using global hotkeys, console command injection, and window focus automation. Use for trainer scripts, console injection, and game hotkey automation.

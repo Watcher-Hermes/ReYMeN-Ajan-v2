@@ -18,20 +18,20 @@ version: 1.0.0
 # İki Taraflı Kurtarma Akışı
 
 ## Mimari
-Bu sistem iki ayrı Hermes session'ı arasında çalışır:
+Bu sistem iki ayrı ReYMeN session'ı arasında çalışır:
 
 | Session | Konum | Yetenekler |
 |---------|-------|------------|
-| **Local Hermes** | Bilgisayar (Windows, MINGW64 terminal) | Terminal, dosya işlemleri, yerel çalıştırma, **Tor Browser (hermestor.py)**, web_search, web_extract |
-| **Telegram Hermes** | Bulut (bu session) | Tor Browser, web_search, web_extract, cron job |
+| **Local ReYMeN** | Bilgisayar (Windows, MINGW64 terminal) | Terminal, dosya işlemleri, yerel çalıştırma, **Tor Browser (hermestor.py)**, web_search, web_extract |
+| **Telegram ReYMeN** | Bulut (bu session) | Tor Browser, web_search, web_extract, cron job |
 
-**ÖNEMLİ:** Local Hermes terminal'i MINGW64 üzerinde Windows'ta çalışır — Python script'leri doğrudan çalıştırabilir.
-`hermestor.py` script'i Tor Browser'ı kontrol eder, bu nedenle local Hermes de Tor'da arama yapabilir.
+**ÖNEMLİ:** Local ReYMeN terminal'i MINGW64 üzerinde Windows'ta çalışır — Python script'leri doğrudan çalıştırabilir.
+`hermestor.py` script'i Tor Browser'ı kontrol eder, bu nedenle local ReYMeN de Tor'da arama yapabilir.
 
 ## Kurtarma Akışı (Local → Önce Kendi Çöz → Telegram)
 
 ```
-Local Hermes takılır
+Local ReYMeN takılır
   → Adım tekrarı (2 kez) çözmezse
   → Todo döngüsü koruması çözmezse
   → Model değişimi çözmezse
@@ -42,7 +42,7 @@ Local Hermes takılır
      4. Max 3 farklı sorgu
   → Hâlâ çözüm yoksa:
      → takildi.txt oluşturur (C:\Users\marko\takildi.txt)
-     → Telegram Hermes cron job'u dosyayı bulur (her 15 dk)
+     → Telegram ReYMeN cron job'u dosyayı bulur (her 15 dk)
      → Tor'da daha derin araştırma yapar
      → Çözümü Telegram'a bildirir
      → takildi.txt silinir
@@ -52,7 +52,7 @@ Local Hermes takılır
 
 - **Job adı:** Takilma-Izleyici
 - **Sıklık:** Her 15 dakika
-- **Çalıştığı yer:** Telegram Hermes
+- **Çalıştığı yer:** Telegram ReYMeN
 - **Tetikleyici:** `C:\Users\marko\takildi.txt` dosyasının varlığı
 - **Yüklü skill:** tor-browser-arama
 - **Sadece dosya VARSA** Tor'da araştırma yapılır (boş kontrollerde minimum token tüketimi)
@@ -66,7 +66,7 @@ Local Hermes takılır
 
 ## Önemli Notlar
 
-1. Local Hermes hem web_search (varsa) hem de Tor (hermestor.py) kullanabilir
+1. Local ReYMeN hem web_search (varsa) hem de Tor (hermestor.py) kullanabilir
 2. `hermestor.py search` DuckDuckGo HTML endpoint'ini kullanır — bazen sonuç döndürmez (Tor IP bloklaması, endpoint değişikliği)
 3. DuckDuckGo sonuç döndürmezse alternatif arama yöntemleri kullanılabilir:
    - Google'a proxy üzerinden GET isteği

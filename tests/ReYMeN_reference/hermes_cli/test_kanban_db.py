@@ -2374,7 +2374,7 @@ class TestSharedBoardPaths:
         self, tmp_path, monkeypatch
     ):
         # Docker / custom deployment: ReYMeN_HOME points outside ~/.ReYMeN.
-        # `get_default_ReYMeN_root()` returns env_home directly when it
+        # `get_default_reymen_root()` returns env_home directly when it
         # is not a `<root>/profiles/<name>` shape and not under
         # `Path.home() / ".ReYMeN"`.
         custom_root = tmp_path / "opt" / "ReYMeN"
@@ -2388,7 +2388,7 @@ class TestSharedBoardPaths:
         self, tmp_path, monkeypatch
     ):
         # Docker profile shape: ReYMeN_HOME=/opt/ReYMeN/profiles/coder;
-        # `get_default_ReYMeN_root()` walks up to /opt/ReYMeN because
+        # `get_default_reymen_root()` walks up to /opt/ReYMeN because
         # the immediate parent dir is named "profiles".
         custom_root = tmp_path / "opt" / "ReYMeN"
         profile = custom_root / "profiles" / "coder"
@@ -2455,7 +2455,7 @@ class TestSharedBoardPaths:
         self, tmp_path, monkeypatch
     ):
         # ReYMeN_KANBAN_DB pins the file path directly and beats both
-        # ReYMeN_KANBAN_HOME and the `get_default_ReYMeN_root()` path.
+        # ReYMeN_KANBAN_HOME and the `get_default_reymen_root()` path.
         # This is the env the dispatcher injects into workers.
         default_home = tmp_path / ".ReYMeN"
         default_home.mkdir()

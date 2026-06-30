@@ -17,8 +17,8 @@ version: 1.0.0
 
 # Claude Code Task Preparation
 
-ReYMeN'de Hermes Agent'a yetismek icin kullanilan is akisi:
-Hermes (analiz/plan) -> Task dosyasi -> Claude Code (implementasyon)
+ReYMeN'de ReYMeN Agent'a yetismek icin kullanilan is akisi:
+ReYMeN (analiz/plan) -> Task dosyasi -> Claude Code (implementasyon)
 
 ## Task Dosyasi Formati
 
@@ -71,7 +71,7 @@ KULLANIM
 | Task | Hedef | Satir |
 |------|-------|-------|
 | conversation_loop.py | 162 -> ~3.900 satir | 91 satir task |
-| session_db.py | 125 -> Hermes seviyesi | 82 satir task |
+| session_db.py | 125 -> ReYMeN seviyesi | 82 satir task |
 | memory_provider.py | 369 -> abstract base class + plugin | 128 satir task |
 
 ## Kritik Kurallar
@@ -85,8 +85,8 @@ KULLANIM
 
 ## Is Akisi
 
-1. Hermes: Gap analizi yap (ReYMeN vs Hermes)
-2. Hermes: Task dosyasi hazirla (yukaridaki formatta)
+1. ReYMeN: Gap analizi yap (ReYMeN vs ReYMeN)
+2. ReYMeN: Task dosyasi hazirla (yukaridaki formatta)
 3. Kullanici: VS Code Claude Code terminaline yapistir
 4. Claude Code: Kodu yaz, import et, test et
-5. Hermes: Sonucu dogrula, test suite calistir
+5. ReYMeN: Sonucu dogrula, test suite calistir

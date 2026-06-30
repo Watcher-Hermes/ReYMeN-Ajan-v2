@@ -4,11 +4,11 @@ title: "Writing Plans"
 tags: [coding, development]
 description: "Write implementation plans: bite-sized tasks, paths, code."
 version: 1.1.0
-author: Hermes Agent (adapted from obra/superpowers)
+author: ReYMeN Agent (adapted from obra/superpowers)
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [planning, design, implementation, workflow, documentation]
 audience: contributor
 related_skills: [subagent-driven-development, test-driven-development, requesting-code-review]
@@ -92,7 +92,7 @@ Every plan MUST start with:
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.
+> **For ReYMeN:** Use subagent-driven-development skill to implement this plan task-by-task.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -162,7 +162,7 @@ Read and understand:
 
 ### Step 2: Explore the Codebase
 
-Use Hermes tools to understand the project:
+Use ReYMeN tools to understand the project:
 
 ```python
 # Understand project structure

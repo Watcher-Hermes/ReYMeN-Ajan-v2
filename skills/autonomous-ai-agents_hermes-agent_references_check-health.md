@@ -1,7 +1,7 @@
 ---
 name: autonomous-ai-agents_hermes-agent_references_check-health
 description: Check health
-title: "Autonomous Ai Agents Hermes Agent References Check Health"
+title: "Autonomous Ai Agents ReYMeN Agent References Check Health"
 version: 1.0.0
 ---
 
@@ -16,7 +16,7 @@ version: 1.0.0
 | **Nasıl** | Skill adımlarını takip ederek |
 
 # Check health
-hermes doctor
+ReYMeN doctor
 ```
 
 ---

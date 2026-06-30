@@ -1,7 +1,7 @@
 ---
 name: software-development_hermes-vs-claude-kod-kalitesi_references_batch-runner
 description: Batch Runner Pattern
-title: "Software Development Hermes Vs Claude Kod Kalitesi References Batch Runner"
+title: "Software Development ReYMeN Vs Claude Kod Kalitesi References Batch Runner"
 version: 1.0.0
 ---
 

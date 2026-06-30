@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-lr-schedule-advisor
+title: Prompt Lr Schedule Advisor
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-lr-schedule-advisor
 description: Recommend the right learning rate schedule and hyperparameters for any training setup
 title: "PRompt Lr Schedule Advisor"

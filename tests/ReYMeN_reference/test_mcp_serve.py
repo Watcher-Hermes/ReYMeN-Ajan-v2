@@ -30,7 +30,7 @@ def _isolate_ReYMeN_home(tmp_path, monkeypatch):
     monkeypatch.setenv("ReYMeN_HOME", str(tmp_path))
     try:
         import ReYMeN_constants
-        monkeypatch.setattr(ReYMeN_constants, "get_ReYMeN_home", lambda: tmp_path)
+        monkeypatch.setattr(ReYMeN_constants, "get_reymen_home", lambda: tmp_path)
     except (ImportError, AttributeError):
         pass
     return tmp_path

@@ -32,11 +32,11 @@ Bu oturumda 791 .md dosyası taranıp 788'i indexlendi. Kullanılan araçlar ve 
 
 | Sorgu | Süre | En iyi skor |
 |-------|------|-------------|
-| "Hermes nedir hangi modelleri kullanir" | ~3s | 0.294 |
+| "ReYMeN nedir hangi modelleri kullanir" | ~3s | 0.294 |
 | "yapay zeka nedir obsidian" | ~3s | 0.637 |
-| "hermes agent nasil calisir hangi ozellikler var" | ~3s | 0.705 |
+| "ReYMeN agent nasil calisir hangi ozellikler var" | ~3s | 0.705 |
 
-Not: Legacy skill'ler (Skills-legacy klasörü) daha yüksek puan alır çünkü embedding "hermes/agent" gibi kelimeleri metin içinde barındırır. Asıl anlamlı sonuçlar için "yapay zeka", "bilim", "felsefe" gibi kavramsal sorgular daha iyi.
+Not: Legacy skill'ler (Skills-legacy klasörü) daha yüksek puan alır çünkü embedding "ReYMeN/agent" gibi kelimeleri metin içinde barındırır. Asıl anlamlı sonuçlar için "yapay zeka", "bilim", "felsefe" gibi kavramsal sorgular daha iyi.
 
 ## Embedding Function ChromaDB Uyumluluğu
 

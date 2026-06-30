@@ -76,7 +76,7 @@ done
 | agent-systems | `ai-ml/agent-systems/` | AI ajan sistemleri |
 | architecture | `ai-ml/architecture/` | AI mimarisi |
 | evaluation | `ai-ml/evaluation/` | AI değerlendirme |
-| hermes-integration | `ai-ml/hermes-integration/` | Hermes AI entegrasyonu |
+| ReYMeN-integration | `ai-ml/ReYMeN-integration/` | ReYMeN AI entegrasyonu |
 | llm-inference | `ai-ml/inference/` | LLM çıkarım |
 | mcp-integration | `ai-ml/mcp/` | MCP protokolü |
 | prompt-engineering | `ai-ml/prompt/` | Prompt mühendisliği |
@@ -202,5 +202,5 @@ subs=$(for s in "$d"*/; do [ -d "$s" ] && echo "$s"; done | wc -l)
 
 ## Related
 
-- `skill-cataloging/references/skill-mass-migration.md` — Hermes profili skill migration (farklı senaryo)
+- `skill-cataloging/references/skill-mass-migration.md` — ReYMeN profili skill migration (farklı senaryo)
 - `skill-creation-standards` — 5N1K formatında skill oluşturma standartları

@@ -9,10 +9,10 @@ author: kshitijk4poor
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  hermes:
+  ReYMeN:
     tags: [TouchDesigner, MCP, twozero, creative-coding, real-time-visuals, generative-art, audio-reactive, VJ, installation, GLSL]
 audience: user
-related_skills: [native-mcp, ascii-video, manim-video, hermes-video]
+related_skills: [native-mcp, ascii-video, manim-video, ReYMeN-video]
 
 ---
 

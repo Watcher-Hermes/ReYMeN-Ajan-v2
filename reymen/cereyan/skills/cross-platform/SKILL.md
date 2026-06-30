@@ -1,21 +1,13 @@
 ---
 name: web-dogrulama-dongusu
-description: WEB → UYGULA → PUANLA → KARAR döngüsü — web'den bilgi al, sandbox'ta test et, puanla, kazananı hafızaya kaydet
+title: Skill
+description: WEB → UYGULA → PUANLA → KARAR döngüsü — web'den bilgi al, sandbox'ta
+  test et, puanla, kazananı hafızaya kaydet
+tags:
+- cross-platform
 category: cross-platform
-version: 1.0.0
-triggers:
-  - web doğrulama
-  - puanlama
-  - karşılaştırma
-  - eski bilgi tazeleme
-  - güven düşük
-  - başarısız retry
-  - geçerlilik süresi
-  - çelişkili bilgi
-  - hafıza boş
+audience: agent
 ---
-
-
 > **Kategori:** web-dogrulama-dongusu
 
 ---

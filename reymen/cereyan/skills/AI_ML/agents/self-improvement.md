@@ -1,19 +1,22 @@
 ---
 name: self-improvement-self-improvement
-title: "Hermes Otonom Geliştirme Gece Rutini"
-description: "Hermes'in geceleri kendi kendine Obsidian vault + Hermes skills tarayarak gelişmesi: eksik notları skill'e dönüştür, güncel olmayan skill'leri güncelle, isim çakışmalarını çöz, senkronizasyonu doğrula."
-tags: [self-improvement, otomatik-bakim, skill-audit, obsidian-sync, gece-rutini]
+title: ReYMeN Otonom Geliştirme Gece Rutini
+description: 'ReYMeN''in geceleri kendi kendine Obsidian vault + ReYMeN skills tarayarak
+  gelişmesi: eksik notları skill''e dönüştür, güncel olmayan skill''leri güncelle,
+  isim çakışmalarını çöz, senkronizasyonu doğrula.'
+tags:
+- self-improvement
+- otomatik-bakim
+- skill-audit
+- obsidian-sync
+- gece-rutini
+category: agents
 audience: maintainer
-related_skills: [obsidian-vault-kurallari, skill-cataloging, env-kayit-kurallari]
-triggers: [self-improvement, gece bakimi, skill gelistir, otomatik gelisme]
-
-
 ---
-
 | 5N1K | Açıklama |
 |:----:|:---------|
 | **Kim** | AI gelistiricisi |
-| **Ne** | "Hermes'in geceleri kendi kendine Obsidian vault + Hermes skills tarayarak gelişmesi: eksik notları skill'e dönüştür, güncel olmayan skill'leri güncelle, isim çakışmalarını çöz, senkronizasyonu doğrul |
+| **Ne** | "ReYMeN'in geceleri kendi kendine Obsidian vault + ReYMeN skills tarayarak gelişmesi: eksik notları skill'e dönüştür, güncel olmayan skill'leri güncelle, isim çakışmalarını çöz, senkronizasyonu doğrul |
 | **Nerede** | `autonomous-ai-agents\self-improvement.md` |
 | **Ne Zaman** | Ilgili gorev gerektiginde |
 | **Neden** | Self Improvement islemini standartlastirmak icin |
@@ -25,30 +28,28 @@ triggers: [self-improvement, gece bakimi, skill gelistir, otomatik gelisme]
 | Soru | Cevap |
 |:-----|:------|
 | **Kim?** | Tüm ajanlar |
-| **Ne?** | Hermes'in geceleri kendi kendine Obsidian vault + Hermes skills tarayarak gelişmesi: eksik notları skill'e dönüştür, güncel olmayan skill'leri güncelle, isim çakışmalarını çöz, senkronizasyonu doğrula. |
+| **Ne?** | ReYMeN'in geceleri kendi kendine Obsidian vault + ReYMeN skills tarayarak gelişmesi: eksik notları skill'e dönüştür, güncel olmayan skill'leri güncelle, isim çakışmalarını çöz, senkronizasyonu doğrula. |
 | **Nerede?** | autonomous-ai-agents/ |
 | **Ne Zaman?** | İhtiyaç duyulduğunda |
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
 Kim: Otonom ajan gelistiricisi
-Ne: "Hermes'in geceleri kendi kendine Obsidian vault + Hermes skills tarayarak gelişmesi: eksik notları skill'e dönüştür, güncel olmayan skill'leri güncelle, isim çakışmalarını çöz, senkronizasyonu doğrul
+Ne: "ReYMeN'in geceleri kendi kendine Obsidian vault + ReYMeN skills tarayarak gelişmesi: eksik notları skill'e dönüştür, güncel olmayan skill'leri güncelle, isim çakışmalarını çöz, senkronizasyonu doğrul
 Nerede: `autonomous-ai-agents\self-improvement.md`
 Ne Zaman: Ilgili gorev gerektiginde
 Neden: Self Improvement islemini standartlastirmak ve tekrarlanabilir kilmak icin
 Nasil: Skill dosyasindaki adimlari takip ederek
 
 
-# Hermes Otonom Geliştirme — Gece Rutini
+# ReYMeN Otonom Geliştirme — Gece Rutini
 
 ## Görev Sırası
 
 ### 1. Obsidian Vault Tara
 - `C:\Users\marko\OneDrive\Belgeler\Obsidian Vault` altındaki tüm .md dosyalarını tara
 - Konuları ve bilgileri kategorize et
-- Eksik skill olabilecek notları tespit et (özellikle `Hermes\Skills\` dışındakileri de oku — orada kaliteli notlar olabilir)
+- Eksik skill olabilecek notları tespit et (özellikle `ReYMeN\Skills\` dışındakileri de oku — orada kaliteli notlar olabilir)
 
 ### 2. Mevcut Skill'leri Tara
 - `C:\Users\marko\AppData\Local\hermes\skills\` altındaki tüm SKILL.md dosyalarını oku (rglob)
@@ -58,7 +59,7 @@ Nasil: Skill dosyasindaki adimlari takip ederek
 ### 3. İsim Çakışmalarını Çöz
 
 **Önce referans haritayı oku:** `references/name-clash-map.md` — 8 bilinen çakışma
-kayıtlıdır. Bu liste dışında yeni bir Hermes-only adı varsa, Obsidian'da benzer
+kayıtlıdır. Bu liste dışında yeni bir ReYMeN-only adı varsa, Obsidian'da benzer
 isim ara ve haritaya ekle.
 - `skill_view()` "Ambiguous skill name" hatası veriyorsa: hem root'ta `.md` hem de `kategori/alt-skill/SKILL.md` var demektir
 - Önce proper SKILL.md'in içeriğini oku, eski .md sadece frontmatter+2 satır mı yoksa daha dolu mu kontrol et
@@ -88,7 +89,7 @@ isim ara ve haritaya ekle.
   - `C:\\Users\\marko\\Documents\\Obsidian Vault` → `C:\\Users\\marko\\OneDrive\\Belgeler\\Obsidian Vault`
   - POSIX `$HOME/Documents/...` → Windows tam yol
   Arama: `search_files(pattern="Documents/Obsidian", target="content", path=".../skills")`
-- Yeni Hermes özelliği varsa (config.yaml'dan tara) → skill ekle
+- Yeni ReYMeN özelliği varsa (config.yaml'dan tara) → skill ekle
 - Dönüştürülen her Obsidian notu için orijinal dosyayı **koru** (silme — referans olarak kalabilir)
 - Yeni skill'in `related_skills` alanında eski ilgili skill'lere bağlantı ekle
 
@@ -99,8 +100,8 @@ isim ara ve haritaya ekle.
 
 ### 6. Sync Script'i Çalıştır ve Doğrula
 ```bash
-cd /c/Users/marko/hermes-ai
-"C:/Users/marko/hermes-ai/venv/Scripts/python.exe" \
+cd /c/Users/marko/ReYMeN-ai
+"C:/Users/marko/ReYMeN-ai/venv/Scripts/python.exe" \
   "C:/Users/marko/AppData/Local/hermes/hooks/sync_skills_to_obsidian.py"
 ```
 - İlk sefer: normal mod (sadece değişenleri yazar)
@@ -120,9 +121,9 @@ cd /c/Users/marko/hermes-ai
 ## Kısıtlar
 - Mevcut çalışan skill'leri silme
 - Obsidian'daki kişisel notlara dokunma
-- Sadece `Hermes\Skills\` klasörüne yaz
+- Sadece `ReYMeN\Skills\` klasörüne yaz
 - `rm` komutu approval gerekir → bunun yerine `mv <dosya> <dosya>.obsolete` kullan
-- MCP filesystem sadece `Obsidian Vault\Hermes` altında çalışır — tam vault'a erişemez
+- MCP filesystem sadece `Obsidian Vault\ReYMeN` altında çalışır — tam vault'a erişemez
 
 ## Pitfall'lar
 - **Category with slash:** `mlops/inference` → hata alırsın. Tek düzey kullan: `mlops`

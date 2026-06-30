@@ -1,8 +1,12 @@
-
-> **Kategori:** prompt-engineering
-
 ---
-
+name: prompt-vision-service-shape-reviewer
+title: Prompt Vision Service Shape Reviewer
+description: ''
+tags:
+- prompt-engineering
+category: prompt-engineering
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: prompt-vision-service-shape-reviewer
 description: Review a vision service's code for contract/response shape violations and name the first breaking bug
 title: "PRompt Vision Service Shape Reviewer"

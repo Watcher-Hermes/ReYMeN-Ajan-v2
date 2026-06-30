@@ -1,8 +1,12 @@
-
-> **Kategori:** training
-
 ---
-
+name: vectorization-picker
+title: Vectorization Picker
+description: ''
+tags:
+- training
+category: training
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,9 +18,6 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
 name: vectorization-picker
 description: Given a text-classification task, recommend BoW, TF-IDF, embeddings, or a hybrid.
 title: "Vectorization Picker"

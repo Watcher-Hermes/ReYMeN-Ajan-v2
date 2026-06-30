@@ -1,8 +1,12 @@
-
-> **Kategori:** devops
-
 ---
-
+name: devops_virtualbox
+title: Devops Virtualbox
+description: ''
+tags:
+- devops
+category: devops
+audience: agent
+---
 ## 📋 5N1K
 
 | Soru | Cevap |
@@ -14,12 +18,8 @@
 | **Neden?** | Otomatik kategorilendirme |
 | **Nasıl?** | Skill referansı ile |
 
----
-
----
-
 name: virtualbox
-description: Manage VirtualBox VMs from Windows host via Hermes. Use for VM status, start/stop, networking, and remote access.
+description: Manage VirtualBox VMs from Windows host via ReYMeN. Use for VM status, start/stop, networking, and remote access.
 title: "Virtualbox"
 triggers:
   - virtualbox

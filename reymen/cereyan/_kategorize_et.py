@@ -3,7 +3,7 @@
 import os, shutil, sys
 
 SKILLER = r"C:\Users\marko\Desktop\Reymen Proje\hermes_projesi\reymen\cereyan\skills\Skiller"
-HERMES = r"C:\Users\marko\.hermes\skills"
+ReYMeN = r"C:\Users\marko\.ReYMeN\skills"
 PROFIL = r"C:\Users\marko\AppData\Local\hermes\profiles\kiral38\skills"
 
 # Kategori eşleştirme - her skill klasör adı hangi kategoriye gider?
@@ -63,7 +63,7 @@ def kategoribul(ad):
 def main():
     toplam = 0
     hata = 0
-    kaynaklar = {"Hermes": HERMES, "Profil": PROFIL}
+    kaynaklar = {"ReYMeN": ReYMeN, "Profil": PROFIL}
     
     for kaynak_ad, kaynak_yol in kaynaklar.items():
         if not os.path.isdir(kaynak_yol):

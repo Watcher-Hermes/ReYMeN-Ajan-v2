@@ -45,7 +45,7 @@ session_search ile hangi alanın sırada olduğunu bul (son kararın "Sonraki Al
 | 1 | **Hafıza yönetimi** | decisions.md tutarlılık kontrolü + INDEX.md güncelle + MEMORY.md gürültü temizliği (bkz. `references/memory-noise-cleanup.md`) + USER.md okuma + eski state dosyalarını temizleme (`.pid`, `.lock`, `.tmp`) + Karar #N eksik/kopuk kontrolü | `read_file`, `search_files`, `patch`, `write_file` |
 | 2 | **Planlama** | (a) Proje geneli syntax doğrulama: `py_compile.compile()` ile tüm .py dosyalarını tara (vendor dizinleri hariç: venv, node_modules, .git, hermes-memory-backup, __pycache__, desktop, dist), (b) Core modül import testi: 9+ temel modülü (`toolsets`, `sistem_talimati`, `reymen.sistem.toolsets`, `reymen.cereyan.beyin`, `ReYMeN_cli.env_loader`, vb.) `importlib.import_module()` ile dene, (c) Test dosyası syntax scan (145+ dosya), (d) upstream Hermes release'lerini kontrol et (bkz. `scripts/planlama-scan.py`), (e) kalan hata/config warning'lerini tespit et | `session_search`, `search_files`, `web_search`, `web_extract`, `terminal` (`python3 -c "py_compile.compile(...)"`, `timeout 10 python3 scripts/`) |
 | 3 | **Kod kalitesi** | `search_files` ile regex kokuları tara + `ast.walk()` ile bare-except (sadece Exception değil) tespiti + BOM karakteri kontrolü (`--fix-bom` ile otomatik düzeltme) + syntax doğrulama + `# TODO`/FIXME tespiti. **Script ile çalıştır** (bkz. `scripts/code_quality_scan.py`): `python3 scripts/code_quality_scan.py --proj PATH` — 5 kontrolü tek seferde yapar. `--fix-bom` flagi eklenince BOM'lu dosyaları otomatik düzeltir. Detaylar: `references/code-smell-detection.md` | `search_files`, `terminal` (python3 scripts/code_quality_scan.py --proj PATH), `skill_view` (references) |
-| 4 | **Hız** | (a) session.db boyut kontrolü (bulunamazsa atla — Hermes internal olabilir), (b) `__pycache__/` temizliği (main project sadece, .ReYMeN hariç), (c) büyük dosya tespiti (>500 satır, refactor adayı, Python kodu ile), (d) INDEX.md'ye Hız skoru ekle (yoksa), (e) decisions.md'de kayıt | `terminal`, `search_files`, `execute_code` |
+| 4 | **Hız** | (a) session.db boyut kontrolü (bulunamazsa atla — ReYMeN internal olabilir), (b) `__pycache__/` temizliği (main project sadece, .ReYMeN hariç), (c) büyük dosya tespiti (>500 satır, refactor adayı, Python kodu ile), (d) INDEX.md'ye Hız skoru ekle (yoksa), (e) decisions.md'de kayıt | `terminal`, `search_files`, `execute_code` |
 | 5 | **Hata düzeltme** | session_search ile son 24 saatteki hata/kırılma tespiti + yeni import/kırık test sorgulaması + decisions.md'ye **her durumda** kayıt (0 hata = sistem sağlıklı raporu) | `session_search`, `search_files`, `read_file` |
 
 **Pitfall:** Alan 1 (Hafıza yönetimi) sadece INDEX.md güncelleme DEĞİLDİR. Önce decisions.md'nin Karar #1'den son karara kadar eksiksiz olduğunu teyit et, sonra INDEX.md'ye yansıt. "decisions.md güncel" varsayımı yapma — oku.
@@ -147,7 +147,7 @@ Timeout 30sn. Retry max 3. Circuit breaker 3 hata.
 Silinenler: tarihi gecmis, guven<0.2 + hata>5, 6 aydir kullanilmayan, 7 gunluk mesajlar.
 
 Pitfall: Alan 4 (Hız) pratik tuzaklar:
-- **session.db bulunamazsa**: `HERMES_HOME` altında `.db` dosyası yoksa, Hermes internal/memory-mapped storage kullanıyordur. `find` ile 5 saniyeden fazla tarama yapma — hemen "Hermes internal, kontrol yok" olarak raporla.
+- **session.db bulunamazsa**: `HERMES_HOME` altında `.db` dosyası yoksa, ReYMeN internal/memory-mapped storage kullanıyordur. `find` ile 5 saniyeden fazla tarama yapma — hemen "ReYMeN internal, kontrol yok" olarak raporla.
 - **Pycache temizliği timeout:** 3845+ `__pycache__` dizini olduğunda `find -exec rm -rf {} +` zaman aşımına uğrar. Kullan: `find ... -print0 | xargs -0 rm -rf`
 - **Pycache dışlama:** `.ReYMeN/skills/` ve `.ReYMeN/scripts/` altındaki pycache'leri temizleme — bunlar skill asset'leri, yeniden oluşturulması gerekmez. `-not -path "*/.ReYMeN/*"` ekle.
 - **Pycache boyut ölçümü:** Temizlemeden önce freed space'i raporla — `find ... -exec du -sk {} + | awk '{sum+=$1} END {printf "%.1f MB (%d dirs)", sum/1024, NR}'` ile toplam boyutu hesapla. 755.7MB / 3501 dirs gibi bir değer normal.
@@ -246,7 +246,7 @@ OnceHafiza.hafizada_ara(hedef)
 ```
 
 **Nerede?** `reymen/sistem/once_hafiza.py` (sınıf tabanlı motor), `reymen/cereyan/once_hafiza.py` (doğrudan fonksiyon tabanlı)
-**Veritabanı:** `reymen/cereyan/.ReYMeN/ogrenmeler.db` (TÜM ajanlar ortak — Kali, Windows, CAD, Hermes)
+**Veritabanı:** `reymen/cereyan/.ReYMeN/ogrenmeler.db` (TÜM ajanlar ortak — Kali, Windows, CAD, ReYMeN)
 
 #### ogrenmeler Tablosu (güncel şema)
 | Kolon | Tip | Varsayılan | Açıklama |
@@ -305,11 +305,11 @@ Kolon bazlı index'ler migration sonrası kurulur — eski DB'lerde kolon buluna
 
 Detaylı şema, SQL pattern'leri ve migration kodu: `references/once-hafiza-schema.md`
 
-**Pitfall: Centralized knowledge store — Hermes `memory` tool'u KULLANMA.**
-ReYMeN'de TÜM ajanlar (Kali, Windows, CAD, Hermes) ortak bir dosyaya yazar:
+**Pitfall: Centralized knowledge store — ReYMeN `memory` tool'u KULLANMA.**
+ReYMeN'de TÜM ajanlar (Kali, Windows, CAD, ReYMeN) ortak bir dosyaya yazar:
 `.ReYMeN/kazanimlar.md` (proje kökü).
 
-Hermes `memory` tool'u (`AppData/.../kiral38/memories/MEMORY.md`) sadece Hermes internal'e yazar —
+ReYMeN `memory` tool'u (`AppData/.../kiral38/memories/MEMORY.md`) sadece ReYMeN internal'e yazar —
 diğer ajanlar erişemez. Bu yüzden:
 - ❌ `memory()` tool'unu kullanma
 - ✅ Her skill/memory/karar/OnceHafiza kaydı → `echo >> .ReYMeN/kazanimlar.md`
@@ -318,7 +318,7 @@ Format: `## {TARİH} {SAAT} — {KAYNAK_AJAN} — {ALAN}` + kazanım metni
 ### 1. GÖZLEM
 - `session_search` ile son saatteki aktiviteyi kontrol et
 - Zayıf alanları belirle (en çok tekrar eden hata, en yavaş işlem)
-- Not: `.ReYMeN/kazanimlar.md`'yi oku — Hermes `memory` tool'unu kullanma
+- Not: `.ReYMeN/kazanimlar.md`'yi oku — ReYMeN `memory` tool'unu kullanma
 
 ### 2. KEŞİF
 - `web_search` ile zayıf alan için en iyi metodları araştır

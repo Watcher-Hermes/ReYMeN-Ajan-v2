@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 # ── Sabitler ────────────────────────────────────────────────
 _PROJE_KOKU = Path(__file__).resolve().parent.parent.parent  # reymen/core/ -> reymen/ -> projekt
 _VARSAYILAN_CONFIG_YOLU = _PROJE_KOKU / "config.yaml"
-_HERMES_PROFIL_DIZINI = Path.home() / ".hermes" / "profiles"
+_REYMEN_PROFIL_DIZINI = Path.home() / ".ReYMeN" / "profiles"
 
 # Varsayilan degerler (hicbir config dosyasi bulunamazsa kullanilir)
 _VARSAYILAN_DEGERLER: dict[str, Any] = {
@@ -137,7 +137,7 @@ class Config:
 
     def _profil_yukle(self, profil_adi: str) -> None:
         """Profil config dosyasini yukler."""
-        profil_yolu = _HERMES_PROFIL_DIZINI / profil_adi / "config.yaml"
+        profil_yolu = _REYMEN_PROFIL_DIZINI / profil_adi / "config.yaml"
         if profil_yolu.exists():
             try:
                 with open(profil_yolu, "r", encoding="utf-8") as f:
@@ -446,3 +446,65 @@ def motor_kaydet(motor: Any) -> None:
         "Config anahtari degistir ve kaydet: anahtar, deger",
     )
     logger.info("[ConfigManager] Motor araclari kaydedildi: CONFIG_GOSTER, CONFIG_AYARLA")
+
+
+# ═══════════════════════════════════════════════════════════════
+# ConfigManager — Basit get/set/list arayüzü (cli.py uyumlu)
+# ═══════════════════════════════════════════════════════════════
+
+class ConfigManager:
+    """ConfigManager — proje kokundeki config.yaml uzerinde basit get/set/list.
+
+    Config yoksa hata vermez, bos dict dondurur.
+
+    Kullanim:
+        cm = ConfigManager()
+        data = cm.list()   # tum config dict
+        val = cm.get(key)  # tek deger
+        cm.set(key, val)   # deger ata (runtime + dosya)
+    """
+
+    def __init__(self, config_yolu: Optional[Path] = None):
+        self._cfg = Config(config_yolu=config_yolu)
+
+    def get(self, key: str, default: Any = None) -> Any:
+        """Config'den deger okur.
+
+        Args:
+            key: Nokta notasyonlu anahtar (ornek: 'general.default_model')
+            default: Anahtar bulunamazsa donulecek varsayilan deger
+
+        Returns:
+            Anahtarin degeri veya default
+        """
+        return self._cfg.get(key, default)
+
+    def set(self, key: str, value: Any) -> bool:
+        """Config degerini runtime'da degistirir VE dosyaya kaydeder.
+
+        Args:
+            key: Nokta notasyonlu anahtar
+            value: Yeni deger
+
+        Returns:
+            Basarili ise True
+        """
+        return self._cfg.set_and_save(key, value)
+
+    def list(self) -> dict:
+        """Tum config degerlerini sozluk olarak dondurur.
+
+        Config dosyasi yoksa veya okunamazsa bos dict dondurur,
+        hata vermez.
+
+        Returns:
+            dict: Tum config anahtar/deger ciftleri
+        """
+        try:
+            return dict(self._cfg._data)
+        except Exception:
+            return {}
+
+    def reload(self, profil: Optional[str] = None) -> None:
+        """Config'i yeniden yukler."""
+        self._cfg = Config(profil=profil)

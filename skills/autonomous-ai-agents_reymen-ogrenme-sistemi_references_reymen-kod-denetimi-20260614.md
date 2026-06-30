@@ -37,23 +37,23 @@ version: 1.0.0
 ## Sonuçlar
 
 - **Sözdizimi:** 11/11 ✅
-- **Hermes Import:** 11/11 — **sıfır** hermes import'u
+- **ReYMeN Import:** 11/11 — **sıfır** ReYMeN import'u
 - **Import edilebilirlik:** `motor`, `closed_learning_loop`, `sistem_sinyalleri`, `planlayici` → hepsi OK
 - **Test:** `test_learning_loop.py` → 17/17 PASSED (0.71sn)
 - **Toplam proje:** 2.837 .py dosyası, 990.877 satır (venv hariç)
-- **Skill .md:** 5.564 dosya (Hermes'ten kopya)
+- **Skill .md:** 5.564 dosya (ReYMeN'ten kopya)
 
-## Kritik Bulgu — Hermes Testleri
+## Kritik Bulgu — ReYMeN Testleri
 
 - `tests/` altında 1.578 test dosyası var
 - Sadece **3'ü** Reymen import'lu (`test_agent_core.py`, `test_core.py`, `test_cozum.py`)
 - **561'i** Hermes import'lu (`from hermes_state`, `from hermes_cli`, vs.) — çalışmaz
-- Hermes import zinciri kırık: `hermes_state.py → agent/memory_manager.py → tools/registry.tool_error ❌`
+- ReYMeN import zinciri kırık: `hermes_state.py → agent/memory_manager.py → tools/registry.tool_error ❌`
 - **Reymen çalışmasını etkilemez** — sadece referans olarak duruyor
 
 ## Claude Code Bridge
 
-Reymen (Hermes) → analiz/strateji
+Reymen (ReYMeN) → analiz/strateji
 Claude Code (VS Code) → kod düzeltme
 
 Pipeline: `vscode_yaz.bat` ile VS Code Claude Agent input'u

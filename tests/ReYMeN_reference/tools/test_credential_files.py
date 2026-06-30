@@ -403,7 +403,7 @@ class TestCacheDirectoryMounts:
         """Old-style dir names (e.g. document_cache) are resolved correctly."""
         ReYMeN_home = tmp_path / ".ReYMeN"
         ReYMeN_home.mkdir()
-        # Use legacy dir name — get_ReYMeN_dir prefers old if it exists
+        # Use legacy dir name — get_reymen_dir prefers old if it exists
         (ReYMeN_home / "document_cache").mkdir()
         (ReYMeN_home / "image_cache").mkdir()
         monkeypatch.setenv("ReYMeN_HOME", str(ReYMeN_home))

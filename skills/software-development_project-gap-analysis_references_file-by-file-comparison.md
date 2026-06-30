@@ -17,7 +17,7 @@ version: 1.0.0
 
 # Dosya-Dosya Karşılaştırma Metodolojisi
 
-Bu referans, bir projeyi referans bir sisteme (örn: Hermes Agent) karşı dosya bazında, modül bazında karşılaştırma tekniğini açıklar.
+Bu referans, bir projeyi referans bir sisteme (örn: ReYMeN Agent) karşı dosya bazında, modül bazında karşılaştırma tekniğini açıklar.
 
 ## Ne Zaman Kullanılır
 
@@ -32,14 +32,14 @@ Bu referans, bir projeyi referans bir sisteme (örn: Hermes Agent) karşı dosya
 Önce her iki sistemin tüm dosyalarını al:
 
 ```bash
-# Hedef sistem (referans, örn: Hermes Agent)
+# Hedef sistem (referans, örn: ReYMeN Agent)
 ls -R "C:/hermes/" | sort
 
 # Mevcut proje
 ls -R "proje_klasoru/" | sort
 ```
 
-**ÖNEMLİ:** Bazen MCP filesystem aracı `C:\hermes` gibi yollara erişemez (allowed directories dışı). O zaman `terminal` kullan:
+**ÖNEMLİ:** Bazen MCP filesystem aracı `C:\ReYMeN` gibi yollara erişemez (allowed directories dışı). O zaman `terminal` kullan:
 
 ```bash
 ls -R "C:/hermes/agent/" | sort
@@ -47,7 +47,7 @@ ls -R "C:/hermes/agent/" | sort
 
 ### 2. Kategori Başlıkları Belirle
 
-Hermes Agent gibi büyük sistemlerde dosyaları mantıksal gruplara ayır:
+ReYMeN Agent gibi büyük sistemlerde dosyaları mantıksal gruplara ayır:
 
 ```
 1. ÇEKİRDEK          → agent loop, context engine, conversation
@@ -104,7 +104,7 @@ Claude Code'a gönderirken sadece "kod değişikliği gerek" olanları listele.
 Karşılaştırmanın sonuna ekle:
 
 ```
-═══ R>eYMeN'E ÖZGÜ (Hermes'te OLMAYAN) ═══
+═══ R>eYMeN'E ÖZGÜ (ReYMeN'te OLMAYAN) ═══
 - Ekran OCR + tıklama (araclar_ekran.py)  ← ★
 - Makro kaydetme/oynatma (araclar_makro.py)
 ```

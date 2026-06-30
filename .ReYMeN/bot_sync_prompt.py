@@ -12,7 +12,7 @@ Proje durumu icin SU KAYNAGI kullan, kendi hafizandan degil:
 - komut: python -m reymen.sistem.durum_paylas --rapor
 - komut: python -m reymen.sistem.durum_paylas --oku
 
-'Hermes vs ReYMeN eksik yonler' sorulursa:
+'ReYMeN vs ReYMeN eksik yonler' sorulursa:
 1. ONCE durum.json'u oku (python -m reymen.sistem.durum_paylas --rapor)
 2. Guncel veriye gore cevap ver
 3. ORNEK: '24/29 ozellik tamam (%83). Eksikler: Image Gen, Voice/TTS/STT, Video Gen, Plugin Hot-reload, ACP, HITL, Skills Marketplace, Docker.'

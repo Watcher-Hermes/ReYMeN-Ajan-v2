@@ -38,7 +38,7 @@ def fake_ReYMeN(tmp_path, monkeypatch):
     monkeypatch.setenv("ReYMeN_HOME", str(sec_home))
 
     import ReYMeN_constants
-    monkeypatch.setattr(ReYMeN_constants, "get_default_ReYMeN_root", lambda: root)
+    monkeypatch.setattr(ReYMeN_constants, "get_default_reymen_root", lambda: root)
 
     import agent.file_safety as fs
     monkeypatch.setattr(fs, "_ReYMeN_home_path", lambda: sec_home)

@@ -63,7 +63,7 @@ def otomatik_kesif_yap() -> int:
 
     Motor._plugin_moduller_yukle() akışına entegredir:
       "reymen.mcp" import edildiğinde bu fonksiyon çağrılır,
-      config.yaml + .env + Hermes profilinden MCP sunucularını bulur
+      config.yaml + .env + ReYMeN profilinden MCP sunucularını bulur
       ve mcp_manager'a otomatik kaydeder.
 
     Returns:
@@ -92,8 +92,10 @@ def _cift_mcp_uyar() -> None:
                 "reymen.mcp ve reymen.arac.native_mcp_client paralel çalışıyor. "
                 "Yeni geliştirmeler için reymen.mcp paketini kullanın."
             )
-    except Exception:
-        pass
+    except Exception as _e:
+        __import__("logging").getLogger(__name__).warning(
+            "[SessizExcept] %%s: %%s", type(_e).__name__, _e
+        )
 
 
 def baslangicta_baslat() -> None:
