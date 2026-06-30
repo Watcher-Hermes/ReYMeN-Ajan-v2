@@ -1,4 +1,4 @@
-[![CI](https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2/actions/workflows/ci.yml)
+[![CI](https://github.com/Watcher-Hermes/ReYMeN-Ajan/actions/workflows/ci.yml/badge.svg)](https://github.com/Watcher-Hermes/ReYMeN-Ajan/actions/workflows/ci.yml)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -10,7 +10,7 @@
 
 | Kanal | Link |
 |-------|------|
-| GitHub Issues | [Hata bildir / Oneri yap](https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2/issues/new/choose) |
+| GitHub Issues | [Hata bildir / Oneri yap](https://github.com/Watcher-Hermes/ReYMeN-Ajan/issues/new/choose) |
 | Telegram | @Pasa_38 ile iletisim |
 | Katki | [CONTRIBUTING.md](CONTRIBUTING.md) |
 | Kod Davranisi | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
@@ -85,6 +85,28 @@ reymen/
 ---
 
 ## 🚀 Kurulum
+
+### Entry Points (Başlatma Yöntemleri)
+
+ReYMeN, ReYMeN gibi 4 farklı entry point ile başlatılabilir:
+
+| Yönlendirici | Tür | İçerik |
+|---|---|---|
+| `reymen\bin
+eymen.cmd` | `.cmd → python` | `reymen_launcher.py`'yi çağırır |
+| `venv\Scripts
+eymen.cmd` | `.cmd → python` | `reymen_launcher.py`'yi çağırır |
+| `venv\Scripts
+eymen.exe` | `.exe direkt` | PyInstaller derlenmiş binary (60MB) |
+| `~/.local/bin/reymen.exe` | `.exe direkt` | pip console_scripts stub (106KB) |
+
+```bash
+# En kolay: direkt reymen yaz (PATH'te varsa)
+reymen
+
+# veya proje içinden
+python reymen_launcher.py
+```
 
 ### Gereksinimler
 

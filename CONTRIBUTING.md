@@ -4,11 +4,11 @@ ReYMeN'e katkida bulunmak istediginiz icin tesekkurler!
 
 ## Baslarken / Getting Started
 
-1. **Fork** et -> [github.com/Watcher-Hermes/ReYMeN-Ajan-v2](https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2)
+1. **Fork** et -> [github.com/Watcher-Hermes/ReYMeN-Ajan](https://github.com/Watcher-Hermes/ReYMeN-Ajan)
 2. **Clone**:
    ```bash
-   git clone https://github.com/<kullanici>/ReYMeN-Ajan-v2.git
-   cd ReYMeN-Ajan-v2
+   git clone https://github.com/<kullanici>/ReYMeN-Ajan.git
+   cd ReYMeN-Ajan
    ```
 3. **Ortami kur**:
    ```bash

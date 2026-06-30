@@ -1,0 +1,165 @@
+# -*- coding: utf-8 -*-
+"""
+ortak_komut.py — 3 bot + ReYMeN Agent ortak yetki/komut merkezi.
+Her degisiklikte otomatik guncellenir. Tum botlar burayi okur.
+"""
+
+import json
+import os
+from pathlib import Path
+
+PROJE_KOK = Path(__file__).resolve().parent.parent.parent
+HERMES_HOME = Path.home() / "AppData" / "Local" / "hermes"
+
+# ── Bot Profil Yapilari ────────────────────────────────────────────────
+
+BOTLAR = {
+    "pasa_38": {
+        "profil": "default",
+        "bot_adi": "@Pasa_38_bot",
+        "gateway": "aktif",
+        "yetki": "tam",
+        "browser": "acik",
+        "terminal": "acik",
+        "web": "firecrawl",
+        "soul_boyut": 0,
+        "tools": "tum",
+    },
+    "reymen": {
+        "profil": "reymen",
+        "bot_adi": "@ReYMeN_ReYMeNbot",
+        "gateway": "aktif",
+        "yetki": "tam",
+        "browser": "acik",
+        "terminal": "acik",
+        "web": "firecrawl",
+        "soul_boyut": 0,
+        "tools": "tum",
+    },
+    "kiral38": {
+        "profil": "kiral38",
+        "bot_adi": "@Kiral38bot",
+        "gateway": "aktif",
+        "yetki": "tam",
+        "browser": "acik",
+        "terminal": "acik",
+        "web": "firecrawl",
+        "soul_boyut": 0,
+        "tools": "tum",
+    },
+}
+
+# ── Ortak Komutlar ─────────────────────────────────────────────────────
+
+ORTAK_KOMUTLAR = {
+    "cevap_formati": "emoji+baslik+tablo+yorum",
+    "dil": "Turkce",
+    "cave_modu": True,
+    "no_goblins": True,
+    "side_quest": "sub_agent'a yonlendir",
+    "durum_oku_zorunlu": True,
+    "kendi_bilgisiyle_cevap_yasak": True,
+    "kaynak": "durum.json TEK KAYNAK",
+}
+
+# ── Dosya Yollari ──────────────────────────────────────────────────────
+
+SOUL_DOSYALARI = {
+    "default": HERMES_HOME / "profiles" / "default" / "SOUL.md",
+    "reymen": HERMES_HOME / "profiles" / "reymen" / "SOUL.md",
+    "kiral38": HERMES_HOME / "profiles" / "kiral38" / "SOUL.md",
+}
+
+CONFIG_DOSYALARI = {
+    "default": HERMES_HOME / "profiles" / "default" / "config.yaml",
+    "reymen": HERMES_HOME / "profiles" / "reymen" / "config.yaml",
+    "kiral38": HERMES_HOME / "profiles" / "kiral38" / "config.yaml",
+}
+
+DURUM_JSON = PROJE_KOK / "durum.json"
+
+
+# ── Tarama Fonksiyonu ──────────────────────────────────────────────────
+
+def tara_profil(profil: str) -> dict:
+    """Bir profilin guncel durumunu tara."""
+    sonuc = {"soul_boyut": 0, "browser": "?", "terminal_cwd": "?"}
+
+    # SOUL.md boyutu
+    soul_yol = SOUL_DOSYALARI.get(profil)
+    if soul_yol and soul_yol.exists():
+        sonuc["soul_boyut"] = soul_yol.stat().st_size
+
+    # Config'den browser/terminal bilgisi
+    config_yol = CONFIG_DOSYALARI.get(profil)
+    if config_yol and config_yol.exists():
+        icerik = config_yol.read_text(encoding="utf-8")
+        if "disabled_toolsets" in icerik and "browser" in icerik:
+            sonuc["browser"] = "kapali"
+        else:
+            sonuc["browser"] = "acik"
+        # Terminal cwd
+        for satir in icerik.split("\n"):
+            if "cwd:" in satir:
+                sonuc["terminal_cwd"] = satir.split("cwd:")[-1].strip().strip("'\"")
+                break
+
+    return sonuc
+
+
+def guncelle() -> dict:
+    """Tum profilleri tara, BOTLAR'i guncelle, durum.json'a yaz."""
+    for ad, bot in BOTLAR.items():
+        durum = tara_profil(bot["profil"])
+        bot["soul_boyut"] = durum["soul_boyut"]
+        bot["browser"] = durum["browser"]
+
+    # durum.json'u guncelle
+    yeni_durum = {
+        "proje": "ReYMeN Agent",
+        "surum": "2026-06-30",
+        "botlar": BOTLAR,
+        "ortak_komutlar": ORTAK_KOMUTLAR,
+        "esit_mi": _butun_botlar_esit_mi(),
+    }
+
+    DURUM_JSON.write_text(
+        json.dumps(yeni_durum, indent=2, ensure_ascii=False),
+        encoding="utf-8"
+    )
+
+    return yeni_durum
+
+
+def _butun_botlar_esit_mi() -> dict:
+    """3 botun da ayni yetkide olup olmadigini kontrol et.
+    Sadece permission/settings alanlarini karsilastir (profil/bot_adi haric)."""
+    karsilastirilacak_alanlar = [
+        "gateway", "yetki", "browser", "terminal",
+        "web", "soul_boyut", "tools",
+    ]
+    yetkiler = [
+        [b[alan] for alan in karsilastirilacak_alanlar]
+        for b in BOTLAR.values()
+    ]
+    ilk = yetkiler[0]
+    esit = all(y == ilk for y in yetkiler)
+    return {
+        "esit": esit,
+        "aciklama": "Tum botlar esit" if esit else "Fark var!",
+    }
+
+
+# ── CLI ─────────────────────────────────────────────────────────────────
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "tara":
+        for ad in BOTLAR:
+            d = tara_profil(BOTLAR[ad]["profil"])
+            print(f"{ad}: SOUL={d['soul_boyut']}b, Browser={d['browser']}, CWD={d['terminal_cwd']}")
+    elif len(sys.argv) > 1 and sys.argv[1] == "guncelle":
+        sonuc = guncelle()
+        print(f"✅ durum.json guncellendi. Botlar esit mi: {sonuc['esit_mi']['esit']}")
+    else:
+        print("Kullanim: python ortak_komut.py [tara|guncelle]")
