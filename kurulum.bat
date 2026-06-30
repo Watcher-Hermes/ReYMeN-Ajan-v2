@@ -10,12 +10,32 @@ echo NOT: ReYMeN bagimsiz bir ajandir, Hermes gerektirmez.
 echo.
 echo ============================================
 
+:: Baslangic kontrolleri
+setlocal enabledelayedexpansion
+
 :: ---------- 1. GEREKSINIM KONTROLLERI ----------
 set ADIM=0
 
+:: 1.0 Windows surumu
+set /a ADIM+=1
+echo ^(1/5^) Windows kontrolu...
+ver | find "10." >nul
+if %errorlevel% neq 0 (
+    ver | find "11." >nul
+)
+if %errorlevel% neq 0 (
+    echo [!] Windows 10 veya 11 gerekli!
+    echo     Mevcut: 
+    ver
+    pause
+    exit /b
+) else (
+    echo [OK] Windows 10+
+)
+
 :: 1.1 Python
 set /a ADIM+=1
-echo ^(1/4^) Python kontrolu...
+echo ^(2/5^) Python kontrolu...
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] Python bulunamadi! Yukleniyor...
@@ -40,7 +60,7 @@ echo [OK] %PYVER%
 
 :: 1.2 Git
 set /a ADIM+=1
-echo ^(2/4^) Git kontrolu...
+echo ^(3/5^) Git kontrolu...
 git --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] Git bulunamadi! Yukleniyor...
@@ -56,7 +76,7 @@ echo [OK] %GITVER%
 
 :: ---------- 2. REPO + VENV ----------
 set /a ADIM+=1
-echo ^(3/4^) Repo ve Python ortami...
+echo ^(4/5^) Repo ve Python ortami...
 
 :: Proje dizinini bul
 set "SCRIPT_DIR=%~dp0"
@@ -74,10 +94,26 @@ if not exist "reymen_launcher.py" (
     )
 )
 
+:: Disk alani kontrolu (en az 500MB)
+:: NOT: Turkish Windows'ta "bytes free" yerine "bayt" kullan
+for /f "tokens=3" %%a in ('dir /-c "%CD%" 2^>nul ^| find "bytes"') do set FREE=%%a
+if not defined FREE (
+    for /f "tokens=3" %%a in ('dir /-c "%CD%" 2^>nul ^| find "bayt"') do set FREE=%%a
+)
+set FREE=%FREE:,=%
+if defined FREE (
+    if %FREE% LSS 500000000 (
+        echo [!] Uyari: Disk alani az (500MB alti)!
+    )
+)
+
 if not exist "reymen_venv" (
     python -m venv reymen_venv
-    if !errorlevel! neq 0 (
+    if %errorlevel% neq 0 (
         echo [!!] Sanal ortam olusturulamadi!
+        echo     Olası neden: Windows Defender/AppLocker engelliyor olabilir.
+        echo     Cozum: Gecici olarak Defender Gercek Zamanli Korumayi kapat:
+        echo     PowerShell (Yonetici): Set-MpPreference -DisableRealtimeMonitoring $true
         pause
         exit /b
     )
@@ -86,23 +122,27 @@ if not exist "reymen_venv" (
 
 call reymen_venv\Scripts\activate
 
+:: pip'i guncelle
+python -m pip install --upgrade pip --quiet
+
 :: pip paketleri
 if exist requirements.txt (
     pip install -r requirements.txt --quiet
 ) else (
     pip install requests python-dotenv --quiet
 )
-if !errorlevel! equ 0 (
+if %errorlevel% equ 0 (
     echo [OK] Paketler yuklendi
 ) else (
-    echo [!] Paket hatasi! Elle: pip install -r requirements.txt
+    echo [!] Paket hatasi!
+    echo     Cozum: Elle dene: pip install -r requirements.txt
     pause
     exit /b
 )
 
 :: ---------- 3. .env API ANAHTARLARI ----------
 set /a ADIM+=1
-echo ^(4/4^) API anahtarlari...
+echo ^(5/5^) API anahtarlari...
 
 if not exist ".env" (
     (
@@ -114,24 +154,24 @@ if not exist ".env" (
         echo # === ZORUNLU: En az bir LLM provider ===
         echo # DeepSeek (en uyumlu, tavsiye edilen)
         echo # Kayit: https://platform.deepseek.com/api_keys
-        echo DEEPSEEK_API_KEY=buraya_yaz
+        echo DEEPSEEK_API_KEY=ANAHTARINI_BURAYA_YAZ
         echo.
         echo # === OPSIYONEL: Diger providerlar (yedek) ===
         echo # DeepSeek kredisi bitince otomatik gecer
-        echo # OPENROUTER_API_KEY=buraya_yaz
-        echo # XAI_API_KEY=buraya_yaz
-        echo # GROQ_API_KEY=buraya_yaz
+        echo # OPENROUTER_API_KEY=ANAHTARINI_BURAYA_YAZ
+        echo # XAI_API_KEY=ANAHTARINI_BURAYA_YAZ
+        echo # GROQ_API_KEY=ANAHTARINI_BURAYA_YAZ
         echo.
         echo # === OPSIYONEL: Telegram Bot ===
         echo # BotFather'dan al: https://t.me/BotFather
         echo # /newbot komutu ile yeni bot olustur
         echo # Alinan tokeni buraya yapistir
-        echo TELEGRAM_BOT_TOKEN=buraya_yaz
+        echo TELEGRAM_BOT_TOKEN=0000000000:ANAHTARINI_BURAYA_YAZ
         echo.
         echo # === OPSIYONEL: Harici servisler ===
-        echo # FIRECRAWL_API_KEY=buraya_yaz
-        echo # PERPLEXITY_API_KEY=buraya_yaz
-        echo # FAL_KEY=buraya_yaz
+        echo # FIRECRAWL_API_KEY=ANAHTARINI_BURAYA_YAZ
+        echo # PERPLEXITY_API_KEY=ANAHTARINI_BURAYA_YAZ
+        echo # FAL_KEY=ANAHTARINI_BURAYA_YAZ
     ) > .env
     echo.
     echo ============================================
@@ -142,11 +182,14 @@ if not exist ".env" (
     echo.
     echo  1. Asagidaki dosya notepad ile acilacak
     echo  2. DEEPSEEK_API_KEY satirina anahtarini yaz
-    echo     (https://platform.deepseek.com/api_keys)
-    echo  3. Kaydet ve kapat
+    echo     Ornek: DEEPSEEK_API_KEY=sk-abc123...
+    echo     Alma: https://platform.deepseek.com/api_keys
+    echo  3. TELEGRAM_BOT_TOKEN varsa onu da ekle
+    echo  4. Kaydet ve kapat
     echo.
-    echo  NOT: Anahtar yoksa https://platform.deepseek.com adresinden
-    echo  ucretsiz hesap ac, API key olustur.
+    echo  API anahtari yoksa ucretsiz al:
+    echo  https://platform.deepseek.com adresine git
+    echo  Hesap ac -> API Keys -> Yeni key olustur
     echo.
     pause
     start notepad .env
@@ -171,18 +214,22 @@ echo         reymen_venv\Scripts\activate ^&^& python reymen/ag/telegram_bot.py
 echo.
 echo  --- SSS / HATA COZUMU ---
 echo.
-echo  "DEEPSEEK_API_KEY kredisi bitti" (402):
-echo     - .env'ye OPENROUTER_API_KEY ekle
-echo     - Fallback otomatik gecer
+echo  "DEEPSEEK_API_KEY kredisi bitti" (402 hatasi):
+echo     .env'ye OPENROUTER_API_KEY ekle, fallback otomatik gecer
 echo.
 echo  "409 Conflict" (Telegram bot baglanamiyor):
-echo     - BotFather'a git -> /mybots -> botunu sec
-echo     - API Token -> Revoke -> Yeni token al
-echo     - Yeni tokeni .env'ye yaz, tekrar baslat
+echo     BotFather -> /mybots -> botunu sec
+echo     API Token -> Revoke -> Yeni token al
+echo     Yeni tokeni .env'ye yaz, tekrar baslat
 echo.
-echo  "ModuleNotFoundError":
-echo     - reymen_venv\Scripts\activate
-echo     - pip install -r requirements.txt
+echo  "ModuleNotFoundError" / "No module named 'beyin'":
+echo     reymen_venv\Scripts\activate
+echo     pip install -r requirements.txt
+echo.
+echo  "pip/pyton komutu calismiyor" (AppLocker):
+echo     PowerShell (Yonetici):
+echo     Set-MpPreference -DisableRealtimeMonitoring $true
+echo     Sonra tekrar dene
 echo.
 echo  GitHub: https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2
 echo.
