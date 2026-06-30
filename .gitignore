@@ -247,6 +247,9 @@ _*.cmd
 .ReYMeN/watchdog_hash.json
 **/account_summary.json
 .ReYMeN/write_key.py
+reymen/desktop/.server_pid
+vektor_hafizasi/
+chroma_db/
 
 # Build çıktıları
 *.exe
