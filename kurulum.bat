@@ -1,18 +1,20 @@
 @echo off
 chcp 65001 >nul
-title ReYMeN Agent v2.0 - Tam Kurulum
+title ReYMeN Agent v1.0 - Tam Kurulum
 
 echo ============================================
-echo    ReYMeN Agent v2.0 - Tam Kurulum
+echo    ReYMeN Agent v1.0 - Tam Kurulum
 echo ============================================
+echo.
+echo NOT: ReYMeN bagimsiz bir ajandir, Hermes gerektirmez.
 echo.
 
 :: ---------- GEREKSINIM KONTROLLERI ----------
 set ADIM=0
 
-:: 1. PowerShell
+:: 1. PowerShell (Windows'da her zaman var)
 set /a ADIM+=1
-echo --- %ADIM%/8 PowerShell ---
+echo --- %ADIM%/6 PowerShell ---
 powershell -Command "exit" >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] PowerShell bulunamadi! Windows'u guncelleyin.
@@ -22,21 +24,9 @@ if %errorlevel% neq 0 (
     echo [OK] PowerShell var
 )
 
-:: 2. winget (paket yoneticisi)
+:: 2. Python
 set /a ADIM+=1
-echo --- %ADIM%/8 winget ---
-winget --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo [!!] winget bulunamadi! Microsoft Store'dan "App Installer" yukleyin.
-    pause
-    exit /b
-) else (
-    echo [OK] winget var
-)
-
-:: 3. Python
-set /a ADIM+=1
-echo --- %ADIM%/8 Python ---
+echo --- %ADIM%/6 Python ---
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] Python bulunamadi! Yukleniyor...
@@ -52,7 +42,7 @@ if %errorlevel% neq 0 (
 
 python -c "import sys; v=sys.version_info; exit(0) if v.major==3 and v.minor>=11 else exit(1)" >nul 2>&1
 if %errorlevel% neq 0 (
-    echo [!] Python 3.11+ gerekli! 
+    echo [!] Python 3.11+ gerekli!
     python --version
     pause
     exit /b
@@ -60,9 +50,9 @@ if %errorlevel% neq 0 (
 for /f "tokens=*" %%i in ('python --version 2^>nul') do set PYVER=%%i
 echo [OK] %PYVER%
 
-:: 4. Git
+:: 3. Git
 set /a ADIM+=1
-echo --- %ADIM%/8 Git ---
+echo --- %ADIM%/6 Git ---
 git --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [!!] Git bulunamadi! Yukleniyor...
@@ -77,104 +67,95 @@ if %errorlevel% neq 0 (
 for /f "tokens=*" %%i in ('git --version') do set GITVER=%%i
 echo [OK] %GITVER%
 
-:: 5. VS Code
+:: 4. ffmpeg (opsiyonel, video/ses araclari icin)
 set /a ADIM+=1
-echo --- %ADIM%/8 VS Code ---
-code --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo [!!] VS Code bulunamadi! Yukleniyor...
-    winget install Microsoft.VisualStudioCode --silent --accept-package-agreements
-    if %errorlevel% neq 0 (
-        echo [!] Otomatik kurulum basarisiz! Suradan indir:
-        echo     https://code.visualstudio.com/download
-        pause
-        exit /b
-    )
-    echo [OK] VS Code kuruldu
-) else (
-    echo [OK] VS Code var
-)
-
-:: 6. WSL + Ubuntu
-set /a ADIM+=1
-echo --- %ADIM%/8 WSL (Linux) ---
-wsl --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo [!!] WSL bulunamadi! Yukleniyor...
-    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /quiet
-    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /quiet
-    wsl --update
-    wsl --install -d Ubuntu --quiet
-    echo [OK] WSL + Ubuntu kuruldu (bilgisayar yeniden baslatilabilir)
-) else (
-    echo [OK] WSL var
-)
-
-:: 7. ffmpeg + yt-dlp
-set /a ADIM+=1
-echo --- %ADIM%/8 Ek Araclar (ffmpeg, yt-dlp) ---
-
+echo --- %ADIM%/6 ffmpeg ---
 where ffmpeg >nul 2>&1
 if %errorlevel% neq 0 (
-    echo [!!] ffmpeg bulunamadi! Yukleniyor...
-    winget install ffmpeg --silent --accept-package-agreements
-    if %errorlevel% equ 0 (
-        echo [OK] ffmpeg kuruldu
-    ) else (
-        echo [!] ffmpeg kurulamadi! Elle kur: winget install ffmpeg
-    )
+    echo [!] ffmpeg bulunamadi! Opsiyonel, video araclari icin gerekli.
+    echo     Elle kurmak icin: winget install FFmpeg.FFmpeg
 ) else (
     echo [OK] ffmpeg var
 )
 
-pip show yt-dlp >nul 2>&1
-if %errorlevel% neq 0 (
-    echo [!!] yt-dlp bulunamadi! Yukleniyor...
-    pip install yt-dlp
-    if %errorlevel% equ 0 (
-        echo [OK] yt-dlp kuruldu
-    ) else (
-        echo [!] yt-dlp kurulamadi
-    )
-) else (
-    echo [OK] yt-dlp var
-)
-
-:: 8. Repo + Sanal Ortam + Paketler
+:: 5. Repo + Sanal Ortam + Paketler
 set /a ADIM+=1
-echo --- %ADIM%/8 Repo ve Python Ortami ---
+echo --- %ADIM%/6 Repo ve Python Ortami ---
 
-if not exist "ReYMeN-Ajan-v2" (
-    git clone https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2.git
+:: Bu script'in bulundugu dizin
+set "SCRIPT_DIR=%~dp0"
+echo [INFO] Kurulum dizini: %SCRIPT_DIR%
+
+:: Proje kokunde oldugumuzu varsay, yoksa clone et
+if not exist "reymen_launcher.py" (
+    if not exist "ReYMeN-Ajan" (
+        git clone https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2.git ReYMeN-Ajan
+        echo [OK] Repo klonlandi
+    )
+    cd ReYMeN-Ajan
 ) else (
-    echo ReYMeN-Ajan-v2 zaten var, guncelleniyor...
+    echo [OK] Proje dosyalari mevcut
 )
-cd ReYMeN-Ajan-v2
 
-if not exist "venv" (
-    python -m venv venv
-    echo [OK] Sanal ortam olusturuldu
+if not exist "reymen_venv" (
+    python -m venv reymen_venv
+    if !errorlevel! equ 0 (
+        echo [OK] Sanal ortam olusturuldu (reymen_venv)
+    ) else (
+        echo [!!] Sanal ortam olusturulamadi!
+        pause
+        exit /b
+    )
 )
-call venv\Scripts\activate
+
+call reymen_venv\Scripts\activate
 
 if exist requirements.txt (
     pip install -r requirements.txt
-    if %errorlevel% equ 0 (
+    if !errorlevel! equ 0 (
         echo [OK] Tum paketler yuklendi
     ) else (
         echo [!] Paket hatasi! Elle dene: pip install -r requirements.txt
         pause
         exit /b
     )
+) else (
+    pip install requests python-dotenv
+    echo [OK] Temel paketler yuklendi
 )
 
-:: .env
-if not exist .env (
-    echo # ReYMeN - API Anahtarlari > .env
-    echo. >> .env
-    echo # DEEPSEEK_API_KEY=*** >> .env
-    echo # TELEGRAM_BOT_TOKEN=*** >> .env
+:: 6. .env olustur
+set /a ADIM+=1
+echo --- %ADIM%/6 API Anahtarlari ---
+
+if not exist ".env" (
+    (
+        echo # ReYMeN Agent - API Anahtarlari
+        echo # .env dosyasi GITIGNORE'dadir, guvende kalir
+        echo.
+        echo # ZORUNLU: En az bir provider
+        echo DEEPSEEK_API_KEY=buraya_yaz
+        echo.
+        echo # OPSIYONEL: Diger providerlar
+        echo # OPENROUTER_API_KEY=buraya_yaz
+        echo # ANTHROPIC_API_KEY=buraya_yaz
+        echo # OPENAI_API_KEY=buraya_yaz
+        echo # XAI_API_KEY=buraya_yaz
+        echo # GROQ_API_KEY=buraya_yaz
+        echo # XIAOMI_API_KEY=buraya_yaz
+        echo.
+        echo # OPSIYONEL: Telegram bot tokeni
+        echo # TELEGRAM_BOT_TOKEN=000000_buraya_yaz
+        echo.
+        echo # OPSIYONEL: Harici servisler
+        echo # FIRECRAWL_API_KEY=buraya_yaz
+        echo # PERPLEXITY_API_KEY=buraya_yaz
+        echo # FAL_KEY=buraya_yaz
+    ) > .env
     echo [!!] .env olusturuldu! API anahtarlarini ekle!
+    start notepad .env
+) else (
+    echo [OK] .env zaten var
 )
 
 echo.
@@ -183,10 +164,12 @@ echo    KURULUM TAMAMLANDI!
 echo ============================================
 echo.
 echo KULLANIM:
-echo    cd ReYMeN-Ajan-v2
-echo    venv\Scripts\activate
+echo    cd ReYMeN-Ajan
+echo    reymen_venv\Scripts\activate
 echo    python reymen_launcher.py
 echo.
 echo ONEMLI: .env dosyasina API anahtarlarini ekle!
+echo.
+echo GitHub: https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2
 echo.
 pause
