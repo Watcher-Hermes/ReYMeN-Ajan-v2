@@ -3,17 +3,16 @@ from setuptools import setup, find_packages
 
 setup(
     name="reymen-agent",
-    version="0.9.0",
+    version="1.0.0",
     description="ReYMeN — Türkçe otonom AI asistanı. Çoklu-provider LLM, araç çağrı motoru, kapalı öğrenme döngüsü.",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    author="Marko Paşa",
+    author="ReYMeN Team",
     author_email="",
-    url="https://github.com/Watcher-Hermes/ReYMeN-Ajan",
+    url="https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2",
     project_urls={
-        "Hata Bildir": "https://github.com/Watcher-Hermes/ReYMeN-Ajan/issues/new/choose",
-        "Discord": "",
-        "Kaynak": "https://github.com/Watcher-Hermes/ReYMeN-Ajan",
+        "Hata Bildir": "https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2/issues/new/choose",
+        "Kaynak": "https://github.com/Watcher-Hermes/ReYMeN-Ajan-v2",
     },
     license="MIT",
     classifiers=[
@@ -26,7 +25,7 @@ setup(
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Natural Language :: Turkish",
     ],
-    python_requires=">=3.10",
+    python_requires=">=3.11",
     packages=find_packages(
         include=["reymen", "reymen.*"],
         exclude=["tests*", "_*", "*.cover"],
